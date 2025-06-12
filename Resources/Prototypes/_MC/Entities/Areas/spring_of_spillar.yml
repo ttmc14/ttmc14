@@ -1,0 +1,121 @@
+- type: entity
+  parent: RMCAreaAlmayerSquads
+  id: MCAreaShipRequisitions
+  name: Requisitions
+  components:
+  - type: Sprite
+    state: req
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerSquads
+  id: MCAreaShipCommonSquadPreparation
+  name: Common Squad Preparation
+  components:
+  - type: Sprite
+    state: req
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id: MCAreaShipMedicalLowerMedbay
+  name: Medical Lower Medbay
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id: MCAreaShipMedicalUpperMedbay
+  name: Medical Upper Medbay
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    zLevel: 1
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id: MCAreaShipMedicalMorgue
+  name: Morgue
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    zLevel: 1
+  - type: IntelRecoverCorpsesArea
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id: MCAreaShipMedicalOperatingRoomOne
+  name: Medical Operating Room 1
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id: MCAreaShipMedicalOperatingRoomTwo
+  name: Medical Operating Room 2
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id: MCAreaShipMedicalMedicalScience
+  name: Medical Research laboratories
+  components:
+  - type: Sprite
+    state: science
+  - type: Area
+    zLevel: 2
+    retrieveItemObjective: true
+
+- type: entity
+  parent: RMCAreaAlmayerMedical
+  id:  MCAreaShipMedicalChemistry
+  name: Medical Chemical laboratory
+  components:
+  - type: Sprite
+    state: chemistry
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerMaint
+  id: MCAreaShipMaintLower
+  name: Hull lower
+  components:
+  - type: Sprite
+    state: lowerhull
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerLiving
+  id: MCAreaShipBoxingRing
+  name: Boxing Ring
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: RMCAreaAlmayerShipboard
+  id: MCAreaShipFiringRange
+  name: Firing Range
+  components:
+  - type: Sprite
+    state: firingrange
+  - type: Area
+    zLevel: 2

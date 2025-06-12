@@ -4,8 +4,8 @@ meta:
   engineVersion: 251.0.2
   forkId: ""
   forkVersion: ""
-  time: 06/12/2025 09:56:45
-  entityCount: 4190
+  time: 06/12/2025 16:21:38
+  entityCount: 4539
 maps:
 - 1
 grids:
@@ -790,7 +790,8 @@ entities:
           -4,-3:
             0: 65535
           -5,-3:
-            0: 53230
+            0: 36846
+            1: 16384
           -4,-2:
             0: 61152
           -5,-2:
@@ -1839,9 +1840,2964 @@ entities:
           - 0
           - 0
           - 0
+        - volume: 2500
+          temperature: 293.14975
+          moles:
+          - 20.078888
+          - 75.53487
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
+          - 0
         chunkSize: 4
     - type: GasTileOverlay
     - type: RadiationGridResistance
+    - type: AreaGrid
+      labels: {}
+      areaEntities: {}
+      colors: {}
+      areas:
+        12,5: MCAreaShipRequisitions
+        12,4: MCAreaShipRequisitions
+        12,3: MCAreaShipRequisitions
+        12,2: MCAreaShipRequisitions
+        11,5: MCAreaShipRequisitions
+        11,4: MCAreaShipRequisitions
+        11,3: MCAreaShipRequisitions
+        11,2: MCAreaShipRequisitions
+        10,5: MCAreaShipRequisitions
+        10,4: MCAreaShipRequisitions
+        10,3: MCAreaShipRequisitions
+        10,2: MCAreaShipRequisitions
+        9,5: MCAreaShipRequisitions
+        9,4: MCAreaShipRequisitions
+        9,3: MCAreaShipRequisitions
+        9,2: MCAreaShipRequisitions
+        8,5: MCAreaShipRequisitions
+        8,4: MCAreaShipRequisitions
+        8,3: MCAreaShipRequisitions
+        8,2: MCAreaShipRequisitions
+        7,5: MCAreaShipRequisitions
+        7,4: MCAreaShipRequisitions
+        7,3: MCAreaShipRequisitions
+        7,2: MCAreaShipRequisitions
+        6,5: MCAreaShipRequisitions
+        6,4: MCAreaShipRequisitions
+        6,3: MCAreaShipRequisitions
+        6,2: MCAreaShipRequisitions
+        5,5: MCAreaShipRequisitions
+        5,4: MCAreaShipRequisitions
+        5,3: MCAreaShipRequisitions
+        5,2: MCAreaShipRequisitions
+        4,5: MCAreaShipRequisitions
+        4,4: MCAreaShipRequisitions
+        4,3: MCAreaShipRequisitions
+        4,2: MCAreaShipRequisitions
+        3,5: MCAreaShipRequisitions
+        3,4: MCAreaShipRequisitions
+        3,3: MCAreaShipRequisitions
+        3,2: MCAreaShipRequisitions
+        2,5: MCAreaShipRequisitions
+        2,4: MCAreaShipRequisitions
+        2,3: MCAreaShipRequisitions
+        2,2: MCAreaShipRequisitions
+        2,6: MCAreaShipRequisitions
+        2,7: MCAreaShipRequisitions
+        2,8: MCAreaShipRequisitions
+        2,9: MCAreaShipRequisitions
+        2,10: MCAreaShipRequisitions
+        2,11: MCAreaShipRequisitions
+        2,12: MCAreaShipRequisitions
+        2,13: MCAreaShipRequisitions
+        2,14: MCAreaShipRequisitions
+        2,15: MCAreaShipRequisitions
+        2,16: MCAreaShipRequisitions
+        2,17: MCAreaShipRequisitions
+        2,18: MCAreaShipRequisitions
+        2,19: MCAreaShipRequisitions
+        3,6: MCAreaShipRequisitions
+        3,7: MCAreaShipRequisitions
+        3,8: MCAreaShipRequisitions
+        3,9: MCAreaShipRequisitions
+        3,10: MCAreaShipRequisitions
+        3,11: MCAreaShipRequisitions
+        3,12: MCAreaShipRequisitions
+        3,13: MCAreaShipRequisitions
+        3,14: MCAreaShipRequisitions
+        3,15: MCAreaShipRequisitions
+        3,17: MCAreaShipRequisitions
+        3,18: MCAreaShipRequisitions
+        3,19: MCAreaShipRequisitions
+        4,6: MCAreaShipRequisitions
+        4,7: MCAreaShipRequisitions
+        4,8: MCAreaShipRequisitions
+        3,16: MCAreaShipRequisitions
+        4,9: MCAreaShipRequisitions
+        4,10: MCAreaShipRequisitions
+        4,11: MCAreaShipRequisitions
+        4,12: MCAreaShipRequisitions
+        4,13: MCAreaShipRequisitions
+        4,14: MCAreaShipRequisitions
+        4,15: MCAreaShipRequisitions
+        4,16: MCAreaShipRequisitions
+        4,17: MCAreaShipRequisitions
+        4,18: MCAreaShipRequisitions
+        4,19: MCAreaShipRequisitions
+        5,6: MCAreaShipRequisitions
+        5,7: MCAreaShipRequisitions
+        5,8: MCAreaShipRequisitions
+        5,9: MCAreaShipRequisitions
+        5,10: MCAreaShipRequisitions
+        5,11: MCAreaShipRequisitions
+        5,12: MCAreaShipRequisitions
+        5,13: MCAreaShipRequisitions
+        5,14: MCAreaShipRequisitions
+        5,15: MCAreaShipRequisitions
+        5,16: MCAreaShipRequisitions
+        5,17: MCAreaShipRequisitions
+        5,18: MCAreaShipRequisitions
+        5,19: MCAreaShipRequisitions
+        6,6: MCAreaShipRequisitions
+        6,7: MCAreaShipRequisitions
+        6,8: MCAreaShipRequisitions
+        6,9: MCAreaShipRequisitions
+        6,10: MCAreaShipRequisitions
+        6,11: MCAreaShipRequisitions
+        6,12: MCAreaShipRequisitions
+        6,13: MCAreaShipRequisitions
+        6,14: MCAreaShipRequisitions
+        6,16: MCAreaShipRequisitions
+        6,15: MCAreaShipRequisitions
+        6,17: MCAreaShipRequisitions
+        6,18: MCAreaShipRequisitions
+        6,19: MCAreaShipRequisitions
+        7,6: MCAreaShipRequisitions
+        7,7: MCAreaShipRequisitions
+        7,8: MCAreaShipRequisitions
+        7,9: MCAreaShipRequisitions
+        7,10: MCAreaShipRequisitions
+        7,11: MCAreaShipRequisitions
+        7,12: MCAreaShipRequisitions
+        7,13: MCAreaShipRequisitions
+        7,14: MCAreaShipRequisitions
+        7,15: MCAreaShipRequisitions
+        7,16: MCAreaShipRequisitions
+        7,17: MCAreaShipRequisitions
+        7,18: MCAreaShipRequisitions
+        7,19: MCAreaShipRequisitions
+        8,6: MCAreaShipRequisitions
+        8,7: MCAreaShipRequisitions
+        8,8: MCAreaShipRequisitions
+        8,9: MCAreaShipRequisitions
+        8,10: MCAreaShipRequisitions
+        8,11: MCAreaShipRequisitions
+        8,12: MCAreaShipRequisitions
+        8,13: MCAreaShipRequisitions
+        8,14: MCAreaShipRequisitions
+        8,15: MCAreaShipRequisitions
+        8,16: MCAreaShipRequisitions
+        8,17: MCAreaShipRequisitions
+        8,18: MCAreaShipRequisitions
+        8,19: MCAreaShipRequisitions
+        9,6: MCAreaShipRequisitions
+        9,7: MCAreaShipRequisitions
+        9,8: MCAreaShipRequisitions
+        9,9: MCAreaShipRequisitions
+        9,10: MCAreaShipRequisitions
+        9,11: MCAreaShipRequisitions
+        9,12: MCAreaShipRequisitions
+        9,13: MCAreaShipRequisitions
+        9,14: MCAreaShipRequisitions
+        9,15: MCAreaShipRequisitions
+        9,16: MCAreaShipRequisitions
+        9,17: MCAreaShipRequisitions
+        9,18: MCAreaShipRequisitions
+        9,19: MCAreaShipRequisitions
+        10,19: MCAreaShipRequisitions
+        12,7: MCAreaShipRequisitions
+        12,8: MCAreaShipRequisitions
+        12,9: MCAreaShipRequisitions
+        12,10: MCAreaShipRequisitions
+        12,11: MCAreaShipRequisitions
+        12,12: MCAreaShipRequisitions
+        12,13: MCAreaShipRequisitions
+        12,14: MCAreaShipRequisitions
+        12,15: MCAreaShipRequisitions
+        12,16: MCAreaShipRequisitions
+        12,17: MCAreaShipRequisitions
+        12,18: MCAreaShipRequisitions
+        11,7: MCAreaShipRequisitions
+        11,8: MCAreaShipRequisitions
+        11,9: MCAreaShipRequisitions
+        11,10: MCAreaShipRequisitions
+        11,11: MCAreaShipRequisitions
+        11,13: MCAreaShipRequisitions
+        11,14: MCAreaShipRequisitions
+        11,15: MCAreaShipRequisitions
+        11,16: MCAreaShipRequisitions
+        11,12: MCAreaShipRequisitions
+        11,17: MCAreaShipRequisitions
+        11,18: MCAreaShipRequisitions
+        10,7: MCAreaShipRequisitions
+        10,8: MCAreaShipRequisitions
+        10,9: MCAreaShipRequisitions
+        10,10: MCAreaShipRequisitions
+        10,11: MCAreaShipRequisitions
+        10,12: MCAreaShipRequisitions
+        10,13: MCAreaShipRequisitions
+        10,14: MCAreaShipRequisitions
+        10,15: MCAreaShipRequisitions
+        10,16: MCAreaShipRequisitions
+        10,17: MCAreaShipRequisitions
+        10,18: MCAreaShipRequisitions
+        11,19: MCAreaShipRequisitions
+        12,19: MCAreaShipRequisitions
+        10,6: MCAreaShipRequisitions
+        11,6: MCAreaShipRequisitions
+        2,20: MCAreaShipRequisitions
+        2,21: MCAreaShipRequisitions
+        2,22: MCAreaShipRequisitions
+        2,23: MCAreaShipRequisitions
+        2,24: MCAreaShipRequisitions
+        2,25: MCAreaShipRequisitions
+        2,26: MCAreaShipRequisitions
+        3,20: MCAreaShipRequisitions
+        3,21: MCAreaShipRequisitions
+        3,22: MCAreaShipRequisitions
+        3,23: MCAreaShipRequisitions
+        3,24: MCAreaShipRequisitions
+        3,26: MCAreaShipRequisitions
+        4,20: MCAreaShipRequisitions
+        3,25: MCAreaShipRequisitions
+        4,21: MCAreaShipRequisitions
+        4,22: MCAreaShipRequisitions
+        4,23: MCAreaShipRequisitions
+        4,24: MCAreaShipRequisitions
+        4,25: MCAreaShipRequisitions
+        4,26: MCAreaShipRequisitions
+        5,20: MCAreaShipRequisitions
+        5,21: MCAreaShipRequisitions
+        5,22: MCAreaShipRequisitions
+        5,23: MCAreaShipRequisitions
+        5,24: MCAreaShipRequisitions
+        5,25: MCAreaShipRequisitions
+        5,26: MCAreaShipRequisitions
+        6,20: MCAreaShipRequisitions
+        6,21: MCAreaShipRequisitions
+        6,22: MCAreaShipRequisitions
+        6,23: MCAreaShipRequisitions
+        6,24: MCAreaShipRequisitions
+        6,25: MCAreaShipRequisitions
+        6,26: MCAreaShipRequisitions
+        7,20: MCAreaShipRequisitions
+        7,21: MCAreaShipRequisitions
+        7,22: MCAreaShipRequisitions
+        7,23: MCAreaShipRequisitions
+        7,24: MCAreaShipRequisitions
+        7,25: MCAreaShipRequisitions
+        7,26: MCAreaShipRequisitions
+        8,20: MCAreaShipRequisitions
+        8,21: MCAreaShipRequisitions
+        8,22: MCAreaShipRequisitions
+        8,23: MCAreaShipRequisitions
+        8,24: MCAreaShipRequisitions
+        8,25: MCAreaShipRequisitions
+        8,26: MCAreaShipRequisitions
+        9,20: MCAreaShipRequisitions
+        9,21: MCAreaShipRequisitions
+        9,22: MCAreaShipRequisitions
+        9,23: MCAreaShipRequisitions
+        9,24: MCAreaShipRequisitions
+        9,25: MCAreaShipRequisitions
+        9,26: MCAreaShipRequisitions
+        10,20: MCAreaShipRequisitions
+        10,21: MCAreaShipRequisitions
+        10,22: MCAreaShipRequisitions
+        10,23: MCAreaShipRequisitions
+        10,24: MCAreaShipRequisitions
+        10,25: MCAreaShipRequisitions
+        10,26: MCAreaShipRequisitions
+        11,20: MCAreaShipRequisitions
+        11,21: MCAreaShipRequisitions
+        11,22: MCAreaShipRequisitions
+        11,23: MCAreaShipRequisitions
+        11,24: MCAreaShipRequisitions
+        11,25: MCAreaShipRequisitions
+        11,26: MCAreaShipRequisitions
+        12,20: MCAreaShipRequisitions
+        12,21: MCAreaShipRequisitions
+        12,22: MCAreaShipRequisitions
+        12,23: MCAreaShipRequisitions
+        12,24: MCAreaShipRequisitions
+        12,25: MCAreaShipRequisitions
+        12,26: MCAreaShipRequisitions
+        -14,27: MCAreaShipMedicalLowerMedbay
+        -14,26: MCAreaShipMedicalLowerMedbay
+        -14,25: MCAreaShipMedicalLowerMedbay
+        -14,24: MCAreaShipMedicalLowerMedbay
+        -14,23: MCAreaShipMedicalLowerMedbay
+        -13,27: MCAreaShipMedicalLowerMedbay
+        -13,26: MCAreaShipMedicalLowerMedbay
+        -13,25: MCAreaShipMedicalLowerMedbay
+        -13,24: MCAreaShipMedicalLowerMedbay
+        -13,23: MCAreaShipMedicalLowerMedbay
+        -12,27: MCAreaShipMedicalLowerMedbay
+        -12,26: MCAreaShipMedicalLowerMedbay
+        -12,25: MCAreaShipMedicalLowerMedbay
+        -12,24: MCAreaShipMedicalLowerMedbay
+        -12,23: MCAreaShipMedicalLowerMedbay
+        -11,27: MCAreaShipMedicalLowerMedbay
+        -11,26: MCAreaShipMedicalLowerMedbay
+        -11,25: MCAreaShipMedicalLowerMedbay
+        -11,24: MCAreaShipMedicalLowerMedbay
+        -11,23: MCAreaShipMedicalLowerMedbay
+        -10,27: MCAreaShipMedicalLowerMedbay
+        -10,26: MCAreaShipMedicalLowerMedbay
+        -10,25: MCAreaShipMedicalLowerMedbay
+        -10,24: MCAreaShipMedicalLowerMedbay
+        -10,23: MCAreaShipMedicalLowerMedbay
+        -9,27: MCAreaShipMedicalLowerMedbay
+        -9,26: MCAreaShipMedicalLowerMedbay
+        -9,25: MCAreaShipMedicalLowerMedbay
+        -9,24: MCAreaShipMedicalLowerMedbay
+        -9,23: MCAreaShipMedicalLowerMedbay
+        -8,27: MCAreaShipMedicalLowerMedbay
+        -8,26: MCAreaShipMedicalLowerMedbay
+        -8,25: MCAreaShipMedicalLowerMedbay
+        -8,24: MCAreaShipMedicalLowerMedbay
+        -8,23: MCAreaShipMedicalLowerMedbay
+        -7,27: MCAreaShipMedicalLowerMedbay
+        -7,26: MCAreaShipMedicalLowerMedbay
+        -7,25: MCAreaShipMedicalLowerMedbay
+        -7,24: MCAreaShipMedicalLowerMedbay
+        -7,23: MCAreaShipMedicalLowerMedbay
+        -6,27: MCAreaShipMedicalLowerMedbay
+        -6,26: MCAreaShipMedicalLowerMedbay
+        -6,25: MCAreaShipMedicalLowerMedbay
+        -6,23: MCAreaShipMedicalLowerMedbay
+        -6,24: MCAreaShipMedicalLowerMedbay
+        -2,22: MCAreaShipMedicalLowerMedbay
+        -2,21: MCAreaShipMedicalLowerMedbay
+        -2,20: MCAreaShipMedicalLowerMedbay
+        -2,19: MCAreaShipMedicalLowerMedbay
+        -2,18: MCAreaShipMedicalLowerMedbay
+        -2,17: MCAreaShipMedicalLowerMedbay
+        -3,22: MCAreaShipMedicalLowerMedbay
+        -3,21: MCAreaShipMedicalLowerMedbay
+        -3,20: MCAreaShipMedicalLowerMedbay
+        -3,19: MCAreaShipMedicalLowerMedbay
+        -3,18: MCAreaShipMedicalLowerMedbay
+        -3,17: MCAreaShipMedicalLowerMedbay
+        -4,22: MCAreaShipMedicalLowerMedbay
+        -4,21: MCAreaShipMedicalLowerMedbay
+        -4,20: MCAreaShipMedicalLowerMedbay
+        -4,19: MCAreaShipMedicalLowerMedbay
+        -4,18: MCAreaShipMedicalLowerMedbay
+        -4,17: MCAreaShipMedicalLowerMedbay
+        -5,22: MCAreaShipMedicalLowerMedbay
+        -5,21: MCAreaShipMedicalLowerMedbay
+        -5,20: MCAreaShipMedicalLowerMedbay
+        -5,19: MCAreaShipMedicalLowerMedbay
+        -5,18: MCAreaShipMedicalLowerMedbay
+        -5,17: MCAreaShipMedicalLowerMedbay
+        -6,22: MCAreaShipMedicalLowerMedbay
+        -6,21: MCAreaShipMedicalLowerMedbay
+        -6,20: MCAreaShipMedicalLowerMedbay
+        -6,19: MCAreaShipMedicalLowerMedbay
+        -6,18: MCAreaShipMedicalLowerMedbay
+        -6,17: MCAreaShipMedicalLowerMedbay
+        -7,22: MCAreaShipMedicalLowerMedbay
+        -7,21: MCAreaShipMedicalLowerMedbay
+        -7,20: MCAreaShipMedicalLowerMedbay
+        -7,19: MCAreaShipMedicalLowerMedbay
+        -7,18: MCAreaShipMedicalLowerMedbay
+        -7,17: MCAreaShipMedicalLowerMedbay
+        -8,22: MCAreaShipMedicalLowerMedbay
+        -8,21: MCAreaShipMedicalLowerMedbay
+        -8,20: MCAreaShipMedicalLowerMedbay
+        -8,19: MCAreaShipMedicalLowerMedbay
+        -8,18: MCAreaShipMedicalLowerMedbay
+        -8,17: MCAreaShipMedicalLowerMedbay
+        -9,22: MCAreaShipMedicalLowerMedbay
+        -9,21: MCAreaShipMedicalLowerMedbay
+        -9,20: MCAreaShipMedicalLowerMedbay
+        -9,19: MCAreaShipMedicalLowerMedbay
+        -9,18: MCAreaShipMedicalLowerMedbay
+        -9,17: MCAreaShipMedicalLowerMedbay
+        -10,22: MCAreaShipMedicalLowerMedbay
+        -10,21: MCAreaShipMedicalLowerMedbay
+        -10,20: MCAreaShipMedicalLowerMedbay
+        -10,19: MCAreaShipMedicalLowerMedbay
+        -10,18: MCAreaShipMedicalLowerMedbay
+        -10,17: MCAreaShipMedicalLowerMedbay
+        -11,22: MCAreaShipMedicalLowerMedbay
+        -11,21: MCAreaShipMedicalLowerMedbay
+        -11,20: MCAreaShipMedicalLowerMedbay
+        -11,19: MCAreaShipMedicalLowerMedbay
+        -11,18: MCAreaShipMedicalLowerMedbay
+        -11,17: MCAreaShipMedicalLowerMedbay
+        -12,22: MCAreaShipMedicalLowerMedbay
+        -12,21: MCAreaShipMedicalLowerMedbay
+        -12,20: MCAreaShipMedicalLowerMedbay
+        -12,19: MCAreaShipMedicalLowerMedbay
+        -12,17: MCAreaShipMedicalLowerMedbay
+        -13,22: MCAreaShipMedicalLowerMedbay
+        -12,18: MCAreaShipMedicalLowerMedbay
+        -13,20: MCAreaShipMedicalLowerMedbay
+        -13,19: MCAreaShipMedicalLowerMedbay
+        -13,18: MCAreaShipMedicalLowerMedbay
+        -13,17: MCAreaShipMedicalLowerMedbay
+        -14,22: MCAreaShipMedicalLowerMedbay
+        -13,21: MCAreaShipMedicalLowerMedbay
+        -14,21: MCAreaShipMedicalLowerMedbay
+        -14,20: MCAreaShipMedicalLowerMedbay
+        -14,19: MCAreaShipMedicalLowerMedbay
+        -14,18: MCAreaShipMedicalLowerMedbay
+        -14,17: MCAreaShipMedicalLowerMedbay
+        -15,22: MCAreaShipMedicalLowerMedbay
+        -15,21: MCAreaShipMedicalLowerMedbay
+        -15,20: MCAreaShipMedicalLowerMedbay
+        -15,19: MCAreaShipMedicalLowerMedbay
+        -15,18: MCAreaShipMedicalLowerMedbay
+        -15,17: MCAreaShipMedicalLowerMedbay
+        -16,22: MCAreaShipMedicalLowerMedbay
+        -16,21: MCAreaShipMedicalLowerMedbay
+        -16,20: MCAreaShipMedicalLowerMedbay
+        -16,19: MCAreaShipMedicalLowerMedbay
+        -16,18: MCAreaShipMedicalLowerMedbay
+        -16,17: MCAreaShipMedicalLowerMedbay
+        -17,22: MCAreaShipMedicalLowerMedbay
+        -17,21: MCAreaShipMedicalLowerMedbay
+        -17,20: MCAreaShipMedicalLowerMedbay
+        -17,19: MCAreaShipMedicalLowerMedbay
+        -17,18: MCAreaShipMedicalLowerMedbay
+        -17,17: MCAreaShipMedicalLowerMedbay
+        -18,22: MCAreaShipMedicalLowerMedbay
+        -18,21: MCAreaShipMedicalLowerMedbay
+        -18,20: MCAreaShipMedicalLowerMedbay
+        -18,19: MCAreaShipMedicalLowerMedbay
+        -18,18: MCAreaShipMedicalLowerMedbay
+        -18,17: MCAreaShipMedicalLowerMedbay
+        -22,27: MCAreaShipMedicalLowerMedbay
+        -22,26: MCAreaShipMedicalLowerMedbay
+        -22,25: MCAreaShipMedicalLowerMedbay
+        -22,24: MCAreaShipMedicalLowerMedbay
+        -22,23: MCAreaShipMedicalLowerMedbay
+        -22,22: MCAreaShipMedicalLowerMedbay
+        -22,21: MCAreaShipMedicalLowerMedbay
+        -22,20: MCAreaShipMedicalLowerMedbay
+        -22,19: MCAreaShipMedicalLowerMedbay
+        -21,27: MCAreaShipMedicalLowerMedbay
+        -21,26: MCAreaShipMedicalLowerMedbay
+        -21,25: MCAreaShipMedicalLowerMedbay
+        -21,24: MCAreaShipMedicalLowerMedbay
+        -21,23: MCAreaShipMedicalLowerMedbay
+        -21,22: MCAreaShipMedicalLowerMedbay
+        -21,21: MCAreaShipMedicalLowerMedbay
+        -21,20: MCAreaShipMedicalLowerMedbay
+        -21,19: MCAreaShipMedicalLowerMedbay
+        -20,27: MCAreaShipMedicalLowerMedbay
+        -20,26: MCAreaShipMedicalLowerMedbay
+        -20,25: MCAreaShipMedicalLowerMedbay
+        -20,24: MCAreaShipMedicalLowerMedbay
+        -20,23: MCAreaShipMedicalLowerMedbay
+        -20,22: MCAreaShipMedicalLowerMedbay
+        -20,21: MCAreaShipMedicalLowerMedbay
+        -20,20: MCAreaShipMedicalLowerMedbay
+        -20,19: MCAreaShipMedicalLowerMedbay
+        -19,22: MCAreaShipMedicalLowerMedbay
+        -19,21: MCAreaShipMedicalLowerMedbay
+        -19,20: MCAreaShipMedicalLowerMedbay
+        -19,19: MCAreaShipMedicalLowerMedbay
+        -19,18: MCAreaShipMedicalLowerMedbay
+        -19,17: MCAreaShipMedicalLowerMedbay
+        -19,16: MCAreaShipMedicalLowerMedbay
+        -20,18: MCAreaShipMedicalLowerMedbay
+        -20,16: MCAreaShipMedicalLowerMedbay
+        -21,18: MCAreaShipMedicalLowerMedbay
+        -21,17: MCAreaShipMedicalLowerMedbay
+        -21,16: MCAreaShipMedicalLowerMedbay
+        -22,18: MCAreaShipMedicalLowerMedbay
+        -22,17: MCAreaShipMedicalLowerMedbay
+        -22,16: MCAreaShipMedicalLowerMedbay
+        -23,18: MCAreaShipMedicalLowerMedbay
+        -23,17: MCAreaShipMedicalLowerMedbay
+        -23,16: MCAreaShipMedicalLowerMedbay
+        -24,18: MCAreaShipMedicalLowerMedbay
+        -24,17: MCAreaShipMedicalLowerMedbay
+        -24,16: MCAreaShipMedicalLowerMedbay
+        -25,18: MCAreaShipMedicalLowerMedbay
+        -25,17: MCAreaShipMedicalLowerMedbay
+        -25,16: MCAreaShipMedicalLowerMedbay
+        -26,18: MCAreaShipMedicalLowerMedbay
+        -26,17: MCAreaShipMedicalLowerMedbay
+        -26,16: MCAreaShipMedicalLowerMedbay
+        -27,18: MCAreaShipMedicalLowerMedbay
+        -27,17: MCAreaShipMedicalLowerMedbay
+        -27,16: MCAreaShipMedicalLowerMedbay
+        -28,18: MCAreaShipMedicalLowerMedbay
+        -28,17: MCAreaShipMedicalLowerMedbay
+        -28,16: MCAreaShipMedicalLowerMedbay
+        -20,17: MCAreaShipMedicalLowerMedbay
+        -19,27: MCAreaShipMedicalOperatingRoomOne
+        -15,23: MCAreaShipMedicalOperatingRoomOne
+        -15,24: MCAreaShipMedicalOperatingRoomOne
+        -15,25: MCAreaShipMedicalOperatingRoomOne
+        -15,26: MCAreaShipMedicalOperatingRoomOne
+        -16,23: MCAreaShipMedicalOperatingRoomOne
+        -16,24: MCAreaShipMedicalOperatingRoomOne
+        -16,25: MCAreaShipMedicalOperatingRoomOne
+        -16,26: MCAreaShipMedicalOperatingRoomOne
+        -17,23: MCAreaShipMedicalOperatingRoomOne
+        -17,24: MCAreaShipMedicalOperatingRoomOne
+        -17,25: MCAreaShipMedicalOperatingRoomOne
+        -17,26: MCAreaShipMedicalOperatingRoomOne
+        -18,23: MCAreaShipMedicalOperatingRoomOne
+        -18,24: MCAreaShipMedicalOperatingRoomOne
+        -18,25: MCAreaShipMedicalOperatingRoomOne
+        -18,26: MCAreaShipMedicalOperatingRoomOne
+        -19,23: MCAreaShipMedicalOperatingRoomOne
+        -19,24: MCAreaShipMedicalOperatingRoomOne
+        -19,25: MCAreaShipMedicalOperatingRoomOne
+        -19,26: MCAreaShipMedicalOperatingRoomOne
+        -18,27: MCAreaShipMedicalOperatingRoomOne
+        -17,27: MCAreaShipMedicalOperatingRoomOne
+        -16,27: MCAreaShipMedicalOperatingRoomOne
+        -15,27: MCAreaShipMedicalOperatingRoomOne
+        -5,27: MCAreaShipMedicalOperatingRoomTwo
+        -5,26: MCAreaShipMedicalOperatingRoomTwo
+        -5,25: MCAreaShipMedicalOperatingRoomTwo
+        -5,24: MCAreaShipMedicalOperatingRoomTwo
+        -5,23: MCAreaShipMedicalOperatingRoomTwo
+        -4,27: MCAreaShipMedicalOperatingRoomTwo
+        -4,26: MCAreaShipMedicalOperatingRoomTwo
+        -4,25: MCAreaShipMedicalOperatingRoomTwo
+        -4,24: MCAreaShipMedicalOperatingRoomTwo
+        -4,23: MCAreaShipMedicalOperatingRoomTwo
+        -3,27: MCAreaShipMedicalOperatingRoomTwo
+        -3,26: MCAreaShipMedicalOperatingRoomTwo
+        -3,25: MCAreaShipMedicalOperatingRoomTwo
+        -3,24: MCAreaShipMedicalOperatingRoomTwo
+        -3,23: MCAreaShipMedicalOperatingRoomTwo
+        -2,27: MCAreaShipMedicalOperatingRoomTwo
+        -2,26: MCAreaShipMedicalOperatingRoomTwo
+        -2,25: MCAreaShipMedicalOperatingRoomTwo
+        -2,24: MCAreaShipMedicalOperatingRoomTwo
+        -2,23: MCAreaShipMedicalOperatingRoomTwo
+        -1,27: MCAreaShipMedicalOperatingRoomTwo
+        -1,26: MCAreaShipMedicalOperatingRoomTwo
+        -1,25: MCAreaShipMedicalOperatingRoomTwo
+        -1,24: MCAreaShipMedicalOperatingRoomTwo
+        -1,23: MCAreaShipMedicalOperatingRoomTwo
+        -29,27: MCAreaShipMedicalMorgue
+        -29,26: MCAreaShipMedicalMorgue
+        -29,25: MCAreaShipMedicalMorgue
+        -29,24: MCAreaShipMedicalMorgue
+        -29,23: MCAreaShipMedicalMorgue
+        -29,22: MCAreaShipMedicalMorgue
+        -29,21: MCAreaShipMedicalMorgue
+        -29,20: MCAreaShipMedicalMorgue
+        -29,19: MCAreaShipMedicalMorgue
+        -28,27: MCAreaShipMedicalMorgue
+        -28,26: MCAreaShipMedicalMorgue
+        -28,25: MCAreaShipMedicalMorgue
+        -28,24: MCAreaShipMedicalMorgue
+        -28,23: MCAreaShipMedicalMorgue
+        -28,22: MCAreaShipMedicalMorgue
+        -28,21: MCAreaShipMedicalMorgue
+        -28,20: MCAreaShipMedicalMorgue
+        -28,19: MCAreaShipMedicalMorgue
+        -27,27: MCAreaShipMedicalMorgue
+        -27,26: MCAreaShipMedicalMorgue
+        -27,25: MCAreaShipMedicalMorgue
+        -27,24: MCAreaShipMedicalMorgue
+        -27,23: MCAreaShipMedicalMorgue
+        -27,22: MCAreaShipMedicalMorgue
+        -27,21: MCAreaShipMedicalMorgue
+        -27,20: MCAreaShipMedicalMorgue
+        -27,19: MCAreaShipMedicalMorgue
+        -26,25: MCAreaShipMedicalMorgue
+        -26,26: MCAreaShipMedicalMorgue
+        -26,24: MCAreaShipMedicalMorgue
+        -26,23: MCAreaShipMedicalMorgue
+        -26,22: MCAreaShipMedicalMorgue
+        -26,21: MCAreaShipMedicalMorgue
+        -26,20: MCAreaShipMedicalMorgue
+        -26,19: MCAreaShipMedicalMorgue
+        -25,27: MCAreaShipMedicalMorgue
+        -25,26: MCAreaShipMedicalMorgue
+        -25,25: MCAreaShipMedicalMorgue
+        -25,24: MCAreaShipMedicalMorgue
+        -25,23: MCAreaShipMedicalMorgue
+        -25,22: MCAreaShipMedicalMorgue
+        -25,21: MCAreaShipMedicalMorgue
+        -25,20: MCAreaShipMedicalMorgue
+        -25,19: MCAreaShipMedicalMorgue
+        -24,27: MCAreaShipMedicalMorgue
+        -24,26: MCAreaShipMedicalMorgue
+        -24,25: MCAreaShipMedicalMorgue
+        -24,24: MCAreaShipMedicalMorgue
+        -24,23: MCAreaShipMedicalMorgue
+        -24,22: MCAreaShipMedicalMorgue
+        -24,21: MCAreaShipMedicalMorgue
+        -24,20: MCAreaShipMedicalMorgue
+        -24,19: MCAreaShipMedicalMorgue
+        -23,27: MCAreaShipMedicalMorgue
+        -23,26: MCAreaShipMedicalMorgue
+        -23,25: MCAreaShipMedicalMorgue
+        -23,24: MCAreaShipMedicalMorgue
+        -23,23: MCAreaShipMedicalMorgue
+        -23,22: MCAreaShipMedicalMorgue
+        -23,20: MCAreaShipMedicalMorgue
+        -23,19: MCAreaShipMedicalMorgue
+        -23,21: MCAreaShipMedicalMorgue
+        -26,27: MCAreaShipMedicalMorgue
+        -30,19: MCAreaShipMedicalMedicalScience
+        -30,18: MCAreaShipMedicalMedicalScience
+        -30,17: MCAreaShipMedicalMedicalScience
+        -30,16: MCAreaShipMedicalMedicalScience
+        -30,15: MCAreaShipMedicalMedicalScience
+        -30,14: MCAreaShipMedicalMedicalScience
+        -30,13: MCAreaShipMedicalMedicalScience
+        -30,12: MCAreaShipMedicalMedicalScience
+        -30,11: MCAreaShipMedicalMedicalScience
+        -30,10: MCAreaShipMedicalMedicalScience
+        -30,9: MCAreaShipMedicalMedicalScience
+        -30,8: MCAreaShipMedicalMedicalScience
+        -31,19: MCAreaShipMedicalMedicalScience
+        -31,18: MCAreaShipMedicalMedicalScience
+        -31,17: MCAreaShipMedicalMedicalScience
+        -31,14: MCAreaShipMedicalMedicalScience
+        -31,15: MCAreaShipMedicalMedicalScience
+        -31,13: MCAreaShipMedicalMedicalScience
+        -31,12: MCAreaShipMedicalMedicalScience
+        -31,11: MCAreaShipMedicalMedicalScience
+        -31,10: MCAreaShipMedicalMedicalScience
+        -31,9: MCAreaShipMedicalMedicalScience
+        -31,8: MCAreaShipMedicalMedicalScience
+        -31,16: MCAreaShipMedicalMedicalScience
+        -32,18: MCAreaShipMedicalMedicalScience
+        -32,17: MCAreaShipMedicalMedicalScience
+        -32,16: MCAreaShipMedicalMedicalScience
+        -32,15: MCAreaShipMedicalMedicalScience
+        -32,19: MCAreaShipMedicalMedicalScience
+        -32,14: MCAreaShipMedicalMedicalScience
+        -32,13: MCAreaShipMedicalMedicalScience
+        -32,12: MCAreaShipMedicalMedicalScience
+        -32,11: MCAreaShipMedicalMedicalScience
+        -32,10: MCAreaShipMedicalMedicalScience
+        -32,9: MCAreaShipMedicalMedicalScience
+        -32,8: MCAreaShipMedicalMedicalScience
+        -33,19: MCAreaShipMedicalMedicalScience
+        -33,18: MCAreaShipMedicalMedicalScience
+        -33,17: MCAreaShipMedicalMedicalScience
+        -33,16: MCAreaShipMedicalMedicalScience
+        -33,15: MCAreaShipMedicalMedicalScience
+        -33,14: MCAreaShipMedicalMedicalScience
+        -33,13: MCAreaShipMedicalMedicalScience
+        -33,11: MCAreaShipMedicalMedicalScience
+        -33,10: MCAreaShipMedicalMedicalScience
+        -33,12: MCAreaShipMedicalMedicalScience
+        -33,9: MCAreaShipMedicalMedicalScience
+        -33,8: MCAreaShipMedicalMedicalScience
+        -34,19: MCAreaShipMedicalMedicalScience
+        -34,18: MCAreaShipMedicalMedicalScience
+        -34,17: MCAreaShipMedicalMedicalScience
+        -34,16: MCAreaShipMedicalMedicalScience
+        -34,15: MCAreaShipMedicalMedicalScience
+        -34,14: MCAreaShipMedicalMedicalScience
+        -34,13: MCAreaShipMedicalMedicalScience
+        -34,12: MCAreaShipMedicalMedicalScience
+        -34,11: MCAreaShipMedicalMedicalScience
+        -34,10: MCAreaShipMedicalMedicalScience
+        -34,9: MCAreaShipMedicalMedicalScience
+        -34,8: MCAreaShipMedicalMedicalScience
+        -35,19: MCAreaShipMedicalMedicalScience
+        -35,18: MCAreaShipMedicalMedicalScience
+        -35,17: MCAreaShipMedicalMedicalScience
+        -35,16: MCAreaShipMedicalMedicalScience
+        -35,15: MCAreaShipMedicalMedicalScience
+        -35,14: MCAreaShipMedicalMedicalScience
+        -35,13: MCAreaShipMedicalMedicalScience
+        -35,12: MCAreaShipMedicalMedicalScience
+        -35,11: MCAreaShipMedicalMedicalScience
+        -35,10: MCAreaShipMedicalMedicalScience
+        -35,9: MCAreaShipMedicalMedicalScience
+        -35,8: MCAreaShipMedicalMedicalScience
+        -36,19: MCAreaShipMedicalMedicalScience
+        -36,18: MCAreaShipMedicalMedicalScience
+        -36,17: MCAreaShipMedicalMedicalScience
+        -36,16: MCAreaShipMedicalMedicalScience
+        -36,15: MCAreaShipMedicalMedicalScience
+        -36,14: MCAreaShipMedicalMedicalScience
+        -36,13: MCAreaShipMedicalMedicalScience
+        -36,12: MCAreaShipMedicalMedicalScience
+        -36,11: MCAreaShipMedicalMedicalScience
+        -36,10: MCAreaShipMedicalMedicalScience
+        -36,9: MCAreaShipMedicalMedicalScience
+        -36,8: MCAreaShipMedicalMedicalScience
+        -37,19: MCAreaShipMedicalMedicalScience
+        -37,18: MCAreaShipMedicalMedicalScience
+        -37,17: MCAreaShipMedicalMedicalScience
+        -37,16: MCAreaShipMedicalMedicalScience
+        -37,15: MCAreaShipMedicalMedicalScience
+        -37,14: MCAreaShipMedicalMedicalScience
+        -37,13: MCAreaShipMedicalMedicalScience
+        -37,12: MCAreaShipMedicalMedicalScience
+        -37,11: MCAreaShipMedicalMedicalScience
+        -37,10: MCAreaShipMedicalMedicalScience
+        -37,9: MCAreaShipMedicalMedicalScience
+        -37,8: MCAreaShipMedicalMedicalScience
+        -29,8: MCAreaShipMedicalMedicalScience
+        -29,9: MCAreaShipMedicalMedicalScience
+        -29,10: MCAreaShipMedicalMedicalScience
+        -29,11: MCAreaShipMedicalMedicalScience
+        -29,12: MCAreaShipMedicalMedicalScience
+        -29,13: MCAreaShipMedicalMedicalScience
+        -29,14: MCAreaShipMedicalMedicalScience
+        -29,15: MCAreaShipMedicalMedicalScience
+        -29,16: MCAreaShipMedicalMedicalScience
+        -29,17: MCAreaShipMedicalMedicalScience
+        -29,18: MCAreaShipMedicalMedicalScience
+        -10,16: MCAreaShipMedicalChemistry
+        -10,15: MCAreaShipMedicalChemistry
+        -10,14: MCAreaShipMedicalChemistry
+        -10,13: MCAreaShipMedicalChemistry
+        -10,12: MCAreaShipMedicalChemistry
+        -10,11: MCAreaShipMedicalChemistry
+        -9,16: MCAreaShipMedicalChemistry
+        -9,15: MCAreaShipMedicalChemistry
+        -9,14: MCAreaShipMedicalChemistry
+        -9,12: MCAreaShipMedicalChemistry
+        -9,13: MCAreaShipMedicalChemistry
+        -9,11: MCAreaShipMedicalChemistry
+        -8,16: MCAreaShipMedicalChemistry
+        -8,15: MCAreaShipMedicalChemistry
+        -8,14: MCAreaShipMedicalChemistry
+        -8,13: MCAreaShipMedicalChemistry
+        -8,12: MCAreaShipMedicalChemistry
+        -8,11: MCAreaShipMedicalChemistry
+        -7,16: MCAreaShipMedicalChemistry
+        -7,15: MCAreaShipMedicalChemistry
+        -7,14: MCAreaShipMedicalChemistry
+        -7,13: MCAreaShipMedicalChemistry
+        -7,12: MCAreaShipMedicalChemistry
+        -7,11: MCAreaShipMedicalChemistry
+        -6,16: MCAreaShipMedicalChemistry
+        -6,15: MCAreaShipMedicalChemistry
+        -6,14: MCAreaShipMedicalChemistry
+        -6,13: MCAreaShipMedicalChemistry
+        -6,12: MCAreaShipMedicalChemistry
+        -6,11: MCAreaShipMedicalChemistry
+        -5,16: MCAreaShipMedicalChemistry
+        -5,15: MCAreaShipMedicalChemistry
+        -5,14: MCAreaShipMedicalChemistry
+        -5,13: MCAreaShipMedicalChemistry
+        -5,12: MCAreaShipMedicalChemistry
+        -5,11: MCAreaShipMedicalChemistry
+        -4,16: MCAreaShipMedicalChemistry
+        -4,15: MCAreaShipMedicalChemistry
+        -4,14: MCAreaShipMedicalChemistry
+        -4,13: MCAreaShipMedicalChemistry
+        -4,12: MCAreaShipMedicalChemistry
+        -4,11: MCAreaShipMedicalChemistry
+        -3,16: MCAreaShipMedicalChemistry
+        -3,15: MCAreaShipMedicalChemistry
+        -3,14: MCAreaShipMedicalChemistry
+        -3,13: MCAreaShipMedicalChemistry
+        -3,12: MCAreaShipMedicalChemistry
+        -3,11: MCAreaShipMedicalChemistry
+        -2,16: MCAreaShipMedicalChemistry
+        -2,15: MCAreaShipMedicalChemistry
+        -2,14: MCAreaShipMedicalChemistry
+        -2,13: MCAreaShipMedicalChemistry
+        -2,12: MCAreaShipMedicalChemistry
+        -2,11: MCAreaShipMedicalChemistry
+        -11,16: MCAreaShipMedicalUpperMedbay
+        -11,15: MCAreaShipMedicalUpperMedbay
+        -11,14: MCAreaShipMedicalUpperMedbay
+        -11,13: MCAreaShipMedicalUpperMedbay
+        -11,12: MCAreaShipMedicalUpperMedbay
+        -11,11: MCAreaShipMedicalUpperMedbay
+        -12,16: MCAreaShipMedicalUpperMedbay
+        -12,15: MCAreaShipMedicalUpperMedbay
+        -12,14: MCAreaShipMedicalUpperMedbay
+        -12,13: MCAreaShipMedicalUpperMedbay
+        -12,12: MCAreaShipMedicalUpperMedbay
+        -12,11: MCAreaShipMedicalUpperMedbay
+        -13,16: MCAreaShipMedicalUpperMedbay
+        -13,15: MCAreaShipMedicalUpperMedbay
+        -13,14: MCAreaShipMedicalUpperMedbay
+        -13,13: MCAreaShipMedicalUpperMedbay
+        -13,12: MCAreaShipMedicalUpperMedbay
+        -13,11: MCAreaShipMedicalUpperMedbay
+        -14,16: MCAreaShipMedicalUpperMedbay
+        -14,15: MCAreaShipMedicalUpperMedbay
+        -14,14: MCAreaShipMedicalUpperMedbay
+        -14,13: MCAreaShipMedicalUpperMedbay
+        -14,12: MCAreaShipMedicalUpperMedbay
+        -14,11: MCAreaShipMedicalUpperMedbay
+        -15,16: MCAreaShipMedicalUpperMedbay
+        -15,15: MCAreaShipMedicalUpperMedbay
+        -15,14: MCAreaShipMedicalUpperMedbay
+        -15,13: MCAreaShipMedicalUpperMedbay
+        -15,12: MCAreaShipMedicalUpperMedbay
+        -15,11: MCAreaShipMedicalUpperMedbay
+        -16,16: MCAreaShipMedicalUpperMedbay
+        -16,15: MCAreaShipMedicalUpperMedbay
+        -16,14: MCAreaShipMedicalUpperMedbay
+        -16,13: MCAreaShipMedicalUpperMedbay
+        -16,12: MCAreaShipMedicalUpperMedbay
+        -16,11: MCAreaShipMedicalUpperMedbay
+        -17,16: MCAreaShipMedicalUpperMedbay
+        -17,15: MCAreaShipMedicalUpperMedbay
+        -17,14: MCAreaShipMedicalUpperMedbay
+        -17,13: MCAreaShipMedicalUpperMedbay
+        -17,12: MCAreaShipMedicalUpperMedbay
+        -17,11: MCAreaShipMedicalUpperMedbay
+        -18,16: MCAreaShipMedicalUpperMedbay
+        -18,15: MCAreaShipMedicalUpperMedbay
+        -18,14: MCAreaShipMedicalUpperMedbay
+        -18,13: MCAreaShipMedicalUpperMedbay
+        -18,12: MCAreaShipMedicalUpperMedbay
+        -18,11: MCAreaShipMedicalUpperMedbay
+        -19,15: MCAreaShipMedicalUpperMedbay
+        -19,14: MCAreaShipMedicalUpperMedbay
+        -19,13: MCAreaShipMedicalUpperMedbay
+        -19,12: MCAreaShipMedicalUpperMedbay
+        -19,11: MCAreaShipMedicalUpperMedbay
+        -20,15: MCAreaShipMedicalUpperMedbay
+        -20,14: MCAreaShipMedicalUpperMedbay
+        -20,13: MCAreaShipMedicalUpperMedbay
+        -20,12: MCAreaShipMedicalUpperMedbay
+        -20,11: MCAreaShipMedicalUpperMedbay
+        -21,15: MCAreaShipMedicalUpperMedbay
+        -21,14: MCAreaShipMedicalUpperMedbay
+        -21,13: MCAreaShipMedicalUpperMedbay
+        -21,12: MCAreaShipMedicalUpperMedbay
+        -21,11: MCAreaShipMedicalUpperMedbay
+        -22,15: MCAreaShipMedicalUpperMedbay
+        -22,14: MCAreaShipMedicalUpperMedbay
+        -22,13: MCAreaShipMedicalUpperMedbay
+        -22,12: MCAreaShipMedicalUpperMedbay
+        -23,15: MCAreaShipMedicalUpperMedbay
+        -23,14: MCAreaShipMedicalUpperMedbay
+        -22,11: MCAreaShipMedicalUpperMedbay
+        -23,13: MCAreaShipMedicalUpperMedbay
+        -23,12: MCAreaShipMedicalUpperMedbay
+        -23,11: MCAreaShipMedicalUpperMedbay
+        -24,15: MCAreaShipMedicalUpperMedbay
+        -24,14: MCAreaShipMedicalUpperMedbay
+        -24,13: MCAreaShipMedicalUpperMedbay
+        -24,12: MCAreaShipMedicalUpperMedbay
+        -24,11: MCAreaShipMedicalUpperMedbay
+        -25,15: MCAreaShipMedicalUpperMedbay
+        -25,14: MCAreaShipMedicalUpperMedbay
+        -25,13: MCAreaShipMedicalUpperMedbay
+        -25,12: MCAreaShipMedicalUpperMedbay
+        -25,11: MCAreaShipMedicalUpperMedbay
+        -26,15: MCAreaShipMedicalUpperMedbay
+        -26,14: MCAreaShipMedicalUpperMedbay
+        -26,13: MCAreaShipMedicalUpperMedbay
+        -26,12: MCAreaShipMedicalUpperMedbay
+        -26,11: MCAreaShipMedicalUpperMedbay
+        -27,15: MCAreaShipMedicalUpperMedbay
+        -27,14: MCAreaShipMedicalUpperMedbay
+        -27,13: MCAreaShipMedicalUpperMedbay
+        -27,12: MCAreaShipMedicalUpperMedbay
+        -27,11: MCAreaShipMedicalUpperMedbay
+        -28,15: MCAreaShipMedicalUpperMedbay
+        -28,14: MCAreaShipMedicalUpperMedbay
+        -28,13: MCAreaShipMedicalUpperMedbay
+        -28,12: MCAreaShipMedicalUpperMedbay
+        -28,11: MCAreaShipMedicalUpperMedbay
+        -28,10: MCAreaShipMedicalUpperMedbay
+        -28,9: MCAreaShipMedicalUpperMedbay
+        -28,8: MCAreaShipMedicalUpperMedbay
+        -27,10: MCAreaShipMedicalUpperMedbay
+        -27,9: MCAreaShipMedicalUpperMedbay
+        -27,8: MCAreaShipMedicalUpperMedbay
+        -26,10: MCAreaShipMedicalUpperMedbay
+        -26,9: MCAreaShipMedicalUpperMedbay
+        -26,8: MCAreaShipMedicalUpperMedbay
+        -25,10: MCAreaShipMedicalUpperMedbay
+        -25,9: MCAreaShipMedicalUpperMedbay
+        -25,8: MCAreaShipMedicalUpperMedbay
+        -24,10: MCAreaShipMedicalUpperMedbay
+        -24,9: MCAreaShipMedicalUpperMedbay
+        -24,8: MCAreaShipMedicalUpperMedbay
+        -23,10: MCAreaShipMedicalUpperMedbay
+        -23,9: MCAreaShipMedicalUpperMedbay
+        -23,8: MCAreaShipMedicalUpperMedbay
+        -22,10: MCAreaShipMedicalUpperMedbay
+        -22,9: MCAreaShipMedicalUpperMedbay
+        -22,8: MCAreaShipMedicalUpperMedbay
+        -36,-30: MCAreaShipMaintLower
+        -36,-29: MCAreaShipMaintLower
+        -36,-28: MCAreaShipMaintLower
+        -36,-27: MCAreaShipMaintLower
+        -36,-26: MCAreaShipMaintLower
+        -36,-25: MCAreaShipMaintLower
+        -36,-24: MCAreaShipMaintLower
+        -36,-23: MCAreaShipMaintLower
+        -36,-22: MCAreaShipMaintLower
+        -37,-30: MCAreaShipMaintLower
+        -37,-29: MCAreaShipMaintLower
+        -37,-28: MCAreaShipMaintLower
+        -37,-27: MCAreaShipMaintLower
+        -37,-26: MCAreaShipMaintLower
+        -37,-25: MCAreaShipMaintLower
+        -37,-24: MCAreaShipMaintLower
+        -37,-23: MCAreaShipMaintLower
+        -37,-22: MCAreaShipMaintLower
+        -38,-30: MCAreaShipMaintLower
+        -38,-29: MCAreaShipMaintLower
+        -38,-28: MCAreaShipMaintLower
+        -38,-27: MCAreaShipMaintLower
+        -38,-26: MCAreaShipMaintLower
+        -38,-25: MCAreaShipMaintLower
+        -38,-24: MCAreaShipMaintLower
+        -38,-23: MCAreaShipMaintLower
+        -38,-22: MCAreaShipMaintLower
+        -35,-22: MCAreaShipMaintLower
+        -35,-23: MCAreaShipMaintLower
+        -35,-24: MCAreaShipMaintLower
+        -34,-22: MCAreaShipMaintLower
+        -34,-23: MCAreaShipMaintLower
+        -34,-24: MCAreaShipMaintLower
+        -33,-22: MCAreaShipMaintLower
+        -33,-23: MCAreaShipMaintLower
+        -33,-24: MCAreaShipMaintLower
+        -32,-22: MCAreaShipMaintLower
+        -32,-23: MCAreaShipMaintLower
+        -32,-24: MCAreaShipMaintLower
+        -31,-22: MCAreaShipMaintLower
+        -31,-23: MCAreaShipMaintLower
+        -31,-24: MCAreaShipMaintLower
+        -30,-22: MCAreaShipMaintLower
+        -30,-23: MCAreaShipMaintLower
+        -30,-24: MCAreaShipMaintLower
+        -29,-22: MCAreaShipMaintLower
+        -29,-23: MCAreaShipMaintLower
+        -29,-24: MCAreaShipMaintLower
+        -28,-22: MCAreaShipMaintLower
+        -28,-23: MCAreaShipMaintLower
+        -28,-24: MCAreaShipMaintLower
+        -27,-22: MCAreaShipMaintLower
+        -27,-23: MCAreaShipMaintLower
+        -27,-24: MCAreaShipMaintLower
+        -27,-21: MCAreaShipMaintLower
+        -27,-20: MCAreaShipMaintLower
+        -27,-19: MCAreaShipMaintLower
+        -27,-18: MCAreaShipMaintLower
+        -27,-17: MCAreaShipMaintLower
+        -27,-16: MCAreaShipMaintLower
+        -27,-15: MCAreaShipMaintLower
+        -27,-14: MCAreaShipMaintLower
+        -27,-13: MCAreaShipMaintLower
+        -27,-12: MCAreaShipMaintLower
+        -27,-11: MCAreaShipMaintLower
+        -27,-10: MCAreaShipMaintLower
+        -27,-9: MCAreaShipMaintLower
+        -27,-8: MCAreaShipMaintLower
+        -27,-7: MCAreaShipMaintLower
+        -27,-6: MCAreaShipMaintLower
+        -27,-5: MCAreaShipMaintLower
+        -27,-4: MCAreaShipMaintLower
+        -27,-3: MCAreaShipMaintLower
+        -27,-2: MCAreaShipMaintLower
+        -27,-1: MCAreaShipMaintLower
+        -28,-21: MCAreaShipMaintLower
+        -28,-20: MCAreaShipMaintLower
+        -28,-19: MCAreaShipMaintLower
+        -28,-18: MCAreaShipMaintLower
+        -28,-17: MCAreaShipMaintLower
+        -28,-16: MCAreaShipMaintLower
+        -28,-15: MCAreaShipMaintLower
+        -28,-14: MCAreaShipMaintLower
+        -28,-13: MCAreaShipMaintLower
+        -28,-12: MCAreaShipMaintLower
+        -28,-11: MCAreaShipMaintLower
+        -28,-10: MCAreaShipMaintLower
+        -28,-9: MCAreaShipMaintLower
+        -28,-8: MCAreaShipMaintLower
+        -28,-7: MCAreaShipMaintLower
+        -28,-6: MCAreaShipMaintLower
+        -28,-5: MCAreaShipMaintLower
+        -28,-4: MCAreaShipMaintLower
+        -28,-3: MCAreaShipMaintLower
+        -28,-2: MCAreaShipMaintLower
+        -28,-1: MCAreaShipMaintLower
+        -29,-21: MCAreaShipMaintLower
+        -29,-20: MCAreaShipMaintLower
+        -29,-19: MCAreaShipMaintLower
+        -29,-18: MCAreaShipMaintLower
+        -29,-17: MCAreaShipMaintLower
+        -29,-16: MCAreaShipMaintLower
+        -29,-15: MCAreaShipMaintLower
+        -29,-14: MCAreaShipMaintLower
+        -29,-13: MCAreaShipMaintLower
+        -29,-12: MCAreaShipMaintLower
+        -29,-11: MCAreaShipMaintLower
+        -29,-10: MCAreaShipMaintLower
+        -29,-9: MCAreaShipMaintLower
+        -29,-8: MCAreaShipMaintLower
+        -29,-7: MCAreaShipMaintLower
+        -29,-6: MCAreaShipMaintLower
+        -29,-5: MCAreaShipMaintLower
+        -29,-4: MCAreaShipMaintLower
+        -29,-3: MCAreaShipMaintLower
+        -29,-2: MCAreaShipMaintLower
+        -29,-1: MCAreaShipMaintLower
+        -30,-21: MCAreaShipMaintLower
+        -30,-20: MCAreaShipMaintLower
+        -30,-19: MCAreaShipMaintLower
+        -30,-18: MCAreaShipMaintLower
+        -30,-17: MCAreaShipMaintLower
+        -30,-15: MCAreaShipMaintLower
+        -30,-13: MCAreaShipMaintLower
+        -30,-10: MCAreaShipMaintLower
+        -30,-11: MCAreaShipMaintLower
+        -30,-12: MCAreaShipMaintLower
+        -30,-7: MCAreaShipMaintLower
+        -30,-8: MCAreaShipMaintLower
+        -30,-6: MCAreaShipMaintLower
+        -30,-5: MCAreaShipMaintLower
+        -30,-4: MCAreaShipMaintLower
+        -30,-14: MCAreaShipMaintLower
+        -30,-3: MCAreaShipMaintLower
+        -30,-1: MCAreaShipMaintLower
+        -31,-21: MCAreaShipMaintLower
+        -31,-20: MCAreaShipMaintLower
+        -31,-18: MCAreaShipMaintLower
+        -31,-17: MCAreaShipMaintLower
+        -31,-16: MCAreaShipMaintLower
+        -31,-15: MCAreaShipMaintLower
+        -31,-14: MCAreaShipMaintLower
+        -31,-13: MCAreaShipMaintLower
+        -31,-12: MCAreaShipMaintLower
+        -31,-11: MCAreaShipMaintLower
+        -31,-19: MCAreaShipMaintLower
+        -31,-10: MCAreaShipMaintLower
+        -30,-9: MCAreaShipMaintLower
+        -31,-8: MCAreaShipMaintLower
+        -31,-7: MCAreaShipMaintLower
+        -31,-6: MCAreaShipMaintLower
+        -31,-5: MCAreaShipMaintLower
+        -31,-4: MCAreaShipMaintLower
+        -31,-3: MCAreaShipMaintLower
+        -31,-2: MCAreaShipMaintLower
+        -31,-9: MCAreaShipMaintLower
+        -32,-21: MCAreaShipMaintLower
+        -32,-20: MCAreaShipMaintLower
+        -32,-19: MCAreaShipMaintLower
+        -32,-18: MCAreaShipMaintLower
+        -31,-1: MCAreaShipMaintLower
+        -32,-16: MCAreaShipMaintLower
+        -32,-15: MCAreaShipMaintLower
+        -32,-14: MCAreaShipMaintLower
+        -32,-12: MCAreaShipMaintLower
+        -32,-11: MCAreaShipMaintLower
+        -32,-10: MCAreaShipMaintLower
+        -32,-9: MCAreaShipMaintLower
+        -32,-13: MCAreaShipMaintLower
+        -32,-7: MCAreaShipMaintLower
+        -32,-6: MCAreaShipMaintLower
+        -32,-5: MCAreaShipMaintLower
+        -32,-4: MCAreaShipMaintLower
+        -32,-3: MCAreaShipMaintLower
+        -32,-2: MCAreaShipMaintLower
+        -32,-1: MCAreaShipMaintLower
+        -33,-21: MCAreaShipMaintLower
+        -33,-20: MCAreaShipMaintLower
+        -33,-19: MCAreaShipMaintLower
+        -33,-18: MCAreaShipMaintLower
+        -33,-17: MCAreaShipMaintLower
+        -33,-16: MCAreaShipMaintLower
+        -30,-2: MCAreaShipMaintLower
+        -32,-17: MCAreaShipMaintLower
+        -33,-13: MCAreaShipMaintLower
+        -33,-15: MCAreaShipMaintLower
+        -33,-11: MCAreaShipMaintLower
+        -33,-10: MCAreaShipMaintLower
+        -33,-9: MCAreaShipMaintLower
+        -32,-8: MCAreaShipMaintLower
+        -33,-7: MCAreaShipMaintLower
+        -33,-6: MCAreaShipMaintLower
+        -33,-14: MCAreaShipMaintLower
+        -33,-12: MCAreaShipMaintLower
+        -33,-4: MCAreaShipMaintLower
+        -33,-8: MCAreaShipMaintLower
+        -33,-1: MCAreaShipMaintLower
+        -34,-21: MCAreaShipMaintLower
+        -34,-20: MCAreaShipMaintLower
+        -34,-19: MCAreaShipMaintLower
+        -34,-18: MCAreaShipMaintLower
+        -34,-17: MCAreaShipMaintLower
+        -34,-16: MCAreaShipMaintLower
+        -34,-15: MCAreaShipMaintLower
+        -34,-14: MCAreaShipMaintLower
+        -33,-5: MCAreaShipMaintLower
+        -33,-2: MCAreaShipMaintLower
+        -34,-12: MCAreaShipMaintLower
+        -34,-11: MCAreaShipMaintLower
+        -34,-13: MCAreaShipMaintLower
+        -34,-10: MCAreaShipMaintLower
+        -33,-3: MCAreaShipMaintLower
+        -34,-7: MCAreaShipMaintLower
+        -34,-6: MCAreaShipMaintLower
+        -34,-5: MCAreaShipMaintLower
+        -34,-4: MCAreaShipMaintLower
+        -34,-3: MCAreaShipMaintLower
+        -34,-2: MCAreaShipMaintLower
+        -34,-1: MCAreaShipMaintLower
+        -34,-9: MCAreaShipMaintLower
+        -35,-20: MCAreaShipMaintLower
+        -35,-19: MCAreaShipMaintLower
+        -35,-18: MCAreaShipMaintLower
+        -35,-17: MCAreaShipMaintLower
+        -35,-16: MCAreaShipMaintLower
+        -35,-15: MCAreaShipMaintLower
+        -35,-21: MCAreaShipMaintLower
+        -35,-14: MCAreaShipMaintLower
+        -34,-8: MCAreaShipMaintLower
+        -35,-13: MCAreaShipMaintLower
+        -35,-12: MCAreaShipMaintLower
+        -35,-11: MCAreaShipMaintLower
+        -35,-10: MCAreaShipMaintLower
+        -35,-9: MCAreaShipMaintLower
+        -35,-8: MCAreaShipMaintLower
+        -35,-7: MCAreaShipMaintLower
+        -35,-6: MCAreaShipMaintLower
+        -35,-5: MCAreaShipMaintLower
+        -35,-4: MCAreaShipMaintLower
+        -35,-3: MCAreaShipMaintLower
+        -35,-2: MCAreaShipMaintLower
+        -35,-1: MCAreaShipMaintLower
+        -36,-21: MCAreaShipMaintLower
+        -36,-20: MCAreaShipMaintLower
+        -36,-19: MCAreaShipMaintLower
+        -36,-18: MCAreaShipMaintLower
+        -36,-17: MCAreaShipMaintLower
+        -36,-16: MCAreaShipMaintLower
+        -36,-15: MCAreaShipMaintLower
+        -36,-14: MCAreaShipMaintLower
+        -36,-13: MCAreaShipMaintLower
+        -36,-12: MCAreaShipMaintLower
+        -36,-10: MCAreaShipMaintLower
+        -36,-9: MCAreaShipMaintLower
+        -36,-11: MCAreaShipMaintLower
+        -36,-8: MCAreaShipMaintLower
+        -36,-7: MCAreaShipMaintLower
+        -36,-6: MCAreaShipMaintLower
+        -36,-5: MCAreaShipMaintLower
+        -36,-4: MCAreaShipMaintLower
+        -36,-3: MCAreaShipMaintLower
+        -36,-2: MCAreaShipMaintLower
+        -36,-1: MCAreaShipMaintLower
+        -37,-21: MCAreaShipMaintLower
+        -37,-20: MCAreaShipMaintLower
+        -37,-19: MCAreaShipMaintLower
+        -37,-18: MCAreaShipMaintLower
+        -37,-17: MCAreaShipMaintLower
+        -37,-16: MCAreaShipMaintLower
+        -37,-15: MCAreaShipMaintLower
+        -37,-14: MCAreaShipMaintLower
+        -37,-13: MCAreaShipMaintLower
+        -37,-12: MCAreaShipMaintLower
+        -37,-11: MCAreaShipMaintLower
+        -37,-10: MCAreaShipMaintLower
+        -37,-9: MCAreaShipMaintLower
+        -37,-8: MCAreaShipMaintLower
+        -37,-7: MCAreaShipMaintLower
+        -37,-6: MCAreaShipMaintLower
+        -37,-5: MCAreaShipMaintLower
+        -37,-4: MCAreaShipMaintLower
+        -37,-3: MCAreaShipMaintLower
+        -37,-2: MCAreaShipMaintLower
+        -37,-1: MCAreaShipMaintLower
+        -30,-16: MCAreaShipMaintLower
+        -26,-7: MCAreaShipMaintLower
+        -26,-6: MCAreaShipMaintLower
+        -26,-5: MCAreaShipMaintLower
+        -26,-4: MCAreaShipMaintLower
+        -26,-3: MCAreaShipMaintLower
+        -26,-2: MCAreaShipMaintLower
+        -26,-1: MCAreaShipMaintLower
+        -26,0: MCAreaShipMaintLower
+        -25,-7: MCAreaShipMaintLower
+        -25,-6: MCAreaShipMaintLower
+        -25,-5: MCAreaShipMaintLower
+        -25,-4: MCAreaShipMaintLower
+        -25,-3: MCAreaShipMaintLower
+        -25,-2: MCAreaShipMaintLower
+        -25,-1: MCAreaShipMaintLower
+        -25,0: MCAreaShipMaintLower
+        -27,0: MCAreaShipMaintLower
+        -28,0: MCAreaShipMaintLower
+        -29,0: MCAreaShipMaintLower
+        -30,0: MCAreaShipMaintLower
+        -31,0: MCAreaShipMaintLower
+        -32,0: MCAreaShipMaintLower
+        -33,0: MCAreaShipMaintLower
+        -34,0: MCAreaShipMaintLower
+        -35,0: MCAreaShipMaintLower
+        -36,0: MCAreaShipMaintLower
+        -37,0: MCAreaShipMaintLower
+        -38,0: MCAreaShipMaintLower
+        -38,-1: MCAreaShipMaintLower
+        -38,-2: MCAreaShipMaintLower
+        -38,-3: MCAreaShipMaintLower
+        -38,-4: MCAreaShipMaintLower
+        -38,-5: MCAreaShipMaintLower
+        -38,-6: MCAreaShipMaintLower
+        -38,-7: MCAreaShipMaintLower
+        -38,-8: MCAreaShipMaintLower
+        -38,-9: MCAreaShipMaintLower
+        -38,-10: MCAreaShipMaintLower
+        -38,-11: MCAreaShipMaintLower
+        -38,-12: MCAreaShipMaintLower
+        -38,-13: MCAreaShipMaintLower
+        -38,-14: MCAreaShipMaintLower
+        -38,-15: MCAreaShipMaintLower
+        -38,-16: MCAreaShipMaintLower
+        -38,-17: MCAreaShipMaintLower
+        -38,-18: MCAreaShipMaintLower
+        -38,-19: MCAreaShipMaintLower
+        -38,-20: MCAreaShipMaintLower
+        -38,-21: MCAreaShipMaintLower
+        -30,1: MCAreaShipMaintLower
+        -30,2: MCAreaShipMaintLower
+        -30,3: MCAreaShipMaintLower
+        -30,4: MCAreaShipMaintLower
+        -30,5: MCAreaShipMaintLower
+        -30,6: MCAreaShipMaintLower
+        -30,7: MCAreaShipMaintLower
+        -31,1: MCAreaShipMaintLower
+        -31,2: MCAreaShipMaintLower
+        -31,3: MCAreaShipMaintLower
+        -31,4: MCAreaShipMaintLower
+        -31,5: MCAreaShipMaintLower
+        -31,6: MCAreaShipMaintLower
+        -31,7: MCAreaShipMaintLower
+        -32,1: MCAreaShipMaintLower
+        -32,2: MCAreaShipMaintLower
+        -32,3: MCAreaShipMaintLower
+        -32,4: MCAreaShipMaintLower
+        -32,5: MCAreaShipMaintLower
+        -32,6: MCAreaShipMaintLower
+        -32,7: MCAreaShipMaintLower
+        -33,1: MCAreaShipMaintLower
+        -33,2: MCAreaShipMaintLower
+        -33,3: MCAreaShipMaintLower
+        -33,4: MCAreaShipMaintLower
+        -33,5: MCAreaShipMaintLower
+        -33,6: MCAreaShipMaintLower
+        -33,7: MCAreaShipMaintLower
+        -34,1: MCAreaShipMaintLower
+        -34,2: MCAreaShipMaintLower
+        -34,3: MCAreaShipMaintLower
+        -34,4: MCAreaShipMaintLower
+        -34,5: MCAreaShipMaintLower
+        -34,6: MCAreaShipMaintLower
+        -34,7: MCAreaShipMaintLower
+        -35,1: MCAreaShipMaintLower
+        -35,2: MCAreaShipMaintLower
+        -35,3: MCAreaShipMaintLower
+        -35,4: MCAreaShipMaintLower
+        -35,5: MCAreaShipMaintLower
+        -35,6: MCAreaShipMaintLower
+        -35,7: MCAreaShipMaintLower
+        -36,1: MCAreaShipMaintLower
+        -36,2: MCAreaShipMaintLower
+        -36,3: MCAreaShipMaintLower
+        -36,4: MCAreaShipMaintLower
+        -36,5: MCAreaShipMaintLower
+        -36,6: MCAreaShipMaintLower
+        -36,7: MCAreaShipMaintLower
+        -37,1: MCAreaShipMaintLower
+        -37,2: MCAreaShipMaintLower
+        -37,3: MCAreaShipMaintLower
+        -37,4: MCAreaShipMaintLower
+        -37,5: MCAreaShipMaintLower
+        -37,6: MCAreaShipMaintLower
+        -37,7: MCAreaShipMaintLower
+        -38,1: MCAreaShipMaintLower
+        -38,2: MCAreaShipMaintLower
+        -38,3: MCAreaShipMaintLower
+        -38,4: MCAreaShipMaintLower
+        -38,5: MCAreaShipMaintLower
+        -38,6: MCAreaShipMaintLower
+        -38,7: MCAreaShipMaintLower
+        -39,7: MCAreaShipMaintLower
+        -39,6: MCAreaShipMaintLower
+        -39,8: MCAreaShipMaintLower
+        -39,9: MCAreaShipMaintLower
+        -39,10: MCAreaShipMaintLower
+        -39,11: MCAreaShipMaintLower
+        -39,12: MCAreaShipMaintLower
+        -39,13: MCAreaShipMaintLower
+        -39,14: MCAreaShipMaintLower
+        -39,15: MCAreaShipMaintLower
+        -39,16: MCAreaShipMaintLower
+        -39,17: MCAreaShipMaintLower
+        -39,18: MCAreaShipMaintLower
+        -39,19: MCAreaShipMaintLower
+        -39,20: MCAreaShipMaintLower
+        -39,21: MCAreaShipMaintLower
+        -38,8: MCAreaShipMaintLower
+        -38,9: MCAreaShipMaintLower
+        -38,10: MCAreaShipMaintLower
+        -38,11: MCAreaShipMaintLower
+        -38,12: MCAreaShipMaintLower
+        -38,13: MCAreaShipMaintLower
+        -38,14: MCAreaShipMaintLower
+        -38,15: MCAreaShipMaintLower
+        -38,16: MCAreaShipMaintLower
+        -38,17: MCAreaShipMaintLower
+        -38,18: MCAreaShipMaintLower
+        -38,19: MCAreaShipMaintLower
+        -38,20: MCAreaShipMaintLower
+        -38,21: MCAreaShipMaintLower
+        -37,21: MCAreaShipMaintLower
+        -37,20: MCAreaShipMaintLower
+        -36,21: MCAreaShipMaintLower
+        -36,20: MCAreaShipMaintLower
+        -35,21: MCAreaShipMaintLower
+        -35,20: MCAreaShipMaintLower
+        -34,21: MCAreaShipMaintLower
+        -34,20: MCAreaShipMaintLower
+        -33,21: MCAreaShipMaintLower
+        -33,20: MCAreaShipMaintLower
+        -32,21: MCAreaShipMaintLower
+        -32,20: MCAreaShipMaintLower
+        -31,21: MCAreaShipMaintLower
+        -31,20: MCAreaShipMaintLower
+        -30,21: MCAreaShipMaintLower
+        -30,20: MCAreaShipMaintLower
+        -31,22: MCAreaShipMaintLower
+        -31,29: MCAreaShipMaintLower
+        -31,28: MCAreaShipMaintLower
+        -31,27: MCAreaShipMaintLower
+        -31,26: MCAreaShipMaintLower
+        -31,25: MCAreaShipMaintLower
+        -31,24: MCAreaShipMaintLower
+        -31,23: MCAreaShipMaintLower
+        -30,29: MCAreaShipMaintLower
+        -30,28: MCAreaShipMaintLower
+        -30,27: MCAreaShipMaintLower
+        -30,26: MCAreaShipMaintLower
+        -30,25: MCAreaShipMaintLower
+        -30,24: MCAreaShipMaintLower
+        -30,23: MCAreaShipMaintLower
+        -30,22: MCAreaShipMaintLower
+        -28,29: MCAreaShipMaintLower
+        -28,28: MCAreaShipMaintLower
+        -27,29: MCAreaShipMaintLower
+        -27,28: MCAreaShipMaintLower
+        -29,29: MCAreaShipMaintLower
+        -29,28: MCAreaShipMaintLower
+        -26,28: MCAreaShipMaintLower
+        -25,28: MCAreaShipMaintLower
+        -24,28: MCAreaShipMaintLower
+        -23,28: MCAreaShipMaintLower
+        -22,28: MCAreaShipMaintLower
+        -21,28: MCAreaShipMaintLower
+        -20,28: MCAreaShipMaintLower
+        -26,36: MCAreaShipBoxingRing
+        -26,35: MCAreaShipBoxingRing
+        -26,34: MCAreaShipBoxingRing
+        -26,33: MCAreaShipBoxingRing
+        -26,32: MCAreaShipBoxingRing
+        -26,31: MCAreaShipBoxingRing
+        -26,30: MCAreaShipBoxingRing
+        -26,29: MCAreaShipBoxingRing
+        -25,36: MCAreaShipBoxingRing
+        -25,35: MCAreaShipBoxingRing
+        -25,34: MCAreaShipBoxingRing
+        -25,33: MCAreaShipBoxingRing
+        -25,32: MCAreaShipBoxingRing
+        -25,31: MCAreaShipBoxingRing
+        -25,30: MCAreaShipBoxingRing
+        -25,29: MCAreaShipBoxingRing
+        -24,36: MCAreaShipBoxingRing
+        -24,35: MCAreaShipBoxingRing
+        -24,34: MCAreaShipBoxingRing
+        -24,33: MCAreaShipBoxingRing
+        -24,32: MCAreaShipBoxingRing
+        -24,31: MCAreaShipBoxingRing
+        -24,30: MCAreaShipBoxingRing
+        -24,29: MCAreaShipBoxingRing
+        -23,36: MCAreaShipBoxingRing
+        -23,35: MCAreaShipBoxingRing
+        -23,34: MCAreaShipBoxingRing
+        -23,33: MCAreaShipBoxingRing
+        -23,32: MCAreaShipBoxingRing
+        -23,31: MCAreaShipBoxingRing
+        -23,30: MCAreaShipBoxingRing
+        -23,29: MCAreaShipBoxingRing
+        -22,36: MCAreaShipBoxingRing
+        -22,35: MCAreaShipBoxingRing
+        -22,34: MCAreaShipBoxingRing
+        -22,33: MCAreaShipBoxingRing
+        -22,32: MCAreaShipBoxingRing
+        -22,31: MCAreaShipBoxingRing
+        -22,30: MCAreaShipBoxingRing
+        -22,29: MCAreaShipBoxingRing
+        -21,36: MCAreaShipBoxingRing
+        -21,35: MCAreaShipBoxingRing
+        -21,34: MCAreaShipBoxingRing
+        -21,33: MCAreaShipBoxingRing
+        -21,32: MCAreaShipBoxingRing
+        -21,31: MCAreaShipBoxingRing
+        -21,30: MCAreaShipBoxingRing
+        -21,29: MCAreaShipBoxingRing
+        -20,36: MCAreaShipBoxingRing
+        -20,35: MCAreaShipBoxingRing
+        -20,34: MCAreaShipBoxingRing
+        -20,33: MCAreaShipBoxingRing
+        -20,32: MCAreaShipBoxingRing
+        -20,31: MCAreaShipBoxingRing
+        -20,30: MCAreaShipBoxingRing
+        -20,29: MCAreaShipBoxingRing
+        -21,42: MCAreaShipMaintLower
+        -21,43: MCAreaShipMaintLower
+        -21,44: MCAreaShipMaintLower
+        -21,45: MCAreaShipMaintLower
+        -21,46: MCAreaShipMaintLower
+        -21,47: MCAreaShipMaintLower
+        -21,48: MCAreaShipMaintLower
+        -21,49: MCAreaShipMaintLower
+        -21,50: MCAreaShipMaintLower
+        -21,51: MCAreaShipMaintLower
+        -21,52: MCAreaShipMaintLower
+        -21,53: MCAreaShipMaintLower
+        -21,54: MCAreaShipMaintLower
+        -21,55: MCAreaShipMaintLower
+        -21,56: MCAreaShipMaintLower
+        -21,57: MCAreaShipMaintLower
+        -21,58: MCAreaShipMaintLower
+        -21,60: MCAreaShipMaintLower
+        -21,61: MCAreaShipMaintLower
+        -21,63: MCAreaShipMaintLower
+        -21,64: MCAreaShipMaintLower
+        -21,65: MCAreaShipMaintLower
+        -21,66: MCAreaShipMaintLower
+        -20,42: MCAreaShipMaintLower
+        -20,43: MCAreaShipMaintLower
+        -20,44: MCAreaShipMaintLower
+        -20,45: MCAreaShipMaintLower
+        -20,46: MCAreaShipMaintLower
+        -20,47: MCAreaShipMaintLower
+        -20,48: MCAreaShipMaintLower
+        -20,49: MCAreaShipMaintLower
+        -20,51: MCAreaShipMaintLower
+        -20,52: MCAreaShipMaintLower
+        -20,53: MCAreaShipMaintLower
+        -20,54: MCAreaShipMaintLower
+        -20,55: MCAreaShipMaintLower
+        -20,56: MCAreaShipMaintLower
+        -20,57: MCAreaShipMaintLower
+        -20,58: MCAreaShipMaintLower
+        -20,59: MCAreaShipMaintLower
+        -20,60: MCAreaShipMaintLower
+        -20,61: MCAreaShipMaintLower
+        -20,62: MCAreaShipMaintLower
+        -20,63: MCAreaShipMaintLower
+        -20,64: MCAreaShipMaintLower
+        -20,65: MCAreaShipMaintLower
+        -20,66: MCAreaShipMaintLower
+        -21,62: MCAreaShipMaintLower
+        -21,59: MCAreaShipMaintLower
+        -20,50: MCAreaShipMaintLower
+        -19,66: MCAreaShipMaintLower
+        -19,65: MCAreaShipMaintLower
+        -18,66: MCAreaShipMaintLower
+        -18,65: MCAreaShipMaintLower
+        -17,66: MCAreaShipMaintLower
+        -17,65: MCAreaShipMaintLower
+        -16,66: MCAreaShipMaintLower
+        -16,65: MCAreaShipMaintLower
+        -15,66: MCAreaShipMaintLower
+        -15,65: MCAreaShipMaintLower
+        -14,66: MCAreaShipMaintLower
+        -14,65: MCAreaShipMaintLower
+        -13,66: MCAreaShipMaintLower
+        -13,65: MCAreaShipMaintLower
+        -12,66: MCAreaShipMaintLower
+        -12,65: MCAreaShipMaintLower
+        -11,66: MCAreaShipMaintLower
+        -11,65: MCAreaShipMaintLower
+        -10,66: MCAreaShipMaintLower
+        -10,65: MCAreaShipMaintLower
+        -9,65: MCAreaShipMaintLower
+        -8,66: MCAreaShipMaintLower
+        -8,65: MCAreaShipMaintLower
+        -7,66: MCAreaShipMaintLower
+        -7,65: MCAreaShipMaintLower
+        -9,66: MCAreaShipMaintLower
+        -8,69: MCAreaShipMaintLower
+        -8,68: MCAreaShipMaintLower
+        -8,67: MCAreaShipMaintLower
+        -7,69: MCAreaShipMaintLower
+        -7,68: MCAreaShipMaintLower
+        -7,67: MCAreaShipMaintLower
+        -6,69: MCAreaShipMaintLower
+        -6,68: MCAreaShipMaintLower
+        -5,69: MCAreaShipMaintLower
+        -5,68: MCAreaShipMaintLower
+        -4,69: MCAreaShipMaintLower
+        -4,68: MCAreaShipMaintLower
+        -3,69: MCAreaShipMaintLower
+        -3,68: MCAreaShipMaintLower
+        -2,69: MCAreaShipMaintLower
+        -2,68: MCAreaShipMaintLower
+        -1,69: MCAreaShipMaintLower
+        -1,68: MCAreaShipMaintLower
+        0,69: MCAreaShipMaintLower
+        0,68: MCAreaShipMaintLower
+        1,69: MCAreaShipMaintLower
+        1,68: MCAreaShipMaintLower
+        2,69: MCAreaShipMaintLower
+        2,68: MCAreaShipMaintLower
+        3,69: MCAreaShipMaintLower
+        3,68: MCAreaShipMaintLower
+        4,69: MCAreaShipMaintLower
+        4,68: MCAreaShipMaintLower
+        5,69: MCAreaShipMaintLower
+        5,68: MCAreaShipMaintLower
+        6,69: MCAreaShipMaintLower
+        6,68: MCAreaShipMaintLower
+        7,69: MCAreaShipMaintLower
+        7,68: MCAreaShipMaintLower
+        8,69: MCAreaShipMaintLower
+        8,68: MCAreaShipMaintLower
+        7,67: MCAreaShipMaintLower
+        7,66: MCAreaShipMaintLower
+        7,65: MCAreaShipMaintLower
+        8,67: MCAreaShipMaintLower
+        8,66: MCAreaShipMaintLower
+        8,65: MCAreaShipMaintLower
+        9,66: MCAreaShipMaintLower
+        9,65: MCAreaShipMaintLower
+        10,66: MCAreaShipMaintLower
+        10,65: MCAreaShipMaintLower
+        11,66: MCAreaShipMaintLower
+        11,65: MCAreaShipMaintLower
+        12,66: MCAreaShipMaintLower
+        12,65: MCAreaShipMaintLower
+        13,66: MCAreaShipMaintLower
+        13,65: MCAreaShipMaintLower
+        14,66: MCAreaShipMaintLower
+        14,65: MCAreaShipMaintLower
+        15,66: MCAreaShipMaintLower
+        15,65: MCAreaShipMaintLower
+        16,66: MCAreaShipMaintLower
+        16,65: MCAreaShipMaintLower
+        17,66: MCAreaShipMaintLower
+        18,66: MCAreaShipMaintLower
+        17,65: MCAreaShipMaintLower
+        18,65: MCAreaShipMaintLower
+        19,66: MCAreaShipMaintLower
+        19,65: MCAreaShipMaintLower
+        20,66: MCAreaShipMaintLower
+        20,65: MCAreaShipMaintLower
+        21,66: MCAreaShipMaintLower
+        21,65: MCAreaShipMaintLower
+        20,64: MCAreaShipMaintLower
+        20,63: MCAreaShipMaintLower
+        20,62: MCAreaShipMaintLower
+        20,61: MCAreaShipMaintLower
+        20,60: MCAreaShipMaintLower
+        20,59: MCAreaShipMaintLower
+        20,58: MCAreaShipMaintLower
+        20,57: MCAreaShipMaintLower
+        20,56: MCAreaShipMaintLower
+        21,64: MCAreaShipMaintLower
+        21,63: MCAreaShipMaintLower
+        21,62: MCAreaShipMaintLower
+        21,61: MCAreaShipMaintLower
+        21,60: MCAreaShipMaintLower
+        21,59: MCAreaShipMaintLower
+        21,58: MCAreaShipMaintLower
+        21,57: MCAreaShipMaintLower
+        21,56: MCAreaShipMaintLower
+        20,55: MCAreaShipMaintLower
+        20,54: MCAreaShipMaintLower
+        20,53: MCAreaShipMaintLower
+        20,52: MCAreaShipMaintLower
+        20,51: MCAreaShipMaintLower
+        20,50: MCAreaShipMaintLower
+        20,49: MCAreaShipMaintLower
+        20,48: MCAreaShipMaintLower
+        20,47: MCAreaShipMaintLower
+        21,55: MCAreaShipMaintLower
+        21,54: MCAreaShipMaintLower
+        21,53: MCAreaShipMaintLower
+        21,52: MCAreaShipMaintLower
+        21,51: MCAreaShipMaintLower
+        21,50: MCAreaShipMaintLower
+        21,49: MCAreaShipMaintLower
+        21,48: MCAreaShipMaintLower
+        21,47: MCAreaShipMaintLower
+        22,49: MCAreaShipMaintLower
+        22,48: MCAreaShipMaintLower
+        22,47: MCAreaShipMaintLower
+        23,49: MCAreaShipMaintLower
+        23,48: MCAreaShipMaintLower
+        23,47: MCAreaShipMaintLower
+        24,49: MCAreaShipMaintLower
+        24,48: MCAreaShipMaintLower
+        24,47: MCAreaShipMaintLower
+        25,49: MCAreaShipMaintLower
+        25,48: MCAreaShipMaintLower
+        25,47: MCAreaShipMaintLower
+        26,49: MCAreaShipMaintLower
+        26,48: MCAreaShipMaintLower
+        26,47: MCAreaShipMaintLower
+        27,49: MCAreaShipMaintLower
+        27,48: MCAreaShipMaintLower
+        27,47: MCAreaShipMaintLower
+        25,46: MCAreaShipMaintLower
+        25,45: MCAreaShipMaintLower
+        25,44: MCAreaShipMaintLower
+        25,43: MCAreaShipMaintLower
+        25,42: MCAreaShipMaintLower
+        25,41: MCAreaShipMaintLower
+        25,40: MCAreaShipMaintLower
+        25,39: MCAreaShipMaintLower
+        25,38: MCAreaShipMaintLower
+        25,37: MCAreaShipMaintLower
+        25,36: MCAreaShipMaintLower
+        25,35: MCAreaShipMaintLower
+        25,34: MCAreaShipMaintLower
+        25,33: MCAreaShipMaintLower
+        25,32: MCAreaShipMaintLower
+        25,31: MCAreaShipMaintLower
+        25,30: MCAreaShipMaintLower
+        25,29: MCAreaShipMaintLower
+        26,46: MCAreaShipMaintLower
+        26,45: MCAreaShipMaintLower
+        26,43: MCAreaShipMaintLower
+        26,42: MCAreaShipMaintLower
+        26,41: MCAreaShipMaintLower
+        26,40: MCAreaShipMaintLower
+        26,39: MCAreaShipMaintLower
+        26,44: MCAreaShipMaintLower
+        26,37: MCAreaShipMaintLower
+        26,36: MCAreaShipMaintLower
+        26,35: MCAreaShipMaintLower
+        26,38: MCAreaShipMaintLower
+        26,34: MCAreaShipMaintLower
+        26,33: MCAreaShipMaintLower
+        26,32: MCAreaShipMaintLower
+        26,31: MCAreaShipMaintLower
+        26,30: MCAreaShipMaintLower
+        26,29: MCAreaShipMaintLower
+        27,46: MCAreaShipMaintLower
+        27,45: MCAreaShipMaintLower
+        27,44: MCAreaShipMaintLower
+        27,43: MCAreaShipMaintLower
+        27,42: MCAreaShipMaintLower
+        27,41: MCAreaShipMaintLower
+        27,40: MCAreaShipMaintLower
+        27,39: MCAreaShipMaintLower
+        27,38: MCAreaShipMaintLower
+        27,37: MCAreaShipMaintLower
+        27,36: MCAreaShipMaintLower
+        27,35: MCAreaShipMaintLower
+        27,34: MCAreaShipMaintLower
+        27,33: MCAreaShipMaintLower
+        27,32: MCAreaShipMaintLower
+        27,31: MCAreaShipMaintLower
+        27,30: MCAreaShipMaintLower
+        27,29: MCAreaShipMaintLower
+        28,29: MCAreaShipMaintLower
+        28,30: MCAreaShipMaintLower
+        29,30: MCAreaShipMaintLower
+        30,30: MCAreaShipMaintLower
+        31,30: MCAreaShipMaintLower
+        29,29: MCAreaShipMaintLower
+        30,29: MCAreaShipMaintLower
+        31,29: MCAreaShipMaintLower
+        32,29: MCAreaShipMaintLower
+        32,30: MCAreaShipMaintLower
+        31,28: MCAreaShipMaintLower
+        31,27: MCAreaShipMaintLower
+        31,26: MCAreaShipMaintLower
+        31,25: MCAreaShipMaintLower
+        31,24: MCAreaShipMaintLower
+        31,23: MCAreaShipMaintLower
+        31,22: MCAreaShipMaintLower
+        31,21: MCAreaShipMaintLower
+        31,20: MCAreaShipMaintLower
+        31,19: MCAreaShipMaintLower
+        31,18: MCAreaShipMaintLower
+        31,17: MCAreaShipMaintLower
+        32,17: MCAreaShipMaintLower
+        32,18: MCAreaShipMaintLower
+        32,19: MCAreaShipMaintLower
+        32,20: MCAreaShipMaintLower
+        32,21: MCAreaShipMaintLower
+        32,22: MCAreaShipMaintLower
+        32,23: MCAreaShipMaintLower
+        32,24: MCAreaShipMaintLower
+        32,25: MCAreaShipMaintLower
+        32,26: MCAreaShipMaintLower
+        32,27: MCAreaShipMaintLower
+        32,28: MCAreaShipMaintLower
+        25,28: MCAreaShipMaintLower
+        30,28: MCAreaShipMaintLower
+        29,28: MCAreaShipMaintLower
+        28,28: MCAreaShipMaintLower
+        27,28: MCAreaShipMaintLower
+        26,28: MCAreaShipMaintLower
+        30,27: MCAreaShipMaintLower
+        30,26: MCAreaShipMaintLower
+        30,25: MCAreaShipMaintLower
+        30,24: MCAreaShipMaintLower
+        30,23: MCAreaShipMaintLower
+        30,22: MCAreaShipMaintLower
+        30,21: MCAreaShipMaintLower
+        30,20: MCAreaShipMaintLower
+        30,19: MCAreaShipMaintLower
+        30,18: MCAreaShipMaintLower
+        30,17: MCAreaShipMaintLower
+        33,18: MCAreaShipMaintLower
+        33,17: MCAreaShipMaintLower
+        34,18: MCAreaShipMaintLower
+        34,17: MCAreaShipMaintLower
+        35,18: MCAreaShipMaintLower
+        35,17: MCAreaShipMaintLower
+        36,18: MCAreaShipMaintLower
+        36,17: MCAreaShipMaintLower
+        37,18: MCAreaShipMaintLower
+        37,17: MCAreaShipMaintLower
+        38,18: MCAreaShipMaintLower
+        38,17: MCAreaShipMaintLower
+        39,18: MCAreaShipMaintLower
+        39,17: MCAreaShipMaintLower
+        40,18: MCAreaShipMaintLower
+        40,17: MCAreaShipMaintLower
+        41,18: MCAreaShipMaintLower
+        41,17: MCAreaShipMaintLower
+        40,16: MCAreaShipMaintLower
+        40,15: MCAreaShipMaintLower
+        40,14: MCAreaShipMaintLower
+        40,13: MCAreaShipMaintLower
+        40,12: MCAreaShipMaintLower
+        40,11: MCAreaShipMaintLower
+        40,10: MCAreaShipMaintLower
+        40,9: MCAreaShipMaintLower
+        40,8: MCAreaShipMaintLower
+        40,7: MCAreaShipMaintLower
+        40,6: MCAreaShipMaintLower
+        41,16: MCAreaShipMaintLower
+        41,15: MCAreaShipMaintLower
+        41,14: MCAreaShipMaintLower
+        41,13: MCAreaShipMaintLower
+        41,12: MCAreaShipMaintLower
+        41,11: MCAreaShipMaintLower
+        41,10: MCAreaShipMaintLower
+        41,9: MCAreaShipMaintLower
+        41,8: MCAreaShipMaintLower
+        41,7: MCAreaShipMaintLower
+        41,6: MCAreaShipMaintLower
+        39,-4: MCAreaShipMaintLower
+        33,6: MCAreaShipMaintLower
+        33,5: MCAreaShipMaintLower
+        33,4: MCAreaShipMaintLower
+        33,3: MCAreaShipMaintLower
+        33,2: MCAreaShipMaintLower
+        39,-3: MCAreaShipMaintLower
+        34,6: MCAreaShipMaintLower
+        34,5: MCAreaShipMaintLower
+        34,4: MCAreaShipMaintLower
+        34,3: MCAreaShipMaintLower
+        34,2: MCAreaShipMaintLower
+        39,-2: MCAreaShipMaintLower
+        35,6: MCAreaShipMaintLower
+        35,5: MCAreaShipMaintLower
+        35,4: MCAreaShipMaintLower
+        35,3: MCAreaShipMaintLower
+        35,2: MCAreaShipMaintLower
+        39,-1: MCAreaShipMaintLower
+        36,6: MCAreaShipMaintLower
+        36,5: MCAreaShipMaintLower
+        36,4: MCAreaShipMaintLower
+        36,3: MCAreaShipMaintLower
+        39,0: MCAreaShipMaintLower
+        36,2: MCAreaShipMaintLower
+        37,6: MCAreaShipMaintLower
+        37,5: MCAreaShipMaintLower
+        37,4: MCAreaShipMaintLower
+        37,3: MCAreaShipMaintLower
+        37,2: MCAreaShipMaintLower
+        40,1: MCAreaShipMaintLower
+        38,6: MCAreaShipMaintLower
+        38,5: MCAreaShipMaintLower
+        38,4: MCAreaShipMaintLower
+        38,3: MCAreaShipMaintLower
+        38,2: MCAreaShipMaintLower
+        39,1: MCAreaShipMaintLower
+        39,6: MCAreaShipMaintLower
+        39,5: MCAreaShipMaintLower
+        39,4: MCAreaShipMaintLower
+        39,3: MCAreaShipMaintLower
+        39,2: MCAreaShipMaintLower
+        40,5: MCAreaShipMaintLower
+        40,4: MCAreaShipMaintLower
+        40,3: MCAreaShipMaintLower
+        40,2: MCAreaShipMaintLower
+        41,5: MCAreaShipMaintLower
+        39,-5: MCAreaShipMaintLower
+        39,-6: MCAreaShipMaintLower
+        39,-7: MCAreaShipMaintLower
+        31,-24: MCAreaShipMaintLower
+        39,-9: MCAreaShipMaintLower
+        39,-10: MCAreaShipMaintLower
+        39,-11: MCAreaShipMaintLower
+        39,-12: MCAreaShipMaintLower
+        39,-13: MCAreaShipMaintLower
+        39,-14: MCAreaShipMaintLower
+        39,-15: MCAreaShipMaintLower
+        39,-16: MCAreaShipMaintLower
+        39,-17: MCAreaShipMaintLower
+        39,-18: MCAreaShipMaintLower
+        39,-19: MCAreaShipMaintLower
+        39,-20: MCAreaShipMaintLower
+        39,-21: MCAreaShipMaintLower
+        39,-22: MCAreaShipMaintLower
+        39,-23: MCAreaShipMaintLower
+        40,0: MCAreaShipMaintLower
+        40,-2: MCAreaShipMaintLower
+        40,-3: MCAreaShipMaintLower
+        40,-4: MCAreaShipMaintLower
+        40,-5: MCAreaShipMaintLower
+        40,-1: MCAreaShipMaintLower
+        40,-8: MCAreaShipMaintLower
+        40,-9: MCAreaShipMaintLower
+        40,-10: MCAreaShipMaintLower
+        40,-11: MCAreaShipMaintLower
+        40,-12: MCAreaShipMaintLower
+        40,-6: MCAreaShipMaintLower
+        40,-13: MCAreaShipMaintLower
+        40,-14: MCAreaShipMaintLower
+        40,-7: MCAreaShipMaintLower
+        40,-15: MCAreaShipMaintLower
+        40,-16: MCAreaShipMaintLower
+        40,-17: MCAreaShipMaintLower
+        40,-18: MCAreaShipMaintLower
+        40,-19: MCAreaShipMaintLower
+        40,-20: MCAreaShipMaintLower
+        40,-21: MCAreaShipMaintLower
+        40,-22: MCAreaShipMaintLower
+        40,-23: MCAreaShipMaintLower
+        31,-25: MCAreaShipMaintLower
+        31,-26: MCAreaShipMaintLower
+        31,-27: MCAreaShipMaintLower
+        31,-28: MCAreaShipMaintLower
+        31,-29: MCAreaShipMaintLower
+        31,-30: MCAreaShipMaintLower
+        31,-31: MCAreaShipMaintLower
+        31,-32: MCAreaShipMaintLower
+        31,-33: MCAreaShipMaintLower
+        31,-34: MCAreaShipMaintLower
+        31,-35: MCAreaShipMaintLower
+        31,-36: MCAreaShipMaintLower
+        31,-37: MCAreaShipMaintLower
+        31,-38: MCAreaShipMaintLower
+        31,-39: MCAreaShipMaintLower
+        31,-40: MCAreaShipMaintLower
+        32,-24: MCAreaShipMaintLower
+        32,-25: MCAreaShipMaintLower
+        32,-26: MCAreaShipMaintLower
+        32,-28: MCAreaShipMaintLower
+        32,-27: MCAreaShipMaintLower
+        32,-29: MCAreaShipMaintLower
+        32,-30: MCAreaShipMaintLower
+        32,-31: MCAreaShipMaintLower
+        32,-32: MCAreaShipMaintLower
+        32,-33: MCAreaShipMaintLower
+        32,-34: MCAreaShipMaintLower
+        32,-35: MCAreaShipMaintLower
+        32,-36: MCAreaShipMaintLower
+        32,-37: MCAreaShipMaintLower
+        32,-38: MCAreaShipMaintLower
+        32,-39: MCAreaShipMaintLower
+        32,-40: MCAreaShipMaintLower
+        33,-24: MCAreaShipMaintLower
+        33,-25: MCAreaShipMaintLower
+        33,-26: MCAreaShipMaintLower
+        33,-27: MCAreaShipMaintLower
+        33,-28: MCAreaShipMaintLower
+        33,-29: MCAreaShipMaintLower
+        33,-30: MCAreaShipMaintLower
+        33,-31: MCAreaShipMaintLower
+        33,-32: MCAreaShipMaintLower
+        33,-33: MCAreaShipMaintLower
+        33,-34: MCAreaShipMaintLower
+        33,-35: MCAreaShipMaintLower
+        33,-36: MCAreaShipMaintLower
+        33,-37: MCAreaShipMaintLower
+        33,-38: MCAreaShipMaintLower
+        33,-39: MCAreaShipMaintLower
+        33,-40: MCAreaShipMaintLower
+        34,-24: MCAreaShipMaintLower
+        34,-25: MCAreaShipMaintLower
+        34,-26: MCAreaShipMaintLower
+        34,-27: MCAreaShipMaintLower
+        34,-28: MCAreaShipMaintLower
+        34,-29: MCAreaShipMaintLower
+        34,-30: MCAreaShipMaintLower
+        34,-31: MCAreaShipMaintLower
+        34,-32: MCAreaShipMaintLower
+        34,-33: MCAreaShipMaintLower
+        34,-34: MCAreaShipMaintLower
+        34,-35: MCAreaShipMaintLower
+        34,-36: MCAreaShipMaintLower
+        34,-37: MCAreaShipMaintLower
+        34,-38: MCAreaShipMaintLower
+        34,-39: MCAreaShipMaintLower
+        34,-40: MCAreaShipMaintLower
+        35,-24: MCAreaShipMaintLower
+        35,-25: MCAreaShipMaintLower
+        35,-26: MCAreaShipMaintLower
+        35,-27: MCAreaShipMaintLower
+        35,-28: MCAreaShipMaintLower
+        35,-29: MCAreaShipMaintLower
+        35,-30: MCAreaShipMaintLower
+        35,-31: MCAreaShipMaintLower
+        35,-32: MCAreaShipMaintLower
+        35,-33: MCAreaShipMaintLower
+        35,-34: MCAreaShipMaintLower
+        35,-35: MCAreaShipMaintLower
+        35,-36: MCAreaShipMaintLower
+        35,-37: MCAreaShipMaintLower
+        35,-38: MCAreaShipMaintLower
+        35,-39: MCAreaShipMaintLower
+        35,-40: MCAreaShipMaintLower
+        36,-24: MCAreaShipMaintLower
+        36,-25: MCAreaShipMaintLower
+        36,-26: MCAreaShipMaintLower
+        36,-27: MCAreaShipMaintLower
+        36,-28: MCAreaShipMaintLower
+        36,-29: MCAreaShipMaintLower
+        36,-30: MCAreaShipMaintLower
+        36,-31: MCAreaShipMaintLower
+        36,-32: MCAreaShipMaintLower
+        36,-33: MCAreaShipMaintLower
+        36,-34: MCAreaShipMaintLower
+        36,-35: MCAreaShipMaintLower
+        36,-36: MCAreaShipMaintLower
+        36,-37: MCAreaShipMaintLower
+        36,-38: MCAreaShipMaintLower
+        36,-39: MCAreaShipMaintLower
+        36,-40: MCAreaShipMaintLower
+        37,-24: MCAreaShipMaintLower
+        37,-25: MCAreaShipMaintLower
+        37,-26: MCAreaShipMaintLower
+        37,-27: MCAreaShipMaintLower
+        37,-28: MCAreaShipMaintLower
+        37,-29: MCAreaShipMaintLower
+        37,-30: MCAreaShipMaintLower
+        37,-31: MCAreaShipMaintLower
+        37,-32: MCAreaShipMaintLower
+        37,-33: MCAreaShipMaintLower
+        37,-34: MCAreaShipMaintLower
+        37,-35: MCAreaShipMaintLower
+        37,-36: MCAreaShipMaintLower
+        37,-37: MCAreaShipMaintLower
+        37,-38: MCAreaShipMaintLower
+        37,-39: MCAreaShipMaintLower
+        37,-40: MCAreaShipMaintLower
+        38,-24: MCAreaShipMaintLower
+        38,-25: MCAreaShipMaintLower
+        38,-26: MCAreaShipMaintLower
+        38,-27: MCAreaShipMaintLower
+        38,-28: MCAreaShipMaintLower
+        38,-29: MCAreaShipMaintLower
+        38,-30: MCAreaShipMaintLower
+        38,-31: MCAreaShipMaintLower
+        38,-32: MCAreaShipMaintLower
+        38,-33: MCAreaShipMaintLower
+        38,-34: MCAreaShipMaintLower
+        38,-35: MCAreaShipMaintLower
+        38,-36: MCAreaShipMaintLower
+        38,-37: MCAreaShipMaintLower
+        38,-38: MCAreaShipMaintLower
+        38,-39: MCAreaShipMaintLower
+        38,-40: MCAreaShipMaintLower
+        39,-24: MCAreaShipMaintLower
+        39,-25: MCAreaShipMaintLower
+        39,-26: MCAreaShipMaintLower
+        39,-27: MCAreaShipMaintLower
+        39,-28: MCAreaShipMaintLower
+        39,-29: MCAreaShipMaintLower
+        39,-30: MCAreaShipMaintLower
+        39,-31: MCAreaShipMaintLower
+        39,-32: MCAreaShipMaintLower
+        39,-33: MCAreaShipMaintLower
+        39,-34: MCAreaShipMaintLower
+        39,-35: MCAreaShipMaintLower
+        39,-36: MCAreaShipMaintLower
+        39,-37: MCAreaShipMaintLower
+        39,-38: MCAreaShipMaintLower
+        39,-39: MCAreaShipMaintLower
+        39,-40: MCAreaShipMaintLower
+        40,-24: MCAreaShipMaintLower
+        40,-25: MCAreaShipMaintLower
+        40,-26: MCAreaShipMaintLower
+        40,-27: MCAreaShipMaintLower
+        40,-28: MCAreaShipMaintLower
+        40,-29: MCAreaShipMaintLower
+        40,-30: MCAreaShipMaintLower
+        40,-31: MCAreaShipMaintLower
+        40,-32: MCAreaShipMaintLower
+        40,-33: MCAreaShipMaintLower
+        40,-34: MCAreaShipMaintLower
+        40,-35: MCAreaShipMaintLower
+        40,-36: MCAreaShipMaintLower
+        40,-37: MCAreaShipMaintLower
+        40,-38: MCAreaShipMaintLower
+        40,-39: MCAreaShipMaintLower
+        40,-40: MCAreaShipMaintLower
+        30,-39: MCAreaShipMaintLower
+        30,-40: MCAreaShipMaintLower
+        29,-39: MCAreaShipMaintLower
+        29,-40: MCAreaShipMaintLower
+        28,-39: MCAreaShipMaintLower
+        28,-40: MCAreaShipMaintLower
+        27,-39: MCAreaShipMaintLower
+        27,-40: MCAreaShipMaintLower
+        26,-39: MCAreaShipMaintLower
+        26,-40: MCAreaShipMaintLower
+        25,-39: MCAreaShipMaintLower
+        25,-40: MCAreaShipMaintLower
+        24,-39: MCAreaShipMaintLower
+        24,-40: MCAreaShipMaintLower
+        23,-39: MCAreaShipMaintLower
+        23,-40: MCAreaShipMaintLower
+        22,-39: MCAreaShipMaintLower
+        22,-40: MCAreaShipMaintLower
+        21,-39: MCAreaShipMaintLower
+        21,-40: MCAreaShipMaintLower
+        20,-39: MCAreaShipMaintLower
+        20,-40: MCAreaShipMaintLower
+        19,-39: MCAreaShipMaintLower
+        19,-40: MCAreaShipMaintLower
+        18,-39: MCAreaShipMaintLower
+        18,-40: MCAreaShipMaintLower
+        18,-41: MCAreaShipMaintLower
+        18,-42: MCAreaShipMaintLower
+        18,-43: MCAreaShipMaintLower
+        18,-44: MCAreaShipMaintLower
+        18,-45: MCAreaShipMaintLower
+        18,-46: MCAreaShipMaintLower
+        18,-47: MCAreaShipMaintLower
+        18,-48: MCAreaShipMaintLower
+        18,-49: MCAreaShipMaintLower
+        19,-41: MCAreaShipMaintLower
+        19,-42: MCAreaShipMaintLower
+        19,-43: MCAreaShipMaintLower
+        19,-44: MCAreaShipMaintLower
+        19,-45: MCAreaShipMaintLower
+        19,-46: MCAreaShipMaintLower
+        19,-48: MCAreaShipMaintLower
+        19,-49: MCAreaShipMaintLower
+        19,-47: MCAreaShipMaintLower
+        17,-49: MCAreaShipMaintLower
+        17,-48: MCAreaShipMaintLower
+        16,-48: MCAreaShipMaintLower
+        16,-49: MCAreaShipMaintLower
+        15,-48: MCAreaShipMaintLower
+        15,-49: MCAreaShipMaintLower
+        14,-48: MCAreaShipMaintLower
+        14,-49: MCAreaShipMaintLower
+        13,-48: MCAreaShipMaintLower
+        13,-49: MCAreaShipMaintLower
+        12,-48: MCAreaShipMaintLower
+        12,-49: MCAreaShipMaintLower
+        11,-48: MCAreaShipMaintLower
+        11,-49: MCAreaShipMaintLower
+        10,-48: MCAreaShipMaintLower
+        10,-49: MCAreaShipMaintLower
+        9,-48: MCAreaShipMaintLower
+        9,-49: MCAreaShipMaintLower
+        8,-48: MCAreaShipMaintLower
+        8,-49: MCAreaShipMaintLower
+        7,-48: MCAreaShipMaintLower
+        7,-49: MCAreaShipMaintLower
+        6,-48: MCAreaShipMaintLower
+        6,-49: MCAreaShipMaintLower
+        5,-48: MCAreaShipMaintLower
+        5,-49: MCAreaShipMaintLower
+        4,-48: MCAreaShipMaintLower
+        4,-49: MCAreaShipMaintLower
+        3,-48: MCAreaShipMaintLower
+        2,-48: MCAreaShipMaintLower
+        2,-49: MCAreaShipMaintLower
+        1,-48: MCAreaShipMaintLower
+        1,-49: MCAreaShipMaintLower
+        0,-48: MCAreaShipMaintLower
+        0,-49: MCAreaShipMaintLower
+        -1,-48: MCAreaShipMaintLower
+        -1,-49: MCAreaShipMaintLower
+        3,-49: MCAreaShipMaintLower
+        -2,-48: MCAreaShipMaintLower
+        -2,-49: MCAreaShipMaintLower
+        -3,-48: MCAreaShipMaintLower
+        -3,-49: MCAreaShipMaintLower
+        -4,-48: MCAreaShipMaintLower
+        -4,-49: MCAreaShipMaintLower
+        -5,-48: MCAreaShipMaintLower
+        -5,-49: MCAreaShipMaintLower
+        -6,-48: MCAreaShipMaintLower
+        -6,-49: MCAreaShipMaintLower
+        -7,-48: MCAreaShipMaintLower
+        -7,-49: MCAreaShipMaintLower
+        -8,-48: MCAreaShipMaintLower
+        -8,-49: MCAreaShipMaintLower
+        -9,-48: MCAreaShipMaintLower
+        -9,-49: MCAreaShipMaintLower
+        -10,-48: MCAreaShipMaintLower
+        -10,-49: MCAreaShipMaintLower
+        -11,-48: MCAreaShipMaintLower
+        -11,-49: MCAreaShipMaintLower
+        -12,-48: MCAreaShipMaintLower
+        -12,-49: MCAreaShipMaintLower
+        -13,-48: MCAreaShipMaintLower
+        -13,-49: MCAreaShipMaintLower
+        -14,-48: MCAreaShipMaintLower
+        -14,-49: MCAreaShipMaintLower
+        -15,-48: MCAreaShipMaintLower
+        -15,-49: MCAreaShipMaintLower
+        -16,-48: MCAreaShipMaintLower
+        -16,-49: MCAreaShipMaintLower
+        -17,-48: MCAreaShipMaintLower
+        -17,-49: MCAreaShipMaintLower
+        -18,-48: MCAreaShipMaintLower
+        -18,-49: MCAreaShipMaintLower
+        -18,-47: MCAreaShipMaintLower
+        -18,-46: MCAreaShipMaintLower
+        -18,-45: MCAreaShipMaintLower
+        -18,-44: MCAreaShipMaintLower
+        -18,-43: MCAreaShipMaintLower
+        -18,-42: MCAreaShipMaintLower
+        -18,-41: MCAreaShipMaintLower
+        -18,-40: MCAreaShipMaintLower
+        -17,-47: MCAreaShipMaintLower
+        -17,-46: MCAreaShipMaintLower
+        -17,-45: MCAreaShipMaintLower
+        -17,-44: MCAreaShipMaintLower
+        -17,-43: MCAreaShipMaintLower
+        -17,-42: MCAreaShipMaintLower
+        -17,-41: MCAreaShipMaintLower
+        -17,-40: MCAreaShipMaintLower
+        -17,-39: MCAreaShipMaintLower
+        -17,-38: MCAreaShipMaintLower
+        -17,-37: MCAreaShipMaintLower
+        -17,-36: MCAreaShipMaintLower
+        -17,-35: MCAreaShipMaintLower
+        -17,-34: MCAreaShipMaintLower
+        -16,-34: MCAreaShipMaintLower
+        -16,-35: MCAreaShipMaintLower
+        -16,-36: MCAreaShipMaintLower
+        -16,-37: MCAreaShipMaintLower
+        -15,-34: MCAreaShipMaintLower
+        -15,-35: MCAreaShipMaintLower
+        -15,-36: MCAreaShipMaintLower
+        -15,-37: MCAreaShipMaintLower
+        21,16: MCAreaShipCommonSquadPreparation
+        22,16: MCAreaShipCommonSquadPreparation
+        16,14: MCAreaShipCommonSquadPreparation
+        16,15: MCAreaShipCommonSquadPreparation
+        17,14: MCAreaShipCommonSquadPreparation
+        17,15: MCAreaShipCommonSquadPreparation
+        18,14: MCAreaShipCommonSquadPreparation
+        18,15: MCAreaShipCommonSquadPreparation
+        19,14: MCAreaShipCommonSquadPreparation
+        19,15: MCAreaShipCommonSquadPreparation
+        20,14: MCAreaShipCommonSquadPreparation
+        20,15: MCAreaShipCommonSquadPreparation
+        21,14: MCAreaShipCommonSquadPreparation
+        21,15: MCAreaShipCommonSquadPreparation
+        22,14: MCAreaShipCommonSquadPreparation
+        22,15: MCAreaShipCommonSquadPreparation
+        16,13: MCAreaShipCommonSquadPreparation
+        16,12: MCAreaShipCommonSquadPreparation
+        16,11: MCAreaShipCommonSquadPreparation
+        16,10: MCAreaShipCommonSquadPreparation
+        16,9: MCAreaShipCommonSquadPreparation
+        16,8: MCAreaShipCommonSquadPreparation
+        17,13: MCAreaShipCommonSquadPreparation
+        17,10: MCAreaShipCommonSquadPreparation
+        17,11: MCAreaShipCommonSquadPreparation
+        17,9: MCAreaShipCommonSquadPreparation
+        17,8: MCAreaShipCommonSquadPreparation
+        18,13: MCAreaShipCommonSquadPreparation
+        18,12: MCAreaShipCommonSquadPreparation
+        18,11: MCAreaShipCommonSquadPreparation
+        18,10: MCAreaShipCommonSquadPreparation
+        18,9: MCAreaShipCommonSquadPreparation
+        18,8: MCAreaShipCommonSquadPreparation
+        19,13: MCAreaShipCommonSquadPreparation
+        19,12: MCAreaShipCommonSquadPreparation
+        19,11: MCAreaShipCommonSquadPreparation
+        19,10: MCAreaShipCommonSquadPreparation
+        19,9: MCAreaShipCommonSquadPreparation
+        19,8: MCAreaShipCommonSquadPreparation
+        20,13: MCAreaShipCommonSquadPreparation
+        20,12: MCAreaShipCommonSquadPreparation
+        20,11: MCAreaShipCommonSquadPreparation
+        20,10: MCAreaShipCommonSquadPreparation
+        20,9: MCAreaShipCommonSquadPreparation
+        20,8: MCAreaShipCommonSquadPreparation
+        21,13: MCAreaShipCommonSquadPreparation
+        21,12: MCAreaShipCommonSquadPreparation
+        21,11: MCAreaShipCommonSquadPreparation
+        21,10: MCAreaShipCommonSquadPreparation
+        21,9: MCAreaShipCommonSquadPreparation
+        21,8: MCAreaShipCommonSquadPreparation
+        22,13: MCAreaShipCommonSquadPreparation
+        22,12: MCAreaShipCommonSquadPreparation
+        22,11: MCAreaShipCommonSquadPreparation
+        22,10: MCAreaShipCommonSquadPreparation
+        22,9: MCAreaShipCommonSquadPreparation
+        22,8: MCAreaShipCommonSquadPreparation
+        17,12: MCAreaShipCommonSquadPreparation
+        23,9: MCAreaShipCommonSquadPreparation
+        23,8: MCAreaShipCommonSquadPreparation
+        24,9: MCAreaShipCommonSquadPreparation
+        24,8: MCAreaShipCommonSquadPreparation
+        25,9: MCAreaShipCommonSquadPreparation
+        25,8: MCAreaShipCommonSquadPreparation
+        26,9: MCAreaShipCommonSquadPreparation
+        26,8: MCAreaShipCommonSquadPreparation
+        26,7: MCAreaShipCommonSquadPreparation
+        26,6: MCAreaShipCommonSquadPreparation
+        26,5: MCAreaShipCommonSquadPreparation
+        26,4: MCAreaShipCommonSquadPreparation
+        26,3: MCAreaShipCommonSquadPreparation
+        26,2: MCAreaShipCommonSquadPreparation
+        26,1: MCAreaShipCommonSquadPreparation
+        26,0: MCAreaShipCommonSquadPreparation
+        26,-1: MCAreaShipCommonSquadPreparation
+        26,-2: MCAreaShipCommonSquadPreparation
+        25,7: MCAreaShipCommonSquadPreparation
+        25,6: MCAreaShipCommonSquadPreparation
+        25,5: MCAreaShipCommonSquadPreparation
+        25,4: MCAreaShipCommonSquadPreparation
+        25,3: MCAreaShipCommonSquadPreparation
+        25,1: MCAreaShipCommonSquadPreparation
+        25,2: MCAreaShipCommonSquadPreparation
+        25,0: MCAreaShipCommonSquadPreparation
+        25,-1: MCAreaShipCommonSquadPreparation
+        25,-2: MCAreaShipCommonSquadPreparation
+        24,7: MCAreaShipCommonSquadPreparation
+        24,6: MCAreaShipCommonSquadPreparation
+        24,5: MCAreaShipCommonSquadPreparation
+        24,4: MCAreaShipCommonSquadPreparation
+        24,3: MCAreaShipCommonSquadPreparation
+        24,2: MCAreaShipCommonSquadPreparation
+        24,1: MCAreaShipCommonSquadPreparation
+        24,0: MCAreaShipCommonSquadPreparation
+        24,-1: MCAreaShipCommonSquadPreparation
+        24,-2: MCAreaShipCommonSquadPreparation
+        23,7: MCAreaShipCommonSquadPreparation
+        23,6: MCAreaShipCommonSquadPreparation
+        23,5: MCAreaShipCommonSquadPreparation
+        23,4: MCAreaShipCommonSquadPreparation
+        23,3: MCAreaShipCommonSquadPreparation
+        23,2: MCAreaShipCommonSquadPreparation
+        23,1: MCAreaShipCommonSquadPreparation
+        23,0: MCAreaShipCommonSquadPreparation
+        23,-1: MCAreaShipCommonSquadPreparation
+        23,-2: MCAreaShipCommonSquadPreparation
+        22,7: MCAreaShipCommonSquadPreparation
+        22,6: MCAreaShipCommonSquadPreparation
+        22,5: MCAreaShipCommonSquadPreparation
+        22,4: MCAreaShipCommonSquadPreparation
+        22,3: MCAreaShipCommonSquadPreparation
+        22,2: MCAreaShipCommonSquadPreparation
+        22,1: MCAreaShipCommonSquadPreparation
+        22,0: MCAreaShipCommonSquadPreparation
+        22,-1: MCAreaShipCommonSquadPreparation
+        22,-2: MCAreaShipCommonSquadPreparation
+        21,7: MCAreaShipCommonSquadPreparation
+        21,6: MCAreaShipCommonSquadPreparation
+        21,5: MCAreaShipCommonSquadPreparation
+        21,4: MCAreaShipCommonSquadPreparation
+        21,3: MCAreaShipCommonSquadPreparation
+        21,2: MCAreaShipCommonSquadPreparation
+        21,1: MCAreaShipCommonSquadPreparation
+        21,0: MCAreaShipCommonSquadPreparation
+        21,-1: MCAreaShipCommonSquadPreparation
+        21,-2: MCAreaShipCommonSquadPreparation
+        20,7: MCAreaShipCommonSquadPreparation
+        20,6: MCAreaShipCommonSquadPreparation
+        20,5: MCAreaShipCommonSquadPreparation
+        20,4: MCAreaShipCommonSquadPreparation
+        20,3: MCAreaShipCommonSquadPreparation
+        20,2: MCAreaShipCommonSquadPreparation
+        20,1: MCAreaShipCommonSquadPreparation
+        20,0: MCAreaShipCommonSquadPreparation
+        20,-1: MCAreaShipCommonSquadPreparation
+        20,-2: MCAreaShipCommonSquadPreparation
+        19,7: MCAreaShipCommonSquadPreparation
+        19,6: MCAreaShipCommonSquadPreparation
+        19,5: MCAreaShipCommonSquadPreparation
+        19,4: MCAreaShipCommonSquadPreparation
+        19,3: MCAreaShipCommonSquadPreparation
+        19,2: MCAreaShipCommonSquadPreparation
+        19,1: MCAreaShipCommonSquadPreparation
+        19,0: MCAreaShipCommonSquadPreparation
+        19,-1: MCAreaShipCommonSquadPreparation
+        19,-2: MCAreaShipCommonSquadPreparation
+        18,7: MCAreaShipCommonSquadPreparation
+        18,6: MCAreaShipCommonSquadPreparation
+        18,5: MCAreaShipCommonSquadPreparation
+        18,4: MCAreaShipCommonSquadPreparation
+        18,3: MCAreaShipCommonSquadPreparation
+        18,2: MCAreaShipCommonSquadPreparation
+        18,1: MCAreaShipCommonSquadPreparation
+        18,0: MCAreaShipCommonSquadPreparation
+        18,-1: MCAreaShipCommonSquadPreparation
+        18,-2: MCAreaShipCommonSquadPreparation
+        17,7: MCAreaShipCommonSquadPreparation
+        17,6: MCAreaShipCommonSquadPreparation
+        17,5: MCAreaShipCommonSquadPreparation
+        17,4: MCAreaShipCommonSquadPreparation
+        17,3: MCAreaShipCommonSquadPreparation
+        17,2: MCAreaShipCommonSquadPreparation
+        17,1: MCAreaShipCommonSquadPreparation
+        17,0: MCAreaShipCommonSquadPreparation
+        17,-1: MCAreaShipCommonSquadPreparation
+        17,-2: MCAreaShipCommonSquadPreparation
+        16,7: MCAreaShipCommonSquadPreparation
+        16,6: MCAreaShipCommonSquadPreparation
+        16,5: MCAreaShipCommonSquadPreparation
+        16,4: MCAreaShipCommonSquadPreparation
+        16,3: MCAreaShipCommonSquadPreparation
+        16,2: MCAreaShipCommonSquadPreparation
+        16,1: MCAreaShipCommonSquadPreparation
+        16,0: MCAreaShipCommonSquadPreparation
+        16,-1: MCAreaShipCommonSquadPreparation
+        16,-2: MCAreaShipCommonSquadPreparation
+        13,-2: MCAreaShipCommonSquadPreparation
+        12,-2: MCAreaShipCommonSquadPreparation
+        12,-3: MCAreaShipCommonSquadPreparation
+        12,-4: MCAreaShipCommonSquadPreparation
+        12,-5: MCAreaShipCommonSquadPreparation
+        12,-6: MCAreaShipCommonSquadPreparation
+        12,-7: MCAreaShipCommonSquadPreparation
+        12,-8: MCAreaShipCommonSquadPreparation
+        12,-9: MCAreaShipCommonSquadPreparation
+        12,-10: MCAreaShipCommonSquadPreparation
+        12,-11: MCAreaShipCommonSquadPreparation
+        12,-12: MCAreaShipCommonSquadPreparation
+        12,-13: MCAreaShipCommonSquadPreparation
+        12,-14: MCAreaShipCommonSquadPreparation
+        12,-15: MCAreaShipCommonSquadPreparation
+        12,-16: MCAreaShipCommonSquadPreparation
+        12,-17: MCAreaShipCommonSquadPreparation
+        12,-18: MCAreaShipCommonSquadPreparation
+        13,-18: MCAreaShipCommonSquadPreparation
+        13,-17: MCAreaShipCommonSquadPreparation
+        13,-16: MCAreaShipCommonSquadPreparation
+        13,-15: MCAreaShipCommonSquadPreparation
+        13,-14: MCAreaShipCommonSquadPreparation
+        13,-13: MCAreaShipCommonSquadPreparation
+        13,-12: MCAreaShipCommonSquadPreparation
+        13,-11: MCAreaShipCommonSquadPreparation
+        13,-10: MCAreaShipCommonSquadPreparation
+        13,-9: MCAreaShipCommonSquadPreparation
+        13,-8: MCAreaShipCommonSquadPreparation
+        13,-7: MCAreaShipCommonSquadPreparation
+        13,-6: MCAreaShipCommonSquadPreparation
+        13,-5: MCAreaShipCommonSquadPreparation
+        13,-4: MCAreaShipCommonSquadPreparation
+        13,-3: MCAreaShipCommonSquadPreparation
+        14,-18: MCAreaShipCommonSquadPreparation
+        14,-17: MCAreaShipCommonSquadPreparation
+        14,-16: MCAreaShipCommonSquadPreparation
+        14,-15: MCAreaShipCommonSquadPreparation
+        14,-14: MCAreaShipCommonSquadPreparation
+        14,-13: MCAreaShipCommonSquadPreparation
+        14,-12: MCAreaShipCommonSquadPreparation
+        14,-11: MCAreaShipCommonSquadPreparation
+        14,-10: MCAreaShipCommonSquadPreparation
+        14,-9: MCAreaShipCommonSquadPreparation
+        14,-8: MCAreaShipCommonSquadPreparation
+        14,-7: MCAreaShipCommonSquadPreparation
+        14,-6: MCAreaShipCommonSquadPreparation
+        14,-5: MCAreaShipCommonSquadPreparation
+        14,-4: MCAreaShipCommonSquadPreparation
+        14,-3: MCAreaShipCommonSquadPreparation
+        15,-18: MCAreaShipCommonSquadPreparation
+        15,-17: MCAreaShipCommonSquadPreparation
+        15,-16: MCAreaShipCommonSquadPreparation
+        15,-15: MCAreaShipCommonSquadPreparation
+        15,-14: MCAreaShipCommonSquadPreparation
+        15,-13: MCAreaShipCommonSquadPreparation
+        15,-12: MCAreaShipCommonSquadPreparation
+        15,-11: MCAreaShipCommonSquadPreparation
+        15,-10: MCAreaShipCommonSquadPreparation
+        15,-9: MCAreaShipCommonSquadPreparation
+        15,-8: MCAreaShipCommonSquadPreparation
+        15,-7: MCAreaShipCommonSquadPreparation
+        15,-6: MCAreaShipCommonSquadPreparation
+        15,-5: MCAreaShipCommonSquadPreparation
+        15,-4: MCAreaShipCommonSquadPreparation
+        15,-3: MCAreaShipCommonSquadPreparation
+        16,-18: MCAreaShipCommonSquadPreparation
+        16,-17: MCAreaShipCommonSquadPreparation
+        16,-16: MCAreaShipCommonSquadPreparation
+        16,-15: MCAreaShipCommonSquadPreparation
+        16,-14: MCAreaShipCommonSquadPreparation
+        16,-13: MCAreaShipCommonSquadPreparation
+        16,-12: MCAreaShipCommonSquadPreparation
+        16,-11: MCAreaShipCommonSquadPreparation
+        16,-10: MCAreaShipCommonSquadPreparation
+        16,-9: MCAreaShipCommonSquadPreparation
+        16,-8: MCAreaShipCommonSquadPreparation
+        16,-7: MCAreaShipCommonSquadPreparation
+        16,-6: MCAreaShipCommonSquadPreparation
+        16,-5: MCAreaShipCommonSquadPreparation
+        16,-4: MCAreaShipCommonSquadPreparation
+        16,-3: MCAreaShipCommonSquadPreparation
+        17,-18: MCAreaShipCommonSquadPreparation
+        17,-17: MCAreaShipCommonSquadPreparation
+        17,-16: MCAreaShipCommonSquadPreparation
+        17,-15: MCAreaShipCommonSquadPreparation
+        17,-14: MCAreaShipCommonSquadPreparation
+        17,-13: MCAreaShipCommonSquadPreparation
+        17,-12: MCAreaShipCommonSquadPreparation
+        17,-11: MCAreaShipCommonSquadPreparation
+        17,-10: MCAreaShipCommonSquadPreparation
+        17,-9: MCAreaShipCommonSquadPreparation
+        17,-8: MCAreaShipCommonSquadPreparation
+        17,-7: MCAreaShipCommonSquadPreparation
+        17,-6: MCAreaShipCommonSquadPreparation
+        17,-5: MCAreaShipCommonSquadPreparation
+        17,-4: MCAreaShipCommonSquadPreparation
+        17,-3: MCAreaShipCommonSquadPreparation
+        18,-18: MCAreaShipCommonSquadPreparation
+        18,-17: MCAreaShipCommonSquadPreparation
+        18,-16: MCAreaShipCommonSquadPreparation
+        18,-15: MCAreaShipCommonSquadPreparation
+        18,-14: MCAreaShipCommonSquadPreparation
+        18,-13: MCAreaShipCommonSquadPreparation
+        18,-12: MCAreaShipCommonSquadPreparation
+        18,-11: MCAreaShipCommonSquadPreparation
+        18,-10: MCAreaShipCommonSquadPreparation
+        18,-9: MCAreaShipCommonSquadPreparation
+        18,-8: MCAreaShipCommonSquadPreparation
+        18,-7: MCAreaShipCommonSquadPreparation
+        18,-6: MCAreaShipCommonSquadPreparation
+        18,-5: MCAreaShipCommonSquadPreparation
+        18,-4: MCAreaShipCommonSquadPreparation
+        18,-3: MCAreaShipCommonSquadPreparation
+        19,-18: MCAreaShipCommonSquadPreparation
+        19,-17: MCAreaShipCommonSquadPreparation
+        19,-16: MCAreaShipCommonSquadPreparation
+        19,-15: MCAreaShipCommonSquadPreparation
+        19,-14: MCAreaShipCommonSquadPreparation
+        19,-13: MCAreaShipCommonSquadPreparation
+        19,-12: MCAreaShipCommonSquadPreparation
+        19,-11: MCAreaShipCommonSquadPreparation
+        19,-10: MCAreaShipCommonSquadPreparation
+        19,-9: MCAreaShipCommonSquadPreparation
+        19,-8: MCAreaShipCommonSquadPreparation
+        19,-7: MCAreaShipCommonSquadPreparation
+        19,-6: MCAreaShipCommonSquadPreparation
+        19,-5: MCAreaShipCommonSquadPreparation
+        19,-4: MCAreaShipCommonSquadPreparation
+        19,-3: MCAreaShipCommonSquadPreparation
+        14,-2: MCAreaShipCommonSquadPreparation
+        15,-2: MCAreaShipCommonSquadPreparation
+        15,-19: MCAreaShipCommonSquadPreparation
+        15,-20: MCAreaShipCommonSquadPreparation
+        15,-21: MCAreaShipCommonSquadPreparation
+        15,-22: MCAreaShipCommonSquadPreparation
+        15,-23: MCAreaShipCommonSquadPreparation
+        16,-19: MCAreaShipCommonSquadPreparation
+        16,-20: MCAreaShipCommonSquadPreparation
+        16,-21: MCAreaShipCommonSquadPreparation
+        16,-22: MCAreaShipCommonSquadPreparation
+        16,-23: MCAreaShipCommonSquadPreparation
+        17,-19: MCAreaShipCommonSquadPreparation
+        17,-20: MCAreaShipCommonSquadPreparation
+        17,-21: MCAreaShipCommonSquadPreparation
+        17,-22: MCAreaShipCommonSquadPreparation
+        17,-23: MCAreaShipCommonSquadPreparation
+        18,-19: MCAreaShipCommonSquadPreparation
+        18,-21: MCAreaShipCommonSquadPreparation
+        18,-22: MCAreaShipCommonSquadPreparation
+        18,-23: MCAreaShipCommonSquadPreparation
+        19,-19: MCAreaShipCommonSquadPreparation
+        18,-20: MCAreaShipCommonSquadPreparation
+        19,-20: MCAreaShipCommonSquadPreparation
+        19,-21: MCAreaShipCommonSquadPreparation
+        19,-22: MCAreaShipCommonSquadPreparation
+        19,-23: MCAreaShipCommonSquadPreparation
+        20,-19: MCAreaShipCommonSquadPreparation
+        20,-20: MCAreaShipCommonSquadPreparation
+        20,-21: MCAreaShipCommonSquadPreparation
+        20,-22: MCAreaShipCommonSquadPreparation
+        20,-23: MCAreaShipCommonSquadPreparation
+        21,-19: MCAreaShipCommonSquadPreparation
+        21,-20: MCAreaShipCommonSquadPreparation
+        21,-21: MCAreaShipCommonSquadPreparation
+        21,-22: MCAreaShipCommonSquadPreparation
+        21,-23: MCAreaShipCommonSquadPreparation
+        22,-19: MCAreaShipCommonSquadPreparation
+        22,-20: MCAreaShipCommonSquadPreparation
+        22,-21: MCAreaShipCommonSquadPreparation
+        22,-22: MCAreaShipCommonSquadPreparation
+        22,-23: MCAreaShipCommonSquadPreparation
+        23,-19: MCAreaShipCommonSquadPreparation
+        23,-20: MCAreaShipCommonSquadPreparation
+        23,-21: MCAreaShipCommonSquadPreparation
+        23,-22: MCAreaShipCommonSquadPreparation
+        23,-23: MCAreaShipCommonSquadPreparation
+        24,-19: MCAreaShipCommonSquadPreparation
+        24,-20: MCAreaShipCommonSquadPreparation
+        24,-21: MCAreaShipCommonSquadPreparation
+        24,-22: MCAreaShipCommonSquadPreparation
+        24,-23: MCAreaShipCommonSquadPreparation
+        25,-19: MCAreaShipCommonSquadPreparation
+        25,-20: MCAreaShipCommonSquadPreparation
+        25,-21: MCAreaShipCommonSquadPreparation
+        25,-22: MCAreaShipCommonSquadPreparation
+        25,-23: MCAreaShipCommonSquadPreparation
+        26,-19: MCAreaShipCommonSquadPreparation
+        26,-20: MCAreaShipCommonSquadPreparation
+        26,-21: MCAreaShipCommonSquadPreparation
+        26,-22: MCAreaShipCommonSquadPreparation
+        26,-23: MCAreaShipCommonSquadPreparation
+        27,-19: MCAreaShipCommonSquadPreparation
+        27,-20: MCAreaShipCommonSquadPreparation
+        27,-21: MCAreaShipCommonSquadPreparation
+        27,-22: MCAreaShipCommonSquadPreparation
+        27,-23: MCAreaShipCommonSquadPreparation
+        28,-19: MCAreaShipCommonSquadPreparation
+        28,-20: MCAreaShipCommonSquadPreparation
+        28,-21: MCAreaShipCommonSquadPreparation
+        28,-22: MCAreaShipCommonSquadPreparation
+        28,-23: MCAreaShipCommonSquadPreparation
+        29,-19: MCAreaShipCommonSquadPreparation
+        29,-20: MCAreaShipCommonSquadPreparation
+        29,-21: MCAreaShipCommonSquadPreparation
+        29,-22: MCAreaShipCommonSquadPreparation
+        29,-23: MCAreaShipCommonSquadPreparation
+        30,-19: MCAreaShipCommonSquadPreparation
+        30,-20: MCAreaShipCommonSquadPreparation
+        30,-21: MCAreaShipCommonSquadPreparation
+        30,-22: MCAreaShipCommonSquadPreparation
+        30,-23: MCAreaShipCommonSquadPreparation
+        31,-19: MCAreaShipCommonSquadPreparation
+        31,-20: MCAreaShipCommonSquadPreparation
+        31,-21: MCAreaShipCommonSquadPreparation
+        31,-22: MCAreaShipCommonSquadPreparation
+        31,-23: MCAreaShipCommonSquadPreparation
+        32,-19: MCAreaShipCommonSquadPreparation
+        32,-20: MCAreaShipCommonSquadPreparation
+        32,-21: MCAreaShipCommonSquadPreparation
+        32,-22: MCAreaShipCommonSquadPreparation
+        32,-23: MCAreaShipCommonSquadPreparation
+        20,-18: MCAreaShipCommonSquadPreparation
+        20,-17: MCAreaShipCommonSquadPreparation
+        20,-16: MCAreaShipCommonSquadPreparation
+        20,-15: MCAreaShipCommonSquadPreparation
+        20,-14: MCAreaShipCommonSquadPreparation
+        20,-13: MCAreaShipCommonSquadPreparation
+        20,-12: MCAreaShipCommonSquadPreparation
+        20,-11: MCAreaShipCommonSquadPreparation
+        20,-10: MCAreaShipCommonSquadPreparation
+        20,-9: MCAreaShipCommonSquadPreparation
+        20,-8: MCAreaShipCommonSquadPreparation
+        20,-7: MCAreaShipCommonSquadPreparation
+        20,-6: MCAreaShipCommonSquadPreparation
+        20,-5: MCAreaShipCommonSquadPreparation
+        20,-3: MCAreaShipCommonSquadPreparation
+        20,-4: MCAreaShipCommonSquadPreparation
+        21,-18: MCAreaShipCommonSquadPreparation
+        21,-17: MCAreaShipCommonSquadPreparation
+        21,-16: MCAreaShipCommonSquadPreparation
+        21,-15: MCAreaShipCommonSquadPreparation
+        21,-14: MCAreaShipCommonSquadPreparation
+        21,-13: MCAreaShipCommonSquadPreparation
+        21,-12: MCAreaShipCommonSquadPreparation
+        21,-11: MCAreaShipCommonSquadPreparation
+        21,-10: MCAreaShipCommonSquadPreparation
+        21,-9: MCAreaShipCommonSquadPreparation
+        21,-8: MCAreaShipCommonSquadPreparation
+        21,-7: MCAreaShipCommonSquadPreparation
+        21,-6: MCAreaShipCommonSquadPreparation
+        21,-5: MCAreaShipCommonSquadPreparation
+        21,-4: MCAreaShipCommonSquadPreparation
+        21,-3: MCAreaShipCommonSquadPreparation
+        22,-18: MCAreaShipCommonSquadPreparation
+        22,-17: MCAreaShipCommonSquadPreparation
+        22,-16: MCAreaShipCommonSquadPreparation
+        22,-15: MCAreaShipCommonSquadPreparation
+        22,-14: MCAreaShipCommonSquadPreparation
+        22,-13: MCAreaShipCommonSquadPreparation
+        22,-12: MCAreaShipCommonSquadPreparation
+        22,-11: MCAreaShipCommonSquadPreparation
+        22,-10: MCAreaShipCommonSquadPreparation
+        22,-9: MCAreaShipCommonSquadPreparation
+        22,-8: MCAreaShipCommonSquadPreparation
+        22,-7: MCAreaShipCommonSquadPreparation
+        22,-6: MCAreaShipCommonSquadPreparation
+        22,-5: MCAreaShipCommonSquadPreparation
+        22,-4: MCAreaShipCommonSquadPreparation
+        22,-3: MCAreaShipCommonSquadPreparation
+        23,-18: MCAreaShipCommonSquadPreparation
+        23,-17: MCAreaShipCommonSquadPreparation
+        23,-16: MCAreaShipCommonSquadPreparation
+        23,-15: MCAreaShipCommonSquadPreparation
+        23,-14: MCAreaShipCommonSquadPreparation
+        23,-13: MCAreaShipCommonSquadPreparation
+        23,-12: MCAreaShipCommonSquadPreparation
+        23,-11: MCAreaShipCommonSquadPreparation
+        23,-10: MCAreaShipCommonSquadPreparation
+        23,-9: MCAreaShipCommonSquadPreparation
+        23,-8: MCAreaShipCommonSquadPreparation
+        23,-7: MCAreaShipCommonSquadPreparation
+        23,-6: MCAreaShipCommonSquadPreparation
+        23,-5: MCAreaShipCommonSquadPreparation
+        23,-4: MCAreaShipCommonSquadPreparation
+        23,-3: MCAreaShipCommonSquadPreparation
+        24,-18: MCAreaShipCommonSquadPreparation
+        24,-17: MCAreaShipCommonSquadPreparation
+        24,-16: MCAreaShipCommonSquadPreparation
+        24,-15: MCAreaShipCommonSquadPreparation
+        24,-14: MCAreaShipCommonSquadPreparation
+        24,-13: MCAreaShipCommonSquadPreparation
+        24,-12: MCAreaShipCommonSquadPreparation
+        24,-11: MCAreaShipCommonSquadPreparation
+        24,-10: MCAreaShipCommonSquadPreparation
+        24,-9: MCAreaShipCommonSquadPreparation
+        24,-8: MCAreaShipCommonSquadPreparation
+        24,-7: MCAreaShipCommonSquadPreparation
+        24,-6: MCAreaShipCommonSquadPreparation
+        24,-5: MCAreaShipCommonSquadPreparation
+        24,-4: MCAreaShipCommonSquadPreparation
+        24,-3: MCAreaShipCommonSquadPreparation
+        25,-18: MCAreaShipCommonSquadPreparation
+        25,-17: MCAreaShipCommonSquadPreparation
+        25,-16: MCAreaShipCommonSquadPreparation
+        25,-15: MCAreaShipCommonSquadPreparation
+        25,-14: MCAreaShipCommonSquadPreparation
+        25,-13: MCAreaShipCommonSquadPreparation
+        25,-12: MCAreaShipCommonSquadPreparation
+        25,-11: MCAreaShipCommonSquadPreparation
+        25,-10: MCAreaShipCommonSquadPreparation
+        25,-9: MCAreaShipCommonSquadPreparation
+        25,-8: MCAreaShipCommonSquadPreparation
+        25,-7: MCAreaShipCommonSquadPreparation
+        25,-6: MCAreaShipCommonSquadPreparation
+        25,-5: MCAreaShipCommonSquadPreparation
+        25,-4: MCAreaShipCommonSquadPreparation
+        25,-3: MCAreaShipCommonSquadPreparation
+        26,-18: MCAreaShipCommonSquadPreparation
+        26,-17: MCAreaShipCommonSquadPreparation
+        26,-16: MCAreaShipCommonSquadPreparation
+        26,-15: MCAreaShipCommonSquadPreparation
+        26,-14: MCAreaShipCommonSquadPreparation
+        26,-13: MCAreaShipCommonSquadPreparation
+        26,-12: MCAreaShipCommonSquadPreparation
+        26,-11: MCAreaShipCommonSquadPreparation
+        26,-10: MCAreaShipCommonSquadPreparation
+        26,-9: MCAreaShipCommonSquadPreparation
+        26,-8: MCAreaShipCommonSquadPreparation
+        26,-7: MCAreaShipCommonSquadPreparation
+        26,-6: MCAreaShipCommonSquadPreparation
+        26,-5: MCAreaShipCommonSquadPreparation
+        26,-4: MCAreaShipCommonSquadPreparation
+        26,-3: MCAreaShipCommonSquadPreparation
+        27,-18: MCAreaShipCommonSquadPreparation
+        27,-17: MCAreaShipCommonSquadPreparation
+        27,-16: MCAreaShipCommonSquadPreparation
+        27,-15: MCAreaShipCommonSquadPreparation
+        27,-14: MCAreaShipCommonSquadPreparation
+        27,-13: MCAreaShipCommonSquadPreparation
+        27,-12: MCAreaShipCommonSquadPreparation
+        27,-11: MCAreaShipCommonSquadPreparation
+        27,-10: MCAreaShipCommonSquadPreparation
+        27,-9: MCAreaShipCommonSquadPreparation
+        27,-8: MCAreaShipCommonSquadPreparation
+        27,-6: MCAreaShipCommonSquadPreparation
+        27,-5: MCAreaShipCommonSquadPreparation
+        27,-7: MCAreaShipCommonSquadPreparation
+        27,-4: MCAreaShipCommonSquadPreparation
+        27,-3: MCAreaShipCommonSquadPreparation
+        28,-18: MCAreaShipCommonSquadPreparation
+        28,-17: MCAreaShipCommonSquadPreparation
+        28,-16: MCAreaShipCommonSquadPreparation
+        28,-15: MCAreaShipCommonSquadPreparation
+        28,-14: MCAreaShipCommonSquadPreparation
+        28,-13: MCAreaShipCommonSquadPreparation
+        28,-12: MCAreaShipCommonSquadPreparation
+        28,-11: MCAreaShipCommonSquadPreparation
+        28,-10: MCAreaShipCommonSquadPreparation
+        28,-9: MCAreaShipCommonSquadPreparation
+        28,-8: MCAreaShipCommonSquadPreparation
+        28,-7: MCAreaShipCommonSquadPreparation
+        28,-6: MCAreaShipCommonSquadPreparation
+        28,-5: MCAreaShipCommonSquadPreparation
+        28,-4: MCAreaShipCommonSquadPreparation
+        28,-3: MCAreaShipCommonSquadPreparation
+        29,-18: MCAreaShipCommonSquadPreparation
+        29,-17: MCAreaShipCommonSquadPreparation
+        29,-16: MCAreaShipCommonSquadPreparation
+        29,-15: MCAreaShipCommonSquadPreparation
+        29,-14: MCAreaShipCommonSquadPreparation
+        29,-13: MCAreaShipCommonSquadPreparation
+        29,-12: MCAreaShipCommonSquadPreparation
+        29,-11: MCAreaShipCommonSquadPreparation
+        29,-10: MCAreaShipCommonSquadPreparation
+        29,-9: MCAreaShipCommonSquadPreparation
+        29,-8: MCAreaShipCommonSquadPreparation
+        29,-7: MCAreaShipCommonSquadPreparation
+        29,-6: MCAreaShipCommonSquadPreparation
+        29,-5: MCAreaShipCommonSquadPreparation
+        29,-4: MCAreaShipCommonSquadPreparation
+        29,-3: MCAreaShipCommonSquadPreparation
+        30,-18: MCAreaShipCommonSquadPreparation
+        30,-17: MCAreaShipCommonSquadPreparation
+        30,-16: MCAreaShipCommonSquadPreparation
+        30,-15: MCAreaShipCommonSquadPreparation
+        30,-14: MCAreaShipCommonSquadPreparation
+        30,-13: MCAreaShipCommonSquadPreparation
+        30,-12: MCAreaShipCommonSquadPreparation
+        30,-11: MCAreaShipCommonSquadPreparation
+        30,-10: MCAreaShipCommonSquadPreparation
+        30,-9: MCAreaShipCommonSquadPreparation
+        30,-8: MCAreaShipCommonSquadPreparation
+        30,-7: MCAreaShipCommonSquadPreparation
+        30,-6: MCAreaShipCommonSquadPreparation
+        30,-5: MCAreaShipCommonSquadPreparation
+        30,-4: MCAreaShipCommonSquadPreparation
+        30,-3: MCAreaShipCommonSquadPreparation
+        31,-18: MCAreaShipCommonSquadPreparation
+        31,-17: MCAreaShipCommonSquadPreparation
+        31,-16: MCAreaShipCommonSquadPreparation
+        31,-15: MCAreaShipCommonSquadPreparation
+        31,-14: MCAreaShipCommonSquadPreparation
+        31,-13: MCAreaShipCommonSquadPreparation
+        31,-12: MCAreaShipCommonSquadPreparation
+        31,-11: MCAreaShipCommonSquadPreparation
+        31,-10: MCAreaShipCommonSquadPreparation
+        31,-9: MCAreaShipCommonSquadPreparation
+        31,-8: MCAreaShipCommonSquadPreparation
+        31,-7: MCAreaShipCommonSquadPreparation
+        31,-6: MCAreaShipCommonSquadPreparation
+        31,-5: MCAreaShipCommonSquadPreparation
+        31,-4: MCAreaShipCommonSquadPreparation
+        31,-3: MCAreaShipCommonSquadPreparation
+        32,-18: MCAreaShipCommonSquadPreparation
+        32,-17: MCAreaShipCommonSquadPreparation
+        32,-16: MCAreaShipCommonSquadPreparation
+        32,-15: MCAreaShipCommonSquadPreparation
+        32,-14: MCAreaShipCommonSquadPreparation
+        32,-13: MCAreaShipCommonSquadPreparation
+        32,-12: MCAreaShipCommonSquadPreparation
+        32,-11: MCAreaShipCommonSquadPreparation
+        32,-10: MCAreaShipCommonSquadPreparation
+        32,-9: MCAreaShipCommonSquadPreparation
+        32,-8: MCAreaShipCommonSquadPreparation
+        32,-7: MCAreaShipCommonSquadPreparation
+        32,-6: MCAreaShipCommonSquadPreparation
+        32,-5: MCAreaShipCommonSquadPreparation
+        32,-4: MCAreaShipCommonSquadPreparation
+        32,-3: MCAreaShipCommonSquadPreparation
+        32,-2: MCAreaShipCommonSquadPreparation
+        32,-1: MCAreaShipCommonSquadPreparation
+        32,0: MCAreaShipCommonSquadPreparation
+        32,1: MCAreaShipCommonSquadPreparation
+        32,2: MCAreaShipCommonSquadPreparation
+        32,3: MCAreaShipCommonSquadPreparation
+        32,4: MCAreaShipCommonSquadPreparation
+        32,5: MCAreaShipCommonSquadPreparation
+        32,6: MCAreaShipCommonSquadPreparation
+        31,-2: MCAreaShipCommonSquadPreparation
+        31,-1: MCAreaShipCommonSquadPreparation
+        31,0: MCAreaShipCommonSquadPreparation
+        31,1: MCAreaShipCommonSquadPreparation
+        31,2: MCAreaShipCommonSquadPreparation
+        31,3: MCAreaShipCommonSquadPreparation
+        31,4: MCAreaShipCommonSquadPreparation
+        31,5: MCAreaShipCommonSquadPreparation
+        31,6: MCAreaShipCommonSquadPreparation
+        30,-2: MCAreaShipCommonSquadPreparation
+        30,-1: MCAreaShipCommonSquadPreparation
+        30,0: MCAreaShipCommonSquadPreparation
+        30,1: MCAreaShipCommonSquadPreparation
+        30,2: MCAreaShipCommonSquadPreparation
+        30,3: MCAreaShipCommonSquadPreparation
+        30,4: MCAreaShipCommonSquadPreparation
+        30,5: MCAreaShipCommonSquadPreparation
+        30,6: MCAreaShipCommonSquadPreparation
+        29,-2: MCAreaShipCommonSquadPreparation
+        29,-1: MCAreaShipCommonSquadPreparation
+        29,0: MCAreaShipCommonSquadPreparation
+        29,1: MCAreaShipCommonSquadPreparation
+        29,2: MCAreaShipCommonSquadPreparation
+        29,3: MCAreaShipCommonSquadPreparation
+        29,4: MCAreaShipCommonSquadPreparation
+        29,5: MCAreaShipCommonSquadPreparation
+        29,6: MCAreaShipCommonSquadPreparation
+        28,-2: MCAreaShipCommonSquadPreparation
+        28,-1: MCAreaShipCommonSquadPreparation
+        28,0: MCAreaShipCommonSquadPreparation
+        28,1: MCAreaShipCommonSquadPreparation
+        28,3: MCAreaShipCommonSquadPreparation
+        28,4: MCAreaShipCommonSquadPreparation
+        28,5: MCAreaShipCommonSquadPreparation
+        28,6: MCAreaShipCommonSquadPreparation
+        27,-2: MCAreaShipCommonSquadPreparation
+        27,-1: MCAreaShipCommonSquadPreparation
+        27,0: MCAreaShipCommonSquadPreparation
+        27,1: MCAreaShipCommonSquadPreparation
+        27,2: MCAreaShipCommonSquadPreparation
+        27,3: MCAreaShipCommonSquadPreparation
+        27,4: MCAreaShipCommonSquadPreparation
+        27,5: MCAreaShipCommonSquadPreparation
+        27,6: MCAreaShipCommonSquadPreparation
+        28,2: MCAreaShipCommonSquadPreparation
+        12,6: MCAreaShipRequisitions
+        27,9: MCAreaShipFiringRange
+        27,8: MCAreaShipFiringRange
+        27,7: MCAreaShipFiringRange
+        28,9: MCAreaShipFiringRange
+        28,8: MCAreaShipFiringRange
+        28,7: MCAreaShipFiringRange
+        29,9: MCAreaShipFiringRange
+        29,8: MCAreaShipFiringRange
+        29,7: MCAreaShipFiringRange
+        30,9: MCAreaShipFiringRange
+        30,8: MCAreaShipFiringRange
+        30,7: MCAreaShipFiringRange
+        31,9: MCAreaShipFiringRange
+        31,8: MCAreaShipFiringRange
+        31,7: MCAreaShipFiringRange
+        32,9: MCAreaShipFiringRange
+        32,8: MCAreaShipFiringRange
+        32,7: MCAreaShipFiringRange
+        33,9: MCAreaShipFiringRange
+        33,8: MCAreaShipFiringRange
+        33,7: MCAreaShipFiringRange
+        34,9: MCAreaShipFiringRange
+        34,8: MCAreaShipFiringRange
+        34,7: MCAreaShipFiringRange
+        35,9: MCAreaShipFiringRange
+        35,8: MCAreaShipFiringRange
+        35,7: MCAreaShipFiringRange
+        36,9: MCAreaShipFiringRange
+        36,8: MCAreaShipFiringRange
+        36,7: MCAreaShipFiringRange
+        37,9: MCAreaShipFiringRange
+        37,8: MCAreaShipFiringRange
+        37,7: MCAreaShipFiringRange
+        38,9: MCAreaShipFiringRange
+        38,8: MCAreaShipFiringRange
+        38,7: MCAreaShipFiringRange
+        39,9: MCAreaShipFiringRange
+        39,8: MCAreaShipFiringRange
+        39,7: MCAreaShipFiringRange
+        28,16: MCAreaShipFiringRange
+        28,15: MCAreaShipFiringRange
+        28,14: MCAreaShipFiringRange
+        28,13: MCAreaShipFiringRange
+        28,12: MCAreaShipFiringRange
+        28,11: MCAreaShipFiringRange
+        28,10: MCAreaShipFiringRange
+        29,16: MCAreaShipFiringRange
+        29,15: MCAreaShipFiringRange
+        29,14: MCAreaShipFiringRange
+        29,13: MCAreaShipFiringRange
+        29,12: MCAreaShipFiringRange
+        29,11: MCAreaShipFiringRange
+        29,10: MCAreaShipFiringRange
+        30,16: MCAreaShipFiringRange
+        30,15: MCAreaShipFiringRange
+        30,14: MCAreaShipFiringRange
+        30,13: MCAreaShipFiringRange
+        30,12: MCAreaShipFiringRange
+        30,11: MCAreaShipFiringRange
+        30,10: MCAreaShipFiringRange
+        31,14: MCAreaShipFiringRange
+        31,13: MCAreaShipFiringRange
+        31,12: MCAreaShipFiringRange
+        31,11: MCAreaShipFiringRange
+        31,10: MCAreaShipFiringRange
+        32,16: MCAreaShipFiringRange
+        32,15: MCAreaShipFiringRange
+        32,14: MCAreaShipFiringRange
+        32,13: MCAreaShipFiringRange
+        32,12: MCAreaShipFiringRange
+        32,11: MCAreaShipFiringRange
+        32,10: MCAreaShipFiringRange
+        33,16: MCAreaShipFiringRange
+        31,16: MCAreaShipFiringRange
+        31,15: MCAreaShipFiringRange
+        33,14: MCAreaShipFiringRange
+        33,15: MCAreaShipFiringRange
+        33,13: MCAreaShipFiringRange
+        33,12: MCAreaShipFiringRange
+        33,11: MCAreaShipFiringRange
+        33,10: MCAreaShipFiringRange
+        34,16: MCAreaShipFiringRange
+        34,14: MCAreaShipFiringRange
+        34,13: MCAreaShipFiringRange
+        34,15: MCAreaShipFiringRange
+        34,12: MCAreaShipFiringRange
+        34,11: MCAreaShipFiringRange
+        34,10: MCAreaShipFiringRange
+        35,16: MCAreaShipFiringRange
+        35,15: MCAreaShipFiringRange
+        35,14: MCAreaShipFiringRange
+        35,13: MCAreaShipFiringRange
+        35,12: MCAreaShipFiringRange
+        35,11: MCAreaShipFiringRange
+        35,10: MCAreaShipFiringRange
+        36,16: MCAreaShipFiringRange
+        36,15: MCAreaShipFiringRange
+        36,14: MCAreaShipFiringRange
+        36,13: MCAreaShipFiringRange
+        36,12: MCAreaShipFiringRange
+        36,11: MCAreaShipFiringRange
+        36,10: MCAreaShipFiringRange
+        37,16: MCAreaShipFiringRange
+        37,15: MCAreaShipFiringRange
+        37,14: MCAreaShipFiringRange
+        37,13: MCAreaShipFiringRange
+        37,12: MCAreaShipFiringRange
+        37,11: MCAreaShipFiringRange
+        37,10: MCAreaShipFiringRange
+        38,16: MCAreaShipFiringRange
+        38,15: MCAreaShipFiringRange
+        38,14: MCAreaShipFiringRange
+        38,13: MCAreaShipFiringRange
+        38,12: MCAreaShipFiringRange
+        38,11: MCAreaShipFiringRange
+        38,10: MCAreaShipFiringRange
+        39,16: MCAreaShipFiringRange
+        39,15: MCAreaShipFiringRange
+        39,14: MCAreaShipFiringRange
+        39,13: MCAreaShipFiringRange
+        39,12: MCAreaShipFiringRange
+        39,11: MCAreaShipFiringRange
+        39,10: MCAreaShipFiringRange
 - proto: BoozeDispenser
   entities:
   - uid: 1968
@@ -1853,6 +4809,104 @@ entities:
     components:
     - type: Transform
       pos: -25.5,7.5
+      parent: 2
+- proto: Chair
+  entities:
+  - uid: 3082
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 17.5,-22.5
+      parent: 2
+  - uid: 4198
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-22.5
+      parent: 2
+  - uid: 4199
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-22.5
+      parent: 2
+  - uid: 4200
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 24.5,-22.5
+      parent: 2
+  - uid: 4201
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,-20.5
+      parent: 2
+  - uid: 4202
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,-19.5
+      parent: 2
+  - uid: 4203
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,-18.5
+      parent: 2
+  - uid: 4204
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,-17.5
+      parent: 2
+  - uid: 4205
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,-16.5
+      parent: 2
+  - uid: 4206
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 27.5,-15.5
+      parent: 2
+  - uid: 4207
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-15.5
+      parent: 2
+  - uid: 4208
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-16.5
+      parent: 2
+  - uid: 4209
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-17.5
+      parent: 2
+  - uid: 4210
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-18.5
+      parent: 2
+  - uid: 4211
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-19.5
+      parent: 2
+  - uid: 4212
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,-20.5
       parent: 2
 - proto: ClothingMaskMuzzle
   entities:
@@ -2051,6 +5105,40 @@ entities:
     - type: Transform
       pos: -24.5,-14.5
       parent: 2
+  - uid: 4242
+    components:
+    - type: Transform
+      pos: 24.5,15.5
+      parent: 2
+  - uid: 4348
+    components:
+    - type: Transform
+      pos: 21.5,38.5
+      parent: 2
+  - uid: 4349
+    components:
+    - type: Transform
+      pos: 24.5,39.5
+      parent: 2
+  - uid: 4508
+    components:
+    - type: Transform
+      pos: -16.5,-6.5
+      parent: 2
+- proto: CMBedsheetBlue
+  entities:
+  - uid: 4351
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,39.5
+      parent: 2
+  - uid: 4509
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -16.5,-6.5
+      parent: 2
 - proto: CMBedsheetBrown
   entities:
   - uid: 2768
@@ -2068,6 +5156,11 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -24.5,-14.5
+      parent: 2
+  - uid: 4243
+    components:
+    - type: Transform
+      pos: 24.5,15.5
       parent: 2
 - proto: CMBedsheetGreen
   entities:
@@ -2092,6 +5185,14 @@ entities:
     components:
     - type: Transform
       pos: -2.5,17.5
+      parent: 2
+- proto: CMBedsheetRed
+  entities:
+  - uid: 4350
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,38.5
       parent: 2
 - proto: CMBeltInflatable
   entities:
@@ -2368,6 +5469,36 @@ entities:
     components:
     - type: Transform
       pos: -23.5,-9.5
+      parent: 2
+  - uid: 4245
+    components:
+    - type: Transform
+      pos: 24.5,15.5
+      parent: 2
+  - uid: 4246
+    components:
+    - type: Transform
+      pos: 24.5,14.5
+      parent: 2
+  - uid: 4247
+    components:
+    - type: Transform
+      pos: 25.5,15.5
+      parent: 2
+  - uid: 4248
+    components:
+    - type: Transform
+      pos: 25.5,14.5
+      parent: 2
+  - uid: 4249
+    components:
+    - type: Transform
+      pos: 26.5,15.5
+      parent: 2
+  - uid: 4250
+    components:
+    - type: Transform
+      pos: 26.5,14.5
       parent: 2
 - proto: CMCatwalk
   entities:
@@ -5947,8 +9078,38 @@ entities:
     - type: Transform
       pos: -21.5,-26.5
       parent: 2
+  - uid: 4358
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 20.5,41.5
+      parent: 2
+  - uid: 4454
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -9.5,61.5
+      parent: 2
+  - uid: 4505
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,-0.5
+      parent: 2
+  - uid: 4506
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -19.5,-0.5
+      parent: 2
 - proto: CMChairComfy
   entities:
+  - uid: 1815
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,25.5
+      parent: 2
   - uid: 1969
     components:
     - type: Transform
@@ -6021,6 +9182,18 @@ entities:
     - type: Transform
       pos: 2.5,66.5
       parent: 2
+  - uid: 4490
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -36.5,4.5
+      parent: 2
+  - uid: 4516
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -23.5,-13.5
+      parent: 2
 - proto: CMChairOfficeDark
   entities:
   - uid: 1834
@@ -6037,6 +9210,12 @@ entities:
     components:
     - type: Transform
       pos: -4.5,13.5
+      parent: 2
+  - uid: 4507
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -21.5,-2.5
       parent: 2
 - proto: CMChairWoodWings
   entities:
@@ -6148,6 +9327,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -21.5,7.5
       parent: 2
+  - uid: 4346
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,30.5
+      parent: 2
+  - uid: 4347
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,34.5
+      parent: 2
 - proto: CMChemMaster
   entities:
   - uid: 1992
@@ -6188,6 +9379,16 @@ entities:
     - type: Transform
       pos: 1.5,51.5
       parent: 2
+  - uid: 4361
+    components:
+    - type: Transform
+      pos: 18.5,52.5
+      parent: 2
+  - uid: 4453
+    components:
+    - type: Transform
+      pos: -16.5,54.5
+      parent: 2
 - proto: CMClosetFireFilled
   entities:
   - uid: 3961
@@ -6195,12 +9396,27 @@ entities:
     - type: Transform
       pos: -0.5,51.5
       parent: 2
+  - uid: 4359
+    components:
+    - type: Transform
+      pos: 18.5,51.5
+      parent: 2
+  - uid: 4452
+    components:
+    - type: Transform
+      pos: -17.5,54.5
+      parent: 2
 - proto: CMClosetToolFilled
   entities:
   - uid: 3962
     components:
     - type: Transform
       pos: 0.5,51.5
+      parent: 2
+  - uid: 4360
+    components:
+    - type: Transform
+      pos: 18.5,50.5
       parent: 2
 - proto: CMCrowbar
   entities:
@@ -6605,12 +9821,848 @@ entities:
     - type: Transform
       pos: -3.5,26.5
       parent: 2
+- proto: CMLightFixture
+  entities:
+  - uid: 2046
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -30.5,18.5
+      parent: 2
+  - uid: 2736
+    components:
+    - type: Transform
+      pos: -16.5,24.5
+      parent: 2
+  - uid: 2737
+    components:
+    - type: Transform
+      pos: -2.5,24.5
+      parent: 2
+  - uid: 3342
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.5,35.5
+      parent: 2
+  - uid: 3343
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.5,30.5
+      parent: 2
+  - uid: 4252
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 26.5,7.5
+      parent: 2
+  - uid: 4253
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 22.5,7.5
+      parent: 2
+  - uid: 4257
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,3.5
+      parent: 2
+  - uid: 4258
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,3.5
+      parent: 2
+  - uid: 4259
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 17.5,10.5
+      parent: 2
+  - uid: 4260
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,14.5
+      parent: 2
+  - uid: 4261
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,7.5
+      parent: 2
+  - uid: 4262
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 28.5,6.5
+      parent: 2
+  - uid: 4263
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 32.5,3.5
+      parent: 2
+  - uid: 4264
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 32.5,-3.5
+      parent: 2
+  - uid: 4265
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 32.5,-8.5
+      parent: 2
+  - uid: 4266
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 32.5,-17.5
+      parent: 2
+  - uid: 4267
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 32.5,-19.5
+      parent: 2
+  - uid: 4268
+    components:
+    - type: Transform
+      pos: 32.5,-22.5
+      parent: 2
+  - uid: 4269
+    components:
+    - type: Transform
+      pos: 28.5,-22.5
+      parent: 2
+  - uid: 4270
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 26.5,-17.5
+      parent: 2
+  - uid: 4271
+    components:
+    - type: Transform
+      pos: 18.5,-16.5
+      parent: 2
+  - uid: 4272
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-10.5
+      parent: 2
+  - uid: 4273
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-12.5
+      parent: 2
+  - uid: 4274
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-7.5
+      parent: 2
+  - uid: 4275
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-9.5
+      parent: 2
+  - uid: 4276
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-9.5
+      parent: 2
+  - uid: 4277
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-4.5
+      parent: 2
+  - uid: 4278
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,0.5
+      parent: 2
+  - uid: 4279
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 21.5,-2.5
+      parent: 2
+  - uid: 4280
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-2.5
+      parent: 2
+  - uid: 4281
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 20.5,-4.5
+      parent: 2
+  - uid: 4282
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 18.5,-2.5
+      parent: 2
+  - uid: 4283
+    components:
+    - type: Transform
+      pos: 14.5,-0.5
+      parent: 2
+  - uid: 4284
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 15.5,0.5
+      parent: 2
+  - uid: 4285
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 26.5,13.5
+      parent: 2
+  - uid: 4286
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 29.5,15.5
+      parent: 2
+  - uid: 4287
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 32.5,15.5
+      parent: 2
+  - uid: 4288
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 34.5,14.5
+      parent: 2
+  - uid: 4289
+    components:
+    - type: Transform
+      pos: 36.5,8.5
+      parent: 2
+  - uid: 4320
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,13.5
+      parent: 2
+  - uid: 4321
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,14.5
+      parent: 2
+  - uid: 4322
+    components:
+    - type: Transform
+      pos: 2.5,20.5
+      parent: 2
+  - uid: 4323
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,18.5
+      parent: 2
+  - uid: 4324
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,14.5
+      parent: 2
+  - uid: 4325
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 13.5,13.5
+      parent: 2
+  - uid: 4326
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,9.5
+      parent: 2
+  - uid: 4327
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 5.5,5.5
+      parent: 2
+  - uid: 4329
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 3.5,5.5
+      parent: 2
+  - uid: 4330
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,5.5
+      parent: 2
+  - uid: 4331
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 1.5,3.5
+      parent: 2
+  - uid: 4332
+    components:
+    - type: Transform
+      pos: 3.5,3.5
+      parent: 2
+  - uid: 4334
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 7.5,1.5
+      parent: 2
+  - uid: 4381
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,66.5
+      parent: 2
+  - uid: 4382
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,66.5
+      parent: 2
+  - uid: 4383
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,66.5
+      parent: 2
+  - uid: 4384
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,66.5
+      parent: 2
+  - uid: 4385
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -4.5,60.5
+      parent: 2
+  - uid: 4386
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 5.5,60.5
+      parent: 2
+  - uid: 4387
+    components:
+    - type: Transform
+      pos: -15.5,58.5
+      parent: 2
+  - uid: 4388
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,63.5
+      parent: 2
+  - uid: 4389
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,63.5
+      parent: 2
+  - uid: 4390
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,63.5
+      parent: 2
+  - uid: 4391
+    components:
+    - type: Transform
+      pos: -9.5,58.5
+      parent: 2
+  - uid: 4414
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,54.5
+      parent: 2
+  - uid: 4415
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,54.5
+      parent: 2
+  - uid: 4420
+    components:
+    - type: Transform
+      pos: -6.5,17.5
+      parent: 2
+  - uid: 4421
+    components:
+    - type: Transform
+      pos: -2.5,17.5
+      parent: 2
+  - uid: 4422
+    components:
+    - type: Transform
+      pos: -17.5,17.5
+      parent: 2
+  - uid: 4423
+    components:
+    - type: Transform
+      pos: -13.5,17.5
+      parent: 2
+  - uid: 4424
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,15.5
+      parent: 2
+  - uid: 4425
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,15.5
+      parent: 2
+  - uid: 4426
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -10.5,15.5
+      parent: 2
+  - uid: 4427
+    components:
+    - type: Transform
+      pos: -10.5,17.5
+      parent: 2
+  - uid: 4428
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,12.5
+      parent: 2
+  - uid: 4429
+    components:
+    - type: Transform
+      pos: -16.5,12.5
+      parent: 2
+  - uid: 4430
+    components:
+    - type: Transform
+      pos: -19.5,12.5
+      parent: 2
+  - uid: 4431
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -34.5,16.5
+      parent: 2
+  - uid: 4432
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,14.5
+      parent: 2
+  - uid: 4433
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -22.5,14.5
+      parent: 2
+  - uid: 4434
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -35.5,11.5
+      parent: 2
+  - uid: 4435
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -23.5,18.5
+      parent: 2
+  - uid: 4436
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -18.5,18.5
+      parent: 2
+  - uid: 4437
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.5,20.5
+      parent: 2
+  - uid: 4438
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,20.5
+      parent: 2
+  - uid: 4439
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,22.5
+      parent: 2
+  - uid: 4440
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -19.5,22.5
+      parent: 2
+  - uid: 4441
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -12.5,26.5
+      parent: 2
+  - uid: 4442
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,26.5
+      parent: 2
+  - uid: 4443
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,22.5
+      parent: 2
+  - uid: 4444
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -0.5,17.5
+      parent: 2
+  - uid: 4445
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,15.5
+      parent: 2
+  - uid: 4446
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,15.5
+      parent: 2
+  - uid: 4447
+    components:
+    - type: Transform
+      pos: -3.5,28.5
+      parent: 2
+  - uid: 4448
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,34.5
+      parent: 2
+  - uid: 4449
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,40.5
+      parent: 2
+  - uid: 4450
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,46.5
+      parent: 2
+  - uid: 4451
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -17.5,51.5
+      parent: 2
+  - uid: 4458
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,24.5
+      parent: 2
+  - uid: 4459
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 22.5,20.5
+      parent: 2
+  - uid: 4460
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,23.5
+      parent: 2
+  - uid: 4461
+    components:
+    - type: Transform
+      pos: 18.5,16.5
+      parent: 2
+  - uid: 4462
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,21.5
+      parent: 2
+  - uid: 4463
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 29.5,23.5
+      parent: 2
+  - uid: 4464
+    components:
+    - type: Transform
+      pos: 12.5,20.5
+      parent: 2
+  - uid: 4465
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,7.5
+      parent: 2
+  - uid: 4466
+    components:
+    - type: Transform
+      pos: -3.5,8.5
+      parent: 2
+  - uid: 4467
+    components:
+    - type: Transform
+      pos: -11.5,8.5
+      parent: 2
+  - uid: 4468
+    components:
+    - type: Transform
+      pos: -8.5,8.5
+      parent: 2
+  - uid: 4469
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,7.5
+      parent: 2
+  - uid: 4470
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -7.5,2.5
+      parent: 2
+  - uid: 4471
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -8.5,1.5
+      parent: 2
+  - uid: 4472
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -4.5,2.5
+      parent: 2
+  - uid: 4473
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,1.5
+      parent: 2
+  - uid: 4474
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -11.5,4.5
+      parent: 2
+  - uid: 4475
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -14.5,8.5
+      parent: 2
+  - uid: 4476
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,10.5
+      parent: 2
+  - uid: 4477
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -19.5,10.5
+      parent: 2
+  - uid: 4478
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,7.5
+      parent: 2
+  - uid: 4479
+    components:
+    - type: Transform
+      pos: -21.5,1.5
+      parent: 2
+  - uid: 4480
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,3.5
+      parent: 2
+  - uid: 4482
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,6.5
+      parent: 2
+  - uid: 4483
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -28.5,-0.5
+      parent: 2
+  - uid: 4484
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -31.5,2.5
+      parent: 2
+  - uid: 4485
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -36.5,2.5
+      parent: 2
+  - uid: 4486
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -35.5,5.5
+      parent: 2
+  - uid: 4487
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -32.5,5.5
+      parent: 2
+  - uid: 4488
+    components:
+    - type: Transform
+      pos: -32.5,-0.5
+      parent: 2
+  - uid: 4489
+    components:
+    - type: Transform
+      pos: -35.5,-0.5
+      parent: 2
+  - uid: 4496
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -14.5,-4.5
+      parent: 2
+  - uid: 4497
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -13.5,-2.5
+      parent: 2
+  - uid: 4498
+    components:
+    - type: Transform
+      pos: -13.5,-6.5
+      parent: 2
+  - uid: 4499
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-5.5
+      parent: 2
+  - uid: 4501
+    components:
+    - type: Transform
+      pos: -19.5,-3.5
+      parent: 2
+  - uid: 4502
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,-0.5
+      parent: 2
+  - uid: 4503
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -16.5,-0.5
+      parent: 2
+  - uid: 4517
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -21.5,-9.5
+      parent: 2
+- proto: CMLightFixtureSmall
+  entities:
+  - uid: 1855
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -22.5,9.5
+      parent: 2
+  - uid: 1863
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -27.5,10.5
+      parent: 2
+  - uid: 1994
+    components:
+    - type: Transform
+      pos: -31.5,10.5
+      parent: 2
+  - uid: 2704
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,25.5
+      parent: 2
+  - uid: 2705
+    components:
+    - type: Transform
+      pos: -25.5,20.5
+      parent: 2
+  - uid: 2710
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -25.5,26.5
+      parent: 2
 - proto: CMLockerFridge
   entities:
   - uid: 2936
     components:
     - type: Transform
       pos: -27.5,3.5
+      parent: 2
+  - uid: 4510
+    components:
+    - type: Transform
+      pos: -18.5,-6.5
       parent: 2
 - proto: CMMemorialAdmins
   entities:
@@ -6630,6 +10682,11 @@ entities:
     components:
     - type: Transform
       pos: -3.5,-38.5
+      parent: 2
+  - uid: 4504
+    components:
+    - type: Transform
+      pos: -18.5,-1.5
       parent: 2
 - proto: CMMorgue
   entities:
@@ -6874,6 +10931,26 @@ entities:
     components:
     - type: Transform
       pos: -0.5,38.5
+      parent: 2
+  - uid: 4319
+    components:
+    - type: Transform
+      pos: 3.5,12.5
+      parent: 2
+  - uid: 4410
+    components:
+    - type: Transform
+      pos: -17.5,59.5
+      parent: 2
+  - uid: 4411
+    components:
+    - type: Transform
+      pos: -17.5,58.5
+      parent: 2
+  - uid: 4493
+    components:
+    - type: Transform
+      pos: -26.5,-4.5
       parent: 2
 - proto: CMRailing
   entities:
@@ -7252,6 +11329,17 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: -21.5,38.5
+      parent: 2
+  - uid: 4519
+    components:
+    - type: Transform
+      pos: -20.5,-8.5
+      parent: 2
+  - uid: 4523
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -26.5,1.5
       parent: 2
 - proto: CMTableAlmayer
   entities:
@@ -7968,6 +12056,82 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -35.5,5.5
       parent: 2
+  - uid: 4356
+    components:
+    - type: Transform
+      pos: 22.5,46.5
+      parent: 2
+  - uid: 4357
+    components:
+    - type: Transform
+      pos: 20.5,42.5
+      parent: 2
+  - uid: 4396
+    components:
+    - type: Transform
+      pos: -8.5,62.5
+      parent: 2
+  - uid: 4402
+    components:
+    - type: Transform
+      pos: -8.5,61.5
+      parent: 2
+  - uid: 4500
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-6.5
+      parent: 2
+- proto: CMTableReinforced
+  entities:
+  - uid: 4254
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 20.5,4.5
+      parent: 2
+  - uid: 4255
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,4.5
+      parent: 2
+  - uid: 4256
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,4.5
+      parent: 2
+  - uid: 4297
+    components:
+    - type: Transform
+      pos: 29.5,11.5
+      parent: 2
+  - uid: 4298
+    components:
+    - type: Transform
+      pos: 30.5,11.5
+      parent: 2
+  - uid: 4299
+    components:
+    - type: Transform
+      pos: 31.5,11.5
+      parent: 2
+  - uid: 4300
+    components:
+    - type: Transform
+      pos: 32.5,11.5
+      parent: 2
+  - uid: 4301
+    components:
+    - type: Transform
+      pos: 33.5,11.5
+      parent: 2
+  - uid: 4302
+    components:
+    - type: Transform
+      pos: 34.5,11.5
+      parent: 2
 - proto: CMTableWooden
   entities:
   - uid: 1965
@@ -8029,11 +12193,6 @@ entities:
     components:
     - type: Transform
       pos: -15.5,4.5
-      parent: 2
-  - uid: 2680
-    components:
-    - type: Transform
-      pos: -15.5,3.5
       parent: 2
   - uid: 2681
     components:
@@ -8109,6 +12268,41 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -24.5,-13.5
       parent: 2
+  - uid: 4341
+    components:
+    - type: Transform
+      pos: 24.5,34.5
+      parent: 2
+  - uid: 4343
+    components:
+    - type: Transform
+      pos: 24.5,35.5
+      parent: 2
+  - uid: 4344
+    components:
+    - type: Transform
+      pos: 24.5,30.5
+      parent: 2
+  - uid: 4345
+    components:
+    - type: Transform
+      pos: 24.5,29.5
+      parent: 2
+  - uid: 4408
+    components:
+    - type: Transform
+      pos: -17.5,62.5
+      parent: 2
+  - uid: 4409
+    components:
+    - type: Transform
+      pos: -17.5,61.5
+      parent: 2
+  - uid: 4525
+    components:
+    - type: Transform
+      pos: -15.5,3.5
+      parent: 2
 - proto: CMTableWoodenFancy
   entities:
   - uid: 2845
@@ -8168,6 +12362,26 @@ entities:
     components:
     - type: Transform
       pos: -17.5,-6.5
+      parent: 2
+  - uid: 4237
+    components:
+    - type: Transform
+      pos: 24.5,12.5
+      parent: 2
+  - uid: 4238
+    components:
+    - type: Transform
+      pos: 24.5,11.5
+      parent: 2
+  - uid: 4239
+    components:
+    - type: Transform
+      pos: 26.5,11.5
+      parent: 2
+  - uid: 4244
+    components:
+    - type: Transform
+      pos: 25.5,15.5
       parent: 2
 - proto: CMTableWoodenGambling
   entities:
@@ -8237,6 +12451,12 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: -21.5,40.5
+      parent: 2
+  - uid: 4518
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -21.5,-8.5
       parent: 2
 - proto: CMWallReinforcedAlmayer
   entities:
@@ -15456,6 +19676,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -6.5,27.5
       parent: 2
+  - uid: 1817
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -18.5,20.5
+      parent: 2
 - proto: CMWallReinforcedHeavyAlmayer
   entities:
   - uid: 505
@@ -17931,6 +22157,16 @@ entities:
     - type: Transform
       pos: 16.5,52.5
       parent: 2
+  - uid: 4379
+    components:
+    - type: Transform
+      pos: 11.5,59.5
+      parent: 2
+  - uid: 4380
+    components:
+    - type: Transform
+      pos: 14.5,59.5
+      parent: 2
 - proto: CMWindowDirectional
   entities:
   - uid: 3937
@@ -18454,21 +22690,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,-12.5
       parent: 2
-  - uid: 3111
-    components:
-    - type: Transform
-      pos: 22.5,-12.5
-      parent: 2
-  - uid: 3112
-    components:
-    - type: Transform
-      pos: 23.5,-12.5
-      parent: 2
-  - uid: 3113
-    components:
-    - type: Transform
-      pos: 24.5,-12.5
-      parent: 2
   - uid: 3114
     components:
     - type: Transform
@@ -18480,24 +22701,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 22.5,-9.5
-      parent: 2
-  - uid: 3116
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,-9.5
-      parent: 2
-  - uid: 3117
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,-9.5
-      parent: 2
-  - uid: 3118
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 24.5,-9.5
       parent: 2
   - uid: 3119
     components:
@@ -18511,21 +22714,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,-7.5
       parent: 2
-  - uid: 3121
-    components:
-    - type: Transform
-      pos: 22.5,-7.5
-      parent: 2
-  - uid: 3122
-    components:
-    - type: Transform
-      pos: 23.5,-7.5
-      parent: 2
-  - uid: 3123
-    components:
-    - type: Transform
-      pos: 24.5,-7.5
-      parent: 2
   - uid: 3124
     components:
     - type: Transform
@@ -18537,24 +22725,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 21.5,-4.5
-      parent: 2
-  - uid: 3127
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,-4.5
-      parent: 2
-  - uid: 3128
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,-4.5
-      parent: 2
-  - uid: 3129
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 24.5,-4.5
       parent: 2
   - uid: 3130
     components:
@@ -18568,21 +22738,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 22.5,-2.5
       parent: 2
-  - uid: 3132
-    components:
-    - type: Transform
-      pos: 22.5,-2.5
-      parent: 2
-  - uid: 3133
-    components:
-    - type: Transform
-      pos: 23.5,-2.5
-      parent: 2
-  - uid: 3134
-    components:
-    - type: Transform
-      pos: 24.5,-2.5
-      parent: 2
   - uid: 3135
     components:
     - type: Transform
@@ -18594,24 +22749,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 22.5,0.5
-      parent: 2
-  - uid: 3137
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 22.5,0.5
-      parent: 2
-  - uid: 3138
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 23.5,0.5
-      parent: 2
-  - uid: 3139
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 24.5,0.5
       parent: 2
   - uid: 3140
     components:
@@ -18787,39 +22924,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 30.5,-12.5
       parent: 2
-  - uid: 3326
-    components:
-    - type: Transform
-      pos: 27.5,-12.5
-      parent: 2
-  - uid: 3327
-    components:
-    - type: Transform
-      pos: 28.5,-12.5
-      parent: 2
-  - uid: 3328
-    components:
-    - type: Transform
-      pos: 29.5,-12.5
-      parent: 2
-  - uid: 3329
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,-9.5
-      parent: 2
-  - uid: 3330
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,-9.5
-      parent: 2
-  - uid: 3331
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,-9.5
-      parent: 2
   - uid: 3332
     components:
     - type: Transform
@@ -18837,12 +22941,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 28.5,-9.5
-      parent: 2
-  - uid: 3335
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 29.5,-9.5
       parent: 2
   - uid: 3336
     components:
@@ -18880,21 +22978,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 29.5,-7.5
       parent: 2
-  - uid: 3342
-    components:
-    - type: Transform
-      pos: 29.5,-7.5
-      parent: 2
-  - uid: 3343
-    components:
-    - type: Transform
-      pos: 27.5,-7.5
-      parent: 2
-  - uid: 3344
-    components:
-    - type: Transform
-      pos: 28.5,-7.5
-      parent: 2
   - uid: 3345
     components:
     - type: Transform
@@ -18924,24 +23007,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 27.5,-4.5
-      parent: 2
-  - uid: 3350
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,-4.5
-      parent: 2
-  - uid: 3351
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,-4.5
-      parent: 2
-  - uid: 3352
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,-4.5
       parent: 2
   - uid: 3353
     components:
@@ -18979,21 +23044,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 27.5,-2.5
       parent: 2
-  - uid: 3359
-    components:
-    - type: Transform
-      pos: 27.5,-2.5
-      parent: 2
-  - uid: 3360
-    components:
-    - type: Transform
-      pos: 28.5,-2.5
-      parent: 2
-  - uid: 3361
-    components:
-    - type: Transform
-      pos: 29.5,-2.5
-      parent: 2
   - uid: 3362
     components:
     - type: Transform
@@ -19030,24 +23080,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 27.5,0.5
       parent: 2
-  - uid: 3368
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 27.5,0.5
-      parent: 2
-  - uid: 3369
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 28.5,0.5
-      parent: 2
-  - uid: 3370
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 29.5,0.5
-      parent: 2
   - uid: 3371
     components:
     - type: Transform
@@ -19077,6 +23109,36 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,0.5
+      parent: 2
+  - uid: 4292
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 33.5,10.5
+      parent: 2
+  - uid: 4293
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 34.5,10.5
+      parent: 2
+  - uid: 4294
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 32.5,10.5
+      parent: 2
+  - uid: 4295
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 30.5,10.5
+      parent: 2
+  - uid: 4296
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 31.5,10.5
       parent: 2
 - proto: CMWindowReinforcedWhiteHull
   entities:
@@ -22651,183 +26713,6 @@ entities:
     - type: Transform
       pos: -30.5,18.5
       parent: 2
-- proto: Holopad
-  entities:
-  - uid: 1815
-    components:
-    - type: Transform
-      pos: -9.5,18.5
-      parent: 2
-  - uid: 1816
-    components:
-    - type: Transform
-      pos: -9.5,21.5
-      parent: 2
-  - uid: 1817
-    components:
-    - type: Transform
-      pos: -15.5,21.5
-      parent: 2
-  - uid: 1855
-    components:
-    - type: Transform
-      pos: -9.5,25.5
-      parent: 2
-  - uid: 1863
-    components:
-    - type: Transform
-      pos: -9.5,28.5
-      parent: 2
-  - uid: 1993
-    components:
-    - type: Transform
-      pos: -34.5,11.5
-      parent: 2
-  - uid: 1994
-    components:
-    - type: Transform
-      pos: -30.5,17.5
-      parent: 2
-  - uid: 2046
-    components:
-    - type: Transform
-      pos: -24.5,12.5
-      parent: 2
-  - uid: 2704
-    components:
-    - type: Transform
-      pos: -18.5,3.5
-      parent: 2
-  - uid: 2705
-    components:
-    - type: Transform
-      pos: -24.5,5.5
-      parent: 2
-  - uid: 2710
-    components:
-    - type: Transform
-      pos: -5.5,4.5
-      parent: 2
-  - uid: 2736
-    components:
-    - type: Transform
-      pos: -18.5,-25.5
-      parent: 2
-  - uid: 2737
-    components:
-    - type: Transform
-      pos: -16.5,-27.5
-      parent: 2
-  - uid: 2756
-    components:
-    - type: Transform
-      pos: -6.5,-25.5
-      parent: 2
-  - uid: 2757
-    components:
-    - type: Transform
-      pos: -3.5,-22.5
-      parent: 2
-  - uid: 2758
-    components:
-    - type: Transform
-      pos: 3.5,-22.5
-      parent: 2
-  - uid: 2844
-    components:
-    - type: Transform
-      pos: -16.5,-11.5
-      parent: 2
-  - uid: 2880
-    components:
-    - type: Transform
-      pos: -12.5,-4.5
-      parent: 2
-  - uid: 3021
-    components:
-    - type: Transform
-      pos: -0.5,-9.5
-      parent: 2
-  - uid: 3022
-    components:
-    - type: Transform
-      pos: 1.5,-13.5
-      parent: 2
-  - uid: 3088
-    components:
-    - type: Transform
-      pos: 25.5,-10.5
-      parent: 2
-  - uid: 3089
-    components:
-    - type: Transform
-      pos: 25.5,-7.5
-      parent: 2
-  - uid: 3090
-    components:
-    - type: Transform
-      pos: 25.5,-2.5
-      parent: 2
-  - uid: 3091
-    components:
-    - type: Transform
-      pos: 25.5,2.5
-      parent: 2
-  - uid: 3092
-    components:
-    - type: Transform
-      pos: 21.5,2.5
-      parent: 2
-  - uid: 3093
-    components:
-    - type: Transform
-      pos: 31.5,-0.5
-      parent: 2
-  - uid: 3094
-    components:
-    - type: Transform
-      pos: 31.5,-5.5
-      parent: 2
-  - uid: 3095
-    components:
-    - type: Transform
-      pos: 31.5,-10.5
-      parent: 2
-  - uid: 3097
-    components:
-    - type: Transform
-      pos: 28.5,-14.5
-      parent: 2
-  - uid: 3109
-    components:
-    - type: Transform
-      pos: 28.5,-21.5
-      parent: 2
-  - uid: 3261
-    components:
-    - type: Transform
-      pos: 9.5,-41.5
-      parent: 2
-  - uid: 3262
-    components:
-    - type: Transform
-      pos: 13.5,-41.5
-      parent: 2
-  - uid: 3429
-    components:
-    - type: Transform
-      pos: -6.5,-39.5
-      parent: 2
-  - uid: 4081
-    components:
-    - type: Transform
-      pos: 0.5,64.5
-      parent: 2
-  - uid: 4082
-    components:
-    - type: Transform
-      pos: 0.5,57.5
-      parent: 2
 - proto: KitchenMicrowave
   entities:
   - uid: 1966
@@ -22835,226 +26720,517 @@ entities:
     - type: Transform
       pos: -22.5,18.5
       parent: 2
+- proto: MCApcAlmayer
+  entities:
+  - uid: 3330
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -24.5,35.5
+      parent: 2
+  - uid: 3344
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 39.5,-7.5
+      parent: 2
+  - uid: 3350
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 35.5,10.5
+      parent: 2
+  - uid: 4527
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 23.5,7.5
+      parent: 2
+  - uid: 4528
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 23.5,-33.5
+      parent: 2
+  - uid: 4529
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 12.5,-39.5
+      parent: 2
+  - uid: 4530
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 3.5,-38.5
+      parent: 2
+  - uid: 4531
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,-42.5
+      parent: 2
+  - uid: 4533
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -0.5,-41.5
+      parent: 2
+  - uid: 4537
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 2.5,-30.5
+      parent: 2
+  - uid: 4538
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -14.5,-38.5
+      parent: 2
+  - uid: 4543
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -36.5,-32.5
+      parent: 2
+  - uid: 4544
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -19.5,-34.5
+      parent: 2
+  - uid: 4545
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -20.5,-26.5
+      parent: 2
+  - uid: 4546
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -29.5,15.5
+      parent: 2
+  - uid: 4547
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -15.5,26.5
+      parent: 2
+  - uid: 4549
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -27.5,23.5
+      parent: 2
+  - uid: 4550
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,26.5
+      parent: 2
+  - uid: 4551
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -10.5,13.5
+      parent: 2
+  - uid: 4552
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,15.5
+      parent: 2
+  - uid: 4553
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -3.5,6.5
+      parent: 2
+  - uid: 4554
+    components:
+    - type: Transform
+      pos: -18.5,1.5
+      parent: 2
+  - uid: 4556
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 11.5,8.5
+      parent: 2
+  - uid: 4557
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -6.5,26.5
+      parent: 2
 - proto: MCAutomatedClosetRack
   entities:
-  - uid: 3304
-    components:
-    - type: Transform
-      pos: 27.5,0.5
-      parent: 2
-  - uid: 3305
-    components:
-    - type: Transform
-      pos: 28.5,0.5
-      parent: 2
-  - uid: 3306
-    components:
-    - type: Transform
-      pos: 29.5,0.5
-      parent: 2
-  - uid: 3307
-    components:
-    - type: Transform
-      pos: 27.5,-2.5
-      parent: 2
-  - uid: 3308
-    components:
-    - type: Transform
-      pos: 28.5,-2.5
-      parent: 2
-  - uid: 3309
-    components:
-    - type: Transform
-      pos: 29.5,-2.5
-      parent: 2
-  - uid: 3310
-    components:
-    - type: Transform
-      pos: 27.5,-4.5
-      parent: 2
-  - uid: 3311
-    components:
-    - type: Transform
-      pos: 28.5,-4.5
-      parent: 2
-  - uid: 3312
-    components:
-    - type: Transform
-      pos: 29.5,-4.5
-      parent: 2
-  - uid: 3313
+  - uid: 3071
     components:
     - type: Transform
       pos: 27.5,-7.5
       parent: 2
-  - uid: 3314
+  - uid: 3072
     components:
     - type: Transform
       pos: 28.5,-7.5
       parent: 2
-  - uid: 3315
+  - uid: 3073
     components:
     - type: Transform
-      pos: 29.5,-7.5
+      pos: 28.5,-4.5
       parent: 2
-  - uid: 3316
-    components:
-    - type: Transform
-      pos: 27.5,-9.5
-      parent: 2
-  - uid: 3317
+  - uid: 3074
     components:
     - type: Transform
       pos: 28.5,-9.5
       parent: 2
-  - uid: 3318
+  - uid: 3075
     components:
     - type: Transform
-      pos: 29.5,-9.5
+      pos: 27.5,-9.5
       parent: 2
-  - uid: 3319
+  - uid: 3076
+    components:
+    - type: Transform
+      pos: 27.5,-4.5
+      parent: 2
+  - uid: 3077
     components:
     - type: Transform
       pos: 27.5,-12.5
       parent: 2
-  - uid: 3320
+  - uid: 3078
+    components:
+    - type: Transform
+      pos: 27.5,-2.5
+      parent: 2
+  - uid: 3079
     components:
     - type: Transform
       pos: 28.5,-12.5
       parent: 2
-  - uid: 3321
-    components:
-    - type: Transform
-      pos: 29.5,-12.5
-      parent: 2
-- proto: MCAutomatedWeaponRack
-  entities:
-  - uid: 3070
-    components:
-    - type: Transform
-      pos: 22.5,-2.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3071
-    components:
-    - type: Transform
-      pos: 23.5,-2.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3072
-    components:
-    - type: Transform
-      pos: 24.5,-2.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3073
-    components:
-    - type: Transform
-      pos: 22.5,0.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3074
-    components:
-    - type: Transform
-      pos: 23.5,0.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3075
-    components:
-    - type: Transform
-      pos: 24.5,0.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3076
-    components:
-    - type: Transform
-      pos: 22.5,-4.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3077
-    components:
-    - type: Transform
-      pos: 23.5,-4.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3078
-    components:
-    - type: Transform
-      pos: 24.5,-4.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3079
-    components:
-    - type: Transform
-      pos: 22.5,-7.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
   - uid: 3080
     components:
     - type: Transform
-      pos: 23.5,-7.5
+      pos: 27.5,0.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
   - uid: 3081
     components:
     - type: Transform
-      pos: 24.5,-7.5
+      pos: 28.5,-2.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3082
+  - uid: 3083
     components:
     - type: Transform
-      pos: 22.5,-9.5
+      pos: 28.5,0.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3083
+- proto: MCAutomatedLoadoutVendor
+  entities:
+  - uid: 1816
+    components:
+    - type: Transform
+      pos: -21.5,20.5
+      parent: 2
+  - uid: 4217
+    components:
+    - type: Transform
+      pos: 26.5,0.5
+      parent: 2
+  - uid: 4218
+    components:
+    - type: Transform
+      pos: 26.5,-2.5
+      parent: 2
+  - uid: 4219
+    components:
+    - type: Transform
+      pos: 26.5,-4.5
+      parent: 2
+  - uid: 4220
+    components:
+    - type: Transform
+      pos: 26.5,-7.5
+      parent: 2
+  - uid: 4221
+    components:
+    - type: Transform
+      pos: 26.5,-9.5
+      parent: 2
+  - uid: 4222
+    components:
+    - type: Transform
+      pos: 26.5,-12.5
+      parent: 2
+  - uid: 4223
+    components:
+    - type: Transform
+      pos: 15.5,-13.5
+      parent: 2
+  - uid: 4224
+    components:
+    - type: Transform
+      pos: 16.5,-13.5
+      parent: 2
+  - uid: 4225
+    components:
+    - type: Transform
+      pos: 15.5,-5.5
+      parent: 2
+  - uid: 4226
+    components:
+    - type: Transform
+      pos: 16.5,-5.5
+      parent: 2
+  - uid: 4227
+    components:
+    - type: Transform
+      pos: 16.5,-20.5
+      parent: 2
+  - uid: 4228
+    components:
+    - type: Transform
+      pos: 24.5,-20.5
+      parent: 2
+  - uid: 4229
+    components:
+    - type: Transform
+      pos: 17.5,-0.5
+      parent: 2
+  - uid: 4230
+    components:
+    - type: Transform
+      pos: 24.5,-18.5
+      parent: 2
+  - uid: 4231
+    components:
+    - type: Transform
+      pos: 17.5,0.5
+      parent: 2
+  - uid: 4232
+    components:
+    - type: Transform
+      pos: 24.5,9.5
+      parent: 2
+  - uid: 4233
+    components:
+    - type: Transform
+      pos: 25.5,9.5
+      parent: 2
+  - uid: 4234
+    components:
+    - type: Transform
+      pos: 26.5,9.5
+      parent: 2
+  - uid: 4235
+    components:
+    - type: Transform
+      pos: 17.5,10.5
+      parent: 2
+  - uid: 4236
+    components:
+    - type: Transform
+      pos: 17.5,9.5
+      parent: 2
+  - uid: 4314
+    components:
+    - type: Transform
+      pos: 6.5,5.5
+      parent: 2
+  - uid: 4335
+    components:
+    - type: Transform
+      pos: 18.5,19.5
+      parent: 2
+  - uid: 4339
+    components:
+    - type: Transform
+      pos: 22.5,32.5
+      parent: 2
+  - uid: 4352
+    components:
+    - type: Transform
+      pos: 20.5,46.5
+      parent: 2
+  - uid: 4406
+    components:
+    - type: Transform
+      pos: -14.5,62.5
+      parent: 2
+  - uid: 4418
+    components:
+    - type: Transform
+      pos: -0.5,32.5
+      parent: 2
+  - uid: 4513
+    components:
+    - type: Transform
+      pos: -22.5,-16.5
+      parent: 2
+- proto: MCAutomatedWeaponRack
+  entities:
+  - uid: 3084
+    components:
+    - type: Transform
+      pos: 19.5,-18.5
+      parent: 2
+  - uid: 3085
+    components:
+    - type: Transform
+      pos: 19.5,-20.5
+      parent: 2
+  - uid: 3305
     components:
     - type: Transform
       pos: 23.5,-9.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3084
+  - uid: 3306
     components:
     - type: Transform
-      pos: 24.5,-9.5
+      pos: 22.5,-9.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3085
+  - uid: 3307
     components:
     - type: Transform
-      pos: 22.5,-12.5
+      pos: 24.5,-7.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3086
-    components:
-    - type: Transform
-      pos: 23.5,-12.5
-      parent: 2
-    - type: CMAutomatedVendor
-      sections: []
-  - uid: 3087
+  - uid: 3308
     components:
     - type: Transform
       pos: 24.5,-12.5
       parent: 2
-    - type: CMAutomatedVendor
-      sections: []
+  - uid: 3309
+    components:
+    - type: Transform
+      pos: 22.5,-12.5
+      parent: 2
+  - uid: 3310
+    components:
+    - type: Transform
+      pos: 24.5,-9.5
+      parent: 2
+  - uid: 3311
+    components:
+    - type: Transform
+      pos: 23.5,-7.5
+      parent: 2
+  - uid: 3312
+    components:
+    - type: Transform
+      pos: 22.5,-7.5
+      parent: 2
+  - uid: 3313
+    components:
+    - type: Transform
+      pos: 24.5,-4.5
+      parent: 2
+  - uid: 3314
+    components:
+    - type: Transform
+      pos: 23.5,-4.5
+      parent: 2
+  - uid: 3315
+    components:
+    - type: Transform
+      pos: 22.5,-4.5
+      parent: 2
+  - uid: 3316
+    components:
+    - type: Transform
+      pos: 24.5,-2.5
+      parent: 2
+  - uid: 3317
+    components:
+    - type: Transform
+      pos: 23.5,-2.5
+      parent: 2
+  - uid: 3318
+    components:
+    - type: Transform
+      pos: 22.5,-2.5
+      parent: 2
+  - uid: 3319
+    components:
+    - type: Transform
+      pos: 24.5,0.5
+      parent: 2
+  - uid: 3320
+    components:
+    - type: Transform
+      pos: 23.5,0.5
+      parent: 2
+  - uid: 3321
+    components:
+    - type: Transform
+      pos: 22.5,0.5
+      parent: 2
+  - uid: 4191
+    components:
+    - type: Transform
+      pos: 23.5,-12.5
+      parent: 2
+  - uid: 4194
+    components:
+    - type: Transform
+      pos: 17.5,14.5
+      parent: 2
+  - uid: 4195
+    components:
+    - type: Transform
+      pos: 22.5,9.5
+      parent: 2
+  - uid: 4196
+    components:
+    - type: Transform
+      pos: 13.5,-4.5
+      parent: 2
+  - uid: 4197
+    components:
+    - type: Transform
+      pos: 13.5,-12.5
+      parent: 2
+  - uid: 4290
+    components:
+    - type: Transform
+      pos: 32.5,8.5
+      parent: 2
+  - uid: 4315
+    components:
+    - type: Transform
+      pos: 11.5,15.5
+      parent: 2
+  - uid: 4333
+    components:
+    - type: Transform
+      pos: 19.5,19.5
+      parent: 2
+  - uid: 4338
+    components:
+    - type: Transform
+      pos: 24.5,32.5
+      parent: 2
+  - uid: 4353
+    components:
+    - type: Transform
+      pos: 21.5,46.5
+      parent: 2
+  - uid: 4405
+    components:
+    - type: Transform
+      pos: -6.5,61.5
+      parent: 2
+  - uid: 4417
+    components:
+    - type: Transform
+      pos: -0.5,33.5
+      parent: 2
+  - uid: 4512
+    components:
+    - type: Transform
+      pos: -20.5,-13.5
+      parent: 2
 - proto: MCDoubleDoorBridgeGlassLocked
   entities:
   - uid: 2719
@@ -23192,6 +27368,386 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 1.5,-12.5
+      parent: 2
+- proto: MCHolopad
+  entities:
+  - uid: 2756
+    components:
+    - type: Transform
+      pos: -9.5,18.5
+      parent: 2
+  - uid: 2757
+    components:
+    - type: Transform
+      pos: -9.5,21.5
+      parent: 2
+  - uid: 2758
+    components:
+    - type: Transform
+      pos: -15.5,21.5
+      parent: 2
+  - uid: 2844
+    components:
+    - type: Transform
+      pos: -9.5,25.5
+      parent: 2
+  - uid: 2880
+    components:
+    - type: Transform
+      pos: -9.5,28.5
+      parent: 2
+  - uid: 3021
+    components:
+    - type: Transform
+      pos: -34.5,11.5
+      parent: 2
+  - uid: 3022
+    components:
+    - type: Transform
+      pos: -30.5,17.5
+      parent: 2
+  - uid: 3088
+    components:
+    - type: Transform
+      pos: -24.5,12.5
+      parent: 2
+  - uid: 3089
+    components:
+    - type: Transform
+      pos: -18.5,3.5
+      parent: 2
+  - uid: 3090
+    components:
+    - type: Transform
+      pos: -24.5,5.5
+      parent: 2
+  - uid: 3091
+    components:
+    - type: Transform
+      pos: -5.5,4.5
+      parent: 2
+  - uid: 3092
+    components:
+    - type: Transform
+      pos: -18.5,-25.5
+      parent: 2
+  - uid: 3093
+    components:
+    - type: Transform
+      pos: -16.5,-27.5
+      parent: 2
+  - uid: 3094
+    components:
+    - type: Transform
+      pos: -6.5,-25.5
+      parent: 2
+  - uid: 3095
+    components:
+    - type: Transform
+      pos: -3.5,-22.5
+      parent: 2
+  - uid: 3097
+    components:
+    - type: Transform
+      pos: 3.5,-22.5
+      parent: 2
+  - uid: 3109
+    components:
+    - type: Transform
+      pos: -16.5,-11.5
+      parent: 2
+  - uid: 3111
+    components:
+    - type: Transform
+      pos: -12.5,-4.5
+      parent: 2
+  - uid: 3112
+    components:
+    - type: Transform
+      pos: -0.5,-9.5
+      parent: 2
+  - uid: 3113
+    components:
+    - type: Transform
+      pos: 1.5,-13.5
+      parent: 2
+  - uid: 3116
+    components:
+    - type: Transform
+      pos: 25.5,-10.5
+      parent: 2
+  - uid: 3117
+    components:
+    - type: Transform
+      pos: 25.5,-7.5
+      parent: 2
+  - uid: 3118
+    components:
+    - type: Transform
+      pos: 25.5,-2.5
+      parent: 2
+  - uid: 3121
+    components:
+    - type: Transform
+      pos: 25.5,2.5
+      parent: 2
+  - uid: 3122
+    components:
+    - type: Transform
+      pos: 21.5,2.5
+      parent: 2
+  - uid: 3123
+    components:
+    - type: Transform
+      pos: 31.5,-0.5
+      parent: 2
+  - uid: 3127
+    components:
+    - type: Transform
+      pos: 31.5,-5.5
+      parent: 2
+  - uid: 3128
+    components:
+    - type: Transform
+      pos: 31.5,-10.5
+      parent: 2
+  - uid: 3129
+    components:
+    - type: Transform
+      pos: 28.5,-14.5
+      parent: 2
+  - uid: 3132
+    components:
+    - type: Transform
+      pos: 28.5,-21.5
+      parent: 2
+  - uid: 3133
+    components:
+    - type: Transform
+      pos: 9.5,-41.5
+      parent: 2
+  - uid: 3134
+    components:
+    - type: Transform
+      pos: 13.5,-41.5
+      parent: 2
+  - uid: 3137
+    components:
+    - type: Transform
+      pos: -6.5,-39.5
+      parent: 2
+  - uid: 3138
+    components:
+    - type: Transform
+      pos: 0.5,64.5
+      parent: 2
+  - uid: 3139
+    components:
+    - type: Transform
+      pos: 0.5,57.5
+      parent: 2
+  - uid: 3261
+    components:
+    - type: Transform
+      pos: 14.5,-12.5
+      parent: 2
+  - uid: 3262
+    components:
+    - type: Transform
+      pos: 14.5,-4.5
+      parent: 2
+  - uid: 3326
+    components:
+    - type: Transform
+      pos: 21.5,11.5
+      parent: 2
+  - uid: 3327
+    components:
+    - type: Transform
+      pos: 5.5,5.5
+      parent: 2
+  - uid: 3328
+    components:
+    - type: Transform
+      pos: -24.5,23.5
+      parent: 2
+  - uid: 3329
+    components:
+    - type: Transform
+      pos: 16.5,-41.5
+      parent: 2
+- proto: MCImproperQuickEquipVendor
+  entities:
+  - uid: 4291
+    components:
+    - type: Transform
+      pos: 29.5,-4.5
+      parent: 2
+  - uid: 4303
+    components:
+    - type: Transform
+      pos: 29.5,0.5
+      parent: 2
+  - uid: 4304
+    components:
+    - type: Transform
+      pos: 29.5,-2.5
+      parent: 2
+  - uid: 4305
+    components:
+    - type: Transform
+      pos: 29.5,-7.5
+      parent: 2
+  - uid: 4306
+    components:
+    - type: Transform
+      pos: 29.5,-9.5
+      parent: 2
+  - uid: 4307
+    components:
+    - type: Transform
+      pos: 29.5,-12.5
+      parent: 2
+- proto: MCImproperSurplusArmorEquipmentVendor
+  entities:
+  - uid: 4311
+    components:
+    - type: Transform
+      pos: 20.5,3.5
+      parent: 2
+  - uid: 4312
+    components:
+    - type: Transform
+      pos: 22.5,3.5
+      parent: 2
+  - uid: 4313
+    components:
+    - type: Transform
+      pos: 24.5,3.5
+      parent: 2
+  - uid: 4316
+    components:
+    - type: Transform
+      pos: 11.5,14.5
+      parent: 2
+  - uid: 4337
+    components:
+    - type: Transform
+      pos: 19.5,18.5
+      parent: 2
+  - uid: 4342
+    components:
+    - type: Transform
+      pos: 22.5,33.5
+      parent: 2
+  - uid: 4355
+    components:
+    - type: Transform
+      pos: 24.5,46.5
+      parent: 2
+  - uid: 4404
+    components:
+    - type: Transform
+      pos: -6.5,62.5
+      parent: 2
+  - uid: 4514
+    components:
+    - type: Transform
+      pos: -21.5,-16.5
+      parent: 2
+- proto: MCImproperSurplusClothingVendor
+  entities:
+  - uid: 4308
+    components:
+    - type: Transform
+      pos: 20.5,5.5
+      parent: 2
+  - uid: 4309
+    components:
+    - type: Transform
+      pos: 22.5,5.5
+      parent: 2
+  - uid: 4310
+    components:
+    - type: Transform
+      pos: 24.5,5.5
+      parent: 2
+  - uid: 4317
+    components:
+    - type: Transform
+      pos: 11.5,13.5
+      parent: 2
+  - uid: 4336
+    components:
+    - type: Transform
+      pos: 18.5,18.5
+      parent: 2
+  - uid: 4340
+    components:
+    - type: Transform
+      pos: 22.5,31.5
+      parent: 2
+  - uid: 4354
+    components:
+    - type: Transform
+      pos: 23.5,46.5
+      parent: 2
+  - uid: 4403
+    components:
+    - type: Transform
+      pos: -6.5,63.5
+      parent: 2
+  - uid: 4515
+    components:
+    - type: Transform
+      pos: -23.5,-16.5
+      parent: 2
+- proto: MCMarineMed
+  entities:
+  - uid: 3070
+    components:
+    - type: Transform
+      pos: 17.5,1.5
+      parent: 2
+  - uid: 3086
+    components:
+    - type: Transform
+      pos: 13.5,-14.5
+      parent: 2
+  - uid: 3087
+    components:
+    - type: Transform
+      pos: 13.5,-6.5
+      parent: 2
+  - uid: 3304
+    components:
+    - type: Transform
+      pos: 17.5,2.5
+      parent: 2
+  - uid: 3335
+    components:
+    - type: Transform
+      pos: 20.5,14.5
+      parent: 2
+  - uid: 4192
+    components:
+    - type: Transform
+      pos: 16.5,-18.5
+      parent: 2
+  - uid: 4193
+    components:
+    - type: Transform
+      pos: 17.5,-18.5
+      parent: 2
+  - uid: 4318
+    components:
+    - type: Transform
+      pos: 11.5,12.5
+      parent: 2
+  - uid: 4419
+    components:
+    - type: Transform
+      pos: -7.5,17.5
       parent: 2
 - proto: MCSingleChemistryGlassLocked
   entities:
@@ -23511,6 +28067,16 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -15.5,-39.5
       parent: 2
+  - uid: 4375
+    components:
+    - type: Transform
+      pos: 9.5,64.5
+      parent: 2
+  - uid: 4376
+    components:
+    - type: Transform
+      pos: 16.5,64.5
+      parent: 2
 - proto: MCSingleDoorMedicalGlass
   entities:
   - uid: 1769
@@ -23526,7 +28092,7 @@ entities:
   - uid: 1771
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
+      rot: 1.5707963267948966 rad
       pos: -17.5,13.5
       parent: 2
   - uid: 1772
@@ -23586,13 +28152,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: -33.5,17.5
       parent: 2
-- proto: PlayerStationAi
-  entities:
-  - uid: 4085
-    components:
-    - type: Transform
-      pos: 16.5,-41.5
-      parent: 2
 - proto: PlushieCarp
   entities:
   - uid: 3019
@@ -23600,12 +28159,33 @@ entities:
     - type: Transform
       pos: -5.5,-4.5
       parent: 2
+- proto: PlushieLizard
+  entities:
+  - uid: 4524
+    components:
+    - type: Transform
+      pos: -15.5,4.5
+      parent: 2
 - proto: PlushieRouny
   entities:
   - uid: 2862
     components:
     - type: Transform
       pos: -24.5,-15.5
+      parent: 2
+- proto: PlushieSnake
+  entities:
+  - uid: 2680
+    components:
+    - type: Transform
+      pos: -20.5,4.5
+      parent: 2
+- proto: PottedPlant5
+  entities:
+  - uid: 4213
+    components:
+    - type: Transform
+      pos: 21.5,-16.5
       parent: 2
 - proto: Recycler
   entities:
@@ -23646,6 +28226,18 @@ entities:
     - type: Transform
       pos: -14.53681,28.536562
       parent: 2
+- proto: RMCBoxDonut
+  entities:
+  - uid: 4521
+    components:
+    - type: Transform
+      pos: -19.5,5.5
+      parent: 2
+  - uid: 4522
+    components:
+    - type: Transform
+      pos: -16.5,4.5
+      parent: 2
 - proto: RMCCabinet
   entities:
   - uid: 2792
@@ -23664,6 +28256,16 @@ entities:
     components:
     - type: Transform
       pos: -14.5,-21.5
+      parent: 2
+  - uid: 4240
+    components:
+    - type: Transform
+      pos: 25.5,11.5
+      parent: 2
+  - uid: 4511
+    components:
+    - type: Transform
+      pos: -18.5,-4.5
       parent: 2
 - proto: RMCChemDispenserCorpsmanMedbay
   entities:
@@ -23724,6 +28326,38 @@ entities:
     - type: Transform
       pos: -16.5,36.5
       parent: 2
+- proto: RMCDropshipAttachmentAmmoGAU
+  entities:
+  - uid: 4369
+    components:
+    - type: Transform
+      pos: 17.5,63.5
+      parent: 2
+  - uid: 4370
+    components:
+    - type: Transform
+      pos: 17.5,62.5
+      parent: 2
+  - uid: 4371
+    components:
+    - type: Transform
+      pos: 17.5,61.5
+      parent: 2
+  - uid: 4372
+    components:
+    - type: Transform
+      pos: 18.5,63.5
+      parent: 2
+  - uid: 4373
+    components:
+    - type: Transform
+      pos: 18.5,62.5
+      parent: 2
+  - uid: 4374
+    components:
+    - type: Transform
+      pos: 18.5,61.5
+      parent: 2
 - proto: RMCDropshipAttachmentAmmoRocketKeeper
   entities:
   - uid: 3954
@@ -23759,6 +28393,25 @@ entities:
     components:
     - type: Transform
       pos: 8.5,58.5
+      parent: 2
+- proto: RMCDropshipAttachmentGuidedMissileLauncher
+  entities:
+  - uid: 4377
+    components:
+    - type: Transform
+      pos: 7.5,62.5
+      parent: 2
+  - uid: 4378
+    components:
+    - type: Transform
+      pos: 8.5,62.5
+      parent: 2
+- proto: RMCDropshipFabricator
+  entities:
+  - uid: 4416
+    components:
+    - type: Transform
+      pos: 9.5,54.5
       parent: 2
 - proto: RMCERTShuttleEngineLeft01
   entities:
@@ -23975,6 +28628,13 @@ entities:
     - type: Transform
       pos: 15.5,-53.5
       parent: 2
+- proto: RMCFlagCarriableUNMC
+  entities:
+  - uid: 4241
+    components:
+    - type: Transform
+      pos: 25.5,14.5
+      parent: 2
 - proto: RMCFloraTreeSnow01
   entities:
   - uid: 2939
@@ -24076,6 +28736,18 @@ entities:
     - type: Transform
       pos: -3.5,-43.5
       parent: 2
+  - uid: 4494
+    components:
+    - type: Transform
+      pos: -26.5,-4.5
+      parent: 2
+- proto: RMCGeneratorFusionFake
+  entities:
+  - uid: 4492
+    components:
+    - type: Transform
+      pos: -27.5,-4.5
+      parent: 2
 - proto: RMCKitchenReagentGrinder
   entities:
   - uid: 2001
@@ -24128,6 +28800,22 @@ entities:
     components:
     - type: Transform
       pos: 11.5,19.5
+      parent: 2
+- proto: RMCMirror
+  entities:
+  - uid: 4520
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -20.5,-8.5
+      parent: 2
+- proto: RMCMonitorCameraAlmayer
+  entities:
+  - uid: 4251
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 24.5,12.5
       parent: 2
 - proto: RMCOrbitalCannon
   entities:
@@ -24481,6 +29169,51 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 21.5,23.5
       parent: 2
+  - uid: 4392
+    components:
+    - type: Transform
+      pos: -13.5,57.5
+      parent: 2
+  - uid: 4393
+    components:
+    - type: Transform
+      pos: -12.5,57.5
+      parent: 2
+  - uid: 4394
+    components:
+    - type: Transform
+      pos: -10.5,57.5
+      parent: 2
+  - uid: 4395
+    components:
+    - type: Transform
+      pos: -11.5,57.5
+      parent: 2
+  - uid: 4397
+    components:
+    - type: Transform
+      pos: -13.5,55.5
+      parent: 2
+  - uid: 4398
+    components:
+    - type: Transform
+      pos: -13.5,55.5
+      parent: 2
+  - uid: 4399
+    components:
+    - type: Transform
+      pos: -12.5,55.5
+      parent: 2
+  - uid: 4400
+    components:
+    - type: Transform
+      pos: -11.5,55.5
+      parent: 2
+  - uid: 4401
+    components:
+    - type: Transform
+      pos: -10.5,55.5
+      parent: 2
 - proto: RMCPowerCellAPC
   entities:
   - uid: 2050
@@ -24598,6 +29331,14 @@ entities:
       parent: 2
 - proto: RMCSurveillanceCameraAlmayer
   entities:
+  - uid: 1993
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -30.5,11.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 2032
     components:
     - type: Transform
@@ -24917,6 +29658,13 @@ entities:
       parent: 2
     - type: Fixtures
       fixtures: {}
+  - uid: 3331
+    components:
+    - type: Transform
+      pos: -21.5,35.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
   - uid: 3405
     components:
     - type: Transform
@@ -24928,8 +29676,8 @@ entities:
   - uid: 3406
     components:
     - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -6.5,-36.5
+      rot: -1.5707963267948966 rad
+      pos: -15.5,-35.5
       parent: 2
     - type: Fixtures
       fixtures: {}
@@ -25232,6 +29980,197 @@ entities:
     components:
     - type: Transform
       pos: -19.5,-18.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4362
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 18.5,53.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4363
+    components:
+    - type: Transform
+      pos: 16.5,56.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4364
+    components:
+    - type: Transform
+      pos: 8.5,56.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4365
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,58.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4366
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 8.5,58.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4367
+    components:
+    - type: Transform
+      pos: 8.5,63.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4368
+    components:
+    - type: Transform
+      pos: 17.5,63.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4407
+    components:
+    - type: Transform
+      pos: -11.5,63.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4412
+    components:
+    - type: Transform
+      pos: -16.5,56.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4413
+    components:
+    - type: Transform
+      pos: -7.5,56.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4455
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 5.5,55.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4456
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,19.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4457
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 22.5,25.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4481
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -19.5,1.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4491
+    components:
+    - type: Transform
+      pos: -29.5,7.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4495
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -24.5,-1.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4532
+    components:
+    - type: Transform
+      pos: -11.5,-42.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4534
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -12.5,-40.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4535
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -5.5,-36.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4536
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -2.5,-39.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4539
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -16.5,-43.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4540
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -24.5,-35.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4541
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -21.5,-35.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4542
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -28.5,-35.5
+      parent: 2
+    - type: Fixtures
+      fixtures: {}
+  - uid: 4555
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -20.5,8.5
       parent: 2
     - type: Fixtures
       fixtures: {}

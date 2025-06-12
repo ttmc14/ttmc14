@@ -1,0 +1,117 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/master/icons/obj/structures/machinery/power.dmi, https://github.com/cmss13-devs/cmss13/blob/275837de2cbb13c0708b32c7b8b29815d598b5d4/icons/obj/structures/machinery/apc.dmi remapped by TornadoTech",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "display-lack",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          4
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          4
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          4
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          4
+        ]
+      ]
+    },
+    {
+      "name": "display-charging",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ],
+        [
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "display-full",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.4,
+          0.3,
+          0.4
+        ],
+        [
+          0.3,
+          0.4,
+          0.3,
+          0.4
+        ],
+        [
+          0.3,
+          0.4,
+          0.3,
+          0.4
+        ],
+        [
+          0.3,
+          0.4,
+          0.3,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "base",
+      "directions": 4
+    },
+    {
+      "name": "panel",
+      "directions": 4
+    }
+  ]
+}

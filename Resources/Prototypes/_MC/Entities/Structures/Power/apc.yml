@@ -1,0 +1,33 @@
+- type: entity
+  parent: CMApcAlmayer
+  id: MCApcAlmayer
+  suffix: Almayer
+  components:
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _MC/Structures/Power/apc.rsi
+    offset: 0, -1
+    layers:
+    - state: base
+      map: [ "base" ]
+    - state: panel
+      map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+      visible: false
+    - state: display-charging
+      shader: unshaded
+      map: [ "enum.ApcVisualLayers.ChargeState" ]
+#    - state: apcox-0
+#      shader: unshaded
+#      map: [ "enum.ApcVisualLayers.InterfaceLock" ]
+#    - state: apcox-1
+#      shader: unshaded
+#      map: [ "enum.ApcVisualLayers.PanelLock" ]
+#    - state: apco0-2
+#      shader: unshaded
+#      map: [ "enum.ApcVisualLayers.Equipment" ]
+#    - state: apco1-2
+#      shader: unshaded
+#      map: [ "enum.ApcVisualLayers.Lighting" ]
+#    - state: apco2-2
+#      shader: unshaded
+#      map: [ "enum.ApcVisualLayers.Environment" ]
