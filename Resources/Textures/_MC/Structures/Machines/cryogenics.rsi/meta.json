@@ -8,15 +8,6 @@
   },
   "states": [
     {
-      "name": "scanner_0",
-      "delays": [
-        [
-          0.2,
-          0.2
-        ]
-      ]
-    },
-    {
       "name": "scanner_1",
       "delays": [
         [
