@@ -1,0 +1,46 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "open_off"
+    },
+    {
+      "name": "open"
+    },
+    {
+      "name": "closed_off"
+    },
+    {
+      "name": "closed"
+    },
+    {
+      "name": "disinfecting",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "helmet"
+    },
+    {
+      "name": "suit"
+    },
+    {
+      "name": "mask"
+    },
+    {
+      "name": "tank"
+    }
+  ]
+}

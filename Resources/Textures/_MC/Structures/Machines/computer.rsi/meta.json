@@ -1,0 +1,1470 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": ""
+    },
+    {
+      "name": "computer"
+    },
+    {
+      "name": "computer_broken"
+    },
+    {
+      "name": "computer_blue_broken"
+    },
+    {
+      "name": "computer_red_broken"
+    },
+    {
+      "name": "computer_yellow_broken"
+    },
+    {
+      "name": "computer_orange_broken"
+    },
+    {
+      "name": "computer_small",
+      "directions": 4
+    },
+    {
+      "name": "computer_small_broken",
+      "directions": 4
+    },
+    {
+      "name": "computer_small_red_broken"
+    },
+    {
+      "name": "terminal"
+    },
+    {
+      "name": "terminal_broken"
+    },
+    {
+      "name": "ai-fixer"
+    },
+    {
+      "name": "ai-fixer-empty",
+      "delays": [
+        [
+          0.7,
+          0.7
+        ]
+      ]
+    },
+    {
+      "name": "ai-fixer-404"
+    },
+    {
+      "name": "ai-fixer-full"
+    },
+    {
+      "name": "ai-fixer-on",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "aiupload",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "airtunnel00",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "airtunnel01",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "airtunnel02",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "airtunnel10",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "airtunnel11",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "airtunnel12"
+    },
+    {
+      "name": "airtunnel0r"
+    },
+    {
+      "name": "airtunnel0e"
+    },
+    {
+      "name": "airtunnel1r"
+    },
+    {
+      "name": "airtunnel1e"
+    },
+    {
+      "name": "turbinecomp"
+    },
+    {
+      "name": "tank"
+    },
+    {
+      "name": "area_atmos",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "area_atmos2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "alert_0",
+      "directions": 4
+    },
+    {
+      "name": "alert_1"
+    },
+    {
+      "name": "alert_2"
+    },
+    {
+      "name": "atmos",
+      "directions": 4
+    },
+    {
+      "name": "atmos2",
+      "directions": 4,
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ],
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "comm",
+      "directions": 4,
+      "delays": [
+        [
+          0.9,
+          0.2,
+          0.5,
+          0.9
+        ],
+        [
+          0.9,
+          0.2,
+          0.5,
+          0.9
+        ],
+        [
+          0.9,
+          0.2,
+          0.5,
+          0.9
+        ],
+        [
+          0.9,
+          0.2,
+          0.5,
+          0.9
+        ]
+      ]
+    },
+    {
+      "name": "computer_generic",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "crew",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "crewb_alt"
+    },
+    {
+      "name": "dna_no",
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "dna_old",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "engine"
+    },
+    {
+      "name": "engine1"
+    },
+    {
+      "name": "engine2"
+    },
+    {
+      "name": "escape"
+    },
+    {
+      "name": "id",
+      "directions": 4
+    },
+    {
+      "name": "medcomp"
+    },
+    {
+      "name": "miningcameras",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "operating",
+      "directions": 4,
+      "delays": [
+        [
+          0.13,
+          0.13,
+          0.13
+        ],
+        [
+          0.13,
+          0.13,
+          0.13
+        ],
+        [
+          0.13,
+          0.13,
+          0.13
+        ],
+        [
+          0.13,
+          0.13,
+          0.13
+        ]
+      ]
+    },
+    {
+      "name": "powerold",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "power",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "scanner",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "dna",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "old_security"
+    },
+    {
+      "name": "shuttle",
+      "directions": 4
+    },
+    {
+      "name": "solarold"
+    },
+    {
+      "name": "solar"
+    },
+    {
+      "name": "solcon-o",
+      "directions": 8
+    },
+    {
+      "name": "teleport",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "security",
+      "directions": 4
+    },
+    {
+      "name": "cameras",
+      "directions": 4,
+      "delays": [
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ],
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ],
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ],
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "supply",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "request",
+      "delays": [
+        [
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "explosive"
+    },
+    {
+      "name": "syndishuttle"
+    },
+    {
+      "name": "rdcomp"
+    },
+    {
+      "name": "rdcomp-inuse",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "recharge_comp_on",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "recharge_comp"
+    },
+    {
+      "name": "recharge_comp0",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "robot"
+    },
+    {
+      "name": "dummy"
+    },
+    {
+      "name": "mecha",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "command",
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "medlaptop",
+      "directions": 4
+    },
+    {
+      "name": "comm_logsc"
+    },
+    {
+      "name": "holocontrol",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engineeringcameras",
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "syndicam",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "guest",
+      "directions": 4
+    },
+    {
+      "name": "medlaptop_closed"
+    },
+    {
+      "name": "forensic",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "comm_traffic",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "comm_monitor",
+      "delays": [
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "comm_logs",
+      "delays": [
+        [
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "ob_console_screen"
+    },
+    {
+      "name": "ob_console"
+    },
+    {
+      "name": "ob_console_broken"
+    },
+    {
+      "name": "cellconsole_screen",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3
+        ],
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "cellconsole",
+      "directions": 4
+    },
+    {
+      "name": "cellconsole_broken",
+      "directions": 4
+    },
+    {
+      "name": "security_cam",
+      "directions": 4,
+      "delays": [
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ],
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ],
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ],
+        [
+          1.2,
+          0.2,
+          1.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "arcade_screen",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.4,
+          0.2,
+          0.15,
+          0.2,
+          0.1,
+          0.1,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.9,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.6,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.3,
+          0.5,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          1.5,
+          0.3,
+          0.3,
+          1.2,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          3
+        ]
+      ]
+    },
+    {
+      "name": "arcade"
+    },
+    {
+      "name": "arcade_broken"
+    },
+    {
+      "name": "arcadeb_alt"
+    },
+    {
+      "name": "messyfiles_screen"
+    },
+    {
+      "name": "messyfiles"
+    },
+    {
+      "name": "messyfiles_broken"
+    },
+    {
+      "name": "security_det_screen"
+    },
+    {
+      "name": "security_det"
+    },
+    {
+      "name": "security_det_broken"
+    },
+    {
+      "name": "old_screen",
+      "delays": [
+        [
+          0.5,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "old"
+    },
+    {
+      "name": "old_broken"
+    },
+    {
+      "name": "overwatch"
+    },
+    {
+      "name": "overwatch_broken"
+    },
+    {
+      "name": "overwatch_screen",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "overwatch_med_screen",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "overwatch_main_screen",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "overwatch_main"
+    },
+    {
+      "name": "overwatch_main_broken"
+    },
+    {
+      "name": "overwatch_req_screen",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "overwatch_req"
+    },
+    {
+      "name": "overwatch_req_broken"
+    },
+    {
+      "name": "terminal1_old",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engineering_terminal",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "terminal_misc",
+      "directions": 4
+    },
+    {
+      "name": "terminalb"
+    },
+    {
+      "name": "maptable"
+    },
+    {
+      "name": "maptable_screen",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "terminal1"
+    },
+    {
+      "name": "nuke_red",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "nuke_green",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "nuke_blue",
+      "delays": [
+        [
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "intel_computer_screen",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "intel_computer"
+    },
+    {
+      "name": "shuttlecomputer_screen",
+      "directions": 4
+    },
+    {
+      "name": "shuttlecomputer",
+      "directions": 4
+    },
+    {
+      "name": "shuttlecomputer_broken",
+      "directions": 4
+    },
+    {
+      "name": "supplydrop_screen"
+    },
+    {
+      "name": "supplydrop"
+    },
+    {
+      "name": "supplydrop_broken"
+    },
+    {
+      "name": "droppodtable"
+    },
+    {
+      "name": "droppodtable_emissive",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "mech_computer",
+      "delays": [
+        [
+          0.8,
+          0.7,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1.5,
+          1.5
+        ]
+      ]
+    },
+    {
+      "name": "broken_computer1"
+    },
+    {
+      "name": "broken_computer2"
+    },
+    {
+      "name": "broken_computer3"
+    },
+    {
+      "name": "broken_computer4"
+    },
+    {
+      "name": "broken_computer5"
+    },
+    {
+      "name": "broken_computer6"
+    },
+    {
+      "name": "broken_computer7",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "broken_computer8"
+    },
+    {
+      "name": "broken_computer9"
+    },
+    {
+      "name": "broken_computer10"
+    },
+    {
+      "name": "broken_computer11"
+    },
+    {
+      "name": "broken_computer12"
+    },
+    {
+      "name": "broken_computer13"
+    },
+    {
+      "name": "broken_computer14",
+      "directions": 4
+    },
+    {
+      "name": "broken_computer15"
+    },
+    {
+      "name": "broken_computer16"
+    },
+    {
+      "name": "broken_computer17",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "broken_computer18"
+    },
+    {
+      "name": "broken_computer19"
+    },
+    {
+      "name": "nuke_rand"
+    },
+    {
+      "name": "elevator",
+      "directions": 4
+    },
+    {
+      "name": "elevator0",
+      "directions": 4
+    },
+    {
+      "name": "elevatorb",
+      "directions": 4
+    },
+    {
+      "name": "som_computer",
+      "directions": 4
+    },
+    {
+      "name": "som_computer_broken",
+      "directions": 4
+    },
+    {
+      "name": "som_computer_on",
+      "directions": 4
+    },
+    {
+      "name": "som_computer_emissive",
+      "directions": 4
+    },
+    {
+      "name": "som_console",
+      "directions": 4
+    },
+    {
+      "name": "som_console_broken",
+      "directions": 4
+    },
+    {
+      "name": "som_maptable_screen",
+      "directions": 4
+    },
+    {
+      "name": "som_overwatch_emissive",
+      "directions": 4
+    },
+    {
+      "name": "som_main_overwatch_emissive",
+      "directions": 4
+    },
+    {
+      "name": "som_console_screen",
+      "directions": 4
+    },
+    {
+      "name": "dropship_console"
+    },
+    {
+      "name": "dropship_console_emissive"
+    },
+    {
+      "name": "dropship_console2"
+    },
+    {
+      "name": "dropship_console2_emissive"
+    },
+    {
+      "name": "dropship_console_left"
+    },
+    {
+      "name": "dropship_console_left_emissive"
+    },
+    {
+      "name": "dropship_console_right"
+    },
+    {
+      "name": "dropship_console_right_emissive"
+    },
+    {
+      "name": "tram_alt_controls",
+      "directions": 4
+    },
+    {
+      "name": "tram_controls"
+    },
+    {
+      "name": "tram_NIS"
+    },
+    {
+      "name": "tram_broken"
+    },
+    {
+      "name": "tram_01",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "tram_08",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "tram_02",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "tram_04",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "tram_1"
+    },
+    {
+      "name": "tram_11"
+    },
+    {
+      "name": "tram_12"
+    },
+    {
+      "name": "tram_13"
+    },
+    {
+      "name": "bird_1",
+      "directions": 4
+    },
+    {
+      "name": "bird_2",
+      "directions": 4
+    },
+    {
+      "name": "bird_11",
+      "directions": 4
+    },
+    {
+      "name": "bird_12",
+      "directions": 4
+    },
+    {
+      "name": "bird_21",
+      "directions": 4
+    },
+    {
+      "name": "bird_22",
+      "directions": 4
+    },
+    {
+      "name": "hilb_1"
+    },
+    {
+      "name": "hilb_11"
+    },
+    {
+      "name": "hilb_12"
+    },
+    {
+      "name": "hilb_13"
+    }
+  ]
+}

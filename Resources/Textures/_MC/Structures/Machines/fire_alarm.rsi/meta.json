@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fire1",
+      "directions": 4
+    },
+    {
+      "name": "fire0",
+      "directions": 4
+    },
+    {
+      "name": "fire_o1",
+      "directions": 4,
+      "delays": [
+        [
+          0.15,
+          0.15
+        ],
+        [
+          0.15,
+          0.15
+        ],
+        [
+          0.15,
+          0.15
+        ],
+        [
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "fire_ogreen",
+      "directions": 4
+    },
+    {
+      "name": "fire_oblue",
+      "directions": 4
+    },
+    {
+      "name": "fire_ored",
+      "directions": 4,
+      "delays": [
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ],
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "fire_odelta",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ],
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "fire_ob2",
+      "directions": 4
+    },
+    {
+      "name": "fire_ob1",
+      "directions": 4
+    },
+    {
+      "name": "fire_ob0",
+      "directions": 4
+    }
+  ]
+}

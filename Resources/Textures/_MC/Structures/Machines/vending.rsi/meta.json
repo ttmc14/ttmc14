@@ -1,0 +1,2840 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "",
+      "delays": [
+        [
+          0.120000005,
+          0.120000005,
+          0.120000005,
+          0.120000005
+        ]
+      ]
+    },
+    {
+      "name": "snack",
+      "delays": [
+        [
+          2.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snack_emissive",
+      "delays": [
+        [
+          2.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snack-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snack-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snack-off"
+    },
+    {
+      "name": "snack-broken"
+    },
+    {
+      "name": "snack-panel"
+    },
+    {
+      "name": "sustenance"
+    },
+    {
+      "name": "sustenance_emissive"
+    },
+    {
+      "name": "sustenance-vend",
+      "delays": [
+        [
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "susntenance-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "sustenance-off"
+    },
+    {
+      "name": "sustenance-broken"
+    },
+    {
+      "name": "sustenance-panel"
+    },
+    {
+      "name": "smartfridge",
+      "delays": [
+        [
+          1,
+          1,
+          1,
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "smartfridge_emissive"
+    },
+    {
+      "name": "smartfridge-broken"
+    },
+    {
+      "name": "smartfridge-off"
+    },
+    {
+      "name": "smartfridge-panel"
+    },
+    {
+      "name": "dinnerware"
+    },
+    {
+      "name": "dinnerware_emissive"
+    },
+    {
+      "name": "dinnerware-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.6,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "dinnerware-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "dinnerware-broken"
+    },
+    {
+      "name": "dinnerware-off"
+    },
+    {
+      "name": "dinnerware-panel"
+    },
+    {
+      "name": "cigs",
+      "delays": [
+        [
+          3.6,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cigs_emissive",
+      "delays": [
+        [
+          3.6,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cigs-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cigs-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cigs-broken"
+    },
+    {
+      "name": "cigs-off"
+    },
+    {
+      "name": "cigs-panel"
+    },
+    {
+      "name": "generic"
+    },
+    {
+      "name": "generic_emissive"
+    },
+    {
+      "name": "generic-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "generic-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "generic-off"
+    },
+    {
+      "name": "generic-broken"
+    },
+    {
+      "name": "generic-panel"
+    },
+    {
+      "name": "nutri",
+      "delays": [
+        [
+          2.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nutri_emissive",
+      "delays": [
+        [
+          2.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nutri-vend",
+      "delays": [
+        [
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nutri-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nutri-off"
+    },
+    {
+      "name": "nutri-broken"
+    },
+    {
+      "name": "nutri-panel"
+    },
+    {
+      "name": "seeds",
+      "delays": [
+        [
+          2.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "seeds_emissive",
+      "delays": [
+        [
+          2.4,
+          2.4,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "seeds-vend",
+      "delays": [
+        [
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "seeds-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "seeds-off"
+    },
+    {
+      "name": "seeds-broken"
+    },
+    {
+      "name": "seeds-panel"
+    },
+    {
+      "name": "Cola_Machine"
+    },
+    {
+      "name": "Cola_Machine_emissive"
+    },
+    {
+      "name": "Cola_Machine-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "Cola_Machine-deny",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "Cola_Machine-off"
+    },
+    {
+      "name": "Cola_Machine-broken"
+    },
+    {
+      "name": "Cola_Machine-panel"
+    },
+    {
+      "name": "sovietsoda",
+      "delays": [
+        [
+          0.3,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.3,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "sovietsoda_emissive",
+      "delays": [
+        [
+          0.3,
+          0.1,
+          0.1,
+          0.2,
+          0.1,
+          0.3,
+          0.1,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "sovietsoda-broken"
+    },
+    {
+      "name": "sovietsoda-off"
+    },
+    {
+      "name": "sovietsoda-panel"
+    },
+    {
+      "name": "coffee",
+      "delays": [
+        [
+          2.5,
+          0.1,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "coffee_emissive",
+      "delays": [
+        [
+          2.5,
+          0.1,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "coffee-vend",
+      "delays": [
+        [
+          0.1,
+          0.4,
+          2,
+          0.2,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "coffee-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "coffee-broken"
+    },
+    {
+      "name": "coffee-off"
+    },
+    {
+      "name": "coffee-panel"
+    },
+    {
+      "name": "boozeomat",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "boozeomat_emissive"
+    },
+    {
+      "name": "boozeomat-deny",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "boozeomat-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "boozeomat-broken"
+    },
+    {
+      "name": "boozeomat-off"
+    },
+    {
+      "name": "boozeomat-panel"
+    },
+    {
+      "name": "water_cooler",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "MagiVend",
+      "delays": [
+        [
+          3.9,
+          0.1,
+          0.3,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "MagiVend_emissive"
+    },
+    {
+      "name": "MagiVend-broken"
+    },
+    {
+      "name": "MagiVend-off"
+    },
+    {
+      "name": "MagiVend-panel"
+    },
+    {
+      "name": "med",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "med_emissive"
+    },
+    {
+      "name": "med-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "med-broken"
+    },
+    {
+      "name": "med-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "med-off"
+    },
+    {
+      "name": "med-panel"
+    },
+    {
+      "name": ""
+    },
+    {
+      "name": "wallmed",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "wallmed_emissive",
+      "directions": 4
+    },
+    {
+      "name": "wallmed-vend",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "wallmed-broken",
+      "directions": 4
+    },
+    {
+      "name": "wallmed-off",
+      "directions": 4
+    },
+    {
+      "name": "wallmed-deny",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "wallmed-panel"
+    },
+    {
+      "name": "tool",
+      "delays": [
+        [
+          4.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tool_emissive"
+    },
+    {
+      "name": "tool-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tool-broken"
+    },
+    {
+      "name": "tool-off"
+    },
+    {
+      "name": "tool-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tool-panel"
+    },
+    {
+      "name": "engivend",
+      "delays": [
+        [
+          2.8,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engivend_emissive"
+    },
+    {
+      "name": "engivend-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engivend-off"
+    },
+    {
+      "name": "engivend-broken"
+    },
+    {
+      "name": "engivend-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engivend-panel"
+    },
+    {
+      "name": "robotics",
+      "delays": [
+        [
+          2.3,
+          0.1,
+          0.3,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "robotics_emissive"
+    },
+    {
+      "name": "robotics-vend",
+      "delays": [
+        [
+          0.1,
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "robotics-broken"
+    },
+    {
+      "name": "robotics-off"
+    },
+    {
+      "name": "robotics-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "robotics-panel"
+    },
+    {
+      "name": "marinearmory"
+    },
+    {
+      "name": "marinearmory_emissive"
+    },
+    {
+      "name": "marinearmory-broken"
+    },
+    {
+      "name": "marinearmory-off"
+    },
+    {
+      "name": "marinearmory-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marinearmory-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marinearmory-panel"
+    },
+    {
+      "name": "surplus_armor",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "surplus_armor_emissive"
+    },
+    {
+      "name": "surplus_clothes",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "surplus_clothes_emissive"
+    },
+    {
+      "name": "surplus_armor-broken"
+    },
+    {
+      "name": "surplus_clothes-broken"
+    },
+    {
+      "name": "surplus_armor-off"
+    },
+    {
+      "name": "surplus_clothes-off"
+    },
+    {
+      "name": "surplus_armor_vend",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "surplus_clothes_vend",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "surplus_armor_deny",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "surplus_clothes_deny",
+      "delays": [
+        [
+          0.05,
+          0.05,
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "surplus-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "surplus-vent",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "bloodvendor",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bloodvendor_emissive",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bloodvendor-vend",
+      "delays": [
+        [
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.07,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bloodvendor-broken"
+    },
+    {
+      "name": "bloodvendor-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bloodvendor-off"
+    },
+    {
+      "name": "marinerequisitions"
+    },
+    {
+      "name": "marinerequisitions_emissive"
+    },
+    {
+      "name": "marinerequisitions-broken"
+    },
+    {
+      "name": "marinerequisitions-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marinerequisitions-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marinerequisitions-off"
+    },
+    {
+      "name": "marinerequisitions-panel"
+    },
+    {
+      "name": "sec",
+      "delays": [
+        [
+          3.4,
+          0.1,
+          0.4,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "sec_emissive",
+      "delays": [
+        [
+          3.4,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "sec-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "sec-broken"
+    },
+    {
+      "name": "sec-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "sec-off"
+    },
+    {
+      "name": "sec-panel"
+    },
+    {
+      "name": "marineuniform"
+    },
+    {
+      "name": "marineuniform_emissive"
+    },
+    {
+      "name": "marineuniform-broken"
+    },
+    {
+      "name": "marineuniform-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marineuniform-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.5,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marineuniform-off"
+    },
+    {
+      "name": "uniform-panel"
+    },
+    {
+      "name": "smartgunner"
+    },
+    {
+      "name": "smartgunner_emissive"
+    },
+    {
+      "name": "smartgunner-vend",
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.5,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "smartgunner-broken"
+    },
+    {
+      "name": "smartgunner-off"
+    },
+    {
+      "name": "smartgunner-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "smartgunner-panel"
+    },
+    {
+      "name": "specialist-off"
+    },
+    {
+      "name": "specialist"
+    },
+    {
+      "name": "specialist_emissive"
+    },
+    {
+      "name": "specialist-broken"
+    },
+    {
+      "name": "specialist-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "specialist-panel"
+    },
+    {
+      "name": "engineer"
+    },
+    {
+      "name": "engineer_emissive"
+    },
+    {
+      "name": "engineer-vend",
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.5,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engineer-broken"
+    },
+    {
+      "name": "engineer-off"
+    },
+    {
+      "name": "engineer-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engineer-panel"
+    },
+    {
+      "name": "squadleader"
+    },
+    {
+      "name": "squadleader_emissive"
+    },
+    {
+      "name": "squadleader-vend",
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.5,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "squadleader-boken"
+    },
+    {
+      "name": "squadleader-off"
+    },
+    {
+      "name": "squadleader-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "squadleader-panel"
+    },
+    {
+      "name": "medic"
+    },
+    {
+      "name": "medic_emissive"
+    },
+    {
+      "name": "medic-vend",
+      "delays": [
+        [
+          0.1,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.5,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "medic-broken"
+    },
+    {
+      "name": "medic-off"
+    },
+    {
+      "name": "medic-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "medic-panel"
+    },
+    {
+      "name": "lascharger"
+    },
+    {
+      "name": "lascharger_emissive"
+    },
+    {
+      "name": "lascharger_100"
+    },
+    {
+      "name": "lascharger_75"
+    },
+    {
+      "name": "lascharger_50"
+    },
+    {
+      "name": "lascharger_25"
+    },
+    {
+      "name": "lascharger_0",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "lascharger-broken"
+    },
+    {
+      "name": "lascharger-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "lascharger-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "requisitionop"
+    },
+    {
+      "name": "requisitionop_emissive"
+    },
+    {
+      "name": "requisitionop-broken"
+    },
+    {
+      "name": "requisitionop-vend",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "requisitionop-off"
+    },
+    {
+      "name": "requisitionop-panel"
+    },
+    {
+      "name": "requisitionop-deny",
+      "delays": [
+        [
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15,
+          0.15
+        ]
+      ]
+    },
+    {
+      "name": "synth",
+      "delays": [
+        [
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.08,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "synth_emissive"
+    },
+    {
+      "name": "synth-vend",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "synth-deny",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "synth-off"
+    },
+    {
+      "name": "synth-broken",
+      "delays": [
+        [
+          4.5,
+          0.030000001,
+          0.05,
+          0.1,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "synth_panel"
+    },
+    {
+      "name": "marinemed",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marinemed_emissive"
+    },
+    {
+      "name": "marinemed-vend",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "marinemed-broken"
+    },
+    {
+      "name": "marinemed-off"
+    },
+    {
+      "name": "marinemed-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tg unused"
+    },
+    {
+      "name": "snackblue",
+      "delays": [
+        [
+          1.5,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snackblue-broken"
+    },
+    {
+      "name": "snackblue-off"
+    },
+    {
+      "name": "snackblue-panel"
+    },
+    {
+      "name": "snackorange",
+      "delays": [
+        [
+          4.3,
+          0.1,
+          0.3,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snackorange-broken"
+    },
+    {
+      "name": "snackorange-off"
+    },
+    {
+      "name": "snackgreen",
+      "delays": [
+        [
+          1.7,
+          0.1,
+          0.3,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snackgreen-broken"
+    },
+    {
+      "name": "snackgreen-off"
+    },
+    {
+      "name": "snackgreen-panel"
+    },
+    {
+      "name": "snackteal",
+      "delays": [
+        [
+          2.4,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "snackteal-broken"
+    },
+    {
+      "name": "snackteal-off"
+    },
+    {
+      "name": "snackteal-panel"
+    },
+    {
+      "name": "cola_black-panel"
+    },
+    {
+      "name": "shamblers_juice",
+      "delays": [
+        [
+          5,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "shamblers_juice-broken"
+    },
+    {
+      "name": "shamblers_juice-off"
+    },
+    {
+      "name": "shamblers_juice-panel"
+    },
+    {
+      "name": "red_cola",
+      "delays": [
+        [
+          1.6,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "red_cola-broken"
+    },
+    {
+      "name": "red_cola-off"
+    },
+    {
+      "name": "red_cola-panel"
+    },
+    {
+      "name": "space_up",
+      "delays": [
+        [
+          1.2,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "space_up-broken"
+    },
+    {
+      "name": "space_up-off"
+    },
+    {
+      "name": "space_up-panel"
+    },
+    {
+      "name": "pwr_game",
+      "delays": [
+        [
+          1.4,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pwr_game-broken"
+    },
+    {
+      "name": "pwr_game-off"
+    },
+    {
+      "name": "pwr_game-panel"
+    },
+    {
+      "name": "starkist",
+      "delays": [
+        [
+          4.9,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "starkist-broken"
+    },
+    {
+      "name": "starkist-off"
+    },
+    {
+      "name": "starkist-panel"
+    },
+    {
+      "name": "soda",
+      "delays": [
+        [
+          4,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "soda-broken"
+    },
+    {
+      "name": "soda-off"
+    },
+    {
+      "name": "soda-panel"
+    },
+    {
+      "name": "engi",
+      "delays": [
+        [
+          4.6,
+          0.1,
+          0.3,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engi-broken"
+    },
+    {
+      "name": "engi-off"
+    },
+    {
+      "name": "engi-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engi-panel"
+    },
+    {
+      "name": "cart",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cart-broken"
+    },
+    {
+      "name": "cart-off"
+    },
+    {
+      "name": "cart-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cart-panel"
+    },
+    {
+      "name": "theater",
+      "delays": [
+        [
+          4.5,
+          0.1,
+          0.4,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "theater-broken"
+    },
+    {
+      "name": "theater-off"
+    },
+    {
+      "name": "theater-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "theater-panel"
+    },
+    {
+      "name": "clothes",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "clothes-deny",
+      "delays": [
+        [
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "clothes-broken"
+    },
+    {
+      "name": "clothes-off"
+    },
+    {
+      "name": "clothes-panel"
+    },
+    {
+      "name": "liberationstation",
+      "delays": [
+        [
+          1.6,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "liberationstation-broken"
+    },
+    {
+      "name": "liberationstation-off"
+    },
+    {
+      "name": "liberationstation-panel"
+    },
+    {
+      "name": "syndi",
+      "delays": [
+        [
+          0.5,
+          0.1,
+          0.5,
+          0.1,
+          0.5,
+          0.1,
+          0.5,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "syndi-broken"
+    },
+    {
+      "name": "syndi-off"
+    },
+    {
+      "name": "syndi-deny",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "syndi-panel"
+    },
+    {
+      "name": "games",
+      "delays": [
+        [
+          1.7,
+          0.1,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "games-broken"
+    },
+    {
+      "name": "games-off"
+    },
+    {
+      "name": "games-panel"
+    },
+    {
+      "name": "bardrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bardrobe-broken"
+    },
+    {
+      "name": "bardrobe-off"
+    },
+    {
+      "name": "bardrobe-panel"
+    },
+    {
+      "name": "secdrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "secdrobe-broken"
+    },
+    {
+      "name": "secdrobe-off"
+    },
+    {
+      "name": "secdrobe-panel"
+    },
+    {
+      "name": "chefdrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "chefdrobe-broken"
+    },
+    {
+      "name": "chefdrobe-off"
+    },
+    {
+      "name": "chefdrobe-panel"
+    },
+    {
+      "name": "medidrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "medidrobe-broken"
+    },
+    {
+      "name": "medidrobe-off"
+    },
+    {
+      "name": "medidrobe-panel"
+    },
+    {
+      "name": "chemdrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "chemdrobe-broken"
+    },
+    {
+      "name": "chemdrobe-off"
+    },
+    {
+      "name": "chemdrobe-panel"
+    },
+    {
+      "name": "genedrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "genedrobe-broken"
+    },
+    {
+      "name": "genedrobe-off"
+    },
+    {
+      "name": "genedrobe-panel"
+    },
+    {
+      "name": "virodrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "virodrobe-broken"
+    },
+    {
+      "name": "virodrobe-off"
+    },
+    {
+      "name": "virodrobe-panel"
+    },
+    {
+      "name": "scidrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "scidrobe-broken"
+    },
+    {
+      "name": "scidrobe-off"
+    },
+    {
+      "name": "scidrobe-panel"
+    },
+    {
+      "name": "robodrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "robodrobe-broken"
+    },
+    {
+      "name": "robodrobe-off"
+    },
+    {
+      "name": "robodrobe-panel"
+    },
+    {
+      "name": "chapdrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "chapdrobe-broken"
+    },
+    {
+      "name": "chapdrobe-off"
+    },
+    {
+      "name": "chapdrobe-panel"
+    },
+    {
+      "name": "engidrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "engidrobe-broken"
+    },
+    {
+      "name": "engidrobe-off"
+    },
+    {
+      "name": "engidrobe-panel"
+    },
+    {
+      "name": "atmosdrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "atmosdrobe-broken"
+    },
+    {
+      "name": "atmosdrobe-off"
+    },
+    {
+      "name": "atmosdrobe-panel"
+    },
+    {
+      "name": "hydrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "hydrobe-broken"
+    },
+    {
+      "name": "hydrobe-off"
+    },
+    {
+      "name": "hydrobe-panel"
+    },
+    {
+      "name": "cargodrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "cargodrobe-broken"
+    },
+    {
+      "name": "cargodrobe-off"
+    },
+    {
+      "name": "cargodrobe-panel"
+    },
+    {
+      "name": "curadrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "curadrobe-broken"
+    },
+    {
+      "name": "curadrobe-off"
+    },
+    {
+      "name": "curadrobe-panel"
+    },
+    {
+      "name": "janidrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "janidrobe-broken"
+    },
+    {
+      "name": "janidrobe-off"
+    },
+    {
+      "name": "janidrobe-panel"
+    },
+    {
+      "name": "lawdrobe",
+      "delays": [
+        [
+          1,
+          0.1,
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "lawdrobe-broken"
+    },
+    {
+      "name": "lawdrobe-off"
+    },
+    {
+      "name": "lawdrobe-panel"
+    },
+    {
+      "name": "disktoaster"
+    },
+    {
+      "name": "disktoaster-broken"
+    },
+    {
+      "name": "disktoaster-off"
+    },
+    {
+      "name": "disktoaster-panel"
+    },
+    {
+      "name": "loadoutvendor",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.3,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3,
+          0.1,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "loadoutvendor-vend",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "loadoutvendor-deny",
+      "delays": [
+        [
+          0.2,
+          0.1,
+          0.2,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "loadoutvendor-off"
+    },
+    {
+      "name": "loadoutvendor-broken"
+    },
+    {
+      "name": "loadoutvendor_emissive"
+    },
+    {
+      "name": "nanoammo",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nanoammo-deny",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nanoammo-vend",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.9,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "nanoammo-broken",
+      "directions": 4
+    },
+    {
+      "name": "nanoammo-off",
+      "directions": 4
+    },
+    {
+      "name": "nanoammo-panel"
+    },
+    {
+      "name": "nanoammo_emissive",
+      "directions": 4
+    }
+  ]
+}

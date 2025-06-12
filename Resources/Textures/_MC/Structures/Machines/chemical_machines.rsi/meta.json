@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dispenser"
+    },
+    {
+      "name": "dispenser_nopower"
+    },
+    {
+      "name": "disp_beaker"
+    },
+    {
+      "name": "dispenser_open"
+    },
+    {
+      "name": "dispenser_nobat"
+    },
+    {
+      "name": "mixer0"
+    },
+    {
+      "name": "mixer1",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "mixer0_nopower"
+    },
+    {
+      "name": "mixer1_nopower"
+    },
+    {
+      "name": "mixer1_b"
+    },
+    {
+      "name": "mixer0_b"
+    },
+    {
+      "name": "soda_dispenser",
+      "directions": 4
+    },
+    {
+      "name": "booze_dispenser",
+      "directions": 4
+    }
+  ]
+}

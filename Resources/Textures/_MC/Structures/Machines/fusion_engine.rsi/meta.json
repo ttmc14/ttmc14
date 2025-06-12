@@ -1,0 +1,98 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 36,
+    "y": 36
+  },
+  "states": [
+    {
+      "name": "weld"
+    },
+    {
+      "name": "wire"
+    },
+    {
+      "name": "wrench"
+    },
+    {
+      "name": "off"
+    },
+    {
+      "name": "off-10"
+    },
+    {
+      "name": "off-25"
+    },
+    {
+      "name": "off-50"
+    },
+    {
+      "name": "off-75"
+    },
+    {
+      "name": "off-100"
+    },
+    {
+      "name": "on-10"
+    },
+    {
+      "name": "on-25"
+    },
+    {
+      "name": "on-50"
+    },
+    {
+      "name": "on-75"
+    },
+    {
+      "name": "on-100"
+    },
+    {
+      "name": "recycler",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "recycler0"
+    },
+    {
+      "name": "recycler-left-charged-right-charged"
+    },
+    {
+      "name": "recycler-left-charged"
+    },
+    {
+      "name": "recycler-left-charged-right-charging"
+    },
+    {
+      "name": "recycler-right-charged"
+    },
+    {
+      "name": "recycler-left-charging-right-charged"
+    },
+    {
+      "name": "recycler-left-charging-right-charging"
+    },
+    {
+      "name": "recycler-left-charging"
+    },
+    {
+      "name": "recycler-right-charging"
+    },
+    {
+      "name": "recycler-left-cell"
+    },
+    {
+      "name": "recycler-right-cell"
+    },
+    {
+      "name": "recycler-both-cells"
+    }
+  ]
+}

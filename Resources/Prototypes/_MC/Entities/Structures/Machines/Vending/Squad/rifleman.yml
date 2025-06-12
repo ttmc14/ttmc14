@@ -74,3 +74,58 @@
   - type: Sprite
     sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/equipment.rsi
   - type: CMAutomatedVendor
+
+- type: entity
+  parent: ColMarTechBase
+  id: MCMarineMed
+  name: improper MarineMed
+  description: Marine Medical drug dispenser - Provided by Nanotrasen Pharmaceuticals Division(TM).
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Machines/VendingMachines/ColMarTech/equipment.rsi
+  - type: CMAutomatedVendor
+    sections:
+    - name: Pill Bottles
+      entries:
+      - id: CMPillCanisterBicaridine
+      - id: CMPillCanisterKelotane
+      # tramadol
+      - id: CMPillCanisterTricordrazine
+      - id: CMPillCanisterDylovene
+      # paracetamol
+      # isotonic
+      - id: CMPillCanister
+    - name: Auto Injector
+      entries:
+      - id: CMBicaridineAutoInjector
+      - id: CMKelotaneAutoInjector
+      # tramadol
+      - id: CMTricordrazineAutoInjector
+      - id: CMDyloveneAutoInjector
+      # combat
+      # isotonic
+      - id: CMInaprovalineAutoInjector
+      # oxycodone = 30
+      # spaceacillin = 20
+      # hypervene = 20
+      # alkysine = 20
+      # imidazoline = 20
+      # quickclot = 10
+      # medicalnanites = 20
+    - name: Heal Pack
+      entries:
+      - id: CMGauze10
+      - id: CMOintment10
+      # splint
+      - id: CMTraumaKit10
+        amount: 50
+      - id: CMBurnKit10
+        amount: 50
+    - name: Misc
+      entries:
+      - id: CMDefibrillator
+        amount: 8
+      - id: CMHealthAnalyzer
+        amount: 16
+      - id: CMStasisBagFolded
+        amount: 24

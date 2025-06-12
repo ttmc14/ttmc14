@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "isolator_in"
+    },
+    {
+      "name": "isolator"
+    },
+    {
+      "name": "isolator_processing",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "isolator_off"
+    },
+    {
+      "name": "analyser"
+    },
+    {
+      "name": "analyser_processing",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "incubator"
+    },
+    {
+      "name": "incubator_on"
+    },
+    {
+      "name": "centrifuge"
+    },
+    {
+      "name": "centrifuge_moving",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "centrifuge0"
+    },
+    {
+      "name": "centrifugeb"
+    },
+    {
+      "name": "isolation_centerfuge_broken_open"
+    },
+    {
+      "name": "isolation_centerfuge_closed_off"
+    },
+    {
+      "name": "isolation_centerfuge_closed_on"
+    },
+    {
+      "name": "isolation_centerfuge_closed_on_spin",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "isolation_centerfuge_off_open"
+    },
+    {
+      "name": "isolation_centerfuge_on_open"
+    },
+    {
+      "name": "pathogenic_incubator_closed_off"
+    },
+    {
+      "name": "pathogenic_incubator_on",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "pathogenic_incubator_open"
+    },
+    {
+      "name": "pathogenic_incubator_opening_animation",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "Pathogenic_Isolator_empty_off"
+    },
+    {
+      "name": "Pathogenic_Isolator_on_empty",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "Pathogenic_Isolator_syringein_off"
+    },
+    {
+      "name": "Pathogenic_Isolator_syringein_on",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "syringebox_locked_overlay"
+    },
+    {
+      "name": "syringebox_unlocked_overlay"
+    },
+    {
+      "name": "vialbox_top_overlay"
+    },
+    {
+      "name": "vialbox0"
+    },
+    {
+      "name": "vialbox1"
+    },
+    {
+      "name": "vialbox2"
+    },
+    {
+      "name": "vialbox3"
+    },
+    {
+      "name": "vialbox4"
+    },
+    {
+      "name": "vialbox5"
+    },
+    {
+      "name": "vialbox6"
+    },
+    {
+      "name": "microscope"
+    },
+    {
+      "name": "microscopeslide"
+    }
+  ]
+}
