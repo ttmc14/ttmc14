@@ -176,7 +176,7 @@
       - id: CMKelotaneAutoInjector
       # tramadol
       - id: CMTricordrazineAutoInjector
-      # - id: CMDyloveneAutoInjector
+      - id: MCDyloveneAutoInjector
       # combat
       # isotonic
       - id: CMInaprovalineAutoInjector
@@ -204,3 +204,85 @@
         amount: 16
       - id: CMStasisBagFolded
         amount: 24
+
+- type: entity
+  parent: ColMarTechBase
+  id: MCImproperNanotrasenMed
+  name: improper NanotrasenMed Plus
+  description: Medical Pharmaceutical dispenser. Provided by Nanotrasen Pharmaceuticals Division(TM).
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: med-off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: med
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Pill Bottles
+      entries:
+      - id: CMPillCanisterBicaridine
+      - id: CMPillCanisterKelotane
+      # tramadol
+      - id: CMPillCanisterTricordrazine
+      - id: CMPillCanisterDylovene
+      - id: CMPillCanisterInaprovaline
+      # isotonic
+      # paracetamol
+      - id: CMPillCanisterDexalin
+        amount: 6
+      # spaceacillin = 6
+      # alkysine = 6
+      # imidazoline = 6
+      # quickclot = 6
+      # hypervene = 6
+    # - name: Hypospray
+      #	/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 10
+      #	/obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin = 10
+      #	/obj/item/reagent_containers/hypospray/advanced = 30
+    - name: Reagent Bottle
+      entries:
+      - id: CMBottleBicaridine
+      - id: CMBottleKelotane
+      # tramadol
+      - id: CMBottleTricordrazine
+      - id: CMBottleDylovene
+      - id: CMBottleInaprovaline
+      # paracetamol
+      # isotonic
+      # leporazine
+      - id: CMBottleDexalin
+        amount: 6
+      # spaceacillin = 6
+      # oxycodone = 6
+      # sleeptoxin = 6
+      # polyhexanide = 6
+    - name: Chemistry Equipment
+      entries:
+      #	/obj/item/reagent_containers/syringe = -1
+      #	/obj/item/storage/syringe_case/empty = -1
+      - id: CMBeaker
+        name: Beaker (60 units)
+      - id: CMBeakerLarge
+        name: Beaker, Large (120 units)
+      #	/obj/item/reagent_containers/glass/beaker/vial = -1
+      - id: RMCDropper
+      #	/obj/item/storage/reagent_tank = 5
+      #	/obj/item/storage/reagent_tank/bicaridine = 1
+      #	/obj/item/storage/reagent_tank/kelotane = 1
+      #	/obj/item/storage/reagent_tank/tramadol = 1
+      #	/obj/item/storage/reagent_tank/tricordrazine = 1
+      #	/obj/item/storage/reagent_tank/bktt = 1
+    - name: Misc
+      entries:
+      # xeno_analyzer = 2
+      # excavation_tool
+      # /obj/item/storage/pouch/surgery
+      # surgery_webbing
+      # /obj/item/reagent_containers/spray/surgery
+      # soap = 3
+      - id: RMCGlassesMedicalHUDGlasses
+        amount: 6
+      - id: CMRollerBedSpawnFolded
+        amount: 6
