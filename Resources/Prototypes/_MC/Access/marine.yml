@@ -1,0 +1,149 @@
+#define ACCESS_MARINE_CAPTAIN 1
+- type: accessLevel
+  id: MCAccessCapitan
+  name: mc-access-capitan
+
+#define ACCESS_MARINE_LOGISTICS 2
+- type: accessLevel
+  id: MCAccessLogistics
+  name: mc-access-logistics
+
+#define ACCESS_MARINE_BRIG 3
+- type: accessLevel
+  id: MCAccessBrig
+  name: mc-access-brig
+
+#define ACCESS_MARINE_ARMORY 4
+- type: accessLevel
+  id: MCAccessArmory
+  name: mc-access-armory
+
+#define ACCESS_MARINE_CMO 5
+- type: accessLevel
+  id: MCAccessCMO
+  name: mc-access-cmo
+
+#define ACCESS_MARINE_CE 6
+- type: accessLevel
+  id: MCAccessCE
+  name: mc-access-ce
+
+#define ACCESS_MARINE_ENGINEERING 7
+- type: accessLevel
+  id: MCAccessEngineering
+  name: mc-access-engineering
+
+#define ACCESS_MARINE_MEDBAY 8
+- type: accessLevel
+  id: MCAccessMedbay
+  name: mc-access-medbay
+
+#define ACCESS_MARINE_PREP 9
+- type: accessLevel
+  id: MCAccessPreparation
+  name: mc-access-preparation
+
+#define ACCESS_MARINE_MEDPREP 10
+- type: accessLevel
+  id: MCAccessMedicalPreparation
+  name: mc-access-medical-preparation
+
+#define ACCESS_MARINE_ENGPREP 11
+- type: accessLevel
+  id: MCAccessEngineeringPreparation
+  name: mc-access-engineering-preparation
+
+#define ACCESS_MARINE_LEADER 12
+- type: accessLevel
+  id: MCAccessMarineSquadLeader
+  name: mc-access-marine-squad-leader
+
+#define ACCESS_MARINE_RESEARCH 13
+- type: accessLevel
+  id: MCAccessResearch
+  name: mc-access-research
+
+#define ACCESS_MARINE_SMARTPREP 14
+- type: accessLevel
+  id: MCAccessMarineSquadSmartPreparation
+  name: mc-access-marine-squad-smart-preparation
+
+#define ACCESS_MARINE_COMMANDER 15
+- type: accessLevel
+  id: MCAccessCommander
+  name: mc-access-commander
+
+#define ACCESS_MARINE_BRIDGE 40
+- type: accessLevel
+  id: MCAccessBridge
+  name: mc-access-bridge
+
+#define ACCESS_MARINE_CHEMISTRY 41
+- type: accessLevel
+  id: MCAccessChemistry
+  name: mc-access-chemistry
+
+#define ACCESS_MARINE_CARGO 42
+- type: accessLevel
+  id: MCAccessCargo
+  name: mc-access-cargo
+
+#define ACCESS_MARINE_DROPSHIP 43
+- type: accessLevel
+  id: MCAccessDropship
+  name: mc-access-dropship
+
+#define ACCESS_MARINE_PILOT 44
+- type: accessLevel
+  id: MCAccessPilot
+  name: mc-access-pilot
+
+#define ACCESS_MARINE_WO 45
+- type: accessLevel
+  id: MCAccessWO
+  name: mc-access-wo
+
+#define ACCESS_MARINE_RO 46
+- type: accessLevel
+  id: MCAccessRO # requisition officer
+  name: mc-access-ro
+
+#define ACCESS_MARINE_MECH 47
+- type: accessLevel
+  id: MCAccessMech
+  name: mc-access-mech
+
+#define ACCESS_MARINE_TADPOLE 48
+- type: accessLevel
+  id: MCAccessTadpole
+  name: mc-access-tadpole
+
+#define ACCESS_MARINE_ARMORED 49
+- type: accessLevel
+  id: MCAccessArmored
+  name: mc-access-armored
+
+#define ACCESS_MARINE_REMOTEBUILD 60
+- type: accessLevel
+  id: MCAccessRemoteBuild
+  name: mc-access-remote-build
+
+#define ACCESS_MARINE_ALPHA 80
+- type: accessLevel
+  id: MCAccessMarineSquadAlpha
+  name: mc-access-marine-squad-alpha
+
+#define ACCESS_MARINE_BRAVO 81
+- type: accessLevel
+  id: MCAccessMarineSquadBravo
+  name: mc-access-marine-squad-bravo
+
+#define ACCESS_MARINE_CHARLIE 82
+- type: accessLevel
+  id: MCAccessMarineSquadCharlie
+  name: mc-access-marine-squad-charlie
+
+#define ACCESS_MARINE_DELTA 83
+- type: accessLevel
+  id: MCAccessMarineSquadDelta
+  name: mc-access-marine-squad-delta

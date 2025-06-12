@@ -1,0 +1,146 @@
+# Bridge
+- type: entity
+  parent: CMAirlockCommand
+  id: MCSingleDoorCapitanSolidLocked
+  suffix: Capitan, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessCapitan" ]]
+
+- type: entity
+  parent: CMAirlockCommand
+  id: MCSingleDoorBridgeSolidLocked
+  suffix: Bridge, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessBridge" ]]
+
+# Cargo
+- type: entity
+  parent: CMAirlockPrep
+  id: MCSingleDoorRequisitionsGlassLocked
+  suffix: Requisitions, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessLogistics"], ["MCAccessCargo"]]
+  - type: PaintableAirlock
+    department: CMRequisitions
+
+# Maintenance
+- type: entity
+  parent: CMAirlockMaint
+  id: MCSingleDoorMaintenanceSolidLocked
+  suffix: Maintenance, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessLogistics"], ["MCAccessEngineering"]]
+
+# Medical
+- type: entity
+  parent: CMAirlockGlassMedical
+  id: MCSingleDoorMedicalGlass
+  suffix: Medical, Glass
+
+- type: entity
+  parent: CMAirlockMedical
+  id: MCSingleDoorMedicalSolid
+  suffix: Medical, Solid
+
+- type: entity
+  parent: CMAirlockGlassMedical
+  id: MCSingleOperatingGlassLocked
+  suffix: Operating, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMAirlockMedical
+  id: MCSingleOperatingSolidLocked
+  suffix: Operating, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMAirlockGlassMedical
+  id: MCSingleChemistryGlassLocked
+  suffix: Chemistry, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMAirlockMedical
+  id: MCSingleChemistrySolidLocked
+  suffix: Chemistry, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMAirlockGlassMedical
+  id: MCSingleMorgueGlassLocked
+  suffix: Morgue, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMAirlockMedical
+  id: MCSingleMorgueSolidLocked
+  suffix: Morgue, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMAirlockGlassMedical
+  id: MCSingleResearchGlassLocked
+  suffix: Research, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessResearch" ]]
+
+- type: entity
+  parent: CMAirlockMedical
+  id: MCSingleResearchSolidLocked
+  suffix: Research, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessResearch" ]]
+
+- type: entity
+  parent: CMAirlockGlassMedical
+  id: MCSingleDoorCMOGlassLocked
+  suffix: CMO, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessCMO" ]]
+
+- type: entity
+  parent: CMAirlockMedical
+  id: MCSingleDoorCMOSolidLocked
+  suffix: CMO, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessCMO" ]]
+
+# Security
+- type: entity
+  parent: CMAirlockSecurity
+  id: MCSingleSecuritySolidLocked
+  suffix: Security, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]
+
+- type: entity
+  parent: CMAirlockGlassSecurity
+  id: MCSingleSecurityGlassLocked
+  suffix: Security, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]
+
+# Common
