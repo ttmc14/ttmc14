@@ -9,6 +9,11 @@
 # Table: null
 
 # 2025-06-13
+MCImproperQuickEquipVendor: MCMachineVendingQuickEquipVendor
+MCAutomatedLoadoutVendor: MCMachineVendingAutomatedLoadoutVendor
+MCImproperSurplusClothingVendor: MCMachineVendingSurplusClothingVendor
+MCImproperNanotrasenMed: MCMachineVendingNanotrasenMed
+MCMarineMed: MCMachineVendingMarineMed
 MCAutomatedClosetRack: MCMachineVendingAutomatedClosetRack
 MCImproperSurplusArmorEquipmentVendor: MCMachineVendingSurplusArmorEquipment
 
