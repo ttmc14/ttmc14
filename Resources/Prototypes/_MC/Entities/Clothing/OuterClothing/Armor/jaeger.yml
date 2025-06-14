@@ -1,0 +1,224 @@
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: MCArmorModularJaeger
+  abstract: true
+  components:
+  - type: Sprite
+    color: "#303943"
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+        color: "#303943"
+      - sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/armor_overlays.rsi
+        state: lamp-off
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerInfantry
+  name: Jaeger Infantry medium exoskeleton
+  description: A Infantry-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/infantry.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 65
+    laser: 65
+    energy: 55
+    explosionArmor: 50
+    bio: 50
+    fire: 50
+    acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.667
+    sprintModifier: 0.667
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerEVA
+  name: Jaeger EVA medium exoskeleton
+  description: A EVA-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/eva.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 65
+    laser: 65
+    energy: 55
+    explosionArmor: 50
+    bio: 50
+    fire: 50
+    acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.667
+    sprintModifier: 0.667
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerHellJumper
+  name: Jaeger Hell Jumper medium exoskeleton
+  description: A Hell-Jumper-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/helljumper.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 65
+    laser: 65
+    energy: 55
+    explosionArmor: 50
+    bio: 50
+    fire: 50
+    acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.667
+    sprintModifier: 0.667
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerRanger
+  name: Jaeger Ranger medium exoskeleton
+  description: Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/ranger.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 65
+    laser: 65
+    energy: 55
+    explosionArmor: 50
+    bio: 50
+    fire: 50
+    acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.667
+    sprintModifier: 0.667
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerScout
+  name: Jaeger Scout light exoskeleton
+  description: A Scout-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/scout.rsi
+  - type: CMArmor
+    melee: 35
+    bullet: 55
+    laser: 55
+    energy: 50
+    explosionArmor: 45
+    bio: 45
+    fire: 45
+    acid: 45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.833
+    sprintModifier: 0.833
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerSkirmisher
+  name: Jaeger Skirmisher light exoskeleton
+  description: A Skirmisher-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/skirmisher.rsi
+  - type: CMArmor
+    melee: 35
+    bullet: 55
+    laser: 55
+    energy: 50
+    explosionArmor: 45
+    bio: 45
+    fire: 45
+    acid: 45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.833
+    sprintModifier: 0.833
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerTrooper
+  name: Jaeger Trooper light exoskeleton
+  description: A Trooper-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/trooper.rsi
+  - type: CMArmor
+    melee: 35
+    bullet: 55
+    laser: 55
+    energy: 50
+    explosionArmor: 45
+    bio: 45
+    fire: 45
+    acid: 45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.833
+    sprintModifier: 0.833
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerGugnir
+  name: Jaeger Gugnir heavy exoskeleton
+  description: A Gugnir-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/gugnir.rsi
+  - type: CMArmor
+    melee: 50
+    bullet: 70
+    laser: 70
+    energy: 60
+    explosionArmor: 55
+    bio: 55
+    fire: 55
+    acid: 60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.588
+    sprintModifier: 0.588
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerAssault
+  name: Jaeger Assault heavy exoskeleton
+  description: A Assault-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/assault.rsi
+  - type: CMArmor
+    melee: 50
+    bullet: 70
+    laser: 70
+    energy: 60
+    explosionArmor: 55
+    bio: 55
+    fire: 55
+    acid: 60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.588
+    sprintModifier: 0.588
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerEOD
+  name: Jaeger EOD heavy exoskeleton
+  description: A EOD-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/eod.rsi
+  - type: CMArmor
+    melee: 50
+    bullet: 70
+    laser: 70
+    energy: 60
+    explosionArmor: 55
+    bio: 55
+    fire: 55
+    acid: 60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.588
+    sprintModifier: 0.588

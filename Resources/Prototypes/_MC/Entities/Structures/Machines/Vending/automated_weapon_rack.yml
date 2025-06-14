@@ -1,0 +1,71 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCAutomatedWeaponRack
+  name: automated weapon rack
+  description: An automated weapon rack hooked up to a colossal storage of standard-issue weapons.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: marinearmory-off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: marinearmory
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Rifles
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Energy Weapons
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: SMGs
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Marksman
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Shotgun
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Machinegun
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Melee
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Sidearm
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Grenades
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Specialized
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Heavy Weapons
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Attachments
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Boxes
+      entries:
+      - id: CMBackpackMarine
+        name: backpack
+    - name: Utility
+      entries:
+      - id: CMBackpackMarine
+        name: backpack

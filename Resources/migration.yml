@@ -8,6 +8,10 @@
 # WallSolid: Window
 # Table: null
 
+# 2025-06-13
+MCAutomatedClosetRack: MCMachineVendingAutomatedClosetRack
+MCImproperSurplusArmorEquipmentVendor: MCMachineVendingSurplusArmorEquipment
+
 # 2023-07-03
 ClothingHeadHelmetHelmet: ClothingHeadHelmetBasic
 ClothingHeadHelmetHelmetOld: ClothingHeadHelmetBasic

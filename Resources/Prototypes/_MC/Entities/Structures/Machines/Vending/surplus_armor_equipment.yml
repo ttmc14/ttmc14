@@ -1,0 +1,37 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingSurplusArmorEquipment
+  name: Surplus Armor Equipment Vendor
+  description: An automated equipment rack hooked up to a colossal storage of armor and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: surplus_armor-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: surplus_armor
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Jaeger
+      entries:
+      - id: MCArmorModularJaegerScout
+      - id: MCArmorModularJaegerSkirmisher
+      - id: MCArmorModularJaegerTrooper
+      - id: MCArmorModularJaegerInfantry
+      - id: MCArmorModularJaegerEVA
+      - id: MCArmorModularJaegerHellJumper
+      - id: MCArmorModularJaegerRanger
+      - id: MCArmorModularJaegerGugnir
+      - id: MCArmorModularJaegerAssault
+      - id: MCArmorModularJaegerEOD
+      - id: MCArmorHelmetModularJaegerScout
+      - id: MCArmorHelmetModularJaegerSkirmisher
+      - id: MCArmorHelmetModularJaegerTrooper
+      - id: MCArmorHelmetModularJaegerInfantry
+      - id: MCArmorHelmetModularJaegerEVA
+      - id: MCArmorHelmetModularJaegerHellJumper
+      - id: MCArmorHelmetModularJaegerRanger
+      - id: MCArmorHelmetModularJaegerGugnir
+      - id: MCArmorHelmetModularJaegerAssault
+      - id: MCArmorHelmetModularJaegerEOD

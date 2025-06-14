@@ -1,0 +1,209 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingAutomatedClosetRack
+  name: GHMME Automated Closet
+  description: An automated closet hooked up to a colossal storage unit of standard-issue uniform and armor.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: marineuniform-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: marineuniform
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Standard Equipment
+      choices:
+        MCStandardEquipment: 1
+      entries:
+      - id: MCVendorBundleStandardKit
+    - name: Hats
+      choices:
+        MCHats: 1
+      entries:
+      - id: RMCVisorWelding
+      - id: RMCVisorMedical
+    - name: Armor
+      choices:
+        MCArmour: 1
+      entries:
+      - id: MCVendorBundleArmorJaegerScout
+      - id: MCVendorBundleArmorJaegerSkirmisher
+      - id: MCVendorBundleArmorJaegerTrooper
+      - id: MCVendorBundleArmorJaegerInfantry
+        recommended: true
+      - id: MCVendorBundleArmorJaegerEVA
+        recommended: true
+      - id: MCVendorBundleArmorJaegerHellJumper
+        recommended: true
+      - id: MCVendorBundleArmorJaegerRanger
+        recommended: true
+      - id: MCVendorBundleArmorJaegerGugnir
+      - id: MCVendorBundleArmorJaegerAssault
+      - id: MCVendorBundleArmorJaegerEOD
+    - name: Backpack
+      choices:
+        MCBackpack: 1
+      entries:
+      - id: MCBackpackMarineStandard
+      - id: MCSatchelMarineStandard
+
+# Bundles
+- type: entity
+  id: MCVendorBundleStandardKit
+  name: Standard Kit
+  description: Contains a marine jumpsuit, a M10 helmet, a headset, combat gloves and combat boots.
+  categories:
+  - HideSpawnMenu
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/headsets.rsi
+    state: generic_headset
+  - type: CMVendorBundle
+    bundle:
+    - CMVendorHeadsetSquad
+    - JumpsuitMarine
+    - CMHandsBlackMarine
+    - CMBootsBlackFilled
+
+# Bundles armor
+- type: entity
+  id: MCVendorBundleArmorJaegerScout
+  name: Jaeger Scout light armor kit
+  description: A set of light scout pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/scout.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerScout
+    - MCArmorHelmetModularJaegerScout
+
+- type: entity
+  id: MCVendorBundleArmorJaegerSkirmisher
+  name: Jaeger Skirmisher light armor kit
+  description: A set of light skirmisher pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/skirmisher.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerSkirmisher
+    - MCArmorHelmetModularJaegerSkirmisher
+
+- type: entity
+  id: MCVendorBundleArmorJaegerTrooper
+  name: Jaeger Trooper light armor kit
+  description: A set of light trooper pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/trooper.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerTrooper
+    - MCArmorHelmetModularJaegerTrooper
+
+- type: entity
+  id: MCVendorBundleArmorJaegerInfantry
+  name: Jaeger Infantry medium armor kit
+  description: A set of medium infantry pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/infantry.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerInfantry
+    - MCArmorHelmetModularJaegerInfantry
+
+- type: entity
+  id: MCVendorBundleArmorJaegerEVA
+  name: Jaeger EVA medium armor kit
+  description: A set of medium eva pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/eva.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerEVA
+    - MCArmorHelmetModularJaegerEVA
+
+- type: entity
+  id: MCVendorBundleArmorJaegerHellJumper
+  name: Jaeger Hell Jumper medium armor kit
+  description: A set of medium hell jumper pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/helljumper.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerHellJumper
+    - MCArmorHelmetModularJaegerHellJumper
+
+- type: entity
+  id: MCVendorBundleArmorJaegerRanger
+  name: Jaeger Ranger medium armor kit
+  description: A set of medium ranger pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/ranger.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerRanger
+    - MCArmorHelmetModularJaegerRanger
+
+- type: entity
+  id: MCVendorBundleArmorJaegerGugnir
+  name: Jaeger Gugnir heavy armor kit
+  description: A set of heavy gugnir pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/gugnir.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerGugnir
+    - MCArmorHelmetModularJaegerGugnir
+
+- type: entity
+  id: MCVendorBundleArmorJaegerAssault
+  name: Jaeger Assault heavy armor kit
+  description: A set of heavy assault pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/assault.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerAssault
+    - MCArmorHelmetModularJaegerAssault
+
+- type: entity
+  id: MCVendorBundleArmorJaegerEOD
+  name: Jaeger EOD heavy armor kit
+  description: A set of heavy eod pattern jaeger armor, including an armor suit and helmet.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/eod.rsi
+    state: icon
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModularJaegerEOD
+    - MCArmorHelmetModularJaegerEOD
