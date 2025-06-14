@@ -8,6 +8,66 @@
   },
   "states": [
     {
+      "name": "apcewires",
+      "directions": 4
+    },
+     {
+      "name": "apco0-0",
+      "directions": 4
+    },
+    {
+      "name": "apco0-1",
+      "directions": 4
+    },
+    {
+      "name": "apco0-2",
+      "directions": 4
+    },
+    {
+      "name": "apco0-3",
+      "directions": 4
+    },
+    {
+      "name": "apco1-0",
+      "directions": 4
+    },
+    {
+      "name": "apco1-1",
+      "directions": 4
+    },
+    {
+      "name": "apco1-2",
+      "directions": 4
+    },
+    {
+      "name": "apco1-3",
+      "directions": 4
+    },
+    {
+      "name": "apco2-0",
+      "directions": 4
+    },
+    {
+      "name": "apco2-1",
+      "directions": 4
+    },
+    {
+      "name": "apco2-2",
+      "directions": 4
+    },
+    {
+      "name": "apco2-3",
+      "directions": 4
+    },
+    {
+      "name": "apcox-1",
+      "directions": 4
+    },
+    {
+      "name": "apcox-0",
+      "directions": 4
+    },
+    {
       "name": "display-lack",
       "directions": 4,
       "delays": [
