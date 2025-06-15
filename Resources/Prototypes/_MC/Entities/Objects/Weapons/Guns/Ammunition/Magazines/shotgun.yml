@@ -1,0 +1,50 @@
+- type: entity
+  parent: CMMagazineRifleBase
+  id: MCMagazineShotgunSH15
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineShotgunSH15
+  - type: BallisticAmmoProvider
+    mayTransfer: false
+    capacity: 12
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Gun/Ammunition/Magazines/sh15_slug.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: Tag
+  id: MCMagazineShotgunSH15
+
+- type: entity
+  parent: MCMagazineShotgunSH15
+  id: MCMagazineShotgunSH15Flechette
+  name: SH-15 flechette magazine (16 gauge)
+  description: A magazine of 16 gauge flechette rounds, for the SH-15.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - RMCShellShotgunFlechette
+    proto: CMShellShotgunFlechette
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Gun/Ammunition/Magazines/sh15_flechette.rsi
+
+- type: entity
+  parent: MCMagazineShotgunSH15
+  id: MCMagazineShotgunSH15Slug
+  name: SH-15 slug magazine (16 gauge)
+  description: A magazine of 16 gauge slugs, for the SH-15.
+  components:
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - RMCShellShotgunSlugs
+    proto: CMShellShotgunSlugs
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Gun/Ammunition/Magazines/sh15_slug.rsi

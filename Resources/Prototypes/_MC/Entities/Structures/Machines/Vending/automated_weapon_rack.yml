@@ -8,64 +8,45 @@
     sprite: _MC/Structures/Machines/vending.rsi
     layers:
     - state: marinearmory-off
-      map: ["enum.VendingMachineVisualLayers.Base"]
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
     - state: marinearmory
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     sections:
     - name: Rifles
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Energy Weapons
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: SMGs
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Marksman
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Shotgun
       entries:
-      - id: CMBackpackMarine
-        name: backpack
+      - id: MCWeaponShotgunSH35
+      - id: MCWeaponShotgunSH39
+      - id: MCWeaponShotgunSH34
+      - id: RMCBoxShotgunSlugs
+      - id: RMCBoxShotgunBuckshot
+      - id: RMCBoxShotgunFlechette
+      - id: MCWeaponShotgunSH15
+      - id: MCMagazineShotgunSH15Flechette
+      - id: MCMagazineShotgunSH15Slug
     - name: Machinegun
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Melee
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Sidearm
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Grenades
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Specialized
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Heavy Weapons
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Attachments
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Boxes
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
     - name: Utility
-      entries:
-      - id: CMBackpackMarine
-        name: backpack
+      entries: []
