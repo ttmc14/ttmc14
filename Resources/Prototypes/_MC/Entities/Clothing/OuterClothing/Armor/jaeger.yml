@@ -4,12 +4,10 @@
   abstract: true
   components:
   - type: Sprite
-    color: "#303943"
   - type: Clothing
     clothingVisuals:
       outerClothing:
       - state: equipped-OUTERCLOTHING
-        color: "#303943"
       - sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/armor_overlays.rsi
         state: lamp-off
 
@@ -20,7 +18,7 @@
   description: A Infantry-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/infantry.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Infantry/drab.rsi
   - type: CMArmor
     melee: 45
     bullet: 65
@@ -41,7 +39,7 @@
   description: A EVA-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/eva.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Eva/drab.rsi
   - type: CMArmor
     melee: 45
     bullet: 65
@@ -62,7 +60,7 @@
   description: A Hell-Jumper-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/helljumper.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Helljumper/drab.rsi
   - type: CMArmor
     melee: 45
     bullet: 65
@@ -83,7 +81,7 @@
   description: Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/ranger.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Ranger/drab.rsi
   - type: CMArmor
     melee: 45
     bullet: 65
@@ -104,7 +102,7 @@
   description: A Scout-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/scout.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Scout/drab.rsi
   - type: CMArmor
     melee: 35
     bullet: 55
@@ -125,7 +123,7 @@
   description: A Skirmisher-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/skirmisher.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Skirmisher/drab.rsi
   - type: CMArmor
     melee: 35
     bullet: 55
@@ -146,7 +144,7 @@
   description: A Trooper-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/trooper.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Trooper/drab.rsi
   - type: CMArmor
     melee: 35
     bullet: 55
@@ -167,7 +165,7 @@
   description: A Gugnir-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/gugnir.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/drab.rsi
   - type: CMArmor
     melee: 50
     bullet: 70
@@ -188,7 +186,7 @@
   description: A Assault-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/assault.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/drab.rsi
   - type: CMArmor
     melee: 50
     bullet: 70
@@ -209,7 +207,7 @@
   description: A EOD-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/eod.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Eod/drab.rsi
   - type: CMArmor
     melee: 50
     bullet: 70

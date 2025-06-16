@@ -1,3 +1,4 @@
+using Content.Server._MC;
 using Content.Server.Acz;
 using Content.Server.Administration;
 using Content.Server.Administration.Logs;
@@ -71,6 +72,7 @@ namespace Content.Server.Entry
             factory.IgnoreMissingComponents("Visuals");
 
             factory.RegisterIgnore(IgnoredComponents.List);
+            factory.RegisterIgnore(MCIgnoredComponents.Value); // marine-corps-changes
 
             prototypes.RegisterIgnore("parallax");
 

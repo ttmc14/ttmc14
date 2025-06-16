@@ -4,12 +4,7 @@
   abstract: true
   components:
   - type: Sprite
-    color: "#303943"
   - type: Clothing
-    clothingVisuals:
-      head:
-      - state: equipped-HELMET
-        color: "#303943"
   - type: CMArmor
     melee: 50
     bullet: 70
@@ -27,7 +22,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Infantry markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/infantry.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Infantry/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -36,7 +31,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has EVA markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/eva.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eva/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -45,7 +40,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Helljumper markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/helljumper.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -54,7 +49,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Ranger markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/ranger.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -63,7 +58,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Scout markings
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/scout.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Scout/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -72,7 +67,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Skirmisher markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/skirmisher.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -81,7 +76,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Trooper markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/trooper.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -90,7 +85,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Gugnir markings
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/gugnir.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Gugnir/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -99,7 +94,7 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Assault markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/assault.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Assault/drab.rsi
 
 - type: entity
   parent: MCArmorHelmetModularJaeger
@@ -108,4 +103,4 @@
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has EOD markings.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/eod.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/drab.rsi

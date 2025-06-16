@@ -1,0 +1,10 @@
+- type: shader
+  id: MCPaletteReplacing
+  kind: source
+  path: "/Textures/_MC/Shaders/palette_replacing.swsl"
+  params:
+    palette0: "#1e1b29ff"
+    palette1: "#3f3725ff"
+    palette2: "#655f40ff"
+    palette3: "#87865cff"
+    palette4: "#b1b493ff"

@@ -75,7 +75,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/scout.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Scout/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -89,7 +89,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/skirmisher.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -103,7 +103,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/trooper.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -117,7 +117,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/infantry.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Infantry/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -131,7 +131,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/eva.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eva/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -145,7 +145,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/helljumper.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -159,7 +159,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/ranger.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -173,7 +173,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/gugnir.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Gugnir/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -187,7 +187,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/assault.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Assault/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -201,7 +201,7 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/eod.rsi
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/drab.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
