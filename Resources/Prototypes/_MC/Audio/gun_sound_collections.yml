@@ -1,0 +1,6 @@
+- type: soundCollection
+  id: MCAR12Shoot
+  files:
+  - /Audio/_MC/Weapons/Guns/Gunshots/gun_ar12_1.ogg
+  - /Audio/_MC/Weapons/Guns/Gunshots/gun_ar12_2.ogg
+  - /Audio/_MC/Weapons/Guns/Gunshots/gun_ar12_3.ogg

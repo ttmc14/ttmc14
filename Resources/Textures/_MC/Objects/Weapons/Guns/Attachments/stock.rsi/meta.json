@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": "Taken from TGMC SS13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ar12_stock"
+    }
+  ]
+}

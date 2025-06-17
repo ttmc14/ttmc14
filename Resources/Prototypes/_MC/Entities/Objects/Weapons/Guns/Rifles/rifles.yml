@@ -1,0 +1,235 @@
+- type: entity
+  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  name: AR-12 
+  id: MCWeaponRifleAR12
+  description: Штурмовая винтовка Keckler and Hoch AR-12 была стандартной винтовкой Корпуса морской пехоты Террагов до того, как ее заменил карабин AR-18. Однако, несмотря на это, она по-прежнему широко используется. Само по себе это оружие очень хорошо подходит для использования в большинстве ситуаций, однако оно страдает в бою на близком расстоянии и его относительно трудно взвалить на плечо, чем некоторые другие. В нем используются безгильзовые боеприпасы размером 10х24 мм.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar12.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: ar12_stock
+      offset: -0.9, 0
+      map: [ "stock" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar12.rsi
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      collection: MCAR12Shoot
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    - Burst
+    recoilUnwielded: 4
+    scatterWielded: 6
+    scatterUnwielded: 20
+    baseFireRate: 5
+    burstScatterMult: -2
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.9
+  - type: WieldableSpeedModifiers
+    base: 0.725
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t18_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t18_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleAR12
+          - MCMagazineRifleAR12AP
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCAttachmentExtendedBarrel
+          - RMCAttachmentSuppressor
+          - RMCM5Bayonet
+          - RMCAttachmentRecoilCompensator
+          # - TODO: M22
+          # - TODO: Heavy Barrel
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentMagneticHarness
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS42xTelescopicMiniscope
+          - RMCAttachmentS5RedDotSight
+          - RMCAttachmentS6ReflexSight
+          - RMCAttachmentS84xTelescopicScope
+          # - TODO: BuildSentryKit
+          # - TODO: MotionDetector
+          # - TODO: ShoulderGun
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentAngledGrip
+          - RMCAttachmentBipod
+          - RMCAttachmentFlashlightGrip
+          - RMCAttachmentLaserSight
+          - RMCAttachmentVerticalGrip
+          - RMCAttachmentExtinguisher
+          - RMCAttachmentGyroscopicStabilizer
+          - RMCAttachmentBurstFireAssembly
+          - RMCAttachmentMiniFlamethrower
+          - RMCAttachmentU7UnderbarrelShotgun
+          - RMCAttachmentU1GrenadeLauncher
+          # - TODO: Attached TX-7
+          # - TODO: PepperBall mini
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.75, 0.00
+      rmc-aslot-rail: 0.1, 0.09
+      rmc-aslot-underbarrel: 0.28, -0.31
+
+- type: entity
+  parent: CMMagazineRifleBase
+  id: MCMagazineRifleAR12
+  name: "AR12 магазин (10x24мм)"
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifleAR12
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleAR12
+    proto: MCCartridgeRifleAR12
+    capacity: 50
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+
+- type: entity
+  parent: CMMagazineRifleBase
+  id: MCMagazineRifleAR12AP
+  name: "AR12 магазин бронебойный (10x24мм)"
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifleAR12AP
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleAR12AP
+    proto: MCCartridgeRifleAR12AP
+    capacity: 50
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleAR12AP
+  name: патрон бронебойный (10x24мм)
+  description: Винтовочный бронебойный патрон 10x24мм
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleAR12AP
+  - type: CartridgeAmmo
+    proto: MCBulletRifleAR12AP
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleAR12
+  name: патрон (10x24мм)
+  description: Винтовочный патрон 10x24мм
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleAR12
+  - type: CartridgeAmmo
+    proto: MCBulletRifleAR12
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleAR12AP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: CMArmorPiercing
+    amount: 25
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleAR12
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 25
+  - type: CMArmorPiercing
+    amount: 5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+
+- type: Tag
+  id: MCMagazineRifleAR12
+
+- type: Tag
+  id: MCCartridgeRifleAR12
+
+- type: Tag
+  id: MCMagazineRifleAR12AP
+
+- type: Tag
+  id: MCCartridgeRifleAR12AP
