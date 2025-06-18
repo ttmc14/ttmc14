@@ -1,28 +1,28 @@
 - type: entity
   parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
-  id: MCWeaponRifleAR12
+  id: MCWeaponRifleAR18
   components:
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar12.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar18.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
       map: [ "enum.GunVisualLayers.Mag" ]
     - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: ar12_stock
+      state: ar18_stock
       offset: -0.9, 0
       map: [ "stock" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar12.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar18.rsi
   - type: Gun
-    shotsPerBurst: 3
+    shotsPerBurst: 4
     selectedMode: FullAuto
     availableModes:
     - FullAuto
     - Burst
     soundGunshot:
-      collection: MCAR12Shoot
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar18.ogg
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
@@ -38,7 +38,7 @@
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
   - type: WieldDelay
-    baseDelay: 0.7
+    baseDelay: 0.6
   - type: WieldableSpeedModifiers
     base: 0.725
     light: 1
@@ -53,8 +53,8 @@
         priority: 2
         whitelist:
           tags:
-          - MCMagazineRifleAR12
-          - MCMagazineRifleAR12AP
+          - MCMagazineRifleAR18
+          - MCMagazineRifleAR18AP
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
@@ -63,61 +63,54 @@
           - RMCAttachmentExtendedBarrel
           - RMCAttachmentSuppressor
           - RMCM5Bayonet
-          - RMCAttachmentRecoilCompensator
-          # - TODO: M22
-          # - TODO: Heavy Barrel
+          # - TODO: Barrel Charger
       rmc-aslot-rail:
         whitelist:
           tags:
           - RMCAttachmentMagneticHarness
           - RMCAttachmentRailFlashlight
           - RMCAttachmentS42xTelescopicMiniscope
-          - RMCAttachmentS5RedDotSight
           - RMCAttachmentS6ReflexSight
-          - RMCAttachmentS84xTelescopicScope
-          # - TODO: BuildSentryKit
-          # - TODO: MotionDetector
-          # - TODO: ShoulderGun
+          # - TODO: T47 Scope
+          # - TODO: Tactical Sensor
       rmc-aslot-underbarrel:
         whitelist:
           tags:
           - RMCAttachmentAngledGrip
           - RMCAttachmentBipod
-          - RMCAttachmentFlashlightGrip
           - RMCAttachmentLaserSight
           - RMCAttachmentVerticalGrip
-          - RMCAttachmentExtinguisher
           - RMCAttachmentGyroscopicStabilizer
           - RMCAttachmentBurstFireAssembly
           - RMCAttachmentFlamer
           - RMCAttachmentU7UnderbarrelShotgun
           - RMCAttachmentU1GrenadeLauncher
-          # - TODO: Attached TX-7
+          # - TODO: PP-7 Plasma Pistol
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.7, -0.0225
-      rmc-aslot-rail: 0.2, 0.09
+      rmc-aslot-barrel: 0.7, 0.00
+      rmc-aslot-rail: -0.05, 0.03
       rmc-aslot-underbarrel: 0.28, -0.31
 
 - type: entity
   parent: CMMagazineRifleBase
-  id: MCMagazineRifleAR12
-  name: "AR12 магазин (10x24мм)"
+  id: MCMagazineRifleAR18
+  name: "AR18 магазин (10x24мм)"
   components:
   - type: Tag
     tags:
     - CMMagazineRifle
-    - MCMagazineRifleAR12
+    - MCMagazineRifleAR18
   - type: BallisticAmmoProvider
     mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeRifleAR12
     proto: MCCartridgeRifleAR12
-    capacity: 50
+    capacity: 36
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar18.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -127,22 +120,22 @@
 
 - type: entity
   parent: CMMagazineRifleBase
-  id: MCMagazineRifleAR12AP
-  name: "AR12 магазин бронебойный (10x24мм)"
+  id: MCMagazineRifleAR18AP
+  name: "AR18 магазин бронебойный (10x24мм)"
   components:
   - type: Tag
     tags:
     - CMMagazineRifle
-    - MCMagazineRifleAR12AP
+    - MCMagazineRifleAR18AP
   - type: BallisticAmmoProvider
     mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeRifleAR12AP
     proto: MCCartridgeRifleAR12AP
-    capacity: 50
+    capacity: 36
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar18_AP.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]
@@ -150,84 +143,8 @@
       map: ["enum.GunVisualLayers.Mag"]
   - type: Appearance
 
-- type: entity
-  parent: CMBaseCartridgeRifle
-  id: MCCartridgeRifleAR12AP
-  name: патрон бронебойный (10x24мм)
-  description: Винтовочный бронебойный патрон 10x24мм
-  components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - MCCartridgeRifleAR12AP
-  - type: CartridgeAmmo
-    proto: MCBulletRifleAR12AP
-
-- type: entity
-  parent: CMBaseCartridgeRifle
-  id: MCCartridgeRifleAR12
-  name: патрон (10x24мм)
-  description: Винтовочный патрон 10x24мм
-  components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - MCCartridgeRifleAR12
-  - type: CartridgeAmmo
-    proto: MCBulletRifleAR12
-
-- type: entity
-  parent: RMCBaseBullet
-  id: MCBulletRifleAR12AP
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    damage:
-      types:
-        Piercing: 20
-  - type: CMArmorPiercing
-    amount: 25
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - range: 24
-      falloff: 9999
-      ignoreModifiers: true
-  - type: RMCProjectileAccuracy
-    accuracy: 105
-    thresholds:
-    - range: 16
-      falloff: 10
-
-- type: entity
-  parent: RMCBaseBullet
-  id: MCBulletRifleAR12
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    damage:
-      types:
-        Piercing: 25
-  - type: CMArmorPiercing
-    amount: 5
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - range: 24
-      falloff: 9999
-      ignoreModifiers: true
-  - type: RMCProjectileAccuracy
-    accuracy: 105
-    thresholds:
-    - range: 16
-      falloff: 10
+- type: Tag
+  id: MCMagazineRifleAR18
 
 - type: Tag
-  id: MCMagazineRifleAR12
-
-- type: Tag
-  id: MCCartridgeRifleAR12
-
-- type: Tag
-  id: MCMagazineRifleAR12AP
-
-- type: Tag
-  id: MCCartridgeRifleAR12AP
+  id: MCMagazineRifleAR18AP
