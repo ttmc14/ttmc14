@@ -1,0 +1,199 @@
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipRequisitions
+  name: Requisitions
+  components:
+  - type: Sprite
+    state: req
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCommonSquadPreparation
+  name: Common Squad Preparation
+  components:
+  - type: Sprite
+    state: req
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipBoxingRing
+  name: Boxing Ring
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipFiringRange
+  name: Firing Range
+  components:
+  - type: Sprite
+    state: firingrange
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipDropPodBay
+  name: Drop pod bay
+  components:
+  - type: Sprite
+    state: blue2
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipVehicleCrewBunks
+  name: Vehicle Crew Bunks
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipVehicleCrewBunks
+  name: Vehicle Crew Bunks
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipPilotBunks
+  name: Pilot's Bunks
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipHangar
+  name: Hangar
+  components:
+  - type: Sprite
+    state: hangar
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMechPilotQuarters
+  name: Mech Pilot Quarters
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipBriefing
+  name: Briefing Area
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipToilets
+  name: Toilets
+  components:
+  - type: Sprite
+    state: laundry
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipLounge
+  name: Lounge
+  components:
+  - type: Sprite
+    state: gruntrnr
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipGarden
+  name: Garden
+  components:
+  - type: Sprite
+    state: starboardemb
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCryoCells
+  name: Cryo Cells
+  components:
+  - type: Sprite
+    state: cryo
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCaptainBunk
+  name: Captain's Bunk
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipStaffOfficerBunks
+  name: Staff Officer Bunks
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipChapel
+  name: Chapel
+  components:
+  - type: Sprite
+    state: gruntrnr
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipEvacuation
+  name: Evacuation
+  components:
+  - type: Sprite
+    state: lifeboat
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipHUmbilicalPort
+  name: Umbilical Port
+  components:
+  - type: Sprite
+    state: aft
+  - type: Area
+    zLevel: 2

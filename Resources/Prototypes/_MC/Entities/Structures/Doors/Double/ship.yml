@@ -1,4 +1,14 @@
-# Common
+# Ship
+- type: entity
+  parent: CMDoubleDoorAlmayerGlass
+  id: CMDoubleDoorShipGlass
+  suffix: Ship, Glass
+
+- type: entity
+  parent: CMDoubleDoorAlmayerSolid
+  id: MCDoubleDoorShipSolid
+  suffix: Ship, Solid
+
 - type: entity
   parent: CMDoubleDoorPreparations
   id: MCDoubleDoorPreparationGlass

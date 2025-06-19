@@ -1,3 +1,9 @@
+# Ship
+- type: entity
+  parent: CMAirlockPrep
+  id: MCSingleDoorPreparationGlass
+  suffix: Preparation, Glass
+
 # Bridge
 - type: entity
   parent: CMAirlockCommand
@@ -143,4 +149,35 @@
   - type: AccessReader
     access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]
 
-# Common
+# Marines
+- type: entity
+  parent: CMAirlockPrep
+  id: MCSingleDoorMarineSLGlassLocked
+  suffix: SL, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessMarineSquadLeader"]]
+
+- type: entity
+  parent: CMAirlockPrep
+  id: MCSingleDoorMarineSmartGlassLocked
+  suffix: Smart prep, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessMarineSquadSmartPreparation"]]
+
+- type: entity
+  parent: CMAirlockPrep
+  id: MCSingleDoorMarineMedicGlassLocked
+  suffix: Medic prep, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessMedicalPreparation"]]
+
+- type: entity
+  parent: CMAirlockPrep
+  id: MCSingleDoorMarineEngineerGlassLocked
+  suffix: Engineer prep, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessEngineeringPreparation"]]
