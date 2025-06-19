@@ -1,6 +1,8 @@
 - type: entity
   parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   id: MCWeaponRifleAR12
+  name: AR-12 K&H assault rifle
+  description: The Keckler and Hoch AR-12 assault rifle used to be the TerraGov Marine Corps standard issue rifle before the AR-18 carbine replaced it. It is, however, still used widely despite that. The gun itself is very good at being used in most situations however it suffers in engagements at close quarters and is relatively hard to shoulder than some others. It uses 10x24mm caseless ammunition.
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Rifles/ar12.rsi

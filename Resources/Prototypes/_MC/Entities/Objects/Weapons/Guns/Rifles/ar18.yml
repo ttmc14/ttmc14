@@ -1,6 +1,8 @@
 - type: entity
   parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   id: MCWeaponRifleAR18
+  name: AR-18 Kauser carbine
+  descrption: The Keckler and Hoch AR-18 carbine is one of the standard rifles used by the TerraGov Marine Corps. It's commonly used by people who prefer greater mobility in combat, like scouts and other light infantry. Uses 10x24mm caseless ammunition.
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Rifles/ar18.rsi
