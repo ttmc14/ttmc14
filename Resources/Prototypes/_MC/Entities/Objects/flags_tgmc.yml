@@ -1,0 +1,8 @@
+- type: entity
+  parent: RMCFlagCarriableBase
+  id: TGMCflag
+  name: TerraGov flag
+  description: A flag bearing the symbol of TerraGov. It flutters in the breeze heroically. This one looks ready to be planted into the ground.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/flags.rsi
