@@ -1,0 +1,39 @@
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipHallwayAft
+  name: Hallway Aft
+  components:
+  - type: Sprite
+    state: exoarmor
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipHallwayPort
+  name: Hallway Port
+  components:
+  - type: Sprite
+    state: aft
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipHallwayStarboard
+  name: Hallway Starboard
+  components:
+  - type: Sprite
+    state: dropshiprepair
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMaintLower
+  name: Hull lower
+  components:
+  - type: Sprite
+    state: lowerhull
+  - type: Area
+    zLevel: 2

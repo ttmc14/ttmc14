@@ -1,0 +1,59 @@
+- type: entity
+  parent: [ MCWeaponShotgunBreechloader, RMCBaseAttachableHolder ]
+  id: MCWeaponShotgunSH34
+  name: SH-34 double barrel shotgun
+  description: A double barreled shotgun of archaic, but sturdy design used by the TGMC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh34.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh34.rsi
+  - type: Tag
+    tags:
+    - MCWeaponShotgunSH34
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_mou53.ogg
+    shotsPerBurst: 1
+  - type: Appearance
+  - type: ShootUseDelay
+  - type: RMCSelectiveFire
+    recoilWielded: 1
+    recoilUnwielded: 4
+    scatterWielded: 3
+    scatterUnwielded: 10
+    baseFireRate: 1.538 # 1 / 0.65
+    burstScatterMult: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 1
+  - type: BallisticAmmoProvider
+    cycleable: true
+    whitelist:
+      tags:
+      - RMCShellShotgunBuckshot
+      - RMCShellShotgunSlugs
+      - RMCShellShotgunFlechette
+      - RMCShellShotgunIncendiaryBuckshot
+      - RMCShellShotgunIncendiary
+      - RMCShellShotgunBeanbag
+    proto: CMShellShotgunSlugs
+    capacity: 2
+    soundInsert:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/gun_mou_reload.ogg
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+    ejectSound:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/gun_mou_reload.ogg
+  - type: BreechLoaded
+    openSound:
+      path: /Audio/_RMC14/Weapons/Guns/Breech/pkd_open_chamber.ogg
+    closeSound:
+      path: /Audio/_RMC14/Weapons/Guns/Breech/pkd_close_chamber.ogg
+  - type: AttachableHolder
+    slots: {}
+  - type: AttachableHolderVisuals
+    offsets: {}
+
+- type: Tag
+  id: MCWeaponShotgunSH34

@@ -1,0 +1,14 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingAutomatedLoadoutVendor
+  name: automated loadout vendor
+  description: An advanced vendor used by the TGMC to rapidly equip their marines.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: specialist-off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: specialist
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+  - type: CMAutomatedVendor

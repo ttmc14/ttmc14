@@ -1,0 +1,52 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCAutomatedWeaponRack
+  name: automated weapon rack
+  description: An automated weapon rack hooked up to a colossal storage of standard-issue weapons.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: marinearmory-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: marinearmory
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Rifles
+      entries: []
+    - name: Energy Weapons
+      entries: []
+    - name: SMGs
+      entries: []
+    - name: Marksman
+      entries: []
+    - name: Shotgun
+      entries:
+      - id: MCWeaponShotgunSH35
+      - id: MCWeaponShotgunSH39
+      - id: MCWeaponShotgunSH34
+      - id: RMCBoxShotgunSlugs
+      - id: RMCBoxShotgunBuckshot
+      - id: RMCBoxShotgunFlechette
+      - id: MCWeaponShotgunSH15
+      - id: MCMagazineShotgunSH15Flechette
+      - id: MCMagazineShotgunSH15Slug
+    - name: Machinegun
+      entries: []
+    - name: Melee
+      entries: []
+    - name: Sidearm
+      entries: []
+    - name: Grenades
+      entries: []
+    - name: Specialized
+      entries: []
+    - name: Heavy Weapons
+      entries: []
+    - name: Attachments
+      entries: []
+    - name: Boxes
+      entries: []
+    - name: Utility
+      entries: []

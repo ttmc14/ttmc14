@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "griddle1_off"
+    },
+    {
+      "name": "griddle1_on"
+    },
+    {
+      "name": "griddle2_off"
+    },
+    {
+      "name": "griddle2_on"
+    },
+    {
+      "name": "griddle3_off"
+    },
+    {
+      "name": "griddle3_on"
+    },
+    {
+      "name": "griddlestand_off"
+    },
+    {
+      "name": "griddlestand_on"
+    },
+    {
+      "name": "front_bar"
+    }
+  ]
+}

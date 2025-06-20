@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "color_base"
+    },
+    {
+      "name": "decon"
+    },
+    {
+      "name": "suit_cycler"
+    },
+    {
+      "name": "suit_cycler_active",
+      "delays": [
+        [
+          1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "dark_cycler"
+    },
+    {
+      "name": "pilot_cycler"
+    },
+    {
+      "name": "cap_cycler"
+    },
+    {
+      "name": "sec_cycler"
+    },
+    {
+      "name": "med_cycler"
+    },
+    {
+      "name": "explo_cycler"
+    },
+    {
+      "name": "engi_cycler"
+    },
+    {
+      "name": "industrial_cycler"
+    },
+    {
+      "name": "red_cycler"
+    }
+  ]
+}

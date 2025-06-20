@@ -1,0 +1,23 @@
+- type: entity
+  parent: MCDogtagSilver
+  id: MCDogtagCSE
+  name: Chief Ship Engineer's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCCSE
+
+- type: entity
+  parent: MCDogtagSilver
+  id: MCDogtagRO
+  name: Requisitions Officer's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCRO
+
+- type: entity
+  parent: MCDogtagSilver
+  id: MCDogtagST
+  name: Ship Technician's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCST

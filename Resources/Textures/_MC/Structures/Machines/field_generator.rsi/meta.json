@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "Field_Gen"
+    },
+    {
+      "name": "\u002Bon"
+    },
+    {
+      "name": "\u002Ba1"
+    },
+    {
+      "name": "\u002Ba2"
+    },
+    {
+      "name": "\u002Ba3"
+    },
+    {
+      "name": "\u002Bp1"
+    },
+    {
+      "name": "\u002Bp2"
+    },
+    {
+      "name": "\u002Bp3"
+    },
+    {
+      "name": "\u002Bp4"
+    },
+    {
+      "name": "\u002Bp5"
+    },
+    {
+      "name": "\u002Bp6"
+    }
+  ]
+}

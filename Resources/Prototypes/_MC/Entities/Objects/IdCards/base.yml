@@ -1,0 +1,38 @@
+- type: entity
+  parent: Clothing
+  id: MCDogtag
+  name: identification holo-badge
+  description: A slice of encoded compressed fiber glass. Used for identification and access control.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/CMIDs/dogtags.rsi
+    state: dogtag
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _RMC14/Objects/CMIDs/dogtags.rsi
+  - type: Item
+    size: Small
+    heldPrefix: default
+  - type: Access
+  - type: IdCard
+    nameLocId: cm-access-id-card-component-owner-name-job-title-text
+    fullNameLocId: cm-access-id-card-component-owner-full-name-job-title-text
+    canMicrowave: false
+  - type: StationRecordKeyStorage
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: ItemIFF
+    faction: FactionMarine
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSilver
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/CMIDs/silver_id.rsi
+    state: silver
+  - type: Clothing
+    sprite: _RMC14/Objects/CMIDs/silver_id.rsi

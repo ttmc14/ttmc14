@@ -1,0 +1,5 @@
+- type: job
+  id: MCJob
+  isCM: true
+  abstract: true
+  canBeAntag: false

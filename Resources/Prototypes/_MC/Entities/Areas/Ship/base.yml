@@ -1,0 +1,22 @@
+- type: entity
+  parent: MCArea
+  id: MCAreaShip
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Areas/ship.rsi
+    state: almayer
+  - type: Area
+    CAS: true
+    fulton: true
+    mortarPlacement: false
+    mortarFire: true
+    lasing: false
+    medevac: false
+    OB: true
+    supplyDrop: true
+    powerNet: almayer
+    hijackEvacuationArea: false
+    hijackEvacuationWeight: 0
+    hijackEvacuationType: None
+  - type: IntelRescueSurvivorArea

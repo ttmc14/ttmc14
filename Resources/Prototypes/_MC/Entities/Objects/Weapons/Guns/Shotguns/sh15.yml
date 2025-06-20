@@ -1,0 +1,56 @@
+- type: entity
+  parent:
+  - CMBaseWeaponRifleNoDualWieldPenalty
+  - RMCBaseAttachableHolder
+  - RMCBaseWeaponMagazineVisuals
+  id: MCWeaponShotgunSH15
+  name: Zauer SH-15 automatic shotgun
+  description: The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh15.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh39.rsi
+      state: icon
+      offset: -0.625, -0.03125
+      map: [ "barrel" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh15.rsi
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
+  - type: Gun
+    shotsPerBurst: 1
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_shotgun_xm51.ogg
+    soundEmpty:
+      path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    recoilWielded: 2
+    recoilUnwielded: 4
+    scatterWielded: 10
+    scatterUnwielded: 30
+    baseFireRate: 1
+  - type: RMCExtraProjectilesDamageMods
+    damageMultiplier: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m41_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m41_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineShotgunSH15

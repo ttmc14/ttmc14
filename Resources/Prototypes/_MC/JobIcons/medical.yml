@@ -1,0 +1,20 @@
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCCMO
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: chief_medical
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCMedicalDoctor
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: medical
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCResearcher
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: researcher

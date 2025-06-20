@@ -1,0 +1,64 @@
+- type: job
+  parent: MCJobSquad
+  id: MCRO
+  name: mc-job-name-ro
+  description: mc-job-description-ro
+  playTimeTracker: MCRO
+  startingGear: MCRO
+  dummyStartingGear: MCRO
+  icon: MCRO
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-aso
+  ranks:
+    MCChiefPettyOfficer: []
+    MCWarrantOfficer:
+    - !type:RoleTimeRequirement
+      role: MCRO
+      time: 600 # 10 hours
+    MCChiefWarrantOfficer:
+    - !type:RoleTimeRequirement
+      role: MCRO
+      time: 1500 # 25 hours
+    MCEnsign:
+    - !type:RoleTimeRequirement
+      role: MCRO
+      time: 60000 # 1000 hours
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillEngineer: 4
+        RMCSkillConstruction: 4
+        RMCSkillPolice: 2
+        RMCSkillVehicles: 4
+        RMCSkillLeadership: 3
+        RMCSkillSmartGun: -4
+        RMCSkillFirearms: 1
+    - type: SquadArmorWearer
+    - type: JobPrefix
+      prefix: mc-job-prefix-ro
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/job_icons.rsi
+        state: requisition
+
+- type: playTimeTracker
+  id: MCRO
+  isHumanoid: true
+
+- type: startingGear
+  id: MCRO
+  equipment:
+    id: MCDogtagRO
+
+- type: entity
+  parent: MCSpawnPointJob
+  id: MCSpawnPointRO
+  name: squad corpsman spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCRO
+  - type: Sprite
+    state: ro_spawn

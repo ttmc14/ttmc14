@@ -1,0 +1,59 @@
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipAtmosphericsPort
+  name: Atmospherics Port
+  components:
+  - type: Sprite
+    state: portatmos
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipEngineReactorCoreRoom
+  name: Engine Reactor Core Room
+  components:
+  - type: Sprite
+    state: coreroom
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipUpperEngineering
+  name: Upper Engineering
+  components:
+  - type: Sprite
+    state: lowermonitoring
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipEngineeringLower
+  name: Engineering Lower
+  components:
+  - type: Sprite
+    state: lifesupport
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipChiefShipEngineerOffice
+  name: Chief Ship Engineer Office
+  components:
+  - type: Sprite
+    state: ceroom
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipEngineeringWorkshop
+  name: Engineering Workshop
+  components:
+  - type: Sprite
+    state: starboard
+  - type: Area
+    zLevel: 2

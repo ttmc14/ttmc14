@@ -1,0 +1,67 @@
+- type: job
+  parent: MCJobSquad
+  id: MCSquadEngineer
+  name: mc-job-name-squad-engineer
+  description: mc-job-description-squad-engineer
+  playTimeTracker: MCSquadEngineer
+  startingGear: MCSquadEngineer
+  dummyStartingGear: MCSquadEngineer
+  icon: MCEngineer
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-sl
+  ranks:
+    MCLanceCorporal: []
+    MCCorporal:
+    - !type:RoleTimeRequirement
+      role: MCSquadEngineer
+      time: 1500 # 25 hours
+    MCSergeant:
+    - !type:RoleTimeRequirement
+      role: MCSquadEngineer
+      time: 6000 # 100 hours
+    MCStaffSergeant:
+    - !type:RoleTimeRequirement
+      role: MCSquadEngineer
+      time: 18000 # 300 hours
+    MCSergeantMajor:
+    - !type:RoleTimeRequirement
+      role: MCSquadEngineer
+      time: 60000 # 1000 hours
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillEngineer: 3
+        RMCSkillConstruction: 3
+        RMCSkillVehicles: 1
+        RMCSkillLeadership: 1
+        RMCSkillSmartGun: -4
+        RMCSkillFirearms: 1
+    - type: SquadArmorWearer
+    - type: JobPrefix
+      prefix: mc-job-prefix-engineer
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/squad_marine_icons.rsi
+        state: engineer
+
+- type: playTimeTracker
+  id: MCSquadEngineer
+  isHumanoid: true
+
+- type: startingGear
+  id: MCSquadEngineer
+  equipment:
+    id: MCDogtagSquadEngineer
+
+- type: entity
+  parent: MCSpawnPointJob
+  id: MCSpawnPointSquadEngineer
+  name: squad engineer spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCSquadEngineer
+  - type: Sprite
+    state: engi_spawn

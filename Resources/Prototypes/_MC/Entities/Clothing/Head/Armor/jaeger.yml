@@ -1,0 +1,106 @@
+- type: entity
+  parent: RMCMarineHelmetBase
+  id: MCArmorHelmetModularJaeger
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Clothing
+  - type: CMArmor
+    melee: 50
+    bullet: 70
+    laser: 70
+    energy: 60
+    explosionArmor: 55
+    bio: 55
+    fire: 55
+    acid: 60
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerInfantry
+  name: Jaeger Pattern Infantry Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Infantry markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Infantry/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerEVA
+  name: Jaeger Pattern EVA Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has EVA markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eva/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerHellJumper
+  name: Jaeger Pattern Helljumper Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Helljumper markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerRanger
+  name: Jaeger Pattern Ranger Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Ranger markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerScout
+  name: Jaeger Pattern Scout Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Scout markings
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Scout/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerSkirmisher
+  name: Jaeger Pattern Skirmisher Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Skirmisher markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerTrooper
+  name: Jaeger Pattern Trooper Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Trooper markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerGugnir
+  name: Jaeger Pattern Gugnir Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Gugnir markings
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Gugnir/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerAssault
+  name: Jaeger Pattern Assault Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Assault markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Assault/drab.rsi
+
+- type: entity
+  parent: MCArmorHelmetModularJaeger
+  id: MCArmorHelmetModularJaegerEOD
+  name: Jaeger Pattern EOD Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has EOD markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/drab.rsi

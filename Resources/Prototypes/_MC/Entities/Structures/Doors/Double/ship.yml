@@ -1,0 +1,82 @@
+# Ship
+- type: entity
+  parent: CMDoubleDoorAlmayerGlass
+  id: CMDoubleDoorShipGlass
+  suffix: Ship, Glass
+
+- type: entity
+  parent: CMDoubleDoorAlmayerSolid
+  id: MCDoubleDoorShipSolid
+  suffix: Ship, Solid
+
+- type: entity
+  parent: CMDoubleDoorPreparations
+  id: MCDoubleDoorPreparationGlass
+  suffix: Preparation, Glass
+
+# Bridge
+- type: entity
+  parent: CMDoubleDoorCommandGlass
+  id: MCDoubleDoorBridgeGlassLocked
+  suffix: Bridge, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessBridge" ]]
+
+- type: entity
+  parent: CMDoubleDoorCommandSolid
+  id: MCDoubleDoorBridgeSolidLocked
+  suffix: Bridge, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessBridge" ]]
+
+# Cargo
+- type: entity
+  parent: CMDoubleDoorPreparations
+  id: MCDoubleDoorRequisitionsGlassLocked
+  suffix: Requisitions, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [["MCAccessLogistics"], ["MCAccessCargo"]]
+  - type: PaintableAirlock
+    department: CMRequisitions
+
+# Medical
+- type: entity
+  parent: CMDoubleDoorMedicalGlass
+  id: MCDoubleDoorMedicalGlass
+  suffix: Medical, Glass
+
+- type: entity
+  parent: CMDoubleDoorMedicalGlass
+  id: MCDoubleDoorResearchGlassLocked
+  suffix: Research, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessResearch" ]]
+
+- type: entity
+  parent: CMDoubleDoorMedicalSolid
+  id: MCDoubleDoorResearchSolidLocked
+  suffix: Research, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessResearch" ]]
+
+# Security
+- type: entity
+  parent: CMDoubleDoorSecuritySolid
+  id: MCDoubleSecuritySolidLocked
+  suffix: Security, Solid, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]
+
+- type: entity
+  parent: CMDoubleDoorSecurityGlass
+  id: MCDoubleSecurityGlassLocked
+  suffix: Security, Glass, Locked
+  components:
+  - type: AccessReader
+    access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]

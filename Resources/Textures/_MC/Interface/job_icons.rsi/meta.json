@@ -1,0 +1,622 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/7e8aea5e32b79c2213a0702c45f711d22150c01d",
+  "size": {
+    "x": 7,
+    "y": 7
+  },
+  "states": [
+    {
+      "name": "synth"
+    },
+    {
+      "name": "xenominion"
+    },
+    {
+      "name": "xenoleader"
+    },
+    {
+      "name": "xenodragon"
+    },
+    {
+      "name": "xenoking"
+    },
+    {
+      "name": "xenoqueen"
+    },
+    {
+      "name": "xenoshrike"
+    },
+    {
+      "name": "captain"
+    },
+    {
+      "name": "staffofficer"
+    },
+    {
+      "name": "cse"
+    },
+    {
+      "name": "st"
+    },
+    {
+      "name": "generator_off"
+    },
+    {
+      "name": "generator_on",
+      "delays": [
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "gargoyle_passive"
+    },
+    {
+      "name": "gargoyle_warn",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "silo_passive"
+    },
+    {
+      "name": "silo_warn",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "spawner_passive"
+    },
+    {
+      "name": "spawner_warn",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "phero"
+    },
+    {
+      "name": "recovery"
+    },
+    {
+      "name": "xeno_turret_passive"
+    },
+    {
+      "name": "xeno_turret_firing",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "fieldcommander",
+      "delays": [
+        [
+          0.7,
+          0.125,
+          0.125,
+          0.125
+        ]
+      ]
+    },
+    {
+      "name": "defibbable"
+    },
+    {
+      "name": "undefibbable"
+    },
+    {
+      "name": "miner_phoron_off"
+    },
+    {
+      "name": "miner_phoron_on"
+    },
+    {
+      "name": "miner_platinum_off"
+    },
+    {
+      "name": "miner_platinum_on"
+    },
+    {
+      "name": "xenotunnel"
+    },
+    {
+      "name": "rebel_zone"
+    },
+    {
+      "name": "loyalist_zone"
+    },
+    {
+      "name": "mech_pilot"
+    },
+    {
+      "name": "pilot"
+    },
+    {
+      "name": "transportofficer"
+    },
+    {
+      "name": "requisition"
+    },
+    {
+      "name": "researcher"
+    },
+    {
+      "name": "medical"
+    },
+    {
+      "name": "chief_medical"
+    },
+    {
+      "name": "cl"
+    },
+    {
+      "name": "neutral_zone"
+    },
+    {
+      "name": "excav_money"
+    },
+    {
+      "name": "excav_xeno"
+    },
+    {
+      "name": "leader"
+    },
+    {
+      "name": "engi"
+    },
+    {
+      "name": "smartgunner"
+    },
+    {
+      "name": "medic"
+    },
+    {
+      "name": "private"
+    },
+    {
+      "name": "Template_overlay"
+    },
+    {
+      "name": "squad_underlay"
+    },
+    {
+      "name": "intel_off"
+    },
+    {
+      "name": "intel_on",
+      "delays": [
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "drone"
+    },
+    {
+      "name": "runner"
+    },
+    {
+      "name": "defender"
+    },
+    {
+      "name": "sentinel"
+    },
+    {
+      "name": "hivelord"
+    },
+    {
+      "name": "carrier"
+    },
+    {
+      "name": "wraith"
+    },
+    {
+      "name": "hunter"
+    },
+    {
+      "name": "bull"
+    },
+    {
+      "name": "warrior"
+    },
+    {
+      "name": "spitter"
+    },
+    {
+      "name": "gorger"
+    },
+    {
+      "name": "defiler"
+    },
+    {
+      "name": "ravager"
+    },
+    {
+      "name": "crusher"
+    },
+    {
+      "name": "praetorian"
+    },
+    {
+      "name": "boiler"
+    },
+    {
+      "name": "hivemind"
+    },
+    {
+      "name": "larva"
+    },
+    {
+      "name": "border",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "widow"
+    },
+    {
+      "name": "spiderling"
+    },
+    {
+      "name": "relay_1_off"
+    },
+    {
+      "name": "relay_1_on",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "relay_1_on_full"
+    },
+    {
+      "name": "relay_2_off"
+    },
+    {
+      "name": "relay_2_on",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "relay_2_on_full"
+    },
+    {
+      "name": "relay_3_off"
+    },
+    {
+      "name": "relay_3_on",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "relay_3_on_full"
+    },
+    {
+      "name": "relay_4_off"
+    },
+    {
+      "name": "relay_4_on",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "relay_4_on_full"
+    },
+    {
+      "name": "relay_5_off"
+    },
+    {
+      "name": "relay_5_on",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "relay_5_on_full"
+    },
+    {
+      "name": "uav"
+    },
+    {
+      "name": "sentry_passive"
+    },
+    {
+      "name": "sentry_firing",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "supply",
+      "delays": [
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "asrs",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "teleporter",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "warlock"
+    },
+    {
+      "name": "locator",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "label"
+    },
+    {
+      "name": "ob_warning",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "som_fieldcommander",
+      "delays": [
+        [
+          0.7,
+          0.125,
+          0.125,
+          0.125
+        ]
+      ]
+    },
+    {
+      "name": "baneling"
+    },
+    {
+      "name": "campaign_objective_capturing_tgmc",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "campaign_objective_capturing_som",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "campaign_objective_decap_tgmc",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "campaign_objective_decap_som",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "campaign_objective_tgmc",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "campaign_objective_som",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "campaign_objective",
+      "delays": [
+        [
+          0.25,
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "militia"
+    },
+    {
+      "name": "freelancer"
+    },
+    {
+      "name": "pmc2"
+    },
+    {
+      "name": "pmc"
+    },
+    {
+      "name": "icc"
+    },
+    {
+      "name": "puppeteer"
+    },
+    {
+      "name": "puppet"
+    },
+    {
+      "name": "tele_block"
+    },
+    {
+      "name": "behemoth"
+    },
+    {
+      "name": "transport_crew"
+    },
+    {
+      "name": "assault_crew"
+    },
+    {
+      "name": "pyrogen"
+    },
+    {
+      "name": "acid_pool"
+    },
+    {
+      "name": "rappel",
+      "delays": [
+        [
+          0.25,
+          0.25
+        ]
+      ]
+    },
+    {
+      "name": "leader_trim"
+    },
+    {
+      "name": "erp"
+    },
+    {
+      "name": "acid_maw"
+    },
+    {
+      "name": "acid_jaw"
+    },
+    {
+      "name": "stairs_up"
+    },
+    {
+      "name": "stairs_down"
+    },
+    {
+      "name": "ladder"
+    },
+    {
+      "name": "el_panel"
+    }
+  ]
+}

@@ -1,0 +1,83 @@
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: MCArmorPas50
+  name: PAS-50 pattern pilot armor
+  description: A reused design of a old body armor system from the 21st century.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/PAS/pilot_chest.rsi
+  - type: CMArmor
+    melee: 40
+    bullet: 50
+    laser: 50
+    energy: 25
+    explosionArmor: 30
+    bio: 5
+    fire: 25
+    acid: 30
+  - type: ClothingSpeedModifier
+    walkModifier: 0.8
+    sprintModifier: 0.8
+
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: MCArmorPas13
+  name: PAS-13 pattern mech pilot armor
+  description: A somewhat sparsely armored but robust armored vest, still in use despite the rise of exoskeleton armor due to ease of use and manufacturing. While the suit is a bit more encumbering to wear with the mech pilot uniform, it offers the them a degree of protection that they otherwise do not enjoy outside their mech.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/PAS/mech_pilot_suit.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 55
+    laser: 55
+    energy: 20
+    explosionArmor: 45
+    bio: 30
+    fire: 25
+    acid: 35
+  - type: ClothingSpeedModifier
+    walkModifier: 0.833
+    sprintModifier: 0.833
+
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: MCArmorPas73
+  name: PAS-73 pattern tanker armor
+  description: A somewhat sparsely armored but robust armored vest. Used by tankers, mostly to absorb bumps in the road as they drive over enemies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/PAS/assault_crewman_suit.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 55
+    laser: 55
+    energy: 20
+    explosionArmor: 45
+    bio: 30
+    fire: 25
+    acid: 35
+  - type: ClothingSpeedModifier
+    walkModifier: 0.833
+    sprintModifier: 0.833
+
+- type: entity
+  parent: RMCBaseMarineArmorLight
+  id: MCArmorPas74
+  name: PAS-74 pattern transport armor
+  description: A somewhat sparsely armored but robust armored vest. Used by transport crewmen so that they can pretend that they may survive when their vehicle is overrun.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/PAS/transport_crewman_suit.rsi
+  - type: CMArmor
+    melee: 45
+    bullet: 55
+    laser: 55
+    energy: 20
+    explosionArmor: 45
+    bio: 30
+    fire: 25
+    acid: 35
+  - type: ClothingSpeedModifier
+    walkModifier: 0.833
+    sprintModifier: 0.833
