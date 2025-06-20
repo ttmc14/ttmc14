@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "surgery",
+      "delays": [
+        [
+          1.5,
+          0.1,
+          0.1,
+          0.1,
+          2,
+          0.1,
+          0.1,
+          0.1,
+          1.5,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "sign_off"
+    },
+    {
+      "name": "sign_on"
+    }
+  ]
+}

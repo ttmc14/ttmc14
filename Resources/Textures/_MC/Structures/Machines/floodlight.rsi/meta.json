@@ -1,0 +1,77 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "floodob00"
+    },
+    {
+      "name": "flood00"
+    },
+    {
+      "name": "floodo00"
+    },
+    {
+      "name": "flood01"
+    },
+    {
+      "name": "floodob01"
+    },
+    {
+      "name": "ads"
+    },
+    {
+      "name": "floodo"
+    },
+    {
+      "name": "floodob"
+    },
+    {
+      "name": "floodoff",
+      "directions": 4
+    },
+    {
+      "name": "floodoff_o",
+      "directions": 4
+    },
+    {
+      "name": "floodon",
+      "directions": 4
+    },
+    {
+      "name": "floodon_o",
+      "directions": 4
+    },
+    {
+      "name": "flooddmg_o",
+      "directions": 4
+    },
+    {
+      "name": "flooddmg",
+      "directions": 4
+    },
+    {
+      "name": "panelnopower"
+    },
+    {
+      "name": "paneloff"
+    },
+    {
+      "name": "panelon"
+    },
+    {
+      "name": "floodlightcombat_deployed_off"
+    },
+    {
+      "name": "floodlightcombat_deployed_on"
+    },
+    {
+      "name": "floodlightcombat"
+    }
+  ]
+}

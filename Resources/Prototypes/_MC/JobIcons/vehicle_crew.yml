@@ -1,0 +1,13 @@
+﻿- type: jobIcon
+  parent: CMJobIconBase
+  id: MCAssaultCrewman
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: assault_crew
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCTransportCrewman
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: transport_crew

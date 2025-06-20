@@ -1,0 +1,17 @@
+- type: job
+  parent: MCJob
+  id: MCJobSquad
+  abstract: true
+  hasSquad: true
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnPointJob
+  description: A RMC14 job spawner. Used for roundstart and late joins.
+  suffix: Job Spawn
+  abstract: true
+  components:
+  - type: SpawnPoint
+    spawn_type: Job
+  - type: Sprite
+    sprite: _RMC14/Markers/landmarks.rsi

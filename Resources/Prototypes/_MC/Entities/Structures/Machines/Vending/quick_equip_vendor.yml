@@ -1,0 +1,14 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingQuickEquipVendor
+  name: Kwik-E-Quip vendor
+  description: An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment. Mutually exclusive with the GHMME.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: specialist-off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: specialist
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+  - type: CMAutomatedVendor

@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "cell_mapper",
+      "directions": 4
+    },
+    {
+      "name": "cell_off"
+    },
+    {
+      "name": "cell_off_occupied"
+    },
+    {
+      "name": "cell_on"
+    },
+    {
+      "name": "cell_on_occupied"
+    },
+    {
+      "name": "cell_emissive"
+    },
+    {
+      "name": "cell_broken",
+      "directions": 4
+    },
+    {
+      "name": "cell_bloody",
+      "directions": 4
+    }
+  ]
+}

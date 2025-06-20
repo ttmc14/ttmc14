@@ -1,0 +1,14 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingSurplusClothingVendor
+  name: Surplus Clothing Vendor
+  description: An automated equipment rack hooked up to a colossal storage of clothing and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: surplus_clothes-off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: surplus_clothes
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+  - type: CMAutomatedVendor

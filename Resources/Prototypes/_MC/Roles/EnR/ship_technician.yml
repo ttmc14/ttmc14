@@ -1,0 +1,64 @@
+- type: job
+  parent: MCJobSquad
+  id: MCST
+  name: mc-job-name-st
+  description: mc-job-description-st
+  playTimeTracker: MCST
+  startingGear: MCST
+  dummyStartingGear: MCST
+  icon: MCST
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-aso
+  ranks:
+    MCPettyOfficerThirdClass: []
+    MCPettyOfficerSecondClass:
+    - !type:RoleTimeRequirement
+      role: MCST
+      time: 600 # 10 hours
+    MCPettyOfficerFirstClass:
+    - !type:RoleTimeRequirement
+      role: MCST
+      time: 3000 # 50 hours
+    MCChiefPettyOfficer:
+    - !type:RoleTimeRequirement
+      role: MCST
+      time: 6000 # 100 hours
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillEngineer: 4
+        RMCSkillConstruction: 4
+        RMCSkillPolice: 2
+        RMCSkillVehicles: 4
+        RMCSkillLeadership: 3
+        RMCSkillSmartGun: -4
+        RMCSkillFirearms: 1
+    - type: SquadArmorWearer
+    - type: JobPrefix
+      prefix: mc-job-prefix-st
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/job_icons.rsi
+        state: st
+
+- type: playTimeTracker
+  id: MCST
+  isHumanoid: true
+
+- type: startingGear
+  id: MCST
+  equipment:
+    id: MCDogtagST
+
+- type: entity
+  parent: MCSpawnPointJob
+  id: MCSpawnPointST
+  name: squad corpsman spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCST
+  - type: Sprite
+    state: ot_spawn

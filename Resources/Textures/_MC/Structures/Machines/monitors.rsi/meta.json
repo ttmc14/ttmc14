@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "pipeterm",
+      "directions": 4
+    },
+    {
+      "name": "pipeterm_f",
+      "directions": 4
+    },
+    {
+      "name": "auth_off"
+    },
+    {
+      "name": "auth_on",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "camera",
+      "directions": 8,
+      "delays": [
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "camera1",
+      "directions": 8
+    },
+    {
+      "name": "cameracase"
+    },
+    {
+      "name": "camera_assembly",
+      "directions": 4
+    },
+    {
+      "name": "deployable",
+      "directions": 4,
+      "delays": [
+        [
+          0.3,
+          0.8,
+          0.3,
+          0.8
+        ],
+        [
+          0.3,
+          0.8,
+          0.3,
+          0.8
+        ],
+        [
+          0.3,
+          0.8,
+          0.3,
+          0.8
+        ],
+        [
+          0.3,
+          0.8,
+          0.3,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "deployableitem"
+    },
+    {
+      "name": "deployableoff",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ],
+        [
+          0.8,
+          0.8
+        ]
+      ]
+    },
+    {
+      "name": "editor_icon"
+    },
+    {
+      "name": "camera_icon",
+      "directions": 8
+    },
+    {
+      "name": "camera_emissive",
+      "directions": 4,
+      "delays": [
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ],
+        [
+          1,
+          0.4,
+          0.5,
+          0.4,
+          1
+        ]
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+- type: entity
+  parent: CMAutoInjector
+  id: MCDyloveneAutoInjector
+  name: dylovene autoinjector
+  description: An auto-injector loaded with 3 doses of dylovene, an anti-toxin agent useful in cases of poisoning, overdoses and toxin build-up.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 45
+        reagents:
+        - ReagentId: CMDylovene
+          Quantity: 45
+  - type: CMRefillableSolution
+    reagents:
+      CMTricordrazine: 45
+  - type: IconLabel
+    labelTextLocId: rmc-dylovene-container-label-text

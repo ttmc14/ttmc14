@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wm_10"
+    },
+    {
+      "name": "wm_11"
+    },
+    {
+      "name": "wm_20"
+    },
+    {
+      "name": "wm_21"
+    },
+    {
+      "name": "wm_30"
+    },
+    {
+      "name": "wm_31"
+    },
+    {
+      "name": "wm_40"
+    },
+    {
+      "name": "wm_41"
+    },
+    {
+      "name": "wm_50",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "wm_51",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "wm_61"
+    },
+    {
+      "name": "wm_60"
+    },
+    {
+      "name": "wm_70"
+    },
+    {
+      "name": "wm_71"
+    },
+    {
+      "name": "wm_80",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "wm_81",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

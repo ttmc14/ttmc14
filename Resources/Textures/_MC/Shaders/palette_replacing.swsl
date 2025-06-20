@@ -1,0 +1,25 @@
+uniform mediump vec4 palette0;
+uniform mediump vec4 palette1;
+uniform mediump vec4 palette2;
+uniform mediump vec4 palette3;
+uniform mediump vec4 palette4;
+
+void fragment()
+{
+    vec4 color = zTexture(UV);
+    float luminance = dot(color.rgb, vec3(0.3, 0.59, 0.11));
+    vec4 result = palette4;
+
+    if (luminance < 0.2)
+        result = palette0;
+    else if (luminance < 0.4)
+        result = palette1;
+    else if (luminance < 0.6)
+        result = palette2;
+    else if (luminance < 0.8)
+        result = palette3;
+    else
+        result = palette4;
+
+    COLOR = vec4(result.rgb, color.a);
+}

@@ -1,0 +1,71 @@
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMedicalLowerMedbay
+  name: Medical Lower Medbay
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMedicalUpperMedbay
+  name: Medical Upper Medbay
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMedicalMorgue
+  name: Morgue
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    zLevel: 2
+  - type: IntelRecoverCorpsesArea
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMedicalOperatingRoomOne
+  name: Medical Operating Room 1
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMedicalOperatingRoomTwo
+  name: Medical Operating Room 2
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipMedicalMedicalScience
+  name: Medical Research laboratories
+  components:
+  - type: Sprite
+    state: science
+  - type: Area
+    zLevel: 2
+    retrieveItemObjective: true
+
+- type: entity
+  parent: MCAreaShip
+  id:  MCAreaShipMedicalChemistry
+  name: Medical Chemical laboratory
+  components:
+  - type: Sprite
+    state: chemistry
+  - type: Area
+    zLevel: 2

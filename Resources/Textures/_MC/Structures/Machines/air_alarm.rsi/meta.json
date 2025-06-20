@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "alarm_powered",
+      "directions": 4
+    },
+    {
+      "name": "alarm_powered_emissive",
+      "directions": 4
+    },
+    {
+      "name": "alarm_unpowered",
+      "directions": 4
+    }
+  ]
+}

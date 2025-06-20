@@ -1,0 +1,55 @@
+- type: Tag
+  id: MCAttachmentStock
+
+- type: entity
+  parent: RMCStockAttachmentCollapsibleBase
+  id: MCAttachmentStockSH35
+  name: M54C folding stock
+  description: The standard back end of any gun starting with M54. Compatible with the M54C series, this stock reduces recoil and scatter, but at a reduction to handling and agility. Also enhances the thwacking of things with the stock-end of the rifle.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh35.rsi
+    state: icon
+  - type: Tag
+    tags:
+    - MCAttachmentStock
+    - MCAttachmentStockSH35
+  - type: AttachableVisuals
+    suffix: ""
+  - type: AttachableToggleable
+    doAfterBreakOnMove: false
+    doAfter: 0.5
+    icon:
+      sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh35.rsi
+      state: icon
+    iconActive:
+      sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh35.rsi
+      state: icon-on
+    actionName: Toggle the SH-35 stock
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - conditions:
+        activeOnly: true
+      delay: 0.2
+  - type: AttachableWeaponMeleeMods
+    modifiers:
+    - bonusDamage:
+        types:
+          Blunt: 5
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+        activeOnly: true
+      accuracyAddMult: 0.15
+      recoilFlat: -3
+      scatterFlat: -2
+    - conditions:
+        unwieldedOnly: true
+        activeOnly: true
+      accuracyAddMult: -0.15
+      recoilFlat: 3
+      scatterFlat: 2
+
+- type: Tag
+  id: MCAttachmentStockSH35

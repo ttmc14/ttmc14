@@ -1,0 +1,39 @@
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSquadLeader
+  name: Squad Leader's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCSquadLeader
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSquadSmartgunner
+  name: Squad Smartgunner's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCSquadSmartgunner
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSquadEngineer
+  name: Squad Engineer's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCSquadEngineer
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSquadCorpsman
+  name: Squad Corpsman's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCSquadCorpsman
+
+- type: entity
+  parent: MCDogtag
+  id: MCDogtagSquadMarine
+  name: Squad Marines's dogtags
+  components:
+  - type: PresetIdCard
+    job: MCSquadMarine

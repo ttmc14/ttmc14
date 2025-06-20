@@ -1,0 +1,236 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "medical"
+    },
+    {
+      "name": "aft"
+    },
+    {
+      "name": "ai"
+    },
+    {
+      "name": "almayer"
+    },
+    {
+      "name": "alpha"
+    },
+    {
+      "name": "astronavigation"
+    },
+    {
+      "name": "basketball"
+    },
+    {
+      "name": "blue2"
+    },
+    {
+      "name": "blue-red2"
+    },
+    {
+      "name": "blue-red-d"
+    },
+    {
+      "name": "bravo"
+    },
+    {
+      "name": "briefing"
+    },
+    {
+      "name": "brig"
+    },
+    {
+      "name": "brigcells"
+    },
+    {
+      "name": "cd_shared"
+    },
+    {
+      "name": "ceroom"
+    },
+    {
+      "name": "charlie"
+    },
+    {
+      "name": "chemistry"
+    },
+    {
+      "name": "chiefmpoffice"
+    },
+    {
+      "name": "cic"
+    },
+    {
+      "name": "coreroom"
+    },
+    {
+      "name": "corporatespace"
+    },
+    {
+      "name": "cryo"
+    },
+    {
+      "name": "cyan"
+    },
+    {
+      "name": "delta"
+    },
+    {
+      "name": "dropshiprepair"
+    },
+    {
+      "name": "engineering"
+    },
+    {
+      "name": "exoarmor"
+    },
+    {
+      "name": "firingrange"
+    },
+    {
+      "name": "food"
+    },
+    {
+      "name": "gruntrnr"
+    },
+    {
+      "name": "hangar"
+    },
+    {
+      "name": "invi"
+    },
+    {
+      "name": "laundry"
+    },
+    {
+      "name": "lifeboat"
+    },
+    {
+      "name": "lifeboat_pump"
+    },
+    {
+      "name": "lifesupport"
+    },
+    {
+      "name": "livingspace"
+    },
+    {
+      "name": "lowerengineering"
+    },
+    {
+      "name": "lowerhull"
+    },
+    {
+      "name": "lowermonitoring"
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "missionplanner"
+    },
+    {
+      "name": "officerrnr"
+    },
+    {
+      "name": "officerstudy"
+    },
+    {
+      "name": "operating"
+    },
+    {
+      "name": "party"
+    },
+    {
+      "name": "port"
+    },
+    {
+      "name": "portatmos"
+    },
+    {
+      "name": "portemb"
+    },
+    {
+      "name": "portmissile"
+    },
+    {
+      "name": "portpd"
+    },
+    {
+      "name": "portumbilical"
+    },
+    {
+      "name": "purple"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "red2"
+    },
+    {
+      "name": "req"
+    },
+    {
+      "name": "science"
+    },
+    {
+      "name": "self_destruct"
+    },
+    {
+      "name": "sensor"
+    },
+    {
+      "name": "stairs_lowerdeck"
+    },
+    {
+      "name": "stairs_upperdeck"
+    },
+    {
+      "name": "starboard"
+    },
+    {
+      "name": "starboardatmos"
+    },
+    {
+      "name": "starboardemb"
+    },
+    {
+      "name": "starboardmissile"
+    },
+    {
+      "name": "starboardpd"
+    },
+    {
+      "name": "starboardumbilical"
+    },
+    {
+      "name": "stern"
+    },
+    {
+      "name": "telecommunications"
+    },
+    {
+      "name": "upperengineering"
+    },
+    {
+      "name": "upperhull"
+    },
+    {
+      "name": "uppermonitoring"
+    },
+    {
+      "name": "weapon"
+    },
+    {
+      "name": "workshop"
+    }
+  ]
+}

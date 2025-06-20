@@ -1,0 +1,29 @@
+- type: entity
+  id: MCArea
+  name: area
+  suffix: Area
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - MCArea
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    sprite: _RMC14/Areas/areas.rsi
+    state: unknown
+  - type: Marker
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Area
+    CAS: true
+    fulton: true
+    lasing: true
+    mortarPlacement: true
+    mortarFire: true
+    medevac: true
+    OB: true
+    supplyDrop: true
+  - type: PlacementReplacement
+    key: mc_areas

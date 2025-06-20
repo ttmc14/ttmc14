@@ -1,0 +1,70 @@
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipSelfDestructCoreRoom
+  name: Self-Destruct Core Room
+  components:
+  - type: Sprite
+    state: self_destruct
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipAICore
+  name: AI Core
+  components:
+  - type: Sprite
+    state: ai
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCorporateLiaisonOffice
+  name: Corporate Liaison Office
+  components:
+  - type: Sprite
+    state: corporatespace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipTelecommunications
+  name: Telecommunications
+  components:
+  - type: Sprite
+    state: telecommunications
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCombatInformationCenter
+  name: Combat Information Center
+  components:
+  - type: Sprite
+    state: cic
+  - type: Area
+    zLevel: 2
+
+# Brig
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipWeaponControlRoom
+  name: Weapon Control Room
+  components:
+  - type: Sprite
+    state: weapon
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipBrig
+  name: Brig
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    zLevel: 2

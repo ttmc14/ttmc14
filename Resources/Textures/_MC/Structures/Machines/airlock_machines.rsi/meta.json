@@ -1,0 +1,78 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "airlock_sensor_off"
+    },
+    {
+      "name": "airlock_sensor_standby"
+    },
+    {
+      "name": "airlock_sensor_cycle",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "airlock_sensor_alert",
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "airlock_control_off"
+    },
+    {
+      "name": "airlock_control_standby"
+    },
+    {
+      "name": "airlock_control_process",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "access_button_standby"
+    },
+    {
+      "name": "access_button_cycle",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "access_control_off"
+    },
+    {
+      "name": "access_control_standby"
+    },
+    {
+      "name": "access_control_process",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    }
+  ]
+}

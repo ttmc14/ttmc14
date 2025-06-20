@@ -1,0 +1,20 @@
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCCSE
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: cse
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCRO
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: requisition
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCST
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: st

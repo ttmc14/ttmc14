@@ -1,0 +1,34 @@
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCSquadLeader
+  icon:
+    sprite: _MC/Interface/squad_marine_icons.rsi
+    state: leader
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCSmartgunner
+  icon:
+    sprite: _MC/Interface/squad_marine_icons.rsi
+    state: smartgunner
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCEngineer
+  icon:
+    sprite: _MC/Interface/squad_marine_icons.rsi
+    state: engineer
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCCorpsman
+  icon:
+    sprite: _MC/Interface/squad_marine_icons.rsi
+    state: corpsman
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCMarine
+  icon:
+    sprite: _MC/Interface/squad_marine_icons.rsi
+    state: marine

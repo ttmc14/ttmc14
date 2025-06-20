@@ -1,0 +1,10 @@
+- type: entity
+  parent: Holopad
+  id: MCHolopad
+  name: holopad
+  description: A floor-mounted device for projecting holographic images.
+  components:
+  - type: RMCPowerReceiver
+    idleLoad: 0
+    activeLoad: 300
+    channel: Equipment
