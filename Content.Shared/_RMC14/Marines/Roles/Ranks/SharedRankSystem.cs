@@ -76,18 +76,17 @@ public abstract class SharedRankSystem : EntitySystem
     }
 
     /// <summary>
-    /// Gets the rank name of a given mob.
+    ///     Gets the rank name of a given mob.
     /// </summary>
     public string? GetRankString(EntityUid uid, bool isShort = false, bool hasPaygrade = false)
     {
         var rank = GetRank(uid);
-
-        if (rank is null)
+        if (rank == null)
             return null;
 
         if (isShort)
         {
-            if (rank.FemalePrefix is null || rank.MalePrefix is null)
+            if (rank.FemalePrefix == null || rank.MalePrefix == null)
                 return rank.Prefix;
 
             if (!TryComp<HumanoidAppearanceComponent>(uid, out var humanoidAppearance))
@@ -97,16 +96,19 @@ public abstract class SharedRankSystem : EntitySystem
             {
                 Gender.Female => rank.FemalePrefix,
                 Gender.Male => rank.MalePrefix,
-                _ => rank.Prefix,
+                Gender.Epicene or Gender.Neuter or _ => rank.Prefix
             };
 
             return genderPrefix;
         }
-
-        if (hasPaygrade && rank.Paygrade is not null)
-            return $"({Loc.GetString(rank.Paygrade)}) {Loc.GetString(rank.Name)}";
-
-        return rank.Name;
+        else if (hasPaygrade && rank.Paygrade != null)
+        {
+            return "(" + rank.Paygrade + ")" + " " + rank.Name;
+        }
+        else
+        {
+            return rank.Name;
+        }
     }
 
     /// <summary>

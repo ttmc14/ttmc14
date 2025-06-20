@@ -13,7 +13,7 @@
 - type: department
   abstract: true
   id: CMDepartmentBase
-  isCM: false
+  isCM: true
 
 # Xeno
 - type: job

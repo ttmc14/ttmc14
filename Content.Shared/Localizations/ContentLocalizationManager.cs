@@ -10,8 +10,7 @@ namespace Content.Shared.Localizations
         [Dependency] private readonly ILocalizationManager _loc = default!;
 
         // If you want to change your codebase's language, do it here.
-        private const string Culture = "ru-RU";
-        private const string FallbackCulture = "en-US";
+        private const string Culture = "en-US";
 
         /// <summary>
         /// Custom format strings used for parsing and displaying minutes:seconds timespans.
@@ -27,25 +26,18 @@ namespace Content.Shared.Localizations
         public void Initialize()
         {
             var culture = new CultureInfo(Culture);
-            var fallbackCulture = new CultureInfo(FallbackCulture);
 
             _loc.LoadCulture(culture);
-            _loc.LoadCulture(fallbackCulture);
-            _loc.SetFallbackCluture(fallbackCulture);
+            _loc.AddFunction(culture, "PRESSURE", FormatPressure);
+            _loc.AddFunction(culture, "POWERWATTS", FormatPowerWatts);
+            _loc.AddFunction(culture, "POWERJOULES", FormatPowerJoules);
+            _loc.AddFunction(culture, "UNITS", FormatUnits);
+            _loc.AddFunction(culture, "TOSTRING", args => FormatToString(culture, args));
+            _loc.AddFunction(culture, "LOC", FormatLoc);
+            _loc.AddFunction(culture, "NATURALFIXED", FormatNaturalFixed);
+            _loc.AddFunction(culture, "NATURALPERCENT", FormatNaturalPercent);
+            _loc.AddFunction(culture, "PLAYTIME", FormatPlaytime);
 
-            var elements = new[] { culture, fallbackCulture };
-            foreach (var element in elements)
-            {
-                _loc.AddFunction(element, "PRESSURE", FormatPressure);
-                _loc.AddFunction(element, "POWERWATTS", FormatPowerWatts);
-                _loc.AddFunction(element, "POWERJOULES", FormatPowerJoules);
-                _loc.AddFunction(element, "UNITS", FormatUnits);
-                _loc.AddFunction(element, "TOSTRING", args => FormatToString(element, args));
-                _loc.AddFunction(element, "LOC", FormatLoc);
-                _loc.AddFunction(element, "NATURALFIXED", FormatNaturalFixed);
-                _loc.AddFunction(element, "NATURALPERCENT", FormatNaturalPercent);
-                _loc.AddFunction(element, "PLAYTIME", FormatPlaytime);
-            }
 
             /*
              * The following language functions are specific to the english localization. When working on your own
