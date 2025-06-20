@@ -14,7 +14,7 @@
       map: [ "enum.GunVisualLayers.Base" ]
     - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
       state: sh15
-      offset: -0.625, -0.03125
+      offset: -0.12, -0.0
       map: [ "barrel" ]
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15.rsi

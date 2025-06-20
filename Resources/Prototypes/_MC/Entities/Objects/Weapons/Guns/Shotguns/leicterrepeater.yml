@@ -7,8 +7,12 @@
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Shotguns/leicrep.rsi
     layers:
-    - state: icon
+    - state: base
       map: [ "enum.GunVisualLayers.Base" ]
+    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: leicrep_stock
+      offset: -0.65, 0
+      map: [ "stock" ]
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Shotguns/leicrep.rsi
   - type: Gun
@@ -19,7 +23,7 @@
   - type: RMCSelectiveFire
     recoilWielded: 0
     recoilUnwielded: 2
-    scatterWielded: -5
+    scatterWielded: 1
     scatterUnwielded: 7
     baseFireRate: 0.5
     burstScatterMult: 5
@@ -98,7 +102,7 @@
     - id: MCCartridgeGovernmentRounds
       amount: 6
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Shotguns/leicrep.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/leicerep.rsi
     layers:
     - state: leicerep_full
       map: [ "full" ]
@@ -117,7 +121,7 @@
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi
     layers:
-    - state: GOV1
+    - state: base
       map: [ "base" ]
   - type: CartridgeAmmo
     proto: MCBulletGovernmentRounds
@@ -146,3 +150,6 @@
   icon: { sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi, state: GOV1 }
   spawn: MCCartridgeGovernmentRounds
   maxCount: 8
+
+- type: Tag
+  id: MCCartridgeGovernmentRounds

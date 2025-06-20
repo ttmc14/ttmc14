@@ -8,17 +8,6 @@
   },
   "states": [
     {
-      "name": "scanner_1",
-      "delays": [
-        [
-          0.1,
-          0.1,
-          0.1,
-          0.1
-        ]
-      ]
-    },
-    {
       "name": "freezer",
       "directions": 4
     },

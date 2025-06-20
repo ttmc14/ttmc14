@@ -1,9 +1,9 @@
 {
   "version": 1,
-  "license": null,
-  "copyright": null,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/mob/clothing/back.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/obj/items/ammo/rifle.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/mob/inhands/guns/rifles_left_1.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/mob/inhands/guns/rifles_right_1.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/mob/suit_slot.dmi",
   "size": {
-    "x": 64,
+    "x": 32,
     "y": 32
   },
   "states": [
@@ -12,10 +12,16 @@
       "directions": 4
     },
     {
-      "name": "base"
+      "name": "wielded-inhand-right",
+      "directions": 4
     },
     {
-      "name": "bolt-open"
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left",
+      "directions": 4
     },
     {
       "name": "equipped-BACKPACK",
@@ -29,16 +35,10 @@
       "name": "icon"
     },
     {
-      "name": "inhand-left",
-      "directions": 4
+      "name": "bolt-open"
     },
     {
-      "name": "wielded-inhand-right",
-      "directions": 4
-    },
-    {
-      "name": "wielded-inhand-left",
-      "directions": 4
+      "name": "base"
     }
   ]
 }

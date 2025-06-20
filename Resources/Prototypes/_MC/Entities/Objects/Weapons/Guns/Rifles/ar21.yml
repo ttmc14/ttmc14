@@ -11,6 +11,10 @@
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
       map: [ "enum.GunVisualLayers.Mag" ]
+    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: ar21_stock
+      offset: -0.5, 0
+      map: [ "stock" ]
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Rifles/ar21.rsi
   - type: Gun
