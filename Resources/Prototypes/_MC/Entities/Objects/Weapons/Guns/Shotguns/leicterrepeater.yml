@@ -1,0 +1,148 @@
+- type: entity
+  parent: MCWeaponShotgun
+  id: MCWeaponShotgunLeicesterRepeater
+  name: Leicester Repeater
+  description: The gun that won the west or so they say. But space is a very different kind of frontier all together, chambered for .45-70 Governemnt.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/leicrep.rsi
+    layers:
+    - state: icon
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/leicrep.rsi
+  - type: Gun
+    shotsPerBurst: 1
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_repeater.ogg
+  - type: ShootUseDelay
+  - type: RMCSelectiveFire
+    recoilWielded: 0
+    recoilUnwielded: 2
+    scatterWielded: -5
+    scatterUnwielded: 7
+    baseFireRate: 0.5
+    burstScatterMult: 5
+  - type: BallisticAmmoProvider
+    capacity: 14
+    soundInsert:
+      path: /Audio/_MC/Weapons/Guns/Reload/mosin_reload.ogg
+    whitelist:
+      tags:
+      - MCCartridgeGovernmentRounds
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 1
+  - type: PumpAction
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCM5Bayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentMagneticHarness
+          - RMCAttachmentS6ReflexSight
+          - RMCAttachmentS42xTelescopicMiniscope
+          - RMCAttachmentRailFlashlight
+          # - TODO: T47 Scope
+          # - TODO: Tactical Sensor
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.7, -0.0225
+      rmc-aslot-rail: 0.2, 0.09
+
+- type: entity
+  parent: BulletRifle10x24mm
+  id: MCBulletGovernmentRounds
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 70
+  - type: CMArmorPiercing
+    amount: 20
+  - type: GunStacksProjectile
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 22
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 7
+      falloff: 1
+  - type: RMCProjectileAccuracy
+    accuracy: 90
+    thresholds:
+    - range: 14
+      falloff: 10
+
+- type: entity
+  parent: RMCBoxShotgunBase
+  id: MCBoxGovernmentRounds
+  name: packet of .45-70
+  description: A packet containing 50 rounds of .45-70 Government.
+  components:
+  - type: Storage
+    grid:
+    - 0,0,21,1
+    whitelist:
+      tags:
+      - MCCartridgeGovernmentRounds
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeGovernmentRounds
+      amount: 6
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/leicrep.rsi
+    layers:
+    - state: leicerep_full
+      map: [ "full" ]
+    - state: leicerep_empty
+      map: [ "empty" ]
+  - type: RMCStorageEjectHand
+  - type: Tag
+    tags:
+    - MCBoxGovernmentRounds
+
+- type: entity
+  parent: CMShellShotgunBase
+  id: MCCartridgeGovernmentRounds
+  name: handful of heavy impact rifle bullet (.45-70 Government)
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi
+    layers:
+    - state: GOV1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletGovernmentRounds
+  - type: Stack
+    count: 8
+    stackType: MCCartridgeGovernmentRounds
+    baseLayer: base
+    layerStates:
+    - GOV1
+    - GOV2
+    - GOV3
+    - GOV4
+    - GOV5
+    - GOV6
+    - GOV7
+    - GOV8
+  - type: Tag
+    tags:
+    - RMCHandful
+    - Cartridge
+    - MCCartridgeGovernmentRounds
+
+- type: stack
+  id: MCCartridgeGovernmentRounds
+  name: handful of heavy impact rifle bullet (.45-70 Government)
+  icon: { sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/leicerep.rsi, state: GOV1 }
+  spawn: MCCartridgeGovernmentRounds
+  maxCount: 8

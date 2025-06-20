@@ -33,6 +33,7 @@
     scatterWielded: 6
     scatterUnwielded: 20
     baseFireRate: 5
+    burstFireRateMultiplier: 6
     burstScatterMult: -2
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.1
@@ -105,7 +106,8 @@
 - type: entity
   parent: CMMagazineRifleBase
   id: MCMagazineRifleAR12
-  name: "AR12 магазин (10x24мм)"
+  name: AR-12 magazine (10x24mm)
+  description: A 10mm assault rifle magazine.
   components:
   - type: Tag
     tags:
@@ -130,7 +132,8 @@
 - type: entity
   parent: CMMagazineRifleBase
   id: MCMagazineRifleAR12AP
-  name: "AR12 магазин бронебойный (10x24мм)"
+  name: AR-12 AP magazine (10x24mm)
+  description: A 10mm assault rifle magazine, loaded with light armor piercing rounds.
   components:
   - type: Tag
     tags:

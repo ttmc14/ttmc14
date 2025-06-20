@@ -5,12 +5,12 @@
   description: The Terran Armories SH-35 is the shotgun used by the TerraGov Marine Corps. It's used as a close quarters tool when someone wants something more suited for close range than most people, or as an odd sidearm on your back for emergencies. Uses 12 gauge shells.
   components:
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh35.rsi
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh35.rsi
     layers:
     - state: icon
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh35.rsi
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh35.rsi
   - type: Gun
     shotsPerBurst: 1
   - type: ShootUseDelay

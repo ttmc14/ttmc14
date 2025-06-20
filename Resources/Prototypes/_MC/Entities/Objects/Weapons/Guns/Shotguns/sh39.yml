@@ -5,16 +5,16 @@
   description: TThe Terran Armories SH-39 combat shotgun is a semi automatic shotgun used by breachers and pointmen within the TGMC squads. Uses 12 gauge shells.
   components:
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh39.rsi
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh39.rsi
     layers:
     - state: icon
       map: [ "enum.GunVisualLayers.Base" ]
-    - sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh39.rsi
-      state: icon
+    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: sh39
       offset: -0.65625, 0.03125
       map: [ "barrel" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Gun/Shotguns/sh39.rsi
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh39.rsi
   - type: Gun
     shotsPerBurst: 1
   - type: ShootUseDelay

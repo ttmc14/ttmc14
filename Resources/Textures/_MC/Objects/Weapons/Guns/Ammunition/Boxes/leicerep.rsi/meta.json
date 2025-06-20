@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/f9804ca84dcead50d277e7741af6ecfdef73476b/icons/obj/items/ammo/packet.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "leicerep_full"
+    },
+    {
+      "name": "leicerep_empty"
+    }
+  ]
+}

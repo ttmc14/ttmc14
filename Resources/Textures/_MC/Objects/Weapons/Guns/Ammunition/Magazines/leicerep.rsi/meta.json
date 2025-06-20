@@ -1,0 +1,38 @@
+{
+    "version": 1,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "license": "CC-BY-SA-3.0",
+    "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/f9804ca84dcead50d277e7741af6ecfdef73476b/icons/obj/items/ammo/handful.dmi",
+    "states": [
+        {
+            "name": "base"
+        },
+        {
+            "name": "GOV1"
+        },
+        {
+            "name": "GOV2"
+        },
+        {
+            "name": "GOV2"
+        },
+        {
+            "name": "GOV4"
+        },
+        {
+            "name": "GOV5"
+        },
+        {
+            "name": "GOV6"
+        },
+        {
+            "name": "GOV7"
+        },
+        {
+            "name": "GOV8"
+        }
+    ]
+}
