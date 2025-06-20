@@ -1,0 +1,66 @@
+- type: job
+  parent: MCJobSquad
+  id: MCSquadCorpsman
+  name: mc-job-name-squad-corpsman
+  description: mc-job-description-squad-corpsman
+  playTimeTracker: MCSquadCorpsman
+  startingGear: MCSquadCorpsman
+  dummyStartingGear: MCSquadCorpsman
+  icon: MCCorpsman
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-sl
+  ranks:
+    MCLanceCorporal: []
+    MCCorporal:
+    - !type:RoleTimeRequirement
+      role: MCSquadCorpsman
+      time: 1500 # 25 hours
+    MCSergeant:
+    - !type:RoleTimeRequirement
+      role: MCSquadCorpsman
+      time: 6000 # 100 hours
+    MCStaffSergeant:
+    - !type:RoleTimeRequirement
+      role: MCSquadCorpsman
+      time: 18000 # 300 hours
+    MCSergeantMajor:
+    - !type:RoleTimeRequirement
+      role: MCSquadCorpsman
+      time: 60000 # 1000 hours
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 2
+        RMCSkillSurgery: 2
+        RMCSkillLeadership: 1
+        RMCSkillSmartGun: -4
+        RMCSkillFirearms: 1
+    - type: SquadArmorWearer
+    - type: JobPrefix
+      prefix: mc-job-prefix-corpsman
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/squad_marine_icons.rsi
+        state: corpsman
+
+- type: playTimeTracker
+  id: MCSquadCorpsman
+  isHumanoid: true
+
+- type: startingGear
+  id: MCSquadCorpsman
+  equipment:
+    id: MCDogtagSquadCorpsman
+
+- type: entity
+  parent: MCSpawnPointJob
+  id: MCSpawnPointSquadCorpsman
+  name: squad corpsman spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCSquadCorpsman
+  - type: Sprite
+    state: medic_spawn

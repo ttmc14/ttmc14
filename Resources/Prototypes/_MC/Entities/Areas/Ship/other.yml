@@ -60,16 +60,6 @@
 
 - type: entity
   parent: MCAreaShip
-  id: MCAreaShipVehicleCrewBunks
-  name: Vehicle Crew Bunks
-  components:
-  - type: Sprite
-    state: livingspace
-  - type: Area
-    zLevel: 2
-
-- type: entity
-  parent: MCAreaShip
   id: MCAreaShipPilotBunks
   name: Pilot's Bunks
   components:

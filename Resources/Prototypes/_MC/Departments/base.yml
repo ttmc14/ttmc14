@@ -1,0 +1,4 @@
+- type: department
+  id: MCDepartment
+  isCM: true
+  abstract: true

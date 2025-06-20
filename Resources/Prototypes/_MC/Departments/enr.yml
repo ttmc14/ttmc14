@@ -1,0 +1,12 @@
+- type: department
+  parent: MCDepartment
+  id: MCEnR
+  name: department-MCEnR
+  description: mc-department-EnR-description
+  color: "#A66300"
+  roles:
+  - MCCSE
+  - MCRO
+  - MCST
+  departmentRadio: MarineEngineer
+  headOfDepartment: MCCSE

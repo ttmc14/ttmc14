@@ -1,0 +1,34 @@
+﻿- type: jobIcon
+  parent: CMJobIconBase
+  id: MCCaptain
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: captain
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCFieldCommander
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: fieldcommander
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCStaffOfficer
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: staffofficer
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCPilotOfficer
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: pilot
+
+- type: jobIcon
+  parent: CMJobIconBase
+  id: MCMechPilot
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: mech_pilot

@@ -1,0 +1,63 @@
+- type: job
+  parent: MCJobSquad
+  id: MCSquadMarine
+  name: mc-job-name-squad-marine
+  description: mc-job-description-squad-marine
+  playTimeTracker: MCSquadMarine
+  startingGear: MCSquadMarine
+  dummyStartingGear: MCSquadMarine
+  icon: MCMarine
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-sl
+  ranks:
+    MCPrivate: []
+    MCPrivateFirstClass:
+    - !type:RoleTimeRequirement
+      role: MCSquadMarine
+      time: 600 # 10 hours
+    MCLanceCorporal:
+    - !type:RoleTimeRequirement
+      role: MCSquadMarine
+      time: 6000 # 100 hours
+    MCSectionCorporal:
+    - !type:RoleTimeRequirement
+      role: MCSquadMarine
+      time: 18000 # 300 hours
+    MCMasterSergeant:
+    - !type:RoleTimeRequirement
+      role: MCSquadMarine
+      time: 60000 # 1000 hours
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillFirearms: 1
+        RMCSkillSmartGun: -4
+    - type: SquadArmorWearer
+    - type: JobPrefix
+      prefix: mc-job-prefix-marine
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/squad_marine_icons.rsi
+        state:
+
+- type: playTimeTracker
+  id: MCSquadMarine
+  isHumanoid: true
+
+- type: startingGear
+  id: MCSquadMarine
+  equipment:
+    id: MCDogtagSquadMarine
+
+- type: entity
+  parent: MCSpawnPointJob
+  id: MCSpawnPointSquadMarine
+  name: squad marine spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCSquadMarine
+  - type: Sprite
+    state: marine_spawn

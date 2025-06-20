@@ -1,0 +1,60 @@
+- type: job
+  parent: MCJobSquad
+  id: MCCSE
+  name: mc-job-name-cse
+  description: mc-job-description-cse
+  playTimeTracker: MCCSE
+  startingGear: MCCSE
+  dummyStartingGear: MCCSE
+  icon: MCCSE
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-aso
+  ranks:
+    MCLieutenantJuniorGrade: []
+    MCLieutenant:
+    - !type:RoleTimeRequirement
+      role: MCCSE
+      time: 1500 # 25 hours
+    MCLieutenantCommander:
+    - !type:RoleTimeRequirement
+      role: MCCSE
+      time: 3000 # 50 hours
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillEngineer: 4
+        RMCSkillConstruction: 4
+        RMCSkillPolice: 2
+        RMCSkillVehicles: 4
+        RMCSkillLeadership: 3
+        RMCSkillSmartGun: -4
+        RMCSkillFirearms: 1
+    - type: SquadArmorWearer
+    - type: JobPrefix
+      prefix: mc-job-prefix-cse
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/job_icons.rsi
+        state: cse
+
+- type: playTimeTracker
+  id: MCCSE
+  isHumanoid: true
+
+- type: startingGear
+  id: MCCSE
+  equipment:
+    id: MCDogtagCSE
+
+- type: entity
+  parent: MCSpawnPointJob
+  id: MCSpawnPointCSE
+  name: squad corpsman spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCCSE
+  - type: Sprite
+    state: ce_spawn

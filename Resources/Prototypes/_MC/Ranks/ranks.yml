@@ -1,0 +1,118 @@
+# Marine, Corpsman, Engineer, Smartgunner
+- type: rank
+  id: MCLanceCorporal
+  name: mc-rank-MCLanceCorporal-name
+  prefix: mc-rank-MCLanceCorporal-prefix
+  paygrade: mc-rank-MCLanceCorporal-paygrade
+
+- type: rank
+  id: MCCorporal
+  name: mc-rank-MCCorporal-name
+  prefix: mc-rank-MCCorporal-prefix
+  paygrade: mc-rank-MCCorporal-paygrade
+
+- type: rank
+  id: MCSergeant
+  name: mc-rank-MCSergeant-name
+  prefix: mc-rank-MCSergeant-prefix
+  paygrade: mc-rank-MCSergeant-paygrade
+
+- type: rank
+  id: MCStaffSergeant
+  name: mc-rank-MCStaffSergeant-name
+  prefix: mc-rank-MCStaffSergeant-prefix
+  paygrade: mc-rank-MCStaffSergeant-paygrade
+
+- type: rank
+  id: MCSergeantMajor
+  name: mc-rank-MCSergeantMajor-name
+  prefix: mc-rank-MCSergeantMajor-prefix
+  paygrade: mc-rank-MCSergeantMajor-paygrade
+
+# Squad leader
+- type: rank
+  id: MCSergeantFirstClass
+  name: mc-rank-MCSergeantFirstClass-name
+  prefix: mc-rank-MCSergeantFirstClass-prefix
+  paygrade: mc-rank-MCSergeantFirstClass-paygrade
+
+- type: rank
+  id: MCGunnerySergeant
+  name: mc-rank-MCGunnerySergeant-name
+  prefix: mc-rank-MCGunnerySergeant-prefix
+  paygrade: mc-rank-MCGunnerySergeant-paygrade
+
+- type: rank
+  id: MCMasterGunnerySergeant
+  name: mc-rank-MCMasterGunnerySergeant-name
+  prefix: mc-rank-MCMasterGunnerySergeant-prefix
+  paygrade: mc-rank-MCMasterGunnerySergeant-paygrade
+
+- type: rank
+  id: MCCommandSergeantMajor
+  name: mc-rank-MCCommandSergeantMajor-name
+  prefix: mc-rank-MCCommandSergeantMajor-prefix
+  paygrade: mc-rank-MCCommandSergeantMajor-paygrade
+
+# CSE
+- type: rank
+  id: MCLieutenantJuniorGrade
+  name: mc-rank-MCLieutenantJuniorGrade-name
+  prefix: mc-rank-MCLieutenantJuniorGrade-prefix
+  paygrade: mc-rank-MCLieutenantJuniorGrade-paygrade
+
+- type: rank
+  id: MCLieutenant
+  name: mc-rank-MCLieutenant-name
+  prefix: mc-rank-MCLieutenant-prefix
+  paygrade: mc-rank-MCLieutenant-paygrade
+
+- type: rank
+  id: MCLieutenantCommander
+  name: mc-rank-MCLieutenantCommander-name
+  prefix: mc-rank-MCLieutenantCommander-prefix
+  paygrade: mc-rank-MCLieutenantCommander-paygrade
+
+# RO, ST
+- type: rank
+  id: MCChiefPettyOfficer
+  name: mc-rank-MCChiefPettyOfficer-name
+  prefix: mc-rank-MCChiefPettyOfficer-prefix
+  paygrade: mc-rank-MCChiefPettyOfficer-paygrade
+
+- type: rank
+  id: MCWarrantOfficer
+  name: mc-rank-MCWarrantOfficer-name
+  prefix: mc-rank-MCWarrantOfficer-prefix
+  paygrade: mc-rank-MCWarrantOfficer-paygrade
+
+- type: rank
+  id: MCChiefWarrantOfficer
+  name: mc-rank-MCChiefWarrantOfficer-name
+  prefix: mc-rank-MCChiefWarrantOfficer-prefix
+  paygrade: mc-rank-MCChiefWarrantOfficer-paygrade
+
+- type: rank
+  id: MCEnsign
+  name: mc-rank-MCEnsign-name
+  prefix: mc-rank-MCEnsign-prefix
+  paygrade: mc-rank-MCEnsign-paygrade
+
+# ST
+- type: rank
+  id: MCPettyOfficerThirdClass
+  name: mc-rank-MCPettyOfficerThirdClass-name
+  prefix: mc-rank-MCPettyOfficerThirdClass-prefix
+  paygrade: mc-rank-MCPettyOfficerThirdClass-paygrade
+
+- type: rank
+  id: MCPettyOfficerSecondClass
+  name: mc-rank-MCPettyOfficerSecondClass-name
+  prefix: mc-rank-MCPettyOfficerSecondClass-prefix
+  paygrade: mc-rank-MCPettyOfficerSecondClass-paygrade
+
+- type: rank
+  id: MCPettyOfficerFirstClass
+  name: mc-rank-MCPettyOfficerFirstClass-name
+  prefix: mc-rank-MCPettyOfficerFirstClass-prefix
+  paygrade: mc-rank-MCPettyOfficerFirstClass-paygrade

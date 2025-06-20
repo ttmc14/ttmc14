@@ -1,0 +1,14 @@
+﻿- type: department
+  parent: MCDepartment
+  id: MCSquad
+  name: department-MCSquad
+  description: mc-department-squad
+  color: "#DE3A3A"
+  roles:
+  - MCSquadLeader
+  - MCSquadSmartgunner
+  - MCSquadEngineer
+  - MCSquadCorpsman
+  - MCSquadMarine
+  departmentRadio: null
+  headOfDepartment: MCSquadLeader

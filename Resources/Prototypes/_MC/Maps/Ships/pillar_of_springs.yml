@@ -1,0 +1,26 @@
+- type: gameMap
+  id: MCPillarOfSpring
+  mapName: TGV Pillar of Spring
+  mapPath: /Maps/_MC/pillar_of_spring.yml
+  minPlayers: 0
+  maxRandomOffset: 0
+  randomRotation: false
+  fallback: true
+  stations:
+    PillarOfSpring:
+      stationProto: StandardUNMCWarship
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: TGV Pillar of Spring
+      - type: StationJobs
+        availableJobs:
+          # EnR
+          MCCSE: [ -1, -1 ]
+          MCRO: [ -1, -1 ]
+          MCST: [ -1, -1 ]
+          # Squad
+          MCSquadLeader: [ -1, -1 ]
+          MCSquadSmartgunner: [ -1, -1 ]
+          MCSquadEngineer: [ -1, -1 ]
+          MCSquadCorpsman: [ -1, -1 ]
+          MCSquadMarine: [ -1, -1 ]
