@@ -1,0 +1,8 @@
+- type: entity
+  parent: RMCFlagCarriableBase
+  id: SomFlag
+  name: SOM flag
+  description: "A flag bearing the symbol of the Sons of Mars. It flutters in the breeze heroically. This one looks ready to be planted into the ground."
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/flag_som.rsi
