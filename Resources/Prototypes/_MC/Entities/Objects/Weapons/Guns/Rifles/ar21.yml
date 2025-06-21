@@ -1,0 +1,157 @@
+- type: entity
+  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  id: MCWeaponRifleAR21
+  name: AR-21 Kauser skirmish rifle
+  description: The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar21.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: ar21_stock
+      offset: -0.5, 0
+      map: [ "stock" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar21.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar21.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilUnwielded: 4
+    scatterWielded: 6
+    scatterUnwielded: 20
+    baseFireRate: 4
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.6
+  - type: WieldableSpeedModifiers
+    base: 0.700
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t21_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t21_unload.ogg
+        whitelist:
+          tags:
+          - MCMagazineRifleAR21
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCAttachmentExtendedBarrel
+          - RMCAttachmentSuppressor
+          - RMCM5Bayonet
+          - RMCAttachmentRecoilCompensator
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentMagneticHarness
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS42xTelescopicMiniscope
+          - RMCAttachmentS6ReflexSight
+          # - TODO: T47 Scope
+          # - TODO: Tactical Sensor
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentAngledGrip
+          - RMCAttachmentBipod
+          - RMCAttachmentLaserSight
+          - RMCAttachmentVerticalGrip
+          - RMCAttachmentGyroscopicStabilizer
+          - RMCAttachmentFlamer
+          - RMCAttachmentU7UnderbarrelShotgun
+          - RMCAttachmentU1GrenadeLauncher
+          # - TODO: Mini Pepperball Gun
+          # - TODO: PepperBall mini
+          # - TODO: PP-7 Plasma Pistol
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.7, -0.0225
+      rmc-aslot-rail: 0.2, 0.09
+      rmc-aslot-underbarrel: 0.28, -0.31
+
+- type: entity
+  parent: CMMagazineRifleBase
+  id: MCMagazineRifleAR21
+  name: AR-21 skirmish rifle magazine
+  description: A magazine filled with 10x25mm rifle rounds for the AR-21.
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifleAR21
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleAR21
+    proto: MCCartridgeRifleAR21
+    capacity: 30
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar21.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleAR21
+  name: патрон (10x25mm)
+  description: Винтовочный патрон 10x25mm
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleAR21
+  - type: CartridgeAmmo
+    proto: MCBulletRifleAR21
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleAR21
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 30
+  - type: CMArmorPiercing
+    amount: 10
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+
+- type: Tag
+  id: MCMagazineRifleAR21
+
+- type: Tag
+  id: MCCartridgeRifleAR21

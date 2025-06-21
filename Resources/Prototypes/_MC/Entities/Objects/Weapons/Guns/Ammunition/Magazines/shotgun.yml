@@ -10,7 +10,7 @@
     mayTransfer: false
     capacity: 12
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Gun/Ammunition/Magazines/sh15_slug.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sh15_slug.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
@@ -33,7 +33,7 @@
       - RMCShellShotgunFlechette
     proto: CMShellShotgunFlechette
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Gun/Ammunition/Magazines/sh15_flechette.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sh15_flechette.rsi
 
 - type: entity
   parent: MCMagazineShotgunSH15
@@ -47,4 +47,4 @@
       - RMCShellShotgunSlugs
     proto: CMShellShotgunSlugs
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Gun/Ammunition/Magazines/sh15_slug.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sh15_slug.rsi

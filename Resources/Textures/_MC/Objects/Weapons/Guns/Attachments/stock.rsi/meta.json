@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/HEAD/icons/obj/items/guns/attachments/stock.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ar18_stock"
+    },
+    {
+      "name": "ar12_stock"
+    },
+    {
+      "name": "ar21_stock"
+    },
+    {
+      "name": "leicrep_stock"
+    },
+    {
+      "name": "ar11_stock"
+    },
+    {
+      "name": "sh15"
+    },
+    {
+      "name": "sh35"
+    },
+    {
+      "name": "sh35_on"
+    },
+    {
+      "name": "sh39"
+    }
+  ]
+}

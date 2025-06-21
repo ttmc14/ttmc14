@@ -8,8 +8,8 @@
   description: The standard back end of any gun starting with M54. Compatible with the M54C series, this stock reduces recoil and scatter, but at a reduction to handling and agility. Also enhances the thwacking of things with the stock-end of the rifle.
   components:
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh35.rsi
-    state: icon
+    sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+    state: sh35
   - type: Tag
     tags:
     - MCAttachmentStock
@@ -20,11 +20,11 @@
     doAfterBreakOnMove: false
     doAfter: 0.5
     icon:
-      sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh35.rsi
-      state: icon
+      sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: sh35
     iconActive:
-      sprite: _MC/Objects/Weapons/Gun/Attachments/Stocks/sh35.rsi
-      state: icon-on
+      sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: sh35_on
     actionName: Toggle the SH-35 stock
   - type: AttachableWieldDelayMods
     modifiers:

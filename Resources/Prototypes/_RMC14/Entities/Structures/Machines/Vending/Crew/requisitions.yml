@@ -1,6 +1,7 @@
 # REQUISITIONS
 
 # ARMAMENTS VENDOR
+
 - type: entity
   parent: ColMarTechBase
   id: ColMarTechCargoGuns
@@ -187,7 +188,7 @@
       - id: RMCPouchMacheteFilled
         name: machete pouch (Full)
         amount: 1
-      - id: RMCPouchBayonetFill
+      - id: RMCPouchBayonet
         name: Bayonet Sheath (Full)
         amount: 2
       - id: RMCPouchGeneralMedium
@@ -311,6 +312,7 @@
         boxSlots: 3
 
 #AMMUNITION VENDOR
+
 - type: entity
   parent: ColMarTechBase
   id: ColMarTechCargoAmmo
@@ -527,8 +529,8 @@
         name: rifle ammunition box (10x24mm AP) (M54C)
         box: CMMagazineRifleM54CAP
         boxSlots: 15 # 600 / 40
+ #ATTACHMENTS VENDOR
 
-#ATTACHMENTS VENDOR
 - type: entity
   parent: ColMarTechBase
   id: ColMarTechCargoAttachments
@@ -610,6 +612,7 @@
         amount: 5
 
 #UNIFORM VENDOR
+
 - type: entity
   parent: ColMarTechBase
   id: ColMarTechCargoUniform

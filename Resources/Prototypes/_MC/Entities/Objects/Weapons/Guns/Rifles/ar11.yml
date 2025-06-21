@@ -1,0 +1,149 @@
+- type: entity
+  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  id: MCWeaponRifleAR11
+  name: AR-11 K&H combat rifle
+  description: The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar11.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+      state: ar11_stock
+      offset: -0.4, 0
+      map: [ "stock" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar11.rsi
+  - type: Gun
+    shotsPerBurst: 3
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    - Burst
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar11.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    - Burst
+    recoilUnwielded: 4
+    scatterWielded: 6
+    scatterUnwielded: 20
+    baseFireRate: 4
+    burstFireRateMultiplier: 6
+    burstScatterMult: -2
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.6
+  - type: WieldableSpeedModifiers
+    base: 0.625
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t42_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t42_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleAR11
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - RMCM5Bayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentMagneticHarness
+          - RMCAttachmentRailFlashlight
+          - RMCAttachmentS6ReflexSight
+          - RMCAttachmentS42xTelescopicMiniscope
+          # - TODO: Tactical Sensor
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - RMCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.7, -0.0225
+      rmc-aslot-rail: 0.2, 0.09
+      rmc-aslot-underbarrel: 0.28, -0.31
+
+- type: entity
+  parent: CMMagazineRifleBase
+  id: MCMagazineRifleAR11
+  name: AR-11 combat rifle magazine
+  description: A magazine filled with 4.92×34mm rifle rounds for the AR-11.
+  components:
+  - type: Tag
+    tags:
+    - CMMagazineRifle
+    - MCMagazineRifleAR11
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleAR11
+    proto: MCCartridgeRifleAR11
+    capacity: 70
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar11.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleAR11
+  name: патрон (4.92×34mm)
+  description: Винтовочный патрон 4.92×34mm
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleAR11
+  - type: CartridgeAmmo
+    proto: MCBulletRifleAR11
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleAR11
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 20
+  - type: CMArmorPiercing
+    amount: 20
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+
+- type: Tag
+  id: MCMagazineRifleAR11
+
+- type: Tag
+  id: MCCartridgeRifleAR11
