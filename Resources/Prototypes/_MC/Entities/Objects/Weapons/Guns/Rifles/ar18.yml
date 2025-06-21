@@ -34,7 +34,7 @@
     scatterUnwielded: 20
     baseFireRate: 5
     burstFireRateMultiplier: 8
-    burstScatterMult: -2
+    burstScatterMult: 2
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.1
     accuracyMultiplierUnwielded: 0.6
