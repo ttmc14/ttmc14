@@ -407,7 +407,6 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                 }
 
                 var spawnAsJob = job;
-                var selectRandomInsert = SelectedPlanetMap?.Comp.SelectRandomSurvivorInsert ?? false;
 
                 var playerId = _random.Pick(list);
                 if (!_player.TryGetSessionById(playerId, out var player))
@@ -416,8 +415,7 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                     return null;
                 }
 
-                // select an insert in order, reducing the slot of that insert
-                if (comp.SurvivorJobInserts != null && comp.SurvivorJobInserts.TryGetValue(job, out var insert) && !selectRandomInsert)
+                if (comp.SurvivorJobInserts != null && comp.SurvivorJobInserts.TryGetValue(job, out var insert))
                 {
                     var insertSuccess = false;
 
@@ -456,12 +454,6 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
                     var (survJob, amount) = comp.SurvivorJobs[i];
                     if (survJob != job)
                         continue;
-
-                    if (selectRandomInsert) // select a random insert if there are any and if this map supports random inserts
-                    {
-                        if (comp.SurvivorJobInserts != null && comp.SurvivorJobInserts.TryGetValue(job, out var randomInsertList))
-                            spawnAsJob = _random.Pick(randomInsertList).Insert;
-                    }
 
                     if (amount == -1)
                         break;

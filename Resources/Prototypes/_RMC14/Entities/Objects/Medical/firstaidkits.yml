@@ -290,7 +290,7 @@
   components:
   - type: StorageFill
     contents:
-    - id: RMCPillRussianRed
+    - id: RMCPillCanisterRussianRed
       amount: 4
     - id: CMBicaridineAutoInjector
       amount: 2
