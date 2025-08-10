@@ -4,14 +4,38 @@
   name: Spray Acid (250)
   description: Spray a line of dangerous acid at your target.
   components:
-  - type: WorldTargetAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/Xeno/boiler.rsi
       state: spray_acid
-    event: !type:XenoSprayAcidActionEvent ""
     useDelay: 30
+  - type: TargetAction
     range: 15
-  - type: ActionBlockIfResting
+  - type: WorldTargetAction
+    event: !type:XenoSprayAcidActionEvent
   - type: XenoActionPlasma
     cost: 250
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoScatterSpit
+  name: Scatter Spit (200)
+  description: Spits a spread of acid projectiles that splatter on the ground.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spitter.rsi
+      state: scatter_spit
+    useDelay: 5
+  - type: TargetAction
+    repeat: true
+    checkCanAccess: false
+    range: 15
+  - type: WorldTargetAction
+    event: !type:MCXenoScatterSpitActionEvent
+  - type: XenoActionPlasma
+    cost: 200
+  - type: ActionBlockIfResting

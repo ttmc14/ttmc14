@@ -36,7 +36,7 @@
       skills:
         RMCSkillMedical: 4
         RMCSkillSurgery: 3
-        RMCSkillCQC: -1
+        RMCSkillCqc: -1
         RMCSkillSmartGun: -4
         # RMCSkillMelee: -1
     - type: JobPrefix
@@ -54,6 +54,14 @@
   id: MCResearcher
   equipment:
     id: MCIdCardResearcher
+    ears: MCHeadsetMedical
+    gloves: CMHandsLatex
+    back: MCSatchelMarineStandard
+    eyes: MCGlassesHudHealth
+    shoes: RMCShoesWhite
+    pocket1: MCPouchMedkitFill
+  inhand:
+  - MCBottleLemolineDoctor
 
 - type: entity
   parent: MCSpawnPointJob
@@ -63,4 +71,4 @@
   - type: SpawnPoint
     job_id: MCResearcher
   - type: Sprite
-    state: medic_spawn
+    state: research

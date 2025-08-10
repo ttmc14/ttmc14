@@ -1,2 +1,2 @@
-ent-MCMachineVendingSurplusClothing = Surplus Clothing Vendor
-    .desc = An automated equipment rack hooked up to a colossal storage of clothing and accessories. Nanotrasen designed a new vendor that utilizes bluespace technology to send surplus equipment from outer colonies' sweatshops to your hands! Be grateful.
+ent-MCMachineVendingSurplusClothing = стеллаж лишней одежды
+    .desc = Автоматизированный стеллаж для снаряжения, подключенный к колоссальному хранилищу одежды и аксессуаров. Нанотрейзен разработал новый вендомат, который использует технологию блюспейс для отправки излишков оборудования из потогонных цехов внешних колоний в ваши руки! Будьте благодарны.

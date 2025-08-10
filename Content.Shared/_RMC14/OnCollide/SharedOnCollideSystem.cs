@@ -77,7 +77,7 @@ public abstract class SharedOnCollideSystem : EntitySystem
             var damage = ent.Comp.Damage;
             if (ent.Comp.Acidic)
                 damage = _xeno.TryApplyXenoAcidDamageMultiplier(other, damage);
-            _damageable.TryChangeDamage(other, damage, ent.Comp.IgnoreResistances);
+            _damageable.TryChangeDamage(other, damage, ent.Comp.IgnoreResistances, tool: ent);
             DoEmote(ent, other);
             didEmote = true;
         }
@@ -86,7 +86,7 @@ public abstract class SharedOnCollideSystem : EntitySystem
             var damage = ent.Comp.ChainDamage;
             if (ent.Comp.Acidic)
                 damage = _xeno.TryApplyXenoAcidDamageMultiplier(other, damage);
-            _damageable.TryChangeDamage(other, damage, ent.Comp.IgnoreResistances);
+            _damageable.TryChangeDamage(other, damage, ent.Comp.IgnoreResistances, tool: ent);
         }
 
         _xenoSpit.SetAcidCombo(other, ent.Comp.AcidComboDuration, ent.Comp.AcidComboDamage, ent.Comp.AcidComboParalyze);

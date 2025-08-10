@@ -1,0 +1,88 @@
+﻿- type: reagent
+  id: MCWater
+  name: mc-reagent-name-water
+  parent: BaseDrink # похуй короче
+  desc: mc-reagent-desc-water
+  evaporationSpeed: 0.3
+  absorbent: true
+  physicalDesc: mc-reagent-physical-desc-liquid
+  flavor: water
+  color: "#0064C8"
+  recognizable: true
+  boilingPoint: 100.0
+  meltingPoint: 0.0
+  friction: 0.4
+  overdose: 60
+  criticalOverdose: 120 #parity
+  metabolisms:
+    Medicine:
+      metabolismRate: 1 #не нихуя не всё пуржит, потом пурж сделать ибо заеб.
+      effects:
+      - !type:MovespeedModifier
+        walkSpeedModifier: 0.65
+        sprintSpeedModifier: 0.65
+        conditions:
+        - !type:ReagentThreshold
+          min: 60
+      - !type:Jitter
+        conditions:
+        - !type:ReagentThreshold
+          min: 60
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 120
+        damage:
+          types:
+            Asphyxiation: 5 # применим логику, 3 литра за раз это смерть
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: 4
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCSugar
+  name: mc-reagent-name-sugar
+  group: Foods
+  desc: mc-reagent-desc-sugar
+  physicalDesc: mc-reagent-physical-desc-sweet
+  flavor: sweet
+  color: "#ffffff"
+  metabolisms:
+    Food:
+      metabolismRate: 0.4
+      effects:
+      - !type:SatiateHunger #Тут нужно будет накинуть taste_multi = 1.5 который блокирует вкусы других веществ.
+        factor: 5
+
+- type: reagent
+  id: MCSodiumChloride
+  name: mc-reagent-name-table-salt
+  group: Foods
+  desc: mc-reagent-desc-table-salt
+  physicalDesc: mc-reagent-physical-desc-grainy
+  flavor: salty
+  color: "#ffffff"
+  recognizable: true
+  boilingPoint: 1465.0
+  meltingPoint: 800.7
+  plantMetabolism:
+  - !type:PlantAdjustWater
+    amount: -3
+  - !type:PlantAdjustNutrition
+    amount: -0.3
+  - !type:PlantAdjustToxins
+    amount: 8
+  - !type:PlantAdjustWeeds
+    amount: -2
+  - !type:PlantAdjustPests
+    amount: -1
+  - !type:PlantAdjustHealth
+    amount: -2
+  metabolisms:
+    Food:
+      metabolismRate: 0.4
+      effects:
+      - !type:SatiateThirst
+        factor: -0.5

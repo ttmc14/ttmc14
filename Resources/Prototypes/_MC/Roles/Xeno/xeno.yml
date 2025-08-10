@@ -9,6 +9,17 @@
   id: MCXenoLarva
   isXeno: true
 
+- type: job
+  parent: MCJobXeno
+  id: MCXenoSelectableXeno
+  name: mc-job-name-selectable-xenonid
+  playTimeTracker: MCXenoSelectableXeno
+  hidden: false
+
+- type: playTimeTracker
+  id: MCXenoSelectableXeno
+  isXeno: true
+
 # Tier 1
 
 # Defender
@@ -215,12 +226,28 @@
 
 # Tier 4
 
+# Shrike
+- type: job
+  parent: MCJobXeno
+  id: MCXenoShrike
+  name: mc-job-name-xeno-shrike
+  playTimeTracker: MCXenoShrike
+  requireAdminNotify: true
+  hidden: false
+
+- type: playTimeTracker
+  id: MCXenoShrike
+  isXeno: true
+
 # Queen
 - type: job
   parent: MCJobXeno
   id: MCXenoQueen
   name: mc-job-name-xeno-queen
   playTimeTracker: MCXenoQueen
+  requireAdminNotify: true
+  hidden: false
+  supervisors: nobody
 
 - type: playTimeTracker
   id: MCXenoQueen

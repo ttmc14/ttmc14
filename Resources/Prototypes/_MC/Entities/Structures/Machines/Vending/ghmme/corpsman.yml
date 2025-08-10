@@ -44,6 +44,15 @@
       - id: MCSatchelMarineStandard
         recommended: true
       # Corspman Backpack
+    - name: Webbing
+      choices:
+        MCWebbing: 1
+      entries:
+      - id: MCWebbingBrownVest
+        recommended: true
+      - id: MCWebbingWhiteVest
+      - id: MCWebbingBrown
+      - id: MCWebbingHolster
     - name: Belt
       choices:
         MCBelt: 1

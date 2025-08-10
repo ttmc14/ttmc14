@@ -4,3 +4,7 @@ ent-RMCWallSandstoneTemple = sandstone temple wall
     .desc = A heavy wall of sandstone.
 ent-RMCWallSandstoneTempleRuned = runed sandstone temple wall
     .desc = A heavy wall of sandstone, with elegant carvings and runes inscribed upon its face.
+ent-RMCWallUranium = uranium wall
+    .desc = A wall with uranium plating. This is probably a bad idea.
+ent-RMCWallGold = gold wall
+    .desc = A wall with gold plating. Swag!

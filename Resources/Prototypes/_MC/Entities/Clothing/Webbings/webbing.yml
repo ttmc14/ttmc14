@@ -1,0 +1,183 @@
+- type: entity
+  parent: MCWebbing
+  id: MCWebbingBrown
+  name: webbing
+  description: A sturdy mess of synthcotton belts and buckles, ready to share your burden.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Webbing/brown.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,1 # 3 slots
+    # TODO:
+    # storage_type_limits_list = list(
+    # /obj/item/ammo_magazine/rifle,
+    # /obj/item/ammo_magazine/smg,
+    # /obj/item/ammo_magazine/sniper,
+    # /obj/item/cell/lasgun,
+    # )
+  - type: FixedItemSizeStorage
+  - type: Webbing
+    playerSprite:
+      sprite: _MC/Clothing/Webbing/brown.rsi
+      state: equipped
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,5,1 # 3 slots
+    - type: FixedItemSizeStorage
+    - type: RMCStorageEjectHand
+      state: Open
+    - type: ExplosionResistance
+      damageCoefficient: 0
+      worn: false
+    - type: StoreAfterFailedInteract
+
+- type: entity
+  parent: MCWebbing
+  id: MCWebbingBlackVest
+  name: black webbing vest
+  description: Robust black synthcotton vest with lots of pockets to hold whatever you need, but cannot hold in hands.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Webbing/black_vest.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,9,1 # 5 slots
+  - type: FixedItemSizeStorage
+  - type: Webbing
+    playerSprite:
+      sprite: _MC/Clothing/Webbing/black_vest.rsi
+      state: equipped
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,9,1 # 5 slots
+    - type: FixedItemSizeStorage
+    - type: RMCStorageEjectHand
+      state: Open
+    - type: ExplosionResistance
+      damageCoefficient: 0
+      worn: false
+    - type: StoreAfterFailedInteract
+
+- type: entity
+  parent: MCWebbing
+  id: MCWebbingBrownVest
+  name: brown webbing vest
+  description: Worn brownish synthcotton vest with lots of pockets to unload your hands.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Webbing/brown_vest.rsi
+  - type: Webbing
+    playerSprite:
+      sprite: _MC/Clothing/Webbing/brown_vest.rsi
+      state: equipped
+
+- type: entity
+  parent: MCWebbing
+  id: MCWebbingWhiteVest
+  name: white webbing vest
+  description: A clean white Nylon vest with large pockets specially designed for medical supplies
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Webbing/white_vest.rsi
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,11,1 # 6 slots
+    whitelist:
+      tags:
+      - MCHealthAnalyzer # /obj/item/healthanalyzer
+      - MCHealingItem # /obj/item/stack/medical
+      - MCHypospray # /obj/item/reagent_containers/hypospray
+      - MCHyposprayAdvanced # /obj/item/reagent_containers/hypospray/advanced
+      - MCAutoInjector # /obj/item/reagent_containers/hypospray/autoinjector
+      - MCBottleFilled # /obj/item/reagent_containers/glass/bottle
+      - MCSyringe # /obj/item/reagent_containers/syringe
+      - MCPill # /obj/item/reagent_containers/pill
+      - MCPillCanister # /obj/item/storage/pill_bottle
+      - MCGlassesHudHealth # /obj/item/clothing/glasses/hud/health
+      # /obj/item/clothing/gloves/latex
+      # /obj/item/tweezers
+      # /obj/item/tweezers_advanced
+      - MCBodyBag # /obj/item/bodybag
+      - MCRollerBed # /obj/item/roller
+      - MCWhistle # /obj/item/whistle
+  - type: FixedItemSizeStorage
+  - type: Webbing
+    playerSprite:
+      sprite: _MC/Clothing/Webbing/white_vest.rsi
+      state: equipped
+    components:
+    - type: Storage
+      maxItemSize: Large
+      grid:
+      - 0,0,11,1 # 6 slots
+      whitelist:
+        tags:
+        - MCHealthAnalyzer # /obj/item/healthanalyzer
+        - MCHealingItem # /obj/item/stack/medical
+        - MCHypospray # /obj/item/reagent_containers/hypospray
+        - MCHyposprayAdvanced # /obj/item/reagent_containers/hypospray/advanced
+        - MCAutoInjector # /obj/item/reagent_containers/hypospray/autoinjector
+        - MCBottleFilled # /obj/item/reagent_containers/glass/bottle
+        - MCSyringe # /obj/item/reagent_containers/syringe
+        - MCPill # /obj/item/reagent_containers/pill
+        - MCPillCanister # /obj/item/storage/pill_bottle
+        - MCGlassesHudHealth # /obj/item/clothing/glasses/hud/health
+        # /obj/item/clothing/gloves/latex
+        # /obj/item/tweezers
+        # /obj/item/tweezers_advanced
+        - MCBodyBag # /obj/item/bodybag
+        - MCRollerBed # /obj/item/roller
+        - MCWhistle # /obj/item/whistle
+    - type: FixedItemSizeStorage
+    - type: RMCStorageEjectHand
+      state: Open
+    - type: ExplosionResistance
+      damageCoefficient: 0
+      worn: false
+    - type: StoreAfterFailedInteract
+
+- type: entity
+  parent: MCWebbing
+  id: MCWebbingHolster
+  name: shoulder holster
+  description: A handgun holster.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Webbing/holster.rsi
+  - type: Storage
+    maxItemSize: Large
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - MCWeaponSidearm # pistols (also energy) & revolvers
+      - MCMagazineSidearm
+  - type: FixedItemSizeStorage
+  - type: Webbing
+    playerSprite:
+      sprite: _MC/Clothing/Webbing/holster.rsi
+      state: equipped
+    components:
+    - type: Storage
+      maxItemSize: Large
+      grid:
+      - 0,0,7,1 # 4 slots
+      whitelist:
+        tags:
+        - MCWeaponSidearm # pistols (also energy) & revolvers
+        - MCMagazineSidearm
+    - type: FixedItemSizeStorage
+    - type: RMCStorageEjectHand
+      state: Open
+    - type: ExplosionResistance
+      damageCoefficient: 0
+      worn: false
+    - type: StoreAfterFailedInteract

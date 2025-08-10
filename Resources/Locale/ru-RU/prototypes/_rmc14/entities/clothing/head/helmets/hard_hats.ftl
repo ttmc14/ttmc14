@@ -8,3 +8,5 @@ ent-RMCHardhatBlue = { ent-RMCHardHat }
     .desc = { ent-RMCHardHat.desc }
 ent-RMCHardhatWhite = { ent-RMCHardHat }
     .desc = { ent-RMCHardHat.desc }
+ent-RMCHardhatWhiteAlt = Chǎnyè Combine mining helmet
+    .desc = { ent-RMCHardHat.desc }

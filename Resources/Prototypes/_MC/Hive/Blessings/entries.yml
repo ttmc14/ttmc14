@@ -1,0 +1,182 @@
+# Building
+- type: MCXenoBlessingsEntry
+  id: LarvaSilo
+  name: Larva Silo
+  description: Constructs a silo that generates xeno larvas over time
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: larvasilo
+  group: Building
+  costType: Strategic
+  cost: 800
+  entity: MCXenoStructureSilo
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: EvolutionTower
+  name: Evolution Tower
+  description: Constructs a tower that increases the rate of evolution point generation by 0.2 and maturity point generation by 0.4 per tower.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: evotower
+  group: Building
+  costType: Strategic
+  cost: 300
+  entity: MCXenoStructureTowerEvolution
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: PsychicRelay
+  name: Psychic Relay
+  description: Constructs a tower that increases the number of available slots of higher tier castes.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: maturitytower
+  group: Building
+  costType: Strategic
+  cost: 300
+  entity: MCXenoStructureTowerPsychic
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: PheromoneTower
+  name: Pheromone Tower
+  description: Constructs a tower that emanates a selectable type of pheromone.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: pherotower
+  group: Building
+  costType: Tactical
+  cost: 150
+  entity: MCXenoPheromoneTowerRecovery
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: Spawner
+  name: Spawner
+  description: Constructs a spawner that generates ai xenos over time.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: spawner
+  group: Building
+  costType: Tactical
+  cost: 400
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: AcidPool
+  name: Acid Pool
+  description: Constructs a pool that allows xenos to regenerate sunder in it while resting.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: pool
+  group: Building
+  costType: Tactical
+  cost: 200
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: AcidJaws
+  name: Acid Jaws
+  description: Constructs an acid maw that allows the hive to bombard its enemies from afar. Must be placed outdoors.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: jaws
+  group: Building
+  costType: Tactical
+  cost: 450
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: AcidMaw
+  name: Acid Maw
+  description: Constructs an acid maw that allows the hive to unleash its most devastating bombardments from any location. This structure's acid is strong enough to eat through any ceiling above it, but it requires ten minutes to prepare each shot.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: maw
+  group: Building
+  costType: Strategic
+  cost: 1200
+  time: 10
+
+# Defences
+- type: MCXenoBlessingsEntry
+  id: AcidTurret
+  name: Acid Turret
+  description: Places a acid spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog, and on a weeded area.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: acidturret
+  group: Defences
+  costType: Tactical
+  cost: 50
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: StickyResinTurret
+  name: Sticky Resin Turret
+  description: Places a sticky spit spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog, and on a weeded area.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: resinturret
+  group: Defences
+  costType: Tactical
+  cost: 50
+  time: 10
+
+- type: MCXenoBlessingsEntry
+  id: Gargoyle
+  name: Gargoyle
+  description: Constructs a gargoyle that alerts you when enemies approach.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: gargoyle
+  group: Defences
+  costType: Tactical
+  cost: 25
+  time: 10
+
+# Xenos
+- type: MCXenoBlessingsEntry
+  id: PrimordialTierOne
+  name: Primordial Tier One
+  description: Unlocks the primordial for the first tier.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: primosent
+  group: Xenos
+  costType: Strategic
+  cost: 600
+
+- type: MCXenoBlessingsEntry
+  id: PrimordialTierTwo
+  name: Primordial Tier Two
+  description: Unlocks the primordial for the second tier.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: primowarrior
+  group: Xenos
+  costType: Strategic
+  cost: 600
+
+- type: MCXenoBlessingsEntry
+  id: PrimordialTierThree
+  name: Primordial Tier Three
+  description: Unlocks the primordial for the third tier.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: primorav
+  group: Xenos
+  costType: Strategic
+  cost: 600
+
+- type: MCXenoBlessingsEntry
+  id: PrimordialTierFour
+  name: Primordial Tier Four
+  description: Unlocks the primordial for the last tier.
+  icon:
+    sprite: _MC/Interface/Xeno/buyable_icons.rsi
+    state: primoqueen
+  group: Xenos
+  costType: Strategic
+  cost: 600

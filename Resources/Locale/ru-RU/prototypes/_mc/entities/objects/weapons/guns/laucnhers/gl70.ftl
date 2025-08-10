@@ -1,2 +1,2 @@
-ent-MCWeaponLauncherGl70 = GL-70 grenade launcher
-    .desc = The GL-70 is the standard grenade launcher used by the TerraGov Marine Corps for area denial and big explosions.
+ent-MCWeaponLauncherGl70 = гранатомёт GL-70
+    .desc = GL-70 — стандартный гранатомёт, используемый Корпусом морской пехоты ТерраGov для блокировки територии и масштабных взрывов.

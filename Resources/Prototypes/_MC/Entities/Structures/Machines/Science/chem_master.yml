@@ -1,0 +1,98 @@
+- type: entity
+  id: MCChemMaster
+  parent: [ BaseMachinePowered, ConstructibleMachine ]
+  name: ChemMaster 3000
+  description: Used to separate chemicals and distribute them in a variety of forms.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: Structures/Machines/mixer.rsi #похуй, шо там в тгмс13 хуйня шо и тут.
+    snapCardinals: true
+    layers:
+    - state: mixer_empty
+    - state: mixer_screens
+      shader: unshaded
+      map: ["enum.PowerDeviceVisualLayers.Powered"]
+  - type: Icon
+    sprite: Structures/Machines/mixer.rsi
+    state: mixer_empty
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.25,-0.4,0.25,0.4"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: AccessReader
+    access: [ [ "CMAccessCMO" ], [ "CMAccessChemistry" ], [ "CMAccessMedPrep" ] ]
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalGlassBreak
+      - !type:ChangeConstructionNodeBehavior
+        node: machineFrame
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: ActivatableUI
+    key: enum.RMCChemMasterUI.Key
+  - type: ActivatableUIRequiresPower
+  - type: ApcPowerReceiver
+    powerLoad: 250
+    needsPower: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.PowerDeviceVisuals.Powered:
+        enum.PowerDeviceVisualLayers.Powered:
+          True: { visible: true }
+          False: { visible: false }
+  - type: WiresPanel
+  - type: Machine
+    board: CMCircuitboardChemMaster
+  - type: ContainerContainer
+    containers:
+      beakerSlot: !type:ContainerSlot
+      outputSlot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: ItemSlots
+    slots:
+      beakerSlot:
+        whitelist:
+          components:
+          - FitsInDispenser
+  - type: GuideHelp
+    guides:
+    - Chemicals
+    - Chemist
+  - type: RequiresSkill
+    skills:
+      RMCSkillMedical: 1
+  - type: ActivatableUIBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: UserInterface
+    interfaces:
+      enum.RMCChemMasterUI.Key:
+        type: RMCChemMasterBui
+  - type: SolutionContainerManager
+    solutions:
+      buffer:
+        maxVol: 500
+  - type: RMCChemMaster
+    pillBottleWhitelist:
+      tags:
+      - PillCanister

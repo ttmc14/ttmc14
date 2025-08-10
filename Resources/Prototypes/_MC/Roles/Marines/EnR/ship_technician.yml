@@ -23,6 +23,10 @@
     - !type:RoleTimeRequirement
       role: MCST
       time: 6000 # 100 hours
+    MCSeniorChiefPettyOfficer:
+    - !type:RoleTimeRequirement
+      role: MCST
+      time: 18000 # 300 hours
   roleWeight: 1
   special:
   - !type:AddComponentSpecial

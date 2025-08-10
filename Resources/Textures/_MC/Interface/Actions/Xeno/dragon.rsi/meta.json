@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "backhand"
+    },
+    {
+      "name": "fly"
+    },
+    {
+      "name": "tailswipe"
+    },
+    {
+      "name": "dragon_breath"
+    },
+    {
+      "name": "wind_current"
+    },
+    {
+      "name": "grab"
+    },
+    {
+      "name": "scorched_land"
+    }
+  ]
+}

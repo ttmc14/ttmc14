@@ -1,3 +1,5 @@
+# TODO: FUCKING PARITYYYYYYY
+
 # hedp
 - type: entity
   parent: MCGrenade
@@ -9,9 +11,9 @@
     sprite: _MC/Objects/Weapons/Grenades/hedp.rsi
   - type: ExplodeOnTrigger
   - type: Explosive
-    maxIntensity: 20 # max 100 brute, 100 burn
-    intensitySlope: 6
-    totalIntensity: 200
+    maxIntensity: 10 # max 100 brute, 100 burn
+    intensitySlope: 4
+    totalIntensity: 130
     canCreateVacuum: false
   - type: Ammo
   - type: CMExplosionEffect
@@ -99,9 +101,9 @@
   - type: Sprite
     sprite: _MC/Objects/Weapons/Grenades/hefa_m15.rsi
   - type: Explosive
-    maxIntensity: 20
-    intensitySlope: 6
-    totalIntensity: 240
+    maxIntensity: 10
+    intensitySlope: 4
+    totalIntensity: 160
     deleteAfterExplosion: false
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
@@ -134,9 +136,9 @@
   - type: Sprite
     sprite: _MC/Objects/Weapons/Grenades/hefa_m25.rsi
   - type: Explosive
-    maxIntensity: 20
-    intensitySlope: 6
-    totalIntensity: 240
+    maxIntensity: 10
+    intensitySlope: 4
+    totalIntensity: 160
     deleteAfterExplosion: false
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel

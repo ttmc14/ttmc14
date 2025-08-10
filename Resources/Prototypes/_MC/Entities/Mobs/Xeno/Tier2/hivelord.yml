@@ -37,24 +37,28 @@
     tier: 2
     role: MCXenoHivelord
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - MCActionXenoPheromones
-    - ActionXenoAcidWeak
-    - ActionXenoDevolve
-    - ActionXenoChooseStructure
-    - ActionXenoSecreteStructure
-    - ActionXenoTransferPlasmaHivelord
-    - ActionXenoDigTunnel
-    - ActionXenoResinWalker
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Construction
+    - MCActionXenoChooseStructure
+    - MCActionXenoSecreteStructure
+    - MCActionXenoBlessings
+    - MCActionXenoDigTunnel
+    # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
-    - MCActionXenoCreateResinJellyHivelord
+    # Main
+    - MCActionXenoPheromones
+    - MCActionXenoAcidMedium
     - MCActionXenoToggleXenoSpitStickyResin
+    - MCActionXenoCreateResinJellyHivelord
     - MCActionXenoRecycle
+    - MCActionXenoResinWalker
     hudOffset: -0.1,0.1
   - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 225
     evolvesTo:
     - MCXenoDefiler
     - MCXenoGorger
@@ -93,10 +97,28 @@
   - type: XenoConstruction
     buildDelay: 1
     canBuild:
-    - WallXenoResinThick
-    - WallXenoMembraneThick
-    - DoorXenoResinThick
-    - XenoStickyResin
-    - XenoFastResin
-    canUpgrade: true
+    - MCWallXenoResinThick
+    - MCWallXenoResinThickBulletproof
+    - MCWallXenoResinThickFireproof
+    - MCWallXenoResinThickHardy
+    - MCDoorXenoResinThick
   - type: AcidTrap
+  - type: MCXenoBlessings
+    entries:
+    - LarvaSilo
+    - EvolutionTower
+    - PsychicRelay
+    - PheromoneTower
+    - Spawner
+    - AcidPool
+    - AcidJaws
+    - AcidMaw
+    - AcidTurret
+    - StickyResinTurret
+    - Gargoyle
+    - PrimordialTierOne
+    - PrimordialTierTwo
+    - PrimordialTierThree
+    - PrimordialTierFour
+  - type: RMCSize
+    size: Big

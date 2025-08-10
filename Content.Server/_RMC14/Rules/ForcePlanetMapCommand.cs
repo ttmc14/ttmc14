@@ -1,4 +1,5 @@
-﻿using Content.Server.Administration;
+﻿using Content.Server._MC.Xeno.Spawn;
+using Content.Server.Administration;
 using Content.Server.GameTicking;
 using Content.Shared._RMC14.Rules;
 using Content.Shared.Administration;
@@ -26,8 +27,8 @@ public sealed class ForcePlanetMapCommand : ToolshedCommand
             return;
         }
 
-        var planetSys = Sys<CMDistressSignalRuleSystem>();
-        planetSys.CancelPlanetVote();
+        var planetSys = Sys<MCXenoSpawnSystem>();
+        // planetSys.CancelPlanetVote();
         planetSys.SetPlanet(first.Value);
         ctx.WriteLine($"The next round's planet has been set to {first.Value}");
     }

@@ -14,6 +14,7 @@ using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -282,6 +283,9 @@ public sealed class MCXenoChargeSystem : EntitySystem
     private void OnActiveToggleChargingCollide(Entity<MCXenoChargeActiveComponent> ent, ref StartCollideEvent args)
     {
         if (Math.Abs(ent.Comp.Steps - 1) < 0.001)
+            return;
+
+        if (args.OtherFixture.CollisionLayer == (int) CollisionGroup.SlipLayer)
             return;
 
         _hit.Add((ent, args.OtherEntity));

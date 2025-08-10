@@ -1,8 +1,8 @@
-ent-MCWeaponRifleAR11 = AR-11 K&H combat rifle
-    .desc = The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition.
-ent-MCMagazineRifleAR11 = AR-11 combat rifle magazine
-    .desc = A magazine filled with 4.92×34mm rifle rounds for the AR-11.
+ent-MCWeaponRifleAR11 = боевая винтовка AR-11 K&H
+    .desc = Keckler and Hoch AR-11 — это винтовка, которая ранее являлась стандартным вооружением TGMC. Большинство этих винтовок давно отправлены на хранение, однако некоторые экземпляры до сих пор встречаются у морских пехотинцев или наёмников.Эта винтовка известна своим вместительным магазином и отличной стрельбой очередями, однако её неудобно использовать, особенно в боевых условиях. Для стрельбы используются безгильзовые высокоскоростные патроны калибра 4,92×34 мм.
+ent-MCMagazineRifleAR11 = магазин AR-11 
+    .desc = Магазин снаряженный патронами калибра 4.92×34mm для винтовки AR-11.
 ent-MCCartridgeRifleAR11 = патрон (4.92×34mm)
-    .desc = Винтовочный патрон 4.92×34mm
+    .desc = винтовочный патрон 4.92×34mm
 ent-MCBulletRifleAR11 = { ent-RMCBaseBullet }
     .desc = { ent-RMCBaseBullet.desc }

@@ -14,4 +14,4 @@
   - type: SpawnPoint
     spawn_type: Job
   - type: Sprite
-    sprite: _RMC14/Markers/landmarks.rsi
+    sprite: _MC/Markers/jobs.rsi

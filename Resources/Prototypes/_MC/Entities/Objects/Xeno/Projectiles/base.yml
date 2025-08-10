@@ -1,0 +1,38 @@
+- type: entity
+  abstract: true
+  id: MCXenoProjectile
+  name: projectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags: [ MCDamageAcid ]
+  - type: Clickable
+  - type: Sprite
+    sprite: _MC/Objects/Xeno/projectiles.rsi
+    layers:
+    - state: xeno_acid
+      shader: unshaded
+    noRot: false
+  - type: Physics
+    bodyType: Dynamic
+    linearDamping: 0
+    angularDamping: 0
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - XenoProjectileImpassable
+  - type: Projectile
+    impactEffect: XenoProjectileImpactEffect
+    damage: {}
+  - type: XenoProjectile
+  - type: ProjectileMaxRange
+    max: 7
+  - type: RMCProjectileAccuracy
+    accuracy: 165

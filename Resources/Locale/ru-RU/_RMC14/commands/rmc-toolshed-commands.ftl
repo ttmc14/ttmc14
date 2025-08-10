@@ -49,3 +49,4 @@ command-description-spawnallmapinserts = Spawns all map inserts, with forced gua
 command-description-forceplanetmap = Forces the next round to start with the specified planet.
 command-description-rmcresetahelptracking = Resets all data about tracked AHelp conversations on the Discord. Useful for when AHelps are not showing up on the Discord relay properly.
 command-description-hijack-trigger = Triggers hijack on the map that you are currently on.
+command-description-setoperationname = Changes the name of the operation for the upcoming round.

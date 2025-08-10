@@ -1,0 +1,15 @@
+ent-RMCSpawnerRandomClothingBase = gun spawner
+    .desc = spawns a random clothing item
+    .suffix = Base
+ent-RMCSpawnerRandomGoggles = goggles loot spawner
+    .desc = This is a random set of goggles, for survivors.
+    .suffix = Guaranteed
+ent-RMCSpawnerRandomGogglesLowChance = { ent-RMCSpawnerRandomGoggles }
+    .suffix = Low Chance
+    .desc = { ent-RMCSpawnerRandomGoggles.desc }
+ent-RMCSpawnerRandomGogglesMidChance = { ent-RMCSpawnerRandomGoggles }
+    .suffix = Mid Chance
+    .desc = { ent-RMCSpawnerRandomGoggles.desc }
+ent-RMCSpawnerRandomGogglesHighChance = { ent-RMCSpawnerRandomGoggles }
+    .suffix = High Chance
+    .desc = { ent-RMCSpawnerRandomGoggles.desc }

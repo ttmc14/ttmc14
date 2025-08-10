@@ -1,0 +1,80 @@
+﻿# Phoron
+- type: material
+  id: MCPhoron
+  stackEntity: MCSheetPhoron
+  name: materials-phoron
+  icon: { sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi, state: phoron }
+  color: "#7e009e"
+  price: 0.2
+
+- type: stack
+  id: MCPhoron
+  name: phoron
+  icon: { sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi, state: phoron }
+  spawn: MCSheetPhoron
+  maxCount: 50
+
+- type: entity
+  parent: SheetOtherBase
+  id: MCSheetPhoron
+  name: phoron
+  suffix: Full, MC
+  components:
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      CMPhoron: 100
+  - type: Stack
+    stackType: MCPhoron
+    count: 50
+  - type: Sprite
+    state: phoron
+    sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi
+  - type: Item
+    heldPrefix: phoron
+    size: Normal
+    sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi
+  - type: Appearance
+  - type: Extractable
+    grindableSolutionName: phoron
+  - type: SolutionContainerManager
+    solutions:
+      phoron:
+        reagents:
+        - ReagentId: MCPhoron
+          Quantity: 10
+  - type: Tag
+    tags:
+    - Sheet
+
+- type: entity
+  parent: MCSheetPhoron
+  id: MCSheetPhoron15
+  suffix: 15, MC
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: MCSheetPhoron
+  id: MCSheetPhoron25
+  suffix: 25, MC
+  components:
+  - type: Stack
+    count: 25
+
+- type: entity
+  parent: MCSheetPhoron
+  id: MCSheetPhoron30
+  suffix: 30, MC
+  components:
+  - type: Stack
+    count: 30
+
+- type: entity
+  parent: MCSheetPhoron
+  id: MCSheetPhoron1
+  suffix: Single, MC
+  components:
+  - type: Stack
+    count: 1

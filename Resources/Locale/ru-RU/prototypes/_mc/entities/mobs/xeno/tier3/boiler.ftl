@@ -1,2 +1,2 @@
 ent-MCXenoBoiler = бойлер
-    .desc = Gross!
+    .desc = БЛЯТЬ!

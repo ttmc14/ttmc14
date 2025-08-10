@@ -1,0 +1,30 @@
+- type: entity
+  parent: RMCPodDoorButton
+  id: MCButtonShipCanterbury
+  name: outer door
+  suffix: Canterbury, Left
+  abstract: true
+
+- type: entity
+  parent: MCButtonShipCanterbury
+  id: MCButtonShipCanterburyOuterDoorLeft
+  suffix: Canterbury, Left
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_canterbury_outer_door_left
+
+- type: entity
+  parent: MCButtonShipCanterbury
+  id: MCButtonShipCanterburyOuterDoorRight
+  suffix: Canterbury, Right
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_canterbury_outer_door_right
+
+- type: entity
+  parent: MCButtonShipCanterbury
+  id: MCButtonShipCanterburyOuterDoorDown
+  suffix: Canterbury, Down
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_canterbury_outer_door_down

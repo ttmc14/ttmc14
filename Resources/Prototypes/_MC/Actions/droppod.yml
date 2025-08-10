@@ -2,22 +2,24 @@
   id: MCActionDroppodTarget
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/mech.rsi
       state: mech_zoom_off
-    event: !type:MCDroppodTargetActionEvent
     useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCDroppodTargetActionEvent
 
 - type: entity
   id: MCActionDroppodLaunch
   categories: [ HideSpawnMenu ]
   components:
-  - type: InstantAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/mech.rsi
       state: land
-    event: !type:MCDroppodLaunchActionEvent
     useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCDroppodLaunchActionEvent

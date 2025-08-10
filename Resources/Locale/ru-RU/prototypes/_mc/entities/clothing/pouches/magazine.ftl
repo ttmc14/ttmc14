@@ -1,6 +1,6 @@
-ent-MCPouchMagazineSmall = small magazine pouch
-    .desc = This pouch can contain three ammo magazines.
-ent-MCPouchMagazine = magazine pouch
-    .desc = This pouch can contain two ammo magazines.
-ent-MCPouchMagazineLarge = large magazine pouch
-    .desc = This pouch can contain three ammo magazines.
+ent-MCPouchMagazineSmall = малый подсумок для магазинов
+    .desc = Этот подсумок вмещает в себя три магазина.
+ent-MCPouchMagazine = подсумок для магазинов
+    .desc = Этот подсумок вмещает в себя два магазина
+ent-MCPouchMagazineLarge = большой подсумок для магазинов
+    .desc = Этот подсумок вмещает в себя три магазина.

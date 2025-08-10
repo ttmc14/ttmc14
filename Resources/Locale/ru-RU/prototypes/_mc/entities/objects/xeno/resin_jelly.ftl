@@ -1,2 +1,2 @@
-ent-MCXenoResinJelly = resin jelly
-    .desc = A foul, viscous resin jelly that doesnt seem to burn easily.
+ent-MCXenoResinJelly = смоляное желе
+    .desc = Неприятное, вязкое смолистое желе, которое, кажется, не так-то просто сжечь.

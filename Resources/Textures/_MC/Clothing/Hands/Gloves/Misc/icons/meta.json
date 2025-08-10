@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/clothing/gloves.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "purple"
+    },
+    {
+      "name": "rainbow"
+    },
+    {
+      "name": "red"
+    },
+    {
+      "name": "white"
+    },
+    {
+      "name": "yellow"
+    },
+    {
+      "name": "black"
+    },
+    {
+      "name": "blue"
+    },
+    {
+      "name": "bluelatex"
+    },
+    {
+      "name": "brown"
+    },
+    {
+      "name": "gray"
+    },
+    {
+      "name": "green"
+    },
+    {
+      "name": "insulated"
+    },
+    {
+      "name": "latex"
+    },
+    {
+      "name": "leather"
+    },
+    {
+      "name": "lightbrown"
+    },
+    {
+      "name": "orange"
+    }
+  ]
+}

@@ -8,3 +8,6 @@ ent-Musket = musket
     .desc = This should've been in a museum long before you were born. Uses .60 anti-materiel ammo.
 ent-WeaponPistolFlintlock = flintlock pistol
     .desc = A pirate's companion. Yarrr! Uses .60 anti-materiel ammo.
+ent-WeaponPistolFlintlockEmpty = { ent-WeaponPistolFlintlock }
+    .suffix = Empty
+    .desc = { ent-WeaponPistolFlintlock.desc }

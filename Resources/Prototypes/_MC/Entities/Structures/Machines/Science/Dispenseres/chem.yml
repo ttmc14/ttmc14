@@ -1,0 +1,187 @@
+- type: entity
+  id: MCDispenserBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeCircle
+          radius: 0.40
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Clickable
+  - type: InteractionOutline
+  - type: RMCChemicalDispenser
+    costPerUnit: 1
+    energy: 0
+    maxEnergy: 3000
+    reagents:
+    - MCAluminum
+    - MCCarbon
+    - MCChlorine
+    - MCCopper
+    - MCEthanol
+    - MCFluorine
+    - MCHydrogen
+    - MCIron
+    - MCLithium
+    - MCMercury
+    - MCNitrogen
+    - MCOxygen
+    - MCPhosphorus
+    - MCPotassium
+    - MCRadium
+    - MCSilicon
+    - MCSodium
+    - MCSugar
+    - MCSulfur
+    - MCSulphuricAcid
+    - MCWater
+  - type: ApcPowerReceiver
+    needsPower: false # TODO RMC14
+    powerLoad: 0
+  - type: ItemSlots
+    slots:
+      chemical_dispenser_slot:
+        name: Chemical Dispenser
+        whitelist:
+          tags:
+          - GlassBeaker
+          - ChemDispensable
+  - type: ContainerContainer
+    containers:
+      chemical_dispenser_slot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.RMCChemicalDispenserUi.Key:
+        type: RMCChemicalDispenserBui
+  - type: ActivatableUI
+    key: enum.RMCChemicalDispenserUi.Key
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+
+- type: entity
+  abstract: true
+  parent: MCDispenserBase
+  id: MCChemDispenserBase
+  name: chemical dispenser
+  description: Creates and dispenses chemicals.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/dispenser.rsi
+    layers:
+    - state: base
+    snapCardinals: true
+  - type: Appearance
+  - type: Machine
+    board: CMCircuitboardDispenserChem
+  - type: RequiresSkill
+    skills:
+      RMCSkillMedical: 1
+  - type: ItemSlots
+    slots:
+      chemical_dispenser_slot:
+        name: Chemical Dispenser
+        whitelist:
+          tags:
+          - GlassBeaker
+          - ChemDispensable
+
+- type: entity
+  parent: MCChemDispenserBase
+  id: MCChemDispenserGround
+  suffix: MC, Ground
+  components:
+  - type: RMCChemicalDispenser
+    network: MCChemStorageGround
+
+- type: entity
+  parent: MCChemDispenserBase
+  id: MCChemDispenserMedbay
+  suffix: MC, Medbay
+  components:
+  - type: RMCChemicalDispenser
+    network: MCChemStorageMedbay
+
+- type: entity
+  parent: MCChemDispenserBase
+  id: MCChemDispenserResearch
+  suffix: MC, Research
+  components:
+  - type: RMCChemicalDispenser
+    network: MCChemStorageResearch
+
+- type: entity
+  abstract: true
+  id: MCChemStorageBase
+  name: chemical storage system
+  description: Storage system for a large supply of chemicals, which slowly recharges.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _RMC14/Structures/Machines/chemical_storage.rsi
+    state: chemstorage
+    offset: 0.5,0
+  - type: RMCChemicalStorage
+    rechargeEvery: 5 # хз нахуй
+    energy: 2995
+    maxEnergy: 3000
+    baseMax: 2995 #Я ЕБАЛ ПРОСТО ЭТОТ КОД ХУЙНИ ОФФОВ, Я ГОВОРИЛ ЛУЧШЕ ВЗЯТЬ И ПЕРЕПИСАТЬ ВСЁ ТАМ
+    maxPer: 5
+    baseRecharge: 10
+    rechargePer: 5 # хз нахуй
+
+- type: entity
+  parent: MCChemStorageBase
+  id: MCChemStorageGround
+  suffix: MC, Ground
+  components:
+  - type: RMCChemicalStorage
+    network: MCChemStorageGround
+
+- type: entity
+  parent: MCChemStorageBase
+  id: MCChemStorageMedbay
+  suffix: MC, Medbay
+  components:
+  - type: RMCChemicalStorage
+    network: MCChemStorageMedbay
+
+- type: entity
+  parent: MCChemStorageBase
+  id: MCChemStorageResearch
+  suffix: MC, Research
+  components:
+  - type: RMCChemicalStorage
+    network: MCChemStorageResearch

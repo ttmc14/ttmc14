@@ -12,3 +12,5 @@ ent-CMGasTankPacid = polytrinic acid canister
     .desc = A canister containing pressurized polytrinic acid. Can be used to refill storage tanks.
 ent-CMGasTankOxygen = oxygen canister
     .desc = A canister containing pressurized oxygen. Can be used to refill storage tanks.
+ent-RMCGasTankPhoron = phoron tank
+    .desc = A tank of liquid phoron. WARNING: Phumes are extremely dangerous.

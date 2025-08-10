@@ -1,0 +1,54 @@
+- type: job
+  parent: MCJob
+  id: MCSpatialAgent
+  name: mc-job-name-spatial-agent
+  description: mc-job-description-spatial-agent
+  playTimeTracker: MCSpatialAgent
+  startingGear: MCGearSpatialAgentEquipped
+  icon: MCSpatialAgent
+  joinNotifyCrew: true
+  supervisors: mc-job-supervisors-sl
+  accessGroups: [ MCSpatialAgent ]
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 4
+        RMCSkillSurgery: 4
+        RMCSkillEngineer: 4
+        RMCSkillConstruction: 4
+        RMCSkillPolice: 4
+        RMCSkillPowerLoader: 4
+        RMCSkillLeadership: 4
+        RMCSkillSmartGun: 4
+        RMCSkillFirearms: 4
+        RMCOverwatchConsole: 4
+        RMCSkillCqc: 4
+        RMCSkillFireman: 4
+        RMCSkillEndurance: 4
+        RMCSkillOverwatch: 4
+        RMCSkillJtac: 4
+        RMCSkillExecution: 4
+        RMCSkillIntel: 4
+        RMCSkillNavigations: 4
+        RMCSkillVehicles: 4
+    - type: JobPrefix
+      prefix: mc-job-prefix-spatial-agent
+
+- type: playTimeTracker
+  id: MCSpatialAgent
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearSpatialAgentEquipped
+  equipment:
+    id: MCIDCardSpatialAgent
+    shoes: MCLaceupSpatialAgent
+    jumpsuit: MCJumpsuitSpatialAgent
+    gloves: MCClothingHandsSpatialAgent
+    ears: MCHeadsetSpatialAgent
+    eyes: MCSunGlassesSpatialAgent
+    back: MCSatchelMarineStandard
+    belt: MCClothingBeltToolsFill

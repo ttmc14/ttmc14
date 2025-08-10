@@ -1,0 +1,20 @@
+- type: entity
+  parent: CMComputerDropship
+  id: MCComputerDropshipNavigation
+  name: dropship navigation computer
+  description: A flight computer that can be used for autopilot or long-range flights.
+  components:
+  - type: Sprite
+    state: console
+  - type: DropshipNavigationComputer
+  - type: ActivatableUI
+    key: enum.DropshipNavigationUiKey.Key
+  - type: AccessReader
+    access: [ [ "MCAccessDropship" ], [ "MCAccessMarineSquadLeader" ] ]
+  - type: ActivatableUIRequiresAccess
+  - type: UserInterface
+    interfaces:
+      enum.DropshipNavigationUiKey.Key:
+        type: DropshipNavigationBui
+      enum.DropshipHijackerUiKey.Key:
+        type: DropshipHijackerBui

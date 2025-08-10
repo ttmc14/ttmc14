@@ -1,0 +1,102 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dreadful_presence",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "stitch_puppet",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "bestow_blessing",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "flay"
+    },
+    {
+      "name": "refurbish_husk"
+    },
+    {
+      "name": "mimicry"
+    },
+    {
+      "name": "articulate"
+    },
+    {
+      "name": "enrage"
+    },
+    {
+      "name": "pincushion"
+    },
+    {
+      "name": "organic_bomb",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "living_construct"
+    },
+    {
+      "name": "Fury"
+    },
+    {
+      "name": "Warding"
+    },
+    {
+      "name": "Frenzy"
+    }
+  ]
+}

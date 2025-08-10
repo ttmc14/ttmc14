@@ -13,4 +13,46 @@
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     jobs: [ MCSquadCorpsman ]
-    sections: []
+    sections:
+    - name: Pills
+      entries:
+      - id: MCPillCanisterMeralyne
+        points: 16
+      - id: MCPillCanisterDermaline
+        points: 16
+      - id: MCPillCanisterMeraderm
+        points: 16
+    - name: Hyposprays
+      entries:
+      - id: MCHyposprayFillMeralyne
+        name: hypospray (60u Meralyne)
+        points: 8
+      - id: MCHyposprayFillDermaline
+        name: hypospray (60u Dermaline)
+        points: 8
+      - id: MCHyposprayFillMeraderm
+        name: hypospray (60u Meraderm)
+        points: 8
+      - id: MCHyposprayFillNanoblood
+        name: hypospray (60u Nanoblood)
+        points: 3
+    - name: Syringe Cases
+      entries:
+      - id: MCCaseSyringeFillMeralyne
+        name: syringe Case (120u Meralyne)
+        points: 16
+      - id: MCCaseSyringeFillDermaline
+        name: syringe Case (120u Dermaline)
+        points: 16
+      - id: MCCaseSyringeFillMeraderm
+        name: syringe Case (120u Meraderm)
+        points: 16
+      - id: MCCaseSyringeFillNanoblood
+        name: syringe Case (120u Nanoblood)
+        points: 5
+    - name: Tools
+      entries:
+      - id: MCHypospray
+        points: 2
+      - id: MCGlassesHudHealth
+        points: 2

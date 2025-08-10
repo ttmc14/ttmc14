@@ -36,7 +36,6 @@ public enum DrawingMode
 [GenerateTypedNameReferences]
 public sealed partial class TacticalMapWrapper : Control
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
 
     public TimeSpan LastUpdateAt;
@@ -68,8 +67,8 @@ public sealed partial class TacticalMapWrapper : Control
     private bool _settingsVisible = false;
     private DrawingMode _currentDrawingMode = DrawingMode.None;
 
-    private TacticalMapControl.LabelMode _currentLabelState = TacticalMapControl.LabelMode.Tactical;
-    private TacticalMapControl.LabelMode _lastActiveState = TacticalMapControl.LabelMode.Tactical;
+    private TacticalMapControl.LabelMode _currentLabelState = TacticalMapControl.LabelMode.Area;
+    private TacticalMapControl.LabelMode _lastActiveState = TacticalMapControl.LabelMode.Area;
 
     public TacticalMapWrapper()
     {
@@ -266,7 +265,7 @@ public sealed partial class TacticalMapWrapper : Control
             }
         };
 
-        SetLabelState(TacticalMapControl.LabelMode.Tactical);
+        SetLabelState(TacticalMapControl.LabelMode.Area);
     }
 
     private void SetupBlipSize()

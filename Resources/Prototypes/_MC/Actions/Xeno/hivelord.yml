@@ -1,16 +1,37 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoCreateResinJelly
   id: MCActionXenoCreateResinJellyHivelord
-  name: Create Resin Jelly (100)
-  description: Places Resin Jelly in your active hand, which can be used on yourself or other xeno castes for a 30-second protection from fire.
+  components:
+  - type: Action
+    useDelay: 20
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoResinWalker
+  name: Resin Walker (50)
+  description: Run faster on weeds. [color=cyan]Consumes 30 plasma per second.[/color]
   components:
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _MC/Objects/Xeno/resin_jelly.rsi
-      state: icon
-    useDelay: 20
+      sprite: _MC/Interface/Actions/Xeno/hivelord.rsi
+      state: toggle_speed
+    useDelay: 0.25
   - type: InstantAction
-    event: !type:MCXenoCreateResinJellyActionEvent
-  - type: XenoActionPlasma
-    cost: 100
+    event: !type:XenoResinWalkerActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoDigTunnel
+  name: Dig Tunnel (200)
+  description: Dig a tunnel for speedy transportation across the hive.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/hivelord.rsi
+      state: build_tunnel
+    useDelay: 300
+  - type: InstantAction
+    event: !type:XenoDigTunnelActionEvent
+  - type: ActionBlockIfResting

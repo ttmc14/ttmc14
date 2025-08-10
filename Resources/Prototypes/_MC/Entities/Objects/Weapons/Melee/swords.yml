@@ -1,0 +1,226 @@
+- type: entity
+  parent: BaseSword
+  id: MCClaymore
+  name: Claymore
+  description: What are you standing around staring at this for? Get to killing!
+  components:
+  - type: Clothing
+    slots:
+    - belt
+    - suitstorage
+  - type: Tag
+    tags:
+    - MCSword
+    - Knife
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/claymore.rsi
+    state: icon
+  - type: MeleeWeapon
+    wideAnimationRotation: -135
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 40
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: DamageOtherOnHit
+    damage:
+      groups:
+        Brute: 10
+  - type: Item
+    size: Normal
+    sprite: _MC/Objects/Weapons/Melee/claymore.rsi
+  - type: DeleteOnExplosion
+
+- type: entity
+  parent: MCClaymore
+  id: MCMercsword
+  name: combat sword
+  description: A dusty sword commonly seen in historical museums. Where you got this is a mystery, for sure. Only a mercenary would be nuts enough to carry one of these. Sharpened to deal massive damage.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/mercsword.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _MC/Objects/Weapons/Melee/mercsword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 39
+
+- type: entity
+  parent: MCClaymore
+  id: MCCeremonialSword
+  name: Ceremonial Sword
+  description: A fancy ceremonial sword passed down from generation to generation. Despite this, it has been very well cared for, and is in top condition.
+  components:
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 55
+
+- type: entity
+  parent: MCClaymore
+  id: MCOfficersSword
+  name: officers sword
+  description: This appears to be a rather old blade that has been well taken care of, it is probably a family heirloom. Oddly despite its probable non-combat purpose it is sharpened and not blunt.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/officer_sword.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _MC/Objects/Weapons/Melee/officer_sword.rsi
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 75
+#No parity, there should be penetration 15
+
+- type: entity
+  parent: MCClaymore
+  id: MCComSword
+  name: commissars sword
+  description: The pride of an imperial commissar, held high as they charge into battle.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/comsword.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _MC/Objects/Weapons/Melee/comsword.rsi
+  - type: MeleeWeapon
+    attackRate: 1
+    damage:
+      groups:
+        Brute: 80
+
+- type: entity
+  parent: MCClaymore
+  id: MCKatana
+  name: katana
+  suffix: MC
+  description: A finely made Japanese sword, with a well sharpened blade. The blade has been filed to a molecular edge, and is extremely deadly. Commonly found in the hands of mercenaries and yakuza.
+  components:
+  - type: Tag
+    tags:
+    - MCKatana
+    - Knife
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Melee/katana.rsi
+    state: icon
+  - type: Item
+    size: Normal
+    sprite: _RMC14/Objects/Weapons/Melee/katana.rsi
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 50
+
+- type: entity
+  parent: MCKatana
+  id: MCKatanaReplica
+  name: replica katana
+  suffix: MC
+  description: A cheap knock-off commonly found in regular knife stores. Can still do some damage.
+  components:
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 27
+  - type: DamageOtherOnHit
+    damage:
+      groups:
+        Brute: 7
+
+- type: entity
+  parent: MCKatanaReplica
+  id: MCKatanaReplicaToy
+  name: replica katana
+  suffix: MC, Toy
+  description: Woefully underpowered in D20.
+  components:
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      groups:
+        Brute: 5
+    soundHit:
+      path: /Audio/Weapons/boxingpunch1.ogg
+  - type: DamageOtherOnHit
+    damage:
+      groups:
+        Brute: 5
+
+- type: entity
+  parent: MCClaymore
+  id: MCKatanaSamurai
+  name: tachi
+  description: A genuine replica of an ancient blade. This one is in remarkably good condition. It could do some damage to everyone, including yourself.
+  components:
+  - type: Tag
+    tags:
+    - MCKatana
+    - Knife
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/samurai.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _MC/Objects/Weapons/Melee/samurai.rsi
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      groups:
+        Brute: 60
+  - type: DamageOtherOnHit
+    damage:
+      groups:
+        Brute: 10
+
+- type: entity
+  parent: MCClaymore
+  id: MCMachete
+  name: M2132 machete
+  suffix: MC
+  description: Latest issue of the TGMC Machete. Great for clearing out jungle or brush on outlying colonies. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit.
+  components:
+  - type: Tag
+    tags:
+    - MCMachete
+    - Knife
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/machete.rsi
+    state: icon
+  - type: Item
+    size: Large
+    sprite: _MC/Objects/Weapons/Melee/machete.rsi
+  - type: MeleeWeapon
+    attackRate: 0.8
+    damage:
+      groups:
+        Brute: 75
+
+- type: entity
+  parent: MCMachete
+  id: MCMacheteAlt
+  name: machete
+  suffix: MC, Alt
+  description: A nice looking machete. Great for clearing out jungle or brush on outlying colonies. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit.
+  components:
+  - type: Tag
+    tags:
+    - MCMachete
+    - Knife
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/machete.rsi
+    state: machete_alt
+  - type: Item
+    size: Large
+    sprite: _MC/Objects/Weapons/Melee/machete.rsi

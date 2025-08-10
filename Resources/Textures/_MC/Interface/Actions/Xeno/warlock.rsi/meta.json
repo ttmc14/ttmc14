@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "psy_blast"
+    },
+    {
+      "name": "psy_lance"
+    },
+    {
+      "name": "psy_crush"
+    },
+    {
+      "name": "psy_crush_activate"
+    },
+    {
+      "name": "psy_shield"
+    },
+    {
+      "name": "psy_shield_reflect"
+    }
+  ]
+}

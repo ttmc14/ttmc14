@@ -1,8 +1,8 @@
-ent-MCWeaponBR64 = BR-64 SCA battle rifle
-    .desc = The San Cristo Arms BR-64 is the TerraGov Marine Corps main battle rifle. It is known for its consistent ability to perform well at most ranges, and medium range stopping power with bursts. It is mostly used by people who prefer a bigger round than the average. Uses 10x26.5smm caseless caliber.
-ent-MCMagazineBR64 = BR-64 magazine (10x26.5mm)
+ent-MCWeaponBR64 = боевая винтовка SCA BR-64 
+    .desc = винтовка San Cristo Arms BR-64 является основным боевым оружием Корпуса морской пехоты ТерраGov. Оружие отличается стабильными показателями эффективности на различных дистанциях и высокой останавливающей силой при стрельбе очередями на средних дистанциях.Эта винтовка особенно популярна среди стрелков, предпочитающих более крупный калибр по сравнению со стандартными образцами. Использует безгильзовые патроны калибра 10x26,5smm.
+ent-MCMagazineBR64 = Магазин BR-64 (10x26.5mm)
     .desc = { ent-CMMagazineRifleBase.desc }
-ent-MCCartridgeBR64 = Cartridge (10x26.5mm)
-    .desc = A 10x26.5mm rifle cartridge
+ent-MCCartridgeBR64 = патрон (10x26.5mm)
+    .desc = винтовичный патрон 10x26.5mm
 ent-MCBulletBR64 = { ent-BulletRifle10x24mm }
     .desc = { ent-BulletRifle10x24mm.desc }

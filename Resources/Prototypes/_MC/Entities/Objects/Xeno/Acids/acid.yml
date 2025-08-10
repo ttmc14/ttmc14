@@ -1,0 +1,31 @@
+- type: entity
+  parent: MCXenoAcidSpray
+  id: MCXenoAcidSprayHeavyScatter
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: DamageOnCollide
+    damage:
+      types:
+        Heat: 14
+    chainDamage:
+      types:
+        Heat: 14
+
+# acid_spray_duration = 10 SECONDS
+# acid_spray_damage_on_hit = 45
+# acid_spray_damage = 20
+# acid_spray_structure_damage = 45
+- type: entity
+  parent: MCXenoAcidSpray
+  id: MCXenoAcidSpraySpitter
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: DamageOnCollide
+    damage:
+      types:
+        Heat: 45
+    chainDamage:
+      types:
+        Heat: 45

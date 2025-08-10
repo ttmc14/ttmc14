@@ -1,4 +1,4 @@
-using System.Globalization;
+﻿using System.Globalization;
 using Content.Client._RMC14.Medical.HUD;
 using Content.Client.Message;
 using Content.Shared._RMC14.Chemistry.Reagent;

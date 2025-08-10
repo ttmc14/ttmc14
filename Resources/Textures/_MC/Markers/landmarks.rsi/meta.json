@@ -1,0 +1,121 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "x"
+    },
+    {
+      "name": "x2"
+    },
+    {
+      "name": "x3"
+    },
+    {
+      "name": "x4"
+    },
+    {
+      "name": "x5"
+    },
+    {
+      "name": "x6"
+    },
+    {
+      "name": "ai_node"
+    },
+    {
+      "name": "generic_event"
+    },
+    {
+      "name": "xeno_spawn"
+    },
+    {
+      "name": "tdome_admin"
+    },
+    {
+      "name": "tdome_observer"
+    },
+    {
+      "name": "tdome_t1"
+    },
+    {
+      "name": "tdome_t2"
+    },
+    {
+      "name": "rainbow_overlay"
+    },
+    {
+      "name": "observer_start"
+    },
+    {
+      "name": "clockwork_orange"
+    },
+    {
+      "name": "fog_spawn"
+    },
+    {
+      "name": "tunnel_spawn"
+    },
+    {
+      "name": "weapon1"
+    },
+    {
+      "name": "weapon2"
+    },
+    {
+      "name": "weapon3"
+    },
+    {
+      "name": "weapon4"
+    },
+    {
+      "name": "weapon5"
+    },
+    {
+      "name": "weapon6"
+    },
+    {
+      "name": "x2_animate",
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "xeno_spawn_valhalla"
+    },
+    {
+      "name": "crash_site"
+    },
+    {
+      "name": "skullmarker"
+    },
+    {
+      "name": "gibsmarker"
+    },
+    {
+      "name": "random_loot"
+    },
+    {
+      "name": "random_map"
+    },
+    {
+      "name": "tram"
+    },
+    {
+      "name": "lift_id"
+    }
+  ]
+}

@@ -1,0 +1,113 @@
+- type: entity
+  parent: RMCScabbardBase
+  id: MCScabbardKatana
+  suffix: MC
+  name: katana scabbard
+  description: A large, vibrantly colored katana scabbard used to carry a japanese sword. It can be strapped to the back, waist or armor. Because of the sturdy wood casing of the scabbard, it makes an okay defensive weapon in a pinch.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Back/Scabbards/katana_sheath.rsi
+    state: sheath
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Back/Scabbards/katana_sheath.rsi
+    quickEquip: false
+    slots:
+    - back
+    - belt
+    - suitstorage
+  - type: ItemSlots
+    slots:
+      item:
+        name: Katana
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCKatana
+  - type: ItemMapper
+    mapLayers:
+      sheath-katana:
+        whitelist:
+          tags:
+          - MCKatana
+  - type: Tag
+    tags:
+    - Scabbard
+    - MCScabbardKatana
+
+- type: entity
+  parent: MCScabbardKatana
+  id: MCScabbardKatanaFilled
+  suffix: Filled, MC
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - MCKatana
+
+- type: Tag
+  id: MCScabbardKatana
+
+- type: entity
+  parent: RMCScabbardBase
+  id: MCScabbardMachete
+  suffix: MC
+  name: H5 pattern M2132 machete scabbard
+  description: A large leather scabbard used to carry a M2132 machete. It can be strapped to the back, waist or armor.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Scabbards/machete_scabbard.rsi
+    state: scabbard
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Scabbards/machete_scabbard.rsi
+    quickEquip: false
+    slots:
+    - back
+    - belt
+    - suitstorage
+  - type: ItemSlots
+    slots:
+      item:
+        name: M2132 machete
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCMachete
+  - type: ItemMapper
+    mapLayers:
+      scabbard_full:
+        whitelist:
+          tags:
+          - MCMachete
+  - type: Tag
+    tags:
+    - Scabbard
+    - MCScabbardMachete
+
+- type: Tag
+  id: MCScabbardMachete
+
+- type: entity
+  parent: MCScabbardMachete
+  id: MCScabbardMacheteFilled
+  suffix: Filled, MC
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - MCMachete
+
+- type: entity
+  parent: MCScabbardMachete
+  id: MCScabbardMacheteAltFilled
+  suffix: Filled, MC, Alt
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - MCMacheteAlt

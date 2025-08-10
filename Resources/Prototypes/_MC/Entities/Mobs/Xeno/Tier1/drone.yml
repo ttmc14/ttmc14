@@ -87,11 +87,11 @@
   - type: XenoConstruction
     buildDelay: 2
     canBuild:
-    - WallXenoResin
-    - WallXenoMembrane
-    - DoorXenoResin
-    - XenoStickyResin
-    - XenoFastResin
+    - MCWallXenoResinThick
+    - MCWallXenoResinThickBulletproof
+    - MCWallXenoResinThickFireproof
+    - MCWallXenoResinThickHardy
+    - MCDoorXenoResinThick
   - type: XenoEvolution
     canEvolveWithoutGranter: true
     max: 200
@@ -116,28 +116,31 @@
     offset: 0,0.2
   - type: Xeno
     actionIds:
-    # RMC
-    - ActionXenoChooseStructure
-    - ActionXenoSecreteStructure
-    - ActionXenoTransferPlasma
-    # MC
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
-    - MCActionXenoPheromones
-    - MCActionXenoAcidWeak
+    # Construction
+    - MCActionXenoChooseStructure
+    - MCActionXenoSecreteStructure
+    # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
+    # Main
+    - MCActionXenoPheromones
+    - MCActionXenoAcidWeak
     - MCActionXenoCreateResinJelly
     - MCActionXenoAcidicSalve
     - MCActionXenoRecycle
   - type: XenoEvolution
+    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:
     - MCXenoHivelord
     - MCXenoCarrier
+    evolvesToWithoutPoints:
     - MCXenoShrike
+    - MCXenoQueen
   - type: XenoPlasma
     plasma: 1000
     maxPlasma: 1000

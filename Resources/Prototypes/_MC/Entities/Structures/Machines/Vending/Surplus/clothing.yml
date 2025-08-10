@@ -13,6 +13,19 @@
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     sections:
+    - name: Webbing
+      entries:
+      - id: MCWebbingBlackVest
+      - id: MCWebbingBrownVest
+      - id: MCWebbingWhiteVest
+      - id: MCWebbingBrown
+      - id: MCWebbingHolster
+    - name: Belts
+      entries:
+      - id: MCClothingBeltMarine
+      - id: MCClothingBeltShotgun
+      - id: MCClothingBeltGrenade
+      - id: MCClothingBeltToolsFill
     - name: Pouches
       entries:
       # sidearm pouch
@@ -36,9 +49,3 @@
       # TE powerpack
       # medium general pouch
       # protein pack pouch
-    - name: Belts
-      entries:
-      - id: MCClothingBeltMarine
-      - id: MCClothingBeltShotgun
-      - id: MCClothingBeltGrenade
-      - id: MCClothingBeltToolsFill

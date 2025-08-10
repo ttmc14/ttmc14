@@ -1,2 +1,2 @@
 ent-MCXenoBull = бык
-    .desc = A well defended hit-and-runner.
+    .desc = Хорошо защищенный убийца тактики ударил-отбежал.

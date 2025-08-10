@@ -1,4 +1,4 @@
-ent-MCPouchMedkit = medkit pouch
-    .desc = A standard use medkit pouch that can contain all kinds of medical supplies and equipment.
-ent-MCPouchStorageSOM = medkit pouch
-    .desc = A standard use medkit pouch that can contain all kinds of medical supplies and equipment. Made with traditional SOM leather.
+ent-MCPouchMedkit = медецинский подсумок
+    .desc = Стандартный медицинский подсумок, который может вмещать все виды медицинских принадлежностей и оборудования.
+ent-MCPouchStorageSOM = медецинский подсумок
+    .desc = Стандартный медицинский подсумок, который может вмещать все виды медицинских принадлежностей и оборудования. Сделан из традиционой кожи SOM.

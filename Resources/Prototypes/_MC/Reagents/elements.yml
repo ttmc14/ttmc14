@@ -1,0 +1,447 @@
+﻿- type: reagent
+  parent: MCReagentElement
+  id: MCIron
+  name: mc-reagent-name-iron
+  desc: mc-reagent-desc-iron
+  physicalDesc: mc-reagent-physical-desc-metallic
+  flavor: metallic
+  color: "#C8A5DC"
+  overdose: 30
+  criticalOverdose: 50
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Toxin: 1
+            Burn: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Toxin: 1
+            Burn: 1
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCLithium
+  name: mc-reagent-name-lithium
+  desc: mc-reagent-desc-lithium
+  physicalDesc: mc-reagent-physical-desc-solid
+  flavor: metallic
+  color: "#808080"
+  overdose: 30
+  criticalOverdose: 50
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Toxin: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Toxin: 2
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        emote: Scream
+        probability: 0.05
+      - !type:Emote
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        emote: Laugh
+        probability: 0.05
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 45 # именно где-то на этой цифре и начинается рвота
+        probability: 0.3
+
+- type: reagent
+  parent: [MCReagentElement, BaseAlcohol]
+  id: MCEthanol
+  name: mc-reagent-name-ethanol
+  desc: mc-reagent-desc-ethanol
+  slipData:
+    requiredSlipSpeed: 3.5
+  physicalDesc: reagent-physical-desc-strong-smelling
+  flavor: alcohol
+  color: "#404030"
+  overdose: 60
+  criticalOverdose: 100
+  metabolisms:
+    Alcohol:
+      metabolismRate: 0.65
+      effects:
+      - !type:Drunk
+        boozePower: 6.38
+      - !type:Drunk
+        conditions:
+        - !type:ReagentThreshold
+          min: 60
+        boozePower: 9.69
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 60
+        probability: 0.12
+      - !type:Drunk
+        conditions:
+        - !type:ReagentThreshold
+          min: 100
+        boozePower: 13.125
+      - !type:ChemVomit
+        conditions:
+        - !type:ReagentThreshold
+          min: 100
+        probability: 0.25 # Liver damage, а ещё выпивка должна вызывать заблуждение, но пока у нас нету механики заблуждений.
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCRadium
+  name: mc-reagent-name-radium
+  desc: mc-reagent-desc-radium
+  physicalDesc: mc-reagent-physical-desc-glowing
+  flavor: metallic
+  color: "#C7C7C7"
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:ChemVomit
+        probability: 0
+      #- !type:GenericStatusEffect НЕ РАБОТАЕТ СУКА
+        #key: StaminaModifier
+        #component: StaminaModifier
+        #time: 2
+        #type: Remove
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCFluorine
+  name: mc-reagent-name-fluorine
+  desc: mc-reagent-desc-fluorine
+  physicalDesc: mc-reagent-physical-desc-acrid
+  flavor: acid
+  color: "#808080"
+  overdose: 30
+  criticalOverdose: 50
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+        - !type:HealthChange
+          damage:
+            groups:
+              Toxin: 0.5
+        - !type:HealthChange
+          conditions:
+            - !type:ReagentThreshold
+              min: 30
+          damage:
+            groups:
+              Toxin: 1
+        - !type:HealthChange
+          conditions:
+            - !type:ReagentThreshold
+              min: 50
+          damage:
+            groups:
+              Toxin: 1
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCChlorine
+  name: mc-reagent-name-chlorine
+  desc: mc-reagent-desc-chlorine
+  physicalDesc: mc-reagent-physical-desc-acrid
+  flavor: bitter
+  color: "#808080"
+  overdose: 30
+  criticalOverdose: 50
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+        - !type:HealthChange
+          conditions:
+            - !type:ReagentThreshold
+              min: 30
+          damage:
+            groups:
+              Toxin: 1
+        - !type:HealthChange
+          conditions:
+            - !type:ReagentThreshold
+              min: 50
+          damage:
+            groups:
+              Toxin: 1
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCMercury
+  name: mc-reagent-name-mercury
+  desc: mc-reagent-desc-mercury
+  physicalDesc: mc-reagent-physical-desc-liquid
+  flavor: metallic
+  color: "#DB5008"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+        - !type:GenericStatusEffect # Braind Damaged
+          key: Stutter
+          component: ScrambledAccent
+        - !type:Jitter
+        - !type:Emote
+          showInChat: false
+          emote: Laugh
+          probability: 0.05
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCSulphuricAcid
+  name: mc-reagent-name-sulphuric-acid
+  desc: mc-reagent-desc-sulphuric-acid
+  physicalDesc: mc-reagent-physical-desc-acidic
+  flavor: acid
+  color: "#808000"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.13
+      effects:
+        - !type:HealthChange
+          damage:
+            groups:
+              Toxin: 0.5
+              Burn: 1
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCLemoline
+  name: mc-reagent-name-lemoline
+  desc: mc-reagent-desc-lemoline
+  physicalDesc: mc-reagent-physical-desc-liquid
+  flavor: bitter
+  color: "#66801e"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:ChemVomit
+        probability: 5 # А нехуй пробовать всякую хуйню, которая не предназначена для человека
+
+# Misc elements (потому что не интересно нихуя)
+- type: reagent
+  parent: MCReagentElement
+  id: MCGold #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-gold
+  desc: mc-reagent-desc-gold
+  physicalDesc: mc-reagent-physical-desc-shiny
+  flavor: metallic
+  color: "#F7C430"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCSilver #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-silver
+  desc: mc-reagent-desc-silver
+  physicalDesc: mc-reagent-physical-desc-shiny
+  flavor: metallic
+  color: "#D0D0D0"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCSodium #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-sodium
+  desc: mc-reagent-desc-sodium
+  physicalDesc: mc-reagent-physical-desc-salty
+  flavor: metallic
+  color: "#808080"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCPhosphorus #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-phosphorus
+  desc: mc-reagent-desc-phosphorus
+  physicalDesc: mc-reagent-physical-desc-vinegary
+  flavor: acidic
+  color: "#832828"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCOxygen #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-oxygen
+  desc: mc-reagent-desc-oxygen
+  physicalDesc: mc-reagent-physical-desc-gaseous
+  color: "#808080"
+  flavor: cold
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCCopper #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-copper
+  desc: mc-reagent-desc-copper
+  physicalDesc: mc-reagent-physical-desc-metallic
+  color: "#6E3B08"
+  flavor: metallic
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCNitrogen #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-nitrogen
+  desc: mc-reagent-desc-nitrogen
+  physicalDesc: mc-reagent-physical-desc-gaseous
+  color: "#808080"
+  flavor: cold
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCHydrogen #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-hydrogen
+  desc: mc-reagent-desc-hydrogen
+  physicalDesc: mc-reagent-physical-desc-gaseous
+  color: "#808080"
+  flavor: cold
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCAluminum #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-aluminum
+  desc: mc-reagent-desc-aluminum
+  physicalDesc: mc-reagent-physical-desc-metallic
+  flavor: metallic
+  color: "#A8A8A8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.2
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCSilicon #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-silicon
+  desc: mc-reagent-desc-silicon
+  physicalDesc: mc-reagent-physical-desc-solid
+  flavor: clean
+  color: "#A8A8A8"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCCarbon #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-carbon
+  desc: mc-reagent-desc-carbon
+  physicalDesc: mc-reagent-physical-desc-chalky
+  flavor: bitter
+  color: "#1C1300"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCSulfur #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-sulfur
+  desc: mc-reagent-desc-sulfur
+  physicalDesc: mc-reagent-physical-desc-solid
+  flavor: horrible
+  color: "#BF8C00"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0
+
+- type: reagent
+  parent: MCReagentElement
+  id: MCPotassium #*счастливые звуки нихуянеделания*
+  name: mc-reagent-name-potassium
+  desc: mc-reagent-desc-potassium
+  physicalDesc: mc-reagent-physical-desc-heterogeneous
+  flavor: sweet
+  color: "#A0A0A0"
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:ChemVomit
+        probability: 0

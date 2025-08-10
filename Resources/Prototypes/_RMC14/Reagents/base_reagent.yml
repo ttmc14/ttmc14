@@ -1,7 +1,7 @@
 ﻿- type: reagent
   abstract: true
   id: CMReagent
-  isCM: true
+  isCM: false # Remove CM reagents for TGMC
 
 - type: reagent
   abstract: true

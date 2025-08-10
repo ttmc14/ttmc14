@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "spawn_hugger"
+    },
+    {
+      "name": "throw_hugger"
+    },
+    {
+      "name": "carrier_panic"
+    },
+    {
+      "name": "call_younger"
+    },
+    {
+      "name": "hugger_turret"
+    }
+  ]
+}

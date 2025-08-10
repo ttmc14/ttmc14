@@ -1,3 +1,3 @@
-ent-MCApcAlmayer = { ent-CMApcAlmayer }
+ent-MCApcAlmayer = АПЦ
     .suffix = Almayer
     .desc = { ent-CMApcAlmayer.desc }

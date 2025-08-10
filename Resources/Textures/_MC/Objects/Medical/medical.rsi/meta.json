@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/stack_objects.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "traumakit"
+    },
+    {
+      "name": "splint"
+    },
+    {
+      "name": "ointment"
+    },
+    {
+      "name": "brutepack"
+    },
+    {
+      "name": "burnkit"
+    }
+  ]
+}

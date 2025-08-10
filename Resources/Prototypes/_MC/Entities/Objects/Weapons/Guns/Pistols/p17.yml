@@ -4,6 +4,11 @@
   name: P-17 pocket pistol
   description: A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine.
   components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+    - MCWeaponP17
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Pistols/p17.rsi
   - type: Clothing
@@ -68,10 +73,6 @@
     offsets:
       rmc-aslot-barrel: 0.685, 0.125
       rmc-aslot-rail: -0.125, 0.215
-  - type: Tag
-    tags:
-    - Sidearm
-    - MCWeaponP17
 
 - type: entity
   parent: CMBaseMagazinePistol
@@ -80,7 +81,8 @@
   components:
   - type: Tag
     tags:
-    - CMMagazinePistol
+    - MCMagazineSidearm
+    - MCMagazinePistol
     - MCMagazinePistolP17
   - type: BallisticAmmoProvider
     mayTransfer: True

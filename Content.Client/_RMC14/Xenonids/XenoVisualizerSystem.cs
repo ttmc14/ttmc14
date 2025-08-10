@@ -1,5 +1,6 @@
 using Content.Client._RMC14.Sprite;
 using Content.Shared._MC.Xeno.Abilities.Charge;
+using Content.Shared._MC.Xeno.Visuals;
 using Content.Shared._RMC14.Sprite;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Charge;
@@ -123,6 +124,12 @@ public sealed class XenoVisualizerSystem : VisualizerSystem<XenoComponent>
                     IsThrown((entity, leaping, thrown, null)))
                 {
                     sprite.LayerSetState(layer, "charging"); // marine-corps-fix
+                    break;
+                }
+
+                if (AppearanceSystem.TryGetData(entity, MCXenoVisualLayers.Agility, out bool agility, appearance) && agility && rsi.TryGetState("alive_agility", out _))
+                {
+                    sprite.LayerSetState(layer, "alive_agility");
                     break;
                 }
 

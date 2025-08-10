@@ -1,0 +1,16 @@
+ent-RMCDirtBandageProp = dirty bandages
+    .desc = Some used gauze.
+ent-RMCDirtBandageProp2 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }
+ent-RMCDirtBandageProp3 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }
+ent-RMCDirtBandageProp4 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }
+ent-RMCDirtBandageProp5 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }
+ent-RMCDirtBandageProp6 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }
+ent-RMCDirtBandageProp7 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }
+ent-RMCDirtBandageProp8 = { ent-RMCDirtBandageProp }
+    .desc = { ent-RMCDirtBandageProp.desc }

@@ -36,7 +36,7 @@
       skills:
         RMCSkillMedical: 4
         RMCSkillSurgery: 4
-        RMCSkillCQC: -1
+        RMCSkillCqc: -1
         RMCSkillSmartGun: -4
         # RMCSkillMelee: -1
     - type: JobPrefix
@@ -54,6 +54,15 @@
   id: MCDoctor
   equipment:
     id: MCIdCardDoctor
+    ears: MCHeadsetMedical
+    gloves: CMHandsLatex
+    back: MCSatchelMarineStandard
+    eyes: MCGlassesHudHealth
+    jumpsuit: CMScrubsPurple
+    shoes: RMCShoesWhite
+    pocket1: MCPouchMedkitFill
+  inhand:
+  - MCBottleLemolineDoctor
 
 - type: entity
   parent: MCSpawnPointJob
@@ -63,4 +72,4 @@
   - type: SpawnPoint
     job_id: MCDoctor
   - type: Sprite
-    state: medic_spawn
+    state: md

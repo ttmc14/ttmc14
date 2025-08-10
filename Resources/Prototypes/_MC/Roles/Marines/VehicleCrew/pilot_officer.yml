@@ -32,13 +32,14 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MarineOrders
     - type: Skills
       skills:
         RMCSkillPilot: 1
         RMCSkillPolice: 2
         RMCSkillPowerLoader: 3
         RMCSkillLeadership: 2
-        RMCSkillCQC: 1
+        RMCSkillCqc: 1
         RMCSkillSmartGun: -4
     - type: JobPrefix
       prefix: mc-job-prefix-pilot-officer

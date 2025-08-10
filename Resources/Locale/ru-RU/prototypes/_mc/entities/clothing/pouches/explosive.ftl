@@ -1,8 +1,8 @@
-ent-MCPouchExplosive = explosive pouch
-    .desc = It can carry grenades, plastic explosives, mine boxes, and other explosives.
-ent-MCPouchExplosiveSOM = S26 explosive pouch
-    .desc = A leather pouch for storing grenades, rockets, mine boxes, and other explosives.
-ent-MCPouchExplosiveICC = S26 explosive pouch
-    .desc = It can contain grenades, plastiques, mine boxes, and other explosives. Clearly made from with a synthetic tan fiber.
-ent-MCPouchExplosiveLarge = large explosive pouch
-    .desc = It can carry grenades, plastic explosives, mine boxes, and other explosives.
+ent-MCPouchExplosive = подсумок для взывчатки
+    .desc = В нем можно переносить гранаты, пластиковую взрывчатку, коробки с минами, и другую взрывчатку.
+ent-MCPouchExplosiveSOM = подсумок для взрывчатки S26
+    .desc = Кожаный подсумок для хранения гранат, ракет, ящиков с минами и другой взрывчатки.
+ent-MCPouchExplosiveICC = подсумок для взрывчатки S26
+    .desc = В нем можно переносить гранаты, пластиковую взрывчатку, коробки с минами, и другую взрывчатку. Очевидно, изготовлен из синтетического волокна белого цвета.
+ent-MCPouchExplosiveLarge = большой подсумок для взрывчатки
+    .desc = В нем можно переносить гранаты, пластиковую взрывчатку, коробки с минами, и другую взрывчатку.

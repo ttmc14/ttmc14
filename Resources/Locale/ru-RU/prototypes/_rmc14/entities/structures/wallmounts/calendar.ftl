@@ -1,0 +1,17 @@
+ent-RMCCalendarBase = wall calendar
+    .desc = Classic office decoration and a place to stare at maniacally.
+ent-RMCCalendarColonist = { ent-RMCCalendarBase }
+    .suffix = Colony
+    .desc = { ent-RMCCalendarBase.desc }
+ent-RMCCalendarWeYa = { ent-RMCCalendarBase }
+    .suffix = WeYa
+    .desc = { ent-RMCCalendarBase.desc }
+ent-RMCCalendarUNMC = { ent-RMCCalendarBase }
+    .suffix = UNMC
+    .desc = { ent-RMCCalendarBase.desc }
+ent-RMCCalendarTWE = { ent-RMCCalendarBase }
+    .suffix = TWE
+    .desc = { ent-RMCCalendarBase.desc }
+ent-RMCCalendarSPP = { ent-RMCCalendarBase }
+    .suffix = SPP
+    .desc = { ent-RMCCalendarBase.desc }

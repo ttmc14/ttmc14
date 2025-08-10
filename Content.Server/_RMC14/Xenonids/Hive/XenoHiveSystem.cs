@@ -37,7 +37,7 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
     [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;
 
     private readonly List<string> _announce = [];
-    private readonly EntProtoId _defaultHive = "CMXenoHive";
+    private readonly EntProtoId _defaultHive = "MCXenoHive";
 
     private TimeSpan _lateJoinsPerBurrowedLarvaEarlyThreshold;
     private float _lateJoinsPerBurrowedLarvaEarly;
@@ -109,6 +109,7 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
         if (_gameTicker.RunLevel != GameRunLevel.InRound)
             return;
 
+        /*
         var roundTime = _gameTicker.RoundDuration();
         var hives = EntityQueryEnumerator<HiveComponent>();
         while (hives.MoveNext(out var hiveId, out var hive))
@@ -146,6 +147,7 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
             _xenoAnnounce.AnnounceToHive(EntityUid.Invalid, hiveId, popup, hive.AnnounceSound, PopupType.Large);
             EvoScreech(hive);
         }
+        */
 
         var time = _timing.CurTime;
         var surge = EntityQueryEnumerator<HijackBurrowedSurgeComponent, HiveComponent>();

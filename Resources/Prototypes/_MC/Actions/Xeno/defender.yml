@@ -1,0 +1,81 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoCrestDefense
+  name: Crest Defense
+  description: Raises your armor values while sacrificing 20% movement speed. See the armor values table above.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defender.rsi
+      state: crest_defense
+    useDelay: 1
+  - type: InstantAction
+    event: !type:XenoToggleCrestActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoFortify
+  name: Fortify
+  description: Increases your armor greatly, but you're unable to move while in this state. You can still slash at objects and players AND you can forward charge from fortify!
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defender.rsi
+      state: fortify
+    useDelay: 1
+  - type: InstantAction
+    event: !type:XenoFortifyActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoTailSweep
+  name: Tail Sweep (35)
+  description: Attacks all humanoids in around the user in a radius. Deals melee and stamina damage to those hit, knocking them over. Can be used while in a defensive stance, but uses double the plasma.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defender.rsi
+      state: tail_sweep
+    useDelay: 12
+  - type: InstantAction
+    event: !type:XenoTailSweepActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoForwardCharge
+  name: Forward Charge (80)
+  description: Charge up to 4 tiles in the direction you click in, knocking over sentries, tables, and humanoids. People are stunned for about 4 seconds. Can be used while in a defensive stance or fortify, taking you out of one.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defender.rsi
+      state: forward_charge
+    useDelay: 10
+  - type: TargetAction
+    range: 4
+    deselectOnMiss: false
+  - type: EntityTargetAction
+    event: !type:XenoHeadbuttActionEvent
+  - type: XenoActionPlasma
+    cost: 80
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoRegenerateSkin
+  name: Regenerate Skin (160)
+  description: Restores 25 brute and 25 burn, and resets sunder. Can't be used while on fire, but it can be used while in a defensive stance.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defender.rsi
+      state: regenerate_skin
+    useDelay: 60
+  - type: InstantAction
+    event: !type:MCXenoRegenerateSkinActionEvent
+  - type: XenoActionPlasma
+    cost: 160

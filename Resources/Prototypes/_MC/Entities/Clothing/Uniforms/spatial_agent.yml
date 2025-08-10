@@ -1,0 +1,11 @@
+- type: entity
+  parent: RMCMarineUniformBase
+  id: MCJumpsuitSpatialAgent
+  name: spatial agent's jumpsuit
+  description: It's a jumpsuit worn by Spatial Agents.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ThirdPerson/spatial_agent.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ThirdPerson/spatial_agent.rsi
+  - type: Unremoveable

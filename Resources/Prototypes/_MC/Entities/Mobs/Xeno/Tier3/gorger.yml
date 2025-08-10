@@ -28,10 +28,9 @@
     tier: 3
     role: MCXenoGorger
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - ActionXenoDevolve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     hudOffset: -0.1,0.1
   - type: XenoDevolve
     devolvesTo:
@@ -57,3 +56,5 @@
     icon:
       sprite: _MC/Interface/Xeno/icons.rsi
       state: gorger
+  - type: RMCSize
+    size: Big

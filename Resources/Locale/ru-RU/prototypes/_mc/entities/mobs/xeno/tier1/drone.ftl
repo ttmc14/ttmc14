@@ -1,4 +1,4 @@
 ent-MCXenoDroneBase = дрон
-    .desc = An alien drone.
+    .desc = Строитель ульев.
 ent-MCXenoDrone = { ent-MCXenoDroneBase }
     .desc = { ent-MCXenoDroneBase.desc }

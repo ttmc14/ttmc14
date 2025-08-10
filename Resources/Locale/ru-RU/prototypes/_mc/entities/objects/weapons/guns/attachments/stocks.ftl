@@ -1,4 +1,4 @@
-ent-MCAttachmentStockSH35 = M54C folding stock
-    .desc = The standard back end of any gun starting with M54. Compatible with the M54C series, this stock reduces recoil and scatter, but at a reduction to handling and agility. Also enhances the thwacking of things with the stock-end of the rifle.
-ent-MCAttachmentStockMP19 = MP-19 machinepistol stock
-    .desc = A submachinegun stock distributed in small numbers to TGMC forces. Compatible with the MP-19, this stock reduces recoil and improves accuracy, but at a reduction to handling and agility. Seemingly a bit more effective in a brawl.
+ent-MCAttachmentStockSH35 = складной приклад M54C
+    .desc = Стандартный приклад любого оружия, начиная с M54. Совместим с серией M54C, этот приклад уменьшает отдачу и разброс, но при этом снижает управляемость и маневренность. Также увеличивает эффективность оружия в ближнем бою.
+ent-MCAttachmentStockMP19 = приклад для ПП MP-19 
+    .desc = Специальный приклад для пистолета-пулемёта, который в ограниченном количестве поставлялся силам Корпуса морской пехоты ТерраGov (TGMC), этот приклад уменьшает отдачу и разброс, но при этом снижает управляемость и маневренность. Также увеличивает эффективность оружия в ближнем бою.

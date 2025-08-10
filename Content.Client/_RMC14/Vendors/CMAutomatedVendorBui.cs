@@ -92,7 +92,7 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
                             .ToList();
                         if(entity.TryGetComponent<SpriteComponent>("Sprite", out var entitySprites))
                         {
-                            uiEntry.Texture.Modulate = entitySprites.AllLayers.First().Color;
+                            uiEntry.Texture.Modulate = entitySprites.AllLayers.Any() ? entitySprites.AllLayers.First().Color : Color.White;
                         }
                         uiEntry.Panel.Button.Label.Text = entry.Name?.Replace("\\n", "\n") ?? entity.Name;
 

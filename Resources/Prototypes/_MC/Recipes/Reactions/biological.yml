@@ -1,0 +1,9 @@
+- type: reaction
+  id: MCSodiumChloride
+  reactants:
+    MCSodium:
+      amount: 1
+    MCChlorine:
+      amount: 1
+  products:
+    MCSodiumChloride: 2

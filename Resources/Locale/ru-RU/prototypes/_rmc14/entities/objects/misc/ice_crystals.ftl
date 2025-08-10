@@ -1,0 +1,16 @@
+ent-RMCIceCrystal = ice crystal
+    .desc = It is a giant crystal of ice. The chemical process that keeps it frozen despite major seasonal temperature flux is what the United Nations Greater Argentinian science team is studying here on the Snowball.
+ent-RMCIceCrystal2 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }
+ent-RMCIceCrystal3 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }
+ent-RMCIceCrystal4 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }
+ent-RMCIceCrystal5 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }
+ent-RMCIceCrystal6 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }
+ent-RMCIceCrystal7 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }
+ent-RMCIceCrystal8 = { ent-RMCIceCrystal }
+    .desc = { ent-RMCIceCrystal.desc }

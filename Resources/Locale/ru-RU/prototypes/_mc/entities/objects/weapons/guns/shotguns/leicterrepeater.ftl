@@ -1,8 +1,8 @@
 ent-MCWeaponShotgunLeicesterRepeater = Leicester Repeater
-    .desc = The gun that won the west or so they say. But space is a very different kind of frontier all together, chambered for .45-70 Governemnt.
+    .desc = Пистолет, который покорил Запад, по крайней мере, так говорят. Но космос — это совершенно иной тип фронта, под патрон.45-70 Government.
 ent-MCBulletGovernmentRounds = { ent-BulletRifle10x24mm }
     .desc = { ent-BulletRifle10x24mm.desc }
-ent-MCBoxGovernmentRounds = packet of .45-70
-    .desc = A packet containing 50 rounds of .45-70 Government.
-ent-MCCartridgeGovernmentRounds = handful of heavy impact rifle bullet (.45-70 Government)
+ent-MCBoxGovernmentRounds = пачка патронов калибра .45-70
+    .desc = пачка содержащая 50 патронов калибра .45-70 Government.
+ent-MCCartridgeGovernmentRounds = горсть тяжёлых пуль (.45-70 Government)
     .desc = { ent-CMShellShotgunBase.desc }

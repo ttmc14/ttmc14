@@ -11,13 +11,13 @@
     bullet: 50
     laser: 50
     energy: 25
-    explosionArmor: 30
+    bomb: 30
     bio: 5
     fire: 25
     acid: 30
   - type: ClothingSpeedModifier
-    walkModifier: 0.8
-    sprintModifier: 0.8
+    walkModifier: 0.938
+    sprintModifier: 0.938
 
 - type: entity
   parent: RMCBaseMarineArmorLight
@@ -32,13 +32,13 @@
     bullet: 55
     laser: 55
     energy: 20
-    explosionArmor: 45
+    bomb: 45
     bio: 30
     fire: 25
     acid: 35
   - type: ClothingSpeedModifier
-    walkModifier: 0.833
-    sprintModifier: 0.833
+    walkModifier: 0.938
+    sprintModifier: 0.938
 
 - type: entity
   parent: RMCBaseMarineArmorLight
@@ -53,13 +53,13 @@
     bullet: 55
     laser: 55
     energy: 20
-    explosionArmor: 45
+    bomb: 45
     bio: 30
     fire: 25
     acid: 35
   - type: ClothingSpeedModifier
-    walkModifier: 0.833
-    sprintModifier: 0.833
+    walkModifier: 0.938
+    sprintModifier: 0.938
 
 - type: entity
   parent: RMCBaseMarineArmorLight
@@ -74,10 +74,10 @@
     bullet: 55
     laser: 55
     energy: 20
-    explosionArmor: 45
+    bomb: 45
     bio: 30
     fire: 25
     acid: 35
   - type: ClothingSpeedModifier
-    walkModifier: 0.833
-    sprintModifier: 0.833
+    walkModifier: 0.938
+    sprintModifier: 0.938

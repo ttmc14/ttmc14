@@ -1,6 +1,6 @@
-ent-MCWeaponRifleAR18 = AR-18 Kauser carbine
-    .desc = { ent-CMBaseWeaponRifle.desc }
-ent-MCMagazineRifleAR18 = AR-18 magazine (10x24mm)
-    .desc = A 10mm carbine magazine.
-ent-MCMagazineRifleAR18AP = AR-18 AP magazine (10x24mm)
-    .desc = A 10mm assault carbine magazine, loaded with light armor piercing rounds.
+ent-MCWeaponRifleAR18 = карабин AR-18 Kauser 
+    .desc = AR-18 — младший брат AR-12, в которой пожертвовали ёмкостью магазина и эффективностью на дальних дистанциях ради улучшения характеристик в ближне-средней зоне. AR-18 лучше всего использовать в агрессивном стиле, используя преимущество высокого урона благодаря опции быстрой стрельбы очередями по 4 патрона.
+ent-MCMagazineRifleAR18 = магазин AR-18 (10x24mm)
+    .desc = Магазин снаряженныeй патронами 10x24mm для карабина AR18.
+ent-MCMagazineRifleAR18AP = ББ магазин AR-18 (10x24mm)
+    .desc = Магазин снаряженный бронебойными патронами калибра 10x24mm для карабина AR18.

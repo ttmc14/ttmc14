@@ -1,2 +1,23 @@
 - type: Tag
   id: MCDamageMelee
+
+- type: Tag
+  id: MCDamageBullet
+
+- type: Tag
+  id: MCDamageLaser
+
+- type: Tag
+  id: MCDamageEnergy
+
+- type: Tag
+  id: MCDamageBomb
+
+- type: Tag
+  id: MCDamageBio
+
+- type: Tag
+  id: MCDamageFire
+
+- type: Tag
+  id: MCDamageAcid

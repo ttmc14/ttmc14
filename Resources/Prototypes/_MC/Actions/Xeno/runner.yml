@@ -14,6 +14,7 @@
     event: !type:MCXenoEvasionActionEvent
   - type: XenoActionPlasma
     cost: 75
+  - type: ActionBlockIfResting
 
 - type: entity
   parent: ActionXenoBase
@@ -34,3 +35,4 @@
     event: !type:MCXenoPounceActionEvent
   - type: XenoActionPlasma
     cost: 10
+  - type: ActionBlockIfResting

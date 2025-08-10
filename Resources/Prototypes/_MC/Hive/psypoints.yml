@@ -1,0 +1,7 @@
+- type: MCXenoHivePsypointType
+  id: Strategic
+  name: Strategic Psychic points
+
+- type: MCXenoHivePsypointType
+  id: Tactical
+  name: Tactical Psychic points

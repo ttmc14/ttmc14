@@ -3,6 +3,7 @@ using Content.Shared._RMC14.Actions;
 using Content.Shared.Bed.Sleep;
 using Content.Shared.Examine;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.Tag;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Timing;
@@ -19,6 +20,7 @@ public sealed class MCXenoBanishSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SleepingSystem _sleeping = default!;
     [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly TagSystem _tag = default!;
 
     public override void Initialize()
     {
@@ -57,6 +59,9 @@ public sealed class MCXenoBanishSystem : EntitySystem
             return;
 
         if (!_examine.InRangeUnOccluded(origin, target, entity.Comp.Range, null))
+            return;
+
+        if (_tag.HasTag(args.Target, entity.Comp.IgnoreTag))
             return;
 
         if (!_rmcActions.TryUseAction(entity, args.Action, entity))

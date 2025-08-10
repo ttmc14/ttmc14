@@ -1,2 +1,2 @@
 ent-MCXenoDefiler = осквернитель
-    .desc = A frightening looking, bulky xeno that drips with suspect green fluids.
+    .desc = Пугающего вида громоздкий ксенос, с которого капает подозрительная зеленая жидкость. Ты уже умрешь, смирись.

@@ -1,0 +1,33 @@
+- type: entity
+  parent: MarkerBase
+  id: MCMarkerCrash
+  name: marker crash
+  components:
+  - type: MCCrashPoint
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: pink
+    - sprite: _MC/Objects/Tools/pinpointer.rsi
+      state: close
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnXenoProtection
+  name: xeno spawn protection
+  components:
+  - type: Sprite
+    sprite: _MC/Markers/landmarks.rsi
+    state: fog_spawn
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnXenoSilo
+  name: xeno spawn silo
+  components:
+  - type: Sprite
+    layers:
+    - sprite: _MC/Interface/Xeno/buyable_icons.rsi
+      state: larvasilo
+    - sprite: _MC/Markers/landmarks.rsi
+      state: x4

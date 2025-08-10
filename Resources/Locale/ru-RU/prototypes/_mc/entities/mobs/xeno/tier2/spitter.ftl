@@ -1,2 +1,2 @@
 ent-MCXenoSpitter = плеватель
-    .desc = Gotta dodge!
+    .desc = Придется уклоняться!

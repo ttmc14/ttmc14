@@ -1,5 +1,6 @@
 - type: entity
   parent:
+  - MCXenoNoMeleeBase
   - CMXenoUndeveloped
   - CMXenoFlammable
   id: MCXenoLarva
@@ -9,11 +10,6 @@
     name: cm-job-name-xeno-larva
   - type: Sprite
     sprite: _MC/Mobs/Xenos/larva.rsi
-  - type: MobState
-    allowedStates:
-    - Alive
-    - Critical
-    - Dead
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -78,6 +74,7 @@
   - type: FixedIdentity
     name: cm-job-name-xeno-larva
   - type: XenoEvolution
+    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 100
     evolvesTo:

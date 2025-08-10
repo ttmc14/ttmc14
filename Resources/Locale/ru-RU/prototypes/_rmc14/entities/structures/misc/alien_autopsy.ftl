@@ -1,0 +1,16 @@
+ent-RMCResearchThingies = Research thingies
+    .desc = { "" }
+ent-RMCAlienTank = cryo tank
+    .desc = There is something big inside...
+ent-RMCAlienTankBroken = { ent-RMCAlienTank }
+    .suffix = Broken
+    .desc = { ent-RMCAlienTank.desc }
+ent-RMCAlienTankEmpty = { ent-RMCAlienTank }
+    .suffix = Empty
+    .desc = { ent-RMCAlienTank.desc }
+ent-RMCAlienTankParasite = { ent-RMCAlienTank }
+    .suffix = Parasite
+    .desc = { ent-RMCAlienTank.desc }
+ent-RMCAlienTankLarva = { ent-RMCAlienTank }
+    .suffix = Larva
+    .desc = { ent-RMCAlienTank.desc }

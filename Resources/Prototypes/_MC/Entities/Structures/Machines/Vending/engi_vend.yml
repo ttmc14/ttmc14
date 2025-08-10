@@ -1,0 +1,45 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingEngi
+  name: Engi-Vend
+  description: Spare engineer vending. What? Did you expect some witty description?
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: engivend-off
+      map: ["enum.VendingMachineVisualLayers.Base"]
+    - state: engivend
+      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Tools
+      entries:
+      - id: CMMultitool
+      # analyzer
+      - id: CMTRayScanner
+    - name: Electronics
+      entries:
+      - id: CMAPCElectronics
+      # airlock
+      - id: RMCPowerCellHigh
+    - name: Equipment
+      entries:
+      # hardhat
+      # welding
+      - id: RMCWeldingGoggles
+        amount: 4
+    - name: Utility
+      entries:
+      # radio
+      # taperecorder
+      # igniter
+      # signaler
+      # infra
+      # timer
+      # prox_sensor
+      - id: CMLightTube
+      - id: CMLightBulb
+      # glass
+      # camera
+      - id: RMCBucket

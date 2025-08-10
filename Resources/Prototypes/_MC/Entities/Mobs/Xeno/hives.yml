@@ -1,0 +1,8 @@
+- type: entity
+  id: MCXenoHive
+  name: Main
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Hive
+    burrowedLarvaId: MCXenoLarva
+    lateJoinGainLarva: true

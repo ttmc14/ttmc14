@@ -85,3 +85,6 @@
   - type: MCXenoBlink
   - type: MCXenoRewind
   - type: MCXenoBanish
+
+- type: Tag
+  id: MCXenoIgnoreBanish

@@ -32,11 +32,11 @@
     tier: 3
     role: MCXenoBoiler
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - ActionXenoDevolve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     - MCActionXenoSprayAcidBoiler
+    - MCActionXenoAcidStrong
     hudOffset: -0.15,0.25
   - type: XenoDevolve
     devolvesTo:
@@ -61,3 +61,6 @@
     icon:
       sprite: _MC/Interface/Xeno/icons.rsi
       state: boiler
+  - type: RMCSize
+    size: Big
+  - type: XenoAcid

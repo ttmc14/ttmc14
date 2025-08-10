@@ -301,6 +301,7 @@
   - type: TacticalMapUser
     actionId: RMCActionOpenTacticalMapMarine
     marines: true
+    liveUpdate: true
   - type: EmoteCooldown
   - type: FiremanCarriable
   - type: CanFiremanCarry
@@ -359,6 +360,7 @@
   - type: RMCDisarmable
   - type: StunOnExplosionReceived
   - type: DeafenWhileCrit
+  - type: RMCStopDropRollVisuals
   - type: XenoToggleChargingDamage
     damage:
       types:

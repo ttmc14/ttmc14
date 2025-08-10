@@ -1,0 +1,8 @@
+- type: entity
+  parent: BaseGameRule
+  id: MCCrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+    minPlayers: 1
+  - type: MCCrashRule

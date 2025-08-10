@@ -32,6 +32,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MarineOrders
     - type: CMVendorUser
       points: 45
     - type: Skills
@@ -65,7 +66,7 @@
   - type: SpawnPoint
     job_id: MCSquadLeader
   - type: Sprite
-    state: leader_spawn
+    state: sl
 
 - type: entity
   parent: MCSpawnPointSquadLeader
@@ -75,8 +76,6 @@
   - type: SquadSpawner
     squad: SquadAlpha
     role: MCSquadLeader
-  - type: Sprite
-    state: leader_spawn
 
 - type: entity
   parent: MCSpawnPointSquadLeader
@@ -86,8 +85,6 @@
   - type: SquadSpawner
     squad: SquadBravo
     role: MCSquadLeader
-  - type: Sprite
-    state: leader_spawn
 
 - type: entity
   parent: MCSpawnPointSquadLeader
@@ -97,8 +94,6 @@
   - type: SquadSpawner
     squad: SquadCharlie
     role: MCSquadLeader
-  - type: Sprite
-    state: leader_spawn
 
 - type: entity
   parent: MCSpawnPointSquadLeader
@@ -108,5 +103,3 @@
   - type: SquadSpawner
     squad: SquadDelta
     role: MCSquadLeader
-  - type: Sprite
-    state: leader_spawn

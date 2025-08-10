@@ -4,14 +4,103 @@
   name: Grapple Toss (30)
   description: Throw a creature you're grappling on selected tile, up to 5 tiles away. Big targets (i.e. T3's) have their range reduced by 1.
   components:
-  - type: WorldTargetAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/Xeno/warrior.rsi
       state: grapple_toss
-    event: !type:MCXenoGrappleTossActionEvent ""
-    range: 0
     useDelay: 20
+  - type: TargetAction
+    range: -1
     checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoGrappleTossActionEvent
+  - type: ActionBlockIfResting
   - type: XenoActionPlasma
     cost: 20
+  - type: ActionSharedCooldown
+    id: MCActionXenoGrappleToss
+    ids:
+    - MCActionXenoFling
+    cooldown: 20
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPunch
+  name: Punch (15)
+  description: Strike a target next to you, inflicting stamina damage, stagger and slowdown. Deals 1.5x damage, stagger and slowdown to grappled targets. Deals quadruple damage to structures and machinery.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
+      state: punch
+    useDelay: 10
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoPunchActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 15
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoFling
+  name: Fling (20)
+  description: Knock an adjacent target flying up to 3 tiles away, leaving them disarmed and knocked down for a short period.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
+      state: fling
+    useDelay: 20
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoFlingActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 20
+  - type: ActionSharedCooldown
+    id: MCActionXenoFling
+    ids:
+    - MCActionXenoGrappleToss
+    cooldown: 20
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoLunge
+  name: Lunge (30)
+  description: Reach up to four tiles away to grab someone, knocking them down and grabbing them. The target can resist to try and break out of your grip and you'll be slower while moving them. This can combo with Punch to deal an extra 1.5x MELEE damage. Lunge can also be used to grab friendly xenos and grapple toss them away from harm.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
+      state: lunge
+    useDelay: 20
+  - type: TargetAction
+    range: 4
+  - type: EntityTargetAction
+    event: !type:MCXenoLungeActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 30
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAgility
+  name: Agility
+  description: Drop to all fours to move faster. Using any ability will take you out of agility. Also reduces your armor by 30% in all categories.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    iconOn:
+      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
+      state: agility_on
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
+      state: agility_off
+    useDelay: 0.4
+  - type: InstantAction
+    event: !type:MCXenoAgilityActionEvent

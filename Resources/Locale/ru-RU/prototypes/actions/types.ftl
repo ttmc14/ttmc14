@@ -1,5 +1,13 @@
+ent-BaseAction = { "" }
+    .desc = { "" }
+ent-BaseMentalAction = { ent-BaseAction }
+    .desc = { ent-BaseAction.desc }
 ent-BaseSuicideAction = { "" }
     .desc = { "" }
+ent-BaseImplantAction = { ent-BaseAction }
+    .desc = { ent-BaseAction.desc }
+ent-BaseToggleAction = { ent-BaseAction }
+    .desc = { ent-BaseAction.desc }
 ent-ActionScream = Scream
     .desc = AAAAAAAAAAAAAAAAAAAAAAAAA
 ent-ActionTurnUndead = Turn Undead
@@ -54,5 +62,11 @@ ent-ActionToggleWagging = Wagging Tail
     .desc = Start or stop wagging your tail.
 ent-FakeMindShieldToggleAction = [color=green]Toggle Fake Mindshield[/color]
     .desc = Turn the Fake Mindshield implant's transmission on/off
+ent-ActionGravityJump = Jump
+    .desc = Activating the advanced propulsion system, you propel yourself a short distance in the direction of your gaze.
+ent-ActionToggleRootable = Rootable
+    .desc = Begin or stop being rooted to the floor.
+ent-ActionChameleonController = Control clothing
+    .desc = Change your entire outfit fast!
 ent-ActionToggleParamedicSiren = Toggle Paramedic Siren
     .desc = Toggles the paramedic siren on and off.

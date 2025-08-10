@@ -12,3 +12,5 @@ ent-CMHandsWhiteDress = dress gloves
     .desc = A pair of fashionable white gloves, worn by marines in dress.
 ent-RMCHandsPurple = purple gloves
     .desc = A pair of gloves, they don't look special in any way.
+ent-CMHandsBlackInsulated = black insulated gloves
+    .desc = These gloves will protect the wearer from electric shocks. Now in black.

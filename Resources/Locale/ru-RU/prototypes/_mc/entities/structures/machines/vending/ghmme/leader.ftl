@@ -1,2 +1,2 @@
-ent-MCMachineVendingGhmmeLeader = GHMME Automated Leader Closet
-    .desc = An automated closet hooked up to a colossal storage unit of standard-issue uniform and armor.
+ent-MCMachineVendingGhmmeLeader = автоматизированный шкаф GHMME лидера
+    .desc = Автоматизированный шкаф, подключенный к колоссальному хранилищу стандартной одежды и снаряжения.

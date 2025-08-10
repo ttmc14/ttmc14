@@ -11,3 +11,5 @@ ent-RMCSpawnerCommunicationsTowerOne = { ent-RMCSpawnerCommunicationsTowerBase }
 ent-RMCSpawnerCommunicationsTowerTwo = { ent-RMCSpawnerCommunicationsTowerBase }
     .suffix = Two
     .desc = { ent-RMCSpawnerCommunicationsTowerBase.desc }
+ent-RMCCommunicationsTowerProp = destroyed comms tower
+    .desc = An old company comms tower used to transmit communications between subspace bodies. Looks like this one has seen better days.

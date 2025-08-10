@@ -1,2 +1,2 @@
-ent-MCWeaponShotgunSH35 = SH-35 pump shotgun
-    .desc = The Terran Armories SH-35 is the shotgun used by the TerraGov Marine Corps. It's used as a close quarters tool when someone wants something more suited for close range than most people, or as an odd sidearm on your back for emergencies. Uses 12 gauge shells.
+ent-MCWeaponShotgunSH35 = помповый дробовик SH-35
+    .desc = Terran Armories SH-35 — дробовик, используемый Корпусом морской пехоты ТеrrаGov. Применяется как оружие ближнего боя, когда требуется что-то более подходящее для коротких дистанций, чем стандартное вооружение, или как вспомогательное оружие на случай чрезвычайных ситуаций. Использует патроны 12-го калибра.

@@ -1,0 +1,69 @@
+- type: entity
+  parent: MCCase
+  id: MCCaseSyringe
+  name: syringe case
+  description: It's a medical case for storing syringes and bottles.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/firstaids.rsi
+    layers:
+    - state: syringe_case
+    noRot: true
+  - type: Icon
+    sprite: _MC/Objects/Medical/firstaids.rsi
+    state: syringe_case
+  - type: Item
+    size: Small
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,1 # 3 slots
+    whitelist:
+      tags:
+      - MCBottle
+      - MCSyringe
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCCaseSyringe
+  id: MCCaseSyringeFillMeralyne
+  suffix: Fill, Meralyne
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSyringe
+    - id: MCBottleMeralyne
+      amount: 2
+
+- type: entity
+  parent: MCCaseSyringe
+  id: MCCaseSyringeFillDermaline
+  suffix: Fill, Dermaline
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSyringe
+    - id: MCBottleDermaline
+      amount: 2
+
+- type: entity
+  parent: MCCaseSyringe
+  id: MCCaseSyringeFillMeraderm
+  suffix: Fill, Meraderm
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSyringe
+    - id: MCBottleMeraderm
+      amount: 2
+
+- type: entity
+  parent: MCCaseSyringe
+  id: MCCaseSyringeFillNanoblood
+  suffix: Fill, Nanoblood
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSyringe
+    - id: MCBottleNanoblood
+      amount: 2

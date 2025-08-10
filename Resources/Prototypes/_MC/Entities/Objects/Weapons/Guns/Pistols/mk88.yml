@@ -4,6 +4,11 @@
   name: MK88 Mod 4 combat pistol
   description: An uncommon automatic handgun used for self defense, based on the original VP70 more than a century ago. Fires 9mm armor piercing rounds and is capable of 3-round burst or automatic fire.
   components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+    - MCWeaponMK88
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Pistols/mk88.rsi
   - type: Clothing
@@ -83,10 +88,6 @@
       rmc-aslot-barrel: 0.685, 0.125
       rmc-aslot-rail: -0.125, 0.215
       rmc-aslot-underbarrel: 0.284, -0.19
-  - type: Tag
-    tags:
-    - Sidearm
-    - MCWeaponMK88
 
 - type: entity
   parent: CMBaseMagazinePistol

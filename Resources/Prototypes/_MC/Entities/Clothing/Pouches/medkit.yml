@@ -14,27 +14,31 @@
     - 0,0,13,1 # 7 slots
     whitelist:
       tags:
-      # /obj/item/healthanalyzer
-      - DiscreteHealthAnalyzer
-      # /obj/item/reagent_containers/dropper
-      - Dropper
-      # /obj/item/reagent_containers/pill
-      - Pill
-      # /obj/item/reagent_containers/glass/bottle
-      - Bottle
-      # /obj/item/reagent_containers/syringe
-      - Syringe
-      # /obj/item/storage/pill_bottle
-      - PillCanister
-      # /obj/item/stack/medical
-      - CMTraumaKit
-      - CMBurnKit
-      - CMOintment
-      - Brutepack
-      # TODO: /obj/item/storage/pill_bottle/packet
-      # /obj/item/reagent_containers/hypospray
-      - Hypospray
+      - MCHealthAnalyzer # /obj/item/healthanalyzer
+      - Dropper # /obj/item/reagent_containers/dropper
+      - MCPill # /obj/item/reagent_containers/pill
+      - MCBottleFilled # /obj/item/reagent_containers/glass/bottle
+      - MCSyringe # /obj/item/reagent_containers/syringe
+      - MCPillCanister # /obj/item/storage/pill_bottle
+      - MCHealingItem # /obj/item/stack/medical
+      # /obj/item/storage/pill_bottle/packet
+      - MCHypospray # /obj/item/reagent_containers/hypospray
   - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchMedkit
+  id: MCPouchMedkitFill
+  suffix: Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCTraumaKit
+    - id: MCTraumaKit
+    - id: MCTraumaKit
+    - id: MCBurnKit
+    - id: MCBurnKit
+    - id: MCBurnKit
+    - id: MCHyposprayFillMeraderm
 
 - type: entity
   parent: MCPouchStorage
@@ -50,24 +54,13 @@
     - 0,0,13,1 # 7 slots
     whitelist:
       tags:
-      # /obj/item/healthanalyzer
-      - DiscreteHealthAnalyzer
-      # /obj/item/reagent_containers/dropper
-      - Dropper
-      # /obj/item/reagent_containers/pill
-      - Pill
-      # /obj/item/reagent_containers/glass/bottle
-      - Bottle
-      # /obj/item/reagent_containers/syringe
-      - Syringe
-      # /obj/item/storage/pill_bottle
-      - PillCanister
-      # /obj/item/stack/medical
-      - CMTraumaKit
-      - CMBurnKit
-      - CMOintment
-      - Brutepack
-      # TODO: /obj/item/storage/pill_bottle/packet
-      # /obj/item/reagent_containers/hypospray
-      - Hypospray
+      - MCHealthAnalyzer # /obj/item/healthanalyzer
+      - Dropper # /obj/item/reagent_containers/dropper
+      - MCPill # /obj/item/reagent_containers/pill
+      - MCBottleFilled # /obj/item/reagent_containers/glass/bottle
+      - MCSyringe # /obj/item/reagent_containers/syringe
+      - MCPillCanister # /obj/item/storage/pill_bottle
+      - MCHealingItem # /obj/item/stack/medical
+      # /obj/item/storage/pill_bottle/packet
+      - MCHypospray # /obj/item/reagent_containers/hypospray
   - type: FixedItemSizeStorage

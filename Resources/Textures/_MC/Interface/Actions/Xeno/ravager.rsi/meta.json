@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ignore_pain"
+    },
+    {
+      "name": "rage"
+    },
+    {
+      "name": "ravage"
+    },
+    {
+      "name": "deathmark"
+    }
+  ]
+}

@@ -1,9 +1,27 @@
 # Marine, Corpsman, Engineer, Smartgunner
 - type: rank
+  id: MCPrivate
+  name: mc-rank-MCPrivate-name
+  prefix: mc-rank-MCPrivate-prefix
+  paygrade: mc-rank-MCPrivate-paygrade
+
+- type: rank
+  id: MCPrivateFirstClass
+  name: mc-rank-MCPrivateFirstClass-name
+  prefix: mc-rank-MCPrivateFirstClass-prefix
+  paygrade: mc-rank-MCPrivateFirstClass-paygrade
+
+- type: rank
   id: MCLanceCorporal
   name: mc-rank-MCLanceCorporal-name
   prefix: mc-rank-MCLanceCorporal-prefix
   paygrade: mc-rank-MCLanceCorporal-paygrade
+
+- type: rank
+  id: MCSectionCorporal
+  name: mc-rank-MCSectionCorporal-name
+  prefix: mc-rank-MCSectionCorporal-prefix
+  paygrade: mc-rank-MCSectionCorporal-paygrade
 
 - type: rank
   id: MCCorporal
@@ -24,10 +42,41 @@
   paygrade: mc-rank-MCStaffSergeant-paygrade
 
 - type: rank
+  id: MCMasterSergeant
+  name: mc-rank-MCMasterSergeant-name
+  prefix: mc-rank-MCMasterSergeant-prefix
+  paygrade: mc-rank-MCMasterSergeant-paygrade
+
+- type: rank
   id: MCSergeantMajor
   name: mc-rank-MCSergeantMajor-name
   prefix: mc-rank-MCSergeantMajor-prefix
   paygrade: mc-rank-MCSergeantMajor-paygrade
+
+# FK
+- type: rank
+  id: MCMajor
+  name: mc-rank-MCMajor-name
+  prefix: mc-rank-MCMajor-prefix
+  paygrade: mc-rank-MCMajor-paygrade
+
+- type: rank
+  id: MCLieutenantColonel
+  name: mc-rank-MCLieutenantColonel-name
+  prefix: mc-rank-MCLieutenantColonel-prefix
+  paygrade: mc-rank-MCLieutenantColonel-paygrade
+
+- type: rank
+  id: MCColonel
+  name: mc-rank-MCColonel-name
+  prefix: mc-rank-MCColonel-prefix
+  paygrade: mc-rank-MCColonel-paygrade
+
+- type: rank
+  id: MCGeneral
+  name: mc-rank-MCGeneral-name
+  prefix: mc-rank-MCGeneral-prefix
+  paygrade: mc-rank-MCGeneral-paygrade
 
 # Squad leader
 - type: rank
@@ -73,6 +122,12 @@
   prefix: mc-rank-MCLieutenantCommander-prefix
   paygrade: mc-rank-MCLieutenantCommander-paygrade
 
+- type: rank
+  id: MCCommander
+  name: mc-rank-MCCommander-name
+  prefix: mc-rank-MCCommander-prefix
+  paygrade: mc-rank-MCCommander-paygrade
+
 # RO, ST
 - type: rank
   id: MCChiefPettyOfficer
@@ -116,3 +171,195 @@
   name: mc-rank-MCPettyOfficerFirstClass-name
   prefix: mc-rank-MCPettyOfficerFirstClass-prefix
   paygrade: mc-rank-MCPettyOfficerFirstClass-paygrade
+
+- type: rank
+  id: MCSeniorChiefPettyOfficer
+  name: mc-rank-MCSeniorChiefPettyOfficer-name
+  prefix: mc-rank-MCSeniorChiefPettyOfficer-prefix
+  paygrade: mc-rank-MCSeniorChiefPettyOfficer-paygrade
+
+# CPT
+- type: rank
+  id: MCCaptain
+  name: mc-rank-MCCaptain-name
+  prefix: mc-rank-MCCaptain-prefix
+  paygrade: mc-rank-MCCaptain-paygrade
+
+- type: rank
+  id: MCCommondore
+  name: mc-rank-MCCommondore-name
+  prefix: mc-rank-MCCommondore-prefix
+  paygrade: mc-rank-MCCommondore-paygrade
+
+- type: rank
+  id: MCRearAdmiral
+  name: mc-rank-MCRearAdmiral-name
+  prefix: mc-rank-MCRearAdmiral-prefix
+  paygrade: mc-rank-MCRearAdmiral-paygrade
+
+- type: rank
+  id: MCViceAdmiral
+  name: mc-rank-MCViceAdmiral-name
+  prefix: mc-rank-MCViceAdmiral-prefix
+  paygrade: mc-rank-MCViceAdmiral-paygrade
+
+- type: rank
+  id: MCAdmiral
+  name: mc-rank-MCAdmiral-name
+  prefix: mc-rank-MCAdmiral-prefix
+  paygrade: mc-rank-MCAdmiral-paygrade
+
+# CMO
+- type: rank
+  id: MCSeniorPhysician
+  name: mc-rank-MCSeniorPhysician-name
+  prefix: mc-rank-MCSeniorPhysician-prefix
+  paygrade: mc-rank-MCSeniorPhysician-paygrade
+
+- type: rank
+  id: MCHeadPhysician
+  name: mc-rank-MCHeadPhysician-name
+  prefix: mc-rank-MCHeadPhysician-prefix
+  paygrade: mc-rank-MCHeadPhysician-paygrade
+
+- type: rank
+  id: MCMedicalSupervisor
+  name: mc-rank-MCMedicalSupervisor-name
+  prefix: mc-rank-MCMedicalSupervisor-prefix
+  paygrade: mc-rank-MCMedicalSupervisor-paygrade
+
+- type: rank
+  id: MCMedicalDirector
+  name: mc-rank-MCMedicalDirector-name
+  prefix: mc-rank-MCMedicalDirector-prefix
+  paygrade: mc-rank-MCMedicalDirector-paygrade
+
+- type: rank
+  id: MCChiefMedicalOfficer
+  name: mc-rank-MCChiefMedicalOfficer-name
+  prefix: mc-rank-MCChiefMedicalOfficer-prefix
+  paygrade: mc-rank-MCChiefMedicalOfficer-paygrade
+
+# MD
+- type: rank
+  id: MCMedicalStudent
+  name: mc-rank-MCMedicalStudent-name
+  prefix: mc-rank-MCMedicalStudent-prefix
+  paygrade: mc-rank-MCMedicalStudent-paygrade
+
+- type: rank
+  id: MCJuniorResident
+  name: mc-rank-MCJuniorResident-name
+  prefix: mc-rank-MCJuniorResident-prefix
+  paygrade: mc-rank-MCJuniorResident-paygrade
+
+- type: rank
+  id: MCSeniorResident
+  name: mc-rank-MCSeniorResident-name
+  prefix: mc-rank-MCSeniorResident-prefix
+  paygrade: mc-rank-MCSeniorResident-paygrade
+
+- type: rank
+  id: MCGeneralPractitioner
+  name: mc-rank-MCGeneralPractitioner-name
+  prefix: mc-rank-MCGeneralPractitioner-prefix
+  paygrade: mc-rank-MCGeneralPractitioner-paygrade
+
+- type: rank
+  id: MCAttendingPhysician
+  name: mc-rank-MCAttendingPhysician-name
+  prefix: mc-rank-MCAttendingPhysician-prefix
+  paygrade: mc-rank-MCAttendingPhysician-paygrade
+
+# RSR
+- type: rank
+  id: MCResearchAssistant
+  name: mc-rank-MCResearchAssistant-name
+  prefix: mc-rank-MCResearchAssistant-prefix
+  paygrade: mc-rank-MCResearchAssistant-paygrade
+
+- type: rank
+  id: MCResearcher
+  name: mc-rank-MCResearcher-name
+  prefix: mc-rank-MCResearcher-prefix
+  paygrade: mc-rank-MCResearcher-paygrade
+
+- type: rank
+  id: MCLecturer
+  name: mc-rank-MCLecturer-name
+  prefix: mc-rank-MCLecturer-prefix
+  paygrade: mc-rank-MCLecturer-paygrade
+
+- type: rank
+  id: MCAssociateProfessor
+  name: mc-rank-MCAssociateProfessor-name
+  prefix: mc-rank-MCAssociateProfessor-prefix
+  paygrade: mc-rank-MCAssociateProfessor-paygrade
+
+- type: rank
+  id: MCProfessor
+  name: mc-rank-MCProfessor-name
+  prefix: mc-rank-MCProfessor-prefix
+  paygrade: mc-rank-MCProfessor-paygrade
+
+# CL
+- type: rank
+  id: MCCorporateIntern
+  name: mc-rank-MCCorporateIntern-name
+  prefix: mc-rank-MCCorporateIntern-prefix
+  paygrade: mc-rank-MCCorporateIntern-paygrade
+
+- type: rank
+  id: MCCorporateAssociate
+  name: mc-rank-MCCorporateAssociate-name
+  prefix: mc-rank-MCCorporateAssociate-prefix
+  paygrade: mc-rank-MCCorporateAssociate-paygrade
+
+- type: rank
+  id: MCCorporatePartner
+  name: mc-rank-MCCorporatePartner-name
+  prefix: mc-rank-MCCorporatePartner-prefix
+  paygrade: mc-rank-MCCorporatePartner-paygrade
+
+- type: rank
+  id: MCCorporateAnalyst
+  name: mc-rank-MCCorporateAnalyst-name
+  prefix: mc-rank-MCCorporateAnalyst-prefix
+  paygrade: mc-rank-MCCorporateAnalyst-paygrade
+
+- type: rank
+  id: MCCorporateSupervisor
+  name: mc-rank-MCCorporateSupervisor-name
+  prefix: mc-rank-MCCorporateSupervisor-prefix
+  paygrade: mc-rank-MCCorporateSupervisor-paygrade
+
+# SNTC
+- type: rank
+  id: MCMarkI
+  name: mc-rank-MCMarkI-name
+  prefix: mc-rank-MCMarkI-prefix
+  paygrade: mc-rank-MCMarkI-paygrade
+
+- type: rank
+  id: MCMarkII
+  name: mc-rank-MCMarkII-name
+  prefix: mc-rank-MCMarkII-prefix
+  paygrade: mc-rank-MCMarkII-paygrade
+
+- type: rank
+  id: MCMarkIII
+  name: mc-rank-MCMarkIII-name
+  prefix: mc-rank-MCMarkIII-prefix
+  paygrade: mc-rank-MCMarkIII-paygrade
+
+- type: rank
+  id: MCMarkIV
+  name: mc-rank-MCMarkIV-name
+  prefix: mc-rank-MCMarkIV-prefix
+  paygrade: mc-rank-MCMarkIV-paygrade
+
+- type: rank
+  id: MCMarkV
+  name: mc-rank-MCMarkV-name
+  prefix: mc-rank-MCMarkV-prefix
+  paygrade: mc-rank-MCMarkV-paygrade

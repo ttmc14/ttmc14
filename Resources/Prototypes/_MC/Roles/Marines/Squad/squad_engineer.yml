@@ -68,7 +68,7 @@
   - type: SpawnPoint
     job_id: MCSquadEngineer
   - type: Sprite
-    state: engi_spawn
+    state: eng
 
 - type: entity
   parent: MCSpawnPointSquadEngineer
@@ -78,8 +78,6 @@
   - type: SquadSpawner
     squad: SquadAlpha
     role: MCSquadEngineer
-  - type: Sprite
-    state: engi_spawn
 
 - type: entity
   parent: MCSpawnPointSquadEngineer
@@ -89,8 +87,6 @@
   - type: SquadSpawner
     squad: SquadBravo
     role: MCSquadEngineer
-  - type: Sprite
-    state: engi_spawn
 
 - type: entity
   parent: MCSpawnPointSquadEngineer
@@ -100,8 +96,6 @@
   - type: SquadSpawner
     squad: SquadCharlie
     role: MCSquadEngineer
-  - type: Sprite
-    state: engi_spawn
 
 - type: entity
   parent: MCSpawnPointSquadEngineer
@@ -111,5 +105,3 @@
   - type: SquadSpawner
     squad: SquadDelta
     role: MCSquadEngineer
-  - type: Sprite
-    state: engi_spawn

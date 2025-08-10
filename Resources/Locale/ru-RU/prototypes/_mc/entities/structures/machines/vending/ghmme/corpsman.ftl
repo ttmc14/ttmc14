@@ -1,2 +1,2 @@
-ent-MCMachineVendingGhmmeCorpsman = GHMME Automated Corpsman Closet
-    .desc = An automated closet hooked up to a colossal storage unit of standard-issue uniform and armor.
+ent-MCMachineVendingGhmmeCorpsman = автоматизированный шкаф GHMME санитара
+    .desc = Автоматизированный шкаф, подключенный к колоссальному хранилищу стандартной одежды и снаряжения.

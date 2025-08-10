@@ -30,6 +30,21 @@
 
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoBlessings
+  name: Queen Mother's Blessings
+  description: Opens the Queen Mothers Blessings menu, where hive buildings and upgrades are bought.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/queen.rsi
+      state: blessing
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:MCXenoBlessingsActionEvent
+
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoPsydrain
   name: Psy drain (50)
   description: Drain the victim of its life force to gain larva and psych points.
@@ -61,7 +76,7 @@
     event: !type:XenoPheromonesActionEvent
 
 - type: entity
-  parent: ActionXenoAcidNormal
+  parent: ActionXenoBase
   id: MCActionXenoAcidWeak
   name: Weak Corrosive Acid (75)
   description: Melts down a structure or item over time.
@@ -77,6 +92,48 @@
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidWeak
       plasmaCost: 75
-      time: 480
+      time: 125 # seconds or 2~ minutes
       dps: 4
       expendableLightDps: 0.3
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAcidMedium
+  name: Corrosive Acid (100)
+  description: Melts down a structure or item over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/general.rsi
+      state: corrosive_acid
+  - type: TargetAction
+    checkCanInteract: false
+  - type: EntityTargetAction
+    event: !type:XenoCorrosiveAcidEvent
+      acidId: XenoAcidNormal
+      plasmaCost: 100
+      time: 50 # seconds
+      dps: 8
+      expendableLightDps: 2.5
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAcidStrong
+  name: Strong Corrosive Acid (100)
+  description: Melts down a structure or item over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/general.rsi
+      state: corrosive_acid
+  - type: TargetAction
+    checkCanInteract: false
+  - type: EntityTargetAction
+    event: !type:XenoCorrosiveAcidEvent
+      acidId: XenoAcidStrong
+      plasmaCost: 125
+      time: 20 # seconds
+      dps: 20
+      expendableLightDps: 23.4375

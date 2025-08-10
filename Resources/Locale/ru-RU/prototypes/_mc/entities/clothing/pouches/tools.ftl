@@ -1,5 +1,5 @@
-ent-MCPouchTools = tools pouch
-    .desc = It's designed to hold maintenance tools - screwdriver, wrench, cable coil, etc. It also has a hook for an entrenching tool.
+ent-MCPouchTools = подсумок для инструментов
+    .desc = Он разработан для хранения инструментов — отвёрток, гаечных ключей, кабельных катушек и т. д. Также оснащён крюком для шанцевого инструмента (малой пехотной лопаты).
 ent-MCPouchToolsFill = { ent-MCPouchTools }
     .suffix = Fill
     .desc = { ent-MCPouchTools.desc }

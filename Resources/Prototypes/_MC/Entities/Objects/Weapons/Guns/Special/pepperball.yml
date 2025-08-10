@@ -1,0 +1,121 @@
+- type: entity
+  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  id: MCWeaponPepperball
+  name: PB-12 pepperball gun
+  description: The PB-12 is ostensibly riot control device used by the TGMC in spiffy colors, working through a SAN ball that sends a short acting neutralizing chemical to knock out it's target, or weaken them. Guranteed to work on just about everything. Uses SAN Ball Holders as magazines.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Special/pepperball.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Special/pepperball.rsi
+    slots:
+    - belt
+    - back
+    - suitstorage
+  - type: Gun
+    shotsPerBurst: 1
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_fb12_1.ogg
+  - type: RMCSelectiveFire
+    baseFireRate: 10 # 1 / 0.1
+    baseFireModes:
+    - FullAuto
+    recoilUnwielded: 4
+    scatterWielded: -1
+    scatterUnwielded: 2
+    modifiers:
+      FullAuto:
+        maxScatterModifier: 0
+        useBurstScatterMult: false
+        unwieldedScatterMultiplier: 0
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 0.75
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.7
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/rifle_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/flipblade.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazinePepperball
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - RMCAttachmentMagneticHarness
+          - RMCAttachmentRailFlashlight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-rail: 0.2, 0.09
+
+- type: entity
+  parent: CMMagazineRifleBase
+  id: MCMagazinePepperball
+  name: pepperball canister (SAN balls)
+  description: A canister holding a projectile to be used inside a pepperball gun.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazinePepperball
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgePepperball
+    proto: MCCartridgePepperball
+    capacity: 100
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/pepperball.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Item
+    size: Normal
+  - type: Appearance
+
+- type: Tag
+  id: MCMagazinePepperball
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgePepperball
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgePepperball
+  - type: CartridgeAmmo
+    proto: MCBulletPepperball
+
+- type: Tag
+  id: MCCartridgePepperball
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletPepperball
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage: {}
+    soundHit: null
+  - type: RMCStaminaDamageOnCollide
+    damage: 70
+  - type: MCXenoPlasmaDamageOnHit
+    amount: 25
+    multiplier: 0.05

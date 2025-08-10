@@ -9,7 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._RMC14.Rules;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentPause]
 public sealed partial class CMDistressSignalRuleComponent : Component
 {
     [DataField]
@@ -25,7 +25,7 @@ public sealed partial class CMDistressSignalRuleComponent : Component
     public EntityUid? XenoMap;
 
     [DataField]
-    public EntProtoId HiveId = "CMXenoHive";
+    public EntProtoId HiveId = "MCXenoHive";
 
     [DataField]
     public EntityUid Hive;
@@ -35,16 +35,22 @@ public sealed partial class CMDistressSignalRuleComponent : Component
     public bool Hijack;
 
     [DataField]
-    public ProtoId<JobPrototype> QueenJob = "CMXenoQueen";
+    public ProtoId<JobPrototype> QueenJob = "MCXenoQueen";
 
     [DataField]
-    public EntProtoId QueenEnt = "CMXenoQueen";
+    public ProtoId<JobPrototype> ShrikeJob = "MCXenoShrike";
 
     [DataField]
-    public ProtoId<JobPrototype> XenoSelectableJob = "CMXenoSelectableXeno";
+    public EntProtoId QueenEnt = "MCXenoQueen";
 
     [DataField]
-    public EntProtoId LarvaEnt = "CMXenoLarva";
+    public EntProtoId ShrikeEnt = "MCXenoShrike";
+
+    [DataField]
+    public ProtoId<JobPrototype> XenoSelectableJob = "MCXenoSelectableXeno";
+
+    [DataField]
+    public EntProtoId LarvaEnt = "MCXenoLarva";
 
     [DataField]
     public EntProtoId<IFFFactionComponent> MarineFaction = "FactionMarine";
@@ -202,6 +208,9 @@ public sealed partial class CMDistressSignalRuleComponent : Component
     [DataField]
     public bool RequireXenoPlayers = true;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public bool QueenBoostRemoved;
+
+    [DataField]
+    public bool RecalculatedPower;
 }

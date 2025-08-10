@@ -1,0 +1,105 @@
+- type: entity
+  id: MCProp
+  abstract: true
+  components:
+  - type: Transform
+    noRot: false
+  - type: Physics
+    bodyType: Static
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,1.4,0.5"
+        density: 190
+        layer:
+        - MobMask
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Corrodible
+    isCorrodible: false
+
+- type: entity
+  parent: MCProp
+  id: MCPropComputer
+  name: computer
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/computer.rsi
+    state: computer
+
+- type: entity
+  parent: MCProp
+  id: MCPropComputerSmall
+  name: small computer
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/computer.rsi
+    state: terminal
+
+- type: entity
+  parent: MCProp
+  id: MCPropConsoleCell
+  name: cell console
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/computer.rsi
+    state: cellconsole
+
+- type: entity
+  parent: MCProp
+  id: MCPropOverwatch
+  name: overwatch
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/computer.rsi
+    state: overwatch
+
+- type: entity
+  parent: MCProp
+  id: MCPropRecycler
+  name: recycler
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/fusion_engine.rsi
+    state: recycler
+
+- type: entity
+  parent: MCProp
+  id: MCPropRoboticCradle
+  name: robotic cradle
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/suit_cycler.rsi
+    state: suit_cycler
+
+- type: entity
+  parent: MCProp
+  id: MCPropThruster
+  name: thruster
+  components:
+  - type: Sprite
+    sprite: Structures/Shuttles/thruster.rsi
+    layers:
+    - state: base
+    - state: thrust
+
+- type: entity
+  parent: MCProp
+  id: MCPropAutodoc
+  name: autodoc medical system
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/cryogenics.rsi
+    state: autodoc_open
+
+- type: entity
+  parent: MCProp
+  id: MCPropConsoleCryogenics
+  name: cryogenics console
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/cryogenics.rsi
+    state: body_scannerconsole

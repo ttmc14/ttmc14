@@ -1,8 +1,8 @@
-ent-MCBoxShotgun = box of shotgun shells
+ent-MCBoxShotgun = коробка патронов для дробовика
     .desc = { ent-BaseStorageItem.desc }
-ent-MCBoxShotgunBuckshot = box of buckshot shells
-    .desc = A box filled with buckshot spread shotgun shells. 12 Gauge.
-ent-MCBoxShotgunSlugs = box of slug shells
-    .desc = A box filled with heavy shotgun shells. A timeless classic. 12 Gauge.
-ent-MCBoxShotgunFlechette = box of flechette shells
-    .desc = A box filled with flechette shotgun shells. 12 Gauge.
+ent-MCBoxShotgunBuckshot = коробка с картечью
+    .desc = Коробка с картечью для дробовика. 12 калибр.
+ent-MCBoxShotgunSlugs = коробка с пулевыми патронами
+    .desc = Коробка с тяжёлыми пулевыми патронами для дробовика. Вечная классика. 12 калибр.
+ent-MCBoxShotgunFlechette = коробка с флешетами
+    .desc = Коробка с пробивным флешет патронами для дробовика. 12 калибр.

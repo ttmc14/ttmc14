@@ -10,5 +10,7 @@ ent-CMPaperJudgement = judgement
     .desc = { ent-CMPaperWritten.desc }
 ent-CMPaperAlmayerStorage = almayer emergency storage note
     .desc = { ent-CMPaperWritten.desc }
+ent-CMPaperAegisInfoFax = High Command Transmission
+    .desc = { ent-CMPaper.desc }
 ent-RMCPaperRequisitionInvoice = requisition invoice
     .desc = A single unit of bureaucracy awaiting for approval.

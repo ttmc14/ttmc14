@@ -24,23 +24,22 @@
     tier: 1
     role: MCXenoDefender
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - ActionXenoRegurgitate
-    - ActionXenoWatch
-    - ActionXenoTailSlam
-    - ActionXenoToggleCrest
-    - ActionXenoHeadbutt
-    - ActionXenoTailSweep
-    - ActionXenoFortify
-    - ActionXenoDevolve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    - MCActionXenoCrestDefense
+    - MCActionXenoFortify
+    - MCActionXenoTailSweep
+    - MCActionXenoForwardCharge
+    - MCActionXenoRegenerateSkin
     hudOffset: -0.1, 0.2
   - type: XenoDevolve
     devolvesTo:
     - MCXenoLarva
     canBeDevolvedByOther: false
   - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 225
     evolvesTo:
     - MCXenoWarrior
   - type: MCArmor
@@ -102,3 +101,10 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.857
     baseSprintSpeed: 4
+  - type: MCXenoRegenerateSkin
+    heal:
+      groups:
+        Brute: 75 # 25 per type
+        Burn: 100 # 25 per type
+
+

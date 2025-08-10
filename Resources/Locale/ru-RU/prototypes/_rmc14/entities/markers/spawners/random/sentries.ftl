@@ -1,0 +1,12 @@
+ent-RMCSpawnerRandomSentry = sentry loot spawner
+    .desc = This is a random sentry, for survivors.
+    .suffix = Guaranteed
+ent-RMCSpawnerRandomSentryLowChance = { ent-RMCSpawnerRandomSentry }
+    .suffix = Low Chance
+    .desc = { ent-RMCSpawnerRandomSentry.desc }
+ent-RMCSpawnerRandomSentryMidChance = { ent-RMCSpawnerRandomSentry }
+    .suffix = Mid Chance
+    .desc = { ent-RMCSpawnerRandomSentry.desc }
+ent-RMCSpawnerRandomSentryHighChance = { ent-RMCSpawnerRandomSentry }
+    .suffix = High Chance
+    .desc = { ent-RMCSpawnerRandomSentry.desc }

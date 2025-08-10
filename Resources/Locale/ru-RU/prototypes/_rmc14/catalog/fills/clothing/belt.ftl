@@ -52,3 +52,6 @@ ent-RMCBeltMarineMK2 = { ent-CMBeltMarine }
 ent-CMBeltMarineM16 = { ent-CMBeltMarine }
     .suffix = Filled, M16
     .desc = { ent-CMBeltMarine.desc }
+ent-RMCBeltMarineMAR = { ent-CMBeltMarine }
+    .suffix = Filled, MAR30/40
+    .desc = { ent-CMBeltMarine.desc }

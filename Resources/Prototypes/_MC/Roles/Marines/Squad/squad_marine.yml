@@ -54,6 +54,7 @@
     id: MCDogtagSquadMarine
     back: MCSatchelMarineStandard
 
+# spawners
 - type: entity
   parent: MCSpawnPointJob
   id: MCSpawnPointSquadMarine
@@ -62,7 +63,7 @@
   - type: SpawnPoint
     job_id: MCSquadMarine
   - type: Sprite
-    state: marine_spawn
+    state: mar
 
 - type: entity
   parent: MCSpawnPointSquadMarine
@@ -72,8 +73,6 @@
   - type: SquadSpawner
     squad: SquadAlpha
     role: MCSquadMarine
-  - type: Sprite
-    state: marine_spawn
 
 - type: entity
   parent: MCSpawnPointSquadMarine
@@ -83,8 +82,6 @@
   - type: SquadSpawner
     squad: SquadBravo
     role: MCSquadMarine
-  - type: Sprite
-    state: marine_spawn
 
 - type: entity
   parent: MCSpawnPointSquadMarine
@@ -94,8 +91,6 @@
   - type: SquadSpawner
     squad: SquadCharlie
     role: MCSquadMarine
-  - type: Sprite
-    state: marine_spawn
 
 - type: entity
   parent: MCSpawnPointSquadMarine
@@ -105,5 +100,3 @@
   - type: SquadSpawner
     squad: SquadDelta
     role: MCSquadMarine
-  - type: Sprite
-    state: marine_spawn

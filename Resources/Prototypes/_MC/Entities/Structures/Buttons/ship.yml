@@ -7,3 +7,43 @@
     id: mc_ship_droppod_bay
   - type: AccessReader
     access: [ [ "MCAccessLogistics" ], [ "MCAccessBrig" ], [ "MCAccessEngineering" ], [ "MCAccessEngineeringPreparation" ], [ "MCAccessBridge" ], [ "MCAccessDropship" ] ]
+
+- type: entity
+  parent: RMCPodDoorButton
+  id: MCButtonAmmunitionStorage
+  name: ammunition storage
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_ammunition_storage
+  - type: AccessReader
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessBrig" ], [ "MCAccessEngineering" ], [ "MCAccessMarineSquadLeader" ], [ "MCAccessBridge" ], [ "MCAccessDropship" ] ]
+
+- type: entity
+  parent: RMCPodDoorButton
+  id: MCButtonMechShutters
+  name: mech shutters
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_mech_bay
+  - type: AccessReader
+    access: [ [ "MCAccessMech" ] ]
+
+- type: entity
+  parent: RMCPodDoorButton
+  id: MCButtonMechRequisitionWarehouse
+  name: requisition warehouse
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_requisition_warehouse
+  - type: AccessReader
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessCargo" ] ]
+
+- type: entity
+  parent: RMCPodDoorButton
+  id: MCButtonShipCicArmory
+  name: cic armory
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_cic_armory_shutters
+  - type: AccessReader
+    access: [ [ "MCAccessBridge" ] ]

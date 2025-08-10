@@ -32,6 +32,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MarineOrders
     - type: Skills
       skills:
         RMCSkillEngineer: 3

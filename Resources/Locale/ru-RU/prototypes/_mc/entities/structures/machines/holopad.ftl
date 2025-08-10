@@ -1,2 +1,2 @@
-ent-MCHolopad = holopad
-    .desc = A floor-mounted device for projecting holographic images.
+ent-MCHolopad = голопад
+    .desc = Напольное устройство для проецирования голографических изображений.

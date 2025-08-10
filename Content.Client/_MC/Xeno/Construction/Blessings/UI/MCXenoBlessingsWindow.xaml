@@ -1,0 +1,17 @@
+﻿<ui:MCXenoBlessingsWindow
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._MC.Xeno.Construction.Blessings.UI"
+    Title="Queen Mother's Blessings"
+    MinSize="300 300"
+    SetSize="450 500">
+    <BoxContainer Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True">
+        <Label Text="WTF"
+               Name="PsyLabel"
+               Margin="0 0 0 8"
+               Access="Public" />
+        <TabContainer Name="GroupContainer"
+                      VerticalExpand="True"
+                      HorizontalExpand="True"
+                      Access="Public" />
+    </BoxContainer>
+</ui:MCXenoBlessingsWindow>

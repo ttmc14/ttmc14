@@ -146369,7 +146369,7 @@ entities:
     - type: Transform
       pos: -173.5,-12.5
       parent: 1
-- proto: RMCAttachmentM42A2WoodenStock
+- proto: RMCAttachmentM42A1WoodenStock
   entities:
   - uid: 13258
     components:

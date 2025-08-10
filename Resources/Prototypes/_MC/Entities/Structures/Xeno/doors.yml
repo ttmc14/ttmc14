@@ -1,0 +1,128 @@
+- type: entity
+  parent: CMBaseXenoStructure
+  id: MCDoorXenoResin
+  name: resin door
+  description: That's a resin door.
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: InteractionOutline
+  - type: Sprite
+    sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi
+    layers:
+    - state: resin
+      map: [ "enum.DoorVisualLayers.Base" ]
+    - state: closed_unlit
+      map: [ "enum.DoorVisualLayers.BaseUnlit" ]
+    - state: closed_unlit
+      map: [ "enum.DoorVisualLayers.BaseBolted" ]
+  - type: AnimationPlayer
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - AirlockLayer
+  - type: Door
+    canPry: false
+    crushDamage:
+      types:
+        Blunt: 15
+    openSpriteState: resinopen
+    closedSpriteState: resin
+    openingSpriteState: resinopening
+    closingSpriteState: resinclosing
+    openSound:
+      path: /Audio/_RMC14/Xeno/alien_resin_move1.ogg
+    closeSound:
+      path: /Audio/_RMC14/Xeno/alien_resin_move2.ogg
+    openTimeOne: 0
+  - type: Appearance
+  - type: Occluder
+  - type: Damageable
+    damageContainer: StructuralXeno
+    damageModifierSet: Resin
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: PlacementReplacement
+    key: walls
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: AccessReader
+    access: [ [ "CMAccessXeno" ] ]
+  - type: Airlock
+    emergencyAccessLayer: false
+    animatePanel: false
+    powered: true
+    openingSpriteState: closed_unlit
+    closingSpriteState: closed_unlit
+  - type: XenoConstructionPlasmaCost
+    plasma: 120
+  - type: XenoStructureUpgradeable
+    to: DoorXenoResinThick
+    cost: 25
+  - type: MeleeReceivedMultiplier
+    xenoDamage:
+      types:
+        Slash: 600
+    otherMultiplier: 1
+  - type: XenoConstructionRequiresSupport
+  - type: XenoConstruct
+  - type: ResinDoor
+  - type: AllowWeedSpread
+  - type: ResinSurgeReinforcable
+  - type: RMCDeleteAnchoredOnInit
+    whitelist: {}
+
+- type: entity
+  parent: MCDoorXenoResin
+  id: MCDoorXenoResinThick
+  name: thick resin door
+  description: A thick resin door, which is more durable.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi
+    layers:
+    - state: thick_resin
+      map: [ "enum.DoorVisualLayers.Base" ]
+    - state: closed_unlit
+      map: [ "enum.DoorVisualLayers.BaseUnlit" ]
+    - state: closed_unlit
+      map: [ "enum.DoorVisualLayers.BaseBolted" ]
+  - type: Door
+    crushDamage:
+      types:
+        Blunt: 15
+    openSpriteState: thick_resinopen
+    closedSpriteState: thick_resin
+    openingSpriteState: thick_resinopening
+    closingSpriteState: thick_resinclosing
+    openSound:
+      path: /Audio/_RMC14/Xeno/alien_resin_move1.ogg
+    closeSound:
+      path: /Audio/_RMC14/Xeno/alien_resin_move2.ogg
+  - type: IconSmooth
+    key: walls
+    mode: NoSprite
+  - type: MCArmor
+    melee: 45
+    bullet: 45
+    laser: 45
+    energy: 45
+    bomb: 30
+    bio: 30
+    fire: 40
+    acid: 30
+  - type: XenoConstructionPlasmaCost
+    plasma: 50

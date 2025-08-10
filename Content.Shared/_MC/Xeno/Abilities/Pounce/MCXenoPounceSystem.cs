@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Knockback;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -110,7 +111,7 @@ public sealed class MCXenoPounceSystem : EntitySystem
         _stun.TrySlowdown(entity, pounceComponent.HitSelfParalyzeTime, true, 0f, 0f);
 
         _damageable.TryChangeDamage(args.OtherEntity, pounceComponent.HitDamage, origin: entity, tool: entity);
-        _stun.TryKnockdown(args.OtherEntity, pounceComponent.HitKnockdownTime, true);
+        _stun.TryParalyze(args.OtherEntity, pounceComponent.HitKnockdownTime, true);
 
         if (pounceComponent.HitSound is not null)
             _audio.PlayPredicted(pounceComponent.HitSound, entity, entity);

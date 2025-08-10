@@ -1,5 +1,5 @@
-ent-MCDogtag = identification holo-badge
-    .desc = A slice of encoded compressed fiber glass. Used for identification and access control.
+ent-MCDogtag = идентификационный голо-значок
+    .desc = Кусочек кодированного спрессованного стекловолокна. Используется для идентификации и контроля доступа.
 ent-MCGoldenIdCard = { ent-MCDogtag }
     .desc = { ent-MCDogtag.desc }
 ent-MCSilverIdCard = { ent-MCDogtag }

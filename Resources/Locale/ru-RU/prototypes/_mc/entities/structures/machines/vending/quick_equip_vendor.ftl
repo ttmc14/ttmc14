@@ -1,2 +1,2 @@
-ent-MCMachineVendingQuickEquip = Kwik-E-Quip vendor
-    .desc = An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment. Mutually exclusive with the GHMME.
+ent-MCMachineVendingQuickEquip = Быстр-о-Экиперовщик
+    .desc = Продвинутый вендор, позволяющий мгновенно вооружить солдат определенными наборами снаряжения, что дает возможность сразу же приступить к боевым действиям. Взаимоисключающий вариант с GHMME.

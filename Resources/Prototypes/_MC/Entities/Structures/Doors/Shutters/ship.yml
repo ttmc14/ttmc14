@@ -1,7 +1,39 @@
 - type: entity
   parent: RMCPodDoorAlmayerIndestructible
   id: MCPodlockShipDroppodBay
-  suffix: Droppod bay
+  name: drop pod bay
   components:
   - type: RMCPodDoor
     id: mc_ship_droppod_bay
+
+- type: entity
+  parent: RMCPodDoorAlmayerIndestructible
+  id: MCPodlockShipAmmunitionStorage
+  name: ammunition storage
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_ammunition_storage
+
+- type: entity
+  parent: RMCPodDoorAlmayerIndestructible
+  id: MCPodlockShipMechShutter
+  name: mech shutters
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_mech_bay
+
+- type: entity
+  parent: RMCShutterAlmayer
+  id: MCShutterShipRequisitionWarehouse
+  name: requisition warehouse shutters
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_requisition_warehouse
+
+- type: entity
+  parent: RMCShutterAlmayer
+  id: MCShutterShipCICArmory
+  name: cic armory shutters
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_cic_armory_shutters

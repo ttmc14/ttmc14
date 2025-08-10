@@ -5,5 +5,7 @@ ent-RMCMagazineSMGNailgun = nailgun magazine (7x45mm)
     .desc = A large magazine of oversized plasteel nails. Unfortunately, the production cost of those nail makes them ill-affordable for most military projects, and only some specific construction projects requires them.
 ent-RMCCartridge7x45mm = nail (7x45mm)
     .desc = { ent-CMCartridgeSMGBase.desc }
+ent-RMCNail7x45mm = { ent-RMCBaseBullet }
+    .desc = { ent-RMCBaseBullet.desc }
 ent-Nail7x45mm = { ent-RMCBaseBullet }
     .desc = { ent-RMCBaseBullet.desc }

@@ -69,7 +69,6 @@
 - type: Tag
   id: MCShellShotgunBuckshot
 
-# buckshot bullet
 - type: entity
   parent: MCBulletShotgun
   id: MCBulletShotgunBuckshot
@@ -83,32 +82,38 @@
   - type: Projectile
     damage:
       types:
-        Piercing: 28
+        Piercing: 40
   - type: CMArmorPiercing
     amount: 0
   - type: MCXenoSunderDamageOnHit
     amount: 0
+  - type: MCStunOnHit
+    paralyzeTime: 2
+    staggerTime: 2
+    knockback: 2
+    slowdownTime: 0.5
+    maxDistance: 3
   - type: ProjectileSpread
     proto: MCBulletShotgunBuckshot
-    count: 6
-    spread: 15
+    count: 5
+    spread: 4
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 4
+    - range: 10
       falloff: 9999
       ignoreModifiers: true
     - range: 0
-      falloff: 1
+      falloff: 4
   - type: RMCProjectileAccuracy
     thresholds:
     - range: 4
       falloff: 10
   - type: RMCStunOnHit
 
-# slugs
+# slug
 - type: entity
   parent: CMShellShotgunBase
-  id: MCShellShotgunSlugs
+  id: MCShellShotgunSlug
   name: handful of shotgun slugs
   components:
   - type: Sprite
@@ -120,7 +125,7 @@
     proto: MCBulletShotgunSlug
   - type: Stack
     count: 5
-    stackType: MCShellShotgunSlugs
+    stackType: MCShellShotgunSlug
     baseLayer: base
     layerStates:
     - slug_shell_1
@@ -131,12 +136,12 @@
     - slug_shell_5
   - type: Tag
     tags:
-    - MCShellShotgunSlugs
+    - MCShellShotgunSlug
     - MCShellShotgun
     - MCHandful
 
 - type: entity
-  parent: MCShellShotgunSlugs
+  parent: MCShellShotgunSlug
   id: MCShellShotgunSlugs1
   suffix: 1
   components:
@@ -144,18 +149,17 @@
     count: 1
 
 - type: stack
-  id: MCShellShotgunSlugs
+  id: MCShellShotgunSlug
   name: handful of shotgun slugs
   icon:
     sprite: /Textures/_RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
     state: slug_shell_1
-  spawn: MCShellShotgunSlugs
+  spawn: MCShellShotgunSlug
   maxCount: 5
 
 - type: Tag
-  id: MCShellShotgunSlugs
+  id: MCShellShotgunSlug
 
-# slug bullet
 - type: entity
   parent: MCBulletShotgun
   id: MCBulletShotgunSlug
@@ -172,20 +176,76 @@
         Piercing: 100
   - type: MCXenoSunderDamageOnHit
     amount: 7.5
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCStunOnHit
+    paralyzeTime: 2
+    staggerTime: 2
+    knockback: 1
+    slowdownTime: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 8
+    - range: 15
       falloff: 9999
       ignoreModifiers: true
     - range: 0
       falloff: 1
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 8
+      falloff: 10
+
+# slug tx15
+- type: entity
+  parent: CMShellShotgunBase
+  id: MCShellShotgunSlugsTx15
+  name: handful of shotgun slugs
+  components:
+  - type: Tag
+    tags:
+    - MCShellShotgunSlugTx15
+    - MCShellShotgun
+    - MCHandful
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: slug_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunSlugTx15
+
+- type: Tag
+  id: MCShellShotgunSlugTx15
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunSlugTx15
+  name: slug
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: beanbag
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 60
+  - type: MCXenoSunderDamageOnHit
+    amount: 3.5
   - type: CMArmorPiercing
-    amount: 20
-  - type: RMCStunOnHit
-    maxRange: 6.5
-    stunTime: 1
-    superSlowTime: 2
-    slowTime: 6
+    amount: 30
+  - type: MCStunOnHit
+    knockback: 2
+    slowdownTime: 2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 15
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 0
+      falloff: 1
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
@@ -242,7 +302,6 @@
 - type: Tag
   id: MCShellShotgunFlechette
 
-# flechette bullet
 - type: entity
   parent: MCBulletShotgun
   id: MCBulletShotgunFlechette
@@ -262,13 +321,77 @@
   - type: MCXenoSunderDamageOnHit
     amount: 7
   - type: ProjectileSpread
-    proto: MCBulletShotgunFlechette
-    count: 3
-    spread: 6
+    proto: MCBulletShotgunFlechetteSpread
+    count: 2
+    spread: 3
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 12
+    - range: 15
       falloff: 9999
       ignoreModifiers: true
     - range: 0
       falloff: 1
+
+- type: entity
+  parent: MCBulletShotgunFlechette
+  id: MCBulletShotgunFlechetteSpread
+  name: flechette shell
+  components:
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 40
+  - type: MCXenoSunderDamageOnHit
+    amount: 5
+
+# flechette tx15
+- type: entity
+  parent: CMShellShotgunBase
+  id: MCShellShotgunFlechetteTx15
+  name: handful of flechette shells
+  components:
+  - type: Tag
+    tags:
+    - MCShellShotgunFlechetteTx15
+    - MCShellShotgun
+    - MCHandful
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: flechette_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunFlechetteTx15
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunFlechetteTx15
+  name: flechette shell
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: flechette
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        Piercing: 50
+  - type: CMArmorPiercing
+    amount: 15
+  - type: MCXenoSunderDamageOnHit
+    amount: 1.5
+  - type: ProjectileSpread
+    proto: MCBulletShotgunFlechetteTx15
+    count: 4
+    spread: 2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 15
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 0
+      falloff: 1
+
+- type: Tag
+  id: MCShellShotgunFlechetteTx15

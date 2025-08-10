@@ -1,0 +1,119 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "x"
+    },
+    {
+      "name": "x2"
+    },
+    {
+      "name": "x3"
+    },
+    {
+      "name": "x4"
+    },
+    {
+      "name": "cap"
+    },
+    {
+      "name": "fc"
+    },
+    {
+      "name": "cse"
+    },
+    {
+      "name": "se"
+    },
+    {
+      "name": "cl"
+    },
+    {
+      "name": "ro"
+    },
+    {
+      "name": "cmo"
+    },
+    {
+      "name": "md"
+    },
+    {
+      "name": "research"
+    },
+    {
+      "name": "mp"
+    },
+    {
+      "name": "ac"
+    },
+    {
+      "name": "tc"
+    },
+    {
+      "name": "sl"
+    },
+    {
+      "name": "smrt"
+    },
+    {
+      "name": "spec"
+    },
+    {
+      "name": "eng"
+    },
+    {
+      "name": "corps"
+    },
+    {
+      "name": "mar"
+    },
+    {
+      "name": "po"
+    },
+    {
+      "name": "io"
+    },
+    {
+      "name": "synth"
+    },
+    {
+      "name": "xeno"
+    },
+    {
+      "name": "latejoin"
+    },
+    {
+      "name": "som_commander"
+    },
+    {
+      "name": "som_field_commander"
+    },
+    {
+      "name": "som_staff_officer"
+    },
+    {
+      "name": "som_squad_leader"
+    },
+    {
+      "name": "som_engineer"
+    },
+    {
+      "name": "som_veteran"
+    },
+    {
+      "name": "som_medic"
+    },
+    {
+      "name": "som_standard"
+    },
+    {
+      "name": "to"
+    }
+  ]
+}

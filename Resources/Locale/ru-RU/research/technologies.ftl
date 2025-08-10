@@ -37,6 +37,7 @@ research-technology-wave-particle-harnessing = Применение волнов
 research-technology-kinetic-modifications = Kinetic Modifications
 research-technology-advanced-riot-control = Продвинутое противодействие беспорядкам
 research-technology-portable-microfusion-weaponry = Оруженый портативный микросинтез
+research-technology-dual-wielding-technology = Dual Wielding Technology
 research-technology-thermal-weaponry = Thermal Weaponry
 research-technology-experimental-battery-ammo = Экспериментальные батарейные боеприпасы
 research-technology-basic-shuttle-armament = Базовое корабельное вооружение

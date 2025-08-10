@@ -1,7 +1,7 @@
-ent-MCWeaponSMG90 = SMG-90 submachinegun
-    .desc = The SMG-90 is the TerraGov Marine Corps standard issue SMG. Its known for it's compact size and ease of use inside the field. It's usually carried by troops who want a lightweight firearm to rush with. It uses 10x20mm caseless rounds.
-ent-MCMagazineSMG90 = SMG-90 submachine gun magazine (10x20mm)
-    .desc = A 10x20mm caseless submachine gun magazine.
+ent-MCWeaponSMG90 = пистолет-пулемёт SMG-90
+    .desc = SMG-90 — стандартный пистолет-пулемёт Корпуса морской пехоты ТеrrаGov. Известен своими компактными размерами и простотой использования в полевых условиях. Обычно используется военнослужащими, которым нужно лёгкое оружие для быстрого перемещения. Использует безгильзовые патроны калибра 10×20 мм.
+ent-MCMagazineSMG90 = магазин SMG-90 (10x20mm)
+    .desc = Магазин с безгильзовыми патронами 10x20mm.
 ent-MCCartridgeSMG90 = патрон (10x20mm)
     .desc = 10x20mm
 ent-MCBulletSMG90 = { ent-Bullet10x20mm }

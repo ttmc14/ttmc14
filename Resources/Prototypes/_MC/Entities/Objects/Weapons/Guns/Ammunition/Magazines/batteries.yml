@@ -4,6 +4,10 @@
   name: Terra Experimental standard battery
   description: A specialized high density battery used to power most standard marine laser guns. It is simply known as the TE power cell.
   components:
+  - type: Tag
+    tags:
+    - MCMagazineSidearm
+    - MCBatteryTerra
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Batteries/terra.rsi
     layers:
@@ -20,9 +24,6 @@
   - type: Appearance
   - type: PowerCellVisuals
   - type: Riggable
-  - type: Tag
-    tags:
-    - MCBatteryTerra
   - type: HitscanBatteryAmmoProvider
     proto: MCProjectileBeamBase
     fireCost: 10

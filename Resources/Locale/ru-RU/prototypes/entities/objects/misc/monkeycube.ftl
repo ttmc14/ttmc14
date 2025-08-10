@@ -1,5 +1,8 @@
 ent-MonkeyCubeBox = monkey cube box
     .desc = Drymate brand monkey cubes. Just add water!
+ent-BaseWrappedCube = { ent-BaseItem }
+    .suffix = Wrapped
+    .desc = { ent-BaseItem.desc }
 ent-MonkeyCubeWrapped = monkey cube
     .desc = Unwrap this to get a monkey cube.
     .suffix = Wrapped

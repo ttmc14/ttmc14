@@ -1,2 +1,2 @@
-ent-MCMachineVendingMarineMed = MarineMed
-    .desc = Marine Medical drug dispenser - Provided by Nanotrasen Pharmaceuticals Division(TM).
+ent-MCMachineVendingMarineMed = МаринМед
+    .desc = Дозатор для лекарств Marine Medical - предоставлен компанией Nanotrasen Pharmaceuticals Division(TM).

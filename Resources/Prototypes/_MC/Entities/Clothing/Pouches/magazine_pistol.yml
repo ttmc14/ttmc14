@@ -13,23 +13,17 @@
     grid:
     - 0,0,5,1 # 3 slots
     whitelist:
-      tags: [] # TODO
+      tags:
+      - MCWeaponSidearm
+      # /obj/item/ammo_magazine/smg/standard_machinepistol,
+      # /obj/item/ammo_magazine/rifle/pepperball/pepperball_mini
   - type: FixedItemSizeStorage
 
 - type: entity
-  parent:
-  - MCPouchStorage
-  - MCPouchVisualizerOpen
+  parent: MCPouchPistolMagazine
   id: MCPouchPistolMagazineLarge
   name: pistol magazine pouch large
   description: This pouch can contain six pistol and revolver ammo magazines.
   components:
   - type: Sprite
     sprite: _MC/Clothing/Pouches/large_pistol_mag.rsi
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,11,1 # 6 slots
-    whitelist:
-      tags: [] # TODO
-  - type: FixedItemSizeStorage

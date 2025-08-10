@@ -13,6 +13,11 @@
       entries:
       - id: MCVendorBundleStandardKitEngineer
       - id: MCVendorBundleEssentialJaegerKitEngineer
+    - name: Glasses
+      choices:
+        MCGlasses: 1
+      entries:
+      - id: RMCWeldingGoggles
     - name: Hats
       choices:
         MCHats: 1
@@ -50,6 +55,14 @@
       # Dispenser
       # Mortar bag
       # Flamethrower bag
+    - name: Webbing
+      choices:
+        MCWebbing: 1
+      entries:
+      - id: MCWebbingBrownVest
+        recommended: true
+      - id: MCWebbingBrown
+      - id: MCWebbingHolster
     - name: Belt
       choices:
         MCBelt: 1

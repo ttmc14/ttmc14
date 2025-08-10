@@ -1,0 +1,63 @@
+# podlocks
+- type: entity
+  parent: RMCPodDoorAlmayerIndestructible
+  id: MCPodlockShipCanterbury
+  name: umbillical airlock
+  suffix: Canterbury
+  abstract: true
+
+- type: entity
+  parent: MCPodlockShipCanterbury
+  id: MCPodlockShipCanterburyOuterDoorLeft
+  suffix: Canterbury, Left
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_outer_door_left
+
+- type: entity
+  parent: MCPodlockShipCanterbury
+  id: MCPodlockShipCanterburyOuterDoorRight
+  suffix: Canterbury, Right
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_outer_door_right
+
+- type: entity
+  parent: MCPodlockShipCanterbury
+  id: MCPodlockShipCanterburyOuterDoorDown
+  suffix: Canterbury, Down
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_outer_door_down
+
+# shutters
+- type: entity
+  parent: RMCShutterAlmayer
+  id: MCShutterShipCanterbury
+  name: transit shutters
+  suffix: Canterbury
+  abstract: true
+
+- type: entity
+  parent: MCShutterShipCanterbury
+  id: MCShutterShipCanterburyOuterDoorLeft
+  suffix: Canterbury, Left
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_outer_door_left
+
+- type: entity
+  parent: MCShutterShipCanterbury
+  id: MCShutterShipCanterburyOuterDoorRight
+  suffix: Canterbury, Right
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_outer_door_right
+
+- type: entity
+  parent: MCShutterShipCanterbury
+  id: MCShutterShipCanterburyOuterDoorDown
+  suffix: Canterbury, Down
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_outer_door_down

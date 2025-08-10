@@ -1,9 +1,12 @@
 ent-FlaskBase = { ent-DrinkBase }
     .desc = { ent-DrinkBase.desc }
+ent-DrinkFlaskVisualsOpenable = { "" }
+    .desc = { "" }
 ent-DrinkShinyFlask = shiny flask
     .desc = A shiny metal flask. It appears to have a Greek symbol inscribed on it.
 ent-DrinkMREFlask = MRE flask
     .desc = An old military flask, filled with the finest contents for soldiers.
+    .suffix = Full
 ent-DrinkDetFlask = inspector's flask
     .desc = A metal flask with a leather band and golden badge belonging to the inspector.
 ent-DrinkHosFlask = hos's flask

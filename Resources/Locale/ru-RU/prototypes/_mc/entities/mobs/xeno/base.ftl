@@ -1,3 +1,5 @@
+ent-MCXenoNoMeleeBase = { "" }
+    .desc = { "" }
 ent-MCXenoBase = { "" }
     .desc = { "" }
 ent-MCXenoPlantingWeeds = { "" }

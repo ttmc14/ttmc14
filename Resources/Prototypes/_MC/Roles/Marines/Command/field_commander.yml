@@ -32,6 +32,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MarineOrders
     - type: Skills
       skills:
         RMCSkillMedical: 2
@@ -41,7 +42,7 @@
         RMCSkillPolice: 2
         RMCSkillPowerLoader: 2
         RMCSkillLeadership: 4
-        RMCSkillCQC: 1
+        RMCSkillCqc: 1
         RMCSkillSmartGun: -4
         # RMCSkillMelee: 0
         RMCSkillFirearms: 1
@@ -73,4 +74,4 @@
   - type: SpawnPoint
     job_id: MCFC
   - type: Sprite
-    state: medic_spawn
+    state: fc

@@ -1,2 +1,2 @@
 ent-MCXenoQueen = королева
-    .desc = The biggest and baddest xeno. The Queen controls the hive.
+    .desc =  Самый большой и страшный ксенос, а так же управляет ульем.

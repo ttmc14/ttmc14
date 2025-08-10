@@ -32,10 +32,9 @@
     tier: 3
     role: MCXenoWarlock
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - ActionXenoDevolve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     hudOffset: -0.1,0.1
   - type: XenoDevolve
     devolvesTo:

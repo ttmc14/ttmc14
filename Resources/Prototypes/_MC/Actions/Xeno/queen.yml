@@ -11,4 +11,4 @@
       state: queen_ready_charge
     useDelay: 0.1
   - type: InstantAction
-    event: !type:MCXenoChargeActionEvent ""
+    event: !type:MCXenoChargeActionEvent

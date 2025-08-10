@@ -1,0 +1,31 @@
+﻿- type: entity
+  parent: IDCardStandard
+  id: MCIDCardSpatialAgent
+  name: ID Card (Spatial Agent)
+  suffix: MC, Admin
+  description: A silver card which shows honour and dedication.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/CMIDs/silver_id.rsi
+    state: silver
+  - type: Clothing
+    slots:
+    - idcard
+    sprite: _RMC14/Objects/CMIDs/silver_id.rsi
+  - type: Item
+    heldPrefix: green
+  - type: Access
+    groups:
+    - MCSpatialAgent
+    - MCCaptain
+    - AllAccess
+    - ShipMasterAccess
+    - Colony
+    - Corp
+    - RMCWeYa
+    - Synth
+    tags:
+    - CMAccessHighCommand
+    - CMAccessXenoQueen
+    - CMAccessXeno
+    - CMAccessSmartPrep

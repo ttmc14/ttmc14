@@ -35,11 +35,10 @@
     tier: 3
     role: MCXenoDefiler
     actionIds:
-    # RMC
     - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     - MCActionXenoPheromones
-    - ActionXenoDevolve
-    # MC
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
     - MCActionXenoLayEgg

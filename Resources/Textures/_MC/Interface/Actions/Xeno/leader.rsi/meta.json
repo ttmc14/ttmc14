@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "queen_order"
+    },
+    {
+      "name": "minion_rendez_vous"
+    },
+    {
+      "name": "rally_hive"
+    },
+    {
+      "name": "rally_minions"
+    },
+    {
+      "name": "larva_growth"
+    },
+    {
+      "name": "minion_passive"
+    },
+    {
+      "name": "minion_agressive"
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-ent-MCWeaponMP19 = MP-19 machinepistol
-    .desc = The MP-19 is the TerraGov Marine Corps standard-issue machine pistol. It's known for it's low recoil and scatter when used one handed. It's usually carried by specialized troops who do not have the space to carry a much larger gun like medics and engineers. It uses 10x20mm caseless rounds.
-ent-MCMagazineMP19 = MP-19 machinepistol magazine (10x20mm)
-    .desc = A 10x20mm caseless machine pistol magazine.
+ent-MCWeaponMP19 = пистолет пулемёт MP-19
+    .desc = MP-19 — стандартный пистолет-пулемёт Корпуса морской пехоты ТерраGov. Отличается низкой отдачей и хорошей точностью при стрельбе одной рукой. Обычно используется специализированными подразделениями, которым не требуется более крупное оружие, например, медиками и инженерами. Использует безгильзовые патроны калибра 10×20 мм.
+ent-MCMagazineMP19 = магазин MP-19 (10x20mm)
+    .desc = Магазин безгильзовых патронов калибра 10x20mm для MP-19.

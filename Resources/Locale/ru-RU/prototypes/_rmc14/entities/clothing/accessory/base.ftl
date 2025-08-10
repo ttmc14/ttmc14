@@ -1,0 +1,12 @@
+ent-RMCBaseUniformAccessoryItemBase = { "" }
+    .desc = { "" }
+ent-RMCBaseUniformAccessoryItemOuterClothing = { ent-RMCBaseUniformAccessoryItemBase }
+    .desc = { ent-RMCBaseUniformAccessoryItemBase.desc }
+ent-RMCBaseUniformAccessoryItemJumpsuit = { ent-RMCBaseUniformAccessoryItemBase }
+    .desc = { ent-RMCBaseUniformAccessoryItemBase.desc }
+ent-RMCBaseUniformAccessoryItemGloves = { ent-RMCBaseUniformAccessoryItemBase }
+    .desc = { ent-RMCBaseUniformAccessoryItemBase.desc }
+ent-RMCBaseUniformAccessoryItemHelmet = { ent-RMCBaseUniformAccessoryItemBase }
+    .desc = { ent-RMCBaseUniformAccessoryItemBase.desc }
+ent-RMCBaseUniformAccessory = { ent-BaseItem }
+    .desc = { ent-BaseItem.desc }

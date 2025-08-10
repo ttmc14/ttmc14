@@ -10,7 +10,7 @@
     bullet: 70
     laser: 70
     energy: 60
-    explosionArmor: 55
+    bomb: 55
     bio: 55
     fire: 55
     acid: 60

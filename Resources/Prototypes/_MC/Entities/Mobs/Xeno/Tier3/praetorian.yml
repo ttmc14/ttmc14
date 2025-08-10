@@ -33,12 +33,12 @@
     tier: 3
     role: MCXenoPraetorian
     actionIds:
-    # RMC
     - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     - MCActionXenoPheromones
-    - ActionXenoDevolve
-    # MC
     - MCActionXenoToggleXenoSpitPraetorian
+    - MCActionXenoAcidMedium
     hudOffset: -0.15,0.25
   - type: XenoDevolve
     devolvesTo:
@@ -66,3 +66,6 @@
     icon:
       sprite: _MC/Interface/Xeno/icons.rsi
       state: praetorian
+  - type: RMCSize
+    size: Big
+  - type: XenoAcid

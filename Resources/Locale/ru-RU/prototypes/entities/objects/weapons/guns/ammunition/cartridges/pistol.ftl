@@ -8,3 +8,6 @@ ent-CartridgePistolIncendiary = cartridge (.35 auto incendiary)
     .desc = { ent-BaseCartridgePistol.desc }
 ent-CartridgePistolUranium = cartridge (.35 auto uranium)
     .desc = { ent-BaseCartridgePistol.desc }
+ent-CartridgePistolSpent = cartridge (.35 auto)
+    .suffix = spent
+    .desc = { ent-BaseCartridgePistol.desc }

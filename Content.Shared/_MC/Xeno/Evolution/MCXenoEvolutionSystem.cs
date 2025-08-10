@@ -31,17 +31,6 @@ public sealed class MCXenoEvolutionSystem : EntitySystem
 
         var time = _timing.CurTime;
 
-        /*
-        Later
-
-        var evoBonus = FixedPoint2.Zero;
-        var bonuses = EntityQueryEnumerator<EvolutionBonusComponent>();
-        while (bonuses.MoveNext(out var comp))
-        {
-            evoBonus += comp.Amount;
-        }
-        */
-
         var evolution = EntityQueryEnumerator<XenoEvolutionComponent>();
         while (evolution.MoveNext(out var uid, out var comp))
         {

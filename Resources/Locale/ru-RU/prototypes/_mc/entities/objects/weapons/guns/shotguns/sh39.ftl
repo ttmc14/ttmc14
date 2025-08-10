@@ -1,2 +1,2 @@
-ent-MCWeaponShotgunSH39 = SH-39 combat shotgun
-    .desc = TThe Terran Armories SH-39 combat shotgun is a semi automatic shotgun used by breachers and pointmen within the TGMC squads. Uses 12 gauge shells.
+ent-MCWeaponShotgunSH39 = боевой дробовик SH-39
+    .desc = Terran Armories SH-39 — боевой полуавтоматический дробовик, используемый штурмовиками и разведчиками в составе отделений Корпуса морской пехоты ТеrrаGov. Использует патроны 12-го калибра.

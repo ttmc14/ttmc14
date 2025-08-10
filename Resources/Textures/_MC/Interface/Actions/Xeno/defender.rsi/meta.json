@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fortify"
+    },
+    {
+      "name": "crest_defense"
+    },
+    {
+      "name": "tail_sweep"
+    },
+    {
+      "name": "regenerate_skin"
+    },
+    {
+      "name": "centrifugal_force"
+    },
+    {
+      "name": "forward_charge"
+    }
+  ]
+}

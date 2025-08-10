@@ -117,19 +117,16 @@
       visible: false
   - type: Xeno
     actionIds:
-    # RMC
     - MCActionXenoRest
     - MCActionXenoPheromones
-    - ActionXenoDevolve
-    - ActionXenoResinHole
-    - ActionXenoThrowParasite
-    - ActionXenoRetrieveEgg
-    - ActionXenoParasiteReserve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
     - MCActionXenoLayEgg
   - type: XenoParasiteThrower
   - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 225
     evolvesTo:
     - MCXenoDefiler

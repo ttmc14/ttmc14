@@ -1,0 +1,2 @@
+ent-RMCGlowshroom = glowshroom
+    .desc = { "" }

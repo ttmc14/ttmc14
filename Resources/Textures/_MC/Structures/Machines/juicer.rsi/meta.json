@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from tgstation at https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/kitchen.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "juicer0"
+    },
+    {
+      "name": "juicer1"
+    }
+  ]
+}

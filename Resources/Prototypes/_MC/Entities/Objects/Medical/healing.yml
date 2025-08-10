@@ -1,0 +1,250 @@
+# tags
+- type: Tag
+  id: MCHealingItem
+
+# base
+- type: entity
+  parent: BaseItem
+  id: MCBaseHealingItem
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/medical.rsi
+  - type: Item
+    size: Small
+    sprite: _MC/Objects/Medical/medical.rsi
+    heldPrefix: ointment
+  # Inherited
+  - type: StaticPrice
+    price: 0
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitstorage
+
+# ointment
+- type: entity
+  parent: MCBaseHealingItem
+  id: MCOintment
+  name: ointment
+  description: Used to treat burns, infected wounds, and relieve itching in unusual places.
+  suffix: MC
+  components:
+  - type: Tag
+    tags:
+    - MCHealingItem
+    - MCOintment
+  - type: Sprite
+    state: ointment
+  - type: Item
+    heldPrefix: ointment
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      types:
+        Heat: -3 # для баланса ибо мехи нету нормальной
+        Cold: -2
+        Shock: -1
+        Caustic: -1
+    delay: 1.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/ointment_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Stack
+    stackType: MCOintment
+    count: 40
+
+- type: Tag
+  id: MCOintment
+
+- type: stack
+  id: MCOintment
+  name: ointment
+  icon:
+    sprite: "/Textures/_RMC14/Objects/Medical/medical.rsi"
+    state: ointment
+  spawn: MCOintment
+  maxCount: 40
+
+# gauze
+- type: entity
+  parent: MCBaseHealingItem
+  id: MCGauze
+  name: roll of gauze
+  description: Some sterile gauze to wrap around bloody stumps.
+  suffix: MC
+  components:
+  - type: Tag
+    tags:
+    - MCHealingItem
+    - MCGauze
+  - type: Sprite
+    state: brutepack
+  - type: Item
+    heldPrefix: brutepack
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -5 #примерно будет хилить по 3, но меньше, я ебал разрабов на РМС
+    delay: 1.5
+    healingBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: WoundTreater
+    wound: Brute
+    treats: true
+    group: Brute
+    consumable: true
+    canUseUnskilled: true
+    skills:
+      RMCSkillMedical: 2 # Эту хуйню не законтрить
+    treatBeginSound:
+      path: "/Audio/_RMC14/Medical/bandage.ogg"
+    treatEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+    userPopup: cm-gauze-user-popup
+    targetPopup: cm-gauze-target-popup
+    othersPopup: cm-gauze-others-popup
+    noneSelfPopup: cm-gauze-none-self-popup
+    noneOtherPopup: cm-gauze-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    doAfter: 2
+    min: 2 # это и так решает итог битвы, поставил побольше.
+  - type: Stack
+    stackType: MCGauze
+    count: 40
+
+- type: Tag
+  id: MCGauze
+
+- type: stack
+  id: MCGauze
+  name: gauze
+  icon:
+    sprite: "/Textures/_MC14/Objects/Medical/medical.rsi"
+    state: brutepack
+  spawn: MCGauze
+  maxCount: 40
+
+# trauma kit
+- type: entity
+  parent: MCBaseHealingItem
+  id: MCTraumaKit
+  name: advanced trauma kit
+  description: An advanced trauma kit for severe injuries.
+  suffix: MC
+  components:
+  - type: Tag
+    tags:
+    - MCHealingItem
+    - MCTraumaKit
+  - type: Stack
+    stackType: MCTraumaKit
+    count: 40
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Brute: -16 # похуй мне сколько там хилить должно в тгмс, мне важен баланс сс14 ебаной
+    delay: 1.5 # ИЗ-ЗА ЭТОГО, НО ЭТО ПРОСТО ТАК НЕ УБРАТЬ
+    healingBeginSound:
+      path: "/Audio/_RMC14/Medical/bandage.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: MedicallyUnskilledDoAfter
+    min: 2
+    doAfter: 8 # Parity НЕ РАБОТАЕТ НАХУЙ
+  - type: Sprite
+    state: traumakit
+  - type: Item
+    heldPrefix: traumakit
+
+- type: Tag
+  id: MCTraumaKit
+
+- type: stack
+  id: MCTraumaKit
+  name: advanced trauma kit
+  icon:
+    sprite: "/Textures/_MC14/Objects/Medical/medical.rsi"
+    state: traumakit
+  spawn: MCTraumaKit
+  maxCount: 40
+
+# burn kit
+- type: entity
+  parent: MCBaseHealingItem
+  id: MCBurnKit
+  name: advanced burn kit
+  description: An advanced treatment kit for severe burns.
+  suffix: MC
+  components:
+  - type: Tag
+    tags:
+    - MCHealingItem
+    - MCBurnKit
+  - type: Healing
+    damageContainers:
+    - Biological
+    damage:
+      groups:
+        Burn: -18 # тут можно проставить чтобы по 6 урона хилило, и так все 4 типа урона.
+    delay: 1.5 # ИЗ-ЗА ЭТОГО, НО ЭТО ПРОСТО ТАК НЕ УБРАТЬ
+    healingBeginSound:
+      path: "/Audio/_RMC14/Medical/bandage.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    healingEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+  - type: Stack
+    stackType: MCBurnKit
+    count: 40
+  - type: Sprite
+    state: burnkit
+  - type: Item
+    heldPrefix: burnkit
+  - type: MedicallyUnskilledDoAfter
+    min: 1
+    doAfter: 8 # Parity НЕ РАБОТАЕТ НАХУЙ
+
+- type: Tag
+  id: MCBurnKit
+
+- type: stack
+  id: MCBurnKit
+  name: advanced burn kit
+  icon:
+    sprite: "/Textures/_MC14/Objects/Medical/medical.rsi"
+    state: burnkit
+  spawn: MCBurnKit
+  maxCount: 40

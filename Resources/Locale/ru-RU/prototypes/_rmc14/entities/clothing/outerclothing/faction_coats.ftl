@@ -1,3 +1,7 @@
+ent-RMCCoatBureauTrenchCoatBrown = brown trench-coat
+    .desc = A worn, brown, old style trench-coat. When a bum sees a cop coming, he don't stick around.
+ent-RMCCoatBureauTrenchCoatGrey = grey trench-coat
+    .desc = A worn, grey, old style trench-coat. When a bum sees a cop coming, he don't stick around.
 ent-RMCCoatBureauDeputy = bureau deputy jacket
     .desc = A thick and stylish black leather jacket with a Marshal's Deputy badge pinned to it. The back is enscribed with the powerful letters of 'DEPUTY' representing justice, authority, and protection in the outer rim. The laws of the Earth stretch beyond the Sol.
 ent-RMCCoatBureauMarshal = bureau marshal jacket
@@ -10,3 +14,5 @@ ent-RMCCoatTSEPAHighVis = TSEPA high-vis jacket
     .desc = A green and white striped (high-visibility) polyester vest commonly used by TSEPA personnel.
 ent-RMCCoatTSEPAHighVisVest = TSEPA high-vis vest
     .desc = A green and white striped (high-visibility) polyester vest commonly used by TSEPA personnel.
+ent-RMCCoatPaP = PaP uniform jacket
+    .desc = A People's Armed Police service jacket featuring small dispersed para-aramid inserts providing the barest of defensive functionality, and a Personal Light Unit rig.

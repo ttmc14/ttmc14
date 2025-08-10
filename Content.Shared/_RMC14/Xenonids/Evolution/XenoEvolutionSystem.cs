@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Shared._MC.Xeno.Evolution;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared._RMC14.Xenonids.Egg;
@@ -354,8 +356,22 @@ public sealed class XenoEvolutionSystem : EntitySystem
             return false;
         }
 
+        if (prototype.TryGetComponent<MCXenoEvolutionRequiredQuantityComponent>(
+                out var evolutionRequiredQuantityComponent,
+                _compFactory))
+        {
+            var living = GetLiving<XenoComponent>();
+            if (living < evolutionRequiredQuantityComponent.Count)
+            {
+                if (doPopup)
+                    _popup.PopupEntity(Loc.GetString("mc-xeno-evolution-not-enough-quantity", ("prototype", prototype.Name), ("count", evolutionRequiredQuantityComponent.Count - living)), xeno, xeno, PopupType.MediumCaution);
+
+                return false;
+            }
+        }
+
         // TODO RMC14 only allow evolving towards Queen if none is alive
-        if (!xeno.Comp.CanEvolveWithoutGranter && !HasLiving<XenoEvolutionGranterComponent>(1))
+        if (!xeno.Comp.CanEvolveWithoutGranter && !HasLiving<MCXenoHiveLeaderComponent>(1))
         {
             if (doPopup)
             {

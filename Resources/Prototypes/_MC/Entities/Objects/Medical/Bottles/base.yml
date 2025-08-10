@@ -1,0 +1,14 @@
+- type: entity
+  parent: CMBottleEmpty
+  id: MCBottleFilled
+  abstract: true
+  suffix: Filled
+  components:
+  - type: Tag
+    tags:
+    - MCBottle
+  - type: CMRefillableSolution
+    solution: drink
+
+- type: Tag
+  id: MCBottle

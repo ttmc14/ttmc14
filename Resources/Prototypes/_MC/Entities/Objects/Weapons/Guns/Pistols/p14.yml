@@ -4,6 +4,11 @@
   name: P-14 pistol
   description: The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Capable of mounting a limited amount of attachments, and firing at a respectable rate of fire, often as fast as you can pull the trigger. Takes 21-round 9mm magazines.
   components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+    - MCWeaponP14
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Pistols/p14.rsi
   - type: Clothing
@@ -77,10 +82,6 @@
       rmc-aslot-barrel: 0.685, 0.125
       rmc-aslot-rail: -0.125, 0.215
       rmc-aslot-underbarrel: 0.284, -0.19
-  - type: Tag
-    tags:
-    - Sidearm
-    - MCWeaponP14
 
 - type: entity
   parent: CMBaseMagazinePistol
@@ -89,7 +90,8 @@
   components:
   - type: Tag
     tags:
-    - CMMagazinePistol
+    - MCMagazineSidearm
+    - MCMagazinePistol
     - MCMagazinePistolP14
   - type: BallisticAmmoProvider
     mayTransfer: True

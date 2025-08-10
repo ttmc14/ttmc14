@@ -1,0 +1,16 @@
+ent-RMCTieBase = tie
+    .desc = An abstract tie.
+ent-RMCTie = blue tie
+    .desc = A neosilk clip-on tie.
+ent-RMCTieBlack = black tie
+    .desc = { ent-RMCTie.desc }
+ent-RMCTieGold = gold tie
+    .desc = { ent-RMCTie.desc }
+ent-RMCTieGreen = green tie
+    .desc = { ent-RMCTie.desc }
+ent-RMCTiePurple = purple tie
+    .desc = { ent-RMCTie.desc }
+ent-RMCTieRed = red tie
+    .desc = { ent-RMCTie.desc }
+ent-RMCTieHorrible = horrible tie
+    .desc = { ent-RMCTie.desc }

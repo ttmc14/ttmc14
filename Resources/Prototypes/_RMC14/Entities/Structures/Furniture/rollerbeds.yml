@@ -36,6 +36,7 @@
     tags:
     - CMRollerItem
     - CMRollerBed
+    - MCRollerBed
   - type: Sprite
     sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
     noRot: true
@@ -194,6 +195,7 @@
   - type: Tag
     tags:
     - CMRollerItem
+    - MCRollerBed
   - type: ReceiverXenoClaws
     minimumClawStrength: ImpossiblySharp
 

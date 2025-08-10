@@ -1,2 +1,2 @@
 ent-MCXenoSentinel = часовой
-    .desc = A weak ranged combat alien.
+    .desc = Слабый ксенос дальнего боя. Вам лучше не знать во что он вырастает. Серьезно, просто нет.

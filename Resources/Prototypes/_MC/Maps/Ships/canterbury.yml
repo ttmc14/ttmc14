@@ -1,0 +1,28 @@
+- type: gameMap
+  id: MCCanterbury
+  mapName: Canterbury
+  mapPath: /Maps/_MC/tgs_canterbury.yml
+  minPlayers: 0
+  maxRandomOffset: 0
+  randomRotation: false
+  fallback: true
+  isGrid: true
+  stations:
+    TGCCanterbury:
+      stationProto: StandardUNMCWarship
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: ТГК Кентербери
+      - type: StationJobs
+        availableJobs:
+          # Command
+          MCFC: [ 1, 1 ]
+          # Medical
+          MCCMO: [ 1, 1 ]
+          MCDoctor: [ 6, 6 ]
+          # Squad
+          MCSquadLeader: [ 4, 4 ]
+          MCSquadSmartgunner: [ 4, 4 ]
+          MCSquadEngineer: [ 8, 8 ]
+          MCSquadCorpsman: [ 8, 8 ]
+          MCSquadMarine: [ -1, -1 ]

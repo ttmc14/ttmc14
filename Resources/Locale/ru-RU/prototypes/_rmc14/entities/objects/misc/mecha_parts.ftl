@@ -1,0 +1,9 @@
+ent-RMCMechPropBase = { ent-BaseItem }
+    .suffix = Prop
+    .desc = { ent-BaseItem.desc }
+ent-RMCMechPropDrill = drill
+    .desc = This is the drill that'll pierce the heavens!
+ent-RMCMechPropClamp = Hydraulic Clamp
+    .desc = { ent-RMCMechPropBase.desc }
+ent-RMCMechPropArmorBooster = Armor Booster Module (Close Combat Weaponry)
+    .desc = Boosts exosuit armor against armed melee attacks. Requires energy to operate.

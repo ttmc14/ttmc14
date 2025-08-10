@@ -1,4 +1,4 @@
-ent-MCBackpackMarineStandard = lightweight IMP backpack
-    .desc = The standard-issue pack of the TGMC forces. Designed to slug gear into the battlefield.
-ent-MCBackpackMarineTechnician = technician backpack
-    .desc = The standard-issue backpack worn by TGMC technicians. Specially equipped to hold sentry gun and HSG-102 emplacement parts.
+ent-MCBackpackMarineStandard = легкий рюкзак IMP
+    .desc = Стандартный рюкзак сил Корпуса морской пехоты ТерраGov. Разработан для переноски снаряжения в условиях боевых действий.
+ent-MCBackpackMarineTechnician = рюкзак техника
+    .desc = Стандартный рюкзак техников Корпуса морской пехоты ТеrrаGov. Специально оборудован для переноски сторожевых пушек и установок HSG-102.

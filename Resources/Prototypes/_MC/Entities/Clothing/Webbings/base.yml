@@ -1,0 +1,44 @@
+- type: entity
+  parent: BaseItem
+  id: MCWebbing
+  name: webbing
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Webbing/brown.rsi
+    state: webbing
+  - type: Item
+    size: Large
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,1 # 3 slots
+  - type: Webbing
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,5,1 # 3 slots
+    - type: FixedItemSizeStorage
+    - type: ExplosionResistance
+      damageCoefficient: 0
+      worn: false
+    - type: RMCStorageEjectHand
+      state: Open
+    - type: StoreAfterFailedInteract
+  - type: ExplosionResistance
+    damageCoefficient: 0
+    worn: false
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: StoreAfterFailedInteract

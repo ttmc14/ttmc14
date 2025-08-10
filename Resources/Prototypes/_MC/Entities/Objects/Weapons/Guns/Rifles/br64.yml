@@ -101,7 +101,7 @@
   components:
   - type: Tag
     tags:
-    - CMMagazineRifle
+    - MCMagazineRifle
     - MCMagazineBR64
   - type: BallisticAmmoProvider
     mayTransfer: True

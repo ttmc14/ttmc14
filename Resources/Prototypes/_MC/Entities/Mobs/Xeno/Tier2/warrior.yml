@@ -2,7 +2,6 @@
   parent:
   # MC
   - MCXenoBase
-  - MCXenoGrappleToss
   # RMC
   - CMXenoDeveloped
   - CMXenoFlammable
@@ -33,13 +32,19 @@
     tier: 2
     role: MCXenoWarrior
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - ActionXenoDevolve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Main
+    - MCActionXenoAgility
+    - MCActionXenoLunge
     - MCActionXenoGrappleToss
+    - MCActionXenoFling
+    - MCActionXenoPunch
     hudOffset: -0.15,0.25
   - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 225
     evolvesTo:
     - MCXenoCrusher
     - MCXenoGorger
@@ -67,3 +72,9 @@
     icon:
       sprite: _MC/Interface/Xeno/icons.rsi
       state: warrior
+  # Abilities
+  - type: MCXenoAgility
+  - type: MCXenoLunge
+  - type: MCXenoGrappleToss
+  - type: MCXenoFling
+  - type: MCXenoPunch

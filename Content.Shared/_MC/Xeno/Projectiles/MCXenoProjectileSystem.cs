@@ -25,13 +25,49 @@ public sealed class MCXenoProjectileSystem : EntitySystem
 
     private static readonly ProtoId<TagPrototype> AirlockTag = "Airlock";
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
+    private static readonly ProtoId<TagPrototype> AcidSprayTag = "MCAcidSpray";
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MCXenoSpawnAcidSprayOnTerminatingComponent, MapInitEvent>(OnSpawnAcidSprayOnTerminatingInit);
+        SubscribeLocalEvent<MCXenoSpawnAcidSprayOnTerminatingComponent, EntityTerminatingEvent>(OnSpawnAcidSprayOnTerminatingTerminate);
+
         SubscribeLocalEvent<MCXenoSpawnConstructionOnTerminatingComponent, MapInitEvent>(OnSpawnConstructionOnTerminatingInit);
         SubscribeLocalEvent<MCXenoSpawnConstructionOnTerminatingComponent, EntityTerminatingEvent>(OnSpawnConstructionOnTerminatingTerminate);
+    }
+
+    private void OnSpawnAcidSprayOnTerminatingInit(Entity<MCXenoSpawnAcidSprayOnTerminatingComponent> entity, ref MapInitEvent args)
+    {
+        entity.Comp.Origin = _transform.GetMoverCoordinates(entity);
+        Dirty(entity);
+    }
+
+    private void OnSpawnAcidSprayOnTerminatingTerminate(Entity<MCXenoSpawnAcidSprayOnTerminatingComponent> entity, ref EntityTerminatingEvent args)
+    {
+        if (_net.IsClient)
+            return;
+
+        var transform = Transform(entity);
+        if (TerminatingOrDeleted(transform.ParentUid))
+            return;
+
+        var coordinates = GetAdjustedCoordinates(entity, entity.Comp.Origin, entity.Comp.ProjectileAdjust);
+        if (_transform.GetGrid(coordinates) is not { } gridId || !TryComp<MapGridComponent>(gridId, out var grid))
+            return;
+
+        var tile = _mapSystem.TileIndicesFor(gridId, grid, coordinates);
+        var anchored = _mapSystem.GetAnchoredEntitiesEnumerator(gridId, grid, tile);
+
+        while (anchored.MoveNext(out var uid))
+        {
+            if (_tag.HasTag(uid.Value, AcidSprayTag))
+                return;
+        }
+
+        var spawn = SpawnAtPosition(entity.Comp.Spawn, coordinates);
+        _hive.SetSameHive(entity.Owner, spawn);
     }
 
     private void OnSpawnConstructionOnTerminatingInit(Entity<MCXenoSpawnConstructionOnTerminatingComponent> entity, ref MapInitEvent args)
@@ -49,21 +85,35 @@ public sealed class MCXenoProjectileSystem : EntitySystem
         if (TerminatingOrDeleted(transform.ParentUid))
             return;
 
-        var coordinates = transform.Coordinates;
-        if (entity.Comp.ProjectileAdjust &&
-            entity.Comp.Origin is { } origin &&
-            coordinates.TryDelta(EntityManager, _transform, origin, out var delta) &&
-            delta.Length() > 0)
-            coordinates = coordinates.Offset(delta.Normalized() / -2);
-
-        if (!CanPlace(coordinates))
+        var coordinates = GetAdjustedCoordinates(entity, entity.Comp.Origin, entity.Comp.ProjectileAdjust);
+        if (!CanPlaceConstruction(coordinates))
             return;
 
         var spawn = SpawnAtPosition(entity.Comp.Spawn, coordinates);
         _hive.SetSameHive(entity.Owner, spawn);
     }
 
-    public bool CanPlace(EntityCoordinates coords)
+    private EntityCoordinates GetAdjustedCoordinates(EntityUid projectile, EntityCoordinates? origin, bool adjust)
+    {
+        var transform = Transform(projectile);
+        var coordinates = transform.Coordinates;
+
+        if (!adjust)
+            return coordinates;
+
+        if (origin is null)
+            return coordinates;
+
+        if (!coordinates.TryDelta(EntityManager, _transform, origin.Value, out var delta))
+            return coordinates;
+
+        if (delta.Length() <= 0)
+            return coordinates;
+
+        return coordinates.Offset(delta.Normalized() / -2);
+    }
+
+    private bool CanPlaceConstruction(EntityCoordinates coords)
     {
         if (_transform.GetGrid(coords) is not { } gridId || !TryComp<MapGridComponent>(gridId, out var grid))
             return false;

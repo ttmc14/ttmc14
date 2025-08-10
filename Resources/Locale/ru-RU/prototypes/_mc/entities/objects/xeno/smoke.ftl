@@ -1,2 +1,2 @@
-ent-MCSmokeNeurotoxinSmall = neurotoxin gas
+ent-MCSmokeNeurotoxinSmall = нейротоксиновый газ
     .desc = { ent-RMCSmokeNeurotoxin.desc }

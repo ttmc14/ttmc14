@@ -1,7 +1,9 @@
 - type: entity
-  parent: CMApcAlmayer
-  id: MCApcAlmayer
-  suffix: Almayer
+  parent: CMApcBase
+  id: MCApcBase
+  abstract: true
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     drawdepth: WallMountedItems
@@ -31,3 +33,22 @@
     - state: apco2-2
       shader: unshaded
       map: [ "enum.ApcVisualLayers.Environment" ]
+
+- type: entity
+  parent: MCApcBase
+  id: MCApcAlmayer
+  suffix: MC, Almayer
+  components:
+  - type: RMCApc
+    startingCell: RMCPowerCellHigh
+  - type: ContainerContainer
+    containers:
+      rmc_apc_power_cell: !type:ContainerSlot
+
+- type: entity
+  parent: MCApcBase
+  id: MCApc
+  suffix: MC, No Power
+  components:
+  - type: RMCApc
+    startingCell: RMCPowerCellAPC

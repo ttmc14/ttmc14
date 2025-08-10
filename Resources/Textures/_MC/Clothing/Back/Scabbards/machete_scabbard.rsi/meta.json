@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/mob/clothing/back.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/mob/clothing/belt.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/mob/suit_slot.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/items/storage/holster.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "full-equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "full-equipped-BELT",
+      "directions": 4
+    },
+    {
+      "name": "full-equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "scabbard"
+    },
+    {
+      "name": "scabbard_full"
+    }
+  ]
+}

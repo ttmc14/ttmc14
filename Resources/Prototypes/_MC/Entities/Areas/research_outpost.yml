@@ -1,0 +1,487 @@
+- type: entity
+  parent: MCArea
+  id: MCAreaResearch
+  abstract: true
+  components:
+  - type: Area
+    CAS: true
+    fulton: true
+    mortarPlacement: true
+    mortarFire: true
+    lasing: true
+    medevac: true
+    OB: true
+    supplyDrop: true
+    buildSpecial: true
+    powerNet: Research
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchOutpostGround
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: true
+    mortarPlacement: false
+    mortarFire: false
+    medevac: false
+    OB: true
+    supplyDrop: false
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaSpace
+  name: Space
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: false
+    mortarPlacement: false
+    mortarFire: false
+    medevac: false
+    OB: false
+    supplyDrop: false
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaCave
+  name: South Western cave
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaCaveSouth
+  name: South Cave
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaCargoSecurityOutpost
+  name: Cargo Security Outpost
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    minimapColor: "#a22d2dd0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaCargoBay
+  name: Cargo Bay
+  components:
+  - type: Area
+    minimapColor: "#936824d0"
+  - type: Sprite
+    state: quartstorage
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaCargoOffice
+  name: Cargo Office
+  components:
+  - type: Area
+    minimapColor: "#936824d0"
+  - type: Sprite
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchLandingZonesLZ1
+  name: Alamo Landing Zone
+  components:
+  - type: Area
+    linkedLz: dropship_lz1
+  - type: Sprite
+    state: red
+    minimapcolor: "#ebe5e5d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchCentralYard
+  name: Center Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapcolor: "#6c6767d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchWesternYard
+  name: Western Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapcolor: "#6c6767d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchArrivals
+  name: Arrivals
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaWesternCave
+  name: Western cave
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaNorthWesternCave
+  name: North Western Cave
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaNorthernCave
+  name: Northern Cave
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaNorthEasternCaves
+  name: NorthEasternCaves
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaEasternCaves
+  name: Eastern Caves
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaSouthEasternCaves
+  name: South Eastern Caves 
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    weatherEnabled: false
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchLandingZonesLZ2
+  name: Landing Zone
+  components:
+  - type: Area
+    linkedLz: dropship_lz2
+  - type: Sprite
+    state: red
+    minimapcolor: "#ebe5e5d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaCargoEnginering
+  name: Cargo Engineering
+  components:
+  - type: Sprite
+  - type: Area
+    minimapColor: '#c6b52f'
+
+- type: entity
+  parent: MCAreaResearchOutpostGround
+  id: MCAreaEngineringRoom
+  name: Engineering Room
+  components:
+  - type: Sprite
+  - type: Area
+    minimapcolor: "#5a4501d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaDormitories
+  name: Dormitories
+  components:
+  - type: Sprite
+    state: crew_quarters
+  - type: Area
+    minimapColor: "#2a9201d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchSouthernYard
+  name: Southern Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapcolor: "#6c6767d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchSouthEasternYard
+  name: South Eastern Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapcolor: "#6c6767d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchEasternYard
+  name: Eastern Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapcolor: "#6c6767d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchLZ2SecurityOutpost
+  name: LZ2 Outpost
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    minimapColor: '#c11f30'
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchBrig
+  name: Brig
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    minimapColor: '#c11f30'
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchBrigeGearRoom
+  name: Brig Gear Room
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    minimapColor: '#c11f30'
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchArmory
+  name: Armory
+  components:
+  - type: Sprite
+    state: armory
+  - type: Area
+    minimapColor: "#6c6767d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchNorthEasternYard
+  name: North Eastern Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchNorthYard
+  name: North Yard
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaMedbeySecurityOutpost
+  name: Medbey Security Outpost
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#a22d2dd0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaSurgery
+  name: Surgery
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#3dbf75d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaMedbey
+  name: Medbey
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#3dbf75d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaChemistry
+  name: Chemistry
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#3dbf75d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaMedbeyStorage
+  name: Storage 
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#3dbf75d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaScienceDepartment
+  name: Science Department
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#812da2d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchAndDevelopment
+  name: Research and Development
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#812da2d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaPlantSciences
+  name: Plant Sciences
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#812da2d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchDirectorsOffice
+  name: Research Directors Office
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#812da2d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchScienceSecurityOutpost
+  name: Science Security Outpost
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    minimapColor: "#a22d2dd0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchXenobiology
+  name: Xenobiology
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#812da2d0"
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchSouthWesternHallway
+  name: South Western Hallway
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchCentralHallway
+  name: Central Hallway
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchNorthernHallway
+  name: Northern Hallway
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchWesternHallway
+  name: Western Hallway
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaResearchSouthEasternHallway
+  name: South Eastern Hallway
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+
+- type: entity
+  parent: MCAreaResearch
+  id: MCAreaEngineering
+  name: Engineering
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+    minimapColor: "#c19504d0"

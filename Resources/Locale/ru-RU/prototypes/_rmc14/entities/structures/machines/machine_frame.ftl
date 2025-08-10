@@ -7,3 +7,6 @@ ent-CMMachineFrame = { ent-MachineFrame }
 ent-CMMachineFrameDestroyed = { ent-MachineFrameDestroyed }
     .suffix = RMC14
     .desc = { ent-MachineFrameDestroyed.desc }
+ent-RMCComputerFrameUnfinished = computer frame
+    .suffix = RMC14, Unfinished
+    .desc = { ent-CMMachineFrameUnfinished.desc }

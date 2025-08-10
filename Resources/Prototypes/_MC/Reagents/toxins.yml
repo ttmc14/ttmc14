@@ -1,0 +1,22 @@
+- type: reagent
+  parent: CMReagentMedicine
+  id: MCOzelomelyn
+  name: reagent-name-ozelomelyn
+  group: Toxin
+  desc: reagent-desc-ozelomelyn
+  physicalDesc: reagent-physical-desc-opaque
+  flavor: acid
+  color: "#f1ddcf"
+  overdose: 10000
+  criticalOverdose: 10000
+  metabolisms:
+    Medicine:
+      metabolismRate: 1.5
+      effects:
+      - !type:MCPurgeGroups
+        groups: [ "Medicine" ]
+        amount: 5
+      - !type:HealthChange
+          damage:
+            groups:
+              Toxin: 0.75

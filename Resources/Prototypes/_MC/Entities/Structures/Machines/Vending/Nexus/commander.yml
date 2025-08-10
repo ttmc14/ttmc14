@@ -1,0 +1,16 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingNexusCommander
+  name: NEXUS automated commander equipment rack
+  description: An automated equipment rack hooked up to a colossal storage of basic cat-herding devices.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: squadleader-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: squadleader-deny
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    jobs: [ MCFC ]
+    sections: []

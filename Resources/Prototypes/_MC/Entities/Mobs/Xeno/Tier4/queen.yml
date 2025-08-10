@@ -34,19 +34,31 @@
     maxPlasma: 1200
     plasmaRegenOnWeeds: 90
   - type: Xeno
-    tier: 4
+    tier: 0 # 4
     role: MCXenoQueen
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - MCActionXenoPheromones
-    # MC
+    - MCActionXenoPsydrain
+    # Construction
+    - MCActionXenoChooseStructure
+    - MCActionXenoSecreteStructure
+    - MCActionXenoLayEgg
+    - MCActionXenoBlessings
+    # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
-    - MCActionXenoLayEgg
-    - MCActionXenoToggleChargingQueen
+    # Main
+    - MCActionXenoZoom
+    - MCActionXenoAcidicSalve # TODO: remove
+    - MCActionXenoPheromones
     - MCActionXenoToggleXenoSpitStickyResin
+    - MCActionXenoAcidStrong
+    # Primo
+    - MCActionXenoToggleChargingQueen
     hudOffset: -0.1,0.1
+  - type: XenoEvolutionCapped
+    id: MCXenoQueen
+    max: 1
   - type: MCArmor
     melee: 65
     bullet: 65
@@ -73,3 +85,26 @@
       state: queen
   - type: XenoInhands
     prefix: queen
+  - type: MCXenoBlessings
+  - type: MCXenoHiveLeader
+  - type: RMCSize
+    size: Big
+  - type: XenoAcid
+  - type: DropshipHijacker
+  - type: TacticalMapUser
+    canDraw: true
+  # Abilities
+  - type: MCXenoAcidicSalve
+  - type: MCXenoZoom
+    zoom: 1.5,1.5
+    doAfter: 1
+  - type: XenoConstruction
+    buildDelay: 2
+    canBuild:
+    - MCWallXenoResinThick
+    - MCWallXenoResinThickBulletproof
+    - MCWallXenoResinThickFireproof
+    - MCWallXenoResinThickHardy
+    - MCDoorXenoResinThick
+  - type: MCXenoEvolutionRequiredQuantity
+    count: 8

@@ -24,6 +24,8 @@
       - Pen
       - RMCMacheteScabbard
       - RMCScabbardKatana
+      - MCScabbardKatana
+      - MCScabbardMachete
       - RMCDetector
 
 - type: entity

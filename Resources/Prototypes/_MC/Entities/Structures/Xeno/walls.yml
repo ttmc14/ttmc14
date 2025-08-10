@@ -1,0 +1,121 @@
+- type: entity
+  parent:
+  - BaseWall
+  - CMBaseXenoStructure
+  id: MCWallXenoResinRegenerating
+  name: thick resin wall
+  description: Weird slime solidified into a thick wall.
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Appearance
+  - type: Damageable
+    damageContainer: StructuralXeno
+    damageModifierSet: Resin
+  - type: MeleeReceivedMultiplier
+    xenoDamage:
+      types:
+        Slash: 600
+    otherMultiplier: 1
+  - type: PlacementReplacement
+    key: walls
+  - type: DamageMultiplierFlags
+    flags:
+    - Turf
+    - Xeno
+  - type: Sprite
+    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
+  - type: Icon
+    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
+    state: thickresin
+  - type: IconSmooth
+    key: walls
+    base: thickresin
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 125
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: XenoConstructionPlasmaCost
+    plasma: 170
+
+- type: entity
+  parent: MCWallXenoResinRegenerating
+  id: MCWallXenoResinThick
+  name: thick resin wall
+  description: Weird slime solidified into a thick wall.
+  components:
+  - type: MCArmor
+    melee: 45
+    bullet: 45
+    laser: 45
+    energy: 45
+    bomb: 30
+    bio: 30
+    fire: 40
+    acid: 30
+  - type: XenoConstructionPlasmaCost
+    plasma: 50
+
+- type: entity
+  parent: MCWallXenoResinThick
+  id: MCWallXenoResinThickBulletproof
+  name: bulletproof resin wall
+  description: Weird slime solidified into a wall. Looks shiny.
+  components:
+  - type: Sprite
+    color: "#ed99f6"
+  - type: Icon
+    color: "#ed99f6"
+  - type: MCArmor
+    melee: 0
+    bullet: 110
+    laser: 100
+    energy: 100
+    bomb: 20
+    bio: 0
+    fire: 0
+    acid: 0
+
+- type: entity
+  parent: MCWallXenoResinThick
+  id: MCWallXenoResinThickFireproof
+  name: fireproof resin wall
+  description: Weird slime solidified into a wall. Very red.
+  components:
+  - type: Sprite
+    color: "#ff696e"
+  - type: Icon
+    color: "#ff696e"
+  - type: MCArmor
+    melee: 0
+    bullet: 65
+    laser: 75
+    energy: 75
+    bomb: 0
+    bio: 0
+    fire: 200
+    acid: 0
+
+- type: entity
+  parent: MCWallXenoResinThick
+  id: MCWallXenoResinThickHardy
+  name: hardy resin wall
+  description: Weird slime soldified into a wall. Looks sturdy.
+  components:
+  - type: Sprite
+    color: "#6699ff"
+  - type: Icon
+    color: "#6699ff"
+  - type: MCArmor
+    melee: 80
+    bullet: 30
+    laser: 25
+    energy: 75
+    bomb: 80
+    bio: 0
+    fire: 0
+    acid: 0

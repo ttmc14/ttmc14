@@ -1,3 +1,5 @@
+ent-BaseCargoPallet = cargo pallet
+    .desc = Common fixture of logistics and cargo. Subtle reminder where crates go during transport to avoid bruised shins.
 ent-CargoPallet = cargo pallet
     .desc = Common fixture of logistics and cargo. Subtle reminder where crates go during transport to avoid bruised shins.
 ent-CargoPalletSell = cargo selling pallet

@@ -1,8 +1,8 @@
-ent-MCWeaponShotgunSH15 = Zauer SH-15 automatic shotgun
-    .desc = The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines.
+ent-MCWeaponShotgunSH15 = Автоматический дробовик Zauer SH-15
+    .desc = Zauer SH-15 — автоматический штурмовой дробовик производства Terran Armories. Очередная модификация серии ZX, которая впоследствии была включена в арсенал Корпуса морской пехоты ТеrrаGov (TGMC), отсюда обозначение SH. Заменил различные модели дробовиков в качестве полуавтоматического дробовика, поставляемого в TGMC. Имеет нарезной ствол и рассчитан преимущественно на боеприпасы увеличенной дальности, несовместим с картечными патронами. Использует магазины на 12 патронов 16-го калибра.
 ent-MCMagazineShotgunSH15 = { ent-CMMagazineRifleBase }
     .desc = { ent-CMMagazineRifleBase.desc }
-ent-MCMagazineShotgunSH15Flechette = SH-15 flechette magazine (16 gauge)
-    .desc = A magazine of 16 gauge flechette rounds, for the SH-15.
-ent-MCMagazineShotgunSH15Slug = SH-15 slug magazine (16 gauge)
-    .desc = A magazine of 16 gauge slugs, for the SH-15.
+ent-MCMagazineShotgunSH15Flechette = Магазин SH-15 (16-го калибра)
+    .desc = Магазин с флешеттами для SH-15 .
+ent-MCMagazineShotgunSH15Slug = Магазин SH-15 (16-го калибра)
+    .desc = Магазин с пулевыми патронами для SH-15.

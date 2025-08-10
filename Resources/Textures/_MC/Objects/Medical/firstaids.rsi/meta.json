@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "firstaid"
+    },
+    {
+      "name": "firstaid_empty"
+    },
+    {
+      "name": "firefirstaid"
+    },
+    {
+      "name": "firefirstaid_empty"
+    },
+    {
+      "name": "antitoxfirstaid"
+    },
+    {
+      "name": "antitoxfirstaid_empty"
+    },
+    {
+      "name": "purplefirstaid"
+    },
+    {
+      "name": "purplefirstaid_empty"
+    },
+    {
+      "name": "advfirstaid"
+    },
+    {
+      "name": "advfirstaid_empty"
+    },
+    {
+      "name": "o2firstaid"
+    },
+    {
+      "name": "o2firstaid_empty"
+    },
+    {
+      "name": "bezerk"
+    },
+    {
+      "name": "bezerk_empty"
+    },
+    {
+      "name": "syringe_case"
+    }
+  ]
+}

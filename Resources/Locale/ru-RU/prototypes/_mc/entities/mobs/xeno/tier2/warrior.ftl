@@ -1,2 +1,2 @@
 ent-MCXenoWarrior = воин
-    .desc = A powerful front line combatant.
+    .desc = Мощный боец на передовой.

@@ -2,8 +2,6 @@
   parent:
   # MC
   - MCXenoBase
-  - MCXenoCrestToss
-  - MCXenoStomp
   - MCXenoCharge
   # RMC
   - CMXenoDeveloped
@@ -35,13 +33,14 @@
     tier: 3
     role: MCXenoCrusher
     actionIds:
-    # RMC
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
+    # Main
     - MCActionXenoCrestToss
     - MCActionXenoStomp
     - MCActionXenoToggleChargingCrusher
+    - MCActionXenoZoom
     hudOffset: -0.15,0.25
   - type: XenoDevolve
     devolvesTo:
@@ -69,3 +68,20 @@
       state: crusher
   - type: MCXenoSunder
     multiplier: 0.85
+  - type: RMCSize
+    size: Big
+  # Abilities
+  - type: MCXenoCrestToss
+    damage:
+      groups:
+        Brute: 36 # distance * 6 (36)
+    speed: 10
+  - type: MCXenoStomp
+    throwSpeed: 2
+    damage:
+      groups:
+        Brute: 60
+  - type: MCXenoZoom
+    zoom: 1.5,1.5
+    offsetLength: 11
+    doAfter: 1

@@ -21,7 +21,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._RMC14.Xenonids.Hive;
 
-public abstract class SharedXenoHiveSystem : EntitySystem
+public abstract partial class SharedXenoHiveSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;

@@ -1,5 +1,7 @@
 # Foldable
 
+rmc-dogtag-verb-hide = Hide dogtags
+rmc-dogtag-verb-show = Show dogtags
 rmc-jacket-verb-fold = Take off jacket
 rmc-jacket-verb-unfold = Put on jacket
 rmc-sleeves-verb-fold = Roll up sleeves

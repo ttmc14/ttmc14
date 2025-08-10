@@ -1,7 +1,9 @@
 ent-CMClosetBaseUnanchored = closet
     .desc = It's a basic storage unit.
+    .suffix = Unanchored
 ent-CMClosetBase = { ent-CMClosetBaseUnanchored }
     .desc = { ent-CMClosetBaseUnanchored.desc }
+    .suffix = Anchored
 ent-RMCCabinetBase = cabinet
     .desc = Old will forever be in fashion.
 ent-RMCClosetBlack = formal closet
@@ -38,3 +40,4 @@ ent-CMClosetAlien = strange closet
     .desc = It looks alien!
 ent-RMCClosetGoldenArrowGear = personal locker
     .desc = An immobile storag unit.
+    .suffix = PvE, Sun Riders

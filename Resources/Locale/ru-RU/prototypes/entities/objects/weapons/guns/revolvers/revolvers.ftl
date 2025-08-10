@@ -16,3 +16,6 @@ ent-WeaponRevolverPythonAP = { ent-WeaponRevolverPython }
     .desc = { ent-WeaponRevolverPython.desc }
 ent-WeaponRevolverPirate = pirate revolver
     .desc = An odd, old-looking revolver, favoured by pirate crews. Uses .45 magnum ammo.
+ent-WeaponRevolverPirateEmpty = { ent-WeaponRevolverPirate }
+    .suffix = Empty
+    .desc = { ent-WeaponRevolverPirate.desc }

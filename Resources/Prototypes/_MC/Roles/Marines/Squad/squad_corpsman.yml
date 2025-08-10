@@ -67,7 +67,7 @@
   - type: SpawnPoint
     job_id: MCSquadCorpsman
   - type: Sprite
-    state: medic_spawn
+    state: corps
 
 - type: entity
   parent: MCSpawnPointSquadCorpsman
@@ -77,8 +77,6 @@
   - type: SquadSpawner
     squad: SquadAlpha
     role: MCSquadCorpsman
-  - type: Sprite
-    state: medic_spawn
 
 - type: entity
   parent: MCSpawnPointSquadCorpsman
@@ -88,8 +86,6 @@
   - type: SquadSpawner
     squad: SquadBravo
     role: MCSquadCorpsman
-  - type: Sprite
-    state: medic_spawn
 
 - type: entity
   parent: MCSpawnPointSquadCorpsman
@@ -99,8 +95,6 @@
   - type: SquadSpawner
     squad: SquadCharlie
     role: MCSquadCorpsman
-  - type: Sprite
-    state: medic_spawn
 
 - type: entity
   parent: MCSpawnPointSquadCorpsman
@@ -110,5 +104,3 @@
   - type: SquadSpawner
     squad: SquadDelta
     role: MCSquadCorpsman
-  - type: Sprite
-    state: medic_spawn

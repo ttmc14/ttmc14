@@ -1,2 +1,2 @@
 ent-MCXenoCrusher = крушитель
-    .desc = A huge tanky xenomorph.
+    .desc = Огромный танковый ксеноморф.

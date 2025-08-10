@@ -1,2 +1,2 @@
-ent-MCMachineVendingNanotrasenMed = NanotrasenMed Plus
-    .desc = Medical Pharmaceutical dispenser. Provided by Nanotrasen Pharmaceuticals Division(TM).
+ent-MCMachineVendingNanotrasenMed = НанотрейзенМед Плюс
+    .desc = Медицинский фармацевтический дозатор. Предоставлено компанией Nanotrasen Pharmaceuticals Division(TM).

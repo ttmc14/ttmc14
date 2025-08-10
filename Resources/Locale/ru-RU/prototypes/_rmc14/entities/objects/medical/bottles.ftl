@@ -14,3 +14,6 @@ ent-CMBottleInaprovaline = inaprovaline bottle
     .desc = A small bottle. Contains inaprovaline - used to stabilize patients.
 ent-CMBottleTricordrazine = tricordrazine bottle
     .desc = A small bottle. Contains tricordrazine - A weak but catch-all medicine for treating all sorts of damage.
+ent-RMCBottleAntiZed = 'Pathogen' cure bottle
+    .desc = The bottle has a biohazard symbol on the front, and has a label, designating its use against Agent A0-3959X.91–15, colloquially known as the "Black Goo".
+    .suffix = DO NOT MAP

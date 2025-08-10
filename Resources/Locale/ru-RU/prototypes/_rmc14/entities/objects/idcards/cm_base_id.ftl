@@ -1,5 +1,7 @@
 ent-CMIDCardStandardDogtag = dog tag
     .desc = A marine dog tag.
+ent-RMCIDCardStandardDogtagHidden = { ent-CMIDCardStandardDogtag }
+    .desc = { ent-CMIDCardStandardDogtag.desc }
 ent-RMCInformationDogtagProp = faded information dog tag
     .desc = A fallen marine's information dog tag. It looks battered and the name is worn out.
 ent-RMCInformationDogtag = information dog tag

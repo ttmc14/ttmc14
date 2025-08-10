@@ -22,5 +22,7 @@ ent-CMJobsSurvivorCorporate = { "" }
     .desc = { "" }
 ent-CMJobsSurvivorSecurity = { "" }
     .desc = { "" }
+ent-CMJobsSurvivorScientist = { "" }
+    .desc = { "" }
 ent-CMJobsSurvivorCommander = { "" }
     .desc = { "" }

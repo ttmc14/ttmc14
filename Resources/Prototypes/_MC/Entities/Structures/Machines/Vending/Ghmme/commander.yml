@@ -1,0 +1,84 @@
+- type: entity
+  parent: MCMachineVendingGhmme
+  id: MCMachineVendingGhmmeCommander
+  name: GHMME Automated Commander Closet
+  description: An automated closet hooked up to a colossal storage unit of standard-issue uniform and armor.
+  components:
+  - type: CMAutomatedVendor
+    jobs: [ MCFC ]
+    sections:
+    - name: Standard Equipment
+      choices:
+        MCStandardEquipment: 1
+      entries:
+      - id: MCVendorBundleStandardKitLeader
+      - id: MCVendorBundleEssentialJaegerKitLeader
+    - name: Hats
+      choices:
+        MCHats: 1
+      entries:
+      - id: RMCVisorWelding
+      - id: RMCVisorMedical
+    - name: Armor
+      choices:
+        MCArmour: 1
+      entries:
+      - id: MCVendorBundleArmorJaegerScout
+      - id: MCVendorBundleArmorJaegerSkirmisher
+      - id: MCVendorBundleArmorJaegerTrooper
+      - id: MCVendorBundleArmorJaegerInfantry
+        recommended: true
+      - id: MCVendorBundleArmorJaegerEVA
+        recommended: true
+      - id: MCVendorBundleArmorJaegerHellJumper
+        recommended: true
+      - id: MCVendorBundleArmorJaegerRanger
+        recommended: true
+      - id: MCVendorBundleArmorJaegerGugnir
+      - id: MCVendorBundleArmorJaegerAssault
+      - id: MCVendorBundleArmorJaegerEOD
+    - name: Backpack
+      choices:
+        MCBackpack: 1
+      entries:
+      - id: MCBackpackMarineStandard
+      - id: MCSatchelMarineStandard
+    - name: Webbing
+      choices:
+        MCWebbing: 1
+      entries:
+      - id: MCWebbingBlackVest
+        recommended: true
+      - id: MCWebbingBrown
+      - id: MCWebbingHolster
+    - name: Belt
+      choices:
+        MCBelt: 1
+      entries:
+      - id: MCClothingBeltMarine
+        recommended: true
+      - id: MCClothingBeltShotgun
+        recommended: true
+      # Knives belt
+      # Pistol belt
+      # G8 general utility pouch
+      # Belt harness
+    - name: Pouches
+      choices:
+        MCPouch: 2
+      entries:
+      - id: MCPouchShotgunShell
+      # General pouch
+      - id: MCPouchMagazineLarge
+      # Flare pouch
+      # Combat injector pouch
+      # First aid pouch
+      - id: MCPouchToolsFill
+        name: Tool pouch (tools included)
+      - id: MCPouchGrenadeFill
+        name: Grenade pouch (grenades included)
+      - id: MCPouchConstructionFill
+        name: Construction pouch (materials included)
+      - id: MCPouchPistolMagazineLarge
+      # Sidearm pouch
+      - id: MCPouchExplosive

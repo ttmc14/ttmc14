@@ -1,0 +1,21 @@
+- type: entity
+  parent: RMCShoesLaceup
+  id: MCLaceupSpatialAgent
+  name: spatial agent's shoes
+  description: Shoes worn by a spatial agent.
+  suffix: MC, Admin
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _MC/Clothing/Shoes/laceup_old.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Shoes/laceup_old.rsi
+  - type: CMArmor
+    melee: 35
+    bullet: 20
+    laser: 20
+    energy: 20
+    explosionArmor: 30
+    bio: 20
+    fire: 20
+    acid: 25

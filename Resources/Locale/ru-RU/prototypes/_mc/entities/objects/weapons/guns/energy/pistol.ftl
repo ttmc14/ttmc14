@@ -1,2 +1,2 @@
-ent-MCWeaponEnergyPistol = Terra Experimental laser pistol (TE-P)
-    .desc = The TE-P is a lightweight pistol with utility oriented alternative fire modes. The TE-P has a standard fire mode similar in performance to the P-14, a disabler fire mode for non-lethal takedowns, and a heat fire mode for setting targets on fire.
+ent-MCWeaponEnergyPistol = лазерный пистолет Terra Experimental (TE-P)
+    .desc = TE-P — лёгкий пистолет с альтернативными режимами огня, ориентированными на практическое применение. TE-P имеет стандартный режим стрельбы, схожий по характеристикам с P-14, режим нейтрализации для несмертельного обезвреживания целей и тепловой режим для поджигания целей.

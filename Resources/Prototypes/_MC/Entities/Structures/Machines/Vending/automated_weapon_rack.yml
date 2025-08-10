@@ -71,8 +71,8 @@
       - id: MCMagazineMG42
       - id: MCWeaponMachineGunMG60
       - id: MCMagazineMG60
-    - name: Melee
-      entries: []
+    #- name: Melee
+    #  entries: []
     - name: Sidearm
       entries:
       - id: MCWeaponP14
@@ -110,9 +110,12 @@
       - id: RMCPackFlareCAS
         amount: 30
     - name: Specialized
-      entries: []
-    - name: Heavy Weapons
-      entries: []
+      entries:
+      - id: MCWeaponPepperball
+        amount: 4
+      - id: MCMagazinePepperball
+    #- name: Heavy Weapons
+    #  entries: []
     - name: Attachments
       entries:
       - id: RMCM5Bayonet
@@ -142,8 +145,8 @@
       # mall pepperball canister (SAN balls)
       # T-76 magnum stock
       # standard flamer nozzle
-    - name: Boxes
-      entries: []
+    #- name: Boxes
+    # entries: []
     - name: Utility
       entries:
       - id: RMCFlashlight

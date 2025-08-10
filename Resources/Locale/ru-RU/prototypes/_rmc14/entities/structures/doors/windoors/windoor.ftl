@@ -1,4 +1,9 @@
+ent-CMBaseWindoor = { ent-BaseStructure }
+    .desc = { ent-BaseStructure.desc }
 ent-CMWindoor = glass door
     .desc = A window, that is also a door. A windoor if you will.
+ent-RMCWindoorSoro = { ent-CMWindoor }
+    .suffix = Blue
+    .desc = { ent-CMWindoor.desc }
 ent-CMWindoorSecure = secure glass door
     .desc = A thick chunk of tempered glass on metal track. Probably more robust than you.

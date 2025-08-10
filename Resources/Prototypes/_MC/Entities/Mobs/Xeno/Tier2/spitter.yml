@@ -33,14 +33,17 @@
     tier: 2
     role: MCXenoSpitter
     actionIds:
-    # RMC
     - MCActionXenoRest
-    - ActionXenoDevolve
-    # MC
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
     - MCActionXenoSprayAcid
     - MCActionXenoToggleXenoSpit
+    - MCActionXenoAcidMedium
+    - MCActionXenoScatterSpit
     hudOffset: -0.1,0.1
   - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 225
     evolvesTo:
     - MCXenoPraetorian
     - MCXenoBoiler
@@ -67,3 +70,13 @@
     icon:
       sprite: _MC/Interface/Xeno/icons.rsi
       state: spitter
+  - type: XenoAcid
+  # Abilities
+  - type: XenoSprayAcid
+    acid: MCXenoAcidSpraySpitter
+    range: 7
+    doAfter: 0.5
+    barricadeDamage:
+      types:
+        Heat: 5
+  - type: MCXenoScatterSpit

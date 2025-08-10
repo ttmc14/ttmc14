@@ -1,0 +1,9 @@
+﻿- type: gamePreset
+  id: MCCrash
+  alias:
+  - mccrash
+  name: mc-crash-title
+  description: mc-crash-description
+  showInVote: false
+  rules:
+  - MCCrash

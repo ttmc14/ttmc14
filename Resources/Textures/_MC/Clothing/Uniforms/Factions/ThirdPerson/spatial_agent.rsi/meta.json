@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/clothing/uniforms/uniforms.dmi, https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/mob/clothing/uniforms/uniform_0.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-INNERCLOTHING",
+      "directions": 4
+    }
+  ]
+}

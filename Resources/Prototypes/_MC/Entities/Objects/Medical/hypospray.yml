@@ -1,0 +1,107 @@
+- type: entity
+  parent: BaseItem
+  id: MCHypospray
+  name: hypospray
+  description: A sterile injector for rapid administration of drugs to patients.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/hypospray.rsi # хуйня не работает, мне лень разбираться, нету похожих состояний.
+    layers:
+    - state: base
+      map: [ "enum.SolutionContainerLayers.Base" ]
+    - state: hypo_100
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+  - type: Item
+    sprite: _MC/Objects/Medical/hypospray.rsi
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 60
+  - type: RefillableSolution
+    solution: hypospray
+  - type: ExaminableSolution
+    solution: hypospray
+  - type: Hypospray
+    onlyAffectsMobs: false
+  - type: StaticPrice
+    price: 0
+  - type: Tag
+    tags:
+    - MCHypospray
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: hypo_0
+    solutionName: reagent_0
+  - type: MedicallyUnskilledDoAfter
+    min: 1
+    doAfter: 3
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillMeralyne
+  name: hypospray
+  description: A sterile injector for rapid administration of drugs to patients.
+  suffix: Fill, Meralyne
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 60
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillDermaline
+  name: hypospray
+  description: A sterile injector for rapid administration of drugs to patients.
+  suffix: Fill, Dermaline
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCDermaline
+          Quantity: 60
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillMeraderm
+  name: hypospray
+  description: A sterile injector for rapid administration of drugs to patients.
+  suffix: Fill, Meraderm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 30
+        - ReagentId: MCDermaline
+          Quantity: 30
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillNanoblood
+  name: hypospray
+  description: A sterile injector for rapid administration of drugs to patients.
+  suffix: Fill, Nanoblood
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCNanoblood
+          Quantity: 60
+
+# tags
+- type: Tag
+  id: MCHypospray
+
+- type: Tag
+  id: MCHyposprayAdvanced

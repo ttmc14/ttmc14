@@ -58,6 +58,7 @@ rmc-xeno-headbutt-too-far = We can't headbutt from this distance with our crest 
 cm-xeno-leap-cancelled = We cancel our leap!
 # Plant weeds
 cm-xeno-weeds-source-already-here = There is already a resin node here!
+rmc-xeno-weeds-blocked = We can't do that here.
 # Corrosive acid
 cm-xeno-acid-not-corrodible = We cannot dissolve { THE($target) }!
 cm-xeno-acid-already-corroding = { THE($target) } already has corrosive acid on it!
@@ -66,6 +67,7 @@ rmc-xeno-acid-structure-unmeltable = We can only melt barricades and items!
 cm-xeno-paralyzing-slash-activate = Our next slash will apply neurotoxin!
 cm-xeno-paralyzing-slash-expire = We have waited too long, your slash will no longer apply neurotoxin!
 cm-xeno-paralyzing-slash-hit = We add neurotoxin into your attack, { $target } is about to fall over paralyzed!
+cm-xeno-paralyzing-slash-immune = { $target } shrugs off the neurotoxin!
 # Crippling Strike
 cm-xeno-crippling-strike-activate = Our next slash will apply neurotoxin!
 cm-xeno-crippling-strike-expire = We have waited too long, your slash will no longer apply neurotoxin!

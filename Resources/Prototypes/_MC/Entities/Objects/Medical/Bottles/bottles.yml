@@ -1,0 +1,311 @@
+#NEDICINE BOTTLES
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleBicaridine
+  name: bicaridine bottle
+  description: A small bottle. Contains Bicaridine - Used to treat brute damage by doctors.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCBicaridine: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleDexalin
+  name: dexalin bottle
+  description: A small bottle. Contains dexalin - used to supply blood with oxygen.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCDexalin
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCDexalin: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleKelotane
+  name: kelotane bottle
+  description: A small bottle. Contains kelotane - used to treat burned areas.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCKelotane
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCKelotane: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleDylovene
+  name: dylovene bottle
+  description: A small bottle of dylovene. Used to counter poisons. Basically an anti-toxin.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCDylovene
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCDylovene: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleInaprovaline
+  name: inaprovaline bottle
+  description: A small bottle. Contains inaprovaline - used to stabilize patients.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCInaprovaline
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCInaprovaline: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleTricordrazine
+  name: tricordrazine bottle
+  description: A small bottle. Contains tricordrazine - used as a generic treatment for injuries.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCTricordrazine
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCTricordrazine: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleImidazoline
+  name: imidazoline bottle
+  description: A small bottle. Contains imidazoline - used to treat eyes.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCImidazoline
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCImidazoline: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleHypervene
+  name: hypervene bottle
+  description: A very small bottle. Contains Hypervene - A purge chem for flushing toxins. Causes pain and vomiting.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 10
+        reagents:
+        - ReagentId: MCHypervene
+          Quantity: 10
+  - type: CMRefillableSolution
+    reagents:
+      MCHypervene: 10
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottletramadol
+  name: tramadol bottle
+  description: A small bottle. Contains Tramadol - Used as a basic painkiller.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCTramadol
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCTramadol: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleParacetamol
+  name: paracetamol bottle
+  description: A small bottle. Contains paracetamol - a mild, simple painkiller, good for enduring heavy labor.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCParacetamol
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCParacetamol: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleMeralyne
+  name: meralyne bottle
+  description: A small bottle. Contains meralyne - used as a potent treatment against brute damage.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCMeralyne: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleDermaline
+  name: dermaline bottle
+  description: A small bottle. Contains dermaline - used as a potent treatment against burns.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCDermaline
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCDermaline: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleMeraderm
+  name: meraderm bottle
+  description: A small bottle. Contains meralylne and dermaline - used as a potent treatment against physical injuries.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 30
+        - ReagentId: MCDermaline
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCDermaline: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleLeporazine
+  name: leporazine bottle
+  description: A small bottle. Contains leporazine - used to stabilize body temperature.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCLeporazine
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCLeporazine: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleSalineGlucose
+  name: saline-glucose bottle
+  description: A small bottle. Contains saline-glucose, also known as isotonic - used to aid the body in blood restoration.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCSalineGlucose
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCSalineGlucose: 60
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleNanoblood
+  name: nanoblood bottle
+  description: A small bottle. Contains nanoblood - used as a treatment for large amounts of blood loss.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCNanoblood
+          Quantity: 60
+  - type: CMRefillableSolution
+    reagents:
+      MCNanoblood: 60
+
+# CHEMICAL BOTTLES
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleLemoline
+  name: lemoline bottle
+  description: A small bottle. Contains 10 units of lemoline, a reagent used in the creation of advanced medicine.
+  suffix: MC, 10
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCLemoline
+          Quantity: 10
+  - type: CMRefillableSolution
+    reagents:
+      MCLemoline: 10
+
+- type: entity
+  parent: MCBottleFilled
+  id: MCBottleLemolineDoctor
+  name: lemoline bottle
+  description: A small bottle. Contains 30 units of lemoline, a reagent used in the creation of advanced medicine.
+  suffix: MC, 30
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      drink:
+        maxVol: 60
+        reagents:
+        - ReagentId: MCLemoline
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCLemoline: 30

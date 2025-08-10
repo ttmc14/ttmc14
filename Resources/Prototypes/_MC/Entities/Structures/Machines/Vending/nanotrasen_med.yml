@@ -15,37 +15,43 @@
     sections:
     - name: Pill Bottles
       entries:
-      - id: CMPillCanisterBicaridine
-      - id: CMPillCanisterKelotane
-      # tramadol
-      - id: CMPillCanisterTricordrazine
-      - id: CMPillCanisterDylovene
-      - id: CMPillCanisterInaprovaline
-      # isotonic
-      # paracetamol
-      - id: CMPillCanisterDexalin
+      - id: MCPillCanisterBicaridine
+      - id: MCPillCanisterKelotane
+      - id: MCPillCanisterTramadol
+      - id: MCPillCanisterTricordrazine
+      - id: MCPillCanisterDylovene
+      - id: MCPillCanisterInaprovaline
+      - id: MCPillCanisterSalineGlucose
+      - id: MCPillCanisterParacetamol
+      - id: MCPillCanisterDexalin
         amount: 6
       # spaceacillin = 6
       # alkysine = 6
-      # imidazoline = 6
+      - id: MCPillCanisterImidazoline
+        amount: 6
       # quickclot = 6
-      # hypervene = 6
-    # - name: Hypospray
-      #	/obj/item/reagent_containers/hypospray/autoinjector/dexalinplus = 10
+      - id: MCPillCanisterHypervene
+        amount: 6
+    - name: Hypospray
+      entries:
+      - id: MCAutoInjectorDexalinPlus
+        amount: 10
       #	/obj/item/reagent_containers/hypospray/autoinjector/sleeptoxin = 10
       #	/obj/item/reagent_containers/hypospray/advanced = 30
     - name: Reagent Bottle
       entries:
-      - id: CMBottleBicaridine
-      - id: CMBottleKelotane
-      # tramadol
-      - id: CMBottleTricordrazine
-      - id: CMBottleDylovene
-      - id: CMBottleInaprovaline
-      # paracetamol
-      # isotonic
-      # leporazine
-      - id: CMBottleDexalin
+      - id: MCBottleBicaridine
+      - id: MCBottleKelotane
+      - id: MCBottletramadol
+      - id: MCBottleTricordrazine
+      - id: MCBottleDylovene
+      - id: MCBottleInaprovaline
+      - id: MCBottleParacetamol
+      - id: MCBottleSalineGlucose
+      - id: MCBottleLeporazine
+      - id: MCBottleDexalin
+        amount: 6
+      - id: MCBottleImidazoline #не парити но мне похуй, я не просто так это делал
         amount: 6
       # spaceacillin = 6
       # oxycodone = 6
@@ -75,7 +81,7 @@
       # surgery_webbing
       # /obj/item/reagent_containers/spray/surgery
       # soap = 3
-      - id: RMCGlassesMedicalHUDGlasses
+      - id: MCGlassesHudHealth
         amount: 6
       - id: CMRollerBedSpawnFolded
         amount: 6

@@ -1,7 +1,7 @@
-ent-MCWeaponRifleAR21 = AR-21 Kauser skirmish rifle
-    .desc = The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers.
-ent-MCMagazineRifleAR21 = AR-21 skirmish rifle magazine
-    .desc = A magazine filled with 10x25mm rifle rounds for the AR-21.
+ent-MCWeaponRifleAR21 = штурмовая винтовка AR-21 Kauser
+    .desc = Kauser AR-21 это универсальная винтовка, разработанная для заполнения промежутка между крупнокалиберным вооружением и обычной винтовкой.Она стреляет мощными патронами калибра 10×25 мм, которые обладают хорошим останавливающим действием. Однако у этой модели есть недостатки: меньший размер магазина и ограниченная мобильность по сравнению с более компактными аналогами.
+ent-MCMagazineRifleAR21 = Магазин AR-21
+    .desc = магазин, снаряжённый патронами калибра 10×25 мм для винтовки AR-21.
 ent-MCCartridgeRifleAR21 = патрон (10x25mm)
     .desc = Винтовочный патрон 10x25mm
 ent-MCBulletRifleAR21 = { ent-RMCBaseBullet }

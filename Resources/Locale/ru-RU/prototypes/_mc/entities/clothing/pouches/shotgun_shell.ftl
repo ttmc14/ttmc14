@@ -1,2 +1,2 @@
-ent-MCPouchShotgunShell = shotgun shell pouch
-    .desc = A pouch specialized for holding shotgun ammo.
+ent-MCPouchShotgunShell = подсумок патрон для дробовика
+    .desc = Подсумок созданый для хранения патрон для дробовика.

@@ -98,7 +98,7 @@
   components:
   - type: Tag
     tags:
-    - CMMagazineRifle
+    - MCMagazineRifle
     - MCMagazineDMR37
   - type: BallisticAmmoProvider
     mayTransfer: True

@@ -27,6 +27,8 @@ enabled = false
 can_create_vacuum = false
 
 [game]
+hostname = "TTMC"
+desc = "Сборка сервера основана на https://github.com/ttmc14/ttmc14"
 defaultpreset = "CMDistressSignal"
 fallbackenabled = false
 fallbackpreset = "CMDistressSignal"
@@ -39,6 +41,12 @@ panic_bunker.enabled = false
 round_end_pvs_overrides = false
 round_restart_time = 180
 lobbyduration = 180
+
+[movement]
+mob_pushing = true
+
+[ooc]
+enable_during_round = true
 
 [gateway]
 generator_enabled = false
@@ -74,7 +82,7 @@ maxlinvelocity = 72
 target_minimum_tickrate = 140
 
 [pointing]
-cooldown_seconds = 0.1
+cooldown_seconds = 0.4
 
 [procgen]
 preload = false

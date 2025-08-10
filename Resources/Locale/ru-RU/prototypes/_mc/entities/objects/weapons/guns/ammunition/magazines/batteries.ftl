@@ -1,2 +1,2 @@
-ent-MCMagazineBatteryTerra = Terra Experimental standard battery
-    .desc = A specialized high density battery used to power most standard marine laser guns. It is simply known as the TE power cell.
+ent-MCMagazineBatteryTerra = стандартная батарея Terra Experimental
+    .desc = Специализированная батарея высокой плотности, используемая для питания большинства стандартных лазерных пушек. Он известен как силовой элемент TE.

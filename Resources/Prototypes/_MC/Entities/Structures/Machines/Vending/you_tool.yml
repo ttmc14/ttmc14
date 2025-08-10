@@ -1,0 +1,26 @@
+- type: entity
+  parent: ColMarTechBase
+  id: MCMachineVendingYouTool
+  name: YouTool
+  description: Tools for tools.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: tool-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: tool
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Tools
+      entries:
+      - id: CMCrowbar
+      - id: CMWelder
+      - id: CMWirecutter
+      - id: CMWrench
+      - id: CMScrewdriver
+      - id: CMMultitool
+    - name: Utility
+      entries:
+      - id: RMCCableCoil

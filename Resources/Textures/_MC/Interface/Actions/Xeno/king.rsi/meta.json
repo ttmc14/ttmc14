@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "nightfall"
+    },
+    {
+      "name": "petrify"
+    },
+    {
+      "name": "zero_form_beam"
+    },
+    {
+      "name": "off_guard"
+    },
+    {
+      "name": "shattering_roar"
+    },
+    {
+      "name": "conqueror_domination"
+    }
+  ]
+}

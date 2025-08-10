@@ -1,2 +1,2 @@
 ent-MCXenoRavager = опустошитель
-    .desc = A brutal, devastating front-line attacker.
+    .desc = Жестокий, разрушительный нападающий на передовой.

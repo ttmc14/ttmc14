@@ -32,6 +32,7 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: MarineOrders
     - type: Skills
       skills:
         RMCSkillMedical: 3
@@ -41,10 +42,12 @@
         RMCSkillPolice: 2
         RMCSkillPowerLoader: 4
         RMCSkillLeadership: 4
-        RMCSkillCQC: 0
+        RMCSkillCqc: 0
         RMCSkillSmartGun: 0
         # RMCSkillMelee: 0
         RMCSkillFirearms: 2
+    - type: CMVendorUser
+      points: 100
     - type: JobPrefix
       prefix: mc-job-prefix-captain
     - type: TacticalMapIcon
@@ -72,4 +75,4 @@
   - type: SpawnPoint
     job_id: MCCaptain
   - type: Sprite
-    state: medic_spawn
+    state: cap

@@ -1,0 +1,8 @@
+- type: entity
+  id: MCPlanetResearchOutpost
+  name: Исследовательский форпост
+  components:
+  - type: RMCPlanetMapPrototype
+    map: /Maps/_MC/research_outpost.yml
+    camouflage: Classic
+    announcement: ""

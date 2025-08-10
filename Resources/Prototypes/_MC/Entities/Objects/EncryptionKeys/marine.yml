@@ -1,7 +1,7 @@
 - type: entity
   parent: CMEncryptionKey
   id: MCEncryptionKeyCommand
-  name: Marine Command radio encryption key
+  name: marine command radio encryption key
   components:
   - type: EncryptionKey
     channels:
@@ -16,5 +16,19 @@
     - MarineJTAC
     - MarineCommon
     defaultChannel: MarineCommand
+  - type: Sprite
+    state: sl_key
+
+- type: entity
+  parent: CMEncryptionKey
+  id: MCEncryptionKeyMedical
+  name: medical radio encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - MarineMedical
+    - MarineRequisition
+    - MarineCommon
+    defaultChannel: MarineMedical
   - type: Sprite
     state: sl_key

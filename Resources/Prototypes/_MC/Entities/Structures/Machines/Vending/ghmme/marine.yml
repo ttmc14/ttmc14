@@ -43,6 +43,14 @@
       entries:
       - id: MCBackpackMarineStandard
       - id: MCSatchelMarineStandard
+    - name: Webbing
+      choices:
+        MCWebbing: 1
+      entries:
+      - id: MCWebbingBlackVest
+        recommended: true
+      - id: MCWebbingBrown
+      - id: MCWebbingHolster
     - name: Belt
       choices:
         MCBelt: 1

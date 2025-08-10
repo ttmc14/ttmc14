@@ -1,0 +1,31 @@
+- type: entity
+  id: MCKitchenReagentGrinder
+  parent: KitchenReagentGrinder
+  name: All-In-One Grinder
+  description: From BlenderTech. Will It Blend? Let's test it out!
+  suffix: "MC"
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/juicer.rsi
+    drawdepth: SmallObjects
+    snapCardinals: true
+    offset: "0.0,0.0"
+    layers:
+    - map: [ "grinder" ]
+      state: "juicer0"
+  - type: GenericVisualizer
+    visuals:
+      enum.ReagentGrinderVisualState.BeakerAttached:
+        grinder:
+          True: {state: "juicer1"}
+          False: {state: "juicer0"}
+  - type: ReagentGrinder
+    storageMaxEntities: 10
+  - type: RMCPowerReceiver
+    idleLoad: 5
+    activeLoad: 100
+    channel: Equipment
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

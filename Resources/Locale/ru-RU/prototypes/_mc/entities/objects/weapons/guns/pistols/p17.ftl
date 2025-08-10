@@ -1,8 +1,8 @@
-ent-MCWeaponP17 = P-17 pocket pistol
-    .desc = A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine.
-ent-MCMagazinePistolP17 = P-17 pocket pistol AP magazine (.380 AP)
+ent-MCWeaponP17 = карманый пистолет P-17
+    .desc = Компактный пистолет, используемый TGMC в качестве аварийного оружия, которое можно хранить практически где угодно. Вмещается в ботинок. Использует патроны калибра .380 ACP, которые размещаются в восьмизарядном магазине.
+ent-MCMagazinePistolP17 = ББ магазин для P-17 (.380 AP)
     .desc = { ent-CMBaseMagazinePistol.desc }
-ent-MCCartridgePistolP17 = cartridge (.380 AP)
+ent-MCCartridgePistolP17 = патрон (.380 AP)
     .desc = { ent-CMCartridgePistolBase.desc }
-ent-MCBulletPistolP17 = bullet (.380 AP)
+ent-MCBulletPistolP17 = пуля (.380 AP)
     .desc = { ent-CMBulletBase.desc }

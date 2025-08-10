@@ -1,3 +1,7 @@
+ent-BaseStringInstrument = { ent-BaseHandheldInstrument }
+    .desc = { ent-BaseHandheldInstrument.desc }
+ent-BaseStringInstrumentClothing = { ent-BaseStringInstrument }
+    .desc = { ent-BaseStringInstrument.desc }
 ent-ElectricGuitarInstrument = electric guitar
     .desc = Now this makes you feel like a rock star!
 ent-BassGuitarInstrument = bass guitar

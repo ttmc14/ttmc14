@@ -1,0 +1,17 @@
+- type: Tag
+  id: MCWeaponSidearm
+
+- type: Tag
+  id: MCMagazineSidearm
+
+- type: Tag
+  id: MCWeaponPistol
+
+- type: Tag
+  id: MCMagazinePistol
+
+- type: Tag
+  id: MCWeaponRevoler
+
+- type: Tag
+  id: MCMagazineRevoler

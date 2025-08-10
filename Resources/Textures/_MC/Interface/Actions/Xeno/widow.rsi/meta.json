@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "web_hook"
+    },
+    {
+      "name": "web_spit"
+    },
+    {
+      "name": "leash_ball"
+    },
+    {
+      "name": "attach_spiderling"
+    },
+    {
+      "name": "spawn_spiderling"
+    },
+    {
+      "name": "cannibalise_spiderling"
+    },
+    {
+      "name": "spiderling_mark"
+    },
+    {
+      "name": "burrow"
+    }
+  ]
+}

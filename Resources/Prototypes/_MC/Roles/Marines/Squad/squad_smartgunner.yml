@@ -57,6 +57,7 @@
     id: MCDogtagSquadSmartgunner
     back: MCSatchelMarineStandard
 
+# spawns
 - type: entity
   parent: MCSpawnPointJob
   id: MCSpawnPointSquadSmartgunner
@@ -65,7 +66,7 @@
   - type: SpawnPoint
     job_id: MCSquadSmartgunner
   - type: Sprite
-    state: smartgunner_spawn
+    state: smrt
 
 - type: entity
   parent: MCSpawnPointSquadSmartgunner
@@ -75,8 +76,6 @@
   - type: SquadSpawner
     squad: SquadAlpha
     role: MCSquadSmartgunner
-  - type: Sprite
-    state: smartgunner_spawn
 
 - type: entity
   parent: MCSpawnPointSquadSmartgunner
@@ -86,8 +85,6 @@
   - type: SquadSpawner
     squad: SquadBravo
     role: MCSquadSmartgunner
-  - type: Sprite
-    state: smartgunner_spawn
 
 - type: entity
   parent: MCSpawnPointSquadSmartgunner
@@ -98,7 +95,6 @@
     squad: SquadCharlie
     role: MCSquadSmartgunner
   - type: Sprite
-    state: smartgunner_spawn
 
 - type: entity
   parent: MCSpawnPointSquadSmartgunner
@@ -108,5 +104,3 @@
   - type: SquadSpawner
     squad: SquadDelta
     role: MCSquadSmartgunner
-  - type: Sprite
-    state: smartgunner_spawn

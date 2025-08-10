@@ -12,6 +12,12 @@
     },
     {
       "name": "evolve"
+    },
+    {
+      "name": "plant_weeds"
+    },
+    {
+      "name": "secrete_resin"
     }
   ]
 }

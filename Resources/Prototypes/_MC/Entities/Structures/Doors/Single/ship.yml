@@ -13,7 +13,7 @@
   suffix: Capitan, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessCapitan" ]]
+    access: [ [ "MCAccessCapitan" ] ]
 
 - type: entity
   parent: CMAirlockCommand
@@ -21,7 +21,7 @@
   suffix: Bridge, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessBridge" ]]
+    access: [ [ "MCAccessBridge" ] ]
 
 # Cargo
 - type: entity
@@ -30,7 +30,7 @@
   suffix: Requisitions, Glass, Locked
   components:
   - type: AccessReader
-    access: [["MCAccessLogistics"], ["MCAccessCargo"]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessCargo" ] ]
   - type: PaintableAirlock
     department: CMRequisitions
 
@@ -41,7 +41,7 @@
   suffix: Maintenance, Solid, Locked
   components:
   - type: AccessReader
-    access: [["MCAccessLogistics"], ["MCAccessEngineering"]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessEngineering" ] ]
 
 # Medical
 - type: entity
@@ -60,7 +60,7 @@
   suffix: Operating, Glass, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ] ]
 
 - type: entity
   parent: CMAirlockMedical
@@ -68,7 +68,7 @@
   suffix: Operating, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ] ]
 
 - type: entity
   parent: CMAirlockGlassMedical
@@ -76,7 +76,7 @@
   suffix: Chemistry, Glass, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ] ]
 
 - type: entity
   parent: CMAirlockMedical
@@ -84,7 +84,7 @@
   suffix: Chemistry, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ] ]
 
 - type: entity
   parent: CMAirlockGlassMedical
@@ -92,7 +92,7 @@
   suffix: Morgue, Glass, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ] ]
 
 - type: entity
   parent: CMAirlockMedical
@@ -100,7 +100,7 @@
   suffix: Morgue, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessChemistry" ], [ "MCAccessBridge" ] ]
 
 - type: entity
   parent: CMAirlockGlassMedical
@@ -108,7 +108,7 @@
   suffix: Research, Glass, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessResearch" ]]
+    access: [ [ "MCAccessResearch" ] ]
 
 - type: entity
   parent: CMAirlockMedical
@@ -116,7 +116,7 @@
   suffix: Research, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessResearch" ]]
+    access: [ [ "MCAccessResearch" ] ]
 
 - type: entity
   parent: CMAirlockGlassMedical
@@ -124,7 +124,7 @@
   suffix: CMO, Glass, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessCMO" ]]
+    access: [ [ "MCAccessCMO" ] ]
 
 - type: entity
   parent: CMAirlockMedical
@@ -132,7 +132,7 @@
   suffix: CMO, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessCMO" ]]
+    access: [ [ "MCAccessCMO" ] ]
 
 # Security
 - type: entity
@@ -141,7 +141,7 @@
   suffix: Security, Solid, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessCargo" ] ]
 
 - type: entity
   parent: CMAirlockGlassSecurity
@@ -149,7 +149,7 @@
   suffix: Security, Glass, Locked
   components:
   - type: AccessReader
-    access: [[ "MCAccessLogistics" ], [ "MCAccessCargo" ]]
+    access: [ [ "MCAccessLogistics" ], [ "MCAccessCargo" ] ]
 
 # Marines
 - type: entity
@@ -158,7 +158,7 @@
   suffix: SL, Glass, Locked
   components:
   - type: AccessReader
-    access: [["MCAccessMarineSquadLeader"]]
+    access: [ [ "MCAccessMarineSquadLeader" ] ]
 
 - type: entity
   parent: CMAirlockPrep
@@ -166,7 +166,7 @@
   suffix: Smart prep, Glass, Locked
   components:
   - type: AccessReader
-    access: [["MCAccessMarineSquadSmartPreparation"]]
+    access: [ [ "MCAccessMarineSquadSmartPreparation" ] ]
 
 - type: entity
   parent: CMAirlockPrep
@@ -174,7 +174,7 @@
   suffix: Medic prep, Glass, Locked
   components:
   - type: AccessReader
-    access: [["MCAccessMedicalPreparation"]]
+    access: [ [ "MCAccessMedicalPreparation" ] ]
 
 - type: entity
   parent: CMAirlockPrep
@@ -182,4 +182,4 @@
   suffix: Engineer prep, Glass, Locked
   components:
   - type: AccessReader
-    access: [["MCAccessEngineeringPreparation"]]
+    access: [ [ "MCAccessEngineeringPreparation" ] ]

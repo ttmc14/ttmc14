@@ -1,5 +1,7 @@
 ent-ClothingOuterHardsuitEVA = EVA suit
     .desc = A lightweight space suit with the basic ability to protect the wearer from the vacuum of space during emergencies.
+ent-ClothingOuterEVASuitSyndicate = syndicate EVA suit
+    .desc = Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'
 ent-ClothingOuterHardsuitSyndicate = syndicate EVA suit
     .desc = Has a tag on the back that reads: 'Totally not property of an enemy corporation, honest!'
 ent-ClothingOuterSuitEmergency = emergency EVA suit

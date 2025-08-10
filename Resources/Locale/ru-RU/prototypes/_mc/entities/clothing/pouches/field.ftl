@@ -1,2 +1,2 @@
-ent-MCPouchFieldUtility = field utility pouch
-    .desc = It can contain a motion detector, signaller, beacons, map tablets, radios, papers and other handy battlefield communication, navigation, and detection devices.
+ent-MCPouchFieldUtility = подсумок общего назначения
+    .desc = Он может вмещать детектор движения, сигнальное устройство, маяки, планшетные карты, радиостанции, документы и другие полезные устройства связи, навигации и обнаружения на поле боя.

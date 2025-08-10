@@ -1,0 +1,17 @@
+- type: entity
+  parent: RMCHeadsetShip
+  id: MCHeadsetSpatialAgent
+  name: spatial agent radio headset
+  description: Standard issue headset for spatial agents, providing access to most known channels. Will violently explode if used by anyone other than a spatial agent.
+  suffix: MC, Admin
+  components:
+  - type: Unremoveable
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: cargo
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - MCEncryptionKeyCommand
+  - type: EncryptionKeyHolder
+    keySlots: 2

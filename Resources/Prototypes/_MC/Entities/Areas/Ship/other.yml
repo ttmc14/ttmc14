@@ -150,6 +150,16 @@
 
 - type: entity
   parent: MCAreaShip
+  id: MCAreaShipExecutiveOfficerBunk
+  name: Executive Officer's Bunk
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
   id: MCAreaShipStaffOfficerBunks
   name: Staff Officer Bunks
   components:

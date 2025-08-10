@@ -4,6 +4,11 @@
   name: P-23 service pistol
   description: A standard P-23 chambered in .45 ACP. Has a smaller magazine capacity, but packs a better punch. Has an irremovable laser sight. Uses .45 magazines.
   components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+    - MCWeaponP23
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Pistols/p23.rsi
   - type: Clothing
@@ -78,10 +83,6 @@
       rmc-aslot-barrel: 0.685, 0.125
       rmc-aslot-rail: -0.125, 0.215
       rmc-aslot-underbarrel: 0.284, -0.19
-  - type: Tag
-    tags:
-    - Sidearm
-    - MCWeaponP23
 
 - type: entity
   parent: CMBaseMagazinePistol
@@ -90,7 +91,8 @@
   components:
   - type: Tag
     tags:
-    - CMMagazinePistol
+    - MCMagazineSidearm
+    - MCMagazinePistol
     - MCMagazinePistolP23
   - type: BallisticAmmoProvider
     mayTransfer: True

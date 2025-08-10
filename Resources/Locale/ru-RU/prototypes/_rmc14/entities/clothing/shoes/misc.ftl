@@ -16,3 +16,5 @@ ent-RMCShoesWeYaStompers = Weston-Yamada stompers
 ent-RMCShoesSandals = sandals
     .desc = A pair of rather plain, wooden sandals.
     .suffix = RMC
+ent-RMCShoesSnow = snow boots
+    .desc = When your feet are as cold as your heart

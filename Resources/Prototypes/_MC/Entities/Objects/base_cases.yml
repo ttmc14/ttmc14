@@ -1,0 +1,26 @@
+- type: entity
+  abstract: true
+  parent: BaseStorageItem
+  id: MCCase
+  name: case
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Medical/firstaids.rsi
+    layers:
+    - state: syringe_case
+    noRot: true
+  - type: Icon
+    sprite: _MC/Objects/Medical/firstaids.rsi
+    state: syringe_case
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,27,1
+  - type: FixedItemSizeStorage
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

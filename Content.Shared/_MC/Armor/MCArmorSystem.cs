@@ -12,14 +12,14 @@ namespace Content.Shared._MC.Armor;
 
 public sealed class MCArmorSystem : EntitySystem
 {
-    private static ProtoId<TagPrototype> TagMelee = "MCDamageMelee";
-    private static ProtoId<TagPrototype> TagBullet = "MCDamageBullet";
-    private static ProtoId<TagPrototype> TagLaser = "MCDamageLaser";
-    private static ProtoId<TagPrototype> TagEnergy = "MCDamageEnergy";
-    private static ProtoId<TagPrototype> TagBomb = "MCDamageBomb";
-    private static ProtoId<TagPrototype> TagBio = "MCDamageBio";
-    private static ProtoId<TagPrototype> TagFire = "MCDamageFire";
-    private static ProtoId<TagPrototype> TagAcid = "MCDamageAcid";
+    private static readonly ProtoId<TagPrototype> TagMelee = "MCDamageMelee";
+    private static readonly ProtoId<TagPrototype> TagBullet = "MCDamageBullet";
+    private static readonly ProtoId<TagPrototype> TagLaser = "MCDamageLaser";
+    private static readonly ProtoId<TagPrototype> TagEnergy = "MCDamageEnergy";
+    private static readonly ProtoId<TagPrototype> TagBomb = "MCDamageBomb";
+    private static readonly ProtoId<TagPrototype> TagBio = "MCDamageBio";
+    private static readonly ProtoId<TagPrototype> TagFire = "MCDamageFire";
+    private static readonly ProtoId<TagPrototype> TagAcid = "MCDamageAcid";
 
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -85,19 +85,25 @@ public sealed class MCArmorSystem : EntitySystem
 
         var sunderModifier = _xenoSunder.GetSunder(entityUid);
 
-        if (args.Tool is not { } tool)
-            return;
-
-        if (_tag.HasTag(tool, TagMelee) || HasComp<MeleeWeaponComponent>(tool))
+        if (args.Tool is { } tool)
         {
-            args.Damage *= ArmorToValue(ev.Melee, args.ArmorPiercing, sunderModifier);
-            return;
-        }
+            if (_tag.HasTag(tool, TagMelee) || HasComp<MeleeWeaponComponent>(tool))
+            {
+                args.Damage *= ArmorToValue(ev.Melee, args.ArmorPiercing, sunderModifier);
+                return;
+            }
 
-        if (_tag.HasTag(tool, TagBullet) || HasComp<RMCBulletComponent>(tool))
-        {
-            args.Damage *= ArmorToValue(ev.Bullet, args.ArmorPiercing, sunderModifier);
-            return;
+            if (_tag.HasTag(tool, TagBullet) || HasComp<RMCBulletComponent>(tool))
+            {
+                args.Damage *= ArmorToValue(ev.Bullet, args.ArmorPiercing, sunderModifier);
+                return;
+            }
+
+            if (_tag.HasTag(tool, TagAcid))
+            {
+                args.Damage *= ArmorToValue(ev.Acid, args.ArmorPiercing, sunderModifier);
+                return;
+            }
         }
     }
 

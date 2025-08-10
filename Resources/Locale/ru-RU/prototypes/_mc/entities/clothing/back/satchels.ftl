@@ -1,6 +1,6 @@
-ent-MCSatchelMarineStandard = satchel
-    .desc = A heavy-duty satchel carried by some TGMC soldiers and support personnel.
-ent-MCSatchelMarineStandardGreen = satchel
-    .desc = A heavy-duty satchel carried by some TGMC soldiers and support personnel.
-ent-MCSatchelMarineTechnician = technician satchel
-    .desc = A heavy-duty satchel carried by some TGMC technicians. Can hold the ST-580 point defense sentry and ammo.
+ent-MCSatchelMarineStandard = сумка
+    .desc = Прочный вещевой мешок, используемый некоторыми военнослужащими и вспомогательным персоналом Корпуса морской пехоты ТеrrаGov.
+ent-MCSatchelMarineStandardGreen = сумка
+    .desc = Прочный вещевой мешок, используемый некоторыми военнослужащими и вспомогательным персоналом Корпуса морской пехоты ТеrrаGov.
+ent-MCSatchelMarineTechnician = сумка техника
+    .desc = Прочный вещевой мешок, используемый техниками Корпуса морской пехоты ТерраGov. Способен вместить сторожевую установку ST-580 и боеприпасы к ней.

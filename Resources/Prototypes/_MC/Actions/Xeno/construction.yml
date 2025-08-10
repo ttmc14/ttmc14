@@ -23,11 +23,28 @@
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _RMC14/Actions/xeno_actions.rsi
+      sprite: _MC/Interface/Actions/Xeno/legacy.rsi
       state: plant_weeds
     useDelay: 0.1
   - type: InstantAction
     event: !type:MCXenoPlaceWeedsActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoCreateResinJelly
+  name: Create Resin Jelly (100)
+  description: Places Resin Jelly in your active hand, which can be used on yourself or other xeno castes for a 30-second protection from fire.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/construction.rsi
+      state: resin_jelly
+    useDelay: 45
+  - type: InstantAction
+    event: !type:MCXenoCreateResinJellyActionEvent
+  - type: XenoActionPlasma
+    cost: 100
 
 - type: entity
   parent: ActionXenoBase
@@ -45,3 +62,41 @@
     event: !type:MCXenoLayEggActionEvent
   - type: XenoActionPlasma
     cost: 200
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSecreteStructure
+  name: Secrete Resin
+  description: Builds structures, which can be chosen by clicking on the ability while it's active.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/legacy.rsi
+      state: secrete_resin
+  - type: TargetAction
+    deselectOnMiss: false
+    range: 0
+    repeat: true
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:XenoSecreteStructureActionEvent
+  - type: XenoConstructionAction
+    checkStructureSelected: true
+    checkWeeds: true
+    canUpgrade: false
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoChooseStructure
+  name: Choose Resin Structure
+  description: Choose a structure to secrete with the 'Secrete Resin' action.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: place_resin
+  - type: InstantAction
+    event: !type:XenoChooseStructureActionEvent
+  - type: XenoChooseConstructionAction

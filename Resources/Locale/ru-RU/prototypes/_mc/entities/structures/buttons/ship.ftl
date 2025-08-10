@@ -1,2 +1,10 @@
 ent-MCButtonDroppodBay = droppod bay
     .desc = { ent-RMCPodDoorButton.desc }
+ent-MCButtonAmmunitionStorage = ammunition storage
+    .desc = { ent-RMCPodDoorButton.desc }
+ent-MCButtonMechShutters = mech shutters
+    .desc = { ent-RMCPodDoorButton.desc }
+ent-MCButtonMechRequisitionWarehouse = requisition warehouse
+    .desc = { ent-RMCPodDoorButton.desc }
+ent-MCButtonShipCicArmory = cic armory
+    .desc = { ent-RMCPodDoorButton.desc }

@@ -1,8 +1,8 @@
-ent-MCClothingHandsSOM = SOM gloves
-    .desc = Gloves with origins dating back to the old mining colonies, they look pretty tough.
-ent-MCClothingHandsSOMInsulated = Insulated SOM gloves
-    .desc = Gloves with origins dating back to the old mining colonies. These ones appear to have an electrically insulating layer built into them.
-ent-MCClothingHandsSOMVeteran = SOM veteran gloves
-    .desc = Gloves with origins dating back to the old mining colonies. These ones seem tougher than normal.
-ent-MCClothingHandsSOMOfficer = SOM officer gloves
-    .desc = Black gloves commonly worn by SOM officers.
+ent-MCClothingHandsSOM = перчатки SOM
+    .desc = Перчатки, история которых уходит корнями в старые горнодобывающие колонии, выглядят довольно прочными.
+ent-MCClothingHandsSOMInsulated = изолированые перчатки SOM
+    .desc = Перчатки, история которых уходит корнями в старые горнодобывающие колонии. Похоже, что в эти встроены электрически изолирующий слой.
+ent-MCClothingHandsSOMVeteran = ветеранские перчатки SOM 
+    .desc = Перчатки, история которых уходит корнями в старые горнодобывающие колонии. Эти кажутся прочнее обычных.
+ent-MCClothingHandsSOMOfficer = офицерские перчатки SOM
+    .desc = Чёрные перчатки, которые обычно носят SOM.

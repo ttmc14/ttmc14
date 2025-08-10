@@ -1,4 +1,4 @@
-ent-MCPouchPistolMagazine = pistol magazine pouch
-    .desc = It can contain pistol and revolver ammo magazines.
-ent-MCPouchPistolMagazineLarge = pistol magazine pouch large
-    .desc = This pouch can contain six pistol and revolver ammo magazines.
+ent-MCPouchPistolMagazine = подсумок для пистолетных магазинов
+    .desc = Подсумок для хранения пистолетных магазинов и спидлоадеров для револьвера.
+ent-MCPouchPistolMagazineLarge = большой подсумок для пистолетных магазинов
+    .desc = Подсумок, который может вместить в себя шесть пистолетных магазинов.

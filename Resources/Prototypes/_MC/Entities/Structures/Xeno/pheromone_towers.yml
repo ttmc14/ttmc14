@@ -1,0 +1,60 @@
+- type: entity
+  parent: MCXenoStructure
+  id: MCXenoPheromoneTower
+  name: pheromone tower
+  description: A resin formation that looks like a small pillar. A faint, weird smell can be perceived from it.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/pheromone_towers.rsi
+    state: frenzy
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: XenoPheromones
+    pheromonesMultiplier: 5
+    pheromonesRange: 32
+  - type: XenoPheromonesObject
+  - type: XenoActivePheromones
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#ff3b3b"
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerRecovery
+  components:
+  - type: Sprite
+    state: recovery
+  - type: XenoActivePheromones
+    pheromones: Recovery
+  - type: PointLight
+    color: "#6496FA"
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerWarding
+  components:
+  - type: Sprite
+    state: warding
+  - type: XenoActivePheromones
+    pheromones: Warding
+  - type: PointLight
+    color: "#64C864"
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerFrenzy
+  components:
+  - type: Sprite
+    state: frenzy
+  - type: XenoActivePheromones
+    pheromones: Frenzy
+  - type: PointLight
+    color: "#ff3b3b"

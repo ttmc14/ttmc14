@@ -149,14 +149,16 @@ namespace Content.Client.UserInterface.Controls
             {
                 Scale = new Vector2(2, 2),
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
-                OverrideDirection = Direction.South
+                OverrideDirection = Direction.South,
+                RectClipContent = false,
             });
 
             AddChild(HoverSpriteView = new SpriteView
             {
                 Scale = new Vector2(2, 2),
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
-                OverrideDirection = Direction.South
+                OverrideDirection = Direction.South,
+                RectClipContent = false,
             });
             // RMC14 - Add icon label
             AddChild(IconLabel = new Label

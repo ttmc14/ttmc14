@@ -1,2 +1,2 @@
-ent-MCWeaponShotgunSH34 = SH-34 double barrel shotgun
-    .desc = A double barreled shotgun of archaic, but sturdy design used by the TGMC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time.
+ent-MCWeaponShotgunSH34 = двуствольный дробовик SH-34
+    .desc = Двуствольный дробовик архаичной, но прочной конструкции, используемый Корпусом морской пехоты ТеrrаGov (TGMC). Из-за сообщений о разрыве стволов возможность стрельбы из обоих стволов была отключена. Использует патроны 12-го калибра, но может вмещать только 2 патрона одновременно.

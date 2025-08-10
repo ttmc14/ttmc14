@@ -1,0 +1,11 @@
+- type: MCXenoBlessingsGroup
+  id: Building
+  title: Building
+
+- type: MCXenoBlessingsGroup
+  id: Defences
+  title: Defences
+
+- type: MCXenoBlessingsGroup
+  id: Xenos
+  title: Xenos

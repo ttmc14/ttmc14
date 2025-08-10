@@ -13,6 +13,7 @@
   - type: TargetAction
   - type: EntityTargetAction
     event: !type:MCXenoCrestTossActionEvent
+  - type: ActionBlockIfResting
   - type: XenoActionPlasma
     cost: 75
 
@@ -30,6 +31,7 @@
     useDelay: 20
   - type: InstantAction
     event: !type:MCXenoStompActionEvent
+  - type: ActionBlockIfResting
   - type: XenoActionPlasma
     cost: 100
 
@@ -41,9 +43,26 @@
   components:
   - type: Action
     itemIconStyle: NoItem
-    icon:
+    iconOn:
       sprite: _MC/Interface/Actions/Xeno/crusher.rsi
       state: ready_charge
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/crusher.rsi
+      state: ready_charge0
     useDelay: 0.1
   - type: InstantAction
     event: !type:MCXenoChargeActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoZoom
+  name: Toggle Long Range Sight
+  description: Extend your sight off into the distance. Must remain stationary to use.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: toggle_long_range
+  - type: InstantAction
+    event: !type:MCXenoZoomActionEvent

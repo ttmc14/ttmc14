@@ -1,3 +1,11 @@
 ent-MCPodlockShipDroppodBay = { ent-RMCPodDoorAlmayerIndestructible }
     .suffix = Droppod bay
     .desc = { ent-RMCPodDoorAlmayerIndestructible.desc }
+ent-MCPodlockShipAmmunitionStorage = ammunition storage
+    .desc = { ent-RMCPodDoorAlmayerIndestructible.desc }
+ent-MCPodlockShipMechShutter = mech shutters
+    .desc = { ent-RMCPodDoorAlmayerIndestructible.desc }
+ent-MCShutterShipRequisitionWarehouse = requisition warehouse shutters
+    .desc = { ent-RMCShutterAlmayer.desc }
+ent-MCShutterShipCICArmory = cic armory shutters
+    .desc = { ent-RMCShutterAlmayer.desc }

@@ -1,0 +1,29 @@
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCanterbury
+  name: Canterbury
+  components:
+  - type: Sprite
+    state: ai
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCanterburyMedical
+  name: Medical
+  components:
+  - type: Sprite
+    state: ai
+  - type: Area
+    zLevel: 2
+
+- type: entity
+  parent: MCAreaShip
+  id: MCAreaShipCanterburyCIC
+  name: Combat Information Center
+  components:
+  - type: Sprite
+    state: ai
+  - type: Area
+    zLevel: 2

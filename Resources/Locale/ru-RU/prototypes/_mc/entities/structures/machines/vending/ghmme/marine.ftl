@@ -1,2 +1,2 @@
-ent-MCMachineVendingGhmmeMarine = GHMME Automated Closet
-    .desc = An automated closet hooked up to a colossal storage unit of standard-issue uniform and armor.
+ent-MCMachineVendingGhmmeMarine = автоматизированный шкаф GHMME
+    .desc = Автоматизированный шкаф, подключенный к колоссальному хранилищу стандартной одежды и снаряжения.

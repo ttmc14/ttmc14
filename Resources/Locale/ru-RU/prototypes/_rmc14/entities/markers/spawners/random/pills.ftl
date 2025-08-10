@@ -1,0 +1,15 @@
+ent-RMCSpawnerRandomPillBase = pill bottle loot spawner
+    .desc = This is a random pill bottle, for survivors.
+    .suffix = Base
+ent-RMCSpawnerRandomPillBottle = { ent-RMCSpawnerRandomPillBase }
+    .suffix = Guaranteed
+    .desc = { ent-RMCSpawnerRandomPillBase.desc }
+ent-RMCSpawnerRandomPillBottleLowChance = { ent-RMCSpawnerRandomPillBottle }
+    .suffix = Low Chance
+    .desc = { ent-RMCSpawnerRandomPillBottle.desc }
+ent-RMCSpawnerRandomPillBottleMidChance = { ent-RMCSpawnerRandomPillBottle }
+    .suffix = Mid Chance
+    .desc = { ent-RMCSpawnerRandomPillBottle.desc }
+ent-RMCSpawnerRandomPillBottleHighChance = { ent-RMCSpawnerRandomPillBottle }
+    .suffix = High Chance
+    .desc = { ent-RMCSpawnerRandomPillBottle.desc }

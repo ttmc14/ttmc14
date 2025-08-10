@@ -78,16 +78,16 @@
   - type: Storage
     whitelist:
       tags:
-      - MCShellShotgunSlugs
+      - MCShellShotgunSlug
   - type: StorageFill
     contents:
-    - id: MCShellShotgunSlugs
+    - id: MCShellShotgunSlug
       amount: 5
   - type: Sprite
     layers:
     - state: smallshell_box
       color: "#578e75"
-    - state: shell_box_slugs
+    - state: shell_box_buckshot
       color: "#e0d5c2"
     - state: smallshell_ammo_full_12g_base
       color: "#ffffff"
@@ -116,7 +116,7 @@
     layers:
     - state: smallshell_box
       color: "#6551a0"
-    - state: shell_box_flechette
+    - state: shell_box_buckshot
       color: "#e0d5c2"
     - state: smallshell_ammo_full_12g_base
       color: "#ffffff"

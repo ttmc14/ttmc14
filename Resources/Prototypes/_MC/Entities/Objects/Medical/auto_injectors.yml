@@ -1,18 +1,324 @@
 - type: entity
-  parent: CMAutoInjector
-  id: MCDyloveneAutoInjector
+  parent: ChemicalMedipen
+  id: MCAutoInjectorBase
+  name: autoinjector
+  description: An autoinjector.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+    layers:
+    - state: autoinjector
+    - state: autoinjector1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+  - type: Item
+    size: Small
+    sprite: null
+    inhandVisuals: {}
+  - type: Hypospray
+    solutionName: pen
+    injectSound: /Audio/_RMC14/Medical/hypospray.ogg
+    transferAmount: 10
+    injectOnly: true
+    onlyAffectsMobs: true
+    canContainerDraw: true
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+  - type: SolutionContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: autoinjector
+    emptySpriteName: autoinjector
+    changeColor: true
+  - type: Tag
+    tags:
+    - CMAutoInjector
+    - MCAutoInjector
+  - type: IconLabel
+    textColor: White
+    storedOffset: 0, 12
+  - type: RMCSmartFridgeInsertable
+
+- type: Tag
+  id: MCAutoInjector
+
+- type: entity
+  parent: MCAutoInjectorBase
+  id: MCAutoInjector
+  suffix: MC
+  abstract: true
+  components:
+  - type: CMRefillableSolution
+    solution: pen
+    reagents: {}
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDylovene
   name: dylovene autoinjector
   description: An auto-injector loaded with 3 doses of dylovene, an anti-toxin agent useful in cases of poisoning, overdoses and toxin build-up.
   components:
   - type: SolutionContainerManager
     solutions:
       pen:
-        maxVol: 45
+        maxVol: 30
         reagents:
-        - ReagentId: CMDylovene
-          Quantity: 45
+        - ReagentId: MCDylovene
+          Quantity: 30
   - type: CMRefillableSolution
     reagents:
-      CMTricordrazine: 45
+      MCDylovene: 30
   - type: IconLabel
-    labelTextLocId: rmc-dylovene-container-label-text
+    labelTextLocId: mc-dylovene-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorKelotane
+  name: kelotane autoinjector
+  description: An auto-injector loaded with 3 doses of kelotane, a common burn medicine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCKelotane
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCKelotane: 30
+  - type: IconLabel
+    labelTextLocId: mc-kelotane-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorBicaridine
+  name: bicaridine autoinjector
+  description: An auto-injector loaded with 3 doses of bicaridine, a common brute and circulatory damage medicine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCBicaridine: 30
+  - type: IconLabel
+    labelTextLocId: mc-bicaridine-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorTricordrazine
+  name: tricordrazine autoinjector
+  description: An autoinjector loaded with 3 doses of tricordrazine, a weak general use medicine for treating damage.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCTricordrazine
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCTricordrazine: 30
+  - type: IconLabel
+    labelTextLocId: mc-tricordrazine-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorInaprovaline
+  name: inaprovaline autoinjector
+  description: An auto-injector loaded with 2 doses of inaprovaline, an emergency stabilization medicine for patients in critical condition.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCInaprovaline
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCInaprovaline: 30
+  - type: IconLabel
+    labelTextLocId: mc-inaprovaline-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDexalin
+  name: dexalin autoinjector
+  description: An auto-injector loaded with 3 doses of dexalin, a medicine that oxygenates the body helping those with respiratory issues or low blood.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCDexalin
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCDexalin: 30
+  - type: IconLabel
+    labelTextLocId: mc-dexalin-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorImidazoline
+  name: imidazoline autoinjector
+  description: An auto-injector loaded with 3 doses of imidazoline, medicine for fixing eyesight.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCImidazoline
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCImidazoline: 30
+  - type: IconLabel
+    labelTextLocId: mc-imidazoline-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorHypervene
+  name: hypervene autoinjector
+  description: An auto-injector loaded with 3 uses of hypervene, an emergency medicine that rapidly purges chems. Causes pain and vomiting.
+  components:
+  - type: Hypospray
+    transferAmount: 3
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 9
+        reagents:
+        - ReagentId: MCHypervene
+          Quantity: 9
+  - type: CMRefillableSolution
+    reagents:
+      MCHypervene: 9
+  - type: IconLabel
+    labelTextLocId: mc-hypervene-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorTramadol
+  name: tramadol autoinjector
+  description: An auto-injector loaded with 3 doses of tramadol, an effective painkiller for normal wounds.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCTramadol
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCTramadol: 30
+  - type: IconLabel
+    labelTextLocId: mc-tramadol-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorParacetamol
+  name: paracetamol autoinjector
+  description: An auto-injector loaded with 2 doses of paracetamol, this chemical is a mild, simple painkiller.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCParacetamol
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCParacetamol: 30
+  - type: IconLabel
+    labelTextLocId: mc-paracetamol-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDexalinPlus
+  name: dexalin plus autoinjector
+  description: An autoinjector loaded with 3 uses of dexalin plus, designed to immediately oxygenate the entire body.
+  components:
+  - type: Hypospray
+    transferAmount: 1
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 3
+        reagents:
+        - ReagentId: MCDexalinPlus
+          Quantity: 3
+  - type: CMRefillableSolution
+    reagents:
+      MCDexalinPlus: 3
+  - type: IconLabel
+    labelTextLocId: mc-dexalinplus-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorSalineGlucose
+  name: isotonic solution autoinjector
+  description: An auto-injector loaded with 2 doses of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCSalineGlucose
+          Quantity: 30
+  - type: CMRefillableSolution
+    reagents:
+      MCSalineGlucose: 30
+  - type: IconLabel
+    labelTextLocId: mc-isotonic-container-label-text
+
+# MISC
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorCombat
+  name: combat autoinjector
+  description: An autoinjector loaded with 2 doses of healing and painkilling chemicals. Intended for use in active combat.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 10
+        - ReagentId: MCKelotane
+          Quantity: 10
+        - ReagentId: MCTricordrazine
+          Quantity: 5
+        - ReagentId: MCTramadol
+          Quantity: 5
+  - type: CMRefillableSolution
+    reagents:
+      MCBicaridine: 10
+      MCKelotane: 10
+      MCTricordrazine: 5
+      MCTramadol: 5
+  - type: IconLabel
+    labelTextLocId: mc-combat-container-label-text

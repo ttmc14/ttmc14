@@ -8,6 +8,10 @@
     snap:
     - Wall
   components:
+  - type: Tag
+    tags:
+    - MCXenoIgnoreBanish
+    - XenoWeedTile
   - type: Transform
     anchored: true
   - type: Physics
@@ -25,7 +29,7 @@
         density: 1000
         hard: false
   - type: XenoWeeds
-    speedMultiplierXeno: 1.667
+    speedMultiplierXeno: 1.153
     speedMultiplierOutsider: 1
     speedMultiplierOutsiderArmor: 1
     range: 3
@@ -111,9 +115,6 @@
     whitelist:
       tags:
       - XenoWeedTile
-  - type: Tag
-    tags:
-    - XenoWeedTile
 #  - type: FootstepModifier
 #    footstepSoundCollection:
 #      collection: FootstepWater
@@ -127,6 +128,10 @@
   description: A weird, pulsating node
   abstract: true
   components:
+  - type: Tag
+    tags:
+    - MCXenoIgnoreBanish
+    - XenoWeedNode
   - type: Sprite
     sprite: _MC/Structures/Xeno/Weeds/base.rsi
     drawdepth: FloorTiles
@@ -158,9 +163,6 @@
     healOnStopSpreading:
       groups:
         Brute: -6
-  - type: Tag
-    tags:
-    - XenoWeedNode
 
 - type: entity
   parent: MCXenoWeedsBase

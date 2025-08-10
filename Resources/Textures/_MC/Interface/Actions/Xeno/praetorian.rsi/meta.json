@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "dodge"
+    },
+    {
+      "name": "impale"
+    },
+    {
+      "name": "tail_trip"
+    },
+    {
+      "name": "tail_hook"
+    },
+    {
+      "name": "baton_pass"
+    },
+    {
+      "name": "tail_seize"
+    },
+    {
+      "name": "abduct"
+    },
+    {
+      "name": "tail_lash"
+    },
+    {
+      "name": "item_throw"
+    },
+    {
+      "name": "advance"
+    }
+  ]
+}

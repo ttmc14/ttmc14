@@ -1,2 +1,2 @@
 ent-MCXenoHunter = охотник
-    .desc = A fast, powerful front line combatant.
+    .desc = Быстрый, мощный боец первой линии.

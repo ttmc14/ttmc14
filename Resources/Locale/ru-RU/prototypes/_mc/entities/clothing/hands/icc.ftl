@@ -1,6 +1,6 @@
-ent-MCClothingHandsICC = ICC gloves
-    .desc = Tough looking working gloves.
-ent-MCClothingHandsICCInsulated = ICC insulated gloves
-    .desc = Tough looking working gloves. These ones appear to have insulation to protect from electric shock.
-ent-MCClothingHandsICCGuard = ICCGF gloves
-    .desc = Tough looking tactical gloves.
+ent-MCClothingHandsICC = прчатки ICC
+    .desc = Защитные рабочие перчатки.
+ent-MCClothingHandsICCInsulated = изолированиы перчатки ICC 
+    .desc = Защитные рабочие перчатки. Похоже, что эти оснащены изоляцией для защиты от поражения электрическим током.
+ent-MCClothingHandsICCGuard = перчатки ICCGF 
+    .desc = Защитные тактические перчатки.
