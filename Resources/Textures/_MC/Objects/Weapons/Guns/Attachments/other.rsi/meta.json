@@ -18,6 +18,18 @@
     },
     {
       "name": "mosin_other"
+    },
+    {
+      "name": "flashlight"
+    },
+    {
+      "name": "flashlight_on"
+    },
+    {
+      "name": "flashlight_a"
+    },
+    {
+      "name": "flashlight_a-on"
     }
   ]
 }

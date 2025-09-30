@@ -1,0 +1,236 @@
+- type: entity
+  parent: CMWeaponPistolBase
+  id: MCWeaponM23
+  name: Heckler & Koch Mark 23
+  description: The Mark 23 was the predecessor to Heckler & Koch's USP series of handguns. It is chambered for the popular .45 ACP cartridge.
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+    - MCWeaponM23
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Pistols/m23.rsi
+    layers:
+    - state: icon
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Pistols/m23.rsi
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 10
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_88mod4.ogg
+      volume: -2
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/vp70_empty.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    recoilUnwielded: 2
+    recoilWielded: 1
+    scatterWielded: -2
+    scatterUnwielded: 12
+    baseFireRate: 3
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/vp70_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/vp70_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazinePistolM23
+        startingItem: MCMagazinePistolM23
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+    accuracyMultiplierUnwielded: 0.95
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        startingAttachable: MCAttachmentSuppressor
+        whitelist:
+          tags:
+          - MCAttachmentSuppressor
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentRecoilCompensator
+      mc-aslot-underbarrel:
+        locked: true
+        startingAttachable: MCAttachmentUnderbarrelFlashlightM23
+        whitelist:
+          tags:
+          - MCAttachmentUnderbarrelFlashlightM23
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.455, 0.180
+      mc-aslot-underbarrel: 0, 0
+
+- type: entity
+  parent: CMBaseMagazinePistol
+  id: MCMagazinePistolM23
+  name: M-23 magazine (.45)
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSidearm
+    - MCMagazinePistol
+    - MCMagazinePistolM23
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgePistolM23
+    proto: MCCartridgePistolM23
+    capacity: 12
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/mk88.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MCCartridgePistolM23
+  name: cartridge (.45)
+  parent: CMCartridgePistolBase
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgePistolM23
+  - type: CartridgeAmmo
+    proto: MCBulletPistolM23
+
+- type: entity
+  parent: CMBulletBase
+  id: MCBulletPistolM23
+  name: bullet (.45)
+  components:
+  - type: Projectile
+    damage:
+      groups:
+        Brute: 55
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 22
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 6
+      falloff: 5
+  - type: CMArmorPiercing
+    amount: 10
+  - type: MCXenoSunderDamageOnHit
+    amount: 1
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 5
+
+- type: Tag
+  id: MCMagazinePistolM23
+
+- type: Tag
+  id: MCCartridgePistolM23
+
+- type: Tag
+  id: MCWeaponM23
+
+- type: entity
+  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
+  id: MCAttachmentUnderbarrelFlashlightM23
+  name: LAM
+  description: Laser Aiming Module
+  components:
+  - type: ItemTogglePointLight
+  - type: ToggleableVisuals
+    spriteLayer: light
+  - type: PointLightRotation
+    rotation: 90
+  - type: PointLight
+    enabled: false
+    radius: 5
+    offset: 0,-2
+    rotation: 90
+    softness: 5
+    autoRot: true
+    netsync: false
+    color: "#FFFFFF"
+    mask: /Textures/_RMC14/Effects/LightMasks/wide_linear2.png
+  - type: HandheldLight
+    addPrefix: false
+    blinkingBehaviourId: blinking
+    radiatingBehaviourId: radiating
+  - type: NoHandsInteractionBlocked
+  - type: LightBehaviour
+    behaviours:
+    - !type:FadeBehaviour
+      id: radiating
+      interpolate: Linear
+      maxDuration: 2.0
+      startValue: 3.0
+      endValue: 2.0
+      isLooped: true
+      property: Radius
+      enabled: false
+      reverseWhenFinished: true
+    - !type:PulseBehaviour
+      id: blinking
+      interpolate: Nearest
+      maxDuration: 1.0
+      minValue: 0.1
+      maxValue: 2.0
+      isLooped: true
+      property: Radius
+      enabled: false
+  - type: Battery
+    maxCharge: 10
+    startingCharge: 10
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 3
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
+    layers:
+    - state: flashlight
+    - state: flashlight_on
+      shader: unshaded
+      visible: false
+      map: [ "light" ]
+  - type: Item
+    sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
+  - type: Appearance
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: 0.05
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: 0.10
+  - type: AttachableToggleable
+    attachedOnly: true
+    useDelay: 1.0
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
+      state: flashlight
+    iconActive:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
+      state: flashlight_on
+    actionName: Toggle the underbarreled flashlight
+    actionDesc: Can be toggled on and off.
+  - type: AttachableVisuals
+    showActive: true
+  - type: AttachableToggleableSimpleActivate
+  - type: Tag
+    tags:
+    - MCAttachmentUnderbarrel
+    - MCAttachmentUnderbarrelFlashlightM23
+    - Flashlight
