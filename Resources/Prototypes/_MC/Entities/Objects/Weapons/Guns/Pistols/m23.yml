@@ -129,7 +129,7 @@
   - type: CMArmorPiercing
     amount: 10
   - type: MCXenoSunderDamageOnHit
-    amount: 1
+    amount: 0.2
   - type: RMCProjectileAccuracy
     thresholds:
     - range: 5
@@ -156,14 +156,15 @@
     rotation: 90
   - type: PointLight
     enabled: false
-    radius: 5
-    offset: 0,-2
+    radius: 8
+    energy: 3
+    offset: 0, 0
     rotation: 90
     softness: 5
     autoRot: true
     netsync: false
     color: "#FFFFFF"
-    mask: /Textures/_RMC14/Effects/LightMasks/wide_linear2.png
+    mask: /Textures/_RMC14/Effects/LightMasks/wide_linear.png
   - type: HandheldLight
     addPrefix: false
     blinkingBehaviourId: blinking
@@ -224,7 +225,7 @@
     iconActive:
       sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
       state: flashlight_on
-    actionName: Toggle the underbarreled flashlight
+    actionName: Toggle the LAM
     actionDesc: Can be toggled on and off.
   - type: AttachableVisuals
     showActive: true
