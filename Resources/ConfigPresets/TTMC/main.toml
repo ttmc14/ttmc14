@@ -29,9 +29,9 @@ can_create_vacuum = false
 [game]
 hostname = "[RU][LRP] 🌪️ TornadoTech's Marine Corps — Main"
 desc = "Сборка сервера основана на https://github.com/ttmc14/ttmc14"
-defaultpreset = "CMDistressSignal"
+defaultpreset = "MCDistressSignal"
 fallbackenabled = false
-fallbackpreset = "CMDistressSignal"
+fallbackpreset = "MCDistressSignal"
 round_end_sound_collection = "CMRoundEnd"
 map = "MCPillarOfSpring"
 contraband_examine = false

@@ -4,6 +4,17 @@
   - mccrash
   name: mc-crash-title
   description: mc-crash-description
-  showInVote: false
+  showInVote: true
   rules:
   - MCCrash
+
+- type: gamePreset
+  id: MCDistressSignal
+  alias:
+  - mcdistresssignal
+  - mcdistress
+  name: mc-crash-distress
+  description: mc-crash-distress
+  showInVote: true
+  rules:
+  - MCDistressSignal

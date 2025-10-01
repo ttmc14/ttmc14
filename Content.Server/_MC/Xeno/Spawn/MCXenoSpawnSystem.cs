@@ -53,7 +53,7 @@ public sealed class MCXenoSpawnSystem : EntitySystem
         Subs.CVar(_config, RMCCVars.RMCPlanetMapVoteExcludeLast, v => _mapVoteExcludeLast = v, true);
     }
 
-    public bool SpawnXenoMap(Entity<MCCrashRuleComponent> rule)
+    public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IXenoMapRuleComponent
     {
         var planet = SelectRandomPlanet();
         _lastPlanetMaps.Enqueue(planet.Proto.ID);
