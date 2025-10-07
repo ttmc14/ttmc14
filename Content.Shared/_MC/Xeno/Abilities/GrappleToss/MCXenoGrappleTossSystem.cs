@@ -12,7 +12,6 @@ namespace Content.Shared._MC.Xeno.Abilities.GrappleToss;
 
 public sealed class MCXenoGrappleTossSystem : EntitySystem
 {
-    [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;

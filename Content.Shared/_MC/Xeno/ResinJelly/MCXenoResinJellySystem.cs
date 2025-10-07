@@ -22,7 +22,6 @@ public sealed class MCXenoResinJellySystem : EntitySystem
     [Dependency] private readonly SharedAuraSystem _aura = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
 
     [Dependency] private readonly RMCActionsSystem _rmcActions = default!;

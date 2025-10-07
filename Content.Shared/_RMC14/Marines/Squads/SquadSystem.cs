@@ -59,6 +59,7 @@ public sealed class SquadSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedRMCBanSystem _rmcBan = default!;
     [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;
+    [Dependency] private readonly ISawmill _sawmill = default!;
 
     private static readonly ProtoId<JobPrototype> SquadLeaderJob = "CMSquadLeader";
     private static readonly ProtoId<JobPrototype> IntelOfficerJob = "CMIntelOfficer";
@@ -735,7 +736,7 @@ public sealed class SquadSystem : EntitySystem
         if (squadOrder.Count == 0)
         {
             // The dataset cannot be empty, the person forgot to add values ​​to it
-            Logger.Error($"The squad hierarchy dataset '{squadHierarchyId}' has an invalid value: empty. The highest squad cannot be determined.");
+            _sawmill.Error($"The squad hierarchy dataset '{squadHierarchyId}' has an invalid value: empty. The highest squad cannot be determined.");
             return null;
         }
 

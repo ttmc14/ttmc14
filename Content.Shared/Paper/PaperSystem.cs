@@ -32,7 +32,6 @@ public sealed class PaperSystem : EntitySystem
     [Dependency] private readonly SharedUserInterfaceSystem _uiSystem = default!;
     [Dependency] private readonly MetaDataSystem _metaSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedIdentitySystem _identitySystem = default!;
 
     private static readonly ProtoId<TagPrototype> WriteIgnoreStampsTag = "WriteIgnoreStamps";
     private static readonly ProtoId<TagPrototype> WriteTag = "Write";
@@ -334,7 +333,7 @@ public sealed class PaperSystem : EntitySystem
         var name = string.Empty;
         var rank = string.Empty;
         var role = string.Empty;
-        
+
         // Get the identity entity (ID card, etc.)
         var identityEntity = player;
         if (TryComp<IdentityComponent>(player, out var identity) &&
@@ -342,17 +341,17 @@ public sealed class PaperSystem : EntitySystem
         {
             identityEntity = idEntity;
         }
-        
+
         // Get name from identity or fallback to entity name
         name = MetaData(identityEntity).EntityName;
-        
+
         // Get rank from RankComponent
         if (TryComp<RankComponent>(player, out var rankComp))
         {
             var rankSystem = EntityManager.System<SharedRankSystem>();
             rank = rankSystem.GetRankString(player, isShort: true) ?? string.Empty;
         }
-        
+
         // Get role from mind system
         if (TryComp<MindContainerComponent>(player, out var mindContainer) &&
             mindContainer.Mind != null)
@@ -364,7 +363,7 @@ public sealed class PaperSystem : EntitySystem
                 role = Loc.GetString(roleInfo[0].Name);
             }
         }
-        
+
         // Format: "Rank Name, Role" or fallback combinations
         var signature = string.Empty;
         if (!string.IsNullOrEmpty(rank) && !string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(role))
@@ -383,7 +382,7 @@ public sealed class PaperSystem : EntitySystem
         {
             signature = name;
         }
-        
+
         return signature;
     }
 

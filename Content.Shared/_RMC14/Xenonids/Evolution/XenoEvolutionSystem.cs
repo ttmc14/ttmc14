@@ -1,16 +1,11 @@
 using System.Linq;
 using Content.Shared._MC.Xeno.Evolution;
-using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Hive;
-using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
-using Content.Shared.Climbing.Components;
-using Content.Shared.Climbing.Systems;
-using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
@@ -24,11 +19,8 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
-using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Player;
@@ -41,8 +33,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ClimbSystem _climb = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
@@ -61,8 +51,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = default!;
-    [Dependency] private readonly IMapManager _map = default!;
 
     [Dependency] private readonly MCXenoEvolutionSystem _mcXenoEvolution = default!;
 
@@ -71,9 +59,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
     private TimeSpan _evolveSameCasteCooldown;
     private TimeSpan _earlyEvoBoostBefore;
 
-    private readonly HashSet<EntityUid> _climbable = new();
     private readonly HashSet<EntityUid> _doors = new();
-    private readonly HashSet<EntityUid> _intersecting = new();
 
     private EntityQuery<MobStateComponent> _mobStateQuery;
 
@@ -323,7 +309,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
         return false;
     }
 
-    private bool DamagedCheckPopup(EntityUid xeno, bool predicted = true, bool doPopup = true)
+    private bool DamagedCheckPopup(EntityUid xeno, bool predicted = true)
     {
         if (!TryComp(xeno, out DamageableComponent? damageable) ||
             damageable.TotalDamage <= 1)
@@ -427,7 +413,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
         return true;
     }
 
-    private bool CanEvolveAny(Entity<XenoEvolutionComponent> xeno)
+    /* private bool CanEvolveAny(Entity<XenoEvolutionComponent> xeno)
     {
         if (xeno.Comp.Points >= xeno.Comp.Max && xeno.Comp.EvolvesTo.Count > 0)
             return true;
@@ -439,7 +425,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
         }
 
         return false;
-    }
+    } */
 
     // TODO RMC14 make this a property of the hive component
     // TODO RMC14 per-hive
@@ -590,10 +576,10 @@ public sealed class XenoEvolutionSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        // Bye bye cm evolve system
-        return;
+        /* Bye bye cm evolve system
+        return; */
 
-        var newly = EntityQueryEnumerator<XenoNewlyEvolvedComponent>();
+        /*var newly = EntityQueryEnumerator<XenoNewlyEvolvedComponent>();
         while (newly.MoveNext(out var uid, out var comp))
         {
             if (comp.TriedClimb)
@@ -709,6 +695,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
             {
                 SetPoints((uid, comp), FixedPoint2.Max(comp.Points - gain, comp.Max));
             }
-        }
+        }*/
     }
 }

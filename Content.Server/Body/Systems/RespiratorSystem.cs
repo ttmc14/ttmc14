@@ -12,7 +12,6 @@ using Content.Shared.Body.Events;
 using Content.Shared.Body.Prototypes;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Damage;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
@@ -36,13 +35,13 @@ public sealed class RespiratorSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSys = default!;
     [Dependency] private readonly LungSystem _lungSystem = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly IPrototypeManager _protoMan = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly EntityEffectSystem _entityEffect = default!;
 
     // RMC14
     [Dependency] private readonly CMStasisBagSystem _cmStasisBag = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private static readonly ProtoId<MetabolismGroupPrototype> GasId = new("Gas");
 
@@ -319,7 +318,7 @@ public sealed class RespiratorSystem : EntitySystem
         float saturation = 0;
         foreach (var (id, quantity) in solution.Contents)
         {
-            var reagent = _protoMan.IndexReagent<ReagentPrototype>(id.Prototype);
+            var reagent = _rmcReagent.Index(id.Prototype);
             if (reagent.Metabolisms == null)
                 continue;
 

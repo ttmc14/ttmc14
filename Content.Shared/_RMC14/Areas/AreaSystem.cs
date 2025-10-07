@@ -24,7 +24,6 @@ public sealed class AreaSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedRMCPvsSystem _rmcPvs = default!;
     [Dependency] private readonly SharedRMCWarpSystem _rmcWarp = default!;
-    [Dependency] private readonly ITileDefinitionManager _tile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
 

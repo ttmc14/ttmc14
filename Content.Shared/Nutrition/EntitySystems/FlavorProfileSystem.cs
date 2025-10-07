@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Nutrition.Components;
@@ -14,12 +15,15 @@ public sealed class FlavorProfileSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private const string BackupFlavorMessage = "flavor-profile-unknown";
 
     private int FlavorLimit => _configManager.GetCVar(CCVars.FlavorLimit);
 
-    public string GetLocalizedFlavorsMessage(EntityUid uid, EntityUid user, Solution solution,
+    public string GetLocalizedFlavorsMessage(EntityUid uid,
+        EntityUid user,
+        Solution solution,
         FlavorProfileComponent? flavorProfile = null)
     {
         if (!Resolve(uid, ref flavorProfile, false))
@@ -80,7 +84,7 @@ public sealed class FlavorProfileSystem : EntitySystem
     private HashSet<string> GetFlavorsFromReagents(Solution solution, int desiredAmount, HashSet<string>? toIgnore = null)
     {
         var flavors = new HashSet<string>();
-        foreach (var (reagent, quantity) in solution.GetReagentPrototypes(_prototypeManager))
+        foreach (var (reagent, quantity) in solution.GetReagentPrototypes(_rmcReagent))
         {
             if (toIgnore != null && toIgnore.Contains(reagent.ID))
             {

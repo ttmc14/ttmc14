@@ -13,7 +13,6 @@ namespace Content.Shared._RMC14.Xenonids.Rage;
 
 public sealed class XenoRageSystem : EntitySystem
 {
-    [Dependency] private readonly SharedMeleeWeaponSystem _meleeWeapon = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

@@ -17,7 +17,6 @@ public sealed class RMCClothingSystem : EntitySystem
     [Dependency] private readonly ClothingSystem _clothing = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
-    [Dependency] private readonly SharedItemSystem _item = default!;
     [Dependency] private readonly SharedUniformAccessorySystem _uniformAccessories = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;

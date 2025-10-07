@@ -17,6 +17,7 @@ namespace Content.Server.GameTicking.Commands
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IAdminManager _adminManager = default!;
         [Dependency] private readonly IConfigurationManager _cfg = default!;
+        [Dependency] private readonly ISawmill _sawmill = default!;
 
         public string Command => "joingame";
         public string Description => "";
@@ -46,7 +47,7 @@ namespace Content.Server.GameTicking.Commands
 
             if (ticker.PlayerGameStatuses.TryGetValue(player.UserId, out var status) && status == PlayerGameStatus.JoinedGame)
             {
-                Logger.InfoS("security", $"{player.Name} ({player.UserId}) attempted to latejoin while in-game.");
+                _sawmill.Info("security", $"{player.Name} ({player.UserId}) attempted to latejoin while in-game.");
                 shell.WriteError($"{player.Name} is not in the lobby.   This incident will be reported.");
                 return;
             }

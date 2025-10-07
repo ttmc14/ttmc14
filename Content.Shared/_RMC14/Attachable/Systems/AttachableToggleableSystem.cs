@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Shared._RMC14.Attachable.Components;
 using Content.Shared._RMC14.Attachable.Events;
-using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Actions;
@@ -25,13 +24,11 @@ using Content.Shared.Wieldable.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
-using Robust.Shared.Timing;
 
 namespace Content.Shared._RMC14.Attachable.Systems;
 
 public sealed class AttachableToggleableSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly ActionContainerSystem _actionContainerSystem = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookupSystem = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelistSystem = default!;
@@ -44,12 +41,11 @@ public sealed class AttachableToggleableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
     [Dependency] private readonly UseDelaySystem _useDelaySystem = default!;
-    [Dependency] private readonly RMCSlowSystem _slow = default!;
 
-    private const string attachableToggleUseDelayID = "RMCAttachableToggle";
+    private const string AttachableToggleUseDelayId = "RMCAttachableToggle";
 
-    private const int bracingInvalidCollisionGroup = (int)CollisionGroup.ThrownItem;
-    private const int bracingRequiredCollisionGroup = (int)CollisionGroup.MidImpassable;
+    private const int BracingInvalidCollisionGroup = (int)CollisionGroup.ThrownItem;
+    private const int BracingRequiredCollisionGroup = (int)CollisionGroup.MidImpassable;
 
     public override void Initialize()
     {
@@ -233,7 +229,6 @@ public sealed class AttachableToggleableSystem : EntitySystem
                 Loc.GetString("rmc-attachable-shoot-fail-not-wielded", ("holder", holderUid), ("attachable", attachable)),
                 args.User,
                 args.User);
-            return;
         }
     }
 
@@ -447,7 +442,7 @@ public sealed class AttachableToggleableSystem : EntitySystem
     private bool CanStartToggleDoAfter(Entity<AttachableToggleableComponent> attachable, ref AttachableToggleStartedEvent args, bool silent = false)
     {
         if (TryComp(attachable.Owner, out UseDelayComponent? useDelayComponent) &&
-            _useDelaySystem.IsDelayed((attachable.Owner, useDelayComponent), attachableToggleUseDelayID))
+            _useDelaySystem.IsDelayed((attachable.Owner, useDelayComponent), AttachableToggleUseDelayId))
         {
             return false;
         }
@@ -457,30 +452,36 @@ public sealed class AttachableToggleableSystem : EntitySystem
         if (attachable.Comp.HeldOnlyActivate && !attachable.Comp.Active && (userUid == null || !_handsSystem.IsHolding(userUid.Value, args.Holder, out _)))
         {
             if (!silent)
+            {
                 _popupSystem.PopupClient(
                     Loc.GetString("rmc-attachable-activation-fail-not-held", ("holder", args.Holder), ("attachable", attachable)),
                     args.User,
                     args.User);
+            }
             return false;
         }
 
         if (attachable.Comp.UserOnly && userUid != args.User)
         {
             if (!silent)
+            {
                 _popupSystem.PopupClient(
                     Loc.GetString("rmc-attachable-activation-fail-not-owned", ("holder", args.Holder), ("attachable", attachable)),
                     args.User,
                     args.User);
+            }
             return false;
         }
 
         if (!attachable.Comp.Active && attachable.Comp.WieldedOnly && (!TryComp(args.Holder, out WieldableComponent? wieldableComponent) || !wieldableComponent.Wielded))
         {
             if (!silent)
+            {
                 _popupSystem.PopupClient(
                     Loc.GetString("rmc-attachable-activation-fail-not-wielded", ("holder", args.Holder), ("attachable", attachable)),
                     args.User,
                     args.User);
+            }
             return false;
         }
 
@@ -500,14 +501,11 @@ public sealed class AttachableToggleableSystem : EntitySystem
                 if (attachable.Comp.Active || transformComponent.ParentUid != userUid || !TryComp(userUid, out TransformComponent? userTransform))
                     break;
 
-                TimeSpan? doAfter;
-
                 var coords = userTransform.Coordinates;
 
-                Func<EntityCoordinates, EntityCoordinates, bool> comparer = (EntityCoordinates userCoords, EntityCoordinates entCoords) => { return false; };
                 var coordsShift = new Vector2(0f, 0f);
 
-                Func<HashSet<EntityUid>, EntityUid?> GetBracingSurface = (HashSet<EntityUid> ents) =>
+                EntityUid? GetBracingSurface(HashSet<EntityUid> ents, Func<EntityCoordinates, EntityCoordinates, bool> coordinatesComparer)
                 {
                     foreach (var entity in ents)
                     {
@@ -516,10 +514,10 @@ public sealed class AttachableToggleableSystem : EntitySystem
 
                         foreach (var fixture in fixturesComponent.Fixtures.Values)
                         {
-                            if ((fixture.CollisionLayer & bracingInvalidCollisionGroup) != 0 || (fixture.CollisionLayer & bracingRequiredCollisionGroup) == 0)
+                            if ((fixture.CollisionLayer & BracingInvalidCollisionGroup) != 0 || (fixture.CollisionLayer & BracingRequiredCollisionGroup) == 0)
                                 continue;
 
-                            if (!comparer(coords, Transform(entity).Coordinates))
+                            if (!coordinatesComparer(coords, Transform(entity).Coordinates))
                                 continue;
 
                             return entity;
@@ -527,35 +525,38 @@ public sealed class AttachableToggleableSystem : EntitySystem
                     }
 
                     return null;
-                };
+                }
+
+                Func<EntityCoordinates, EntityCoordinates, bool> comparer;
 
                 switch (userTransform.LocalRotation.GetCardinalDir())
                 {
                     case Direction.South:
-                        comparer = (EntityCoordinates userCoords, EntityCoordinates entCoords) => { return entCoords.Y < userCoords.Y; };
+                        comparer = (userCoords, entCoords) => entCoords.Y < userCoords.Y;
                         coordsShift = new Vector2(0f, -0.7f);
                         break;
 
                     case Direction.North:
-                        comparer = (EntityCoordinates userCoords, EntityCoordinates entCoords) => { return entCoords.Y > userCoords.Y; };
+                        comparer = (userCoords, entCoords) => entCoords.Y > userCoords.Y;
                         coordsShift = new Vector2(0f, 0.7f);
                         break;
 
                     case Direction.East:
-                        comparer = (EntityCoordinates userCoords, EntityCoordinates entCoords) => { return entCoords.X > userCoords.X; };
+                        comparer = (userCoords, entCoords) => entCoords.X > userCoords.X;
                         coordsShift = new Vector2(0.7f, 0f);
                         break;
 
                     case Direction.West:
-                        comparer = (EntityCoordinates userCoords, EntityCoordinates entCoords) => { return entCoords.X < userCoords.X; };
+                        comparer = (userCoords, entCoords) => entCoords.X < userCoords.X;
                         coordsShift = new Vector2(-0.7f, 0f);
                         break;
 
                     default:
+                        comparer = (_, _) => false;
                         break;
                 }
 
-                var surface = GetBracingSurface(_entityLookupSystem.GetEntitiesInRange(coords, 0.5f, LookupFlags.Dynamic | LookupFlags.Static));
+                var surface = GetBracingSurface(_entityLookupSystem.GetEntitiesInRange(coords, 0.5f, LookupFlags.Dynamic | LookupFlags.Static), comparer);
                 if (surface != null)
                 {
                     popupText = Loc.GetString("attachable-popup-activate-deploy-on-generic", ("attachable", attachable.Owner), ("surface", surface));
@@ -563,7 +564,7 @@ public sealed class AttachableToggleableSystem : EntitySystem
                 }
 
                 coords = new EntityCoordinates(coords.EntityId, coords.Position + coordsShift);
-                surface = GetBracingSurface(_entityLookupSystem.GetEntitiesInRange(coords, 0.5f, LookupFlags.Dynamic | LookupFlags.Static));
+                surface = GetBracingSurface(_entityLookupSystem.GetEntitiesInRange(coords, 0.5f, LookupFlags.Dynamic | LookupFlags.Static), comparer);
                 if (surface != null)
                 {
                     popupText = Loc.GetString("attachable-popup-activate-deploy-on-generic", ("attachable", attachable.Owner), ("surface", surface));
@@ -571,9 +572,6 @@ public sealed class AttachableToggleableSystem : EntitySystem
                 }
 
                 popupText = Loc.GetString("attachable-popup-activate-deploy-on-ground", ("attachable", attachable.Owner));
-                break;
-
-            default:
                 break;
         }
 
@@ -644,15 +642,17 @@ public sealed class AttachableToggleableSystem : EntitySystem
 
         var mode = attachable.Comp.Active
             ? AttachableAlteredType.Activated
-            : interrupted ? AttachableAlteredType.Interrupted : AttachableAlteredType.Deactivated;
+            : interrupted
+                ? AttachableAlteredType.Interrupted
+                : AttachableAlteredType.Deactivated;
         var ev = new AttachableAlteredEvent(holder.Owner, mode, userUid);
         RaiseLocalEvent(attachable.Owner, ref ev);
 
         var holderEv = new AttachableHolderAttachablesAlteredEvent(attachable.Owner, slotId, mode);
         RaiseLocalEvent(holder.Owner, ref holderEv);
 
-        _useDelaySystem.SetLength(attachable.Owner, attachable.Comp.UseDelay, attachableToggleUseDelayID);
-        _useDelaySystem.TryResetDelay(attachable.Owner, id: attachableToggleUseDelayID);
+        _useDelaySystem.SetLength(attachable.Owner, attachable.Comp.UseDelay, AttachableToggleUseDelayId);
+        _useDelaySystem.TryResetDelay(attachable.Owner, id: AttachableToggleUseDelayId);
         _actionsSystem.StartUseDelay(attachable.Comp.Action);
 
         if (attachable.Comp.ShowTogglePopup && userUid != null)
@@ -749,7 +749,7 @@ public sealed class AttachableToggleableSystem : EntitySystem
     private void GrantAttachableActions(Entity<AttachableToggleableComponent> ent, EntityUid user, bool doSecondTry = true)
     {
         // This is to prevent ActionContainerSystem from shitting itself if the attachment has actions other than its attachment toggle.
-        if (!TryComp(ent.Owner, out ActionsContainerComponent? actionsContainerComponent) || actionsContainerComponent.Container == null)
+        if (!TryComp(ent.Owner, out ActionsContainerComponent? actionsContainerComponent))
         {
             EnsureComp<ActionsContainerComponent>(ent.Owner);
 
@@ -843,7 +843,7 @@ public sealed class AttachableToggleableSystem : EntitySystem
             return;
 
         if (!_attachableHolderSystem.TryGetHolder(attachable.Owner, out var holderUid) ||
-            !TryComp(holderUid, out AttachableHolderComponent? holderComponent) ||
+            !HasComp<AttachableHolderComponent>(holderUid) ||
             !_attachableHolderSystem.TryGetSlotId(holderUid.Value, attachable.Owner, out var slotId))
         {
             return;

@@ -1,4 +1,3 @@
-using System.Linq;
 using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
@@ -22,6 +21,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfterSystem = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private static readonly ProtoId<ReagentPrototype> Blood = "Blood";
     private static readonly ProtoId<ReagentPrototype> Slime = "Slime";
@@ -94,13 +94,15 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
     private void OnGetFootstepSound(Entity<PuddleComponent> entity, ref GetFootstepSoundEvent args)
     {
-        if (!_solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName, ref entity.Comp.Solution,
+        if (!_solutionContainerSystem.ResolveSolution(entity.Owner,
+                entity.Comp.SolutionName,
+                ref entity.Comp.Solution,
                 out var solution))
             return;
 
         var reagentId = solution.GetPrimaryReagentId();
         if (!string.IsNullOrWhiteSpace(reagentId?.Prototype)
-            && _prototypeManager.TryIndexReagent(reagentId.Value.Prototype, out ReagentPrototype? proto))
+            && _rmcReagent.TryIndex(reagentId.Value.Prototype, out var proto))
         {
             args.Sound = proto.FootstepSound;
         }
@@ -116,8 +118,10 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             }
 
             if (HasComp<EvaporationComponent>(entity) &&
-                _solutionContainerSystem.ResolveSolution(entity.Owner, entity.Comp.SolutionName,
-                    ref entity.Comp.Solution, out var solution))
+                _solutionContainerSystem.ResolveSolution(entity.Owner,
+                    entity.Comp.SolutionName,
+                    ref entity.Comp.Solution,
+                    out var solution))
             {
                 if (CanFullyEvaporate(solution))
                     args.PushMarkup(Loc.GetString("puddle-component-examine-evaporating"));
@@ -159,7 +163,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
             // Kinda EH
             // Could potentially do alpha per-solution but future problem.
 
-            color = solution.GetColorWithout(_prototypeManager, StandoutReagents);
+            color = solution.GetColorWithout(_rmcReagent, StandoutReagents);
             color = color.WithAlpha(0.7f);
 
             foreach (var standout in StandoutReagents)
@@ -170,7 +174,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
 
                 var interpolateValue = quantity.Float() / solution.Volume.Float();
                 color = Color.InterpolateBetween(color,
-                    _prototypeManager.IndexReagent<ReagentPrototype>(standout).SubstanceColor,
+                    _rmcReagent.Index(standout).SubstanceColor,
                     interpolateValue);
             }
         }
@@ -184,7 +188,7 @@ public abstract partial class SharedPuddleSystem : EntitySystem
         for (var i = solution.Contents.Count - 1; i >= 0; i--)
         {
             var (reagent, quantity) = solution.Contents[i];
-            var proto = _prototypeManager.IndexReagent<ReagentPrototype>(reagent.Prototype);
+            var proto = _rmcReagent.Index(reagent.Prototype);
             var removed = proto.ReactionTile(tileRef, quantity, EntityManager, reagent.Data);
             if (removed <= FixedPoint2.Zero)
                 continue;
@@ -229,7 +233,10 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     /// <remarks>
     /// On the client, this will always set <paramref name="puddleUid"/> to <see cref="EntityUid.Invalid"> and return false.
     /// </remarks>
-    public abstract bool TrySpillAt(EntityUid uid, Solution solution, out EntityUid puddleUid, bool sound = true,
+    public abstract bool TrySpillAt(EntityUid uid,
+        Solution solution,
+        out EntityUid puddleUid,
+        bool sound = true,
         TransformComponent? transformComponent = null);
 
     /// <summary>
@@ -238,7 +245,10 @@ public abstract partial class SharedPuddleSystem : EntitySystem
     /// <remarks>
     /// On the client, this will always set <paramref name="puddleUid"/> to <see cref="EntityUid.Invalid"> and return false.
     /// </remarks>
-    public abstract bool TrySpillAt(TileRef tileRef, Solution solution, out EntityUid puddleUid, bool sound = true,
+    public abstract bool TrySpillAt(TileRef tileRef,
+        Solution solution,
+        out EntityUid puddleUid,
+        bool sound = true,
         bool tileReact = true);
 
     #endregion Spill

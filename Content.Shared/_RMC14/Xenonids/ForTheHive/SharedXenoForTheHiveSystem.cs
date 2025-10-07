@@ -30,12 +30,10 @@ public abstract partial class SharedXenoForTheHiveSystem : EntitySystem
     [Dependency] private readonly XenoEnergySystem _energy = default!;
     [Dependency] protected readonly SharedPopupSystem _popup = default!;
     [Dependency] protected readonly SharedXenoHiveSystem _hive = default!;
-    [Dependency] private readonly XenoEvolutionSystem _evolution = default!;
     [Dependency] protected readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] protected readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedCMChatSystem _chat = default!;
     [Dependency] private readonly SharedPointLightSystem _pointLight = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly EntityLookupSystem _lookup = default!;

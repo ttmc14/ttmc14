@@ -11,6 +11,7 @@ namespace Content.Server.Chemistry.Commands;
 public sealed class DumpReagentGuideText : LocalizedEntityCommands
 {
     [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public override string Command => "dumpreagentguidetext";
 
@@ -22,7 +23,7 @@ public sealed class DumpReagentGuideText : LocalizedEntityCommands
             return;
         }
 
-        if (!_prototype.TryIndexReagent<ReagentPrototype>(args[0], out var reagent))
+        if (!_rmcReagent.TryIndex(args[0], out var reagent))
         {
             shell.WriteError(Loc.GetString($"shell-argument-must-be-prototype",
                 ("index", args[0]),

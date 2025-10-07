@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
@@ -10,7 +11,6 @@ using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Fluids;
 
@@ -19,7 +19,6 @@ namespace Content.Shared.Fluids;
 /// </summary>
 public abstract class SharedAbsorbentSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popups = default!;
     [Dependency] protected readonly SharedPuddleSystem Puddle = default!;
@@ -29,6 +28,7 @@ public abstract class SharedAbsorbentSystem : EntitySystem
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedItemSystem _item = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public override void Initialize()
     {
@@ -67,9 +67,9 @@ public abstract class SharedAbsorbentSystem : EntitySystem
         var absorbentReagents = Puddle.GetAbsorbentReagents(solution);
         var mopReagent = solution.GetTotalPrototypeQuantity(absorbentReagents);
         if (mopReagent > FixedPoint2.Zero)
-            ent.Comp.Progress[solution.GetColorWithOnly(_proto, absorbentReagents)] = mopReagent.Float();
+            ent.Comp.Progress[solution.GetColorWithOnly(_rmcReagent, absorbentReagents)] = mopReagent.Float();
 
-        var otherColor = solution.GetColorWithout(_proto, absorbentReagents);
+        var otherColor = solution.GetColorWithout(_rmcReagent, absorbentReagents);
         var other = solution.Volume - mopReagent;
         if (other > FixedPoint2.Zero)
             ent.Comp.Progress[otherColor] = other.Float();

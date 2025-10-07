@@ -27,7 +27,6 @@ public sealed partial class RecoveryNodeSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedXenoHealSystem _heal = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MobStateSystem _mob = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;

@@ -20,7 +20,6 @@ public sealed class HiveLeaderSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly DialogSystem _dialog = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;

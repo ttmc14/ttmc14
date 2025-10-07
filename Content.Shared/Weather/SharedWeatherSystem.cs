@@ -21,7 +21,6 @@ public abstract class SharedWeatherSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly SharedRoofSystem _roof = default!;
-    [Dependency] private readonly AreaSystem _area = default!;
     [Dependency] private readonly RMCWeatherSystem _rmcWeather = default!;
 
     private EntityQuery<BlockWeatherComponent> _blockQuery;

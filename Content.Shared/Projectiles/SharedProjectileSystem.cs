@@ -33,7 +33,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
 
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDestructibleSystem _destructible = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
@@ -42,7 +41,6 @@ public abstract partial class SharedProjectileSystem : EntitySystem
     [Dependency] private readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedGunSystem _guns = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _sharedCameraRecoil = default!;
 
     public override void Initialize()
     {

@@ -11,6 +11,7 @@ namespace Content.Shared.EntityEffects.EffectConditions;
 public sealed partial class JobCondition : EntityEffectCondition
 {
     [DataField(required: true)] public List<ProtoId<JobPrototype>> Job;
+    [Dependency] private readonly ISawmill _sawmill = default!;
 
     public override bool Condition(EntityEffectBaseArgs args)
     {
@@ -27,13 +28,13 @@ public sealed partial class JobCondition : EntityEffectCondition
 
             if (!args.EntityManager.TryGetComponent<MindRoleComponent>(roleId, out var mindRole))
             {
-                Logger.Error($"Encountered job mind role entity {roleId} without a {nameof(MindRoleComponent)}");
+                _sawmill.Error($"Encountered job mind role entity {roleId} without a {nameof(MindRoleComponent)}");
                 continue;
             }
 
             if (mindRole.JobPrototype == null)
             {
-                Logger.Error($"Encountered job mind role entity {roleId} without a {nameof(JobPrototype)}");
+                _sawmill.Error($"Encountered job mind role entity {roleId} without a {nameof(JobPrototype)}");
                 continue;
             }
 

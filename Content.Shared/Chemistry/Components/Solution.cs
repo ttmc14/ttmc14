@@ -93,25 +93,26 @@ namespace Content.Shared.Chemistry.Components
         // This value is arbitrary btw.
         private const int HeatCapacityUpdateInterval = 15;
 
-        public void UpdateHeatCapacity(IPrototypeManager? protoMan)
+        public void UpdateHeatCapacity(RMCReagentSystem? rmcReagent)
         {
-            IoCManager.Resolve(ref protoMan);
+            IoCManager.Resolve(ref rmcReagent);
             DebugTools.Assert(_heatCapacityDirty);
             _heatCapacityDirty = false;
             _heatCapacity = 0;
+
             foreach (var (reagent, quantity) in Contents)
             {
-                _heatCapacity += (float) quantity *
-                                    protoMan.IndexReagent<ReagentPrototype>(reagent.Prototype).SpecificHeat;
+                var reagentProto = rmcReagent.Index(reagent.Prototype);
+                _heatCapacity += (float) quantity * reagentProto.SpecificHeat;
             }
 
             _heatCapacityUpdateCounter = 0;
         }
 
-        public float GetHeatCapacity(IPrototypeManager? protoMan)
+        public float GetHeatCapacity(RMCReagentSystem? rmcReagent)
         {
             if (_heatCapacityDirty)
-                UpdateHeatCapacity(protoMan);
+                UpdateHeatCapacity(rmcReagent);
             return _heatCapacity;
         }
 
@@ -124,9 +125,9 @@ namespace Content.Shared.Chemistry.Components
                 _heatCapacityDirty = true;
         }
 
-        public float GetThermalEnergy(IPrototypeManager? protoMan)
+        public float GetThermalEnergy(RMCReagentSystem? rmcReagent)
         {
-            return GetHeatCapacity(protoMan) * Temperature;
+            return GetHeatCapacity(rmcReagent) * Temperature;
         }
 
         /// <summary>
@@ -149,6 +150,7 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         /// <param name="prototype">The prototype ID of the reagent to add.</param>
         /// <param name="quantity">The quantity in milli-units.</param>
+        /// <param name="data">Additional reagent data for specialized reagents.</param>
         public Solution(string prototype, FixedPoint2 quantity, List<ReagentData>? data = null) : this()
         {
             AddReagent(new ReagentId(prototype, data), quantity);
@@ -407,10 +409,10 @@ namespace Content.Shared.Chemistry.Components
         /// </summary>
         /// <param name="proto">The prototype of the reagent to add.</param>
         /// <param name="quantity">The quantity in milli-units.</param>
-        public void AddReagent(ReagentPrototype proto, FixedPoint2 quantity, float temperature, IPrototypeManager? protoMan, List<ReagentData>? data = null)
+        public void AddReagent(ReagentPrototype proto, FixedPoint2 quantity, float temperature, RMCReagentSystem? rmcReagent, List<ReagentData>? data = null)
         {
             if (_heatCapacityDirty)
-                UpdateHeatCapacity(protoMan);
+                UpdateHeatCapacity(rmcReagent);
 
             var totalThermalEnergy = Temperature * _heatCapacity + temperature * proto.SpecificHeat;
             AddReagent(new ReagentId(proto.ID, data), quantity);
@@ -755,7 +757,7 @@ namespace Content.Shared.Chemistry.Components
             ValidateSolution();
         }
 
-        public void AddSolution(Solution otherSolution, IPrototypeManager? protoMan)
+        public void AddSolution(Solution otherSolution, RMCReagentSystem? rmcReagent)
         {
             if (otherSolution.Volume <= FixedPoint2.Zero)
                 return;
@@ -766,13 +768,13 @@ namespace Content.Shared.Chemistry.Components
             float totalThermalEnergy = 0;
             if (!closeTemps)
             {
-                IoCManager.Resolve(ref protoMan);
+                IoCManager.Resolve(ref rmcReagent);
 
                 if (_heatCapacityDirty)
-                    UpdateHeatCapacity(protoMan);
+                    UpdateHeatCapacity(rmcReagent);
 
                 if (otherSolution._heatCapacityDirty)
-                    otherSolution.UpdateHeatCapacity(protoMan);
+                    otherSolution.UpdateHeatCapacity(rmcReagent);
 
                 totalThermalEnergy = _heatCapacity * Temperature + otherSolution._heatCapacity * otherSolution.Temperature;
             }
@@ -809,14 +811,14 @@ namespace Content.Shared.Chemistry.Components
             ValidateSolution();
         }
 
-        public Color GetColorWithout(IPrototypeManager? protoMan, params string[] without)
+        public Color GetColorWithout(RMCReagentSystem? rmcReagent, params string[] without)
         {
             if (Volume == FixedPoint2.Zero)
             {
                 return Color.Transparent;
             }
 
-            IoCManager.Resolve(ref protoMan);
+            IoCManager.Resolve(ref rmcReagent);
 
             Color mixColor = default;
             var runningTotalQuantity = FixedPoint2.New(0);
@@ -829,7 +831,7 @@ namespace Content.Shared.Chemistry.Components
 
                 runningTotalQuantity += quantity;
 
-                if (!protoMan.TryIndexReagent(reagent.Prototype, out ReagentPrototype? proto))
+                if (!rmcReagent.TryIndex(reagent.Prototype, out var proto))
                 {
                     continue;
                 }
@@ -847,19 +849,19 @@ namespace Content.Shared.Chemistry.Components
             return mixColor;
         }
 
-        public Color GetColor(IPrototypeManager? protoMan)
+        public Color GetColor(RMCReagentSystem? rmcReagent)
         {
-            return GetColorWithout(protoMan);
+            return GetColorWithout(rmcReagent);
         }
 
-        public Color GetColorWithOnly(IPrototypeManager? protoMan, params string[] included)
+        public Color GetColorWithOnly(RMCReagentSystem? rmcReagent, params string[] included)
         {
             if (Volume == FixedPoint2.Zero)
             {
                 return Color.Transparent;
             }
 
-            IoCManager.Resolve(ref protoMan);
+            IoCManager.Resolve(ref rmcReagent);
 
             Color mixColor = default;
             var runningTotalQuantity = FixedPoint2.New(0);
@@ -872,7 +874,7 @@ namespace Content.Shared.Chemistry.Components
 
                 runningTotalQuantity += quantity;
 
-                if (!protoMan.TryIndexReagent(reagent.Prototype, out ReagentPrototype? proto))
+                if (!rmcReagent.TryIndex(reagent.Prototype, out var proto))
                 {
                     continue;
                 }
@@ -920,12 +922,12 @@ namespace Content.Shared.Chemistry.Components
             ValidateSolution();
         }
 
-        public Dictionary<ReagentPrototype, FixedPoint2> GetReagentPrototypes(IPrototypeManager protoMan)
+        public Dictionary<ReagentPrototype, FixedPoint2> GetReagentPrototypes(RMCReagentSystem rmcReagent)
         {
             var dict = new Dictionary<ReagentPrototype, FixedPoint2>(Contents.Count);
             foreach (var (reagent, quantity) in Contents)
             {
-                var proto = protoMan.IndexReagent<ReagentPrototype>(reagent.Prototype);
+                var proto = rmcReagent.Index(reagent.Prototype);
                 dict[proto] = quantity + dict.GetValueOrDefault(proto);
             }
             return dict;

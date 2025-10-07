@@ -2,7 +2,6 @@
 using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -27,6 +26,7 @@ public abstract class SharedRMCChemistrySystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private readonly List<Entity<RMCChemicalDispenserComponent>> _dispensers = new();
 
@@ -88,7 +88,7 @@ public abstract class SharedRMCChemistrySystem : EntitySystem
                 foreach (var reagent in solution.Contents)
                 {
                     var name = reagent.Reagent.Prototype;
-                    if (_prototypes.TryIndexReagent(reagent.Reagent.Prototype, out ReagentPrototype? reagentProto))
+                    if (_rmcReagent.TryIndex(reagent.Reagent.Prototype, out var reagentProto))
                         name = reagentProto.LocalizedName;
 
                     args.PushText($"{reagent.Quantity.Float():F2} units of {name}");

@@ -35,9 +35,7 @@ public abstract class SharedActionsSystem : EntitySystem
     [Dependency] private   readonly SharedTransformSystem _transform = default!;
 
     // RMC14
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly ISharedPlayerManager _player = default!;
 
     private EntityQuery<ActionComponent> _actionQuery;
     private EntityQuery<ActionsComponent> _actionsQuery;
@@ -840,7 +838,7 @@ public abstract class SharedActionsSystem : EntitySystem
 
         if (!_actionsQuery.Resolve(performer, ref performer.Comp, false))
         {
-            DebugTools.Assert(performer == null || TerminatingOrDeleted(performer));
+            DebugTools.Assert(TerminatingOrDeleted(performer));
             ent.Comp.AttachedEntity = null;
             // TODO: should this delete the action since it's now orphaned?
             return;

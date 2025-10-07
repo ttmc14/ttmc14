@@ -21,6 +21,7 @@ public abstract class SharedLatheSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedMaterialStorageSystem _materialStorage = default!;
     [Dependency] private readonly EmagSystem _emag = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public readonly Dictionary<string, List<LatheRecipePrototype>> InverseRecipes = new();
 
@@ -159,7 +160,7 @@ public abstract class SharedLatheSystem : EntitySystem
         if (proto.ResultReagents is { } resultReagents)
         {
             return ContentLocalizationManager.FormatList(resultReagents
-                .Select(p => Loc.GetString("lathe-menu-result-reagent-display", ("reagent", _proto.IndexReagent(p.Key).LocalizedName), ("amount", p.Value)))
+                .Select(p => Loc.GetString("lathe-menu-result-reagent-display", ("reagent", _rmcReagent.Index(p.Key).LocalizedName), ("amount", p.Value)))
                 .ToList());
         }
 
@@ -186,7 +187,7 @@ public abstract class SharedLatheSystem : EntitySystem
         {
             // We only use the first one for the description since these descriptions don't combine very well.
             var reagent = resultReagents.First().Key;
-            return _proto.IndexReagent(reagent).LocalizedDescription;
+            return _rmcReagent.Index(reagent).LocalizedDescription;
         }
 
         return string.Empty;

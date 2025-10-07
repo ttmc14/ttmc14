@@ -16,8 +16,6 @@ using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Popups;
-using Content.Shared.Interaction.Components;
-using Content.Shared.Inventory;
 using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
@@ -39,9 +37,6 @@ public abstract class SharedStrippableSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
 
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-
-    // RMC14
-    [Dependency] private readonly ISharedAdminManager _admin = default!;
 
     public override void Initialize()
     {

@@ -13,7 +13,6 @@ namespace Content.Server._RMC14.Connection;
 public sealed class MindCheckSystem : EntitySystem
 {
     [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     public override void Initialize()

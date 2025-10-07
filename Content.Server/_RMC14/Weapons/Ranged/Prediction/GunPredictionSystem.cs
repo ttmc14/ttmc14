@@ -1,5 +1,4 @@
 ﻿using Content.Server.Movement.Components;
-using Content.Server.Weapons.Ranged.Systems;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.GameTicking;
@@ -20,7 +19,6 @@ namespace Content.Server._RMC14.Weapons.Ranged.Prediction;
 public sealed class GunPredictionSystem : SharedGunPredictionSystem
 {
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly GunSystem _gun = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedProjectileSystem _projectile = default!;
     [Dependency] private readonly IGameTiming _timing = default!;

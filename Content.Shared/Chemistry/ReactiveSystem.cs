@@ -6,7 +6,6 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using JetBrains.Annotations;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Shared.Chemistry;
@@ -14,9 +13,9 @@ namespace Content.Shared.Chemistry;
 [UsedImplicitly]
 public sealed class ReactiveSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly IRobustRandom _robustRandom = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public void DoEntityReaction(EntityUid uid, Solution solution, ReactionMethod method)
     {
@@ -29,12 +28,15 @@ public sealed class ReactiveSystem : EntitySystem
     public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentQuantity reagentQuantity, Solution? source)
     {
         // We throw if the reagent specified doesn't exist.
-        var proto = _prototypeManager.IndexReagent<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+        var proto = _rmcReagent.Index(reagentQuantity.Reagent.Prototype);
         ReactionEntity(uid, method, proto, reagentQuantity, source);
     }
 
-    public void ReactionEntity(EntityUid uid, ReactionMethod method, ReagentPrototype proto,
-        ReagentQuantity reagentQuantity, Solution? source)
+    public void ReactionEntity(EntityUid uid,
+        ReactionMethod method,
+        ReagentPrototype proto,
+        ReagentQuantity reagentQuantity,
+        Solution? source)
     {
         if (!TryComp(uid, out ReactiveComponent? reactive))
             return;
@@ -68,7 +70,8 @@ public sealed class ReactiveSystem : EntitySystem
                     if (effect.ShouldLog)
                     {
                         var entity = args.TargetEntity;
-                        _adminLogger.Add(LogType.ReagentEffect, effect.LogImpact,
+                        _adminLogger.Add(LogType.ReagentEffect,
+                            effect.LogImpact,
                             $"Reactive effect {effect.GetType().Name:effect} of reagent {proto.ID:reagent} with method {method} applied on entity {ToPrettyString(entity):entity} at {Transform(entity).Coordinates:coordinates}");
                     }
 
@@ -96,7 +99,8 @@ public sealed class ReactiveSystem : EntitySystem
                     if (effect.ShouldLog)
                     {
                         var entity = args.TargetEntity;
-                        _adminLogger.Add(LogType.ReagentEffect, effect.LogImpact,
+                        _adminLogger.Add(LogType.ReagentEffect,
+                            effect.LogImpact,
                             $"Reactive effect {effect.GetType().Name:effect} of {ToPrettyString(entity):entity} using reagent {proto.ID:reagent} with method {method} at {Transform(entity).Coordinates:coordinates}");
                     }
 

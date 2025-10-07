@@ -45,7 +45,7 @@ public sealed partial class PuddleSystem
             if (dump.Unlimited)
             {
                 var split = _solutionContainerSystem.SplitSolution(soln.Value, solution.Volume);
-                dumpableSolution.AddSolution(split, _prototypeManager);
+                dumpableSolution.AddSolution(split, _rmcReagent);
             }
             else
             {

@@ -2,6 +2,7 @@ using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Chemistry;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared._RMC14.Explosion;
 using Content.Shared._RMC14.OnCollide;
 using Content.Shared._RMC14.Shields;
@@ -58,11 +59,11 @@ public sealed class XenoSpitSystem : EntitySystem
     [Dependency] private readonly XenoProjectileSystem _xenoProjectile = default!;
     [Dependency] private readonly XenoShieldSystem _xenoShield = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly CMArmorSystem _armor = default!;
     [Dependency] private readonly RMCSlowSystem _slow = default!;
     [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private static readonly ProtoId<ReagentPrototype> AcidRemovedBy = "Water";
 
@@ -455,11 +456,8 @@ public sealed class XenoSpitSystem : EntitySystem
         if (_hive.FromSameHive(spit.Owner, target) || !_solution.TryGetSolution(target, spit.Comp.TargetSolution, out var solEnt, out var solu))
             return;
 
-        if (solu == null || solEnt == null)
-            return;
-
         //TODO RMC-14 resisting neuro should prevent medicine drain but not stim drain
-        foreach (var chemical in solu.GetReagentPrototypes(_prototypeManager).Keys)
+        foreach (var chemical in solu.GetReagentPrototypes(_rmcReagent).Keys)
         {
             if (chemical.Group == spit.Comp.DrainGroup)
                 _solution.RemoveReagent(solEnt.Value, chemical.ID, spit.Comp.DrainAmount);

@@ -33,7 +33,6 @@ public sealed class XenoLungeSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly RMCObstacleSlammingSystem _rmcObstacleSlamming = default!;

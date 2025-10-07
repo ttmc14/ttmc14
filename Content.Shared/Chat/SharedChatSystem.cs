@@ -36,7 +36,6 @@ public abstract class SharedChatSystem : EntitySystem
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly XenoEvolutionSystem _xenoEvolution = default!;
 
     /// <summary>
     /// Cache of the keycodes for faster lookup.
@@ -172,7 +171,7 @@ public abstract class SharedChatSystem : EntitySystem
         {
             var ev = new GetDefaultRadioChannelEvent();
             RaiseLocalEvent(source, ev);
-            
+
             if (ev.Channel != null)
                 _prototypeManager.TryIndex(ev.Channel, out channel);
             return true;

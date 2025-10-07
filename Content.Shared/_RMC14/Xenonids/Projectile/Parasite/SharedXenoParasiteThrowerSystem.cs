@@ -16,7 +16,6 @@ public abstract partial class SharedXenoParasiteThrowerSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] protected readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
     {

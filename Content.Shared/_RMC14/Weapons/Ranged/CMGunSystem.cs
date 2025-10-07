@@ -23,7 +23,6 @@ using Content.Shared.Projectiles;
 using Content.Shared.Standing;
 using Content.Shared.Timing;
 using Content.Shared.Weapons.Melee;
-using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
@@ -73,7 +72,7 @@ public sealed class CMGunSystem : EntitySystem
 
     private readonly int _blockArcCollisionGroup = (int) (CollisionGroup.HighImpassable | CollisionGroup.Impassable);
 
-    private const string accuracyExamineColour = "yellow";
+    private const string AccuracyExamineColour = "yellow";
 
     public override void Initialize()
     {
@@ -265,7 +264,7 @@ public sealed class CMGunSystem : EntitySystem
 
         using (args.PushGroup(nameof(RMCWeaponAccuracyComponent)))
         {
-            args.PushMarkup(Loc.GetString("rmc-examine-text-weapon-accuracy", ("colour", accuracyExamineColour), ("accuracy", weapon.Comp.ModifiedAccuracyMultiplier)));
+            args.PushMarkup(Loc.GetString("rmc-examine-text-weapon-accuracy", ("colour", AccuracyExamineColour), ("accuracy", weapon.Comp.ModifiedAccuracyMultiplier)));
         }
     }
 
@@ -310,7 +309,7 @@ public sealed class CMGunSystem : EntitySystem
             if (orderAccuracyPerTile != 0)
                 accuracyComponent.Thresholds.Add(new AccuracyFalloffThreshold(0f, -orderAccuracyPerTile, false));
 
-            accuracyComponent.GunSeed = (long) t << 32 | netId;
+            accuracyComponent.GunSeed = ((long)t << 32) | (uint)netId;
             Dirty<RMCProjectileAccuracyComponent>((args.FiredProjectiles[t], accuracyComponent));
         }
     }
@@ -381,7 +380,7 @@ public sealed class CMGunSystem : EntitySystem
         }
     }
 
-    private void OnGunPointBlankMeleeHit(Entity<GunPointBlankComponent> gun, ref MeleeHitEvent args)
+    /* private void OnGunPointBlankMeleeHit(Entity<GunPointBlankComponent> gun, ref MeleeHitEvent args)
     {
         if (!TryComp<MeleeWeaponComponent>(gun, out var melee))
             return;
@@ -393,7 +392,7 @@ public sealed class CMGunSystem : EntitySystem
 
         //After meleeing can't PB
         userDelay.LastPBAt = _timing.CurTime;
-    }
+    } */
 
     private void OnGunPointBlankAmmoShot(Entity<GunPointBlankComponent> gun, ref AmmoShotEvent args)
     {
@@ -511,8 +510,9 @@ public sealed class CMGunSystem : EntitySystem
         _physics.SetBodyStatus(projectile, physics, BodyStatus.OnGround);
 
         if (physics.Awake)
-            _broadphase.RegenerateContacts(projectile, physics);
+            _broadphase.RegenerateContacts((projectile.Owner, physics));
     }
+
 
     private void UpdateDelay(Entity<GunShowUseDelayComponent> ent)
     {

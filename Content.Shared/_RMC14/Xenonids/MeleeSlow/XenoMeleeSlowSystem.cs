@@ -7,7 +7,6 @@ namespace Content.Shared._RMC14.Xenonids.MeleeSlow;
 
 public sealed class XenoMeleeSlowSystem : EntitySystem
 {
-    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly RMCSlowSystem _slow = default!;

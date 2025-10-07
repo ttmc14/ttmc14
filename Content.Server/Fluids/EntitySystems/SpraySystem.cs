@@ -4,10 +4,10 @@ using Content.Server.Chemistry.EntitySystems;
 using Content.Server.Fluids.Components;
 using Content.Server.Gravity;
 using Content.Server.Popups;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.CCVar;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared._RMC14.Throwing;
-using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Interaction;
@@ -18,13 +18,11 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Fluids.EntitySystems;
 
 public sealed class SpraySystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly GravitySystem _gravity = default!;
     [Dependency] private readonly PhysicsSystem _physics = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
@@ -35,6 +33,7 @@ public sealed class SpraySystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly IConfigurationManager _cfg = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private float _gridImpulseMultiplier;
 
@@ -154,7 +153,7 @@ public sealed class SpraySystem : EntitySystem
 
             if (TryComp(vapor, out AppearanceComponent? appearance))
             {
-                _appearance.SetData(vapor, VaporVisuals.Color, solution.GetColor(_proto).WithAlpha(1f), appearance);
+                _appearance.SetData(vapor, VaporVisuals.Color, solution.GetColor(_rmcReagent).WithAlpha(1f), appearance);
                 _appearance.SetData(vapor, VaporVisuals.State, true, appearance);
             }
 

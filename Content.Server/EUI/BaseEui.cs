@@ -17,6 +17,8 @@ namespace Content.Server.EUI
     /// </remarks>
     public abstract class BaseEui
     {
+        [Dependency] private readonly ISawmill _sawmill = default!;
+
         private bool _isStateDirty = false;
 
         /// <summary>
@@ -120,7 +122,7 @@ namespace Content.Server.EUI
             }
             catch (Exception e)
             {
-                Logger.Error($"Error updating EUI {GetType()}:\n{e}");
+                _sawmill.Error($"Error updating EUI {GetType()}:\n{e}");
             }
         }
 

@@ -18,8 +18,6 @@ public sealed class VocalSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly ChatSystem _chat = default!;
     [Dependency] private readonly ActionsSystem _actions = default!;
-    [Dependency] private readonly RMCEmoteSystem _rmcEmote = default!;
-
     public override void Initialize()
     {
         base.Initialize();

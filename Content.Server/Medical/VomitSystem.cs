@@ -3,6 +3,7 @@ using Content.Server.Fluids.EntitySystems;
 using Content.Server.Forensics;
 using Content.Server.Popups;
 using Content.Server.Stunnable;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Body.Components;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
@@ -20,7 +21,6 @@ namespace Content.Server.Medical
 {
     public sealed class VomitSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _proto = default!;
         [Dependency] private readonly AudioSystem _audio = default!;
         [Dependency] private readonly BodySystem _body = default!;
         [Dependency] private readonly HungerSystem _hunger = default!;
@@ -31,6 +31,7 @@ namespace Content.Server.Medical
         [Dependency] private readonly ThirstSystem _thirst = default!;
         [Dependency] private readonly ForensicsSystem _forensics = default!;
         [Dependency] private readonly BloodstreamSystem _bloodstream = default!;
+        [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
         private static readonly ProtoId<SoundCollectionPrototype> VomitCollection = "Vomit";
 
@@ -68,7 +69,7 @@ namespace Content.Server.Medical
             {
                 if (_solutionContainer.ResolveSolution(stomach.Owner, StomachSystem.DefaultSolutionName, ref stomach.Comp1.Solution, out var sol))
                 {
-                    solution.AddSolution(sol, _proto);
+                    solution.AddSolution(sol, _rmcReagent);
                     sol.RemoveAllSolution();
                     _solutionContainer.UpdateChemicals(stomach.Comp1.Solution.Value);
                 }
@@ -85,7 +86,7 @@ namespace Content.Server.Medical
                 {
                     var vomitChemstreamAmount = _solutionContainer.SplitSolution(bloodStream.ChemicalSolution.Value, vomitAmount);
                     vomitChemstreamAmount.ScaleSolution(chemMultiplier);
-                    solution.AddSolution(vomitChemstreamAmount, _proto);
+                    solution.AddSolution(vomitChemstreamAmount, _rmcReagent);
 
                     vomitAmount -= (float)vomitChemstreamAmount.Volume;
                 }

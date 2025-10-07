@@ -71,7 +71,7 @@ public sealed partial class GunSystem
 
         if (TryComp<AppearanceComponent>(ent, out var appearance))
         {
-            Appearance.SetData(ent, VaporVisuals.Color, newSolution.GetColor(ProtoManager).WithAlpha(1f), appearance);
+            Appearance.SetData(ent, VaporVisuals.Color, newSolution.GetColor(_rmcReagent).WithAlpha(1f), appearance);
             Appearance.SetData(ent, VaporVisuals.State, true, appearance);
         }
 

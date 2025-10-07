@@ -110,14 +110,12 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
     [Dependency] private readonly ContainerSystem _containers = default!;
-    [Dependency] private readonly DropshipSystem _dropship = default!;
     [Dependency] private readonly FaxSystem _fax = default!;
     [Dependency] private readonly GunIFFSystem _gunIFF = default!;
     [Dependency] private readonly XenoHiveSystem _hive = default!;
     [Dependency] private readonly HungerSystem _hunger = default!;
     [Dependency] private readonly ItemCamouflageSystem _camo = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly IMapManager _mapManager = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
     [Dependency] private readonly MarineAnnounceSystem _marineAnnounce = default!;
     [Dependency] private readonly MindSystem _mind = default!;
@@ -133,7 +131,6 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
     [Dependency] private readonly RoleSystem _roles = default!;
     [Dependency] private readonly RoundEndSystem _roundEnd = default!;
     [Dependency] private readonly ScalingSystem _scaling = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly StationJobsSystem _stationJobs = default!;
     [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
     [Dependency] private readonly SquadSystem _squad = default!;

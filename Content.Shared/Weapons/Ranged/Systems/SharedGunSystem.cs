@@ -11,7 +11,6 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
 using Content.Shared.Camera;
-using Content.Shared.CombatMode;
 using Content.Shared.Containers.ItemSlots;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
@@ -24,7 +23,6 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
-using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Content.Shared.Timing;
@@ -63,6 +61,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] protected readonly ISharedAdminLogManager Logs = default!;
     [Dependency] protected readonly DamageableSystem Damageable = default!;
+    [Dependency] private   readonly SharedMapSystem _mapSystem = default!;
     [Dependency] protected readonly ExamineSystemShared Examine = default!;
     [Dependency] private   readonly SharedHandsSystem _hands = default!;
     [Dependency] private   readonly ItemSlotsSystem _slots = default!;
@@ -70,7 +69,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] protected readonly SharedActionsSystem Actions = default!;
     [Dependency] protected readonly SharedAppearanceSystem Appearance = default!;
     [Dependency] protected readonly SharedAudioSystem Audio = default!;
-    [Dependency] private   readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] protected readonly SharedContainerSystem Containers = default!;
     [Dependency] private   readonly SharedGravitySystem _gravity = default!;
     [Dependency] protected readonly SharedPointLightSystem Lights = default!;
@@ -83,7 +81,6 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private   readonly UseDelaySystem _useDelay = default!;
     [Dependency] private   readonly EntityWhitelistSystem _whitelistSystem = default!;
     [Dependency] private   readonly SharedStaminaSystem _stamina = default!;
-    [Dependency] private   readonly SharedStunSystem _stun = default!;
     [Dependency] private   readonly SharedColorFlashEffectSystem _color = default!;
     [Dependency] private   readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private   readonly IConfigurationManager _config = default!;
@@ -328,7 +325,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                 default:
                     throw new ArgumentOutOfRangeException($"No implemented shooting behavior for {gun.SelectedMode}!");
             }
-        } else
+        }
+        else
         {
             shots = Math.Min(shots, gun.ShotsPerBurstModified - gun.ShotCounter);
         }
@@ -385,7 +383,6 @@ public abstract partial class SharedGunSystem : EntitySystem
                 // May cause prediction issues? Needs more tweaking
                 gun.NextFire = TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
                 Audio.PlayPredicted(gun.SoundEmpty, gunUid, user);
-                return null;
             }
 
             return null;
@@ -492,9 +489,9 @@ public abstract partial class SharedGunSystem : EntitySystem
         var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
-        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out var grid)
+        var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
             ? fromCoordinates.WithEntityId(gridUid, EntityManager)
-            : new EntityCoordinates(MapManager.GetMapEntityId(fromMap.MapId), fromMap.Position);
+            : new EntityCoordinates(_mapSystem.GetMap(fromMap.MapId), fromMap.Position);
 
         // Update shot based on the recoil
         toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
@@ -553,7 +550,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                                 QueueDel(uid);
                             }
 
-                            RaiseLocalEvent(ent!.Value, new AmmoShotEvent()
+                            RaiseLocalEvent(ent!.Value,
+                                new AmmoShotEvent()
                             {
                                 FiredProjectiles = shotProjectiles,
                             });
@@ -587,7 +585,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                     if (IsClientSide(ent!.Value))
                         Del(ent.Value);
                     else
-                        Dirty(ent!.Value, cartridge);
+                        Dirty(ent.Value, cartridge);
                     break;
                 // Ammo shoots itself
                 case AmmoComponent newAmmo:
@@ -650,7 +648,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                             var hit = result.HitEntity;
                             lastHit = hit;
 
-                            FireEffects(fromEffect, result.Distance, dir.Normalized().ToAngle(), hitscan, hit);
+                            FireEffects(fromEffect, result.Distance, dir.Normalized().ToAngle(), hitscan);
 
                             var ev = new HitScanReflectAttemptEvent(user, gunUid, hitscan.Reflective, dir, false);
                             RaiseLocalEvent(hit, ref ev);
@@ -724,7 +722,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             }
         }
 
-        RaiseLocalEvent(gunUid, new AmmoShotEvent()
+        RaiseLocalEvent(gunUid,
+            new AmmoShotEvent()
         {
             FiredProjectiles = shotProjectiles,
         });
@@ -739,7 +738,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                 RaiseLocalEvent(gunUid, ref spreadEvent);
 
                 var angles = LinearSpread(mapAngle - spreadEvent.Spread / 2,
-                    mapAngle + spreadEvent.Spread / 2, ammoSpreadComp.Count);
+                    mapAngle + spreadEvent.Spread / 2,
+                    ammoSpreadComp.Count);
 
                 ShootOrThrow(ammoEnt, angles[0].ToVec(), gunVelocity, gun, gunUid, user);
                 shotProjectiles.Add(ammoEnt);
@@ -806,7 +806,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     #region Hitscan effects
 
-    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle mapDirection, HitscanPrototype hitscan, EntityUid? hitEntity = null)
+    private void FireEffects(EntityCoordinates fromCoordinates, float distance, Angle mapDirection, HitscanPrototype hitscan)
     {
         // Lord
         // Forgive me for the shitcode I am about to do
@@ -862,7 +862,8 @@ public abstract partial class SharedGunSystem : EntitySystem
             RaiseNetworkEvent(new HitscanEvent
             {
                 Sprites = sprites,
-            }, Filter.Pvs(fromCoordinates, entityMan: EntityManager));
+            },
+            Filter.Pvs(fromCoordinates, entityMan: EntityManager));
         }
     }
 

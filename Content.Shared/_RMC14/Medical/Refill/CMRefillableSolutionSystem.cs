@@ -15,6 +15,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Robust.Shared.Prototypes;
 using Content.Shared.Verbs;
 using Content.Shared.DoAfter;
@@ -34,8 +35,8 @@ public sealed class CMRefillableSolutionSystem : EntitySystem
     [Dependency] private readonly RMCPlanetSystem _rmcPlanet = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly SharedDoAfterSystem _doafter = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private bool _log;
 
@@ -161,8 +162,7 @@ public sealed class CMRefillableSolutionSystem : EntitySystem
             return;
         }
 
-        if (sol != null)
-            _appearance.SetData(ent, SolutionContainerStoreVisuals.Color, sol.GetColor(_proto));
+        _appearance.SetData(ent, SolutionContainerStoreVisuals.Color, sol.GetColor(_rmcReagent));
 
         if (!TryGetStorageFillableSolution(args.Entity, out var refillable, out _))
         {

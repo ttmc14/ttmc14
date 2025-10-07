@@ -8,14 +8,12 @@ using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.Collections;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
@@ -25,12 +23,12 @@ namespace Content.Server.Body.Systems
     public sealed class MetabolizerSystem : SharedMetabolizerSystem
     {
         [Dependency] private readonly IGameTiming _gameTiming = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly IRobustRandom _random = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly CMStasisBagSystem _cmStasisBag = default!;
+        [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
         private EntityQuery<OrganComponent> _organQuery;
         private EntityQuery<SolutionContainerManagerComponent> _solutionQuery;
@@ -146,7 +144,7 @@ namespace Content.Server.Body.Systems
             int reagents = 0;
             foreach (var (reagent, quantity) in list)
             {
-                if (!_prototypeManager.TryIndexReagent<ReagentPrototype>(reagent.Prototype, out var proto))
+                if (!_rmcReagent.TryIndex(reagent.Prototype, out var proto))
                     continue;
 
                 var mostToRemove = FixedPoint2.Zero;

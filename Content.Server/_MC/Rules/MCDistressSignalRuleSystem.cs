@@ -25,14 +25,12 @@ public sealed class MCDistressSignalRuleSystem : MCRuleSystem<MCDistressSignalRu
 {
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = default!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
 
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
     [Dependency] private readonly MindSystem _mind = default!;
 
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = default!;

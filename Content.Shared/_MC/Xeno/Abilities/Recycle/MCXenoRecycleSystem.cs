@@ -29,7 +29,7 @@ public sealed class MCXenoRecycleSystem : EntitySystem
     {
         var target = args.Target;
 
-        if (!HasComp<XenoComponent>(target) || target == null)
+        if (!HasComp<XenoComponent>(target))
         {
             _popup.PopupClient(Loc.GetString("recycle-no-sister"), xeno, xeno, PopupType.MediumCaution);
             return;

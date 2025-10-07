@@ -17,7 +17,7 @@ public sealed class XAECreatePuddleSystem: BaseXAESystem<XAECreatePuddleComponen
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PuddleSystem _puddle = default!;
     [Dependency] private readonly MetaDataSystem _metaData= default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager= default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     /// <inheritdoc />
     public override void Initialize()
@@ -29,7 +29,7 @@ public sealed class XAECreatePuddleSystem: BaseXAESystem<XAECreatePuddleComponen
 
     private void OnInit(EntityUid uid, XAECreatePuddleComponent component, MapInitEvent _)
     {
-        if (component.PossibleChemicals == null || component.PossibleChemicals.Count == 0)
+        if (component.PossibleChemicals.Count == 0)
             return;
 
         if (component.SelectedChemicals == null)
@@ -50,7 +50,7 @@ public sealed class XAECreatePuddleSystem: BaseXAESystem<XAECreatePuddleComponen
             var reagentNames = new HashSet<string>();
             foreach (var chemProtoId in component.SelectedChemicals)
             {
-                var reagent = _prototypeManager.IndexReagent(chemProtoId);
+                var reagent = _rmcReagent.Index(chemProtoId);
                 reagentNames.Add(reagent.LocalizedName);
             }
 

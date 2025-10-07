@@ -22,9 +22,9 @@ using Content.Shared.Power;
 using Content.Shared.Stacks;
 using Robust.Server.GameObjects;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Linq;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Humanoid;
 
 namespace Content.Server.Materials;
@@ -32,7 +32,6 @@ namespace Content.Server.Materials;
 /// <inheritdoc/>
 public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly GhostSystem _ghostSystem = default!;
     [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
@@ -44,6 +43,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     [Dependency] private readonly StackSystem _stack = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly IAdminLogManager _adminLogger = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -270,7 +270,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             // Are we a recycler? Only use drainable solution.
             if (_solutionContainer.TryGetDrainableSolution(item, out _, out var drainableSolution))
             {
-                totalChemicals.AddSolution(drainableSolution, _prototype);
+                totalChemicals.AddSolution(drainableSolution, _rmcReagent);
             }
         }
         else
@@ -278,7 +278,7 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
             // Are we an industrial reagent grinder? Use extractable solution.
             if (_solutionContainer.TryGetExtractableSolution(item, out _, out var extractableSolution))
             {
-                totalChemicals.AddSolution(extractableSolution, _prototype);
+                totalChemicals.AddSolution(extractableSolution, _rmcReagent);
             }
         }
 

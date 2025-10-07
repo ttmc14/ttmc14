@@ -12,6 +12,7 @@ public abstract class SharedRankSystem : EntitySystem
 {
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IEntityManager _entMan = default!;
+    [Dependency] private readonly ISawmill _sawmill = default!;
 
     public override void Initialize()
     {
@@ -156,7 +157,7 @@ public abstract class SharedRankSystem : EntitySystem
         if (rankOrder.Count == 0)
         {
             // The dataset cannot be empty, the person forgot to add values ​​to it
-            Logger.Error($"The rank hierarchy dataset '{rankHierarchyId}' has an invalid value: empty. The highest rank cannot be determined.");
+            _sawmill.Error($"The rank hierarchy dataset '{rankHierarchyId}' has an invalid value: empty. The highest rank cannot be determined.");
             return null;
         }
 

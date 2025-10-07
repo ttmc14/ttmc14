@@ -20,10 +20,8 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
-
 
 namespace Content.Shared._RMC14.Pulling;
 
@@ -37,7 +35,6 @@ public sealed class RMCPullingSystem : EntitySystem
     [Dependency] private readonly SharedXenoParasiteSystem _parasite = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
@@ -208,7 +205,7 @@ public sealed class RMCPullingSystem : EntitySystem
         if (args.Cancelled || ent.Owner == args.PulledUid)
             return;
 
-        if (!CanPullDead(ent, args.PulledUid))
+        if (!CanPullDead(args.PulledUid))
         {
             _popup.PopupClient(Loc.GetString("cm-pull-whitelist-denied-dead", ("name", args.PulledUid)), args.PulledUid, args.PullerUid);
             args.Cancelled = true;
@@ -322,7 +319,6 @@ public sealed class RMCPullingSystem : EntitySystem
             TryComp(puller.Pulling, out PullableComponent? pullable2))
         {
             _pulling.TryStopPull(puller.Pulling.Value, pullable2, pullie);
-            return;
         }
     }
 
@@ -396,7 +392,7 @@ public sealed class RMCPullingSystem : EntitySystem
         PredictedSpawnAttachedTo(PullEffect, pulled.ToCoordinates());
     }
 
-    private bool CanPullDead(EntityUid puller, EntityUid pulled)
+    private bool CanPullDead(EntityUid pulled)
     {
         if (!_mobState.IsDead(pulled))
             return true;
@@ -423,7 +419,7 @@ public sealed class RMCPullingSystem : EntitySystem
                 continue;
             }
 
-            if (!CanPullDead(uid, pulling))
+            if (!CanPullDead(pulling))
                 _pulling.TryStopPull(pulling, pullable, uid);
         }
 

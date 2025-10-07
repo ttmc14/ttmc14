@@ -56,7 +56,6 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     [Dependency] private readonly SharedOnCollideSystem _onCollide = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly RMCMapSystem _rmcMap = default!;
     [Dependency] private readonly SharedRMCMeleeWeaponSystem _rmcMelee = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
@@ -67,6 +66,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     [Dependency] private readonly XenoPlasmaSystem _plasma = default!;
     [Dependency] private readonly SharedRMCEmoteSystem _emote = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private static readonly ProtoId<AlertPrototype> FireAlert = "Fire";
     private static readonly ProtoId<ReagentPrototype> WaterReagent = "Water";
@@ -497,7 +497,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
 
         var initialShot = !ent.Comp.InitialSpread;
         var target = center;
-        var targets = new HashSet<EntityCoordinates> { };
+        var targets = new HashSet<EntityCoordinates>();
 
         while (ent.Comp.Range > 0)
         {
@@ -526,7 +526,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
 
         foreach (var ignitionTarget in targets)
         {
-            if (CheckViableTile(ent, ignitionTarget))
+            if (CheckViableTile(ignitionTarget))
                 SpawnFireChain(ent.Comp.Spawn, chain, ignitionTarget, intensity, duration);
         }
     }
@@ -541,7 +541,6 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     /// </summary>
     /// <param name="ent">The entity creating the fire</param>
     /// <param name="target">The tile the fire is being spawned from</param>
-    /// <param name="direction">The direction the entity is facing</param>
     /// <param name="initialShot">If </param>
     /// <returns>Returns a list of potential targets for a fire to be spawned on</returns>
     private HashSet<EntityCoordinates> AddTarget(Entity<DirectionalTileFireOnTriggerComponent> ent, EntityCoordinates target, bool initialShot)
@@ -592,7 +591,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     /// <summary>
     ///     Checks if the targeted tile is viable for a fire to be spawned on and removes any existing fires from the tile.
     /// </summary>
-    private bool CheckViableTile(Entity<DirectionalTileFireOnTriggerComponent> ent, EntityCoordinates target)
+    private bool CheckViableTile(EntityCoordinates target)
     {
         if (!_rmcMap.TryGetTileDef(target, out var tile) ||
             tile.ID == ContentTileDefinition.SpaceID)
@@ -623,7 +622,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         intensity = FixedPoint2.Zero;
         foreach (var solutionReagent in solution)
         {
-            if (!_prototype.TryIndexReagent(solutionReagent.Reagent.Prototype, out ReagentPrototype? reagent))
+            if (!_rmcReagent.TryIndex(solutionReagent.Reagent.Prototype, out var reagent))
                 continue;
 
             intensity += reagent.Intensity * solutionReagent.Quantity;

@@ -45,13 +45,11 @@ public abstract class SharedXenoBurrowSystem : EntitySystem
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly IGameTiming _time = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedActionsSystem _action = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
-    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
 
     public override void Initialize()

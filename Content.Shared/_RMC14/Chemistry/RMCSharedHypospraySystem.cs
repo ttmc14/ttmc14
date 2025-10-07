@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Marines.Skills;
+﻿using Content.Shared._RMC14.Chemistry.Reagent;
+using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -33,6 +34,7 @@ public abstract class RMCSharedHypospraySystem : EntitySystem
     [Dependency] protected readonly ItemSlotsSystem _slots = default!;
     [Dependency] protected readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] protected readonly UseDelaySystem _useDelay = default!;
+    [Dependency] protected readonly RMCReagentSystem _rmcReagent = default!;
     [Dependency] protected readonly SolutionTransferSystem _transfer = default!;
 
     public override void Initialize()
@@ -188,8 +190,6 @@ public abstract class RMCSharedHypospraySystem : EntitySystem
             return;
         }
 
-        var vial = container.ContainedEntities[0];
-
         if (HasComp<InjectableSolutionComponent>(args.Target.Value) && (!ent.Comp.OnlyAffectsMobs || HasComp<MobStateComponent>(args.Target.Value)))
         {
             // Try to inject
@@ -237,10 +237,10 @@ public abstract class RMCSharedHypospraySystem : EntitySystem
             return;
         }
 
-        if (!_solution.TryGetRefillableSolution(vial, out var solm, out var soli))
+        if (!_solution.TryGetRefillableSolution(vial, out var solm, out var _))
             return;
 
-        if (!_solution.TryGetDrainableSolution(args.Used, out var soln, out var solu))
+        if (!_solution.TryGetDrainableSolution(args.Used, out var soln, out var _))
             return;
 
         if (!TryComp<SolutionTransferComponent>(args.Used, out var solt))
@@ -300,7 +300,7 @@ public abstract class RMCSharedHypospraySystem : EntitySystem
         }
 
         _appearance.SetData(ent, SolutionContainerVisuals.FillFraction, solution.FillFraction, appearance);
-        _appearance.SetData(ent, SolutionContainerVisuals.Color, solution.GetColor(_prototype), appearance);
+        _appearance.SetData(ent, SolutionContainerVisuals.Color, solution.GetColor(_rmcReagent), appearance);
         _appearance.SetData(ent, SolutionContainerVisuals.SolutionName, ent.Comp.SolutionName, appearance);
 
         if (solution.GetPrimaryReagentId() is { } reagent)

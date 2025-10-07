@@ -1,6 +1,5 @@
 using System.Linq;
 using Content.Server.Chemistry.Components;
-using Content.Server.Chemistry.Containers.EntitySystems;
 using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Containers.ItemSlots;
@@ -12,10 +11,10 @@ using Robust.Server.Audio;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio;
 using Robust.Shared.Containers;
-using Robust.Shared.Prototypes;
 using Content.Shared.Labels.Components;
 using Content.Shared.Storage;
 using Content.Server.Hands.Systems;
+using Content.Shared._RMC14.Chemistry.Reagent;
 
 namespace Content.Server.Chemistry.EntitySystems
 {
@@ -31,9 +30,9 @@ namespace Content.Server.Chemistry.EntitySystems
         [Dependency] private readonly SolutionTransferSystem _solutionTransferSystem = default!;
         [Dependency] private readonly ItemSlotsSystem _itemSlotsSystem = default!;
         [Dependency] private readonly UserInterfaceSystem _userInterfaceSystem = default!;
-        [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
         [Dependency] private readonly OpenableSystem _openable = default!;
         [Dependency] private readonly HandsSystem _handsSystem = default!;
+        [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
         public override void Initialize()
         {
@@ -108,7 +107,7 @@ namespace Content.Server.Chemistry.EntitySystems
                 if (_solutionContainerSystem.TryGetDrainableSolution(storedContainer, out _, out var sol))
                 {
                     quantity = sol.Volume;
-                    reagentColor = sol.GetColor(_prototypeManager);
+                    reagentColor = sol.GetColor(_rmcReagent);
                 }
 
                 inventory.Add(new ReagentInventoryItem(storageLocation, reagentLabel, quantity, reagentColor));
@@ -138,17 +137,19 @@ namespace Content.Server.Chemistry.EntitySystems
                 return;
 
             var outputContainer = _itemSlotsSystem.GetItemOrNull(reagentDispenser, SharedReagentDispenser.OutputSlotName);
-            if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var solution, out _))
+            if (outputContainer is not { Valid: true } || !_solutionContainerSystem.TryGetFitsInDispenser(outputContainer.Value, out var _, out _))
                 return;
 
             if (_solutionContainerSystem.TryGetDrainableSolution(storedContainer, out var src, out _) &&
                 _solutionContainerSystem.TryGetRefillableSolution(outputContainer.Value, out var dst, out _))
             {
                 // force open container, if applicable, to avoid confusing people on why it doesn't dispense
-                _openable.SetOpen(storedContainer, true);
+                _openable.SetOpen(storedContainer);
                 _solutionTransferSystem.Transfer(reagentDispenser,
-                        storedContainer, src.Value,
-                        outputContainer.Value, dst.Value,
+                        storedContainer,
+                        src.Value,
+                        outputContainer.Value,
+                        dst.Value,
                         (int)reagentDispenser.Comp.DispenseAmount);
             }
 

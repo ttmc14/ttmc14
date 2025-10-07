@@ -1,3 +1,4 @@
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared._RMC14.Damage;
 using Content.Shared._RMC14.Medical.Stasis;
 using Content.Shared._RMC14.Medical.Wounds;
@@ -41,6 +42,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
     [Dependency] private readonly SharedDrunkSystem _drunkSystem = default!;
     [Dependency] private readonly SharedStutteringSystem _stutteringSystem = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     // RMC14
     [Dependency] private readonly CMStasisBagSystem _cmStasisBag = default!;
@@ -104,8 +106,10 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 // bloodloss damage is based on the base value, and modified by how low your blood level is.
                 var amt = bloodstream.BloodlossDamage / (0.1f + bloodPercentage);
 
-                _damageableSystem.TryChangeDamage(uid, amt,
-                    ignoreResistances: false, interruptsDoAfters: false);
+                _damageableSystem.TryChangeDamage(uid,
+                    amt,
+                    ignoreResistances: false,
+                    interruptsDoAfters: false);
 
                 // Apply dizziness as a symptom of bloodloss.
                 // The effect is applied in a way that it will never be cleared without being healthy.
@@ -239,9 +243,9 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         var totalFloat = total.Float();
         TryModifyBleedAmount(ent.AsNullable(), totalFloat);
 
-        /// Critical hit. Causes target to lose blood, using the bleed rate modifier of the weapon, currently divided by 5
-        /// The crit chance is currently the bleed rate modifier divided by 25.
-        /// Higher damage weapons have a higher chance to crit!
+        /* Critical hit. Causes target to lose blood, using the bleed rate modifier of the weapon, currently divided by 5
+        The crit chance is currently the bleed rate modifier divided by 25.
+        Higher damage weapons have a higher chance to crit!*/
 
         // TODO: Replace with RandomPredicted once the engine PR is merged
         // Use both the receiver and the damage causing entity for the seed so that we have different results for multiple attacks in the same tick
@@ -261,8 +265,10 @@ public abstract class SharedBloodstreamSystem : EntitySystem
             // because it's burn damage that cauterized their wounds.
 
             // We'll play a special sound and popup for feedback.
-            _popup.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"), ent,
-                    ent, PopupType.Medium); // only the burned entity can see this
+            _popup.PopupEntity(Loc.GetString("bloodstream-component-wounds-cauterized"),
+                ent,
+                    ent,
+                    PopupType.Medium); // only the burned entity can see this
             _audio.PlayPredicted(ent.Comp.BloodHealedSound, ent, args.Origin);
         }
     }
@@ -409,7 +415,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         if (!SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodTemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
             return true;
 
-        tempSolution.AddSolution(newSol, _prototypeManager);
+        tempSolution.AddSolution(newSol, _rmcReagent);
 
         if (tempSolution.Volume > ent.Comp.BleedPuddleThreshold)
         {
@@ -418,7 +424,7 @@ public abstract class SharedBloodstreamSystem : EntitySystem
                 SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.ChemicalSolutionName, ref ent.Comp.ChemicalSolution))
             {
                 var temp = SolutionContainer.SplitSolution(ent.Comp.ChemicalSolution.Value, tempSolution.Volume / 10);
-                tempSolution.AddSolution(temp, _prototypeManager);
+                tempSolution.AddSolution(temp, _rmcReagent);
             }
 
             _puddle.TrySpillAt(ent.Owner, tempSolution, out _, sound: false);
@@ -469,21 +475,21 @@ public abstract class SharedBloodstreamSystem : EntitySystem
         if (SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodSolutionName, ref ent.Comp.BloodSolution, out var bloodSolution))
         {
             tempSol.MaxVolume += bloodSolution.MaxVolume;
-            tempSol.AddSolution(bloodSolution, _prototypeManager);
+            tempSol.AddSolution(bloodSolution, _rmcReagent);
             SolutionContainer.RemoveAllSolution(ent.Comp.BloodSolution.Value);
         }
 
         if (SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.ChemicalSolutionName, ref ent.Comp.ChemicalSolution, out var chemSolution))
         {
             tempSol.MaxVolume += chemSolution.MaxVolume;
-            tempSol.AddSolution(chemSolution, _prototypeManager);
+            tempSol.AddSolution(chemSolution, _rmcReagent);
             SolutionContainer.RemoveAllSolution(ent.Comp.ChemicalSolution.Value);
         }
 
         if (SolutionContainer.ResolveSolution(ent.Owner, ent.Comp.BloodTemporarySolutionName, ref ent.Comp.TemporarySolution, out var tempSolution))
         {
             tempSol.MaxVolume += tempSolution.MaxVolume;
-            tempSol.AddSolution(tempSolution, _prototypeManager);
+            tempSol.AddSolution(tempSolution, _rmcReagent);
             SolutionContainer.RemoveAllSolution(ent.Comp.TemporarySolution.Value);
         }
 

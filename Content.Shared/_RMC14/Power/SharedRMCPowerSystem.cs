@@ -1,7 +1,5 @@
-﻿using System.Numerics;
-using Content.Shared._RMC14.Areas;
+﻿using Content.Shared._RMC14.Areas;
 using Content.Shared._RMC14.Marines.Skills;
-using Content.Shared._RMC14.Sprite;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Access.Components;
 using Content.Shared.Damage;
@@ -21,7 +19,6 @@ using Content.Shared.Tools.Systems;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Containers;
-using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
@@ -44,7 +41,6 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
     [Dependency] private readonly SharedPowerReceiverSystem _powerReceiver = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SkillsSystem _skills = default!;
-    [Dependency] private readonly SharedRMCSpriteSystem _sprite = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -223,7 +219,7 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
             return;
         }
 
-        if (TryComp(used, out AccessComponent? access))
+        if (HasComp<AccessComponent>(used))
         {
             // TODO RMC14 access wire
             // var hasAccess = access.Tags.Any(t => ent.Comp.Access.Contains(t));
@@ -601,13 +597,13 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
 
     private void OnApcSetChannelBuiMsg(Entity<RMCApcComponent> ent, ref RMCApcSetChannelBuiMsg args)
     {
-        return;
-        var channel = (int) args.Channel;
+        //return; // NO USED
+        /* var channel = (int) args.Channel;
         if (args.Channel < 0 || channel >= ent.Comp.Channels.Length)
             return;
 
         ent.Comp.Channels[channel].Button = args.State;
-        Dirty(ent);
+        Dirty(ent);*/
     }
 
     private void OnApcCover(Entity<RMCApcComponent> ent, ref RMCApcCoverBuiMsg args)
@@ -771,7 +767,7 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
 
     public abstract bool IsPowered(EntityUid ent);
 
-    private bool AnyReactorsOn(MapId map)
+    /*private bool AnyReactorsOn(MapId map)
     {
         var reactors = EntityQueryEnumerator<RMCFusionReactorComponent, TransformComponent>();
         while (reactors.MoveNext(out var comp, out var xform))
@@ -781,7 +777,7 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         }
 
         return false;
-    }
+    }*/
 
     // mc-changes-start
     private void ReactorUpdated(Entity<RMCFusionReactorComponent> ent)

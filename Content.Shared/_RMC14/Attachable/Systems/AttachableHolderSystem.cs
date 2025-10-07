@@ -39,7 +39,6 @@ public sealed class AttachableHolderSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;

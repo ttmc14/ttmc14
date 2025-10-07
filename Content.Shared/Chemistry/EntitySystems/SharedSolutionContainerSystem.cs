@@ -31,7 +31,7 @@ namespace Content.Shared.Chemistry.EntitySystems;
 /// </remarks>
 /// <param name="Solution">The solution entity that has been modified.</param>
 [ByRefEvent]
-public readonly partial record struct SolutionChangedEvent(Entity<SolutionComponent> Solution);
+public readonly record struct SolutionChangedEvent(Entity<SolutionComponent> Solution);
 
 /// <summary>
 /// The event raised whenever a solution entity is filled past its capacity.
@@ -39,7 +39,7 @@ public readonly partial record struct SolutionChangedEvent(Entity<SolutionCompon
 /// <param name="Solution">The solution entity that has been overfilled.</param>
 /// <param name="Overflow">The amount by which the solution entity has been overfilled.</param>
 [ByRefEvent]
-public partial record struct SolutionOverflowEvent(Entity<SolutionComponent> Solution, FixedPoint2 Overflow)
+public record struct SolutionOverflowEvent(Entity<SolutionComponent> Solution, FixedPoint2 Overflow)
 {
     /// <summary>The solution entity that has been overfilled.</summary>
     public readonly Entity<SolutionComponent> Solution = Solution;
@@ -50,7 +50,7 @@ public partial record struct SolutionOverflowEvent(Entity<SolutionComponent> Sol
 }
 
 [ByRefEvent]
-public partial record struct SolutionAccessAttemptEvent(string SolutionName)
+public record struct SolutionAccessAttemptEvent(string SolutionName)
 {
     public bool Cancelled;
 }
@@ -69,6 +69,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
     [Dependency] protected readonly SharedContainerSystem ContainerSystem = default!;
     [Dependency] protected readonly MetaDataSystem MetaDataSys = default!;
     [Dependency] protected readonly INetManager NetManager = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public override void Initialize()
     {
@@ -271,7 +272,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var solution = comp.Solution;
 
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.FillFraction, solution.FillFraction, appearanceComponent);
-        AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(PrototypeManager), appearanceComponent);
+        AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(_rmcReagent), appearanceComponent);
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.SolutionName, relation.ContainerName, appearanceComponent);
 
         if (solution.GetPrimaryReagentId() is { } reagent)
@@ -339,7 +340,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return;
 
         AppearanceSystem.SetData(uid, SolutionContainerVisuals.FillFraction, solution.FillFraction, appearanceComponent);
-        AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(PrototypeManager), appearanceComponent);
+        AppearanceSystem.SetData(uid, SolutionContainerVisuals.Color, solution.GetColor(_rmcReagent), appearanceComponent);
 
         if (solution.GetPrimaryReagentId() is { } reagent)
             AppearanceSystem.SetData(uid, SolutionContainerVisuals.BaseOverride, reagent.ToString(), appearanceComponent);
@@ -442,8 +443,8 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         }
         else
         {
-            var proto = PrototypeManager.IndexReagent<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
-            solution.AddReagent(proto, acceptedQuantity, temperature.Value, PrototypeManager);
+            var proto = _rmcReagent.Index(reagentQuantity.Reagent.Prototype);
+            solution.AddReagent(proto, acceptedQuantity, temperature.Value, _rmcReagent);
         }
 
         UpdateChemicals(soln);
@@ -560,7 +561,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         // TODO This should be made into a function that directly transfers reagents.
         // Currently this is quite inefficient.
-        solution.AddSolution(source.SplitSolution(quantity), PrototypeManager);
+        solution.AddSolution(source.SplitSolution(quantity), _rmcReagent);
 
         UpdateChemicals(soln);
         return true;
@@ -626,7 +627,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         if (toAdd.Volume == FixedPoint2.Zero)
             return false;
 
-        solution.AddSolution(toAdd, PrototypeManager);
+        solution.AddSolution(toAdd, _rmcReagent);
         UpdateChemicals(soln);
         return true;
     }
@@ -653,7 +654,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return false;
         }
 
-        solution.AddSolution(toAdd, PrototypeManager);
+        solution.AddSolution(toAdd, _rmcReagent);
         overflowingSolution = solution.SplitSolution(FixedPoint2.Max(FixedPoint2.Zero, solution.Volume - overflowThreshold));
         UpdateChemicals(soln);
         return true;
@@ -721,7 +722,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         var (_, comp) = soln;
         var solution = comp.Solution;
 
-        var heatCap = solution.GetHeatCapacity(PrototypeManager);
+        var heatCap = solution.GetHeatCapacity(_rmcReagent);
         solution.Temperature = heatCap == 0 ? 0 : thermalEnergy / heatCap;
         UpdateChemicals(soln);
     }
@@ -740,7 +741,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
         if (thermalEnergy == 0.0f)
             return;
 
-        var heatCap = solution.GetHeatCapacity(PrototypeManager);
+        var heatCap = solution.GetHeatCapacity(_rmcReagent);
         solution.Temperature += heatCap == 0 ? 0 : thermalEnergy / heatCap;
         UpdateChemicals(soln);
     }
@@ -795,13 +796,13 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             return;
         }
 
-        if (!PrototypeManager.TryIndexReagent(primaryReagent.Value.Prototype, out ReagentPrototype? primary))
+        if (!_rmcReagent.TryIndex(primaryReagent.Value.Prototype, out var primary))
         {
             Log.Error($"{nameof(Solution)} could not find the prototype associated with {primaryReagent}.");
             return;
         }
 
-        var colorHex = solution.GetColor(PrototypeManager)
+        var colorHex = solution.GetColor(_rmcReagent)
             .ToHexNoAlpha(); //TODO: If the chem has a dark color, the examine text becomes black on a black background, which is unreadable.
         var messageString = "shared-solution-container-component-on-examine-main-text";
 
@@ -814,7 +815,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
                     : "shared-solution-container-component-on-examine-worded-amount-multiple-reagents")),
                 ("desc", primary.LocalizedPhysicalDescription)));
 
-            var reagentPrototypes = solution.GetReagentPrototypes(PrototypeManager);
+            var reagentPrototypes = solution.GetReagentPrototypes(_rmcReagent);
 
             // Sort the reagents by amount, descending then alphabetically
             var sortedReagentPrototypes = reagentPrototypes
@@ -916,7 +917,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
 
         msg.AddMarkupOrThrow(Loc.GetString("scannable-solution-main-text"));
 
-        var reagentPrototypes = solution.GetReagentPrototypes(PrototypeManager);
+        var reagentPrototypes = solution.GetReagentPrototypes(_rmcReagent);
 
         // Sort the reagents by amount, descending then alphabetically
         var sortedReagentPrototypes = reagentPrototypes
@@ -1102,7 +1103,7 @@ public abstract partial class SharedSolutionContainerSystem : EntitySystem
             // Depending on MapInitEvent order some systems can ensure solution empty solutions and conflict with the prototype solutions.
             // We want the reagents from the prototype to exist even if something else already created the solution.
             if (prototype is { Volume.Value: > 0 })
-                solution.AddSolution(prototype, PrototypeManager);
+                solution.AddSolution(prototype, _rmcReagent);
 
             Dirty(solutionId, solutionComp);
         }

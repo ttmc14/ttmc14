@@ -9,7 +9,6 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reaction;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.FixedPoint;
 using Content.Shared.Smoking;
@@ -19,7 +18,6 @@ using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using TimedDespawnComponent = Robust.Shared.Spawners.TimedDespawnComponent;
@@ -35,7 +33,6 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly IAdminLogManager _logger = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly AppearanceSystem _appearance = default!;
     [Dependency] private readonly BloodstreamSystem _blood = default!;
@@ -44,6 +41,7 @@ public sealed class SmokeSystem : EntitySystem
     [Dependency] private readonly SharedBroadphaseSystem _broadphase = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private EntityQuery<SmokeComponent> _smokeQuery;
     private EntityQuery<SmokeAffectedComponent> _smokeAffectedQuery;
@@ -272,7 +270,7 @@ public sealed class SmokeSystem : EntitySystem
             {
                 if (reagentQuantity.Quantity == FixedPoint2.Zero)
                     continue;
-                var reagentProto = _prototype.IndexReagent<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+                var reagentProto = _rmcReagent.Index(reagentQuantity.Reagent.Prototype);
 
                 _reactive.ReactionEntity(entity, ReactionMethod.Touch, reagentProto, reagentQuantity, finalSolution);
             }
@@ -294,7 +292,7 @@ public sealed class SmokeSystem : EntitySystem
         {
             if (reagentQuantity.Quantity == FixedPoint2.Zero)
                 continue;
-            var reagentProto = _prototype.IndexReagent<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+            var reagentProto = _rmcReagent.Index(reagentQuantity.Reagent.Prototype);
 
             _reactive.ReactionEntity(entity, ReactionMethod.Touch, reagentProto, reagentQuantity, transferSolution);
             if (!blockIngestion)
@@ -329,7 +327,7 @@ public sealed class SmokeSystem : EntitySystem
             if (reagentQuantity.Quantity == FixedPoint2.Zero)
                 continue;
 
-            var reagent = _prototype.IndexReagent<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+            var reagent = _rmcReagent.Index(reagentQuantity.Reagent.Prototype);
             reagent.ReactionTile(tile, reagentQuantity.Quantity, EntityManager, reagentQuantity.Reagent.Data);
         }
     }
@@ -360,7 +358,7 @@ public sealed class SmokeSystem : EntitySystem
             !_solutionContainerSystem.ResolveSolution(smoke.Owner, SmokeComponent.SolutionName, ref smoke.Comp1.Solution, out var solution))
             return;
 
-        var color = solution.GetColor(_prototype);
+        var color = solution.GetColor(_rmcReagent);
         _appearance.SetData(smoke.Owner, SmokeVisuals.Color, color, smoke.Comp2);
     }
 }

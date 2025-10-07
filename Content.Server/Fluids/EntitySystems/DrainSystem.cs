@@ -1,5 +1,6 @@
 using Content.Server.DoAfter;
 using Content.Server.Popups;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Audio;
 using Content.Shared.Chemistry.Components.SolutionManager;
@@ -13,7 +14,6 @@ using Content.Shared.Interaction;
 using Content.Shared.Tag;
 using Content.Shared.Verbs;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 
@@ -30,7 +30,7 @@ public sealed class DrainSystem : SharedDrainSystem
     [Dependency] private readonly DoAfterSystem _doAfterSystem = default!;
     [Dependency] private readonly PuddleSystem _puddleSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private readonly HashSet<Entity<PuddleComponent>> _puddles = new();
 
@@ -55,7 +55,7 @@ public sealed class DrainSystem : SharedDrainSystem
         if (!args.CanAccess || !args.CanInteract || args.Using == null)
             return;
 
-        if (!TryComp(args.Using, out SpillableComponent? spillable) ||
+        if (!HasComp<SpillableComponent>(args.Using) ||
             !TryComp(args.Target, out DrainComponent? drain))
             return;
 
@@ -66,7 +66,7 @@ public sealed class DrainSystem : SharedDrainSystem
             Text = Loc.GetString("drain-component-empty-verb-inhand", ("object", Name(used))),
             Act = () =>
             {
-                Empty(used, spillable, target, drain);
+                Empty(used, target, drain);
             },
             Impact = LogImpact.Low,
             Icon = new SpriteSpecifier.Texture(new ResPath("/Textures/Interface/VerbIcons/eject.svg.192dpi.png"))
@@ -75,7 +75,7 @@ public sealed class DrainSystem : SharedDrainSystem
         args.Verbs.Add(verb);
     }
 
-    private void Empty(EntityUid container, SpillableComponent spillable, EntityUid target, DrainComponent drain)
+    private void Empty(EntityUid container, EntityUid target, DrainComponent drain)
     {
         // Find the solution in the container that is emptied
         if (!_solutionContainerSystem.TryGetDrainableSolution(container, out var containerSoln, out var containerSolution) || containerSolution.Volume == FixedPoint2.Zero)
@@ -185,7 +185,7 @@ public sealed class DrainSystem : SharedDrainSystem
                     var transferSolution = _solutionContainerSystem.SplitSolution(puddle.Comp.Solution.Value,
                         FixedPoint2.Min(FixedPoint2.New(amount), puddleSolution.Volume, drainSolution.AvailableVolume));
 
-                    drainSolution.AddSolution(transferSolution, _prototypeManager);
+                    drainSolution.AddSolution(transferSolution, _rmcReagent);
 
                     if (puddleSolution.Volume <= 0)
                     {

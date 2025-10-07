@@ -34,6 +34,7 @@ public sealed class SkillsSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private static readonly EntProtoId<SkillDefinitionComponent> MeleeSkill = "RMCSkillMeleeWeapons";
 
@@ -283,7 +284,7 @@ public sealed class SkillsSystem : EntitySystem
         for (var i = 0; i < foundReagents.Count; i++)
         {
             var reagent = foundReagents[i];
-            var reagentLocalizedName = _prototypes.IndexReagent<ReagentPrototype>(reagent.Reagent.Prototype).LocalizedName;
+            var reagentLocalizedName = _rmcReagent.Index(reagent.Reagent.Prototype).LocalizedName;
             var reagentQuantity = reagent.Quantity;
             fullMessage += $"{reagentLocalizedName}({reagentQuantity}u)";
             if (i > reagentCount)

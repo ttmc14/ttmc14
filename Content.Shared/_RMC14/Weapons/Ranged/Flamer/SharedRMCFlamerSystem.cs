@@ -30,17 +30,16 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly LineSystem _line = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
     [Dependency] private readonly SharedRMCSpraySystem _rmcSpray = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solution = default!;
     [Dependency] private readonly SolutionTransferSystem _solutionTransfer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public override void Initialize()
     {
@@ -98,7 +97,6 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         if (!HasComp<RMCFlamerAmmoProviderComponent>(tank))
         {
             RefillTank(tank, ref args);
-            return;
         }
     }
 
@@ -296,7 +294,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
         var targetSolution = sourceSolutionEnt.Comp.Solution;
         foreach (var content in targetSolution.Contents)
         {
-            if (_prototypes.TryIndexReagent(content.Reagent.Prototype, out ReagentPrototype? reagent) &&
+            if (_rmcReagent.TryIndex(content.Reagent.Prototype, out var reagent) &&
                 reagent.Intensity <= FixedPoint2.Zero)
             {
                 _popup.PopupClient(Loc.GetString("rmc-flamer-tank-not-potent-enough"), source, user);
@@ -361,7 +359,7 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
                 {
                     comp.Tiles.Remove(tile);
                     var fire = Spawn(comp.Spawn, tile.Coordinates);
-                    if (_prototypes.TryIndexReagent(comp.Reagent, out var reagent))
+                    if (_rmcReagent.TryIndex(comp.Reagent, out var reagent))
                     {
                         var intensity = Math.Min(comp.MaxIntensity, reagent.Intensity.Int());
                         var duration = Math.Min(comp.MaxDuration, reagent.Duration.Int());

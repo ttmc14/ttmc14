@@ -32,7 +32,6 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly XenoAnnounceSystem _xenoAnnounce = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly SharedCMChatSystem _rmcChat = default!;
 

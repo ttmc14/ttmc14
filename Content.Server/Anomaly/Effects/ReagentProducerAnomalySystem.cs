@@ -1,11 +1,11 @@
 using Content.Server.Anomaly.Components;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Anomaly.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Sprite;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
 namespace Content.Server.Anomaly.Effects;
@@ -31,8 +31,8 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly PointLightSystem _light = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public const string FallbackReagent = "Water";
 
@@ -73,7 +73,8 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
 
             Solution newSol = new();
             var reagentProducingAmount = anomaly.Stability * component.MaxReagentProducing * component.AccumulatedFrametime;
-            if (anomaly.Severity >= 0.97) reagentProducingAmount *= component.SupercriticalReagentProducingModifier;
+            if (anomaly.Severity >= 0.97)
+                reagentProducingAmount *= component.SupercriticalReagentProducingModifier;
 
             newSol.AddReagent(component.ProducingReagent, reagentProducingAmount);
             _solutionContainer.TryAddSolution(component.Solution.Value, newSol); // TODO - the container is not fully filled.
@@ -87,7 +88,7 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
             // and nothing worked out for me. So for now it will be like this.
             if (component.NeedRecolor)
             {
-                var color = producerSolution.GetColor(_prototypeManager);
+                var color = producerSolution.GetColor(_rmcReagent);
                 _light.SetColor(uid, color);
                 if (TryComp<RandomSpriteComponent>(uid, out var randomSprite))
                 {
@@ -132,14 +133,16 @@ public sealed class ReagentProducerAnomalySystem : EntitySystem
             var reagent = _random.Pick(entity.Comp.DangerousChemicals);
             return reagent;
         }
-        else rnd -= currentWeightDangerous;
+        else
+            rnd -= currentWeightDangerous;
         //Fun
         if (rnd <= currentWeightFun && entity.Comp.FunChemicals.Count > 0)
         {
             var reagent = _random.Pick(entity.Comp.FunChemicals);
             return reagent;
         }
-        else rnd -= currentWeightFun;
+        else
+            rnd -= currentWeightFun;
         //Useful
         if (rnd <= currentWeightUseful && entity.Comp.UsefulChemicals.Count > 0)
         {

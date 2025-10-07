@@ -1,18 +1,16 @@
 using Content.Server.Chemistry.Components;
 using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.NameModifier.EntitySystems;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Chemistry.EntitySystems;
 
 public sealed class TransformableContainerSystem : EntitySystem
 {
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionsSystem = default!;
     [Dependency] private readonly MetaDataSystem _metadataSystem = default!;
     [Dependency] private readonly NameModifierSystem _nameMod = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public override void Initialize()
     {
@@ -54,7 +52,7 @@ public sealed class TransformableContainerSystem : EntitySystem
 
         //Only reagents with spritePath property can change appearance of transformable containers!
         if (!string.IsNullOrWhiteSpace(reagentId?.Prototype)
-            && _prototypeManager.TryIndexReagent(reagentId.Value.Prototype, out ReagentPrototype? proto))
+            && _rmcReagent.TryIndex(reagentId.Value.Prototype, out var proto))
         {
             var metadata = MetaData(entity.Owner);
             _metadataSystem.SetEntityDescription(entity.Owner, proto.LocalizedDescription, metadata);

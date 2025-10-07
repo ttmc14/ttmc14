@@ -4,7 +4,6 @@ using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Construction;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
-using Robust.Shared.Prototypes;
 
 namespace Content.Server.Construction.Conditions;
 
@@ -58,7 +57,8 @@ public sealed partial class MinSolution : IGraphCondition
             return false;
 
         args.PushMarkup(Loc.GetString("construction-examine-condition-min-solution",
-            ("quantity", Quantity - quantity), ("reagent", Name())) + "\n");
+            ("quantity", Quantity - quantity),
+            ("reagent", Name())) + "\n");
         return true;
     }
 
@@ -77,8 +77,8 @@ public sealed partial class MinSolution : IGraphCondition
 
     private string Name()
     {
-        var protoMan = IoCManager.Resolve<IPrototypeManager>();
-        var proto = protoMan.IndexReagent<ReagentPrototype>(Reagent.Prototype);
+        var rmcReagent = IoCManager.Resolve<RMCReagentSystem>();
+        var proto = rmcReagent.Index(Reagent.Prototype);
         return proto.LocalizedName;
     }
 }

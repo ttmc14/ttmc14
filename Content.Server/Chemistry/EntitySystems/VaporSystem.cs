@@ -6,7 +6,6 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Physics;
 using Content.Shared.Throwing;
@@ -16,7 +15,6 @@ using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Spawners;
 
 namespace Content.Server.Chemistry.EntitySystems
@@ -24,13 +22,13 @@ namespace Content.Server.Chemistry.EntitySystems
     [UsedImplicitly]
     internal sealed class VaporSystem : EntitySystem
     {
-        [Dependency] private readonly IPrototypeManager _protoManager = default!;
         [Dependency] private readonly SharedMapSystem _map = default!;
         [Dependency] private readonly SharedPhysicsSystem _physics = default!;
         [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
         [Dependency] private readonly ThrowingSystem _throwing = default!;
         [Dependency] private readonly ReactiveSystem _reactive = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
         public override void Initialize()
         {
@@ -41,7 +39,8 @@ namespace Content.Server.Chemistry.EntitySystems
 
         private void HandleCollide(Entity<VaporComponent> entity, ref StartCollideEvent args)
         {
-            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents)) return;
+            if (!TryComp(entity.Owner, out SolutionContainerManagerComponent? contents))
+                return;
 
             foreach (var (_, soln) in _solutionContainerSystem.EnumerateSolutions((entity.Owner, contents)))
             {
@@ -138,7 +137,7 @@ namespace Content.Server.Chemistry.EntitySystems
                             if (reagentQuantity.Quantity == FixedPoint2.Zero)
                                 continue;
 
-                            var reagent = _protoManager.IndexReagent<ReagentPrototype>(reagentQuantity.Reagent.Prototype);
+                            var reagent = _rmcReagent.Index(reagentQuantity.Reagent.Prototype);
 
                             // Limit the reaction amount to a minimum value to ensure no floating point funnies.
                             // Ex: A solution with a low percentage transfer amount will slowly approach 0.01... and never get deleted

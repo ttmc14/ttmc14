@@ -19,7 +19,6 @@ public sealed class StunShakeableSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogs = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RMCStandingSystem _rmcStanding = default!;

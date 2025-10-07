@@ -9,6 +9,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 using System.Collections.Frozen;
 using System.Linq;
+using Content.Shared._RMC14.Chemistry.Reagent;
 
 
 namespace Content.Shared.Chemistry.Reaction
@@ -29,6 +30,7 @@ namespace Content.Shared.Chemistry.Reaction
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
         [Dependency] private readonly SharedTransformSystem _transformSystem = default!;
+        [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
         /// <summary>
         /// A cache of all reactions indexed by at most ONE of their required reactants.
@@ -90,7 +92,7 @@ namespace Content.Shared.Chemistry.Reaction
         /// <summary>
         ///     Checks if a solution can undergo a specified reaction.
         /// </summary>
-        /// <param name="solution">The solution to check.</param>
+        /// <param name="soln">The solution to check.</param>
         /// <param name="reaction">The reaction to check.</param>
         /// <param name="lowestUnitReactions">How many times this reaction can occur.</param>
         /// <returns></returns>
@@ -166,10 +168,10 @@ namespace Content.Shared.Chemistry.Reaction
         /// </summary>
         private List<string> PerformReaction(Entity<SolutionComponent> soln, ReactionPrototype reaction, FixedPoint2 unitReactions)
         {
-            var (uid, comp) = soln;
+            var comp = soln.Comp;
             var solution = comp.Solution;
 
-            var energy = reaction.ConserveEnergy ? solution.GetThermalEnergy(_prototypeManager) : 0;
+            var energy = reaction.ConserveEnergy ? solution.GetThermalEnergy(_rmcReagent) : 0;
 
             //Remove reactants
             foreach (var reactant in reaction.Reactants)
@@ -191,7 +193,7 @@ namespace Content.Shared.Chemistry.Reaction
 
             if (reaction.ConserveEnergy)
             {
-                var newCap = solution.GetHeatCapacity(_prototypeManager);
+                var newCap = solution.GetHeatCapacity(_rmcReagent);
                 if (newCap > 0)
                     solution.Temperature = energy / newCap;
             }
@@ -207,7 +209,8 @@ namespace Content.Shared.Chemistry.Reaction
 
             var posFound = _transformSystem.TryGetMapOrGridCoordinates(soln, out var gridPos);
 
-            _adminLogger.Add(LogType.ChemicalReaction, reaction.Impact,
+            _adminLogger.Add(LogType.ChemicalReaction,
+                reaction.Impact,
                 $"Chemical reaction {reaction.ID:reaction} occurred with strength {unitReactions:strength} on entity {ToPrettyString(soln):metabolizer} at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not Found]")}");
 
             foreach (var effect in reaction.Effects)
@@ -218,7 +221,8 @@ namespace Content.Shared.Chemistry.Reaction
                 if (effect.ShouldLog)
                 {
                     var entity = args.TargetEntity;
-                    _adminLogger.Add(LogType.ReagentEffect, effect.LogImpact,
+                    _adminLogger.Add(LogType.ReagentEffect,
+                        effect.LogImpact,
                         $"Reaction effect {effect.GetType().Name:effect} of reaction {reaction.ID:reaction} applied on entity {ToPrettyString(entity):entity} at Pos:{(posFound ? $"{gridPos:coordinates}" : "[Grid or Map not Found")}");
                 }
 

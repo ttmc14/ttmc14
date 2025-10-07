@@ -1,6 +1,4 @@
 using Content.Shared._RMC14.CCVar;
-using Content.Shared._RMC14.Xenonids;
-using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.CombatMode;
 using Content.Shared.Damage;
@@ -8,8 +6,6 @@ using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction.Events;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee;
@@ -25,10 +21,8 @@ namespace Content.Shared.Execution;
 /// </summary>
 public sealed class SharedExecutionSystem : EntitySystem
 {
-    [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedSuicideSystem _suicide = default!;
     [Dependency] private readonly SharedCombatModeSystem _combat = default!;
@@ -106,7 +100,7 @@ public sealed class SharedExecutionSystem : EntitySystem
     {
         // RMC-14 doesn't use this
         return false;
-        if (victim == attacker && !_canSuicide)
+        /*if (victim == attacker && !_canSuicide)
             return false;
 
         if (HasComp<XenoComponent>(victim))
@@ -133,7 +127,7 @@ public sealed class SharedExecutionSystem : EntitySystem
             return false;
 
         // All checks passed
-        return true;
+        return true;*/
     }
 
     private void OnGetMeleeDamage(Entity<ExecutionComponent> entity, ref GetMeleeDamageEvent args)
@@ -153,8 +147,8 @@ public sealed class SharedExecutionSystem : EntitySystem
         if (!TryComp<MeleeWeaponComponent>(entity, out var melee))
             return;
 
-        string? internalMsg = entity.Comp.CompleteInternalSelfExecutionMessage;
-        string? externalMsg = entity.Comp.CompleteExternalSelfExecutionMessage;
+        string internalMsg = entity.Comp.CompleteInternalSelfExecutionMessage;
+        string externalMsg = entity.Comp.CompleteExternalSelfExecutionMessage;
 
         if (!TryComp<DamageableComponent>(args.Victim, out var damageableComponent))
             return;

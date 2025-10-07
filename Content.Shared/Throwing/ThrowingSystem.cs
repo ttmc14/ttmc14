@@ -42,7 +42,6 @@ public sealed class ThrowingSystem : EntitySystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ThrownItemSystem _thrownSystem = default!;
-    [Dependency] private readonly SharedCameraRecoilSystem _recoil = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly IConfigurationManager _configManager = default!;
 

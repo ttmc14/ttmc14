@@ -11,8 +11,6 @@ public sealed class RMCMovementSystem : EntitySystem
 {
     [Dependency] private readonly FixtureSystem _fixture = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly INetManager _net = default!;
-
     public override void Initialize()
     {
         SubscribeLocalEvent<RMCMobCollisionComponent, MapInitEvent>(OnMobCollisionMapInit);

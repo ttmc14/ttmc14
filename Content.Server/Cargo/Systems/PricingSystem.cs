@@ -8,7 +8,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Cargo;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Materials;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
@@ -32,6 +31,7 @@ public sealed class PricingSystem : EntitySystem
     [Dependency] private readonly BodySystem _bodySystem = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,7 +40,8 @@ public sealed class PricingSystem : EntitySystem
 
         _consoleHost.RegisterCommand("appraisegrid",
             "Calculates the total value of the given grids.",
-            "appraisegrid <grid Ids>", AppraiseGridCommand);
+            "appraisegrid <grid Ids>",
+            AppraiseGridCommand);
     }
 
     [AdminCommand(AdminFlags.Debug)]
@@ -60,7 +61,7 @@ public sealed class PricingSystem : EntitySystem
                 continue;
             }
 
-            if (!TryComp(gridId, out MapGridComponent? mapGrid))
+            if (!HasComp<MapGridComponent>(gridId))
             {
                 shell.WriteError($"Grid \"{gridId}\" doesn't exist.");
                 continue;
@@ -68,7 +69,9 @@ public sealed class PricingSystem : EntitySystem
 
             List<(double, EntityUid)> mostValuable = new();
 
-            var value = AppraiseGrid(gridId.Value, null, (uid, price) =>
+            var value = AppraiseGrid(gridId.Value,
+                null,
+                (uid, price) =>
             {
                 mostValuable.Add((price, uid));
                 mostValuable.Sort((i1, i2) => i2.Item1.CompareTo(i1.Item1));
@@ -120,7 +123,7 @@ public sealed class PricingSystem : EntitySystem
             var solution = soln.Comp.Solution;
             foreach (var (reagent, quantity) in solution.Contents)
             {
-                if (!_prototypeManager.TryIndexReagent<ReagentPrototype>(reagent.Prototype, out var reagentProto))
+                if (!_rmcReagent.TryIndex(reagent.Prototype, out var reagentProto))
                     continue;
 
                 // TODO check ReagentData for price information?
@@ -139,7 +142,7 @@ public sealed class PricingSystem : EntitySystem
         {
             foreach (var (reagent, quantity) in prototype.Contents)
             {
-                if (!_prototypeManager.TryIndexReagent<ReagentPrototype>(reagent.Prototype, out var reagentProto))
+                if (!_rmcReagent.TryIndex(reagent.Prototype, out var reagentProto))
                     continue;
 
                 // TODO check ReagentData for price information?
@@ -173,7 +176,7 @@ public sealed class PricingSystem : EntitySystem
         {
             foreach (var (reagent, amount) in resultReagents)
             {
-                price += (_prototypeManager.IndexReagent(reagent).PricePerUnit * amount).Double();
+                price += (_rmcReagent.Index(reagent).PricePerUnit * amount).Double();
             }
         }
 
@@ -210,13 +213,18 @@ public sealed class PricingSystem : EntitySystem
     }
 
     /// <summary>
-    /// Appraises an entity, returning it's price.
+    /// Appraises an entity, returning its price.
     /// </summary>
     /// <param name="uid">The entity to appraise.</param>
+    /// <param name="includeContents">Whether to include the price of the entity's contents in the total calculation.</param>
     /// <returns>The price of the entity.</returns>
     /// <remarks>
     /// This fires off an event to calculate the price.
     /// Calculating the price of an entity that somehow contains itself will likely hang.
+    /// When includeContents is true, the method recursively calculates the price of all items
+    /// inside the entity's containers and adds them to the total price.
+    /// When includeContents is false, only the price of the entity itself is calculated,
+    /// ignoring any contained items.
     /// </remarks>
     public double GetPrice(EntityUid uid, bool includeContents = true)
     {

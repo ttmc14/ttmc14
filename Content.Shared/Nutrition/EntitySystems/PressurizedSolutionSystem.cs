@@ -1,6 +1,5 @@
 using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Fluids;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -9,13 +8,12 @@ using Content.Shared.Popups;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Nutrition.EntitySystems;
 
-public sealed partial class PressurizedSolutionSystem : EntitySystem
+public sealed class PressurizedSolutionSystem : EntitySystem
 {
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
@@ -23,10 +21,10 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedPuddleSystem _puddle = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     public override void Initialize()
     {
         base.Initialize();
@@ -64,7 +62,7 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
         // Check each reagent in the solution
         foreach (var reagent in solution.Contents)
         {
-            if (_prototypeManager.TryIndexReagent(reagent.Reagent.Prototype, out ReagentPrototype? reagentProto) && reagentProto != null)
+            if (_rmcReagent.TryIndex(reagent.Reagent.Prototype, out var reagentProto))
             {
                 // What portion of the solution is this reagent?
                 var proportion = (float) (reagent.Quantity / solution.Volume);
@@ -174,7 +172,7 @@ public sealed partial class PressurizedSolutionSystem : EntitySystem
             return false;
 
         // If the container is openable, open it
-        _openable.SetOpen(entity, true);
+        _openable.SetOpen(entity);
 
         // Get the spray solution from the container
         var solution = _solutionContainer.SplitSolution(soln.Value, interactions.Volume);

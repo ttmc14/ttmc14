@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._RMC14.Marines;
+using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared.Chat.Prototypes;
 using Content.Shared.Chemistry.EntitySystems;
@@ -28,10 +28,10 @@ public abstract class SharedIVDripSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SkillsSystem _skills = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     private readonly HashSet<EntityUid> _packsToUpdate = [];
 
@@ -386,7 +386,7 @@ public abstract class SharedIVDripSystem : EntitySystem
         if (_containers.TryGetContainingContainer((pack, null), out var container) &&
             TryComp(container.Owner, out IVDripComponent? iv))
         {
-            iv.FillColor = solution.GetColor(_prototype);
+            iv.FillColor = solution.GetColor(_rmcReagent);
             iv.FillPercentage = (int) (solution.Volume / solution.MaxVolume * 100);
             Dirty(container.Owner, iv);
             UpdateIVAppearance((container.Owner, iv));
@@ -413,7 +413,7 @@ public abstract class SharedIVDripSystem : EntitySystem
                 !_solutionContainer.TryGetSolution(entity, pack.Solution, out _, out var solution))
                 continue;
 
-            iv.Comp.FillColor = solution.GetColor(_prototype);
+            iv.Comp.FillColor = solution.GetColor(_rmcReagent);
             iv.Comp.FillPercentage = (int) (solution.Volume / solution.MaxVolume * 100);
             Dirty(iv);
             UpdateIVAppearance(iv);
@@ -439,7 +439,7 @@ public abstract class SharedIVDripSystem : EntitySystem
         {
             var solution = solEnt.Value.Comp.Solution;
             pack.Comp.FillPercentage = solution.Volume / solution.MaxVolume;
-            pack.Comp.FillColor = solution.GetColor(_prototype);
+            pack.Comp.FillColor = solution.GetColor(_rmcReagent);
         }
         else
         {

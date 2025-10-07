@@ -1,4 +1,5 @@
-﻿using Content.Shared.Chemistry.Components;
+﻿using Content.Shared._RMC14.Chemistry.Reagent;
+using Content.Shared.Chemistry.Components;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
@@ -7,6 +8,7 @@ namespace Content.Shared.Weapons.Ranged.Systems;
 
 public partial class SharedGunSystem
 {
+    [Dependency] protected readonly RMCReagentSystem _rmcReagent = default!;
     protected virtual void InitializeSolution()
     {
         SubscribeLocalEvent<SolutionAmmoProviderComponent, TakeAmmoEvent>(OnSolutionTakeAmmo);

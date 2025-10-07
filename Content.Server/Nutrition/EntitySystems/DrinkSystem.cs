@@ -11,10 +11,8 @@ using Content.Shared.Chemistry;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
-using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
 using Content.Shared.EntityEffects.Effects;
-using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -25,7 +23,6 @@ using Content.Shared.Nutrition.EntitySystems;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Nutrition.EntitySystems;
@@ -34,7 +31,6 @@ public sealed class DrinkSystem : SharedDrinkSystem
 {
     [Dependency] private readonly BodySystem _body = default!;
     [Dependency] private readonly FoodSystem _food = default!;
-    [Dependency] private readonly IPrototypeManager _proto = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly OpenableSystem _openable = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
@@ -46,6 +42,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
     [Dependency] private readonly StomachSystem _stomach = default!;
     [Dependency] private readonly ForensicsSystem _forensics = default!;
+    [Dependency] private readonly RMCReagentSystem _rmcReagent = default!;
 
     public override void Initialize()
     {
@@ -75,7 +72,7 @@ public sealed class DrinkSystem : SharedDrinkSystem
         var total = 0f;
         foreach (var quantity in solution.Contents)
         {
-            var reagent = _proto.IndexReagent<ReagentPrototype>(quantity.Reagent.Prototype);
+            var reagent = _rmcReagent.Index(quantity.Reagent.Prototype);
             if (reagent.Metabolisms == null)
                 continue;
 
@@ -225,7 +222,8 @@ public sealed class DrinkSystem : SharedDrinkSystem
 
             _popup.PopupEntity(
                 Loc.GetString("drink-component-force-feed-success-user", ("target", targetName)),
-                args.User, args.User);
+                args.User,
+                args.User);
 
             // log successful forced drinking
             _adminLogger.Add(LogType.ForceFeed, LogImpact.Medium, $"{ToPrettyString(entity.Owner):user} forced {ToPrettyString(args.User):target} to drink {ToPrettyString(entity.Owner):drink}");
@@ -233,10 +231,14 @@ public sealed class DrinkSystem : SharedDrinkSystem
         else
         {
             _popup.PopupEntity(
-                Loc.GetString("drink-component-try-use-drink-success-slurp-taste", ("flavors", flavors)), args.User,
+                Loc.GetString("drink-component-try-use-drink-success-slurp-taste", ("flavors", flavors)),
+                args.User,
                 args.User);
             _popup.PopupEntity(
-                Loc.GetString("drink-component-try-use-drink-success-slurp"), args.User, Filter.PvsExcept(args.User), true);
+                Loc.GetString("drink-component-try-use-drink-success-slurp"),
+                args.User,
+                Filter.PvsExcept(args.User),
+                true);
 
             // log successful voluntary drinking
             _adminLogger.Add(LogType.Ingestion, LogImpact.Low, $"{ToPrettyString(args.User):target} drank {ToPrettyString(entity.Owner):drink}");
