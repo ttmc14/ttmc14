@@ -7,6 +7,7 @@ namespace Content.Server.NodeContainer.Nodes
     [DataDefinition]
     public sealed partial class PortablePipeNode : PipeNode
     {
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         public override IEnumerable<Node> GetReachableNodes(TransformComponent xform,
             EntityQuery<NodeContainerComponent> nodeQuery,
             EntityQuery<TransformComponent> xformQuery,
@@ -16,7 +17,8 @@ namespace Content.Server.NodeContainer.Nodes
             if (!xform.Anchored || grid == null)
                 yield break;
 
-            var gridIndex = grid.TileIndicesFor(xform.Coordinates);
+            var gridEntity = new Entity<MapGridComponent>(xform.GridUid ?? EntityUid.Invalid, grid);
+            var gridIndex = _mapSystem.TileIndicesFor(gridEntity, xform.Coordinates);
 
             foreach (var node in NodeHelpers.GetNodesInTile(nodeQuery, grid, gridIndex))
             {

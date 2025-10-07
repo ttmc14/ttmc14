@@ -1,7 +1,5 @@
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.NodeContainer;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
 namespace Content.Server.Power.Nodes
@@ -9,6 +7,7 @@ namespace Content.Server.Power.Nodes
     [DataDefinition]
     public sealed partial class CableNode : Node
     {
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         public override IEnumerable<Node> GetReachableNodes(TransformComponent xform,
             EntityQuery<NodeContainerComponent> nodeQuery,
             EntityQuery<TransformComponent> xformQuery,
@@ -18,7 +17,8 @@ namespace Content.Server.Power.Nodes
             if (!xform.Anchored || grid == null)
                 yield break;
 
-            var gridIndex = grid.TileIndicesFor(xform.Coordinates);
+            var gridEntity = new Entity<MapGridComponent>(xform.GridUid ?? EntityUid.Invalid, grid);
+            var gridIndex = _mapSystem.TileIndicesFor(gridEntity, xform.Coordinates);
 
             // While we go over adjacent nodes, we build a list of blocked directions due to
             // incoming or outgoing wire terminals.

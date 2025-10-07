@@ -1,4 +1,3 @@
-using Content.Server.NodeContainer;
 using Content.Server.NodeContainer.EntitySystems;
 using Content.Server.NodeContainer.Nodes;
 using Content.Shared.NodeContainer;
@@ -13,6 +12,7 @@ namespace Content.Server.Power.Nodes
     [Virtual]
     public partial class CableDeviceNode : Node
     {
+        [Dependency] private readonly SharedMapSystem _mapSystem = default!;
         /// <summary>
         /// If disabled, this cable device will never connect.
         /// </summary>
@@ -40,7 +40,8 @@ namespace Content.Server.Power.Nodes
             if (!xform.Anchored || grid == null)
                 yield break;
 
-            var gridIndex = grid.TileIndicesFor(xform.Coordinates);
+            var gridEntity = new Entity<MapGridComponent>(xform.GridUid ?? EntityUid.Invalid, grid);
+            var gridIndex = _mapSystem.TileIndicesFor(gridEntity, xform.Coordinates);
 
             foreach (var node in NodeHelpers.GetNodesInTile(nodeQuery, grid, gridIndex))
             {
