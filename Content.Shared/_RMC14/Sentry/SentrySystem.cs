@@ -213,7 +213,7 @@ public sealed class SentrySystem : EntitySystem
             return;
         }
 
-        if (_tools.HasQuality(used, "Screwing"))
+        if (_tools.HasQuality(used, sentry.Comp.Screwing))
         {
             if (sentry.Comp.Mode == SentryMode.Off)
             {

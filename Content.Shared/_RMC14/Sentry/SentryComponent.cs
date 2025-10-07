@@ -58,6 +58,9 @@ public sealed partial class SentryComponent : Component
     public ProtoId<TagPrototype>? MagazineTag = "RMCMagazineSentry";
 
     [DataField, AutoNetworkedField]
+    public ProtoId<TagPrototype> Screwing = "Screwing";
+
+    [DataField, AutoNetworkedField]
     public EntProtoId<SkillDefinitionComponent> DelaySkill = "RMCSkillConstruction";
 
     [DataField, AutoNetworkedField]

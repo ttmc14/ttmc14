@@ -1,6 +1,7 @@
 ﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.Tag;
 
 namespace Content.Shared._RMC14.OrbitalCannon;
 
@@ -22,6 +23,9 @@ public sealed partial class OrbitalCannonWarheadComponent : Component
 
     [DataField, AutoNetworkedField]
     public int ThirdWarningRange = 15;
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<TagPrototype> Wall = "Wall";
 
     /// <summary>
     /// Intel points awarded when this warhead is successfully fired.

@@ -1,4 +1,6 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.Tag;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Shared._RMC14.Xenonids.Parasite;
@@ -18,6 +20,9 @@ public sealed partial class XenoParasiteComponent : Component
 
     [DataField, AutoNetworkedField]
     public float InfectRange = 1.5f;
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<TagPrototype> RipOffInection = "RipOffOnInfection";
 
     [DataField, AutoNetworkedField]
     public EntityUid? InfectedVictim;

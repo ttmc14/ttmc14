@@ -501,9 +501,9 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
                 ResetTrapState((parasite.Owner, trap));
         }
 
-        if (!TryRipOffClothing(victim, SlotFlags.HEAD))
+        if (!TryRipOffClothing(victim, parasite, SlotFlags.HEAD))
             return false;
-        if (!TryRipOffClothing(victim, SlotFlags.MASK, false))
+        if (!TryRipOffClothing(victim, parasite, SlotFlags.MASK, false))
             return false;
 
         if (_net.IsServer &&
@@ -878,7 +878,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     /// <returns>
     ///     If target should be infected.
     /// </returns>
-    private bool TryRipOffClothing(EntityUid victim, SlotFlags slotFlags, bool doPopup = true)
+    private bool TryRipOffClothing(EntityUid victim, XenoParasiteComponent component, SlotFlags slotFlags, bool doPopup = true)
     {
         if (!_inventory.TryGetContainerSlotEnumerator(victim, out var slots))
             return true;
@@ -886,7 +886,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
         EntityUid? rippedOffItem = null;
         while (slots.NextItem(out var containedEntity, out var inventorySlot))
         {
-            if ((inventorySlot.SlotFlags & slotFlags) != 0 || _tagSystem.HasTag(containedEntity, "RipOffOnInfection"))
+            if ((inventorySlot.SlotFlags & slotFlags) != 0 || _tagSystem.HasTag(containedEntity, component.RipOffInection))
             {
                 TryComp(containedEntity, out ParasiteResistanceComponent? resistance);
 

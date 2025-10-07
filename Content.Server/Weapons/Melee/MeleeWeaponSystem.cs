@@ -14,9 +14,6 @@ using Content.Shared.Weapons.Melee;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Player;
-using System.Linq;
-using System.Numerics;
-using Robust.Shared.Random;
 
 namespace Content.Server.Weapons.Melee;
 

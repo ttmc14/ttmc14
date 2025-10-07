@@ -16,7 +16,6 @@ using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
 using Content.Shared.Damage;
 using Content.Shared.Database;
-using Content.Shared.Destructible;
 using Content.Shared.Ghost;
 using Content.Shared.Maps;
 using Content.Shared.Popups;
@@ -25,7 +24,6 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.GameObjects;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -178,7 +176,7 @@ public sealed class OrbitalCannonSystem : EntitySystem
         var coordinates = _transform.ToCoordinates(args.Coordinates);
 
         // chck for indestructible walls at impact location and try to find alternative
-        if (TileHasIndestructibleWalls(coordinates))
+        if (TileHasIndestructibleWalls(ent, coordinates))
         {
             var found = false;
 
@@ -197,10 +195,10 @@ public sealed class OrbitalCannonSystem : EntitySystem
                         continue;
 
                     var testCoordinates = _transform.ToCoordinates(testMapCoordinates);
-                    if (!_area.CanOrbitalBombard(testCoordinates, out var roofed))
+                    if (!_area.CanOrbitalBombard(testCoordinates, out var _))
                         continue;
 
-                    if (!TileHasIndestructibleWalls(testCoordinates))
+                    if (!TileHasIndestructibleWalls(ent, testCoordinates))
                     {
                         coordinates = testCoordinates;
                         Log.Info($"Orbital bombardment impact redirected due to indestructible wall at impact site");
@@ -436,7 +434,7 @@ public sealed class OrbitalCannonSystem : EntitySystem
         RaiseLocalEvent(cannon, ref ev, true);
     }
 
-    private bool TileHasIndestructibleWalls(EntityCoordinates coordinates)
+    private bool TileHasIndestructibleWalls(Entity<OrbitalCannonWarheadComponent> ent, EntityCoordinates coordinates)
     {
         var anchoredEntities = _rmcMap.GetAnchoredEntitiesEnumerator(coordinates);
 
@@ -444,7 +442,7 @@ public sealed class OrbitalCannonSystem : EntitySystem
         {
             // This part is shitty because there might be a wall that just... doesn't exactly go with this logic. Hope it works.
             if (HasComp<TagComponent>(entity) &&
-                _tags.HasTag(entity, "Wall") &&
+                _tags.HasTag(entity, ent.Comp.Wall) &&
                 !HasComp<DamageableComponent>(entity))
             {
                 return true;
