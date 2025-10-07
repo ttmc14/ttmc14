@@ -8,7 +8,6 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
-using System.Linq;
 
 namespace Content.Shared._RMC14.TacticalMap;
 
@@ -62,7 +61,8 @@ public sealed class AreaInfoSystem : EntitySystem
     private void OnMapInit(Entity<AreaInfoComponent> ent, ref MapInitEvent args)
     {
         var (areaName, ceilingLevel, restrictions) = GetAreaInfo(ent);
-        _alerts.ShowAlert(ent, ent.Comp.Alert,
+        _alerts.ShowAlert(ent,
+            ent.Comp.Alert,
             severity: ceilingLevel,
             dynamicMessage: Loc.GetString("rmc-area-info",
                 ("area", areaName),
@@ -80,7 +80,8 @@ public sealed class AreaInfoSystem : EntitySystem
             return;
         // update the alert when they move to a new area
         var (areaName, ceilingLevel, restrictions) = GetAreaInfo(ent);
-        _alerts.ShowAlert(ent, ent.Comp.Alert,
+        _alerts.ShowAlert(ent,
+            ent.Comp.Alert,
             severity: ceilingLevel,
             dynamicMessage: Loc.GetString("rmc-area-info",
                 ("area", areaName),
@@ -104,7 +105,7 @@ public sealed class AreaInfoSystem : EntitySystem
 
         // Determine ceiling level based on effective protection (including roofing entities)
         // Note: severityToUse is offset by +1 because roofnull is at index 0 (for "no area" case)
-        if (!_area.CanOrbitalBombard(coordinates, out var roofed))
+        if (!_area.CanOrbitalBombard(coordinates, out var _))
         {
             ceilingLevel = 4;
             severityToUse = hasHiveCoreProtection ? (short)7 : (short)5;
@@ -114,7 +115,7 @@ public sealed class AreaInfoSystem : EntitySystem
             ceilingLevel = 3;
             severityToUse = hasPylonProtection ? (short)6 : (short)4;
         }
-        else if (!_area.CanSupplyDrop(coordinates.ToMap(_entityManager, _transform)) || !_area.CanMortarFire(coordinates))
+        else if (!_area.CanSupplyDrop(_transform.ToMapCoordinates(coordinates)) || !_area.CanMortarFire(coordinates))
         {
             ceilingLevel = 2;
             severityToUse = (short)3;
@@ -144,7 +145,7 @@ public sealed class AreaInfoSystem : EntitySystem
         else
             restrictedActions.Add("Close Air Support");
 
-        if (_area.CanSupplyDrop(coordinates.ToMap(_entityManager, _transform)))
+        if (_area.CanSupplyDrop(_transform.ToMapCoordinates(coordinates)))
             allowedActions.Add("Supply Drops");
         else
             restrictedActions.Add("Supply Drops");
@@ -235,7 +236,8 @@ public sealed class AreaInfoSystem : EntitySystem
                     continue;
 
                 var (areaName, ceilingLevel, restrictions) = GetAreaInfo(ent);
-                _alerts.ShowAlert(ent, ent.Comp.Alert,
+                _alerts.ShowAlert(ent,
+                    ent.Comp.Alert,
                     severity: ceilingLevel,
                     dynamicMessage: Loc.GetString("rmc-area-info",
                         ("area", areaName),
