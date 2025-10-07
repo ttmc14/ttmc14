@@ -482,20 +482,20 @@ public abstract partial class SharedGunSystem : EntitySystem
             }
         }
 
-        var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
-        var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
-        var mapDirection = toMap - fromMap.Position;
+        var fromMap = TransformSystem.ToMapCoordinates(fromCoordinates);
+        var toMap = TransformSystem.ToMapCoordinates(toCoordinates);
+        var mapDirection = toMap.Position - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
-        var angle = GetRecoilAngle(Timing.CurTime, gun, mapDirection.ToAngle());
+        var angle = GetRecoilAngle(gunUid, Timing.CurTime, gun, mapDirection.ToAngle());
 
         // If applicable, this ensures the projectile is parented to grid on spawn, instead of the map.
         var fromEnt = MapManager.TryFindGridAt(fromMap, out var gridUid, out _)
-            ? fromCoordinates.WithEntityId(gridUid, EntityManager)
+            ? TransformSystem.WithEntityId(fromCoordinates, gridUid)
             : new EntityCoordinates(_mapSystem.GetMap(fromMap.MapId), fromMap.Position);
 
         // Update shot based on the recoil
-        toMap = fromMap.Position + angle.ToVec() * mapDirection.Length();
-        mapDirection = toMap - fromMap.Position;
+        toMap = new MapCoordinates(fromMap.Position + angle.ToVec() * mapDirection.Length(), fromMap.MapId);
+        mapDirection = toMap.Position - fromMap.Position;
         var gunVelocity = Physics.GetMapLinearVelocity(fromEnt);
 
         // I must be high because this was getting tripped even when true.
@@ -657,7 +657,7 @@ public abstract partial class SharedGunSystem : EntitySystem
                                 break;
 
                             fromEffect = Transform(hit).Coordinates;
-                            from = fromEffect.ToMap(EntityManager, TransformSystem);
+                            from = TransformSystem.ToMapCoordinates(fromCoordinates);
                             dir = ev.Direction;
                             lastUser = hit;
                         }
@@ -766,7 +766,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         return shotProjectiles;
     }
 
-    private Angle GetRecoilAngle(TimeSpan curTime, GunComponent component, Angle direction)
+    private Angle GetRecoilAngle(EntityUid uid, TimeSpan curTime, GunComponent component, Angle direction)
     {
         var timeSinceLastFire = (curTime - component.LastFire).TotalSeconds;
         var newTheta = MathHelper.Clamp(component.CurrentAngle.Theta + component.AngleIncreaseModified.Theta - component.AngleDecayModified.Theta * timeSinceLastFire, component.MinAngleModified.Theta, component.MaxAngleModified.Theta);
@@ -776,7 +776,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         // Convert it so angle can go either side.
         long tick = Timing.CurTick.Value;
         tick = tick << 32;
-        tick = tick | (uint) GetNetEntity(component.Owner).Id;
+        tick = tick | (uint) GetNetEntity(uid).Id; // Используем переданный uid
         var random = new Xoroshiro64S(tick).NextFloat(-0.5f, 0.5f);
         var spread = component.CurrentAngle.Theta * random;
         var angle = new Angle(direction.Theta + component.CurrentAngle.Theta * random);
@@ -812,7 +812,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         // Forgive me for the shitcode I am about to do
         // Effects tempt me not
         var sprites = new List<(NetCoordinates coordinates, Angle angle, SpriteSpecifier sprite, float scale)>();
-        var gridUid = fromCoordinates.GetGridUid(EntityManager);
+        var gridUid = TransformSystem.GetGrid(fromCoordinates);
         var angle = mapDirection;
 
         // We'll get the effects relative to the grid / map of the firer
@@ -824,7 +824,7 @@ public abstract partial class SharedGunSystem : EntitySystem
             var (_, gridRot, gridInvMatrix) = TransformSystem.GetWorldPositionRotationInvMatrix(gridXform, xformQuery);
 
             fromCoordinates = new EntityCoordinates(gridUid.Value,
-                Vector2.Transform(fromCoordinates.ToMapPos(EntityManager, TransformSystem), gridInvMatrix));
+                Vector2.Transform(TransformSystem.ToMapCoordinates(fromCoordinates).Position, gridInvMatrix));
 
             // Use the fallback angle I guess?
             angle -= gridRot;
