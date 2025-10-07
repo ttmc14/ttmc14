@@ -2,6 +2,7 @@ using Content.Shared.Inventory;
 using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 using Robust.Shared.Network;
@@ -10,13 +11,13 @@ namespace Content.Shared._RMC14.Deafness;
 
 public abstract class SharedDeafnessSystem : EntitySystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly INetManager _net = default!;
 
-    public ProtoId<StatusEffectPrototype> DeafKey = "Deaf";
+    public EntProtoId DeafKey = "Deaf";
 
     public override void Initialize()
     {
@@ -64,7 +65,7 @@ public abstract class SharedDeafnessSystem : EntitySystem
         if (!HasComp<DeafComponent>(uid)) // First time being deafened
             DoEarLossPopups(uid, false);
 
-        if (!_statusEffect.TryAddStatusEffect<DeafComponent>(uid, DeafKey, time, refresh))
+        if (!_statusEffect.TryAddStatusEffectDuration(uid, DeafKey, time))
             return false;
 
         var ev = new RMCDeafenedEvent(time);

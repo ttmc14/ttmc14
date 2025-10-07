@@ -4,9 +4,8 @@ using Content.Shared._RMC14.Tackle;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Interaction;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -22,12 +21,12 @@ public sealed class StunShakeableSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RMCStandingSystem _rmcStanding = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private static readonly ProtoId<StatusEffectPrototype> Stun = "Stun";
-    private static readonly ProtoId<StatusEffectPrototype> KnockedDown = "KnockedDown";
-    private static readonly ProtoId<StatusEffectPrototype> Unconscious = "Unconscious";
+    private static readonly EntProtoId Stun = "Stun";
+    private static readonly EntProtoId KnockedDown = "KnockedDown";
+    private static readonly EntProtoId Unconscious = "Unconscious";
 
     public override void Initialize()
     {
@@ -69,9 +68,9 @@ public sealed class StunShakeableSystem : EntitySystem
 
         _rmcStanding.SetRest(target, false);
 
-        _statusEffects.TryRemoveTime(target, Stun, ent.Comp.DurationRemoved);
-        _statusEffects.TryRemoveTime(target, KnockedDown, ent.Comp.DurationRemoved);
-        _statusEffects.TryRemoveTime(target, Unconscious, ent.Comp.DurationRemoved);
+        _statusEffects.TrySetTime(target, Stun, ent.Comp.DurationRemoved);
+        _statusEffects.TrySetTime(target, KnockedDown, ent.Comp.DurationRemoved);
+        _statusEffects.TrySetTime(target, Unconscious, ent.Comp.DurationRemoved);
         RemCompDeferred<TackledRecentlyByComponent>(target);
 
         var userPopup = Loc.GetString("rmc-shake-awake-user", ("target", target));

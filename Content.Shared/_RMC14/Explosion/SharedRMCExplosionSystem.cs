@@ -1,18 +1,15 @@
 using Content.Shared._RMC14.Armor;
-using Content.Shared._RMC14.BlurredVision;
 using Content.Shared._RMC14.Deafness;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Stun;
 using Content.Shared._RMC14.Xenonids.Construction.Nest;
 using Content.Shared.Body.Systems;
 using Content.Shared.Coordinates;
-using Content.Shared.Damage.Prototypes;
 using Content.Shared.Explosion;
 using Content.Shared.FixedPoint;
-using Content.Shared.Flash.Components;
 using Content.Shared.Inventory;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Sticky.Components;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
@@ -36,12 +33,12 @@ public abstract class SharedRMCExplosionSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RMCSlowSystem _slow = default!;
     [Dependency] private readonly RMCDazedSystem _dazed = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedDeafnessSystem _deafness = default!;
 
-    private static readonly ProtoId<DamageTypePrototype> StructuralDamage = "Structural";
-    private static readonly ProtoId<StatusEffectPrototype> FlashedKey = "Flashed";
-    private static readonly ProtoId<StatusEffectPrototype> BlindKey = "Blinded";
+    private static readonly EntProtoId StructuralDamage = "Structural";
+    private static readonly EntProtoId FlashedKey = "Flashed";
+    private static readonly EntProtoId BlindKey = "Blinded";
 
     private readonly HashSet<Entity<RMCWallExplosionDeletableComponent>> _walls = new();
 
@@ -124,7 +121,7 @@ public abstract class SharedRMCExplosionSystem : EntitySystem
             var bombArmorMult = (100 - ev.ExplosionArmor) * 0.01;
             var severity = factor * 5;
 
-            _statusEffects.TryAddStatusEffect<FlashedComponent>(ent, FlashedKey, ent.Comp.BlindTime * bombArmorMult, true);
+            _statusEffects.TryAddStatusEffectDuration(ent, FlashedKey, ent.Comp.BlindTime * bombArmorMult);
             _deafness.TryDeafen(ent, TimeSpan.FromSeconds(severity * 0.5), true);
 
             var knockBackDistance = (float) Math.Clamp(severity / 5 / dir.Length(), 0.5, severity / 10);
@@ -144,7 +141,7 @@ public abstract class SharedRMCExplosionSystem : EntitySystem
             _sizeStun.TryKnockOut(ent, knockoutTime, false);
 
             _dazed.TryDaze(ent, knockoutTime * 2, stutter: true);
-            _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(ent, BlindKey, ent.Comp.BlurTime, false);
+            _statusEffects.TryAddStatusEffectDuration(ent, BlindKey, ent.Comp.BlurTime);
             return;
         }
 

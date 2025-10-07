@@ -1,3 +1,4 @@
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 
@@ -5,21 +6,25 @@ namespace Content.Shared.StatusEffect
 {
     [RegisterComponent]
     [NetworkedComponent]
-    [Access(typeof(StatusEffectsSystem))]
+    [Access(typeof(SharedStatusEffectsSystem))]
     public sealed partial class StatusEffectsComponent : Component
     {
         [ViewVariables]
+        [Access(typeof(SharedStatusEffectsSystem), Other = AccessPermissions.ReadWriteExecute)]
         public Dictionary<string, StatusEffectState> ActiveEffects = new();
 
         /// <summary>
         ///     A list of status effect IDs to be allowed
         /// </summary>
-        [DataField("allowed", required: true), Access(typeof(StatusEffectsSystem), Other = AccessPermissions.ReadExecute)]
+        [DataField("allowed", required: true), Access(typeof(SharedStatusEffectsSystem), Other = AccessPermissions.ReadExecute)]
         public List<string> AllowedEffects = default!;
     }
 
     [RegisterComponent]
-    public sealed partial class ActiveStatusEffectsComponent : Component {}
+    public sealed partial class ActiveStatusEffectsComponent : Component
+    {
+
+    }
 
     /// <summary>
     ///     Holds information about an active status effect.

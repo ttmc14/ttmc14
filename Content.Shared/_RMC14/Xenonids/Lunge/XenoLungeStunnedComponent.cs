@@ -1,5 +1,4 @@
-﻿using Content.Shared.StatusEffect;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -10,7 +9,7 @@ namespace Content.Shared._RMC14.Xenonids.Lunge;
 public sealed partial class XenoLungeStunnedComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public ProtoId<StatusEffectPrototype>[] Effects = new ProtoId<StatusEffectPrototype>[] {"Stun", "KnockedDown"};
+    public EntProtoId[] Effects = new EntProtoId[] {"Stun", "KnockedDown"};
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
     public TimeSpan ExpireAt;

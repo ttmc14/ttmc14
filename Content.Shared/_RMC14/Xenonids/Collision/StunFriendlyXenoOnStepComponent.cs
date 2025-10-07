@@ -1,5 +1,4 @@
-﻿using Content.Shared.StatusEffect;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Xenonids.Collision;
@@ -21,5 +20,5 @@ public sealed partial class StunFriendlyXenoOnStepComponent : Component
     public TimeSpan Duration = TimeSpan.FromSeconds(0.5);
 
     [DataField, AutoNetworkedField]
-    public ProtoId<StatusEffectPrototype> DisableStatus = "KnockedDown";
+    public EntProtoId DisableStatus = "KnockedDown";
 }

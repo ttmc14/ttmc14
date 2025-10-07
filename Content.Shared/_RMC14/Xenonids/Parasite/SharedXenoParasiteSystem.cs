@@ -33,7 +33,7 @@ using Content.Shared.Physics;
 using Content.Shared.Popups;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Tag;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio;
@@ -70,7 +70,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly DamageableSystem _damage = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedRottingSystem _rotting = default!;
     [Dependency] private readonly TagSystem _tagSystem = default!;
     [Dependency] private readonly RMCSizeStunSystem _size = default!;
@@ -253,7 +253,6 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
         {
             _popup.PopupClient("Touching the parasite while you're on fire would burn it!", ent, args.User, PopupType.MediumCaution);
             args.Cancel();
-            return;
         }
     }
 
@@ -353,18 +352,18 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
 
     private void OnVictimInfectedRemoved(Entity<VictimInfectedComponent> victim, ref ComponentRemove args)
     {
-        if (_status.HasStatusEffect(victim, "Unconscious", null))
+        if (_status.HasStatusEffect(victim, "Unconscious"))
         {
             _status.TryRemoveStatusEffect(victim, "Unconscious");
         }
         _standing.Stand(victim);
     }
 
-    private void OnVictimInfectedCancel<T>(Entity<VictimInfectedComponent> victim, ref T args) where T : CancellableEntityEventArgs
+    /*private void OnVictimInfectedCancel<T>(Entity<VictimInfectedComponent> victim, ref T args) where T : CancellableEntityEventArgs
     {
         if (victim.Comp.LifeStage <= ComponentLifeStage.Running)
             args.Cancel();
-    }
+    }*/
 
     private void OnVictimInfectedExamined(Entity<VictimInfectedComponent> victim, ref ExaminedEvent args)
     {
@@ -398,7 +397,9 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
     private void OnVictimBurstExamine(Entity<VictimBurstComponent> burst, ref ExaminedEvent args)
     {
         using (args.PushGroup(nameof(VictimBurstComponent)))
+        {
             args.PushMarkup($"[color=red][bold]{Loc.GetString("rmc-xeno-infected-bursted", ("victim", burst))}[/bold][/color]");
+        }
     }
 
     private bool StartInfect(Entity<XenoParasiteComponent> parasite, EntityUid victim, EntityUid user)
@@ -515,7 +516,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
         infectable.BeingInfected = true;
         Dirty(victim, infectable);
 
-        _size.TryKnockOut(victim, parasite.Comp.ParalyzeTime, true);
+        _size.TryKnockOut(victim, parasite.Comp.ParalyzeTime);
         RefreshIncubationMultipliers(victim);
 
         _inventory.TryEquip(victim, parasite.Owner, "mask", true, true, true);
@@ -626,7 +627,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
         }
 
         var query = EntityQueryEnumerator<VictimInfectedComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var infected, out var xform))
+        while (query.MoveNext(out var uid, out var infected, out var _))
         {
             if (_net.IsClient)
                 continue;
@@ -756,7 +757,7 @@ public abstract partial class SharedXenoParasiteSystem : EntitySystem
             return;
 
         //TODO Minor limb damage and causes pain
-        _size.TryKnockOut(victim, knockdownTime, true);
+        _size.TryKnockOut(victim, knockdownTime);
         _jitter.DoJitter(victim, jitterTime, false);
         _damage.TryChangeDamage(victim, infected.InfectionDamage, true, false);
 

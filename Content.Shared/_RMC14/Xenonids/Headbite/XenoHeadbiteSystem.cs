@@ -11,7 +11,7 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
@@ -34,10 +34,9 @@ public sealed class XenoHeadbiteSystem : EntitySystem
     [Dependency] private readonly SharedRMCEmoteSystem _emote = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
 
     private static readonly ProtoId<DamageTypePrototype> LethalDamageType = "Asphyxiation";
-    private static readonly ProtoId<StatusEffectPrototype> Unconsciousness = "Unconscious";
 
     public override void Initialize()
     {

@@ -11,7 +11,7 @@ using Content.Shared.Interaction;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Player;
 
 namespace Content.Shared._RMC14.Xenonids.Aid;
@@ -28,7 +28,7 @@ public sealed class XenoAidSystem : EntitySystem
     [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
     [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly XenoEnergySystem _xenoEnergy = default!;
     [Dependency] private readonly XenoStrainSystem _xenoStrain = default!;

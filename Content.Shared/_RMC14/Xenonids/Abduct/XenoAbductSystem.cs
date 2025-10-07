@@ -12,14 +12,14 @@ using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
 namespace Content.Shared._RMC14.Xenonids.Abduct;
 
-public sealed partial class XenoAbductSystem : EntitySystem
+public sealed class XenoAbductSystem : EntitySystem
 {
     [Dependency] private readonly LineSystem _line = default!;
     [Dependency] private readonly SharedRMCEmoteSystem _emote = default!;
@@ -34,7 +34,7 @@ public sealed partial class XenoAbductSystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _lookup = default!;
     [Dependency] private readonly XenoPlasmaSystem _plasma = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly RMCSlowSystem _slow = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;

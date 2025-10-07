@@ -1,4 +1,3 @@
-using Content.Shared._RMC14.BlurredVision;
 using Content.Shared._RMC14.Movement;
 using Content.Shared._RMC14.Stun;
 using Content.Shared.Administration.Logs;
@@ -9,7 +8,6 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Speech.EntitySystems;
-using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Wieldable.Components;
@@ -17,14 +15,15 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared._RMC14.Stamina;
 
-public sealed partial class RMCStaminaSystem : EntitySystem
+public sealed class RMCStaminaSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private readonly RMCDazedSystem _daze = default!;
     [Dependency] private readonly MovementSpeedModifierSystem _speed = default!;
@@ -72,7 +71,6 @@ public sealed partial class RMCStaminaSystem : EntitySystem
             if (stamina.Current == stamina.Max)
                 continue;
 
-
             if (time >= stamina.NextRegen)
                 DoStaminaDamage((uid, stamina), -stamina.RegenPerTick);
             else if (time >= stamina.NextCheck)
@@ -113,7 +111,7 @@ public sealed partial class RMCStaminaSystem : EntitySystem
 
         if (newLevel >= 2)
         {
-            _status.TryAddStatusEffect<RMCBlindedComponent>(ent, "Blinded", ent.Comp.EffectTime, true);
+            _status.TryAddStatusEffectDuration(ent, "Blinded", ent.Comp.EffectTime);
             _stutter.DoStutter(ent, ent.Comp.EffectTime, true);
         }
 
@@ -122,7 +120,7 @@ public sealed partial class RMCStaminaSystem : EntitySystem
 
         if (newLevel >= 4)
         {
-            _sizeStun.TryKnockOut(ent, ent.Comp.EffectTime, true);
+            _sizeStun.TryKnockOut(ent, ent.Comp.EffectTime);
         }
 
         var oldLevel = ent.Comp.Level;
@@ -176,7 +174,7 @@ public sealed partial class RMCStaminaSystem : EntitySystem
 
         foreach (var (hit, comp) in toHit)
         {
-            DoStaminaDamage(hit, damage / toHit.Count, true);
+            DoStaminaDamage(hit, damage / toHit.Count);
             _adminLogger.Add(LogType.Stamina, $"{ToPrettyString(hit):target} was dealt {damage} stamina damage from {args.User} with {args.Weapon}.");
         }
     }
@@ -196,7 +194,7 @@ public sealed partial class RMCStaminaSystem : EntitySystem
         if (!TryComp<RMCStaminaComponent>(target, out var stam))
             return;
 
-        DoStaminaDamage((target, stam), ent.Comp.Damage, true);
+        DoStaminaDamage((target, stam), ent.Comp.Damage);
     }
 
     private void SetStaminaAlert(Entity<RMCStaminaComponent> ent)

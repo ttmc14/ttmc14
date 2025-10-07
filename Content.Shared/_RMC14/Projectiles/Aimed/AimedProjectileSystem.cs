@@ -1,6 +1,5 @@
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.BlurredVision;
 using Content.Shared._RMC14.Projectiles.StoppingPower;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Stun;
@@ -8,7 +7,7 @@ using Content.Shared._RMC14.Weapons.Ranged.AimedShot.FocusedShooting;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Projectiles;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared._RMC14.Projectiles.Aimed;
 
@@ -21,7 +20,7 @@ public sealed class AimedProjectileSystem : EntitySystem
     [Dependency] private readonly RMCSizeStunSystem _sizeStun = default!;
     [Dependency] private readonly RMCSlowSystem _slow = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly MobThresholdSystem _mobThresholds = default!;
     [Dependency] private readonly RMCDazedSystem _dazed = default!;
 
@@ -72,7 +71,7 @@ public sealed class AimedProjectileSystem : EntitySystem
         _slow.TrySuperSlowdown(target, superSlowDuration);
 
         // Apply blind
-        _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(target, BlindKey, blindDuration, false);
+        _statusEffects.TryAddStatusEffectDuration(target, BlindKey, blindDuration);
 
         // Apply firestacks
         if (TryComp(ent, out IgniteOnProjectileHitComponent? ignite))

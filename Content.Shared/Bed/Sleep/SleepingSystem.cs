@@ -18,7 +18,6 @@ using Content.Shared.Slippery;
 using Content.Shared.Sound;
 using Content.Shared.Sound.Components;
 using Content.Shared.Speech;
-using Content.Shared.StatusEffect;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Traits.Assorted;
@@ -30,7 +29,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared.Bed.Sleep;
 
-public sealed partial class SleepingSystem : EntitySystem
+public sealed class SleepingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _gameTiming = default!;
     [Dependency] private readonly SharedActionsSystem _actionsSystem = default!;
@@ -38,8 +37,7 @@ public sealed partial class SleepingSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedEmitSoundSystem _emitSound = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectOld = default!;
-    [Dependency] private readonly SharedStatusEffectsSystem _statusEffectNew = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffect = default!;
 
     public static readonly EntProtoId SleepActionId = "ActionSleep";
     public static readonly EntProtoId WakeActionId = "ActionWake";
@@ -107,8 +105,8 @@ public sealed partial class SleepingSystem : EntitySystem
         if (args.FellAsleep)
         {
             // Expiring status effects would remove the components needed for sleeping
-            _statusEffectOld.TryRemoveStatusEffect(ent.Owner, "Stun");
-            _statusEffectOld.TryRemoveStatusEffect(ent.Owner, "KnockedDown");
+            _statusEffect.TryRemoveStatusEffect(ent.Owner, "Stun");
+            _statusEffect.TryRemoveStatusEffect(ent.Owner, "KnockedDown");
 
             EnsureComp<StunnedComponent>(ent);
             EnsureComp<KnockedDownComponent>(ent);
@@ -188,7 +186,6 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
-        var target = args.Target;
         var user = args.User;
         AlternativeVerb verb = new()
         {
@@ -310,7 +307,7 @@ public sealed partial class SleepingSystem : EntitySystem
         if (!Resolve(ent, ref ent.Comp, false))
             return false;
 
-        if (!force && _statusEffectNew.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
+        if (!force && _statusEffect.HasEffectComp<ForcedSleepingStatusEffectComponent>(ent))
         {
             if (user != null)
             {

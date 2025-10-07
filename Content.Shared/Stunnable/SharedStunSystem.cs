@@ -14,6 +14,7 @@ using Content.Shared.Movement.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Standing;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Throwing;
 using Content.Shared.Whitelist;
 using Robust.Shared.Audio.Systems;
@@ -29,7 +30,7 @@ public abstract class SharedStunSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = default!;
     [Dependency] private readonly StandingStateSystem _standingState = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffect = default!;
 
     /// <summary>
     /// Friction modifier for knocked down players.
@@ -78,7 +79,7 @@ public abstract class SharedStunSystem : EntitySystem
 
     private void OnMobStateChanged(EntityUid uid, MobStateComponent component, MobStateChangedEvent args)
     {
-        if (!TryComp<StatusEffectsComponent>(uid, out var status))
+        if (!TryComp<StatusEffectsComponent>(uid, out var _))
         {
             return;
         }
@@ -163,8 +164,11 @@ public abstract class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Stuns the entity, disallowing it from doing many interactions temporarily.
     /// </summary>
-    public bool TryStun(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null, bool force = false)
+    public bool TryStun(EntityUid uid,
+        TimeSpan time,
+        bool refresh,
+        StatusEffectsComponent? status = null,
+        bool force = false)
     {
         if (time <= TimeSpan.Zero)
             return false;
@@ -172,7 +176,7 @@ public abstract class SharedStunSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return false;
 
-        if (!_statusEffect.TryAddStatusEffect<StunnedComponent>(uid, "Stun", time, refresh, force: force))
+        if (!_statusEffect.TryAddStatusEffectDuration(uid, "Stun", time))
             return false;
 
         var ev = new StunnedEvent();
@@ -185,8 +189,11 @@ public abstract class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Knocks down the entity, making it fall to the ground.
     /// </summary>
-    public bool TryKnockdown(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null, bool force = false)
+    public bool TryKnockdown(EntityUid uid,
+        TimeSpan time,
+        bool refresh,
+        StatusEffectsComponent? status = null,
+        bool force = false)
     {
         if (time <= TimeSpan.Zero)
             return false;
@@ -194,7 +201,7 @@ public abstract class SharedStunSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return false;
 
-        if (!_statusEffect.TryAddStatusEffect<KnockedDownComponent>(uid, "KnockedDown", time, refresh, force: force))
+        if (!_statusEffect.TryAddStatusEffectDuration(uid, "KnockedDown", time))
             return false;
 
         var ev = new KnockedDownEvent();
@@ -206,8 +213,11 @@ public abstract class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Applies knockdown and stun to the entity temporarily.
     /// </summary>
-    public bool TryParalyze(EntityUid uid, TimeSpan time, bool refresh,
-        StatusEffectsComponent? status = null, bool force = false)
+    public bool TryParalyze(EntityUid uid,
+        TimeSpan time,
+        bool refresh,
+        StatusEffectsComponent? status = null,
+        bool force = false)
     {
         if (!Resolve(uid, ref status, false))
             return false;
@@ -218,8 +228,11 @@ public abstract class SharedStunSystem : EntitySystem
     /// <summary>
     ///     Slows down the mob's walking/running speed temporarily
     /// </summary>
-    public bool TrySlowdown(EntityUid uid, TimeSpan time, bool refresh,
-        float walkSpeedMultiplier = 1f, float runSpeedMultiplier = 1f,
+    public bool TrySlowdown(EntityUid uid,
+        TimeSpan time,
+        bool refresh,
+        float walkSpeedMultiplier = 1f,
+        float runSpeedMultiplier = 1f,
         StatusEffectsComponent? status = null)
     {
         if (!Resolve(uid, ref status, false))
@@ -228,7 +241,7 @@ public abstract class SharedStunSystem : EntitySystem
         if (time <= TimeSpan.Zero)
             return false;
 
-        if (_statusEffect.TryAddStatusEffect<SlowedDownComponent>(uid, "SlowedDown", time, refresh, status))
+        if (_statusEffect.TryAddStatusEffectDuration(uid, "SlowedDown", time))
         {
             var slowed = Comp<SlowedDownComponent>(uid);
             // Doesn't make much sense to have the "TrySlowdown" method speed up entities now does it?
@@ -288,9 +301,7 @@ public abstract class SharedStunSystem : EntitySystem
     /// </summary>
     /// <param name="ent">Entity whose movement speed should be updated.</param>
     /// <param name="speedModifier">New walk and run speed modifier. Default is 1f (normal speed).</param>
-    /// <param name="component">
     /// Optional <see cref="StaminaComponent"/> of the entity.
-    /// </param>
     public void UpdateStunModifiers(Entity<StaminaComponent?> ent, float speedModifier = 1f)
     {
         UpdateStunModifiers(ent, speedModifier, speedModifier);
@@ -308,7 +319,7 @@ public abstract class SharedStunSystem : EntitySystem
         // Set it to half the help interval so helping is actually useful...
         knocked.HelpTimer = knocked.HelpInterval / 2f;
 
-        _statusEffect.TryRemoveTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
+        _statusEffect.TrySetTime(uid, "KnockedDown", TimeSpan.FromSeconds(knocked.HelpInterval));
         _audio.PlayPredicted(knocked.StunAttemptSound, uid, args.User);
         Dirty(uid, knocked);
 

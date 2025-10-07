@@ -20,7 +20,7 @@ using Content.Shared.Whitelist;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Content.Shared.Pointing;
-using Robust.Shared.Physics.Events;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -32,7 +32,7 @@ public sealed class RMCSizeStunSystem : EntitySystem
 {
     private const double DazedMultiplierSmallXeno = 0.7;
     private const double DazedMultiplierBigXeno = 1.2;
-    private static readonly ProtoId<StatusEffectPrototype> KnockedOut = "Unconscious";
+    private static readonly EntProtoId KnockedOut = "Unconscious";
 
     [Dependency] private readonly RMCDazedSystem _dazed = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
@@ -50,7 +50,7 @@ public sealed class RMCSizeStunSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     private readonly HashSet<Entity<MarineComponent>> _marines = new();
@@ -285,7 +285,7 @@ public sealed class RMCSizeStunSystem : EntitySystem
 
         if (paralyze > TimeSpan.Zero)
         {
-            TryKnockOut(target, paralyze, true);
+            TryKnockOut(target, paralyze);
         }
     }
 
@@ -298,7 +298,7 @@ public sealed class RMCSizeStunSystem : EntitySystem
         if (!Resolve(uid, ref status, false))
             return false;
 
-        if (!_status.TryAddStatusEffect<RMCUnconsciousComponent>(uid, KnockedOut, duration, refresh))
+        if (!_status.TryAddStatusEffectDuration(uid, KnockedOut, duration))
             return false;
 
         return true;
@@ -318,15 +318,15 @@ public sealed class RMCSizeStunSystem : EntitySystem
     private void OnUnconsciousEnd(Entity<RMCUnconsciousComponent> ent, ref ComponentShutdown args)
     {
         var time = _timing.CurTime;
-        if (!_status.TryGetTime(ent, "Stun", out var statusTime) || statusTime.Value.Item2 < time)
+        if (!_status.TryGetTime(ent, "Stun", out var statusTime) || statusTime.Item2 < time)
             RemCompDeferred<StunnedComponent>(ent);
-        if (!_status.TryGetTime(ent, "KnockedDown", out statusTime) || statusTime.Value.Item2 < time)
+        if (!_status.TryGetTime(ent, "KnockedDown", out statusTime) || statusTime.Item2 < time)
             RemCompDeferred<KnockedDownComponent>(ent);
-        if (!_status.TryGetTime(ent, "TemporaryBlindness", out statusTime) || statusTime.Value.Item2 < time)
+        if (!_status.TryGetTime(ent, "TemporaryBlindness", out statusTime) || statusTime.Item2 < time)
             RemCompDeferred<TemporaryBlindnessComponent>(ent);
-        if (!_status.TryGetTime(ent, "Muted", out statusTime) || statusTime.Value.Item2 < time)
+        if (!_status.TryGetTime(ent, "Muted", out statusTime) || statusTime.Item2 < time)
             RemCompDeferred<MutedComponent>(ent);
-        if (!_status.TryGetTime(ent, "Deaf", out statusTime) || statusTime.Value.Item2 < time)
+        if (!_status.TryGetTime(ent, "Deaf", out statusTime) || statusTime.Item2 < time)
             RemCompDeferred<DeafComponent>(ent);
     }
 

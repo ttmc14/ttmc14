@@ -20,6 +20,7 @@ using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
+using Content.Shared.StatusEffectNew;
 
 namespace Content.Shared.Flash;
 
@@ -34,7 +35,7 @@ public abstract class SharedFlashSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem  _statusEffectsSystem = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
 
@@ -45,7 +46,7 @@ public abstract class SharedFlashSystem : EntitySystem
     // The tag to add when a flash has no charges left.
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
     // The key string for the status effect.
-    public ProtoId<StatusEffectPrototype> FlashedKey = "Flashed";
+    private static readonly EntProtoId FlashedKey = "Flashed";
 
     public override void Initialize()
     {
@@ -159,7 +160,7 @@ public abstract class SharedFlashSystem : EntitySystem
             return;
 
         // don't paralyze, slowdown or convert to rev if the target is immune to flashes
-        if (!_statusEffectsSystem.TryAddStatusEffect<FlashedComponent>(target, FlashedKey, flashDuration, true))
+        if (!_statusEffectsSystem.TryAddStatusEffectDuration(target, FlashedKey, flashDuration))
             return;
 
         if (stunDuration != null)
@@ -170,7 +171,9 @@ public abstract class SharedFlashSystem : EntitySystem
         if (displayPopup && user != null && target != user && Exists(user.Value))
         {
             _popup.PopupEntity(Loc.GetString("flash-component-user-blinds-you",
-                ("user", Identity.Entity(user.Value, EntityManager))), target, target);
+                ("user", Identity.Entity(user.Value, EntityManager))),
+                target,
+                target);
         }
 
         var ev = new AfterFlashedEvent(target, user, used, melee);
@@ -187,6 +190,7 @@ public abstract class SharedFlashSystem : EntitySystem
     /// </summary>
     /// <param name="source">The source of the flash, which will be at the epicenter.</param>
     /// <param name="user">The mob causing the flash, if any.</param>
+    /// /// <param name="range">Flash range.</param>
     /// <param name="flashDuration">The time target will be affected by the flash.</param>
     /// <param name="slowTo">Movement speed modifier applied to the flashed target. Between 0 and 1.</param>
     /// <param name="displayPopup">Whether or not to show a popup to the target player.</param>

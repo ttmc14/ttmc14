@@ -1,5 +1,4 @@
 using Content.Shared.FixedPoint;
-using Content.Shared.StatusEffect;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -28,7 +27,7 @@ public sealed partial class XenoAidComponent : Component
     public TimeSpan AilmentsJitterDuration = TimeSpan.FromSeconds(1);
 
     [DataField, AutoNetworkedField]
-    public ProtoId<StatusEffectPrototype>[] AilmentsRemove = ["KnockedDown", "Stun"];
+    public EntProtoId[] AilmentsRemove = ["KnockedDown", "Stun"];
 
     [DataField]
     public ComponentRegistry ComponentsRemove;

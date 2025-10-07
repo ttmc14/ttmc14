@@ -1,5 +1,6 @@
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Prototypes;
 
@@ -7,12 +8,14 @@ namespace Content.Shared.Drunk;
 
 public abstract class SharedDrunkSystem : EntitySystem
 {
-    public static readonly ProtoId<StatusEffectPrototype> DrunkKey = "Drunk";
+    public static readonly EntProtoId DrunkKey = "Drunk";
 
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly SharedSlurredSystem _slurredSystem = default!;
 
-    public void TryApplyDrunkenness(EntityUid uid, float boozePower, bool applySlur = true,
+    public void TryApplyDrunkenness(EntityUid uid,
+        float boozePower,
+        bool applySlur = true,
         StatusEffectsComponent? status = null)
     {
         if (!Resolve(uid, ref status, false))
@@ -26,13 +29,13 @@ public abstract class SharedDrunkSystem : EntitySystem
             _slurredSystem.DoSlur(uid, TimeSpan.FromSeconds(boozePower), status);
         }
 
-        if (!_statusEffectsSystem.HasStatusEffect(uid, DrunkKey, status))
+        if (!_statusEffectsSystem.HasStatusEffect(uid, DrunkKey))
         {
-            _statusEffectsSystem.TryAddStatusEffect<DrunkComponent>(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), true, status);
+            _statusEffectsSystem.TryUpdateStatusEffectDuration(uid, DrunkKey, TimeSpan.FromSeconds(boozePower));
         }
         else
         {
-            _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower), status);
+            _statusEffectsSystem.TryAddTime(uid, DrunkKey, TimeSpan.FromSeconds(boozePower));
         }
     }
 
@@ -42,7 +45,7 @@ public abstract class SharedDrunkSystem : EntitySystem
     }
     public void TryRemoveDrunkenessTime(EntityUid uid, double timeRemoved)
     {
-        _statusEffectsSystem.TryRemoveTime(uid, DrunkKey, TimeSpan.FromSeconds(timeRemoved));
+        _statusEffectsSystem.TrySetTime(uid, DrunkKey, TimeSpan.FromSeconds(timeRemoved));
     }
 
 }

@@ -1,5 +1,6 @@
 using Content.Shared.Rejuvenate;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Timing;
 
 namespace Content.Shared.Jittering
@@ -10,7 +11,7 @@ namespace Content.Shared.Jittering
     public abstract class SharedJitteringSystem : EntitySystem
     {
         [Dependency] protected readonly IGameTiming GameTiming = default!;
-        [Dependency] protected readonly StatusEffectsSystem StatusEffects = default!;
+        [Dependency] protected readonly SharedStatusEffectsSystem StatusEffects = default!;
 
         public float MaxAmplitude = 300f;
         public float MinAmplitude = 1f;
@@ -43,7 +44,12 @@ namespace Content.Shared.Jittering
         /// <param name="frequency">Frequency for jittering. See <see cref="MaxFrequency"/> and <see cref="MinFrequency"/>.</param>
         /// <param name="forceValueChange">Whether to change any existing jitter value even if they're greater than the ones we're setting.</param>
         /// <param name="status">The status effects component to modify.</param>
-        public void DoJitter(EntityUid uid, TimeSpan time, bool refresh, float amplitude = 10f, float frequency = 4f, bool forceValueChange = false,
+        public void DoJitter(EntityUid uid,
+            TimeSpan time,
+            bool refresh,
+            float amplitude = 10f,
+            float frequency = 4f,
+            bool forceValueChange = false,
             StatusEffectsComponent? status = null)
         {
             if (!Resolve(uid, ref status, false))
@@ -52,7 +58,7 @@ namespace Content.Shared.Jittering
             amplitude = Math.Clamp(amplitude, MinAmplitude, MaxAmplitude);
             frequency = Math.Clamp(frequency, MinFrequency, MaxFrequency);
 
-            if (StatusEffects.TryAddStatusEffect<JitteringComponent>(uid, "Jitter", time, refresh, status))
+            if (StatusEffects.TryAddStatusEffectDuration(uid, "Jitter", time))
             {
                 var jittering = Comp<JitteringComponent>(uid);
 

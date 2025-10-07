@@ -1,10 +1,8 @@
 using Content.Shared.Administration.Logs;
 using Content.Shared.Database;
 using Content.Shared.Inventory;
-using Robust.Shared.Network;
 using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
-using Content.Shared.Popups;
 using Content.Shared.StatusEffect;
 using Content.Shared.StepTrigger.Systems;
 using Content.Shared.Stunnable;
@@ -134,7 +132,8 @@ public sealed class SlipperySystem : EntitySystem
             _audio.PlayPredicted(component.SlipSound, other, other);
         }
 
-        _adminLogger.Add(LogType.Slip, LogImpact.Low,
+        _adminLogger.Add(LogType.Slip,
+            LogImpact.Low,
             $"{ToPrettyString(other):mob} slipped on collision with {ToPrettyString(uid):entity}");
     }
 }

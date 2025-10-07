@@ -4,6 +4,7 @@ using Content.Shared.Charges.Components;
 using Content.Shared.Charges.Systems;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
@@ -14,7 +15,7 @@ public sealed class RMCDazedSystem : EntitySystem
 {
     [Dependency] private readonly SharedChargesSystem _charges = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffect = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffect = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!;
@@ -72,7 +73,7 @@ public sealed class RMCDazedSystem : EntitySystem
         if (time <= TimeSpan.Zero)
             return false;
 
-        if (_statusEffect.TryAddStatusEffect<RMCDazedComponent>(uid, "Dazed", time, refresh, status))
+        if (_statusEffect.TryAddStatusEffectDuration(uid, "Dazed", time))
         {
             if (stutter)
                 _stutter.DoStutter(uid, time, true);

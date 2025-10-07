@@ -6,7 +6,7 @@ namespace Content.Shared.Eye.Blinding.Systems;
 
 public sealed class TemporaryBlindnessSystem : EntitySystem
 {
-    public static readonly ProtoId<StatusEffectPrototype> BlindingStatusEffect = "TemporaryBlindness";
+    public static readonly EntProtoId BlindingStatusEffect = "TemporaryBlindness";
 
     [Dependency] private readonly BlindableSystem _blindableSystem = default!;
 

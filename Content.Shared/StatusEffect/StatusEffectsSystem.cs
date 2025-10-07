@@ -107,8 +107,12 @@ namespace Content.Shared.StatusEffect
         /// <returns>False if the effect could not be added or the component already exists, true otherwise.</returns>
         /// <typeparam name="T">The component type to add and remove from the entity.</typeparam>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TryAddStatusEffect<T>(EntityUid uid, string key, TimeSpan time, bool refresh,
-            StatusEffectsComponent? status = null, bool force = false)
+        public bool TryAddStatusEffect<T>(EntityUid uid,
+            string key,
+            TimeSpan time,
+            bool refresh,
+            StatusEffectsComponent? status = null,
+            bool force = false)
             where T : IComponent, new()
         {
             if (!Resolve(uid, ref status, false))
@@ -130,7 +134,11 @@ namespace Content.Shared.StatusEffect
         }
 
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TryAddStatusEffect(EntityUid uid, string key, TimeSpan time, bool refresh, string component,
+        public bool TryAddStatusEffect(EntityUid uid,
+            string key,
+            TimeSpan time,
+            bool refresh,
+            string component,
             StatusEffectsComponent? status = null)
         {
             if (!Resolve(uid, ref status, false))
@@ -214,13 +222,13 @@ namespace Content.Shared.StatusEffect
             }
             else
             {
-                status.ActiveEffects.Add(key, new StatusEffectState(cooldown, refresh, null));
+                status.ActiveEffects.Add(key, new StatusEffectState(cooldown, refresh));
                 EnsureComp<ActiveStatusEffectsComponent>(uid);
             }
 
             if (proto.Alert != null)
             {
-                var cooldown1 = GetAlertCooldown(uid, proto.Alert.Value, status);
+                var cooldown1 = GetAlertCooldown(proto.Alert.Value, status);
                 _alertsSystem.ShowAlert(uid, proto.Alert.Value, null, cooldown1);
             }
 
@@ -236,7 +244,7 @@ namespace Content.Shared.StatusEffect
         ///     This is mostly for stuns, since Stun and Knockdown share an alert key. Other times this pretty much
         ///     will not be useful.
         /// </remarks>
-        private (TimeSpan, TimeSpan)? GetAlertCooldown(EntityUid uid, ProtoId<AlertPrototype> alert, StatusEffectsComponent status)
+        private (TimeSpan, TimeSpan)? GetAlertCooldown(ProtoId<AlertPrototype> alert, StatusEffectsComponent status)
         {
             (TimeSpan, TimeSpan)? maxCooldown = null;
             foreach (var kvp in status.ActiveEffects)
@@ -269,8 +277,10 @@ namespace Content.Shared.StatusEffect
         ///     That's up to the removed component to handle itself when it's removed.
         /// </remarks>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TryRemoveStatusEffect(EntityUid uid, string key,
-            StatusEffectsComponent? status = null, bool remComp = true)
+        public bool TryRemoveStatusEffect(EntityUid uid,
+            string key,
+            StatusEffectsComponent? status = null,
+            bool remComp = true)
         {
             if (!Resolve(uid, ref status, false))
                 return false;
@@ -337,7 +347,8 @@ namespace Content.Shared.StatusEffect
         /// <param name="key">The status effect ID to check for</param>
         /// <param name="status">The status effect component, should you already have it.</param>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool HasStatusEffect(EntityUid uid, string key,
+        public bool HasStatusEffect(EntityUid uid,
+            string key,
             StatusEffectsComponent? status = null)
         {
             if (!Resolve(uid, ref status, false))
@@ -385,7 +396,9 @@ namespace Content.Shared.StatusEffect
         /// <param name="time">The amount of time to add.</param>
         /// <param name="status">The status effect component, should you already have it.</param>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TryAddTime(EntityUid uid, string key, TimeSpan time,
+        public bool TryAddTime(EntityUid uid,
+            string key,
+            TimeSpan time,
             StatusEffectsComponent? status = null)
         {
             if (!Resolve(uid, ref status, false))
@@ -401,7 +414,7 @@ namespace Content.Shared.StatusEffect
             if (_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto)
                 && proto.Alert != null)
             {
-                (TimeSpan, TimeSpan)? cooldown = GetAlertCooldown(uid, proto.Alert.Value, status);
+                (TimeSpan, TimeSpan)? cooldown = GetAlertCooldown(proto.Alert.Value, status);
                 _alertsSystem.ShowAlert(uid, proto.Alert.Value, null, cooldown);
             }
 
@@ -417,7 +430,9 @@ namespace Content.Shared.StatusEffect
         /// <param name="time">The amount of time to add.</param>
         /// <param name="status">The status effect component, should you already have it.</param>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TryRemoveTime(EntityUid uid, string key, TimeSpan time,
+        public bool TryRemoveTime(EntityUid uid,
+            string key,
+            TimeSpan time,
             StatusEffectsComponent? status = null)
         {
             if (!Resolve(uid, ref status, false))
@@ -438,7 +453,7 @@ namespace Content.Shared.StatusEffect
             if (_prototypeManager.TryIndex<StatusEffectPrototype>(key, out var proto)
                 && proto.Alert != null)
             {
-                (TimeSpan, TimeSpan)? cooldown = GetAlertCooldown(uid, proto.Alert.Value, status);
+                (TimeSpan, TimeSpan)? cooldown = GetAlertCooldown(proto.Alert.Value, status);
                 _alertsSystem.ShowAlert(uid, proto.Alert.Value, null, cooldown);
             }
 
@@ -453,7 +468,9 @@ namespace Content.Shared.StatusEffect
         ///     Not used internally; just sets it itself.
         /// </remarks>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TrySetTime(EntityUid uid, string key, TimeSpan time,
+        public bool TrySetTime(EntityUid uid,
+            string key,
+            TimeSpan time,
             StatusEffectsComponent? status = null)
         {
             if (!Resolve(uid, ref status, false))
@@ -477,7 +494,8 @@ namespace Content.Shared.StatusEffect
         /// <param name="status">The status effects component to use, if any.</param>
         /// <returns>False if the status effect was not active, true otherwise.</returns>
         [Obsolete("Migration to Content.Shared.StatusEffectNew.SharedStatusEffectsSystem is required")]
-        public bool TryGetTime(EntityUid uid, string key,
+        public bool TryGetTime(EntityUid uid,
+            string key,
             [NotNullWhen(true)] out (TimeSpan, TimeSpan)? time,
             StatusEffectsComponent? status = null)
         {

@@ -4,7 +4,7 @@ using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.Jittering;
 using Content.Shared.Popups;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
@@ -17,7 +17,7 @@ public sealed class XenoFightOrFlightSystem : EntitySystem
     [Dependency] private readonly XenoEnergySystem _energy = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedJitteringSystem _jitter = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

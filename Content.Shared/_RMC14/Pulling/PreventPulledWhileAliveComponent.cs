@@ -1,5 +1,4 @@
-﻿using Content.Shared.StatusEffect;
-using Content.Shared.Whitelist;
+﻿using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -13,5 +12,5 @@ public sealed partial class PreventPulledWhileAliveComponent : Component
     public EntityWhitelist? Whitelist;
 
     [DataField, AutoNetworkedField]
-    public HashSet<ProtoId<StatusEffectPrototype>> ExceptEffects = new();
+    public HashSet<EntProtoId> ExceptEffects = new();
 }

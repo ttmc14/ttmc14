@@ -1,4 +1,3 @@
-using Content.Shared.StatusEffect;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -33,7 +32,7 @@ public sealed partial class XenoFightOrFlightComponent : Component
     public TimeSpan Jitter = TimeSpan.FromSeconds(1);
 
     [DataField, AutoNetworkedField]
-    public ProtoId<StatusEffectPrototype>[] AilmentsRemove = ["KnockedDown", "Stun", "Dazed", "Unconscious"];
+    public EntProtoId[] AilmentsRemove = ["KnockedDown", "Stun", "Dazed", "Unconscious"];
 
     [DataField]
     public ComponentRegistry ComponentsRemove;

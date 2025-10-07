@@ -42,7 +42,7 @@ using Content.Shared.Movement.Components;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Radio;
 using Content.Shared.Standing;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Stunnable;
@@ -74,7 +74,7 @@ public sealed partial class XenoSystem : EntitySystem
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
     [Dependency] private readonly RMCPlanetSystem _rmcPlanet = default!;
     [Dependency] private readonly StandingStateSystem _standing = default!;
-    [Dependency] private readonly StatusEffectsSystem _status = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _status = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -170,7 +170,7 @@ public sealed partial class XenoSystem : EntitySystem
             _movementSpeed.RefreshMovementSpeedModifiers(xeno);
 
         if (xeno.Comp.MuteOnSpawn)
-            _status.TryAddStatusEffect(xeno, "Muted", _xenoSpawnMuteDuration, true, "Muted");
+            _status.TryAddStatusEffectDuration(xeno, "Muted", _xenoSpawnMuteDuration);
 
         _eye.RefreshVisibilityMask(xeno.Owner);
         Dirty(xeno);

@@ -1,6 +1,5 @@
 using System.Numerics;
 using Content.Shared._RMC14.Areas;
-using Content.Shared._RMC14.BlurredVision;
 using Content.Shared._RMC14.Chat;
 using Content.Shared._RMC14.Deafness;
 using Content.Shared._RMC14.Marines;
@@ -15,9 +14,6 @@ using Content.Shared.ActionBlocker;
 using Content.Shared.Chat;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
-using Content.Shared.Drugs;
-using Content.Shared.Drunk;
-using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Jittering;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -25,7 +21,7 @@ using Content.Shared.Projectiles;
 using Content.Shared.Random.Helpers;
 using Content.Shared.Rejuvenate;
 using Content.Shared.Speech.EntitySystems;
-using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio.Systems;
@@ -48,7 +44,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     [Dependency] private readonly RMCStaminaSystem _stamina = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedSlurredSystem _slurred = default!;
     [Dependency] private readonly SharedStutteringSystem _stutter = default!;
     [Dependency] private readonly RMCDazedSystem _daze = default!;
@@ -105,7 +101,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
             neuro.LastStumbleTime = time;
         }
 
-        _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(args.Target, "Blinded", neuro.BlurTime * 6, true);
+        _statusEffects.TryAddStatusEffectDuration(args.Target, "Blinded", neuro.BlurTime * 6);
         _daze.TryDaze(ent, ent.Comp.DazeTime, true, stutter: true);
         neuro.NeurotoxinAmount += ent.Comp.NeuroPerSecond;
         neuro.ToxinDamage = ent.Comp.ToxinDamage;
@@ -154,7 +150,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 if (time < builtNeurotoxin.NextGasInjectionAt)
                     continue;
 
-                _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(marine, "Blinded", builtNeurotoxin.BlurTime * 12, true);
+                _statusEffects.TryAddStatusEffectDuration(marine, "Blinded", builtNeurotoxin.BlurTime * 12);
                 _daze.TryDaze(marine, neuroGas.DazeTime, true, stutter: true);
                 builtNeurotoxin.NeurotoxinAmount += neuroGas.NeuroPerSecond;
                 builtNeurotoxin.ToxinDamage = neuroGas.ToxinDamage;
@@ -186,7 +182,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
             //Basic Effects
             _stamina.DoStaminaDamage(uid, neuro.StaminaDamagePerTick, visual: false);
-            _statusEffects.TryAddStatusEffect<DrunkComponent>(uid, "Drunk", neuro.DizzyStrength, true);
+            _statusEffects.TryAddStatusEffectDuration(uid, "Drunk", neuro.DizzyStrength);
 
             NeurotoxinNonStackingEffects(uid, neuro, time, out var coughChance, out var stumbleChance);
             NeurotoxinStackingEffects(uid, neuro, time);
@@ -200,13 +196,13 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                     _rmcPulling.TryStopPullsOn(uid);
                     _physics.SetLinearVelocity(uid, Vector2.Zero);
                     _physics.SetAngularVelocity(uid, 0f);
-                    _throwing.TryThrow(uid, _random.NextAngle().ToVec().Normalized() / 10, 10, animated: false, playSound: false, doSpin: false, compensateFriction: true);
+                    _throwing.TryThrow(uid, _random.NextAngle().ToVec().Normalized() / 10, animated: false, playSound: false, doSpin: false, compensateFriction: true);
                 }
                 _popup.PopupEntity(Loc.GetString("rmc-stumble-others", ("victim", uid)), uid, Filter.PvsExcept(uid), true, PopupType.SmallCaution);
                 _popup.PopupEntity(Loc.GetString("rmc-stumble"), uid, uid, PopupType.MediumCaution);
                 _daze.TryDaze(uid, neuro.DazeLength * 5, true, stutter: true);
                 _jitter.DoJitter(uid, neuro.StumbleJitterTime, true);
-                _statusEffects.TryAddStatusEffect<DrunkComponent>(uid, "Drunk", neuro.DizzyStrengthOnStumble, true);
+                _statusEffects.TryAddStatusEffectDuration(uid, "Drunk", neuro.DizzyStrengthOnStumble);
                 var ev = new NeurotoxinEmoteEvent() { Emote = neuro.PainId };
                 RaiseLocalEvent(uid, ev);
             }
@@ -328,7 +324,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     {
         if (neurotoxin.NeurotoxinAmount >= 10)
         {
-            _statusEffects.TryAddStatusEffect<RMCBlindedComponent>(victim, "Blinded", neurotoxin.BlurTime, true);
+            _statusEffects.TryAddStatusEffectDuration(victim, "Blinded", neurotoxin.BlurTime);
             if (currTime - neurotoxin.LastAccentTime >= neurotoxin.MinimumDelayBetweenEvents)
             {
                 neurotoxin.LastAccentTime = currTime;
@@ -352,7 +348,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
 
         if (neurotoxin.NeurotoxinAmount >= 20)
         {
-            _statusEffects.TryAddStatusEffect<TemporaryBlindnessComponent>(victim, "TemporaryBlindness", neurotoxin.BlindTime, true);
+            _statusEffects.TryAddStatusEffectDuration(victim, "TemporaryBlindness", neurotoxin.BlindTime);
         }
 
         if (neurotoxin.NeurotoxinAmount >= 27)
@@ -419,7 +415,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
                 var ev = new NeurotoxinEmoteEvent() { Emote = neurotoxin.GiggleId };
                 RaiseLocalEvent(victim, ev);
                 //TODO RMC14 hallucination status - more in depth than neuro
-                _statusEffects.TryAddStatusEffect<SeeingRainbowsStatusEffectComponent>(victim, "StatusEffectSeeingRainbow", neurotoxin.RainbowDuration, true);
+                _statusEffects.TryAddStatusEffectDuration(victim, "StatusEffectSeeingRainbow", neurotoxin.RainbowDuration);
                 break;
             case NeuroHallucinations.Mortar:
                 position = HallucinationSoundOffset(victim, 7);
@@ -574,8 +570,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     private EntityCoordinates HallucinationSoundOffset(EntityUid victim, float maxDistance)
     {
         var randomOffset =
-        new Vector2
-        (
+        new Vector2(
             _random.NextFloat(-maxDistance, maxDistance + 0.01f),
             _random.NextFloat(-maxDistance, maxDistance + 0.01f)
         );
@@ -588,8 +583,7 @@ public abstract class SharedNeurotoxinSystem : EntitySystem
     private EntityCoordinates HallucinationSoundOffset(EntityCoordinates coords, float maxDistance)
     {
         var randomOffset =
-        new Vector2
-        (
+        new Vector2(
             _random.NextFloat(-maxDistance, maxDistance + 0.01f),
             _random.NextFloat(-maxDistance, maxDistance + 0.01f)
         );

@@ -3,6 +3,7 @@ using Content.Server.Speech.Components;
 using Content.Shared.Drunk;
 using Content.Shared.Speech.EntitySystems;
 using Content.Shared.StatusEffect;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -11,11 +12,11 @@ namespace Content.Server.Speech.EntitySystems;
 
 public sealed class SlurredSystem : SharedSlurredSystem
 {
-    [Dependency] private readonly StatusEffectsSystem _statusEffectsSystem = default!;
+    [Dependency] private readonly SharedStatusEffectsSystem _statusEffectsSystem = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
-    private static readonly ProtoId<StatusEffectPrototype> SlurKey = "SlurredSpeech";
+    private static readonly EntProtoId SlurKey = "SlurredSpeech";
 
     public override void Initialize()
     {
@@ -27,10 +28,10 @@ public sealed class SlurredSystem : SharedSlurredSystem
         if (!Resolve(uid, ref status, false))
             return;
 
-        if (!_statusEffectsSystem.HasStatusEffect(uid, SlurKey, status))
-            _statusEffectsSystem.TryAddStatusEffect<SlurredAccentComponent>(uid, SlurKey, time, true, status);
+        if (!_statusEffectsSystem.HasStatusEffect(uid, SlurKey))
+            _statusEffectsSystem.TryAddStatusEffectDuration(uid, SlurKey, time);
         else
-            _statusEffectsSystem.TryAddTime(uid, SlurKey, time, status);
+            _statusEffectsSystem.TryAddTime(uid, SlurKey, time);
     }
 
     /// <summary>
@@ -42,7 +43,11 @@ public sealed class SlurredSystem : SharedSlurredSystem
             return 0;
 
         var curTime = _timing.CurTime;
-        var timeLeft = (float) (time.Value.Item2 - curTime).TotalSeconds;
+
+        if (time.EndEffectTime == null)
+            return 0;
+
+        var timeLeft = (float)(time.EndEffectTime.Value - curTime).TotalSeconds;
         return Math.Clamp((timeLeft - 80) / 1100, 0f, 1f);
     }
 
