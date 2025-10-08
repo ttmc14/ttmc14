@@ -46,7 +46,7 @@ public abstract class SharedFlashSystem : EntitySystem
     // The tag to add when a flash has no charges left.
     private static readonly ProtoId<TagPrototype> TrashTag = "Trash";
     // The key string for the status effect.
-    private static readonly EntProtoId FlashedKey = "Flashed";
+    public readonly EntProtoId FlashedKey = "Flashed";
 
     public override void Initialize()
     {

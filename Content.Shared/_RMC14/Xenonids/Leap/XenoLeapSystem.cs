@@ -488,7 +488,7 @@ public sealed class XenoLeapSystem : EntitySystem
             _physics.SetBodyStatus(xeno, physics, BodyStatus.OnGround);
 
             if (physics.Awake)
-                _broadphase.RegenerateContacts(xeno, physics);
+                _broadphase.RegenerateContacts((xeno, physics));
         }
 
         if (!xeno.Comp.KnockdownRequiresInvisibility || HasComp<XenoActiveInvisibleComponent>(xeno))

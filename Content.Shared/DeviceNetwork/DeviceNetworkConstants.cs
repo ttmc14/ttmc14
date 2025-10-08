@@ -71,7 +71,8 @@ namespace Content.Shared.DeviceNetwork
             var result = ((DeviceNetworkComponent.DeviceNetIdDefaults) id).ToString();
             var resultKebab = "device-net-id-" + CaseConversion.PascalToKebab(result);
 
-            return !Loc.TryGetString(resultKebab, out var name) ? result : name;
+            var loc = IoCManager.Resolve<ILocalizationManager>();
+            return !loc.TryGetString(resultKebab, out var name) ? result : name;
         }
 
         #endregion

@@ -1,8 +1,8 @@
+using System.Collections.Concurrent;
 using System.Collections.Frozen;
 using System.Text.RegularExpressions;
 using Content.Shared._RMC14.Chat;
 using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared.Popups;
 using Content.Shared.Radio;
 using Content.Shared.Speech;
@@ -33,6 +33,7 @@ public abstract class SharedChatSystem : EntitySystem
 
     public static readonly string DefaultChannelPrefix = $"{RadioChannelPrefix}{DefaultChannelKey}";
     public static readonly ProtoId<SpeechVerbPrototype> DefaultSpeechVerb = "Default";
+    private static readonly ConcurrentDictionary<string, Regex> _regexCache = new();
 
     [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -143,8 +144,8 @@ public abstract class SharedChatSystem : EntitySystem
         {
             output = SanitizeMessageCapital(input[1..].TrimStart());
             channel = HasComp<XenoComponent>(source)
-                ? _prototypeManager.Index<RadioChannelPrototype>(HivemindChannel)
-                : _prototypeManager.Index<RadioChannelPrototype>(CommonChannel);
+                ? _prototypeManager.Index(HivemindChannel)
+                : _prototypeManager.Index(CommonChannel);
 
             return true;
         }
@@ -291,7 +292,13 @@ public abstract class SharedChatSystem : EntitySystem
     public static string InjectTagAroundString(ChatMessage message, string targetString, string tag, string? tagParameter)
     {
         var rawmsg = message.WrappedMessage;
-        rawmsg = Regex.Replace(rawmsg, "(?i)(" + targetString + ")(?-i)(?![^[]*])", $"[{tag}={tagParameter}]$1[/{tag}]");
+
+        var regex = _regexCache.GetOrAdd(targetString,
+            str =>
+            new Regex($"(?i)({Regex.Escape(str)})(?-i)(?![^[]*])",
+                RegexOptions.Compiled | RegexOptions.CultureInvariant));
+
+        rawmsg = regex.Replace(rawmsg, $"[{tag}={tagParameter}]$1[/{tag}]");
         return rawmsg;
     }
 

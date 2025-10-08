@@ -1,15 +1,13 @@
 ﻿using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared.Physics;
 using Content.Shared.Tag;
-using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.Array;
 
 namespace Content.Shared._RMC14.Construction.Prototypes;
 
-[Prototype("rmcConstruction"), Serializable, NetSerializable]
-public sealed partial class RMCConstructionPrototype : IPrototype, IInheritingPrototype
+[Prototype("rmcConstruction")]
+public sealed class RMCConstructionPrototype : IPrototype, IInheritingPrototype
 {
     [ParentDataField(typeof(AbstractPrototypeIdArraySerializer<RMCConstructionPrototype>))]
     public string[]? Parents { get; }

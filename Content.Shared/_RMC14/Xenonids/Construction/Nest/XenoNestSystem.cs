@@ -186,7 +186,10 @@ public sealed class XenoNestSystem : EntitySystem
             returnTo.Target = ent;
             Dirty(ghost, returnTo);
 
-            _ghost.SetCanReturnToBody(ghost, true);
+            if (!TryComp<GhostComponent>(ghost, out var ghostComp))
+                return;
+
+            _ghost.SetCanReturnToBody((ghost, ghostComp), true);
         }
     }
 

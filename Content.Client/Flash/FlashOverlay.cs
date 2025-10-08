@@ -23,6 +23,7 @@ namespace Content.Client.Flash
 
         public override OverlaySpace Space => OverlaySpace.WorldSpace;
         private readonly ShaderInstance _shader;
+
         public float PercentComplete = 0.0f;
         public Texture? ScreenshotTexture;
 
@@ -54,6 +55,7 @@ namespace Content.Client.Flash
 
             PercentComplete = timeDone / lastsFor;
         }
+
 
         protected override bool BeforeDraw(in OverlayDrawArgs args)
         {

@@ -138,26 +138,27 @@ public sealed class ResinWhispererSystem : EntitySystem
         {
             switch (i)
             {
-                case 1: case 7: case 8:
+                case 1:
+                case 7:
+                case 8:
                     pointCoordinates = pointCoordinates.Offset(0.499f, 0);
                     break;
                 case 2:
                     pointCoordinates = pointCoordinates.Offset(0, -0.499f);
                     break;
-                case 3: case 4:
+                case 3:
+                case 4:
                     pointCoordinates = pointCoordinates.Offset(-0.499f, 0);
                     break;
-                case 5: case 6:
+                case 5:
+                case 6:
                     pointCoordinates = pointCoordinates.Offset(0, 0.499f);
-                    break;
-                default:
                     break;
             }
 
             if (_examineSystem.InRangeUnOccluded(ent, pointCoordinates, ent.Comp.MaxRemoteConstructDistance))
             {
                 return true;
-                break;
             }
         }
 

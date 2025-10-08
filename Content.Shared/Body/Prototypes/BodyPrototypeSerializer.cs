@@ -38,7 +38,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
 
         if (slot.TryGet("organs", out MappingDataNode? organsNode))
         {
-            foreach (var (key, value) in organsNode)
+            foreach (var (_, value) in organsNode)
             {
                 if (value is not ValueDataNode organ)
                 {
@@ -63,8 +63,10 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
         return (validation, connections);
     }
 
-    public ValidationNode Validate(ISerializationManager serializationManager, MappingDataNode node,
-        IDependencyCollection dependencies, ISerializationContext? context = null)
+    public ValidationNode Validate(ISerializationManager serializationManager,
+        MappingDataNode node,
+        IDependencyCollection dependencies,
+        ISerializationContext? context = null)
     {
         var nodes = new List<ValidationNode>();
 
@@ -83,7 +85,7 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
                 return new ValidatedSequenceNode(nodes);
             }
 
-            foreach (var (key, value) in slots)
+            foreach (var (_, value) in slots)
             {
                 if (value is not MappingDataNode slot)
                 {
@@ -105,9 +107,11 @@ public sealed class BodyPrototypeSerializer : ITypeReader<BodyPrototype, Mapping
         return new ValidatedSequenceNode(nodes);
     }
 
-    public BodyPrototype Read(ISerializationManager serializationManager, MappingDataNode node,
+    public BodyPrototype Read(ISerializationManager serializationManager,
+        MappingDataNode node,
         IDependencyCollection dependencies,
-        SerializationHookContext hookCtx, ISerializationContext? context = null,
+        SerializationHookContext hookCtx,
+        ISerializationContext? context = null,
         ISerializationManager.InstantiationDelegate<BodyPrototype>? instanceProvider = null)
     {
         var id = node.Get<ValueDataNode>("id").Value;

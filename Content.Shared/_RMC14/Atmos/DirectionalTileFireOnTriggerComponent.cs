@@ -6,7 +6,7 @@ namespace Content.Shared._RMC14.Atmos;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedRMCFlammableSystem))]
-public  partial class DirectionalTileFireOnTriggerComponent : Component
+public sealed partial class DirectionalTileFireOnTriggerComponent : Component
 {
     /// <summary>
     ///     How long the line of fire should be
