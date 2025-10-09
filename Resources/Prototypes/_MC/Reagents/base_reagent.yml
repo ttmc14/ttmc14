@@ -21,3 +21,9 @@
   id: MCReagentToxins
   abstract: true
   group: Toxins
+
+- type: reagent
+  parent: MCReagent
+  id: MCReagentNarcotics
+  abstract: true
+  group: Narcotics

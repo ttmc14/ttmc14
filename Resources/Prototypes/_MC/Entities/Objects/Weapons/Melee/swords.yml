@@ -233,6 +233,10 @@
   suffix: MC
   description: A sleek energy machete. Specially designed for large-scale battles against Xenomorphs by the TerraGov Marine Corps. However, it is difficult to carry along with the standard kit.
   components:
+  - type: Clothing
+    slots:
+    - back
+    - suitstorage
   - type: PointLight
     color: "#59F7FF"
     energy: 2
@@ -258,6 +262,7 @@
     damage:
       groups:
         Brute: 60
+        Genetic: 10
   - type: MCXenoPlasmaDamageOnHit
     amount: 60
     missingMultiplier: 1

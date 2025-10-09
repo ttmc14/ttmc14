@@ -1,0 +1,168 @@
+- type: entity
+  parent: CMWeaponPistolBase
+  id: MCWeaponMK22
+  name: Smith & Wesson Mk 22 MOD 0 "Hush Puppy"
+  description: A modified special ops version of the Mk22, a suppressor-equipped tranquilizer gun being developed by the Navy. Because it uses a slide lock mechanism for added suppression capability, it can only be fired once before reloading. Open the window and press the O button to attach/detach a suppressor
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+    - MCWeaponMK22
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Pistols/mk22.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Pistols/mk22.rsi
+  - type: ShootUseDelay
+  - type: GunRequiresSkills
+    skills:
+      RMCSkillFirearms: 1 # Удачи учится стрелять с оружия прошлого века.
+  - type: GunSkilledRecoil
+    setRecoil: -2
+    skills:
+      RMCSkillFirearms: 2
+  - type: GunSkilledAccuracy
+    accuracyAddMult: 2
+  - type: GunUnskilledPenalty
+    angleIncrease: 20
+    firearms: 2
+  - type: MeleeWeapon
+    damage:
+      groups:
+        Brute: 6
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_88mod4.ogg
+      volume: -4
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/vp70_empty.ogg
+      volume: -1
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    recoilUnwielded: 3
+    recoilWielded: 2
+    scatterWielded: -2
+    scatterUnwielded: 12
+    baseFireRate: 0.4
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/vp70_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/vp70_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazinePistolMK88 # Так лол, они одного и того же калибра.
+          - MCMagazinePistolMK22
+        startingItem: MCMagazinePistolMK22
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.95
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        startingAttachable: MCAttachmentSuppressor
+        whitelist:
+          tags:
+          - MCAttachmentSuppressor
+  - type: MagazineAmmoProvider
+    autoEject: false # А че ты хотел?
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.442, 0.180
+
+- type: entity
+  parent: CMBaseMagazinePistol
+  id: MCMagazinePistolMK22
+  name: MK22 tranquilizer magazine (9mm tranquilizer)
+  components:
+  - type: Tag
+    tags:
+    - CMMagazinePistol
+    - MCMagazinePistolMK22
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgePistolMK22
+    proto: MCCartridgePistolMK22
+    capacity: 8
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/p23.rsi
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-1
+      map: ["enum.GunVisualLayers.Mag"]
+
+- type: entity
+  id: MCCartridgePistolMK22
+  name: cartridge (9mm tranquilizer)
+  parent: CMCartridgePistolBase
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgePistolMK22
+  - type: ChemicalAmmo
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        reagents:
+        - ReagentId: MCTranquilizer
+          Quantity: 10
+  - type: SolutionTransfer
+    maxTransferAmount: 10
+  - type: CartridgeAmmo
+    proto: MCBulletPistolMK22
+
+- type: entity
+  parent: CMBulletBase
+  id: MCBulletPistolMK22
+  name: bullet (.9mm tranquilizer)
+  components:
+  - type: Projectile
+    damage:
+      groups:
+        Brute: 3
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 22
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 6
+      falloff: 5
+  - type: CMArmorPiercing
+    amount: 1
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.1
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 5
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 10
+  - type: RefillableSolution
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 10
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+
+- type: Tag
+  id: MCMagazinePistolMK22
+
+- type: Tag
+  id: MCCartridgePistolMK22
+
+- type: Tag
+  id: MCWeaponMK22
