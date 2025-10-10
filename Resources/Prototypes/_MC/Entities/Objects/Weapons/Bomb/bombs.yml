@@ -1,0 +1,102 @@
+- type: entity
+  abstract: true
+  parent: BaseStructureDynamic
+  id: MCBaseHardBomb
+  description: Just keep talking and nobody will explode.
+  name: hardbomb
+  components:
+    - type: Appearance
+    - type: WiresVisuals
+    - type: InteractionOutline
+    - type: UserInterface
+      interfaces:
+        enum.WiresUiKey.Key:
+          type: WiresBoundUserInterface
+    - type: Wires
+      layoutId: Defusable
+      alwaysRandomize: true
+    - type: Defusable
+    - type: Rotatable
+    - type: Explosive
+      explosionType: Default
+      totalIntensity: 20.0
+      intensitySlope: 5
+      maxIntensity: 4
+    - type: Sticky
+      stickDelay: 5
+      unstickDelay: 5
+    - type: ExplodeOnTrigger
+    - type: OnUseTimerTrigger
+      delay: 240
+      delayOptions: [40, 120, 240, 300, 600]
+      initialBeepDelay: 0
+      beepSound: /Audio/Machines/timer.ogg
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape:
+            !type:PhysShapeAabb
+            bounds: "-0.3,-0.25,0.3,0.25"
+          density: 190
+          mask:
+            - MachineMask
+          layer:
+            - MachineLayer
+    - type: Anchorable
+      delay: 5
+    - type: WiresPanel
+
+- type: entity
+  parent: MCBaseHardBomb
+  id: MCC4Bomb
+  name: C-4 bomb
+  description: A block of C-4 plastic explosive, commonly used by military and special forces for demolition purposes. Highly stable and safe to handle, it requires a detonator to explode.
+  components:
+    - type: Item
+      size: Large
+    - type: Sprite
+      sprite: _MC/Objects/Weapons/Bomb/c4_bomb.rsi
+      layers:
+        - state: icon
+        - state: active
+          visible: false
+          map: [ "primed" ]
+        - state: wires
+          visible: false
+          map: [ "enum.WiresVisualLayers.MaintenancePanel" ]
+    - type: GenericVisualizer
+      visuals:
+        enum.DefusableVisuals.Active:
+          primed:
+            True: { visible: true }
+            False: { visible: false }
+        enum.WiresVisualLayers.MaintenancePanel:
+          enum.WiresVisualLayers.MaintenancePanel:
+            True: { visible: true }
+            False: { visible: false }
+    - type: PointLight
+      color: "#C7001B"
+      radius: 1.1
+      softness: 1
+    - type: Explosive
+      explosionType: HardBomb
+      totalIntensity: 15000.0
+      intensitySlope: 5
+      maxIntensity: 400
+    - type: TileFireOnTrigger
+      range: 10
+      spawn: MCFire
+      sound:
+        path: /Audio/_RMC14/Weapons/Guns/Flamer/gun_flamethrower2.ogg
+
+- type: entity
+  parent: MCC4Bomb
+  id: MCC4BombDebug
+  suffix: DEBUG
+  description: A block of C-4 plastic explosive, commonly used by military and special forces for demolition purposes. Highly stable and safe to handle, it requires a detonator to explode.
+  components:
+    - type: Defusable
+      disposable: true
+    - type: OnUseTimerTrigger
+      delay: 10
+      delayOptions: [10, 20, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300]
