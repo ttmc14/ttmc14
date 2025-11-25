@@ -3,6 +3,10 @@ using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
 using Content.Server.Popups;
 using Content.Server.Wires;
+using Content.Server._MC.Bomb.Systems;
+using Content.Shared._MC.Bomb.Components;
+using Content.Shared._MC.Bomb.UI;
+using Robust.Shared.Utility;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Construction.Components;
 using Content.Shared.Database;
@@ -11,6 +15,7 @@ using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Explosion.Components.OnTrigger;
 using Content.Shared.Popups;
+using Content.Shared.Interaction;
 using Content.Shared.Verbs;
 using Content.Shared.Wires;
 using Robust.Server.GameObjects;
@@ -30,6 +35,8 @@ public sealed class DefusableSystem : SharedDefusableSystem
     [Dependency] private readonly TransformSystem _transform = default!;
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
     [Dependency] private readonly WiresSystem _wiresSystem = default!;
+    [Dependency] private readonly BombPasswordSystem _bombPassword = default!;
+    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -40,6 +47,7 @@ public sealed class DefusableSystem : SharedDefusableSystem
         SubscribeLocalEvent<DefusableComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
         SubscribeLocalEvent<DefusableComponent, AnchorAttemptEvent>(OnAnchorAttempt);
         SubscribeLocalEvent<DefusableComponent, UnanchorAttemptEvent>(OnUnanchorAttempt);
+        SubscribeLocalEvent<BombPasswordComponent, ActivateInWorldEvent>(OnBombPasswordActivate);
     }
 
     #region Subscribed Events
@@ -61,6 +69,21 @@ public sealed class DefusableSystem : SharedDefusableSystem
                 TryStartCountdown(uid, args.User, comp);
             }
         });
+
+        // Add password verb if bomb has password component
+        if (HasComp<BombPasswordComponent>(uid))
+        {
+            args.Verbs.Add(new AlternativeVerb
+            {
+                Text = Loc.GetString("bomb-password-verb-open"),
+                Icon = new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/settings.svg.192dpi.png")),
+                Priority = 9,
+                Act = () =>
+                {
+                    _userInterface.TryOpenUi(uid, BombPasswordUi.Key, args.User);
+                }
+            });
+        }
     }
 
     private void OnExamine(EntityUid uid, DefusableComponent comp, ExaminedEvent args)
@@ -119,6 +142,18 @@ public sealed class DefusableSystem : SharedDefusableSystem
         return true;
     }
 
+    private void OnBombPasswordActivate(Entity<BombPasswordComponent> ent, ref ActivateInWorldEvent args)
+    {
+        if (args.Handled)
+            return;
+
+        if (!args.Complex)
+            return;
+
+        _userInterface.TryOpenUi(ent.Owner, BombPasswordUi.Key, args.User);
+        args.Handled = true;
+    }
+
     #endregion
 
     #region Public
@@ -129,6 +164,16 @@ public sealed class DefusableSystem : SharedDefusableSystem
         {
             _popup.PopupEntity(Loc.GetString("defusable-popup-fried", ("name", uid)), uid);
             return;
+        }
+
+        // Check if password is required and set
+        if (TryComp<BombPasswordComponent>(uid, out var passwordComp))
+        {
+            if (!_bombPassword.CanActivate((uid, passwordComp)))
+            {
+                _popup.PopupEntity(Loc.GetString("bomb-password-not-set"), uid, user, PopupType.MediumCaution);
+                return;
+            }
         }
 
         var xform = Transform(uid);
@@ -178,6 +223,16 @@ public sealed class DefusableSystem : SharedDefusableSystem
     {
         if (!comp.Activated)
             return;
+
+        // Check if password is required and unlocked
+        if (TryComp<BombPasswordComponent>(uid, out var passwordComp))
+        {
+            if (!_bombPassword.CanDefuse((uid, passwordComp)))
+            {
+                _popup.PopupEntity(Loc.GetString("bomb-password-not-unlocked"), uid, PopupType.MediumCaution);
+                return;
+            }
+        }
 
         _popup.PopupEntity(Loc.GetString("defusable-popup-defuse", ("name", uid)), uid);
         SetActivated(comp, false);

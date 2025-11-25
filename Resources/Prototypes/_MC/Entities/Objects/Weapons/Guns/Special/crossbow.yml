@@ -1,0 +1,395 @@
+- type: entity
+  parent: BaseItem
+  id: MCWeaponCrossbow
+  name: Crossbow William Tell
+  description:  It has tremendous firing power, accuracy and a strong, quality design. Named after William Tell, known as an expert marksman with the crossbow. A legendary hero of disputed historical authenticity who is said to have lived in the alpine Canton of Uri in Switzerland in the early 14th century. He used the William Tell during his match with Naked Snake, and was presumably destroyed with him when his microbomb exploded.
+  components:
+  - type: Item
+    size: Large
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Special/crossbow.rsi
+    layers:
+    - state: unwielded
+      map: [ base ]
+    - state: mag-0
+      map: [ bolt ]
+      visible: false
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Special/crossbow.rsi
+    slots:
+    - back
+    - suitstorage
+  - type: Wieldable
+    wieldSound:
+      path: /Audio/Items/bow_pull.ogg
+  - type: UseDelay
+    delay: 5
+  - type: GunSkilledRecoil
+    setRecoil: -2
+    skills:
+      RMCSkillFirearms: 2
+  - type: ShootUseDelay
+  - type: GunSkilledAccuracy
+    accuracyAddMult: 2
+  - type: GunUnskilledPenalty
+    angleIncrease: 20
+    firearms: 2
+  - type: GunRequiresWield
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: Gun
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: BulletMiss
+    soundEmpty: null
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - SemiAuto
+    recoilUnwielded: 2
+    recoilWielded: 2
+    scatterWielded: -5
+    scatterUnwielded: 5
+    baseFireRate: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.95
+  - type: ItemSlots
+    slots:
+      projectiles:
+        name: Projectiles
+        startingItem: null
+        insertSound: /Audio/Weapons/Guns/Misc/arrow_nock.ogg
+        whitelist:
+          tags:
+          - MCBolt
+  - type: ContainerContainer
+    containers:
+      projectiles: !type:ContainerSlot
+  - type: ContainerAmmoProvider
+    container: projectiles
+  - type: Appearance
+  - type: ItemMapper
+    spriteLayers:
+    - bolt
+    mapLayers:
+      bolt:
+        whitelist:
+          tags:
+          - MCBolt
+  - type: WieldableSpeedModifiers
+    base: 0.9
+    light: 0.8
+    medium: 0.7
+    heavy: 0.6
+    baseDelay: 1.2
+  - type: GenericVisualizer
+    visuals:
+      enum.WieldableVisuals.Wielded:
+        bolt:
+          True: { state: mag-0 }
+          False: { state: mag-0 }
+        base:
+          True: { state: wielded }
+          False: { state: unwielded }
+
+- type: entity
+  parent: ClothingBeltStorageBase
+  id: MCClothingBeltQuiverBolt
+  name: quiver for bolts
+  description: Can hold up to 12 bolts, and fits snug around your waist.
+  components:
+  - type: Sprite
+    sprite: Clothing/Belt/quiver.rsi
+    layers:
+    - state: icon
+    - map: [ "enum.StorageContainerVisualLayers.Fill" ]
+      visible: false
+  - type: Clothing
+  - type: Storage
+    grid:
+    - 0,0,7,5
+    maxItemSize: Normal
+    whitelist:
+      tags:
+      - MCBolt
+  - type: Appearance
+  - type: FixedItemSizeStorage
+  - type: StorageContainerVisuals
+    maxFillLevels: 3
+    fillBaseName: fill-
+
+- type: entity
+  parent: BaseItem
+  id: MCBaseBolt
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 5
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: EmbeddableProjectile
+    sound: /Audio/Weapons/star_hit.ogg
+    embedOnThrow: false
+  - type: ThrowingAngle
+    angle: 0
+  - type: Ammo
+    muzzleFlash: null
+  - type: Tag
+    tags:
+    - MCBolt
+  - type: Projectile
+    onlyCollideWhenShot: true
+    damage:
+      groups:
+        Brute: 45
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 5
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: ChemicalAmmo
+  - type: RefillableSolution
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionInjectOnEmbed
+    transferAmount: 5
+    solution: ammo
+  - type: DrainableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 5
+    solution: ammo
+  - type: SolutionTransfer
+    maxTransferAmount: 5
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 1
+    fillBaseName: solution
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltRegular
+  name: standart bolt
+  description: null
+  components:
+  - type: Sprite
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltPoison
+  name: poison bolt
+  description: null
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+      color: green
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      groups:
+        Toxin: 20
+        Brute: 30
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 10
+        reagents:
+        - ReagentId: MCToxin
+          Quantity: 10
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltExplosive
+  name: explosive bolt
+  description: null
+  components:
+  - type: TriggerOnHit
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+      color: red
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      groups:
+        Brute: 30
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: RMC
+    maxIntensity: 5
+    intensitySlope: 20
+    totalIntensity: 30
+  - type: CMExplosionEffect
+  - type: RMCScorchEffect
+  - type: IgnorePredictionHide
+  - type: RMCProjectileAccuracy
+    accuracy: 95
+    thresholds:
+    - range: 7
+      falloff: 10
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltIncendiary
+  name: incendiary bolt
+  description: null
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+      color: orange
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      groups:
+        Burn: 20
+        Brute: 30
+  - type: IgniteOnProjectileHit
+    intensity: 20
+    duration: 10
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltTranquilizer
+  name: tranquilizer bolt
+  description: null
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+      color: gray
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      groups:
+        Brute: 3
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCTranquilizer
+          Quantity: 15
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltSmoke
+  name: smoke bolt
+  description: null
+  components:
+  - type: TriggerOnHit
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+      color: gray
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      groups:
+        Brute: 30
+  - type: SmokeOnTrigger
+    duration: 15
+    spreadAmount: 1
+    smokePrototype: RMCSmoke
+
+- type: entity
+  parent: MCBaseBolt
+  id: MCBoltFlashbang
+  name: flashbang bolt
+  description: null
+  components:
+  - type: TriggerOnHit
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Projectiles/arrows.rsi
+    layers:
+    - state: tail
+      color: gold
+    - state: rod
+      color: cyan
+    - state: tip
+      color: white
+    - state: solution1
+      map: ["enum.SolutionContainerLayers.Fill"]
+      visible: false
+  - type: Projectile
+    damage:
+      groups:
+        Brute: 12
+  - type: FlashOnTrigger
+    range: 3

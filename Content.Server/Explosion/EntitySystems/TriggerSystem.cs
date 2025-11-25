@@ -98,6 +98,7 @@ namespace Content.Server.Explosion.EntitySystems
 
             SubscribeLocalEvent<TriggerOnSpawnComponent, MapInitEvent>(OnSpawnTriggered);
             SubscribeLocalEvent<TriggerOnCollideComponent, StartCollideEvent>(OnTriggerCollide);
+            SubscribeLocalEvent<TriggerOnHitComponent, StartCollideEvent>(OnTriggerHit);
             SubscribeLocalEvent<TriggerOnActivateComponent, ActivateInWorldEvent>(OnActivate);
             SubscribeLocalEvent<TriggerOnUseComponent, UseInHandEvent>(OnUse);
             SubscribeLocalEvent<TriggerImplantActionComponent, ActivateImplantEvent>(OnImplantTrigger);
@@ -252,6 +253,20 @@ namespace Content.Server.Explosion.EntitySystems
         {
             if (args.OurFixtureId == component.FixtureID && (!component.IgnoreOtherNonHard || args.OtherFixture.Hard))
                 Trigger(uid, args.OtherEntity);
+        }
+
+        private void OnTriggerHit(EntityUid uid, TriggerOnHitComponent component, ref StartCollideEvent args)
+        {
+            if (component.IgnoreOtherNonHard && !args.OtherFixture.Hard)
+                return;
+
+            if (!TryComp<Content.Shared.Projectiles.ProjectileComponent>(uid, out var projComp))
+                return;
+
+            if (projComp.Shooter == null && projComp.Weapon == null)
+                return;
+
+            Trigger(uid, args.OtherEntity);
         }
 
         private void OnSpawnTriggered(EntityUid uid, TriggerOnSpawnComponent component, MapInitEvent args)

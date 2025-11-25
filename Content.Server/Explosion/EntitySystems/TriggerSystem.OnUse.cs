@@ -1,4 +1,8 @@
+using Content.Server.Defusable.Components;
+using Content.Server.Defusable.Systems;
 using Content.Server.Explosion.Components;
+using Content.Server._MC.Bomb.Systems;
+using Content.Shared._MC.Bomb.Components;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Interaction.Events;
@@ -11,6 +15,8 @@ namespace Content.Server.Explosion.EntitySystems;
 public sealed partial class TriggerSystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly BombPasswordSystem _bombPassword = default!;
+    [Dependency] private readonly DefusableSystem _defusable = default!;
 
     private void InitializeOnUse()
     {
@@ -158,6 +164,27 @@ public sealed partial class TriggerSystem
         if (args.Handled || HasComp<AutomatedTimerComponent>(uid) || component.UseVerbInstead)
             return;
 
+        // Check if password is required and set
+        if (TryComp<BombPasswordComponent>(uid, out var passwordComp))
+        {
+            if (!_bombPassword.CanActivate((uid, passwordComp)))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bomb-password-not-set"), uid, args.User, PopupType.MediumCaution);
+                args.Handled = true;
+                return;
+            }
+        }
+
+        // If this is a defusable bomb, use the proper defusable system to start countdown
+        // This ensures proper anchoring, bolting, and warnings
+        if (TryComp<DefusableComponent>(uid, out var defusableComp))
+        {
+            _defusable.TryStartCountdown(uid, args.User, defusableComp);
+            args.Handled = true;
+            return;
+        }
+
+        // For non-defusable items, use the standard timer activation
         if (component.DoPopup)
             _popupSystem.PopupEntity(Loc.GetString("trigger-activated", ("device", uid)), args.User, args.User);
 
