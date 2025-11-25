@@ -262,7 +262,7 @@
     damage:
       types:
         MCBrute: 60
-        MCGenetic: 10
+        MCClone: 10
   - type: MCXenoPlasmaDamageOnHit
     amount: 60
     missingMultiplier: 1

@@ -21,7 +21,7 @@
   - type: MeleeWeapon
     damage:
       groups:
-        Brute: 10
+        MCBrute: 10
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -118,7 +118,7 @@
   - type: Projectile
     damage:
       groups:
-        Brute: 55
+        MCBrute: 55
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22

@@ -28,8 +28,8 @@
     firearms: 2
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 6
+      types:
+        MCBrute: 6
   - type: Gun
     selectedMode: SemiAuto
     availableModes:
@@ -128,8 +128,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 3
+      types:
+        MCBrute: 3
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22

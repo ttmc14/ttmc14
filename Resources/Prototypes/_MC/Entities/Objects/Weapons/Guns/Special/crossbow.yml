@@ -160,8 +160,8 @@
   - type: Projectile
     onlyCollideWhenShot: true
     damage:
-      groups:
-        Brute: 45
+      types:
+        MCBrute: 45
   - type: SolutionContainerManager
     solutions:
       ammo:
@@ -225,9 +225,9 @@
       visible: false
   - type: Projectile
     damage:
-      groups:
-        Toxin: 20
-        Brute: 30
+      types:
+        MCToxin: 20
+        MCBrute: 30
   - type: SolutionContainerManager
     solutions:
       ammo:
@@ -260,8 +260,8 @@
       visible: false
   - type: Projectile
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: ExplodeOnTrigger
   - type: Explosive
     explosionType: RMC
@@ -297,9 +297,9 @@
       visible: false
   - type: Projectile
     damage:
-      groups:
-        Burn: 20
-        Brute: 30
+      types:
+        MCBurn: 20
+        MCBrute: 30
   - type: IgniteOnProjectileHit
     intensity: 20
     duration: 10
@@ -324,8 +324,8 @@
       visible: false
   - type: Projectile
     damage:
-      groups:
-        Brute: 3
+      types:
+        MCBrute: 3
   - type: SolutionContainerManager
     solutions:
       ammo:
@@ -358,8 +358,8 @@
       visible: false
   - type: Projectile
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: SmokeOnTrigger
     duration: 15
     spreadAmount: 1
@@ -389,7 +389,7 @@
       visible: false
   - type: Projectile
     damage:
-      groups:
-        Brute: 12
+      types:
+        MCBrute: 12
   - type: FlashOnTrigger
     range: 3
