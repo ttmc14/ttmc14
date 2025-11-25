@@ -1,0 +1,32 @@
+- type: entity
+  parent: MCMeleeWeaponVali
+  id: MCMeleeWeaponValiKnife
+  name: HP-S Harvester knife
+  description: "TerraGov Marine Corps' experimental High Point-Singularity 'Harvester' knife. An advanced version of the HP-S Harvester blade, shrunken down to the size of the standard issue boot knife. It trades the harvester blades size and power for a smaller form, with the side effect of a miniscule chemical storage, yet it still keeps its ability to apply debilitating effects to its targets. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
+  components:
+  - type: Tag
+    tags:
+    - MCMeleeWeaponVali
+    - MCMeleeWeaponValiKnife
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Melee/Vali/knife.rsi
+    state: icon
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/Vali/knife.rsi
+  - type: Item
+    sprite: _MC/Objects/Weapons/Melee/Vali/knife.rsi
+    size: Small
+  - type: MCWeaponVali
+    reagentCapacity: 5
+  - type: MeleeWeapon
+    attackRate: 1.25
+    damage:
+      types:
+        MCBrute: 25
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        MCBrute: 15
+
+- type: Tag
+  id: MCMeleeWeaponValiKnife

@@ -94,7 +94,7 @@ public sealed class MCXenoUnrelentingForceSystem : EntitySystem
             if (entity.Owner == uid)
                 return;
 
-            _mcFlammable.RemoveStacks(uid, 10);
+            _mcFlammable.AdjustFireStacks(uid, -10);
 
             if (!HasComp<MobStateComponent>(uid) && !HasComp<ItemComponent>(uid))
                 return;

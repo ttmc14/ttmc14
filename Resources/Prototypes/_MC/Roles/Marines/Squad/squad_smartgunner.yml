@@ -42,7 +42,7 @@
         RMCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
-      prefix: mc-job-prefix-smartgunner
+      prefix: mc-job-prefix-squad-smartgunner
     - type: TacticalMapIcon
       icon:
         sprite: _MC/Interface/squad_marine_icons.rsi

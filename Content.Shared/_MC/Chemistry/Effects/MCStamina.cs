@@ -37,6 +37,6 @@ public sealed partial class MCStamina : EntityEffect
             return;
 
         var system = entityManager.System<MCStaminaSystem>();
-        system.DoStaminaDamage((target, staminaComponent), Potence.Double(), true, updateRegenTimer: false);
+        system.Damage((target, staminaComponent), Potence.Float(), true, updateRegenTimer: false);
     }
 }

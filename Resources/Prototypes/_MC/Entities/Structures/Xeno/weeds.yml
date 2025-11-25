@@ -155,14 +155,15 @@
   - type: QueenEyeVision
   - type: Damageable
     damage:
-      groups:
-        Brute: 6
+      types:
+        MCBrute: 6
   - type: XenoWeeds
     range: 3
     spawns: MCXenoWeeds
     healOnStopSpreading:
-      groups:
-        Brute: -6
+      types:
+        MCBrute: -7.5
+        MCBurn: -7.5
 
 - type: entity
   parent: MCXenoWeedsBase
@@ -187,29 +188,29 @@
   id: MCXenoWeedsSticky
   components:
   - type: Sprite
-    sprite: _MC/Structures/Xeno/Weeds/blue.rsi
+    sprite: _MC/Structures/Xeno/Weeds/green.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsSticky
-    speedMultiplierOutsider: 0.333
-    speedMultiplierOutsiderArmor: 0.333
+    speedMultiplierOutsider: 0.6
+    speedMultiplierOutsiderArmor: 0.6
 
 - type: entity
   parent: MCXenoWeedsNodeBase
   id: MCXenoWeedsNodeSticky
   components:
   - type: Sprite
-    sprite: _MC/Structures/Xeno/Weeds/blue.rsi
+    sprite: _MC/Structures/Xeno/Weeds/green.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsSticky
-    speedMultiplierOutsider: 0.333
-    speedMultiplierOutsiderArmor: 0.333
+    speedMultiplierOutsider: 0.6
+    speedMultiplierOutsiderArmor: 0.6
 
 - type: entity
   parent: MCXenoWeedsBase
   id: MCXenoWeedsResting
   components:
   - type: Sprite
-    sprite: _MC/Structures/Xeno/Weeds/green.rsi
+    sprite: _MC/Structures/Xeno/Weeds/white.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsResting
   - type: MCXenoWeedsRegeneration
@@ -222,7 +223,7 @@
   id: MCXenoWeedsNodeResting
   components:
   - type: Sprite
-    sprite: _MC/Structures/Xeno/Weeds/green.rsi
+    sprite: _MC/Structures/Xeno/Weeds/white.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsResting
   - type: MCXenoWeedsRegeneration

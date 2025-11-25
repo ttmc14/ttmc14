@@ -1,0 +1,37 @@
+- type: entity
+  parent: MCMeleeWeaponVali
+  id: MCMeleeWeaponValiClaymore
+  name: HP-S Harvester claymore
+  description: "TerraGov Marine Corps' experimental High Point-Singularity 'Harvester' blade. An advanced weapon that trades sheer force for the ability to apply a variety of debilitating effects when loaded with certain reagents. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system. This specific version is enlarged to fit the design of an old world claymore. Simply squeeze the hilt to activate."
+  components:
+  - type: Tag
+    tags:
+    - MCMeleeWeaponVali
+    - MCMeleeWeaponValiClaymore
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Melee/Vali/claymore.rsi
+    state: icon
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/Vali/claymore.rsi
+  - type: Item
+    sprite: _MC/Objects/Weapons/Melee/Vali/claymore.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Melee/Vali/claymore.rsi
+    slots:
+    - back
+    - suitStorage
+  - type: MCWeaponVali
+    reagentCapacity: 60
+  - type: MeleeWeapon
+    attackRate: 0.4
+    damage:
+      types:
+        MCBrute: 47
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        MCBrute: 43 # Total: 90
+  - type: Wieldable
+
+- type: Tag
+  id: MCMeleeWeaponValiClaymore

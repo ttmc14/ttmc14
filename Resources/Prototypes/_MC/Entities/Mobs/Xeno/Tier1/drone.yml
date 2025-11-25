@@ -4,7 +4,6 @@
   - MCXenoBase
   - MCXenoPlantingWeeds
   - MCXenoCreateResinJelly
-  - MCXenoAcidicSalve
   - MCActionXenoRecycle
   # RMC
   - CMXenoDeveloped
@@ -30,8 +29,8 @@
       400: Dead
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 18
+      types:
+        MCBrute: 20
   - type: Xeno
     role: MCXenoDrone
     hudOffset: 0,0.15
@@ -44,14 +43,15 @@
     - MCXenoLarva
     canBeDevolvedByOther: false
   - type: MCArmor
-    melee: 30
-    bullet: 25
-    laser: 25
-    energy: 30
-    bomb: 0
-    bio: 15
-    fire: 10
-    acid: 15
+    soft:
+      melee: 30
+      bullet: 25
+      laser: 25
+      energy: 30
+      bomb: 0
+      bio: 15
+      fire: 10
+      acid: 15
   - type: XenoPheromones
     pheromonesMultiplier: 2
   - type: MCXenoRecycle
@@ -88,7 +88,6 @@
     - MCWallXenoResinThickHardy
     - MCDoorXenoResinThick
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     max: 200
   - type: XenoInhands
     prefix: drone
@@ -125,7 +124,6 @@
     - MCActionXenoAcidicSalve
     - MCActionXenoRecycle
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:
@@ -136,6 +134,7 @@
     - MCXenoHunter
     - MCXenoBull
     - MCXenoSpitter
+    - MCXenoForger
     evolvesToWithoutPoints:
     - MCXenoShrike
     - MCXenoQueen
@@ -149,3 +148,11 @@
     trapLevel: 1
     cost: 70
     spray: XenoAcidSprayTrapWeak
+  # Abilities
+  - type: MCXenoAcidicSalve
+    # healHp: 50 + maxHp * 0.1 + aura * maxHp * 0.01
+    # sunder: healHp * 0.1
+    range: 1.5
+    healValue: 50
+    healMaxHealthMultiplier: 0.1
+    sunderByHealMultiplier: 1

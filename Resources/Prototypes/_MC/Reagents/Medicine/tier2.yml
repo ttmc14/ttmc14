@@ -17,24 +17,24 @@
          - MCOxycodone
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -3.5 # даёт ещё и боль
+          types:
+            MCBrute: -3.5 # даёт ещё и боль
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
         damage:
-          groups:
-            Burn: 2
+          types:
+            MCBurn: 2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
-            Brute: 2
-            Burn: 4
-            Toxin: 4
+          types:
+            MCBrute: 2
+            MCBurn: 4
+            MCToxin: 4
 
 - type: reagent
   parent: MCReagentMedicine
@@ -55,24 +55,24 @@
          - MCOxycodone
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -3.5 # даёт ещё и боль
+          types:
+            MCBurn: -3.5 # даёт ещё и боль
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
         damage:
-          groups:
-            Brute: 1
-            Toxin: 1
+          types:
+            MCBrute: 1
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
-            Brute: 3
-            Toxin: 3
+          types:
+            MCBrute: 3
+            MCToxin: 3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -89,23 +89,23 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -1.5
+          types:
+            MCToxin: -1.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 2
+          types:
+            MCToxin: 2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Burn: 1
-            Toxin: 1
+          types:
+            MCBurn: 1
+            MCToxin: 1
 
 - type: reagent
   parent: MCReagentMedicine
@@ -123,28 +123,28 @@
       - !type:HealthChange
         probability: 0.15
         damage:
-          groups:
-            Brute: 1
+          types:
+            MCBrute: 1
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -0.5
+          types:
+            MCToxin: -0.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
-            Brute: 1
-            Burn: 1
-            Toxin: 2
+          types:
+            MCBrute: 1
+            MCBurn: 1
+            MCToxin: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -168,15 +168,15 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Toxin: 3
+          types:
+            MCToxin: 3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -191,8 +191,11 @@
     Medicine:
       metabolismRate: 1
       effects:
-      - !type:MCPurgeAll
+      - !type:MCPurgeGroups
         amount: 5
+        groups:
+        - Medicine
+        - Toxins
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -206,9 +209,9 @@
           min: 15
           max: 25
         damage:
-          groups:
-            Brute: 1
-            Burn: 1
+          types:
+            MCBrute: 1
+            MCBurn: 1
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -221,9 +224,9 @@
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
-            Brute: 2
-            Burn: 2
+          types:
+            MCBrute: 2
+            MCBurn: 2
       - !type:ChemVomit
         conditions:
         - !type:ReagentThreshold
@@ -303,17 +306,17 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 1
-            Brute: 1
+          types:
+            MCToxin: 1
+            MCBrute: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Brute: 1
-            Toxin: 1
+          types:
+            MCBrute: 1
+            MCToxin: 1
 
 - type: reagent
   parent: MCReagentMedicine
@@ -332,8 +335,8 @@
         amount: 2.4
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:MCStamina
         potence: -6
       - !type:HealthChange
@@ -341,15 +344,15 @@
         - !type:ReagentThreshold
           min: 6
         damage:
-          groups:
-            Toxin: 1.5
+          types:
+            MCToxin: 1.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
         damage:
-          groups:
-            Toxin: 3
+          types:
+            MCToxin: 3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -373,15 +376,15 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Genetic: 3
+          types:
+            MCClone: 3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -393,17 +396,17 @@
   metabolisms:
     Medicine:
       metabolismRate: 0.2
-      effects:
-      - !type:EqualHealthChange
-        conditions:
-        - !type:Temperature
-          max: 170
-        damage:
-        - Brute: -1
-        - Burn: -1
-        - Toxin: -1
-        - Airloss: -1
-        - Genetic: -1
+      effects: []
+      # - !type:EqualHealthChange
+      #   conditions:
+      #   - !type:Temperature
+      #     max: 170
+      #   damage:
+      #   - MCBrute: -1
+      #   - MCBurn: -1
+      #   - MCToxin: -1
+      #   - MCOxygen: -1
+      #   - MCClone: -1
 
 - type: reagent
   parent: MCReagentMedicine
@@ -415,17 +418,17 @@
   metabolisms:
     Medicine:
       metabolismRate: 0.2
-      effects:
-      - !type:EqualHealthChange
-        conditions:
-        - !type:Temperature
-          max: 170
-        damage:
-        - Brute: -3
-        - Burn: -3
-        - Toxin: -3
-        - Airloss: -3
-        - Genetic: -3
+      effects: []
+      # - !type:EqualHealthChange
+      #   conditions:
+      #   - !type:Temperature
+      #     max: 170
+      #   damage:
+      #   - MCBrute: -3
+      #   - MCBurn: -3
+      #   - MCToxin: -3
+      #   - MCOxygen: -3
+      #   - MCClone: -3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -450,16 +453,16 @@
         - !type:ReagentThreshold
           min: 15
         damage:
-          groups:
-            Brute: 2
+          types:
+            MCBrute: 2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
-            Burn: 2
-            Toxin: 2
+          types:
+            MCBurn: 2
+            MCToxin: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -476,8 +479,8 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: 0.2
+          types:
+            MCToxin: 0.2
       #- !type:MCStamina
       #  potence: -20 Пока не будет условия он-инжект я хуй это добавлю
       # Buff
@@ -524,8 +527,8 @@
         - !type:ReagentThreshold
           min: 25
         damage:
-          groups:
-            Toxin: 3
+          types:
+            MCToxin: 3
       - !type:GenericStatusEffect
         conditions:
         - !type:ReagentThreshold

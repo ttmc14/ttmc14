@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMBaseWeaponSMG
+  parent: MCWeaponSMG
   name: MP-19 machinepistol
   id: MCWeaponMP19
   description: The MP-19 is the TerraGov Marine Corps standard-issue machine pistol. It's known for it's low recoil and scatter when used one handed. It's usually carried by specialized troops who do not have the space to carry a much larger gun like medics and engineers. It uses 10x20mm caseless rounds.
@@ -96,7 +96,7 @@
     multiplier: 1
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineMP19
   name: "MP-19 machinepistol magazine (10x20mm)"
   description: "A 10x20mm caseless machine pistol magazine."

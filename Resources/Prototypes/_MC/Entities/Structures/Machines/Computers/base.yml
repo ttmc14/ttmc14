@@ -9,3 +9,7 @@
   - type: Corrodible
     isCorrodible: false
   - type: InteractionOutline
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

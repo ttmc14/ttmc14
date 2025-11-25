@@ -11,7 +11,15 @@
       "name": "apcewires",
       "directions": 4
     },
-     {
+    {
+      "name": "apc2",
+      "directions": 4
+    },
+    {
+      "name": "apc1",
+      "directions": 4
+    },
+    {
       "name": "apco0-0",
       "directions": 4
     },

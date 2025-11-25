@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Map;
@@ -35,7 +36,7 @@ public sealed partial class RMCProjectileDamageFalloffComponent : Component
     /// These are the coordinates from which the projectile was shot. Used to determine the distance travelled.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityCoordinates? ShotFrom;
+    public Vector2? ShotFrom;
 }
 
 [DataRecord, Serializable, NetSerializable]

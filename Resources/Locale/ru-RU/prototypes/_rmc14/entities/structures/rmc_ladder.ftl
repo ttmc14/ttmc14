@@ -6,3 +6,6 @@ ent-RMCLadderUp = { ent-RMCLadder }
 ent-RMCLadderThrough = { ent-RMCLadder }
     .suffix = Through
     .desc = { ent-RMCLadder.desc }
+ent-RMCLadderHatch = { ent-RMCLadder }
+    .suffix = Hatch
+    .desc = { ent-RMCLadder.desc }

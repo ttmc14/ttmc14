@@ -1,6 +1,9 @@
 ent-MCSingleDoorPreparationGlass = { ent-CMAirlockPrep }
     .suffix = Preparation, Glass
     .desc = { ent-CMAirlockPrep.desc }
+ent-MCSingleDoorBridgeSolid = { ent-CMAirlockCommand }
+    .suffix = Bridge, Solid
+    .desc = { ent-CMAirlockCommand.desc }
 ent-MCSingleDoorCapitanSolidLocked = { ent-CMAirlockCommand }
     .suffix = Capitan, Solid, Locked
     .desc = { ent-CMAirlockCommand.desc }

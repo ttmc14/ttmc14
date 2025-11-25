@@ -25,14 +25,20 @@
         points: 29
       - id: MCMagazineSmartGunSG29
         points: 4
+    - name: Rifle
+      entries:
+      - id: MCWeaponSmartGunSG25
+        points: 22
+      - id: MCMagazineSmartGunSG25
+        points: 2
+      - id: MCMagazineSmartGunSG25Extended
+        points: 4
     - name: Target Rifle
       entries:
       - id: MCWeaponSmartGunSG62
         points: 25
       - id: MCMagazineSmartGunSG62
         points: 3
-      # SG-62 Target Rifle Ammo Bin (4 points)
-      # SG-153 Spotting Rifle Ammo Bin (4 points)
       - id: MCMagazineSmartGunSG153
         points: 2
       - id: MCMagazineSmartGunSG153Highimpact
@@ -47,6 +53,14 @@
         points: 3
       - id: MCMagazineSmartGunSG153Incendiary
         points: 3
+    - name: Boxes
+      entries:
+      - id: MCBoxBulletsSmartGunSG29
+        points: 4
+      - id: MCBoxBulletsSmartGunSG62
+        points: 4
+      - id: MCBoxBulletsSmartGunSG153
+        points: 4
 
 - type: entity
   id: MCVendorBundleEssentialSmartgunner

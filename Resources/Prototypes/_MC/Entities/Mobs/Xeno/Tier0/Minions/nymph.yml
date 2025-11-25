@@ -14,7 +14,7 @@
   - type: FixedIdentity
     name: mc-job-name-xeno-nymph
   - type: Xeno
-    tier: 0
+    tier: -1
     role: MCXenoMinionNymph
     actionIds:
     - MCActionXenoRest
@@ -36,17 +36,18 @@
     plasmaRegenOnWeeds: 20
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 8
+      types:
+        MCBrute: 8
   - type: MCArmor
-    melee: 10
-    bullet: 10
-    laser: 10
-    energy: 10
-    bomb: 0
-    bio: 10
-    fire: 10
-    acid: 10
+    soft:
+      melee: 10
+      bullet: 10
+      laser: 10
+      energy: 10
+      bomb: 0
+      bio: 10
+      fire: 10
+      acid: 10
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166

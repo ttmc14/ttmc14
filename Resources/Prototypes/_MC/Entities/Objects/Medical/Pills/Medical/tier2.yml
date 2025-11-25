@@ -1,0 +1,95 @@
+- type: entity
+  parent: MCPill
+  id: MCPillMeralyne
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7.5
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 7.5
+  - type: Sprite
+    layers:
+    - state: pill19
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillDermaline
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7.5
+        reagents:
+        - ReagentId: MCDermaline
+          Quantity: 7.5
+  - type: Sprite
+    layers:
+    - state: pill5
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillSalineGlucose
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCSalineGlucose
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill4
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillLeporazine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MCLeporazine
+          Quantity: 10
+  - type: Sprite
+    layers:
+    - state: pill16
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillRyetalyn
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCRyetalyn
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill14
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillQuickClot
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCQuickClot
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill20
+      map: [ "enum.DamageStateVisualLayers.Base" ]

@@ -1,5 +1,5 @@
-ent-MCXenoPheromoneTower = pheromone tower
-    .desc = A resin formation that looks like a small pillar. A faint, weird smell can be perceived from it.
+ent-MCXenoPheromoneTower = феромонная башня
+    .desc = Смоляное образование, напоминающее маленький столбик. От него ощущается слабый странный запах.
 ent-MCXenoPheromoneTowerRecovery = { ent-MCXenoPheromoneTower }
     .desc = { ent-MCXenoPheromoneTower.desc }
 ent-MCXenoPheromoneTowerWarding = { ent-MCXenoPheromoneTower }

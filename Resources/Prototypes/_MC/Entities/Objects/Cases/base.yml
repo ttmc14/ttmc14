@@ -1,0 +1,32 @@
+- type: entity
+  parent: MCStorageItem
+  id: MCCase
+  name: case
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Sprite
+    noRot: true
+    sprite: _MC/Objects/Items/case.rsi
+    layers:
+    - map: [ "full" ]
+      state: case
+    - map: [ "empty" ]
+      state: empty_case
+      visible: false
+  - type: Icon
+    sprite: _MC/Objects/Items/case.rsi
+    state: sentry_case
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,27,1
+  - type: FixedItemSizeStorage
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: CMStorageVisualizer
+    storageEmpty: empty

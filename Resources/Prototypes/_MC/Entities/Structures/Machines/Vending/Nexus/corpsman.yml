@@ -22,11 +22,11 @@
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne
-        points: 16
+        points: 14
       - id: MCPillCanisterDermaline
-        points: 16
+        points: 14
       - id: MCPillCanisterMeraderm
-        points: 16
+        points: 14
     - name: Hyposprays
       entries:
       - id: MCHyposprayFillMeralyne
@@ -46,9 +46,18 @@
         points: 4
     - name: Auto Injector
       entries:
+      - id: MCAutoInjectorMeralyne
+        name: Injector (30u Meralyne)
+        points: 3
+      - id: MCAutoInjectorDermaline
+        name: Injector (30u Dermaline)
+        points: 3
+      - id: MCAutoInjectorMeraderm
+        name: Injector (30u Meraderm)
+        points: 3
       - id: MCAutoInjectorCombatAdv
-        name: Injector (30u Advanced)
-        points: 5
+        name: Injector (30u Combat advanced)
+        points: 4
       - id: MCAutoInjectorQuickClotPlus
         name: Injector (15u QuickclotPlus)
         points: 1
@@ -99,5 +108,5 @@
     - MCAidKitAdvancedFilled
     - MCHealthAnalyzer
     - MCMedicalTweezers
-    # /obj/item/medevac_beacon
+    - MCBeaconMedevac
     # /obj/structure/bed/medevac_stretcher

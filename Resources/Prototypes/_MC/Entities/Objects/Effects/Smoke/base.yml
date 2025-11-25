@@ -55,15 +55,15 @@
     affectsDead: false
     affectsInfectedNested: false
     armorPiercingDamage:
-      groups:
-        Burn: 20
-        Airloss: 3
+      types:
+        MCBurn: 20
+        MCOxygen: 3
     damage:
-      groups:
-        Burn: 35
+      types:
+        MCBurn: 35
     barricadeDamage:
-      groups:
-        Burn: 8.5
+      types:
+        MCBurn: 8.5
     whitelist:
       components:
       - Marine

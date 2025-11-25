@@ -1,0 +1,35 @@
+- type: entity
+  parent: RMCHelmetBase
+  id: MCTagilamask
+  name: Tagila welding mask
+  desc: The welding mask of a factory worker, who recently lost his mind, appears as material evidence in 46 criminal cases.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/tagila.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Head/Armor/tagila.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+  - type: MCArmor
+    soft:
+      melee: 80
+      bullet: 80
+      laser: 80
+      energy: 80
+      bomb: 80
+      bio: 80
+      fire: 80
+      acid: 80
+  - type: HideLayerClothing
+    slots:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Snout
+  - type: IntegratedVisors
+    visorsToAdd:
+    - RMCVisorWelding
+  - type: RMCBulkyArmor
+  - type: EyeProtection
+

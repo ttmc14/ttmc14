@@ -1,0 +1,74 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoToggleToxicSpit
+  name: Toxic Spit
+  description: Spit a toxin at your target up to 7 tiles away, inflicting the Intoxicated debuff and dealing damage over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_xeno_toxic
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoProjectileToxicSpit
+      plasmaCost: 30
+      delay: 1
+      speed: 30
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileToxicSpit
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Xeno/projectiles.rsi
+    layers:
+    - state: xeno_toxic
+      shader: unshaded
+  - type: Projectile
+    impactEffect: null
+    damage:
+      types:
+        MCBurn: 16
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 7
+  - type: MCXenoToxicStacksOnHit
+    amount: 5
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoToxicSlash
+  name: Toxic Slash (100)
+  description: Imbue your claws with acid, inflicting the Intoxicated debuff with every slash. You won't have Toxic Slash after 4 seconds or after 3 slashes have been dealt.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/sentinel.rsi
+      state: neuroclaws_off
+    useDelay: 10
+  - type: InstantAction
+    event: !type:MCXenoToxicSlashActionEvent
+  - type: XenoActionPlasma
+    cost: 100
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoDrainSting
+  name: Drain Sting (75)
+  description: Sting your victim, draining them and gaining benefits if they are Intoxicated.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/sentinel.rsi
+      state: neuro_sting
+    useDelay: 25
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoDrainStingActionEvent
+  - type: XenoActionPlasma
+    cost: 75

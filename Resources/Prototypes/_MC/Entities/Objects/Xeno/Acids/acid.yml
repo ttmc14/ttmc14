@@ -6,11 +6,11 @@
     lifetime: 1
   - type: DamageOnCollide
     damage:
-      groups:
-        Burn: 14
+      types:
+        MCBurn: 14
     chainDamage:
-      groups:
-        Burn: 14
+      types:
+        MCBurn: 14
 
 # acid_spray_duration = 10 SECONDS
 # acid_spray_damage_on_hit = 35
@@ -24,11 +24,25 @@
     lifetime: 10
   - type: DamageOnCollide
     damage:
-      groups:
-        Burn: 35
+      types:
+        MCBurn: 35
     chainDamage:
-      groups:
-        Burn: 35
+      types:
+        MCBurn: 35
+
+- type: entity
+  parent: MCXenoAcidSpray
+  id: MCXenoAcidSprayBoiler
+  components:
+  - type: TimedDespawn
+    lifetime: 10
+  - type: DamageOnCollide
+    damage:
+      types:
+        MCBurn: 35
+    chainDamage:
+      types:
+        MCBurn: 35
 
 # acid_spray_duration = 6 SECONDS
 # acid_spray_damage = 8
@@ -45,11 +59,11 @@
     lifetime: 10
   - type: DamageOnCollide
     damage:
-      groups:
-        Burn: 47
+      types:
+        MCBurn: 40
     chainDamage:
-      groups:
-        Burn: 47
+      types:
+        MCBurn: 40
 
 - type: entity
   parent: MCXenoAcidSpray
@@ -59,8 +73,8 @@
     lifetime: 5
   - type: DamageOnCollide
     damage:
-      groups:
-        Burn: 30
+      types:
+        MCBurn: 30
     chainDamage:
-      groups:
-        Burn: 30
+      types:
+        MCBurn: 30

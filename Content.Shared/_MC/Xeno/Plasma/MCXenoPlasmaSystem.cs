@@ -25,8 +25,26 @@ public sealed class MCXenoPlasmaSystem : EntitySystem
         SubscribeLocalEvent<MCXenoPlasmaDamageOnHitComponent, ProjectileHitEvent>(OnDamageHit);
         SubscribeLocalEvent<MCXenoPlasmaDamageOnHitComponent, MeleeHitEvent>(OnDamageHitMelee);
 
-        SubscribeLocalEvent<MCXenoPlasmaOnAttackComponent, MeleeHitEvent>(OnDamage);
+        SubscribeLocalEvent<MobStateComponent, DamageChangedEvent>(OnDamage);
         SubscribeLocalEvent<MCXenoPlasmaOnAttackedComponent, DamageChangedEvent>(OnDamaged);
+    }
+
+    public bool TryRemovePlasma(EntityUid uid, float plasma)
+    {
+        if (!_query.TryComp(uid, out var plasmaComponent))
+            return false;
+
+        var previousPlasma = plasmaComponent.Plasma;
+        if (previousPlasma == FixedPoint2.Zero)
+            return false;
+
+        _xenoPlasma.RemovePlasma((uid, plasmaComponent), plasma);
+        return previousPlasma >= plasma;
+    }
+
+    public float GetMaxPlasma(EntityUid uid)
+    {
+        return !_query.TryComp(uid, out var plasmaComponent) ? 0 : plasmaComponent.MaxPlasma;
     }
 
     private void OnDamageHit(Entity<MCXenoPlasmaDamageOnHitComponent> entity, ref ProjectileHitEvent args)
@@ -83,21 +101,18 @@ public sealed class MCXenoPlasmaSystem : EntitySystem
         }
     }
 
-    private void OnDamage(Entity<MCXenoPlasmaOnAttackComponent> ent, ref MeleeHitEvent args)
+    private void OnDamage(Entity<MobStateComponent> ent, ref DamageChangedEvent args)
     {
-        if (!args.IsHit)
+        if (ent.Comp.CurrentState == MobState.Dead)
             return;
 
-        foreach (var hit in args.HitEntities)
-        {
-            if (!_mobStateQuery.TryComp(hit, out var mobStateComponent))
-                continue;
+        if (args.Origin is not {} origin)
+            return;
 
-            if (mobStateComponent.CurrentState == MobState.Dead)
-                continue;
+        if (!TryComp<MCXenoPlasmaOnAttackComponent>(origin, out var plasmaOnAttackComponent))
+            return;
 
-            _xenoPlasma.RegenPlasma(ent.Owner, args.BaseDamage.GetTotal() * ent.Comp.Multiplier);
-        }
+        _xenoPlasma.RegenPlasma(origin, args.DamageDelta?.GetTotal() ?? FixedPoint2.Zero * plasmaOnAttackComponent.Multiplier);
     }
 
     private void OnDamaged(Entity<MCXenoPlasmaOnAttackedComponent> ent, ref DamageChangedEvent args)

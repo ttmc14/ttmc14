@@ -8,10 +8,13 @@ namespace Content.Shared._MC.Stamina;
 public sealed partial class MCStaminaComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public double Current = 100;
+    public float Current = 100;
+
+    [DataField, AutoNetworkedField]
+    public float Min = -40;
 
     [DataField]
-    public double Max = 100;
+    public float Max = 100;
 
     [DataField]
     public int RegenPerTick = 6;
@@ -20,13 +23,13 @@ public sealed partial class MCStaminaComponent : Component
     public int Level;
 
     [DataField, AutoNetworkedField]
-    public double DamageThresholds = -25;
+    public float DamageThresholds = -25;
 
     [DataField, AutoNetworkedField]
-    public double DamageMultiplier = 5;
+    public float DamageMultiplier = 5;
 
     [DataField, AutoNetworkedField]
-    public int[] TierThresholds = [100, 70, 50, 25, 0];
+    public float[] TierThresholds = [100, 70, 50, 25, 0];
 
     [DataField]
     public TimeSpan TimeBetweenChecks = TimeSpan.FromSeconds(1);

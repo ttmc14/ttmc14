@@ -1,0 +1,92 @@
+- type: entity
+  parent: MCSentry
+  id: MCSentryBig
+  name: ST-571 sentry gun
+  description: A deployable, fully automatic turret with AI targeting capabilities. Armed with a M30 autocannon and a 500-round drum magazine.
+  components:
+  - type: Icon
+    sprite: _MC/Objects/Sentries/base.rsi
+    state: handled
+  - type: Sprite
+    sprite: _MC/Objects/Sentries/base.rsi
+  - type: MCSentry
+  - type: MCDeploy
+    deployTime: 6
+  - type: Gun
+    fireRate: 4
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSentryBig
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSentryBig
+
+- type: entity
+  parent: MCMagazine
+  id: MCMagazineSentryBig
+  name: M30 box magazine (10x28mm Caseless)
+  description: A drum of 50 10x28mm caseless rounds for the ST-571 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSentry
+    - MCMagazineSentryBig
+  - type: Sprite
+    sprite: _MC/Objects/Items/Ammunition/Sentry/base.rsi
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSentryBig
+    proto: MCCartridgeSentryBig
+    capacity: 500
+
+- type: Tag
+  id: MCMagazineSentryBig
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeSentryBig
+  name: cartridge (10x28mm Caseless)
+  description: ...
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeSentryBig
+  - type: CartridgeAmmo
+    proto: MCBulletSentryBig
+
+- type: Tag
+  id: MCCartridgeSentryBig
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSentryBig
+  name: autocannon bullet
+  description: ...
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 25
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 1
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 10
+      falloff: 0
+    - range: 10
+      falloff: 0.25
+  - type: RMCProjectileAccuracy
+    minAccuracy: 100

@@ -91,17 +91,17 @@
     inject:
       RMCMolecularAcid: 6
     tailDamage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: XenoSprayAcid
     acid: XenoAcidSprayStrong
     barricadeDamage:
       types:
-        Heat: 5
+        MCHeat: 5
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 22.5
+      types:
+        MCBrute: 22.5
   - type: Tackle
     chance: 0.25
     stunMin: 3
@@ -137,14 +137,14 @@
     affectsDead: false
     affectsInfectedNested: false
     toxinDamage:
-        groups:
-          Toxin: 2
+      types:
+        MCToxin: 2
     oxygenDamage:
-        types:
-          Asphyxiation: 150
+      types:
+        MCOxygen: 150
     coughDamage:
-        groups:
-          Brute: 5
+      types:
+        MCBrute: 5
   - type: RMCXenoDamageVisuals
     prefix: boiler
   - type: TacticalMapIcon
@@ -154,7 +154,7 @@
   - type: Flammable
     damage: #per second, scales with number of fire 'stacks'
       types:
-        Heat: 3
+        MCBurn: 3 # mc-changes
   - type: XenoToggleChargingKnockback
     enabled: false
   - type: XenoToggleChargingStop

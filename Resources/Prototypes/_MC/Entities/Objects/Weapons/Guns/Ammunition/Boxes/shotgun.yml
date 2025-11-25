@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseStorageItem
+  parent: MCStorageItem
   id: MCBoxShotgun
   name: box of shotgun shells
   abstract: true

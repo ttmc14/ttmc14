@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   id: MCWeaponRifleAR21
   name: AR-21 Kauser skirmish rifle
   description: The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers.
@@ -90,7 +90,7 @@
       rmc-aslot-underbarrel: 0.0, -0.31
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineRifleAR21
   name: AR-21 skirmish rifle magazine
   description: A magazine filled with 10x25mm rifle rounds for the AR-21.
@@ -136,8 +136,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: CMArmorPiercing
     amount: 10
   - type: MCXenoSunderDamageOnHit

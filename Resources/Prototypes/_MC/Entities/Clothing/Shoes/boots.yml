@@ -13,6 +13,23 @@
   parent: [ RMCItemSlotM5Bayonet, CMBootsBlack ]
   id: MCBootsBlackFilled
   suffix: Filled
+  components:
+  - type: CMItemSlots
+    startingItem: MCKnifeCombat
+  - type: ItemSlots
+    slots:
+      item:
+        name: cm-knife
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - Knife
+          - Holdout
+          - Screwdriver
+          - RMCScalpel
+          - ThrowingKnife
+        startingItem: MCKnifeCombat
 
 # Brown Boots
 - type: entity
@@ -29,3 +46,20 @@
   parent: [ RMCItemSlotM5Bayonet, CMBootsBrown ]
   id: MCBootsBrownFilled
   suffix: Filled
+  components:
+  - type: CMItemSlots
+    startingItem: MCKnifeCombat
+  - type: ItemSlots
+    slots:
+      item:
+        name: cm-knife
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - Knife
+          - Holdout
+          - Screwdriver
+          - RMCScalpel
+          - ThrowingKnife
+        startingItem: MCKnifeCombat

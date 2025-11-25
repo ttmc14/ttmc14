@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/2a92938a96663d3b79bdb2ff4bb1b69a01e28143",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "handled"
+    },
+    {
+      "name": "handled_empty"
+    },
+    {
+      "name": "deployed",
+      "directions": 4
+    },
+    {
+      "name": "deployed_empty",
+      "directions": 4
+    },
+    {
+      "name": "deployed_fall"
+    },
+    {
+      "name": "deployed_empty_fall"
+    }
+  ]
+}

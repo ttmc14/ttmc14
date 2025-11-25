@@ -1,0 +1,16 @@
+- type: entity
+  parent: MCComputerIndestructible
+  id: MCComputerShuttleControl
+  name: shuttle control console
+  components:
+  - type: Sprite
+    layers:
+    - state: terminal1_old
+    - state: shuttle
+  - type: ActivatableUI
+    key: enum.MCShuttleConsoleUi.Key
+  - type: UserInterface
+    interfaces:
+      enum.MCShuttleConsoleUi.Key:
+        type: MCShuttleConsoleBui
+  - type: MCShuttleConsole

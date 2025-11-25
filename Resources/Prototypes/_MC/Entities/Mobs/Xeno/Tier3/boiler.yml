@@ -34,7 +34,9 @@
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
+    # Abilities
     - MCActionXenoSprayAcidBoiler
+    - MCActionXenoBoilerLongRange
     - MCActionXenoAcidStrong
     - MCActionXenoPlaceTrap
     hudOffset: -0.15,0.25
@@ -48,18 +50,20 @@
     - MCXenoBull
     - MCXenoSpitter
   - type: MCArmor
-    melee: 45
-    bullet: 45
-    laser: 45
-    energy: 45
-    bomb: 0
-    bio: 35
-    fire: 45
-    acid: 35
+    soft:
+      melee: 45
+      bullet: 45
+      laser: 45
+      energy: 45
+      bomb: 0
+      bio: 35
+      fire: 45
+      acid: 35
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
+        MCToxin: 10
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.439
     baseSprintSpeed: 3.225
@@ -69,4 +73,16 @@
       state: boiler
   - type: RMCSize
     size: Big
+  # Abilities
   - type: XenoAcid
+  - type: XenoSprayAcid
+    acid: MCXenoAcidSprayBoiler
+    range: 7
+    doAfter: 0.5
+    barricadeDamage:
+      types:
+        MCBurn: 5
+  - type: MCXenoZoom
+    zoom: 1.5, 1.5
+    offsetLength: 5
+    doAfter: 1

@@ -1,5 +1,5 @@
 - type: entity
-  parent: MarkerBase
+  parent: MCMarker
   id: MCSpawnGridAlamo
   name: alamo spawner
   components:
@@ -10,7 +10,7 @@
     state: pink
 
 - type: entity
-  parent: MarkerBase
+  parent: MCMarker
   id: MCSpawnGridDebugAlamo
   name: debug alamo spawner
   components:

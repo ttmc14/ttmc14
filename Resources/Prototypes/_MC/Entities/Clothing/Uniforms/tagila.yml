@@ -1,0 +1,12 @@
+- type: entity
+  parent: RMCMarineUniformBase
+  id: MCTagilaPants
+  name: factory pants
+  description: The standard work uniform for factory employees.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Uniforms/Factions/ThirdPerson/tagila.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Uniforms/Factions/ThirdPerson/tagila.rsi
+  - type: WebbingClothing
+    startingWebbing: MCWebbingBlackVest

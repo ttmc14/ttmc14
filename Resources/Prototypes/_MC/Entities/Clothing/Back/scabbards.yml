@@ -78,12 +78,14 @@
         whitelist:
           tags:
           - MCMachete
+          - MCMeleeWeaponValiSword
   - type: ItemMapper
     mapLayers:
       scabbard_full:
         whitelist:
           tags:
           - MCMachete
+          - MCMeleeWeaponValiSword
   - type: Tag
     tags:
     - Scabbard

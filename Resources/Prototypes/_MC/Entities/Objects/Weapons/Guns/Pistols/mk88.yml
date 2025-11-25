@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMWeaponPistolBase
+  parent: MCWeaponPistol
   id: MCWeaponMK88
   name: MK88 Mod 4 combat pistol
   description: An uncommon automatic handgun used for self defense, based on the original VP70 more than a century ago. Fires 9mm armor piercing rounds and is capable of 3-round burst or automatic fire.
@@ -15,8 +15,8 @@
     sprite: _MC/Objects/Weapons/Guns/Pistols/mk88.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 8
+      types:
+        MCBrute: 8
   - type: Gun
     selectedMode: FullAuto
     shotsPerBurst: 3
@@ -132,8 +132,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22

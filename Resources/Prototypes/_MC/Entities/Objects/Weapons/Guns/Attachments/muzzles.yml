@@ -36,12 +36,12 @@
     wideAnimationRotation: -135
     attackRate: 1
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 40
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 50
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Guns/Attachments/muzzle.rsi
@@ -53,8 +53,8 @@
   - type: AttachableWeaponMeleeMods
     modifiers:
     - bonusDamage:
-        groups:
-          Brute: 25
+        types:
+          MCBrute: 50
   - type: AttachableWeaponRangedMods
     modifiers:
     - conditions:
@@ -62,7 +62,7 @@
       accuracyAddMult: -0.5
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.10
+      accuracyAddMult: -0.1
   - type: AttachablePrying
   - type: DeleteOnExplosion
 
@@ -70,8 +70,7 @@
   parent: MCAttachmentBaseMuzzle
   id: MCAttachmentRecoilCompensator
   name: recoil compensator
-  description: "A muzzle attachment that reduces recoil and scatter by diverting expelled gasses upwards.
-    Significantly reduces recoil and scatter, regardless of if the weapon is wielded."
+  description: "A muzzle attachment that reduces recoil and scatter by diverting expelled gasses upwards. Significantly reduces recoil and scatter, regardless of if the weapon is wielded."
   components:
   - type: Sprite
     state: comp
@@ -122,8 +121,7 @@
   parent: MCAttachmentBaseMuzzle
   id: MCAttachmentSuppressor
   name: suppressor
-  description: "A small tube with exhaust ports to expel noise and gas.
-    Does not completely silence a weapon, but does make it much quieter and a little more accurate and stable at the cost of bullet speed."
+  description: "A small tube with exhaust ports to expel noise and gas. Does not completely silence a weapon, but does make it much quieter and a little more accurate and stable at the cost of bullet speed."
   components:
   - type: Sprite
     state: suppressor
@@ -155,8 +153,7 @@
   parent: MCAttachmentBaseMuzzle
   id: MCAttachmentMuzzleCharger
   name: barrel charger
-  description: "A fitted barrel extender that goes on the muzzle, with a small shaped charge that propels a bullet much faster.
-    Greatly increases projectile speed and reduces damage falloff."
+  description: "A fitted barrel extender that goes on the muzzle, with a small shaped charge that propels a bullet much faster. Greatly increases projectile speed and reduces damage falloff."
   components:
   - type: Sprite
     state: hbarrel

@@ -63,6 +63,7 @@
     decalTag: burnt
     tileLimit: 3
   - type: BlockWeeds
+  - type: RMCFireImmunityBypass
 
 - type: entity
   parent: RMCTileFire

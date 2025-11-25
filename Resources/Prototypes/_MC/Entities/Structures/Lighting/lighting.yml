@@ -94,8 +94,8 @@
     unarmedHitShock: 0
   - type: DamageOnInteract
     damage:
-      groups:
-        Burn: 2
+      types:
+        MCBurn: 2
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -160,8 +160,8 @@
     unarmedHitShock: 0
   - type: DamageOnInteract
     damage:
-      groups:
-        Burn: 2
+      types:
+        MCBurn: 2
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -15
@@ -277,8 +277,8 @@
     unarmedHitShock: 0
   - type: DamageOnInteract
     damage:
-      groups:
-        Burn: 2
+      types:
+        MCBurn: 2
   - type: ContainerContainer
     containers:
       light_bulb: !type:ContainerSlot
@@ -326,8 +326,8 @@
     unarmedHitShock: 0
   - type: DamageOnInteract
     damage:
-      groups:
-        Burn: 2
+      types:
+        MCBurn: 2
   - type: AmbientOnPowered
   - type: AmbientSound
     volume: -15

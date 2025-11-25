@@ -2,6 +2,8 @@
   parent: RMCEventHumanoid
   id: RMCCorpse
   components:
+  - type: MCXenoPsydrainable
+    available: false
   - type: Damageable
     damage:
       types:

@@ -89,7 +89,7 @@ public sealed class MeleeSoundSystem : EntitySystem
             switch (damageType)
             {
                 // Unfortunately heat returns caustic group so can't just use the damagegroup in that instance.
-                case "Burn":
+                case "MCBurn": // mc-changes
                 case "Heat":
                 case "Radiation":
                 case "Cold":
@@ -99,7 +99,7 @@ public sealed class MeleeSoundSystem : EntitySystem
                 case null:
                     _audio.PlayPredicted(new SoundCollectionSpecifier("WeakHit"), targetUid, userUid, AudioParams.Default.WithVariation(DamagePitchVariation));
                     break;
-                case "Brute":
+                case "MCBrute": // mc-changes
                     _audio.PlayPredicted(new SoundCollectionSpecifier("MetalThud"), targetUid, userUid, AudioParams.Default.WithVariation(DamagePitchVariation));
                     break;
             }

@@ -1,0 +1,15 @@
+﻿<ui:MCASRSOrderButton
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._MC.ASRS.Ui"
+    Orientation="Horizontal">
+    <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">
+        <Button Text="-" Name="RemoveSingleButton" Access="Public" StyleClasses="ButtonSquare" />
+        <Label Text="0"
+               Name="CountLabel"
+               MinWidth="20"
+               Align="Center"
+               Access="Public" />
+        <Button Text="+" Name="AddSingleButton" Access="Public" StyleClasses="ButtonSquare" />
+        <RichTextLabel Name="OrderNameLabel" Access="Public" />
+    </BoxContainer>
+</ui:MCASRSOrderButton>

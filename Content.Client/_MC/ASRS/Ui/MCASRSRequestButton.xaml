@@ -1,0 +1,42 @@
+﻿<ui:MCASRSRequestButton
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._MC.ASRS.Ui"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Orientation="Horizontal">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True"  Margin="0 0 0 4">
+        <PanelContainer HorizontalExpand="True" VerticalExpand="True"  Margin="8">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#121111" />
+            </PanelContainer.PanelOverride>
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 8">
+                    <RichTextLabel Text="Order" Margin="0 0 16 0" />
+
+                    <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Align="End">
+                        <Button Text="Approve" Name="ApproveButton" StyleClasses="ButtonSquare" Access="Public" Margin="0 0 8 0" />
+                        <Button Text="Deny" Name="DenyButton" StyleClasses="ButtonSquare" Access="Public" />
+                    </BoxContainer>
+                </BoxContainer>
+
+                <cc:HSeparator Margin="0 0 0 8" />
+
+                <GridContainer Columns="2">
+                    <RichTextLabel Text="Requested by: " />
+                    <RichTextLabel Name="RequesterLabel" Access="Public" />
+                    <RichTextLabel Text="Reason: " />
+                    <RichTextLabel Name="ReasonLabel" Access="Public" />
+                    <RichTextLabel Text="Total cost: " />
+                    <RichTextLabel Name="TotalCostLabel" Access="Public" />
+                </GridContainer>
+
+                <cc:HSeparator Margin="0 8" />
+
+                <RichTextLabel Text="Contents: " Margin="0 0 0 4"/>
+
+                <BoxContainer Name="Container" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" Access="Public" />
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</ui:MCASRSRequestButton>

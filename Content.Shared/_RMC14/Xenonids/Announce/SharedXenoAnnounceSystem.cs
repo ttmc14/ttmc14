@@ -29,13 +29,13 @@ public abstract class SharedXenoAnnounceSystem : EntitySystem
         if (_areas.TryGetArea(ent, out _, out var areaProto))
             locationName = areaProto.Name;
 
-        if (HasComp<ParasiteSpentComponent>(ent))
-            AnnounceSameHive(ent.Owner, Loc.GetString("rmc-xeno-parasite-announce-infect", ("xeno", ent.Owner), ("location", locationName)), color: ent.Comp.Color);
-        else
-        {
-            if (HasComp<XenoEvolutionGranterComponent>(ent) || _xenoEvolution.HasLiving<XenoEvolutionGranterComponent>(1))
-                AnnounceSameHive(ent.Owner, Loc.GetString(ent.Comp.Message, ("xeno", ent.Owner), ("location", locationName)), color: ent.Comp.Color);
-        }
+        // mc-changes-start
+        AnnounceSameHive(ent.Owner,
+            HasComp<ParasiteSpentComponent>(ent)
+                ? Loc.GetString("rmc-xeno-parasite-announce-infect", ("xeno", ent.Owner), ("location", locationName))
+                : Loc.GetString(ent.Comp.Message, ("xeno", ent.Owner), ("location", locationName)),
+            color: ent.Comp.Color);
+        // mc-changes-end
     }
 
     public string WrapHive(string message, Color? color = null)
@@ -45,7 +45,7 @@ public abstract class SharedXenoAnnounceSystem : EntitySystem
     }
 
     /// <summary>
-    /// 
+    ///
     /// </summary>
     /// <param name="source"></param>
     /// <param name="filter"></param>

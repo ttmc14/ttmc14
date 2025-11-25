@@ -1,0 +1,94 @@
+- type: entity
+  parent: MCComputerIndestructible
+  id: MCASRSConsole
+  name: ASRS console
+  description: A console for an Automated Storage and Retrieval System
+  components:
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _MC/Structures/Machines/computer.rsi
+    layers:
+    - state: computer
+    - state: supply
+  - type: ActivatableUI
+    key: enum.MCASRSConsoleUi.Key
+  - type: ActivatableUIRequiresAccess
+  - type: AccessReader
+    access: [ [ "MCAccessCargo" ] ]
+  - type: UserInterface
+    interfaces:
+      enum.MCASRSConsoleUi.Key:
+        type: MCASRSBui
+  - type: MCASRSConsole
+    categories:
+    - name: Operations
+    - name: Weapons
+      entries:
+      - name: PB-12 pepperball gun
+        cost: 100
+        entities:
+        - MCWeaponPepperball
+      # Flamer
+      - name: FL-84 flamethrower
+        cost: 150
+        entities:
+        - MCWeaponFlamer
+      - name: FL-84 G-fuel tank
+        cost: 75
+        entities:
+        - MCTankFlamerGreen
+      - name: FL-84 X-fuel tank
+        cost: 300
+        entities:
+        - MCTankFlamerBlue
+    - name: Stationary
+      entries:
+      - name: SBT-571 sentry gun
+        cost: 200
+        entities:
+        - MCSentryBig
+      - name: SMT-580 sentry gun
+        cost: 350
+        entities:
+        - MCSentryMini
+      - name: SST-574 sentry gun
+        cost: 350
+        entities:
+        - MCSentrySniper
+      - name: SHT-573 sentry gun
+        cost: 350
+        entities:
+        - MCSentryShotgun
+    - name: Explosives
+    - name: Armor
+    - name: Clothing
+    - name: Medical
+    - name: Engineering
+      entries:
+      - name: 50 empty sandbags
+        cost: 100
+        entities:
+        - CMSandbagEmpty50
+      - name: 50 metal sheets
+        cost: 200
+        entities:
+        - CMSheetMetal50
+      - name: 50 plasteel sheets
+        cost: 400
+        entities:
+        - CMSheetPlasteel50
+      - name: 50 glass sheets
+        cost: 100
+        entities:
+        - CMSheetGlass
+    - name: Supplies
+    - name: Imports
+    - name: Vehicles
+    - name: Factory
+
+- type: entity
+  parent: MCASRSConsole
+  id: MCASRSConsoleCrash
+  components:
+  - type: AccessReader
+    access: []

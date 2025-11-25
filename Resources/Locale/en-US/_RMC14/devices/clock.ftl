@@ -1,1 +1,1 @@
-rmc-clock-examine = The {$device} reads: [color=white]{$time}[/color]
+rmc-clock-examine = {$device} показывает: [color=white]{$time}[/color]

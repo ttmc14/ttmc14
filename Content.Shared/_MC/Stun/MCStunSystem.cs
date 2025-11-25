@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Stun.Events;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Stun;
@@ -29,7 +30,7 @@ public sealed class MCStunSystem : EntitySystem
 
     private void OnMapInit(Entity<MCStunOnHitComponent> entity, ref MapInitEvent args)
     {
-        entity.Comp.ShotFrom = _transform.GetMapCoordinates(entity.Owner);
+        entity.Comp.ShotFrom = _transform.GetWorldPosition(entity.Owner);
         Dirty(entity);
     }
 
@@ -38,7 +39,7 @@ public sealed class MCStunSystem : EntitySystem
         if (entity.Comp.ShotFrom is not {} shotFrom)
             return;
 
-        var direction = _transform.GetMoverCoordinates(args.Target).Position - shotFrom.Position;
+        var direction = _transform.GetWorldPosition(args.Target) - shotFrom;
         var distance = direction.Length();
         if (distance > entity.Comp.MaxDistance)
             return;
@@ -67,6 +68,12 @@ public sealed class MCStunSystem : EntitySystem
 
     public void Stun(EntityUid uid, TimeSpan duration)
     {
+        var ev = new MCStunAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
+
+        if (ev.Canceled)
+            return;
+
         if (HasComp<XenoComponent>(uid))
             duration *= 0.5f;
 
@@ -88,7 +95,11 @@ public sealed class MCStunSystem : EntitySystem
 
     public void Stagger(EntityUid uid, TimeSpan duration)
     {
+        var ev = new MCStaggerAttemptEvent();
+        RaiseLocalEvent(uid, ref ev);
 
+        if (ev.Canceled)
+            return;
     }
 
     public bool IsStun(EntityUid uid)

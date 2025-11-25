@@ -1,0 +1,159 @@
+- type: entity
+  parent: MCPill
+  id: MCPillBicaridine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill19
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillKelotane
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCKelotane
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill5
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillDexalin
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCDexalin
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill11
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillInaprovaline
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCInaprovaline
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill10
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillDylovene
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCDylovene
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill1
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillTricordrazine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCTricordrazine
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill9
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillImidazoline
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCImidazoline
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill17
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillHypervene
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 3
+        reagents:
+        - ReagentId: MCHypervene
+          Quantity: 3
+  - type: Sprite
+    layers:
+    - state: pill14
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillTramadol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCTramadol
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill7
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillParacetamol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCParacetamol
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill6
+      map: [ "enum.DamageStateVisualLayers.Base" ]

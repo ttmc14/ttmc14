@@ -144,11 +144,7 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
     protected override void OnUse(Entity<MCXenoHeadbuttChargeComponent> entity, ref MCXenoHeadbuttChargeActionEvent args)
     {
         var ev = new MCXenoHeadbuttChargeDoAfterEvent(GetNetEntity(args.Action));
-        var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.ActivationDelay, ev, entity)
-        {
-            NeedHand = true,
-            BreakOnMove = true,
-        };
+        var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.ActivationDelay, ev, entity);
 
         _doAfter.TryStartDoAfter(doAfter);
     }

@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCFlag
   name: flag
   abstract: true

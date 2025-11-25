@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   id: MCWeaponRifleAR11
   name: AR-11 K&H combat rifle
   description: The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition.
@@ -82,7 +82,7 @@
       rmc-aslot-underbarrel: 0.28, -0.36
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineRifleAR11
   name: AR-11 combat rifle magazine
   description: A magazine filled with 4.92×34mm rifle rounds for the AR-11.
@@ -128,8 +128,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: CMArmorPiercing
     amount: 20
   - type: MCXenoSunderDamageOnHit

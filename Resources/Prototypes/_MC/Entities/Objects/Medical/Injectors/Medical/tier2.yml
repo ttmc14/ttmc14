@@ -1,0 +1,103 @@
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorMeralyne
+  name: meralyne auto-injector
+  description: An auto-injector loaded with 3 doses of meralyne, formulated to heal cuts and bruises, but cause slight pain.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-meralyne-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDermaline
+  name: dermaline auto-injector
+  description: An auto-injector loaded with 3 doses of dermaline, formulated to heal burns, but cause slight pain.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCDermaline
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-dermaline-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDexalinPlus
+  name: dexalin plus auto-injector
+  description: An auto-injector loaded with 3 uses of dexalin plus, designed to immediately oxygenate the entire body.
+  components:
+  - type: Hypospray
+    transferAmount: 1
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 3
+        reagents:
+        - ReagentId: MCDexalinPlus
+          Quantity: 3
+  - type: IconLabel
+    labelTextLocId: mc-dexalinplus-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorSalineGlucose
+  name: isotonic solution auto-injector
+  description: An auto-injector loaded with 2 doses of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCSalineGlucose
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-isotonic-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorQuickClot
+  name: quick-clot auto-injector
+  description: An auto-injector loaded with 3 doses of quick-clot, a chemical designed to pause all bleeding. Renew doses as needed.
+  components:
+  - type: Hypospray
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCQuickClot
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-quickclot-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorOxycodone
+  name: oxycodone auto-injector
+  description: An auto-injector loaded with 2 doses of oxycodone, a powerful pankiller intended for life-threatening situations.
+  components:
+  - type: Hypospray
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCOxycodone
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-oxycodone-container-label-text

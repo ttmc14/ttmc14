@@ -42,3 +42,13 @@
       - id: MCArmorHelmetModularJaegerGugnir
       - id: MCArmorHelmetModularJaegerAssault
       - id: MCArmorHelmetModularJaegerEOD
+    - name: Jaeger modules
+      entries:
+      - id: MCArmorModuleMark1TyrArmor
+      - id: MCArmorModuleMark1Mimir
+      - id: MCArmorModuleHodBalistic
+      - id: MCArmorModuleBaldur
+      - id: MCArmorModuleValiChemical
+      - id: MCArmorModuleSvalinnEnergyShield
+      # Loki Illusion Module
+      # Thor Armorlock Module

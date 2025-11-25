@@ -1,0 +1,155 @@
+- type: entity
+  parent: MCWeaponSmartGun
+  id: MCWeaponSmartGunSG25
+  name: SG-25 smartrifle
+  description: "The SG-25 is the TGMC's current standard IFF-capable rifle. It's known for its ability to lay down quick fire support very well. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition."
+  components:
+  - type: Item
+    size: Huge
+  - type: AmmoCounter
+  - type: MagazineAmmoProvider
+    autoEject: true
+  - type: RMCAmmoEject
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
+    layers:
+    - state: base
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
+    - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
+    slots:
+    - suitStorage
+    - Back
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSmartGunSG25
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t42_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t42_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSmartGunSG25
+  # Stats
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: !type:SoundCollectionSpecifier
+      collection: MCWeaponSmartGunSG29Gunshot
+      params:
+        volume: -2
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Fire/m41a_empty.ogg
+  - type: GunIFF
+    enabled: true
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    baseFireRate: 5 # fire delay 0.2
+    scatterWielded: -5
+    scatterUnwielded: 60
+    recoilWielded: 0
+    recoilUnwielded: 0
+    modifiers:
+      FullAuto:
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+    accuracyMultiplierUnwielded: 0.5
+  # Wield
+  - type: GunRequiresWield
+  - type: Wieldable
+  - type: WieldDelay
+    baseDelay: 1.1
+  # Skills
+  - type: MCGunSkilled
+    skill: RMCSkillSmartGun
+  # Crosshair
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all
+  # Attachments
+  - type: AttachableHolder
+    slots:
+      mc-slot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRedDotSight
+          - MCAttachmentRailFlashlight
+      mc-slot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+          - MCAttachmentRecoilCompensator
+          - MCAttachmentMiniFlamethrower
+      mc-slot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentBipod
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-slot-barrel: 0.875, 0.03125
+      mc-slot-stock: -0.625, 0
+      mc-slot-underbarrel: 0.24, -0.064 # я на угад
+
+# Magazine
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineSmartGunSG25
+  name: SG-25 magazine (10x26mm)
+  description: A 10mm assault rifle magazine.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg25.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineSmartGunSG25
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSmartGunSG29
+    proto: MCCartridgeSmartGunSG29
+    capacity: 80
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsSmartGunSG29
+
+- type: entity
+  parent: MCMagazineSmartGunSG25
+  id: MCMagazineSmartGunSG25Extended
+  name: SG-25 extended magazine (10x26mm)
+  description: A 10mm extended assault rifle magazine.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg25_ext.rsi
+  - type: BallisticAmmoProvider
+    capacity: 120
+
+- type: Tag
+  id: MCMagazineSmartGunSG25

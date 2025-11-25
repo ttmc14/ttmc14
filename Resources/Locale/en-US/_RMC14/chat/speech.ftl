@@ -1,23 +1,23 @@
-﻿chat-speech-verb-name-xeno = Xeno
+﻿chat-speech-verb-name-xeno = Ксеноморф
 
-chat-speech-verb-name-vulpkanin = Vulpkanin
-chat-speech-verb-vulpkanin-1 = yips
-chat-speech-verb-vulpkanin-2 = barks
-chat-speech-verb-vulpkanin-3 = rurs
-chat-speech-verb-vulpkanin-4 = yaps
+chat-speech-verb-name-vulpkanin = Вульпканин
+chat-speech-verb-vulpkanin-1 = тявкает
+chat-speech-verb-vulpkanin-2 = лает
+chat-speech-verb-vulpkanin-3 = рычит
+chat-speech-verb-vulpkanin-4 = взвизгивает
 
-chat-speech-verb-name-rodentia = Rodentia
-chat-speech-verb-rodentia-1 = squeaks
-chat-speech-verb-rodentia-2 = pieps
-chat-speech-verb-rodentia-3 = chatters
-chat-speech-verb-rodentia-4 = squeals
+chat-speech-verb-name-rodentia = Родентия
+chat-speech-verb-rodentia-1 = пищит
+chat-speech-verb-rodentia-2 = попискивает
+chat-speech-verb-rodentia-3 = скребется
+chat-speech-verb-rodentia-4 = визжит
 
-chat-speech-verb-name-feroxi = Feroxi
-chat-speech-verb-feroxi-1 = blubs
-chat-speech-verb-feroxi-2 = swishes
-chat-speech-verb-feroxi-3 = gnashes
-chat-speech-verb-feroxi-4 = growls
+chat-speech-verb-name-feroxi = Ферокси
+chat-speech-verb-feroxi-1 = булькает
+chat-speech-verb-feroxi-2 = шелестит
+chat-speech-verb-feroxi-3 = щёлкает зубами
+chat-speech-verb-feroxi-4 = рычит
 
-chat-speech-verb-name-megaphone = Megaphone
-chat-speech-verb-megaphone-1 = broadcasts
-chat-speech-verb-megaphone-2 = announces
+chat-speech-verb-name-megaphone = Мегафон
+chat-speech-verb-megaphone-1 = транслирует
+chat-speech-verb-megaphone-2 = объявляет

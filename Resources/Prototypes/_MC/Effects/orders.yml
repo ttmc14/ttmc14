@@ -1,0 +1,87 @@
+﻿- type: entity
+  id: MCEffectAttackOrder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Sprite
+    sprite: _MC/Effects/orders.rsi
+    noRot: true
+    state: attack
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: MarineMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/MapIcons/orders.rsi
+      state: attack
+
+- type: entity
+  id: MCEffectDefendOrder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Sprite
+    sprite: _MC/Effects/orders.rsi
+    noRot: true
+    state: defend
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: MarineMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/MapIcons/orders.rsi
+      state: defend
+
+- type: entity
+  id: MCEffectRetreatOrder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Sprite
+    sprite: _MC/Effects/orders.rsi
+    noRot: true
+    state: retreat
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: MarineMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/MapIcons/orders.rsi
+      state: retreat
+
+- type: entity
+  id: MCEffectRallyOrder
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 30
+  - type: Sprite
+    sprite: _MC/Effects/orders.rsi
+    noRot: true
+    state: rally
+    drawdepth: Effects
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu
+  - type: MarineMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/MapIcons/orders.rsi
+      state: rally

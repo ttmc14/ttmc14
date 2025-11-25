@@ -4,6 +4,7 @@ ent-XenoTunnelMaint = Maintenance Hatch
     .desc = An entrance to a maintenance tunnel. You can see bits of slime and resin within. Pieces of debris keep you from getting a closer look.
 ent-XenoTunnelMaintNoXenoDesc = { ent-XenoTunnelMaint }
     .desc = An entrance to a maintenance tunnel. Pieces of debris keep you from getting a closer look.
+    .suffix = No Xeno Desc
 ent-XenoTunnelMaintHybrisa = Sewer Manhole
     .desc = { ent-XenoTunnelMaint.desc }
 ent-XenoTunnelMaintHybrisaNoXenoDesc = Sewer Manhole

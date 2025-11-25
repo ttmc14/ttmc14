@@ -27,6 +27,9 @@
       0: Alive
       600: Critical
       700: Dead
+  - type: XenoAnnounceDeath
+    message: mc-xeno-hive-ruler-dead
+    color: "#921992"
   - type: XenoPlasma
     plasma: 1200
     maxPlasma: 1200
@@ -58,18 +61,19 @@
     id: MCXenoQueen
     max: 1
   - type: MCArmor
-    melee: 65
-    bullet: 65
-    laser: 65
-    energy: 65
-    bomb: 30
-    bio: 60
-    fire: 60
-    acid: 60
+    soft:
+      melee: 65
+      bullet: 65
+      laser: 65
+      energy: 65
+      bomb: 30
+      bio: 60
+      fire: 60
+      acid: 60
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 28
+      types:
+        MCBrute: 30
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.702
     baseSprintSpeed: 3.703
@@ -121,5 +125,3 @@
     - MCWallXenoResinThickFireproof
     - MCWallXenoResinThickHardy
     - MCDoorXenoResinThick
-  - type: MCXenoEvolutionRequiredQuantity
-    count: 8

@@ -12,10 +12,10 @@ namespace Content.Shared._RMC14.Medical.Wounds;
 public sealed partial class WoundedComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public ProtoId<DamageGroupPrototype> BruteWoundGroup = "Brute";
+    public ProtoId<DamageGroupPrototype> BruteWoundGroup = "MCBrute"; // mc-changes
 
     [DataField, AutoNetworkedField]
-    public ProtoId<DamageGroupPrototype> BurnWoundGroup = "Burn";
+    public ProtoId<DamageGroupPrototype> BurnWoundGroup = "MCBurn"; // mc-changes
 
     [DataField, AutoNetworkedField]
     public List<Wound> Wounds = new();

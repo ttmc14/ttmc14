@@ -1,6 +1,9 @@
 ent-RMCMapInsertLV624Armory = Armory
     .suffix = Insert LV624
     .desc = { ent-RMCMapInsertBase.desc }
+ent-RMCMapInsertLV624CorporateDome = Corporate Dome
+    .suffix = Insert LV624
+    .desc = { ent-RMCMapInsertBase.desc }
 ent-RMCMapInsertLV624Gym = Gym
     .suffix = Insert LV624
     .desc = { ent-RMCMapInsertBase.desc }

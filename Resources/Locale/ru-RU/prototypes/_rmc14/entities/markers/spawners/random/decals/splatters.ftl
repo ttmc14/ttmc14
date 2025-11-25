@@ -1,0 +1,12 @@
+ent-RMCDecalSpawnerBase = { ent-DecalSpawnerBase }
+    .suffix = RMC14, Blood Splatters
+    .desc = { ent-DecalSpawnerBase.desc }
+ent-RMCDecalSpawnerBloodSplatters = blood spawner
+    .suffix = RMC14
+    .desc = { ent-RMCDecalSpawnerBase.desc }
+ent-RMCDecalSpawnerXenoSplatters = xeno blood spawner
+    .suffix = RMC14
+    .desc = { ent-RMCDecalSpawnerBase.desc }
+ent-RMCDecalSpawnerOilSplatters = oil spawner
+    .suffix = RMC14
+    .desc = { ent-RMCDecalSpawnerBase.desc }

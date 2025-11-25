@@ -8,3 +8,5 @@ ent-RMCCrateSupplyJanitor = assorted janitorial supplies
     .desc = { ent-RMCCrateSupply.desc }
 ent-RMCCrateSuppliesCrayons = boxes of crayons
     .desc = { ent-RMCCrateSupply.desc }
+ent-RMCCrateAegisLobby = AEGIS tracking equipment crate (x3 pinpointers, x1 pamphlet)
+    .desc = A supply crate containing AEGIS ID tracking equipment and documentation.

@@ -1,0 +1,83 @@
+﻿- type: entity
+  parent: ActionXenoBase
+  id: MCActionSendOrderAttack
+  name: Send Attack Order
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: attack
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCAttackSendOrdersActionEvent
+  - type: ActionSharedCooldown
+    id: MCActionSendOrderAttack
+    ids:
+    - MCActionSendOrderDefend
+    - MCActionSendOrderRetreat
+    - MCActionSendOrderRally
+    cooldown: 30
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionSendOrderDefend
+  name: Send Defend Order
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: defend
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCDefendSendOrdersActionEvent
+  - type: ActionSharedCooldown
+    id: MCActionSendOrderDefend
+    ids:
+    - MCActionSendOrderAttack
+    - MCActionSendOrderRetreat
+    - MCActionSendOrderRally
+    cooldown: 30
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionSendOrderRetreat
+  name: Send Retreat Order
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: retreat
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCRetreatSendOrdersActionEvent
+  - type: ActionSharedCooldown
+    id: MCActionSendOrderRetreat
+    ids:
+    - MCActionSendOrderDefend
+    - MCActionSendOrderAttack
+    - MCActionSendOrderRally
+    cooldown: 30
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionSendOrderRally
+  name: Send Rally Order
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: rally
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCRallySendOrdersActionEvent
+  - type: ActionSharedCooldown
+    id: MCActionSendOrderRally
+    ids:
+    - MCActionSendOrderDefend
+    - MCActionSendOrderRetreat
+    - MCActionSendOrderAttack
+    cooldown: 30

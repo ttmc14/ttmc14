@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
   id: MCWeaponRifleAR12
   name: AR-12 K&H assault rifle
   description: The Keckler and Hoch AR-12 assault rifle used to be the TerraGov Marine Corps standard issue rifle before the AR-18 carbine replaced it. It is, however, still used widely despite that. The gun itself is very good at being used in most situations however it suffers in engagements at close quarters and is relatively hard to shoulder than some others. It uses 10x24mm caseless ammunition.
@@ -100,7 +100,7 @@
       rmc-aslot-underbarrel: 0.28, -0.31
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineRifleAR12
   name: AR-12 magazine (10x24mm)
   description: A 10mm assault rifle magazine.
@@ -127,7 +127,7 @@
   - type: Appearance
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineRifleAR12AP
   name: AR-12 AP magazine (10x24mm)
   description: A 10mm assault rifle magazine, loaded with light armor piercing rounds.
@@ -186,8 +186,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: CMArmorPiercing
     amount: 25
   - type: MCXenoSunderDamageOnHit
@@ -210,8 +210,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 25
+      types:
+        MCBrute: 25
   - type: CMArmorPiercing
     amount: 5
   - type: MCXenoSunderDamageOnHit

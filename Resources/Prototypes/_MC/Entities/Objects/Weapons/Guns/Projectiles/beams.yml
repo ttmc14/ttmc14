@@ -2,8 +2,8 @@
 - type: hitscan
   id: MCProjectileBeamBase
   damage:
-    groups:
-      Burn: 20
+    types:
+      MCBurn: 20
   muzzleFlash:
     sprite: _MC/Objects/Weapons/Guns/Projectiles/Beams/base.rsi
     state: muzzle_beam
@@ -17,8 +17,8 @@
 - type: hitscan
   id: MCProjectileBeamOvercharge
   damage:
-    groups:
-      Burn: 40
+    types:
+      MCBurn: 40
   muzzleFlash:
     sprite: _MC/Objects/Weapons/Guns/Projectiles/Beams/overcharge.rsi
     state: muzzle_beam
@@ -32,8 +32,8 @@
 - type: hitscan
   id: MCProjectileBeamWeakening
   damage:
-    groups:
-      Burn: 30
+    types:
+      MCBurn: 30
   muzzleFlash:
     sprite: _MC/Objects/Weapons/Guns/Projectiles/Beams/weakening.rsi
     state: muzzle_beam
@@ -47,8 +47,8 @@
 - type: hitscan
   id: MCProjectileBeamMicrowave
   damage:
-    groups:
-      Burn: 20
+    types:
+      MCBurn: 20
   muzzleFlash:
     sprite: _MC/Objects/Weapons/Guns/Projectiles/Beams/microwave.rsi
     state: muzzle_beam
@@ -62,8 +62,8 @@
 - type: hitscan
   id: MCProjectileBeamBlast
   damage:
-    groups:
-      Burn: 35
+    types:
+      MCBurn: 35
   muzzleFlash:
     sprite: _MC/Objects/Weapons/Guns/Projectiles/Beams/blast.rsi
     state: muzzle_beam

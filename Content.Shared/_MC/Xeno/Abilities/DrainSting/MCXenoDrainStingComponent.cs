@@ -11,7 +11,7 @@ public sealed partial class MCXenoDrainStingComponent : Component
     {
         DamageDict =
         {
-            { "Burn", 1 },
+            { "MCBurn", 1 },
         },
     };
 }

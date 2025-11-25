@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCWeaponRevolverBase
+  parent: MCWeaponRevolver
   id: MCWeaponRevolverR44
   name: R-44 combat revolver
   description: The R-44 standard combat revolver, produced by Terran Armories. A sturdy and hard hitting firearm that loads .44 Magnum rounds. Holds 7 rounds in the cylinder. Due to an error in the cylinder rotation system the fire rate of the gun is much faster than intended, it ended up being billed as a feature of the system.
@@ -7,7 +7,7 @@
   - type: Tag
     tags:
     - MCWeaponSidearm
-    - MCWeaponRevoler
+    - MCWeaponRevolver
     - MCWeaponRevolverR44
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Pistols/r44.rsi
@@ -58,13 +58,13 @@
 - type: entity
   id: MCBaseSpeedLoader44
   name: "R-44 magnum speed loader (.44)"
-  parent: BaseItem
+  parent: MCItem
   abstract: true
   components:
   - type: Tag
     tags:
     - MCMagazineSidearm
-    - MCMagazineRevoler
+    - MCMagazineRevolver
     - MCSpeedLoaderR44
   - type: Item
     size: Small
@@ -120,8 +120,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 45
+      types:
+        MCBrute: 45
   - type: CMArmorPiercing
     amount: 10
   - type: MCXenoSunderDamageOnHit

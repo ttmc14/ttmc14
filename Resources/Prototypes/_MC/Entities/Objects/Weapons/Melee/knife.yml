@@ -14,18 +14,14 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 20
-  - type: MeleeDamageMultiplier
-    whitelist:
-      components:
-      - Xeno
+      types:
+        MCBrute: 20
   - type: Item
     size: Normal
     sprite: _MC/Objects/Weapons/Melee/combat_knife.rsi
@@ -54,12 +50,12 @@
     wideAnimationRotation: -135
     attackRate: 1
     damage:
-      groups:
-        Brute: 25
+      types:
+        MCBrute: 25
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Melee/bayonetknife.rsi
@@ -71,8 +67,8 @@
   - type: AttachableWeaponMeleeMods
     modifiers:
     - bonusDamage:
-        groups:
-          Brute: 25
+      types:
+        MCBrute: 25
   - type: AttachableWeaponRangedMods
     modifiers:
     - conditions:
@@ -107,12 +103,12 @@
     wideAnimationRotation: -135
     attackRate: 1
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Melee/bayonetknife_som.rsi
@@ -124,8 +120,8 @@
   - type: AttachableWeaponMeleeMods
     modifiers:
     - bonusDamage:
-        groups:
-          Brute: 25
+        types:
+          MCBrute: 25
   - type: AttachableWeaponRangedMods
     modifiers:
     - conditions:

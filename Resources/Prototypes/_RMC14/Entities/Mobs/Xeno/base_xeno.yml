@@ -32,7 +32,8 @@
   id: CMXenoBase
   abstract: true
   save: false
-  components: # TODO RMC14 camera recoil from large explosions? check 13
+  components:
+  # TODO RMC14 camera recoil from large explosions? check 13
   - type: Damageable
     damageContainer: Xeno
   - type: Destructible
@@ -155,24 +156,23 @@
             visible: true
       enum.TargetedVisuals.TargetedDirection:
         targetedDirection:
-          True: { visible: true}
-          False: { visible: false}
+          True: { visible: true }
+          False: { visible: false }
       enum.TargetedVisuals.TargetedDirectionIntense:
         targetedDirectionIntense:
           True: { visible: true }
           False: { visible: false }
       enum.FocusedVisuals.Focused:
         focused:
-          True: { visible: true}
-          False: { visible: false}
+          True: { visible: true }
+          False: { visible: false }
   - type: Spottable
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 185
         mask:
@@ -182,8 +182,7 @@
         layer:
         - MobLayer
       fix2:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.40
         density: 0
         layer:
@@ -274,32 +273,26 @@
   - type: StandingState
   - type: SlowOnPull
     slowdowns:
-      - multiplier: 0.6
-        whitelist:
-          components:
-          - Marine
-      - multiplier: 0.665
-        whitelist:
-          components:
-          - XenoLight
-      - multiplier: 0.445
-        whitelist:
-          components:
-          - XenoHeavy
-  - type: PullWhitelist
-    whitelist:
-      components:
-      - Xeno
-      - Infectable
-      - Synth
+    - multiplier: 0.6
+      whitelist:
+        components:
+        - Marine
+    - multiplier: 0.665
+      whitelist:
+        components:
+        - XenoLight
+    - multiplier: 0.445
+      whitelist:
+        components:
+        - XenoHeavy
   - type: BlockPullingDead
   - type: XenoFriendly
   - type: Undisposable
   - type: ShortExamine
   - type: DamageMobState
     critDamage:
-      groups:
-        Brute: 1.25
+      types:
+        MCBrute: 1.25
   - type: AffectableByWeeds
   - type: ComplexInteraction
   - type: UserLimitHits
@@ -417,8 +410,8 @@
       collection: RCMXenoClaw
     animation: RMCWeaponArcXenoClaw
     damage:
-      groups:
-        Brute: 12
+      types:
+        MCBrute: 12
     soundSwing:
       path: /Audio/_RMC14/Weapons/alien_claw_swipe.ogg
       params:
@@ -490,8 +483,8 @@
   components:
   - type: XenoTailStab
     tailDamage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
     tailRange: 2.5
 
 - type: entity
@@ -501,9 +494,10 @@
   - type: Flammable
     fireSpread: false
     canResistFire: true
-    damage: #per second, scales with number of fire 'stacks'
+    damage:
+      #per second, scales with number of fire 'stacks'
       types:
-        Heat: 1
+        MCBurn: 1 # mc-changes
 
 - type: entity
   abstract: true

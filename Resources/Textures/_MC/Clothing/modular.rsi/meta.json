@@ -1,0 +1,589 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": ""
+    },
+    {
+      "name": "modules"
+    },
+    {
+      "name": "tyr_head"
+    },
+    {
+      "name": "mod_fire_head"
+    },
+    {
+      "name": "mimir_head"
+    },
+    {
+      "name": "mimir_head_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_chemsystem_active_a",
+      "directions": 4,
+      "delays": [
+        [
+          0.030000001,
+          0.030000001,
+          0.05,
+          0.1,
+          0.11,
+          0.120000005,
+          0.08,
+          0.05
+        ],
+        [
+          0.030000001,
+          0.030000001,
+          0.05,
+          0.1,
+          0.11,
+          0.120000005,
+          0.08,
+          0.05
+        ],
+        [
+          0.030000001,
+          0.030000001,
+          0.05,
+          0.1,
+          0.11,
+          0.120000005,
+          0.08,
+          0.05
+        ],
+        [
+          0.030000001,
+          0.030000001,
+          0.05,
+          0.1,
+          0.11,
+          0.120000005,
+          0.08,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "mod_eshield"
+    },
+    {
+      "name": "mod_eshield_a",
+      "directions": 4
+    },
+    {
+      "name": "welding_head"
+    },
+    {
+      "name": "welding_head_active"
+    },
+    {
+      "name": "welding_head_a",
+      "directions": 4
+    },
+    {
+      "name": "welding_head_active_a",
+      "directions": 4
+    },
+    {
+      "name": "binocular_head"
+    },
+    {
+      "name": "binocular_head_active"
+    },
+    {
+      "name": "binocular_head_a",
+      "directions": 4
+    },
+    {
+      "name": "binocular_head_active_a",
+      "directions": 4
+    },
+    {
+      "name": "antenna_head"
+    },
+    {
+      "name": "antenna_head_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_ff_head"
+    },
+    {
+      "name": "mod_ff_head_a",
+      "directions": 4
+    },
+    {
+      "name": "artemis_head"
+    },
+    {
+      "name": "artemis_head_active"
+    },
+    {
+      "name": "artemis_head_a",
+      "directions": 4
+    },
+    {
+      "name": "artemis_head_mk2_a",
+      "directions": 4
+    },
+    {
+      "name": "welding_head_superior"
+    },
+    {
+      "name": "welding_head_superior_active"
+    },
+    {
+      "name": "welding_head_som_active_a",
+      "directions": 4
+    },
+    {
+      "name": "night_vision"
+    },
+    {
+      "name": "mod_autodoc"
+    },
+    {
+      "name": "mod_chemsystem"
+    },
+    {
+      "name": "mod_ff"
+    },
+    {
+      "name": "mod_boomimmune"
+    },
+    {
+      "name": "mod_biohazard"
+    },
+    {
+      "name": "mod_fire"
+    },
+    {
+      "name": "mod_lamp"
+    },
+    {
+      "name": "mod_armor"
+    },
+    {
+      "name": "mod_armor_lower"
+    },
+    {
+      "name": "mod_ff_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_armor_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_armor_lower_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_lamp_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_fire_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_boomimmune_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_biohazard_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_chemsystem_a",
+      "directions": 4
+    },
+    {
+      "name": "tyr_head_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_autodoc_a",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "Storage modules"
+    },
+    {
+      "name": "mod_medic_bag",
+      "directions": 4
+    },
+    {
+      "name": "mod_medic_bag_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_general_bag"
+    },
+    {
+      "name": "mod_general_bag_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_engineer_bag"
+    },
+    {
+      "name": "mod_engineer_bag_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_is_bag"
+    },
+    {
+      "name": "mod_is_bag_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_mag_bag"
+    },
+    {
+      "name": "mod_mag_bag_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_injector_bag"
+    },
+    {
+      "name": "mod_injector_bag_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_grenade_harness"
+    },
+    {
+      "name": "mod_grenade_harness_a",
+      "directions": 4
+    },
+    {
+      "name": "style_light"
+    },
+    {
+      "name": "style_light_a",
+      "directions": 4
+    },
+    {
+      "name": "style_medium"
+    },
+    {
+      "name": "style_medium_a",
+      "directions": 4
+    },
+    {
+      "name": "style_heavy"
+    },
+    {
+      "name": "style_heavy_a",
+      "directions": 4
+    },
+    {
+      "name": "pt_belt"
+    },
+    {
+      "name": "pt_belt_a",
+      "directions": 4
+    },
+    {
+      "name": "SOM modules"
+    },
+    {
+      "name": "mod_fire_som_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_fire_som"
+    },
+    {
+      "name": "lorica_armor_a",
+      "directions": 4
+    },
+    {
+      "name": "lorica_armor"
+    },
+    {
+      "name": "mithridatius_a",
+      "directions": 4
+    },
+    {
+      "name": "mithridatius"
+    },
+    {
+      "name": "mod_autodoc_som"
+    },
+    {
+      "name": "mod_autodoc_som_a",
+      "directions": 4
+    },
+    {
+      "name": "welding_head_som"
+    },
+    {
+      "name": "welding_head_som_active"
+    },
+    {
+      "name": "mod_engineer_bag_som"
+    },
+    {
+      "name": "mod_engineer_bag_som_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_general_bag_som"
+    },
+    {
+      "name": "mod_general_bag_som_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_medic_bag_som"
+    },
+    {
+      "name": "mod_medic_bag_som_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_autodoc_xn_a",
+      "directions": 4,
+      "delays": [
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.8,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "tyr_head_xn_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_fire_head_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_fire_head_xn_a",
+      "directions": 4
+    },
+    {
+      "name": "mimir_head_xn_a",
+      "directions": 4
+    },
+    {
+      "name": "artemis_head_xn_a",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "artemis_head_mk2_xn_a",
+      "directions": 4,
+      "delays": [
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ],
+        [
+          0.2,
+          0.2,
+          0.2,
+          0.2,
+          1
+        ]
+      ]
+    },
+    {
+      "name": "mod_head_scanner"
+    },
+    {
+      "name": "mod_head_scanner_active"
+    },
+    {
+      "name": "mod_head_scanner_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_head_scanner_active_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_pluto"
+    },
+    {
+      "name": "mod_pluto_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_armorlock"
+    },
+    {
+      "name": "mod_illusion"
+    },
+    {
+      "name": "mod_armorlock_a",
+      "directions": 4
+    },
+    {
+      "name": "mod_illusion_a",
+      "directions": 4
+    }
+  ]
+}

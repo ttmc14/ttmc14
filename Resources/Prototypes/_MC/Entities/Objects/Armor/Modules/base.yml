@@ -1,0 +1,8 @@
+- type: entity
+  parent: MCItem
+  id: MCArmorModule
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+  - type: MCArmorModule

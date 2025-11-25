@@ -1,0 +1,10 @@
+﻿- type: reagent
+  id: MCReagent
+  abstract: true
+  isCM: true
+
+- type: reagent
+  parent: MCReagent
+  id: MCReagentElement
+  group: Elements
+  abstract: true

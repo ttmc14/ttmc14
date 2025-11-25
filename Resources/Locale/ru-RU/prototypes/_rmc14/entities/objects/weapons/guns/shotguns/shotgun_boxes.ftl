@@ -16,6 +16,7 @@ ent-RMCBoxShotgunBreaching = box of breaching shells
     .desc = A box filled with breaching shotgun shells. 16 Gauge.
 ent-RMCBoxShotgunBuckshot8g = box of buckshot shells
     .desc = A box filled with buckshot spread shotgun shells. 8 Gauge.
+    .suffix = 8 Gauge
 ent-RMCBoxShotgunHeavyBuckshot = box of heavy buckshot shells
     .desc = A box filled with heavy buckshot spread shotgun shells. 8 Gauge.
 ent-RMCBoxShotgunHeavySlugs = box of heavy slugs shells

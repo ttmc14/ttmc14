@@ -363,3 +363,10 @@
   name: mc-rank-MCMarkV-name
   prefix: mc-rank-MCMarkV-prefix
   paygrade: mc-rank-MCMarkV-paygrade
+
+# PMC
+- type: rank
+  id: MCPMCGunner
+  name: mc-rank-PMCGunner-name
+  prefix: mc-rank-PMCGunner-prefix
+  paygrade: mc-rank-PMCGunner-paygrade

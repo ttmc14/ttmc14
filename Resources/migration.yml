@@ -8,6 +8,12 @@
 # WallSolid: Window
 # Table: null
 
+# 21-11-2025
+MCAreaTempleMiner'sOutpost: MCAreaTempleMinersOutpost
+
+# 18-11-2025
+MCWallBigredInvincible: MCWallBigRedInvincible
+
 # 30-06-2025
 #MCAutomatedWeaponRack: MCMachineVendingWeapon
 #MCMachineVendingAutomatedLoadoutVendor: MCMachineVendingLoadout

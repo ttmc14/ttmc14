@@ -56,16 +56,16 @@
   - type: MeleeReceivedMultiplier
     otherMultiplier: 8.2
     xenoDamage:
-      groups:
-        Brute: 45
+      types:
+        MCBrute: 45
   - type: StickyResinSurgeBlocker
   - type: DeletedByWeedKiller
   - type: Flammable
     fireSpread: false
     maximumFireStacks: 0.5
     damage:
-      groups:
-        Burn: 2
+      types:
+        MCBurn: 2
 
 - type: entity
   parent: MCXenoBaseFloorResin

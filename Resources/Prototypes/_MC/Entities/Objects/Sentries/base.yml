@@ -1,0 +1,145 @@
+- type: entity
+  abstract: true
+  parent: MCItem
+  id: MCSentryPremade
+  name: turret
+  description: A deployable, semi-automated turret with AI targeting capabilities. Armed with an M30 Autocannon and a 500-round drum magazine.
+  components:
+  - type: Item
+    size: Normal
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.25
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      sentry:
+        shape: !type:PhysShapeCircle
+          radius: 0.45
+        density: 20
+        layer:
+        - MidImpassable
+        - BulletImpassable
+        mask:
+        - MidImpassable
+        - BulletImpassable
+        hard: false
+  - type: CollisionWake
+    enabled: false
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Sentries/sentry.rsi
+    drawdepth: Mobs
+    noRot: true
+    layers:
+    - map: [ "base" ]
+      state: handled
+  - type: Icon
+    sprite: _RMC14/Objects/Weapons/Sentries/sentry.rsi
+    state: normal_uac_sentry_handheld
+  - type: Appearance
+  - type: CombatMode
+    toggleMouseRotator: false
+  - type: Gun
+    fireRate: 2.5
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: /Audio/Weapons/Guns/Gunshots/gun_sentry.ogg
+  - type: MagazineAmmoProvider
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: HTN
+    rootTask:
+      task: RMCSentryCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+      VisionRadius: !type:Single "7.0"
+      AggroVisionRadius: !type:Single "7.0"
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: GunIFF
+    enabled: true
+    intrinsic: true
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: MCIntegrity
+    thresholds:
+      Destruction: 200
+  - type: MCIntegrityDestructible
+  - type: HealthExaminable
+    locPrefix: sentry
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+  - type: ShortExamine
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: RMCRepairable
+  - type: RMCNameItemOnVend
+    item: Sentry
+  - type: RequireProjectileTarget
+  - type: RMCWeaponAccuracy
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item:
+            state: handled
+          Deployed:
+            state: deployed
+  - type: NpcFactionMember
+    factions:
+    - UNMC
+  - type: UserIFF
+    faction: FactionMarine
+
+- type: entity
+  parent: MCSentryPremade
+  id: MCSentry
+  name: sentry
+  abstract: true
+  components:
+  - type: Tag
+    tags: [ MCSentry ]
+  - type: MCSentry
+  - type: MCDeploy
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 50
+      laser: 50
+      energy: 50
+      bomb: 50
+      bio: 100
+      fire: 80
+      acid: 50
+  - type: MarineMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/job_icons.rsi
+      state: sentry_passive
+
+- type: Tag
+  id: MCSentry
+
+- type: Tag
+  id: MCMagazineSentry

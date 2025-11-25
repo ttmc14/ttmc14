@@ -1,0 +1,102 @@
+- type: entity
+  parent: MCSentry
+  id: MCSentrySniper
+  name: SST-574 sentry gun
+  description: A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy caliber AM-5 antimaterial rifle and a 75-round drum magazine.
+  components:
+  - type: Icon
+    sprite: _MC/Objects/Sentries/sniper.rsi
+    state: handled
+  - type: Sprite
+    sprite: _MC/Objects/Sentries/sniper.rsi
+  - type: MCSentry
+  - type: MCDeploy
+    deployTime: 10
+  - type: Gun
+    fireRate: 0.5
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSentrySniper
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSentrySniper
+  # turret_range = 12
+  - type: HTN
+    rootTask:
+      task: RMCSentryCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+      VisionRadius: !type:Single "12.0"
+      AggroVisionRadius: !type:Single "12.0"
+
+- type: entity
+  parent: MCMagazine
+  id: MCMagazineSentrySniper
+  name: "SST-574 box magazine (10x28mm Caseless)"
+  description: "A magazine of 50 10x28mm caseless rounds for the SST-574 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted."
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSentry
+    - MCMagazineSentrySniper
+  - type: Sprite
+    sprite: _MC/Objects/Items/Ammunition/Sentry/sniper.rsi
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSentrySniper
+    proto: MCCartridgeSentrySniper
+    capacity: 75
+
+- type: Tag
+  id: MCMagazineSentrySniper
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeSentrySniper
+  name: cartridge (10x28mm Caseless)
+  description: ...
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeSentrySniper
+  - type: CartridgeAmmo
+    proto: MCBulletSentrySniper
+
+- type: Tag
+  id: MCCartridgeSentrySniper
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSentrySniper
+  name: antimaterial bullet
+  description: ...
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 80
+  - type: CMArmorPiercing
+    amount: 50
+  - type: MCXenoSunderDamageOnHit
+    amount: 5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 1
+      falloff: 0
+    - range: 21
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    minAccuracy: 100

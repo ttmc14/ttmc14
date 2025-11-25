@@ -9,6 +9,14 @@
 # Bridge
 - type: entity
   parent: CMAirlockCommand
+  id: MCSingleDoorBridgeSolid
+  suffix: Bridge, Solid
+  components:
+  - type: AccessReader
+    access: []
+
+- type: entity
+  parent: CMAirlockCommand
   id: MCSingleDoorCapitanSolidLocked
   suffix: Capitan, Solid, Locked
   components:

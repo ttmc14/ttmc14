@@ -1,0 +1,255 @@
+﻿- type: entity
+  parent: [ MCWeaponGun, MCItem, RMCBaseAttachableHolder ]
+  id: MCWeaponFlamer
+  name: FL-84 flamethrower
+  description: M34 incinerator unit has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+    state: base
+    layers:
+    - state: base
+      map: ["enum.GunVisualLayers.Base"]
+    - state: mag-0
+      map: ["enum.GunVisualLayers.Mag"]
+    - state: lit
+      map: ["enum.RMCIgniterVisuals.Ignited"]
+  - type: Item
+    sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+    size: Large
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+    slots:
+    - suitStorage
+    - Back
+  - type: Gun
+    cameraRecoilScalar: 0
+    fireRate: 0.444
+    resetOnHandSelected: false
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: MCFL84Shoot
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/flamethrower_empty.ogg # че-то не работает
+  - type: ShootUseDelay
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Tank
+        startingItem: MCTankFlamer
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCFlamerTank
+  - type: Wieldable
+  - type: WieldableSpeedModifiers
+    base: 0.6
+    light: 0.75
+    medium: 0.85
+    heavy: 0.9
+  - type: GunRequiresWield
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: RMCFlamerAmmoProvider
+    range: 6
+    spawn: null
+  - type: AttachableHolder
+    slots:
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMagneticHarness
+      mc-slot-underbarrel:
+        startingAttachable: MCAttachmentUnderslungHydrocannon
+        whitelist:
+          tags:
+          - MCAttachmentUnderslungHydrocannon
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-slot-rail: -0.032, 0.092
+      mc-slot-underbarrel: 0.230, -0.038
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/flamer_mouse.rsi
+      state: all
+  - type: RMCIgniter # Обещаю нахуй, эта хуйня будет отключатся при отсутствии магазина
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Interact/flamethrower_off.ogg
+      params:
+        variation: 0.025
+  - type: RMCAmmoEject
+  - type: GenericVisualizer
+    visuals:
+      enum.RMCFlamerVisualLayers.Strip:
+        enum.RMCFlamerVisualLayers.Strip:
+          True: { visible: true }
+          False: { visible: false }
+      enum.RMCIgniterVisuals.Ignited:
+        enum.RMCIgniterVisuals.Ignited:
+          True: { visible: true }
+          False: { visible: false }
+  - type: Tag
+    tags:
+    - MCWeaponIncineratorFL84
+
+- type: entity
+  parent: MCWeaponFlamer
+  id: MCWeaponFlamerUnloaded
+  suffix: Unloaded, NoAttachable
+  components:
+  - type: AttachableHolder
+    slots:
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMagneticHarness
+      mc-slot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentUnderslungHydrocannon
+
+- type: entity
+  parent: MCWeaponFlamer
+  id: MCWeaponFlamerUnloadedNoMag
+  suffix: Unloaded, NoMag
+  components:
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Tank
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCFlamerTank
+
+- type: entity
+  parent: MCWeaponFlamer
+  id: MCWeaponFlamerUnloadedAll
+  suffix: Unloaded All
+  components:
+  - type: AttachableHolder
+    slots:
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMagneticHarness
+      mc-slot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentUnderslungHydrocannon
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Tank
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCFlamerTank
+
+
+- type: entity
+  parent: [ MCMPersonalStorage, RMCScabbardBase ]
+  id: MCBackFlamethrower
+  name: TGMC flamethrower bag
+  description: This backpack can carry its accompanying flamethrower as well as a modest general storage capacity. Automatically refuels it's accompanying flamethrower.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/pyro.rsi
+    layers:
+    - state: pyro_bag
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/pyro.rsi
+    slots:
+    - back
+  - type: Item
+    size: Normal
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,1
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 280
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 280
+  - type: SolutionTransfer
+    transferAmount: 280
+    maxTransferAmount: 280
+    minTransferAmount: 280
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamer
+      - MCPyroFlamerMini
+  - type: NoMixingReagents
+  - type: CMStorageVisualizer
+    storageClosed: null
+    storageOpen: null
+  - type: RMCFlamerBackpack # Потом обещаю нахуй механика будет переработана нахуй
+    solution: tank
+  - type: DetailedExaminableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: RMCRefillSolutionOnStore
+    solution: tank
+  - type: ItemSlots
+    slots:
+      item:
+        name: Flamethrower
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponIncineratorFL84
+  - type: ItemMapper
+    mapLayers:
+      pyro_bag_full:
+        whitelist:
+          tags:
+          - MCWeaponIncineratorFL84
+  - type: Tag
+    tags:
+    - MCBackpackFlamer
+
+- type: entity
+  parent: MCBackFlamethrower
+  id: MCBackFlamethrowerFull
+  suffix: Full
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: Flamethrower
+        startingItem: MCWeaponFlamerUnloaded
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponIncineratorFL84
+
+- type: Tag
+  id: MCWeaponIncineratorFL84

@@ -1,6 +1,7 @@
 ﻿- type: entity
   parent: HandLabeler
   id: MCHandLabeler
+  categories: [ MCContent ]
   components:
     - type: Sprite
       sprite: _RMC14/Objects/Tools/hand_labeler.rsi

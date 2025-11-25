@@ -1,0 +1,140 @@
+- type: entity
+  parent: MCItem
+  id: MCBeakerMetallic
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - GlassBeaker
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Chemistry/beaker.rsi
+    layers:
+    - state: beaker
+    - state: beaker1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: lid_beaker
+      map: [ "enum.OpenableVisuals.Layer" ]
+      visible: false
+  - type: Item
+    sprite: _MC/Objects/Chemistry/beaker.rsi
+    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitstorage
+  - type: SolutionContainerVisuals
+    maxFillLevels: 6
+    fillBaseName: beaker
+  - type: GenericVisualizer
+    visuals:
+      enum.OpenableVisuals.Opened:
+        enum.OpenableVisuals.Layer:
+          True: { visible: false }
+          False: { visible: true }
+  - type: Openable
+    opened: true
+    closeable: true
+    examineText: rmc-bottle-closed
+    openVerbText: rmc-bottle-remove-lid
+    closeVerbText: rmc-bottle-put-lid
+    sound: null
+  - type: MeleeWeapon
+    soundNoDamage:
+      path: "/Audio/Effects/Fluids/splat.ogg"
+    damage:
+      types:
+        Blunt: 0
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: RMCSmartFridgeInsertable
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 60
+  - type: MixableSolution
+    solution: beaker
+  - type: FitsInDispenser
+    solution: beaker
+  - type: RefillableSolution
+    solution: beaker
+  - type: DrainableSolution
+    solution: beaker
+  - type: ExaminableSolution
+    solution: beaker
+  - type: DrawableSolution
+    solution: beaker
+  - type: InjectableSolution
+    solution: beaker
+  - type: SolutionItemStatus
+    solution: beaker
+  - type: Drink
+    solution: beaker
+  - type: Spillable
+    solution: beaker
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+
+- type: entity
+  parent: MCBeakerMetallic
+  id: MCBeaker
+  name: beaker
+  description: A beaker. Can hold up to 60 units.
+  components:
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpillBehavior {}
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 0
+            max: 1
+        transferForensics: true
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MCBeaker
+  id: MCBeakerLarge
+  name: large beaker
+  description: A large beaker. Can hold up to 120 units.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Chemistry/large_beaker.rsi
+    layers:
+    - state: beakerlarge
+    - state: beakerlarge1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: lid_beakerlarge
+      map: [ "enum.OpenableVisuals.Layer" ]
+      visible: false
+  - type: Item
+    sprite: _MC/Objects/Chemistry/large_beaker.rsi
+  - type: SolutionContainerVisuals
+    fillBaseName: beakerlarge
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 120

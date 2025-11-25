@@ -82,7 +82,7 @@ public sealed partial class XenoSystem : EntitySystem
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _weeds = default!;
 
-    private static readonly ProtoId<DamageTypePrototype> HeatDamage = "Heat";
+    private static readonly ProtoId<DamageTypePrototype> HeatDamage = "MCBurn"; // mc-changes
 
     private EntityQuery<AffectableByWeedsComponent> _affectableQuery;
     private EntityQuery<DamageableComponent> _damageableQuery;
@@ -93,7 +93,7 @@ public sealed partial class XenoSystem : EntitySystem
     private EntityQuery<XenoPlasmaComponent> _xenoPlasmaQuery;
     private EntityQuery<XenoRecoveryPheromonesComponent> _xenoRecoveryQuery;
     private EntityQuery<VictimInfectedComponent> _victimInfectedQuery;
-    private EntityQuery<MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery; // marine-corps-feature
+    private EntityQuery<MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery; // mc-changes
 
     private float _xenoDamageDealtMultiplier;
     private float _xenoDamageReceivedMultiplier;
@@ -113,7 +113,7 @@ public sealed partial class XenoSystem : EntitySystem
         _xenoPlasmaQuery = GetEntityQuery<XenoPlasmaComponent>();
         _xenoRecoveryQuery = GetEntityQuery<XenoRecoveryPheromonesComponent>();
         _victimInfectedQuery = GetEntityQuery<VictimInfectedComponent>();
-        _mcWeedsRegenerationQuery = GetEntityQuery<MCXenoWeedsRegenerationComponent>(); // marine-corps-feature
+        _mcWeedsRegenerationQuery = GetEntityQuery<MCXenoWeedsRegenerationComponent>(); // mc-changes
 
         SubscribeLocalEvent<XenoComponent, MapInitEvent>(OnXenoMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
         SubscribeLocalEvent<XenoComponent, GetAccessTagsEvent>(OnXenoGetAdditionalAccess);
@@ -473,7 +473,7 @@ public sealed partial class XenoSystem : EntitySystem
         return count;
     }
 
-    // marine-corps-feature-start
+    // mc-changes-start
     public override void Update(float frameTime)
     {
         var time = _timing.CurTime;
@@ -488,7 +488,6 @@ public sealed partial class XenoSystem : EntitySystem
             DirtyField(uid, xeno, nameof(XenoRegenComponent.NextRegenTime));
 
             var affectable = _affectableQuery.CompOrNull(uid);
-
             if (!xeno.HealOffWeeds)
             {
                 // Engine bug where entities that do not move do not process new contacts for anything newly
@@ -516,15 +515,6 @@ public sealed partial class XenoSystem : EntitySystem
             }
 
             var resting = HasComp<XenoRestingComponent>(uid);
-
-            var heal = GetWeedsHealAmount((uid, xeno));
-
-            if (resting)
-                heal *= GetWeedsHealthModifier((uid, xeno), affectable);
-
-            if (heal > FixedPoint2.Zero)
-                HealDamage(uid, heal);
-
             if (!_xenoPlasmaQuery.TryComp(uid, out var plasma))
                 continue;
 
@@ -545,12 +535,6 @@ public sealed partial class XenoSystem : EntitySystem
             _xenoPlasma.RegenPlasma((uid, plasma), plasmaRestored);
         }
     }
-    // marine-corps-feature-end
-
-    private float GetWeedsHealthModifier(Entity<XenoRegenComponent> entity, AffectableByWeedsComponent? affectable = null)
-    {
-        return GetWeedsRegenerationComponent(entity, affectable)?.HealthModifier ?? 1f;
-    }
 
     private float GetWeedsPlasmaModifier(Entity<XenoRegenComponent> entity, AffectableByWeedsComponent? affectable = null)
     {
@@ -570,4 +554,5 @@ public sealed partial class XenoSystem : EntitySystem
 
         return _mcWeedsRegenerationQuery.CompOrNull(affectable.LastWeedsEntity.Value);
     }
+    // mc-changes-end
 }

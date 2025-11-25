@@ -1,0 +1,33 @@
+- type: entity
+  parent: MCBeaker
+  id: MCVial
+  name: vial
+  description: A small glass vial. Can hold up to 30 units.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Chemistry/vials.rsi
+    layers:
+    - state: vial
+    - state: vial1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+    - state: vial-lid
+      map: [ "enum.OpenableVisuals.Layer" ]
+      visible: false
+  - type: Item
+    sprite: _MC/Objects/Chemistry/vials.rsi
+  - type: SolutionContainerVisuals
+    fillBaseName: vial
+  - type: SolutionContainerManager
+    solutions:
+      beaker:
+        maxVol: 30
+  - type: SolutionTransfer
+    transferAmount: 5
+    maxTransferAmount: 30
+    transferAmounts:
+    - 5
+    - 10
+    - 15
+    - 25
+    - 30
+  - type: Vial

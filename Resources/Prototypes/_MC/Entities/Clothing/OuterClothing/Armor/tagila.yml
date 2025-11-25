@@ -1,0 +1,18 @@
+- type: entity
+  parent: RMCBaseArmor
+  id: MCTagilaArmourVest
+  name: Tagila armour vest
+  description: A lightweight bulletproof vest — it’s surprisingly durable.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/BallisticVest/tagila.rsi
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 70
+      energy: 60
+      bomb: 55
+      bio: 55
+      fire: 55
+      acid: 60

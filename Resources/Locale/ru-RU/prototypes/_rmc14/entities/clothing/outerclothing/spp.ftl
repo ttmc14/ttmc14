@@ -22,5 +22,4 @@ ent-RMCCoatSPPSenior = SPP UL4 senior officer jacket
     .desc = A lightweight jacket, issued to senior officers of the SPP's military. Made of high-quality materials, even going as far as having the ranks and insignia of the Kapitan and their Company emblazoned on the shoulders and front of the jacket. Slightly protective from incoming damage, best off with proper armor however.
 ent-RMCCoatSPPMP = SPP UL4 camouflaged jacket
     .desc = A lightweight jacket, issued to troops when they're not expected to engage in combat. Still studded to the brim with kevlar shards, though the synthread construction reduces its effectiveness.
-ent-RMCArmorSPPFirefighter = T-20 fire response coat
-    .desc = A rugged, no-frills fire-resistant overcoat issued to UPP industrial and emergency crews. Based on the PyroTex LT design but using cheaper, domestically produced materials, it offers basic protection against heat and debris at the cost of weight and comfort.
+

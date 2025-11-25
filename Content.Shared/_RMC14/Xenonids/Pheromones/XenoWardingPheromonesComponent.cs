@@ -15,7 +15,7 @@ public sealed partial class XenoWardingPheromonesComponent : Component
     public SpriteSpecifier Icon = new Rsi(new ResPath("/Textures/_RMC14/Interface/xeno_pheromones_hud.rsi"), "warding");
 
     [DataField, AutoNetworkedField]
-    public ProtoId<DamageGroupPrototype> CritDamageGroup = "Brute";
+    public ProtoId<DamageGroupPrototype> CritDamageGroup = "MCBrute"; // mc-changes
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 Multiplier;

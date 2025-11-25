@@ -1,0 +1,170 @@
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetMarsSand
+  name: tiles-mc-mars-sand
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Sand/sand.png
+  minimapColor: "#aa5f44cc"
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetMarsDirt
+  name: tiles-mc-mars-dirt
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt.png
+  minimapColor: "#aa5f44cc"
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetMarsDirtSand0
+  name: tiles-mc-mars-dirt-to-sand
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_0.png
+  minimapColor: "#aa5f44cc"
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand1
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_1.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand2
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_2.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand3
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_3.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand4
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_4.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand5
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_5.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand6
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_6.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand7
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_7.png
+
+- type: tile
+  parent: MCPlanetMarsDirtSand0
+  id: MCPlanetMarsDirtSand8
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Dirt/dirt_sand_8.png
+
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetMarsCave
+  name: tiles-mc-mars-cave
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave.png
+  minimapColor: "#aa5f44cc"
+  variants: 8
+  placementVariants:
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+  - 1.0
+
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetMarsCaveDirt0
+  name: tiles-mc-mars-cave-to-dirt
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_0.png
+  minimapColor: "#aa5f44cc"
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand1
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_1.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand2
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_2.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand3
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_3.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand4
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_4.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand5
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_5.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand6
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_6.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand7
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_7.png
+
+- type: tile
+  parent: MCPlanetMarsCaveDirt0
+  id: MCPlanetMarsCaveDirtSand8
+  name: tiles-mc-mars-dirt-to-sand
+  sprite: /Textures/_MC/Tiles/Planet/BigRed/Cave/cave_dirt_8.png

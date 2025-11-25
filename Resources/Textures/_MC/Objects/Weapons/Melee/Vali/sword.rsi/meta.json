@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/a6bbb2825bac3fa3e49b093364ee933f10adc270 (states: icon, icon-loaded), https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/487fa7aa568023fe3f3aa84ee87feb57bdc83d0a (states: inhand-left, inhand-left-loaded, inhand-right, inhand-right-loaded)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "icon-loaded"
+    },
+    {
+      "name": "inhand-left",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-loaded",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right",
+      "directions": 4
+    },
+    {
+      "name": "inhand-right-loaded",
+      "directions": 4
+    }
+  ]
+}

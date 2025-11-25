@@ -30,7 +30,7 @@ public abstract class SharedXenoAcidSystem : EntitySystem
     [Dependency] private readonly XenoEnergySystem _xenoEnergy = default!;
 
     protected int CorrosiveAcidTickDelaySeconds;
-    protected ProtoId<DamageTypePrototype> CorrosiveAcidDamageTypeStr = "Heat";
+    protected ProtoId<DamageTypePrototype> CorrosiveAcidDamageTypeStr = "MCBurn"; // mc-changes
 
     public override void Initialize()
     {

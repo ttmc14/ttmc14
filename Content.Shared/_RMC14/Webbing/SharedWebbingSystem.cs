@@ -235,7 +235,7 @@ public abstract class SharedWebbingSystem : EntitySystem
         Dirty(webbing, comp);
 
         clothing.Comp.UnequippedSize = clothingItem.Size;
-        _item.SetSize(clothing, webbingItem.Size);
+        // _item.SetSize(clothing, webbingItem.Size);
 
         handled = true;
         return true;

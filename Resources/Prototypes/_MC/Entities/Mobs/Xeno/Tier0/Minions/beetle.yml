@@ -12,7 +12,7 @@
   - type: FixedIdentity
     name: mc-job-name-xeno-beetle
   - type: Xeno
-    tier: 0
+    tier: -1
     role: MCXenoMinionBeetle
     actionIds:
     - MCActionXenoRest
@@ -28,17 +28,18 @@
     plasmaRegenOnWeeds: 10
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 17
+      types:
+        MCBrute: 17
   - type: MCArmor
-    melee: 25
-    bullet: 25
-    laser: 25
-    energy: 25
-    bomb: 25
-    bio: 25
-    fire: 25
-    acid: 25
+    soft:
+      melee: 25
+      bullet: 25
+      laser: 25
+      energy: 25
+      bomb: 25
+      bio: 25
+      fire: 25
+      acid: 25
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3.333

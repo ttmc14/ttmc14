@@ -1,0 +1,4 @@
+- type: entity
+  parent: CMBaseWeaponRifle
+  id: MCWeaponRifle
+  abstract: true

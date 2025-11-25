@@ -3,7 +3,7 @@
   id: MCDogtag
   name: identification holo-badge
   description: A slice of encoded compressed fiber glass. Used for identification and access control.
-  categories: [ HideSpawnMenu ]
+  categories: [ MCContent, HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _RMC14/Objects/CMIDs/dogtags.rsi

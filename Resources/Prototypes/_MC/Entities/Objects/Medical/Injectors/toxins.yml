@@ -1,0 +1,17 @@
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorSleepToxin
+  name: anesthetic auto-injector
+  description: An auto-injector loaded with 10 units of sleeping agent. Good to quickly pacify someone, for surgery of course.
+  components:
+  - type: Hypospray
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 10
+        reagents:
+        - ReagentId: MCSleepToxin
+          Quantity: 10
+  - type: IconLabel
+    labelTextLocId: mc-sleeptoxin-container-label-text

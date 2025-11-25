@@ -1,0 +1,109 @@
+- type: entity
+  parent: MCItem
+  id: MCBeacon
+  name: beacon
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCBeacon
+  - type: MCBeacon
+    category: None
+  - type: Sprite
+    noRot: true
+    sprite: _MC/Objects/Items/beacon.rsi
+    layers:
+    - map: [ "base" ]
+      state: motion_0
+  - type: Item
+    size: Small
+  - type: MCDeploy
+    deployTime: 1
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item:
+            state: motion_0
+          Deployed:
+            state: motion_2
+
+- type: Tag
+  id: MCBeacon
+
+- type: entity
+  parent: MCBeacon
+  id: MCBeaconSupply
+  name: supply beacon
+  description: A rugged, glorified laser pointer capable of sending a beam into space. Activate and throw this to call for a supply drop.
+  components:
+  - type: Tag
+    tags:
+    - MCBeacon
+    - MCBeaconSupply
+  - type: MCBeacon
+    category: Supply
+  - type: Sprite
+    sprite: _MC/Objects/Items/beacon.rsi
+
+- type: Tag
+  id: MCBeaconSupply
+
+- type: entity
+  parent: MCBeacon
+  id: MCBeaconMedevac
+  name: medevac beacon
+  description: "A specialized teleportation beacon that links with a medvac stretcher; provides the target destination for the stretcher's displacement field. WARNING: Must be in a powered area to function."
+  components:
+  - type: Tag
+    tags:
+    - MCBeacon
+    - MCBeaconMedevac
+  - type: MCBeacon
+    category: Medevac
+  - type: Sprite
+    sprite: _MC/Objects/Items/beacon.rsi
+    layers:
+    - map: [ "base" ]
+      state: med_0
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item:
+            state: med_0
+          Deployed:
+            state: med_1
+
+- type: Tag
+  id: MCBeaconMedevac
+
+- type: entity
+  parent: MCBeacon
+  id: MCBeaconOrbital
+  name: orbital beacon
+  description: A bulky device that fires a beam up to an orbiting vessel to send local coordinates.
+  components:
+  - type: Tag
+    tags:
+    - MCBeacon
+    - MCBeaconOrbital
+  - type: MCBeacon
+    category: Orbital
+  - type: Sprite
+    sprite: _MC/Objects/Items/beacon.rsi
+    layers:
+    - map: [ "base" ]
+      state: motion_4
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item:
+            state: motion_4
+          Deployed:
+            state: motion_1
+
+- type: Tag
+  id: MCBeaconOrbital

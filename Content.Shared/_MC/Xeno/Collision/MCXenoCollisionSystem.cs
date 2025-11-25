@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Xenonids.Hive;
+﻿using Content.Shared._RMC14.Atmos;
+using Content.Shared._RMC14.Xenonids.Hive;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Shared._MC.Xeno.Collision;
@@ -11,7 +12,7 @@ public sealed class MCXenoCollisionSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MCXenoIgnoreFriendlyCollisionComponent, PreventCollideEvent>(OnIgnoreFriendlyPreventCollide);
+        SubscribeLocalEvent<MCXenoIgnoreFriendlyCollisionComponent, PreventCollideEvent>(OnIgnoreFriendlyPreventCollide, before: [ typeof(SharedRMCFlammableSystem) ]);
     }
 
     private void OnIgnoreFriendlyPreventCollide(Entity<MCXenoIgnoreFriendlyCollisionComponent> entity, ref PreventCollideEvent args)

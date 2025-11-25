@@ -37,6 +37,39 @@
           - MCDiskNukeGreen
   - type: ContainerContainer
     containers:
-      disk_red: !type:ContainerSlot ""
-      disk_blue: !type:ContainerSlot ""
-      disk_green: !type:ContainerSlot ""
+      disk_red: !type:ContainerSlot
+      disk_blue: !type:ContainerSlot
+      disk_green: !type:ContainerSlot
+  - type: MarineMapTracked
+  - type: XenoMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/MapIcons/nuke.rsi
+      state: nuke_off
+
+- type: entity
+  parent: MCNuclearBomb
+  id: MCNuclearBombFilled
+  suffix: Filled
+  components:
+  - type: ItemSlots
+    slots:
+      disk_red:
+        name: Disk Red
+        startingItem: MCDiskNukeRed
+        whitelist:
+          tags:
+          - MCDiskNukeRed
+      disk_blue:
+        name: Disk Blue
+        startingItem: MCDiskNukeBlue
+        whitelist:
+          tags:
+          - MCDiskNukeBlue
+      disk_green:
+        name: Disk Green
+        startingItem: MCDiskNukeGreen
+        whitelist:
+          tags:
+          - MCDiskNukeGreen

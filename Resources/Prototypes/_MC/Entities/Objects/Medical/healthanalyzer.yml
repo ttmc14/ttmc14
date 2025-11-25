@@ -1,6 +1,6 @@
 - type: entity
   id: MCHealthAnalyzer
-  parent: BaseItem
+  parent: MCItem
   name: HF2 health analyzer
   suffix: MC
   description: A high-tech hand-held body scanner able to distinguish vital signs of subjects. The front panel is able to provide the readout of a subject's status.

@@ -1,0 +1,25 @@
+- type: entity
+  parent: MCMeleeWeaponVali
+  id: MCMeleeWeaponValiRapier
+  name: HP-C Harvester rapier
+  description: "Extremely expensive looking blade, with a golden handle and engravings, unexpectedly effective in combat, despite its ceremonial looks, compacted with a vali module."
+  components:
+  - type: Tag
+    tags:
+    - MCMeleeWeaponVali
+    - MCMeleeWeaponValiRapier
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Melee/Vali/rapier.rsi
+    state: icon
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/Vali/rapier.rsi
+  - type: Item
+    sprite: _MC/Objects/Weapons/Melee/Vali/rapier.rsi
+  - type: MeleeWeapon
+    attackRate: 2
+    damage:
+      types:
+        MCBrute: 60
+
+- type: Tag
+  id: MCMeleeWeaponValiRapier

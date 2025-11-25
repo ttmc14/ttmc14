@@ -1,5 +1,5 @@
 - type: entity
-  parent: MarkerBase
+  parent: MCMarker
   id: MCMarkerCrash
   name: marker crash
   components:
@@ -12,7 +12,7 @@
       state: close
 
 - type: entity
-  parent: MarkerBase
+  parent: MCMarker
   id: MCSpawnXenoProtection
   name: xeno spawn protection
   components:
@@ -26,7 +26,7 @@
     - MCXenoFog
 
 - type: entity
-  parent: MarkerBase
+  parent: MCMarker
   id: MCSpawnXenoSilo
   name: xeno spawn silo
   components:

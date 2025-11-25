@@ -43,8 +43,9 @@
         RMCSkillJtac: 1
         RMCSkillFireman: 1
     - type: SquadArmorWearer
+    - type: MCSendOrders
     - type: JobPrefix
-      prefix: mc-job-prefix-leader
+      prefix: mc-job-prefix-squad-leader
     - type: TacticalMapIcon
       icon:
         sprite: _MC/Interface/squad_marine_icons.rsi

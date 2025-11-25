@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMWeaponPistolBase
+  parent: MCWeaponPistol
   id: MCWeaponP14
   name: P-14 pistol
   description: The P-14, produced by Terran Armories. A reliable sidearm that loads 9x19mm Parabellum Auto munitions. Capable of mounting a limited amount of attachments, and firing at a respectable rate of fire, often as fast as you can pull the trigger. Takes 21-round 9mm magazines.
@@ -15,8 +15,8 @@
     sprite: _MC/Objects/Weapons/Guns/Pistols/p14.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 8
+      types:
+        MCBrute: 8
   - type: Gun
     shotsPerBurst: 1
     availableModes:
@@ -127,8 +127,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22

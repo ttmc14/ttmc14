@@ -1,7 +1,6 @@
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCSoap
-  suffix: MC
   name: soap
   description: A cheap bar of soap. Doesn't smell.
   components:
@@ -29,9 +28,9 @@
     residueColor: residue-green
 
 - type: entity
-  name: soap
-  id: MCSoapNT
   parent: MCSoap
+  id: MCSoapNT
+  name: soap
   description: A NanoTrasen bar of soap. It smells like phoron.
   components:
   - type: Sprite

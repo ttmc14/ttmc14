@@ -1,0 +1,17 @@
+﻿- type: entity
+  parent: RMCBaseEffect
+  id: MCEffectInfernoPyrogen
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 1.7
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _MC/Effects/forger.rsi
+    color: "#8F66BC"
+    noRot: true
+    state: fireball_explosion
+  - type: EffectVisuals
+  - type: Tag
+    tags:
+    - HideContextMenu

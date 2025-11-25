@@ -2,8 +2,7 @@
   parent: MCAttachmentBaseUnderbarrel
   id: MCAttachmentAngledGrip
   name: angled grip
-  description: "A custom-built improved foregrip for less recoil, and faster wielding time.
-    However, it also increases weapon size, and slightly hinders unwielded firing."
+  description: "A custom-built improved foregrip for less recoil, and faster wielding time. However, it also increases weapon size, and slightly hinders unwielded firing."
   components:
   - type: Sprite
     state: angledgrip
@@ -26,15 +25,14 @@
       recoilFlat: -1
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.10
+      accuracyAddMult: -0.1
       scatterFlat: 1
 
 - type: entity
   parent: MCAttachmentBaseUnderbarrel
   id: MCAttachmentVerticalGrip
   name: vertical grip
-  description: "A custom-built improved foregrip for better accuracy, moderately faster aimed movement speed, less recoil, and less scatter when wielded especially during burst fire.
-    However, it also increases weapon size, slightly increases wield delay and makes unwielded fire more cumbersome."
+  description: "A custom-built improved foregrip for better accuracy, moderately faster aimed movement speed, less recoil, and less scatter when wielded especially during burst fire. However, it also increases weapon size, slightly increases wield delay and makes unwielded fire more cumbersome."
   components:
   - type: Sprite
     state: verticalgrip
@@ -66,8 +64,7 @@
   parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentBipod
   name: bipod
-  description: "A simple set of telescopic poles to keep a weapon stabilized during firing.
-    Greatly increases accuracy and reduces recoil and scatter when properly placed, but also increases weapon size."
+  description: "A simple set of telescopic poles to keep a weapon stabilized during firing. Greatly increases accuracy and reduces recoil and scatter when properly placed, but also increases weapon size."
   components:
   - type: Sprite
     state: bipod
@@ -117,8 +114,8 @@
   - type: AttachableWeaponMeleeMods
     modifiers:
     - bonusDamage:
-        groups:
-          Brute: -10
+        types:
+          MCBrute: -10
   - type: AttachableWeaponRangedMods
     fireModeMods:
     - conditions:
@@ -129,10 +126,10 @@
       extraFireModes: FullAuto
       setFireMode: FullAuto
     modifiers:
-    - burstScatterAddMult: -3
     - conditions:
         wieldedOnly: true
         activeOnly: true
+      burstScatterAddMult: -3
       accuracyAddMult: 0.30
       scatterFlat: -2
       recoilFlat: -2
@@ -141,8 +138,7 @@
   parent: MCAttachmentBaseUnderbarrel
   id: MCAttachmentBurstFireAssembly
   name: burst fire assembly
-  description: "A mechanism re-assembly kit that allows for automatic fire, or more shots per burst if the weapon already has the ability.
-    Increases scatter and decreases accuracy."
+  description: "A mechanism re-assembly kit that allows for automatic fire, or more shots per burst if the weapon already has the ability. Increases scatter and decreases accuracy."
   components:
   - type: Sprite
     state: rapidfire
@@ -209,9 +205,7 @@
   parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentUnderbarrelFlashlight
   name: underbarreled flashlight
-  description: "A simple flashlight used for mounting on a firearm.
-    Has no drawbacks, but isn't particuraly useful outside of providing a light source.
-    It is small and conductive."
+  description: "A simple flashlight used for mounting on a firearm. Has no drawbacks, but isn't particuraly useful outside of providing a light source. It is small and conductive."
   components:
   - type: ItemTogglePointLight
   - type: ToggleableVisuals
@@ -296,9 +290,9 @@
     state: flamethrower
     layers:
     - state: flamethrower
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: mag
     steps: 1
@@ -324,7 +318,7 @@
   - type: ShootUseDelay
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot ""
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -466,7 +460,7 @@
     damageMultiplier: 1
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type:Container
+      ballistic-ammo: !type:Container ""
   - type: RMCAmmoEject
     containerID: ballistic-ammo
     ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
@@ -533,7 +527,7 @@
   - type: ShootUseDelay
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot ""
   - type: RMCAmmoEject
   - type: AttachableToggleable
     userOnly: true

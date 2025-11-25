@@ -1,0 +1,68 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "med_0"
+    },
+    {
+      "name": "med_1",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "motion_0"
+    },
+    {
+      "name": "motion_2",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "motion_3",
+      "delays": [
+        [
+          0.4,
+          0.6
+        ]
+      ]
+    },
+    {
+      "name": "motion_4"
+    },
+    {
+      "name": "motion_1",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "bluespace"
+    },
+    {
+      "name": "bluespace_deployed",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
+}

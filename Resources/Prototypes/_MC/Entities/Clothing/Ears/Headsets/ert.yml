@@ -1,0 +1,15 @@
+﻿- type: entity
+  parent: RMCHeadsetShip
+  id: MCHeadsetPMC
+  name: pmc radio headset
+  description: A standard military radio headset.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: com_alt
+  - type: ContainerFill
+    containers:
+      key_slots:
+      - MCEncryptionKeyPMC
+  - type: EncryptionKeyHolder
+    keySlots: 2

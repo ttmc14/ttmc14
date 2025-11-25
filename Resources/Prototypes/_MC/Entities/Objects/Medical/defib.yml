@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCBaseDefibrillator
   name: emergency defibrillator
   description: A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead.
@@ -22,14 +22,14 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 5
+      types:
+        MCBrute: 5
     soundHit:
       collection: GenericHit
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 6
+      types:
+        MCBrute: 5
   - type: Item
     size: Normal
     sprite: _MC/Objects/Medical/defib.rsi
@@ -51,10 +51,10 @@
     allowDoAfterMovement: false
     canDefibCrit: false
     cmZapHeal:
-    - Brute: -10
-    - Burn: -10
-    - Toxin: -10
-    - Genetic: -10
+    - MCBrute: -10
+    - MCBurn: -10
+    - MCToxin: -10
+    - MCClone: -10
     zapHeal:
       groups:
         Airloss: -400

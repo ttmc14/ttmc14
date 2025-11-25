@@ -1,0 +1,121 @@
+﻿- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoCharge
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoForger
+  name: forger
+  description: A skittish alien, it burns with fury.
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/forger.rsi
+    offset: 0,0.35
+  - type: GhostRole
+    name: mc-job-name-xeno-forger
+  - type: FixedIdentity
+    name: mc-job-name-xeno-forger
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      275: Critical
+      325: Dead
+  - type: XenoPlasma
+    plasma: 380
+    maxPlasma: 380
+    plasmaRegenOnWeeds: 18
+  - type: Xeno
+    tier: 2
+    role: MCXenoForger
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Main
+    - MCActionXenoInferno
+    - MCActionXenoFireball
+    - MCActionXenoFirecharge
+    - MCActionXenoWhirlwind
+    hudOffset: -0.15,0.25
+  - type: XenoEvolution
+    canEvolveWithoutGranter: true
+    actionId: MCActionXenoEvolve
+    max: 225
+    evolvesTo:
+    - MCXenoCrusher
+    - MCXenoDefiler
+    - MCXenoGorger
+    - MCXenoWarlock
+    - MCXenoPraetorian
+    - MCXenoBoiler
+    - MCXenoRavager
+    evolvesToWithoutPoints:
+    - MCXenoShrike
+    - MCXenoQueen
+  - type: XenoDevolve
+    devolvesTo:
+    - MCXenoDefender
+    - MCXenoDrone
+    - MCXenoRunner
+    - MCXenoSentinel
+  - type: MCArmor
+    soft:
+      melee: 40
+      bullet: 40
+      laser: 40
+      energy: 40
+      bomb: 0
+      bio: 30
+      fire: 200
+      acid: 30
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBurn: 22
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.225
+    baseSprintSpeed: 4.761
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/MapIcons/xeno.rsi
+      state: forger
+  # Passive abilities
+  - type: RMCImmuneToIgnition
+  - type: RMCImmuneToFireTileDamage
+  # Abilities
+  - type: MCXenoInferno
+    damage:
+      types:
+        MCBurn: 30
+  - type: MCXenoFireball
+  - type: MCXenoWhirlwind
+    fire: MCTileFireXenoAcid
+    range: 7
+    doAfter: 0.6
+    delay: 0.3
+    barricadeDamage:
+      types:
+        MCBurn: 5
+  # Pounce (FireCharge)
+  - type: MCXenoPounceEmote
+    emote: XenoRoar
+  - type: MCXenoPounceFireCharge
+    damagePerFireStack:
+      types:
+        MCBurn: 5
+  - type: MCXenoPounce
+    maxDistance: 3
+    strength: 30
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 0
+    stopOnHit: false
+    hitDamage:
+       types:
+        MCBurn: 10
+  # Light
+  - type: PointLight
+    color: "#069420"

@@ -20,8 +20,8 @@
         - !type:ReagentThreshold
           min: 6
         damage:
-          groups:
-            Toxin: 1.5
+          types:
+            MCToxin: 1.5
       - !type:ModifyBloodLevel
         conditions:
         - !type:ReagentThreshold
@@ -37,8 +37,8 @@
         - !type:ReagentThreshold
           max: 0.1
         damage:
-          groups:
-            Genetic: 5
+          types:
+            MCClone: 5
       - !type:AdjustReagent
         conditions:
         - !type:ReagentThreshold
@@ -63,23 +63,23 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Genetic: -2.5 # 10 унций = лечит 25 генетик урона
+          types:
+            MCClone: -2.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 16
         damage:
-          groups:
-            Toxin: 1
-            Airloss: 2
+          types:
+            MCToxin: 1
+            MCOxygen: 2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 20
         damage:
-          groups:
-            Genetic: 5
+          types:
+            MCClone: 5
 
 # NO PARITY!!!
 - type: reagent
@@ -97,116 +97,116 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Genetic: -1 # лучшая хилка клон урона (пока-что) и самая сложная по крафту
+          types:
+            MCClone: -1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 5
         damage:
-          groups:
-            Genetic: -5
+          types:
+            MCClone: -5
         probability: 0.15
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 5
         damage:
-          groups:
-            Genetic: -20
+          types:
+            MCClone: -20
         probability: 0.3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 7
         damage:
-          groups:
-            Genetic: 3
+          types:
+            MCClone: 3
         probability: 0.25
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 9
         damage:
-          groups:
-            Genetic: -4
+          types:
+            MCClone: -4
         probability: 0.2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 12
         damage:
-          groups:
-            Genetic: 6
+          types:
+            MCClone: 6
         probability: 0.35
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
         damage:
-          groups:
-            Genetic: -8
+          types:
+            MCClone: -8
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 7
         damage:
-          groups:
-            Genetic: 3
+          types:
+            MCClone: 3
         probability: 0.25
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 9
         damage:
-          groups:
-            Genetic: -4
+          types:
+            MCClone: -4
         probability: 0.2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 12
         damage:
-          groups:
-            Genetic: 6
+          types:
+            MCClone: 6
         probability: 0.35
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
         damage:
-          groups:
-            Genetic: -50
+          types:
+            MCClone: -50
         probability: 0.2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 10
         damage:
-          groups:
-            Genetic: 50
+          types:
+            MCClone: 5
         probability: 0.2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
         damage:
-          groups:
-            Genetic: -8
+          types:
+            MCClone: -8
         probability: 0.1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 5
         damage:
-          groups:
-            Genetic: 20
+          types:
+            MCClone: 20
         probability: 0.3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 18
         damage:
-          groups:
-            Genetic: 10
+          types:
+            MCClone: 10
         probability: 0.4

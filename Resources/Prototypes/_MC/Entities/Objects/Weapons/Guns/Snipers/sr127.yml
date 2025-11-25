@@ -1,0 +1,280 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponSniperSR127
+  name: SR-127 Bauer bolt action rifle
+  description: The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr127.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Rifles/sr127.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_dmr37.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilUnwielded: 4
+    recoilWielded: 0
+    scatterWielded: -5
+    scatterUnwielded: 20
+    baseFireRate: 0.8
+    burstScatterMult: 2
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 0.7
+  - type: MagazineAmmoProvider
+    autoEject: false
+    soundAutoEject: null
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/m41a_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/m41a_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSR127
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 1.5
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+          - MCAttachmentRecoilCompensator
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentBipod
+      mc-aslot-rail:
+        startingAttachable: MCAttachmentRailScopeSR127
+        whitelist:
+          tags:
+          - MCAttachmentRailScopeSR127
+      mc-aslot-stock:
+        startingAttachable: MCAttachmentStockSR127
+        whitelist:
+          tags:
+          - MCAttachmentStockSR127
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.3125, 0.09375
+      mc-aslot-rail: -0.625, 0.1875
+      mc-aslot-underbarrel: -0.09375, 0
+      mc-aslot-stock: -1.25, -0.03125
+  - type: PumpAction
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.45
+    aimFireModifier: 0.5
+
+# Attachments
+- type: entity
+  parent: MCAttachmentBaseStock
+  id: MCAttachmentStockSR127
+  name: SR-127 stock
+  description: A irremovable SR-127 sniper rifle stock.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentStock
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+    state: tl127_a
+  - type: AttachableVisuals
+    suffix: ""
+
+- type: Tag
+  id: MCAttachmentStockSR127
+
+- type: entity
+  parent: MCAttachmentBaseScope
+  id: MCAttachmentRailScopeSR127
+  name: T-47 rail scope
+  description: A rail mounted zoom sight scope specialized for the SR-127 sniper rifle. Allows zoom by activating the attachment.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentRail
+    - MCAttachmentRailScopeSR127
+  - type: Sprite
+    state: tl127_a
+  - type: AttachableVisuals
+    suffix: ""
+  - type: AttachableToggleable
+    actionName: Toggle T-47 rail scope
+    actionDesc: Allows zoom by activating the attachment.
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+      state: tl127_a
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.3
+      offset: 16
+      allowMovement: true
+      doAfter: 0
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      walk: -0.1
+      sprint: -0.1
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: -0.05
+
+- type: Tag
+  id: MCAttachmentRailScopeSR127
+
+#  Magazines
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineSR127
+  name: SR-127 bolt action rifle magazine
+  description: A box magazine filled with 8.6x70mm rifle rounds for the SR-127.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineSR127
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSR127
+    proto: MCCartridgeSR127
+    capacity: 10
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+
+- type: entity
+  parent: MCMagazineSR127
+  id: MCMagazineSR127Flak
+  name: SR-127 bolt action rifle flak magazine
+  description: A box magazine filled with 8.6x70mm rifle flak rounds for the SR-127.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSR127Flak
+    proto: MCCartridgeSR127Flak
+    capacity: 10
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127_flak.rsi
+
+- type: Tag
+  id: MCMagazineSR127
+
+# Cartridges
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeSR127
+  name: cartridge (86x70mm)
+  description: A 86x70mm rifle cartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR127
+  - type: CartridgeAmmo
+    proto: MCBulletSR127
+
+- type: Tag
+  id: MCCartridgeSR127
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeSR127Flak
+  name: cartridge flak (86x70mm)
+  description: A 86x70mm rifle cartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR127Flak
+  - type: CartridgeAmmo
+    proto: MCBulletSR127Flak
+
+- type: Tag
+  id: MCCartridgeSR127Flak
+
+# Bullets
+- type: entity
+  parent: MCBullet
+  id: MCBulletSR127
+  name: high caliber rifle bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 80
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 25
+      falloff: 999
+  - type: CMArmorPiercing
+    amount: 30
+  - type: MCXenoSunderDamageOnHit
+    amount: 0
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - falloff: 0.25
+  - type: MCStunOnHit
+    slowdownTime: 1
+    maxDistance: 17
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSR127Flak
+  name: high caliber flak rifle bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 40
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 25
+      falloff: 999
+  - type: CMArmorPiercing
+    amount: 10
+  - type: MCXenoSunderDamageOnHit
+    amount: 10
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - falloff: 0.25
+  - type: MCStunOnHit
+    staggerTime: 2
+    knockback: 4
+    slowdownTime: 1.5
+    maxDistance: 17

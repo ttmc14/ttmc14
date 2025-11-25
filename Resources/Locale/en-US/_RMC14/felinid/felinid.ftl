@@ -1,72 +1,72 @@
-species-name-felinid = Felinid
+species-name-felinid = Фелинид
 
-marking-FelinidEarsBasic = Basic Ears
-marking-FelinidEarsBasic-basic_outer = Outer ear
-marking-FelinidEarsBasic-basic_inner = Inner ear
+marking-FelinidEarsBasic = Прямые уши
+marking-FelinidEarsBasic-basic_outer = Наружная часть уха
+marking-FelinidEarsBasic-basic_inner = Внутренняя часть уха
 
-marking-FelinidEarsCurled = Curled Ears
-marking-FelinidEarsCurled-curled_outer = Outer ear
-marking-FelinidEarsCurled-curled_inner = Inner ear
+marking-FelinidEarsCurled = Завитые уши
+marking-FelinidEarsCurled-curled_outer = Наружная часть уха
+marking-FelinidEarsCurled-curled_inner = Внутренняя часть уха
 
-marking-FelinidEarsDroopy = Droopy Ears
-marking-FelinidEarsDroopy-droopy_outer = Outer ear
-marking-FelinidEarsDroopy-droopy_inner = Inner ear
+marking-FelinidEarsDroopy = Опущенные уши
+marking-FelinidEarsDroopy-droopy_outer = Наружная часть уха
+marking-FelinidEarsDroopy-droopy_inner = Внутренняя часть уха
 
-marking-FelinidEarsFuzzy = Fuzzy Ears
-marking-FelinidEarsFuzzy-basic_outer = Outer ear
-marking-FelinidEarsFuzzy-fuzzy_inner = Ear fuzz
+marking-FelinidEarsFuzzy = Пушистые уши
+marking-FelinidEarsFuzzy-basic_outer = Наружная часть уха
+marking-FelinidEarsFuzzy-fuzzy_inner = Пушок внутри уха
 
-marking-FelinidEarsStubby = Stubby Ears
-marking-FelinidEarsStubby-stubby_outer = Outer ear
-marking-FelinidEarsStubby-stubby_inner = Inner ear
+marking-FelinidEarsStubby = Короткие уши
+marking-FelinidEarsStubby-stubby_outer = Наружная часть уха
+marking-FelinidEarsStubby-stubby_inner = Внутренняя часть уха
 
-marking-FelinidEarsTall = Tall Ears
-marking-FelinidEarsTall-tall_outer = Outer ear
-marking-FelinidEarsTall-tall_inner = Inner ear
-marking-FelinidEarsTall-tall_fuzz = Ear fuzz
+marking-FelinidEarsTall = Высокие уши
+marking-FelinidEarsTall-tall_outer = Наружная часть уха
+marking-FelinidEarsTall-tall_inner = Внутренняя часть уха
+marking-FelinidEarsTall-tall_fuzz = Пушок уха
 
-marking-FelinidEarsTorn = Torn Ears
-marking-FelinidEarsTorn-torn_outer = Outer ear
-marking-FelinidEarsTorn-torn_inner = Inner ear
+marking-FelinidEarsTorn = Порванные уши
+marking-FelinidEarsTorn-torn_outer = Наружная часть уха
+marking-FelinidEarsTorn-torn_inner = Внутренняя часть уха
 
-marking-FelinidEarsWide = Wide Ears
-marking-FelinidEarsWide-wide_outer = Outer ear
-marking-FelinidEarsWide-wide_inner = Inner ear
+marking-FelinidEarsWide = Широкие уши
+marking-FelinidEarsWide-wide_outer = Наружная часть уха
+marking-FelinidEarsWide-wide_inner = Внутренняя часть уха
 
-marking-FelinidTailBasic = Basic Tail
-marking-FelinidTailBasic-basic_tail_tip = Tail tip
-marking-FelinidTailBasic-basic_tail_stripes_even = Tail stripes, even
-marking-FelinidTailBasic-basic_tail_stripes_odd = Tail stripes, odd
+marking-FelinidTailBasic = Простой хвост
+marking-FelinidTailBasic-basic_tail_tip = Кончик хвоста
+marking-FelinidTailBasic-basic_tail_stripes_even = Полосы хвоста, чётные
+marking-FelinidTailBasic-basic_tail_stripes_odd = Полосы хвоста, нечётные
 
-marking-FelinidTailBasicWithBow = Basic Tail with Bow
-marking-FelinidTailBasicWithBow-basic_tail_tip = Tail tip
-marking-FelinidTailBasicWithBow-basic_tail_stripes_even = Tail stripes, even
-marking-FelinidTailBasicWithBow-basic_tail_stripes_odd = Tail stripes, odd
-marking-FelinidTailBasicWithBow-basic_bow = Bow
+marking-FelinidTailBasicWithBow = Простой хвост с бантом
+marking-FelinidTailBasicWithBow-basic_tail_tip = Кончик хвоста
+marking-FelinidTailBasicWithBow-basic_tail_stripes_even = Полосы хвоста, чётные
+marking-FelinidTailBasicWithBow-basic_tail_stripes_odd = Полосы хвоста, нечётные
+marking-FelinidTailBasicWithBow-basic_bow = Бант
 
-marking-FelinidTailBasicWithBell = Basic Tail with Bell
-marking-FelinidTailBasicWithBell-basic_tail_tip = Tail tip
-marking-FelinidTailBasicWithBell-basic_tail_stripes_even = Tail stripes, even
-marking-FelinidTailBasicWithBell-basic_tail_stripes_odd = Tail stripes, odd
-marking-FelinidTailBasicWithBell-basic_bell = Bell
+marking-FelinidTailBasicWithBell = Простой хвост с колокольчиком
+marking-FelinidTailBasicWithBell-basic_tail_tip = Кончик хвоста
+marking-FelinidTailBasicWithBell-basic_tail_stripes_even = Полосы хвоста, чётные
+marking-FelinidTailBasicWithBell-basic_tail_stripes_odd = Полосы хвоста, нечётные
+marking-FelinidTailBasicWithBell-basic_bell = Колокольчик
 
-marking-FelinidTailBasicWithBowAndBell = Basic Tail with Bow & Bell
-marking-FelinidTailBasicWithBowAndBell-basic_tail_tip = Tail tip
-marking-FelinidTailBasicWithBowAndBell-basic_tail_stripes_even = Tail stripes, even
-marking-FelinidTailBasicWithBowAndBell-basic_tail_stripes_odd = Tail stripes, odd
-marking-FelinidTailBasicWithBowAndBell-basic_bow = Bow
-marking-FelinidTailBasicWithBowAndBell-basic_bell = Bell
+marking-FelinidTailBasicWithBowAndBell = Простой хвост с бантом и колокольчиком
+marking-FelinidTailBasicWithBowAndBell-basic_tail_tip = Кончик хвоста
+marking-FelinidTailBasicWithBowAndBell-basic_tail_stripes_even = Полосы хвоста, чётные
+marking-FelinidTailBasicWithBowAndBell-basic_tail_stripes_odd = Полосы хвоста, нечётные
+marking-FelinidTailBasicWithBowAndBell-basic_bow = Бант
+marking-FelinidTailBasicWithBowAndBell-basic_bell = Колокольчик
 
-marking-FelinidTiger = Tiger tail
-marking-FelinidTiger-m_tail_tiger_primary = Primary
-marking-FelinidTiger-m_tail_tiger_secondary = Tip of tail
-marking-FelinidTiger-m_tail_tiger_tertiary = Stripes
+marking-FelinidTiger = Хвост тигра
+marking-FelinidTiger-m_tail_tiger_primary = Основной
+marking-FelinidTiger-m_tail_tiger_secondary = Кончик хвоста
+marking-FelinidTiger-m_tail_tiger_tertiary = Полосы
 
-marking-FelinidCatSnout = Cat Snout
-marking-FelinidCatSnout-snout_cat = Primary
-marking-FelinidCatSnout-snout_cat_nose = Nose
+marking-FelinidCatSnout = Кошачья мордочка
+marking-FelinidCatSnout-snout_cat = Основной
+marking-FelinidCatSnout-snout_cat_nose = Нос
 
-marking-FelinidFurMale = Fur
-marking-FelinidFurMale-fur_mas = Color
-marking-FelinidFurFemale = Fur
-marking-FelinidFurMale-fur_fem = Color
+marking-FelinidFurMale = Шерсть
+marking-FelinidFurMale-fur_mas = Цвет
+marking-FelinidFurFemale = Шерсть
+marking-FelinidFurMale-fur_fem = Цвет

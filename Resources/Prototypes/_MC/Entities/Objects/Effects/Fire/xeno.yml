@@ -1,0 +1,37 @@
+﻿- type: entity
+  parent: MCFirePreMade
+  id: MCTileFireXenoAcid
+  name: melting fire
+  description: It feels cold to the touch, yet it burns.
+  components:
+  - type: Sprite
+    drawdepth: WallTops
+    layers:
+    - map: [ "base" ]
+      state: acid_3
+  - type: RMCIgniteOnCollide
+    maxStacks: 10
+    tileDamage:
+      types:
+        MCBurn: 1
+  - type: DamageOnCollide
+    damage:
+      types:
+        MCBurn: 2
+  - type: TileFire
+    id: MCTileFireXenoAcid
+    duration: 7
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One:
+            state: acid_1
+          Two:
+            state: acid_2
+          Three:
+            state: acid_3
+  - type: XenoFriendly
+  - type: MCXenoIgnoreFriendlyCollision
+  - type: PointLight
+    color: "#069420"

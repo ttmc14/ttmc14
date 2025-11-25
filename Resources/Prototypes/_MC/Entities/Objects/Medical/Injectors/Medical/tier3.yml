@@ -1,0 +1,17 @@
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorQuickClotPlus
+  name: quick-clot plus auto-injector
+  description: An auto-injector loaded with 3 uses of quick-clot plus, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!
+  components:
+  - type: Hypospray
+    transferAmount: 5
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCQuickClotPlus
+          Quantity: 15
+  - type: IconLabel
+    labelTextLocId: mc-quickclotplus-container-label-text

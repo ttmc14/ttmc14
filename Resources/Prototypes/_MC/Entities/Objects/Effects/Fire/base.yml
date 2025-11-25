@@ -1,14 +1,10 @@
 - type: entity
-  id: MCFire
-  suffix: MC
-  name: fire
-  placement:
-    mode: SnapgridCenter
+  id: MCFirePreMade
+  abstract: true
   components:
   - type: Tag
     tags:
     - MCDamageFire
-    - HideContextMenu
   - type: Transform
     anchored: true
   - type: Physics
@@ -20,7 +16,7 @@
           bounds: "-0.25,-0.25,0.25,0.40"
         density: 1
         mask:
-          - ItemMask
+        - ItemMask
   - type: Sprite
     sprite: _MC/Effects/fire.rsi
     noRot: true
@@ -37,14 +33,14 @@
   - type: RMCIgniteOnCollide
     maxStacks: 20
     tileDamage:
-      groups:
-        Burn: 0.5
+      types:
+        MCBurn: 0.5
   - type: DamageOnCollide
     damageDead: false
     fire: true
     damage:
-      groups:
-        Burn: 45
+      types:
+        MCBurn: 45
   - type: TileFire
     id: MCFire
     extinguishInstantly: false
@@ -60,4 +56,13 @@
   - type: RMCScorchEffectOnSpawn
     decalTag: burnt
     tileLimit: 3
+
+- type: entity
+  parent: MCFirePreMade
+  id: MCFire
+  name: fire
+  categories: [ MCContent ]
+  placement:
+    mode: SnapgridCenter
+  components:
   - type: BlockWeeds

@@ -1,0 +1,36 @@
+﻿<ui:MCASRSPendingOrdersView
+    xmlns="https://spacestation14.io"
+    xmlns:ui="clr-namespace:Content.Client._MC.ASRS.Ui"
+    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="4">
+        <PanelContainer HorizontalExpand="True" VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat
+                    BorderColor="#3A3A3A"
+                    BorderThickness="1"
+                    BackgroundColor="#1A1A1A" />
+            </PanelContainer.PanelOverride>
+
+            <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Align="Center">
+                    <Button Text="Submit Request" Name="SubmitRequestButton" TextAlign="Left" Access="Public" />
+                    <Button Text="Clear Cart" Name="ClearCartButton" TextAlign="Left" Access="Public" />
+                </BoxContainer>
+
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <RichTextLabel Text="Reason: " Margin="0 0 16 0" />
+                    <LineEdit PlaceHolder="Reason" Name="ReasonBar" HorizontalExpand="True" Margin="8 8" Access="Public" />
+                </BoxContainer>
+
+                <RichTextLabel Text="Pending Order" Margin="8" />
+
+                <cc:HSeparator />
+
+                <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+                    <BoxContainer Orientation="Vertical" Name="Container" Access="Public" HorizontalExpand="True" VerticalExpand="True" Margin="8"/>
+                </ScrollContainer>
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</ui:MCASRSPendingOrdersView>

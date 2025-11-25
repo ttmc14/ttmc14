@@ -1,0 +1,6 @@
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoHiveStructures
+  priority: 25
+  name: Руководство по структурам ульев
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXenoHiveStructures.xml"

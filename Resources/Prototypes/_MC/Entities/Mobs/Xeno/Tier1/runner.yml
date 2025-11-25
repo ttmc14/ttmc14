@@ -85,7 +85,6 @@
     - MCActionXenoPounce
     hudOffset: -0.2,0.3
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:
@@ -96,6 +95,7 @@
     - MCXenoHunter
     - MCXenoBull
     - MCXenoSpitter
+    - MCXenoForger
     evolvesToWithoutPoints:
     - MCXenoShrike
     - MCXenoQueen
@@ -104,19 +104,20 @@
     - MCXenoLarva
   - type: XenoHide
   - type: MCArmor
-    melee: 30
-    bullet: 30
-    laser: 30
-    energy: 30
-    bomb: 0
-    bio: 5
-    fire: 20
-    acid: 5
+    soft:
+      melee: 30
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 0
+      bio: 5
+      fire: 20
+      acid: 5
   - type: MeleeWeapon
-    attackRate: 1.67
+    attackRate: 1.7
     damage:
-      groups:
-        Brute: 23
+      types:
+        MCBrute: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.846
     baseSprintSpeed: 6.25
@@ -125,7 +126,8 @@
       sprite: _MC/Interface/Xeno/icons.rsi
       state: runner
   - type: MCXenoPounce
+    hitSound: /Audio/_RMC14/Xeno/alien_pounce.ogg
     hitDamage:
-      groups:
-        Brute: 25
+      types:
+        MCBrute: 25
   - type: MCXenoEvasion

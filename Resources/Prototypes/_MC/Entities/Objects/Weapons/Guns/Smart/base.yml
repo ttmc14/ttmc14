@@ -1,6 +1,6 @@
 - type: entity
   parent:
-  - BaseItem
+  - MCItem
   - MCWeaponGun
   - MCAttachableHolder
   id: MCWeaponSmartGun

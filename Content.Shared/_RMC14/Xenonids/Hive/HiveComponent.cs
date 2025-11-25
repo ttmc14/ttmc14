@@ -1,3 +1,5 @@
+using Content.Shared._MC.Xeno.Evolution;
+using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared.FixedPoint;
@@ -9,7 +11,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._RMC14.Xenonids.Hive;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(SharedXenoHiveSystem), typeof(SharedXenoPylonSystem), typeof(XenoTunnelSystem))]
+[Access(typeof(SharedXenoHiveSystem), typeof(SharedXenoPylonSystem), typeof(XenoTunnelSystem), typeof(MCSharedXenoHiveSystem), typeof(MCXenoEvolutionSystem))]
 public sealed partial class HiveComponent : Component
 {
     [DataField, AutoNetworkedField]
@@ -69,12 +71,6 @@ public sealed partial class HiveComponent : Component
 
     [DataField, AutoNetworkedField]
     public Dictionary<string, EntityUid> HiveTunnels = new();
-
-    [DataField, AutoNetworkedField]
-    public int BurrowedLarva;
-
-    [DataField, AutoNetworkedField]
-    public int BurrowedLarvaSlotFactor = 4;
 
     [DataField, AutoNetworkedField]
     public bool LateJoinGainLarva;

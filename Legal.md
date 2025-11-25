@@ -1,7 +1,7 @@
 # Disclaimer
-- The information presented here is for informational purposes only and does not constitute legal advice, nor is it a replacement for reading license text. If there is a conflict between this text and any of the attached licenses/agreements, or other agreements with TTMC14 those agreements take precedence.
+The information presented here is for informational purposes only and does not constitute legal advice, nor is it a replacement for reading license text. If there is a conflict between this text and any of the attached licenses/agreements, or other agreements with TTMC14 those agreements take precedence.
 
-## To contribute you or your legal guardian (or employer if they have a legal right to your contributions) must agree to the [TTMC14 Contributor Agreement](https://github.com/ttmc14/ttmc14/blob/main/CLA.md) 
+## To contribute you or your legal guardian (or employer if they have a legal right to your contributions) must agree to the [TTMC14 Contributor Agreement](https://github.com/ttmc14/ttmc14/blob/main/CLA.md)
 
 This process is automated, with a bot prompting you to agree to the CLA when you open your first PR. This may also be done by sending an email with the subject "\<your name\> CA Agreement", with a signed version of the agreement.
 
@@ -15,10 +15,14 @@ Non-legalese summary of the terms of this agreement (This is not a replacement f
 - The CLA may be amended with 30 days of notice by email. *If you do not agree to the new CLA your contributions will be kept under the old version.*
 
 # Licensing/Attribution:
-- Unless specified otherwise, all Source Code, inside any **\_MC or MC folders**, fall under the terms specified in [LICENSE_TTMC14.txt](https://github.com/ttmc14/ttmc14/blob/main/LICENSE_TTMC14.txt) *with Exhibit B enforced* and the [TTMC14 CLA](https://github.com/ttmc14/ttmc14/blob/main/CLA.md). All assets/content in those folders fall under CC-BY-SA 4.0.
-- Any content from SpaceWizards/SpaceStation14 without specified licensing of any code is licensed under MIT (LICENSE.TXT). Any Space Wizards content licensed under CC-BY-SA to Space Wizards Federation & Contributors.
-- __**You may not use TTMC14 code/content (All right reserved). This is to make sure that TTMC14 code is available to be improved by the community.**__
-- **We are in the process of removing/replacing content that is currently not under an approved license.**
+
+* Unless specified otherwise, all Source Code inside any **_MC** or **MC** folders falls under the terms specified in **LICENSE_TTMC14.txt** and the **TTMC14 CLA**. All assets/content within those folders are licensed under **CC-BY-SA 4.0**.
+* Any content from **SpaceWizards/SpaceStation14** without explicitly stated code licensing is licensed under **MIT** (LICENSE.TXT). Any Space Wizards content licensed under **CC-BY-SA** belongs to Space Wizards Federation & Contributors.
+* Any content from **RMC-14/RMC-14** without explicitly stated code licensing is licensed under **MIT** (LICENSE.TXT). Any Space Wizards content licensed under **CC-BY-SA** belongs to Space Wizards Federation & Contributors.
+* **We are in the process of removing or replacing content that is currently not under an approved license.**
+* **Some resources may have a different license.**
+  If a resource uses a different license, it **will be explicitly stated** inside the resource’s text file and/or placed in the same directory in a file named **meta.json** or **license.txt**, which will describe the license in detail and specify exactly what it applies to.
+  **If such a file is located inside an _MC folder, the explicitly stated license overrides the default _MC licensing terms for that specific resource.**
 
 # Approved licenses:
 The following licenses are permitted to be used in this project if you are not the original copyright owner:

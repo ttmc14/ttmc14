@@ -1,5 +1,5 @@
 - type: entity
-  parent: MarkerBase
+  parent: MCMarker
   id: MCSpawnNukeDiskGenerator
   name: spawn nuke disk generator
   components:

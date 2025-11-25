@@ -10,7 +10,7 @@
     fixtures: {}
   - type: Sprite
     sprite: _MC/Structures/Machines/Vending/nanomed.rsi
-    offset: 0,-1
+    offset: 0, -1
     layers:
     - state: base
       map: [ "enum.VendingMachineVisualLayers.Base" ]
@@ -33,6 +33,10 @@
       - id: MCAutoInjectorCombat
         amount: 1
       - id: MCAutoInjectorHypervene
+        amount: 1
+      - id: MCAutoInjectorMeralyne
+        amount: 1
+      - id: MCAutoInjectorDermaline
         amount: 1
     - name: Heal Pack
       entries:

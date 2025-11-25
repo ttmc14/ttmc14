@@ -1,0 +1,81 @@
+- type: entity
+  id: MCWallInvincibleNoIcon
+  description: A huge chunk of metal used to separate rooms.
+  categories: [ MCContent ]
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+  - type: Sprite
+    drawdepth: Walls
+  - type: PlacementReplacement
+    key: walls
+  - type: Occluder
+  - type: Airtight
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.5,-0.5,0.5,0.5"
+        mask:
+        - FullTileMask
+        layer:
+        - WallLayer
+        density: 1000
+  - type: XenoWeedable
+    spawn: XenoWeedsWall
+  - type: XenoConstructionSupport
+  - type: RMCDropshipBlocked
+  - type: MinimapColor
+    color: "#ebe5e5ee"
+  - type: IsRoof
+  - type: SunShadowCast
+  - type: Tag
+    tags:
+    - Wall
+
+- type: entity
+  parent: MCWallInvincibleNoIcon
+  id: MCWallInvincible
+  description: A huge chunk of metal used to separate rooms.
+  abstract: true
+  components:
+  - type: Icon
+    state: full
+
+- type: entity
+  parent: MCWallInvincible
+  id: MCWall
+  description: A huge chunk of metal used to separate rooms.
+  abstract: true
+  components:
+  - type: Icon
+    state: full
+  - type: Damageable
+    damageContainer: StructuralMarine
+    damageModifierSet: StructuralMarine
+  - type: Corrodible
+    isCorrodible: true
+    structure: true
+    meltTimeMult: 3
+  - type: Clickable
+  - type: RMCWallExplosionDeletable
+  - type: DestroyedByExplosionType
+  - type: DamageMultiplierFlags
+    flags: Turf
+  - type: ReceiverXenoClaws
+    hitsToDestroy: 20
+  - type: Appearance
+  - type: Bullethole
+  - type: XenoToggleChargingDamage
+    stop: true
+    damage:
+      types:
+        Blunt: 13

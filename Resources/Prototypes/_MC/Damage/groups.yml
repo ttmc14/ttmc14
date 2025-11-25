@@ -1,0 +1,17 @@
+# DON'T USE
+# It's tweak only for:
+# - DamageVisualsComponent
+# - WoundedComponent
+# - WoundableComponent
+
+- type: damageGroup
+  id: MCBrute
+  name: ???
+  damageTypes:
+  - MCBrute
+
+- type: damageGroup
+  id: MCBurn
+  name: ???
+  damageTypes:
+  - MCBurn

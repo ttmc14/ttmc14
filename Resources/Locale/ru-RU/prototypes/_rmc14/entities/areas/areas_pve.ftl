@@ -1,0 +1,12 @@
+ent-RMCAreaPVE = { ent-RMCAreaBase }
+    .desc = { ent-RMCAreaBase.desc }
+ent-RMCAreaPVEOOB = Out Of Bounds
+    .desc = { ent-RMCAreaPVE.desc }
+ent-RMCAreaPVEOutdoors = Outdoors
+    .desc = { ent-RMCAreaPVE.desc }
+ent-RMCAreaPVELZ = Landing Zone
+    .desc = { ent-RMCAreaPVEOutdoors.desc }
+ent-RMCAreaPVEIndoors = Indoors
+    .desc = { ent-RMCAreaPVE.desc }
+ent-RMCAreaPVEShuttle = Shuttle
+    .desc = { ent-RMCAreaPVEIndoors.desc }

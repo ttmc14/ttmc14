@@ -45,7 +45,7 @@
         RMCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
-      prefix: mc-job-prefix-engineer
+      prefix: mc-job-prefix-squad-engineer
     - type: TacticalMapIcon
       icon:
         sprite: _MC/Interface/squad_marine_icons.rsi

@@ -1,0 +1,7 @@
+﻿- type: entity
+  parent: MCSilverIdCard
+  id: MCIDPMCGunner
+  name: ID PMC Gunner
+  components:
+  - type: PresetIdCard
+    job: MCJobSquad

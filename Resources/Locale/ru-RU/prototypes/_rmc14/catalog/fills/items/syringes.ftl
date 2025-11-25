@@ -1,0 +1,9 @@
+ent-RMCSyringeInaprovaline = { ent-RMCPrefilledSyringe }
+    .desc = Contains inaprovaline - used to stabilize patients.
+    .suffix = Inaprovaline, RMC14
+ent-RMCSyringeDylovene = { ent-RMCPrefilledSyringe }
+    .desc = Contains anti-toxins.
+    .suffix = Dylovene, RMC14
+ent-RMCSyringeDrugs = { ent-RMCPrefilledSyringe }
+    .desc = Contains aggressive drugs meant for torture.
+    .suffix = Drugs, RMC14

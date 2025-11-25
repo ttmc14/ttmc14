@@ -1,5 +1,5 @@
 - type: entity
-  parent: BaseStorageItem
+  parent: MCStorageItem
   id: MCAidKitFirst
   suffix: MC
   name: first-aid kit

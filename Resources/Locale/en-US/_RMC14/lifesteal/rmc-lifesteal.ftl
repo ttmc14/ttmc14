@@ -1,2 +1,2 @@
-﻿rmc-lifesteal-more-marine = {$xeno} glows as it heals even more from its injuries!
-rmc-lifesteal-more-self = We glow as we heal even more from our injuries!
+﻿rmc-lifesteal-more-marine = {$xeno} светится, исцеляясь ещё сильнее от своих ран!
+rmc-lifesteal-more-self = Мы светимся, исцеляясь ещё сильнее от наших ран!

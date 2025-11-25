@@ -1,0 +1,6 @@
+﻿- type: jobIcon
+  parent: CMJobIconBase
+  id: MCPMCJobIcon
+  icon:
+    sprite: _MC/Interface/job_icons.rsi
+    state: pmc

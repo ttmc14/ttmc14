@@ -8,14 +8,10 @@
   components:
   - type: InteractionOutline
   - type: Sprite
-    sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi
+    sprite: _MC/Structures/Xeno/doors.rsi
     layers:
     - state: resin
       map: [ "enum.DoorVisualLayers.Base" ]
-    - state: closed_unlit
-      map: [ "enum.DoorVisualLayers.BaseUnlit" ]
-    - state: closed_unlit
-      map: [ "enum.DoorVisualLayers.BaseBolted" ]
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -31,8 +27,8 @@
   - type: Door
     canPry: false
     crushDamage:
-      groups:
-        Brute: 15
+      types:
+        MCBrute: 15
     openSpriteState: resinopen
     closedSpriteState: resin
     openingSpriteState: resinopening
@@ -57,7 +53,7 @@
   - type: PlacementReplacement
     key: walls
   - type: IconSmooth
-    key: walls
+    key: xenoWalls
     mode: NoSprite
   - type: AccessReader
     access: [ [ "CMAccessXeno" ] ]
@@ -69,13 +65,10 @@
     closingSpriteState: closed_unlit
   - type: XenoConstructionPlasmaCost
     plasma: 120
-  - type: XenoStructureUpgradeable
-    to: DoorXenoResinThick
-    cost: 25
   - type: MeleeReceivedMultiplier
     xenoDamage:
-      groups:
-        Brute: 600
+      types:
+        MCBrute: 600
     otherMultiplier: 1
   - type: XenoConstructionRequiresSupport
   - type: XenoConstruct
@@ -91,38 +84,15 @@
   name: thick resin door
   description: A thick resin door, which is more durable.
   components:
-  - type: Sprite
-    sprite: _RMC14/Structures/Xenos/xeno_resin_door.rsi
-    layers:
-    - state: thick_resin
-      map: [ "enum.DoorVisualLayers.Base" ]
-    - state: closed_unlit
-      map: [ "enum.DoorVisualLayers.BaseUnlit" ]
-    - state: closed_unlit
-      map: [ "enum.DoorVisualLayers.BaseBolted" ]
-  - type: Door
-    crushDamage:
-      groups:
-        Brute: 15
-    openSpriteState: thick_resinopen
-    closedSpriteState: thick_resin
-    openingSpriteState: thick_resinopening
-    closingSpriteState: thick_resinclosing
-    openSound:
-      path: /Audio/_RMC14/Xeno/alien_resin_move1.ogg
-    closeSound:
-      path: /Audio/_RMC14/Xeno/alien_resin_move2.ogg
-  - type: IconSmooth
-    key: walls
-    mode: NoSprite
   - type: MCArmor
-    melee: 45
-    bullet: 45
-    laser: 45
-    energy: 45
-    bomb: 30
-    bio: 30
-    fire: 40
-    acid: 30
+    soft:
+      melee: 45
+      bullet: 45
+      laser: 45
+      energy: 45
+      bomb: 30
+      bio: 30
+      fire: 40
+      acid: 30
   - type: XenoConstructionPlasmaCost
     plasma: 50

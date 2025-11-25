@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/e0b8cdd9fcc05bdac3fcd51e854143e29af2adf2 (states: empty), respriting other states by TornadoTechnology (github)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "bicaridine"
+    },
+    {
+      "name": "bicaridine_backgrounded"
+    },
+    {
+      "name": "kelotane"
+    },
+    {
+      "name": "kelotane_backgrounded"
+    },
+    {
+      "name": "dexalin"
+    },
+    {
+      "name": "dexalin_backgrounded"
+    },
+    {
+      "name": "empty"
+    },
+    {
+      "name": "empty_backgrounded"
+    },
+    {
+      "name": "tricordrazine"
+    },
+    {
+      "name": "tricordrazine_backgrounded"
+    },
+    {
+      "name": "tramadol"
+    },
+    {
+      "name": "tramadol_backgrounded"
+    }
+  ]
+}

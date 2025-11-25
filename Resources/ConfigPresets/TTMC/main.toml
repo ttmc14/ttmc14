@@ -1,15 +1,20 @@
+[mc.round_schedule]
+enabled = false
+timezone = "Russian Standard Time"
+update_frequency = 60
+days = "Friday,Saturday,Sunday"
+start = "10:00"
+end = "24:00"
+
 [accessibility]
 screen_shake_intensity = 1
 
 [admin]
-deadmin_on_join = true
+deadmin_on_join = false
 see_own_notes = true
 server_ban_erase_player = true
 new_player_threshold = 600
 alert.explosion_min_intensity = -1
-
-[adminlogs]
-server_name = "TTMC"
 
 [atmos]
 space_wind = false
@@ -26,14 +31,18 @@ enabled = false
 [explosion]
 can_create_vacuum = false
 
+[adminlogs]
+server_name = "TTMC"
+
 [game]
 hostname = "[RU][LRP] 🌪️ TornadoTech's Marine Corps — Main"
 desc = "Сборка сервера основана на https://github.com/ttmc14/ttmc14"
-defaultpreset = "MCDistressSignal"
+defaultpreset = "MCCrash"
+map = "MCPillarOfSpring"
+
 fallbackenabled = false
 fallbackpreset = "MCDistressSignal"
 round_end_sound_collection = "CMRoundEnd"
-map = "MCPillarOfSpring"
 contraband_examine = false
 maxplayers = 100
 soft_max_players = 60
@@ -94,7 +103,7 @@ auto_record_temp_dir = "recording"
 auto_record_name = "done/{year}_{month}_{day}-{hour}_{minute}-round_{round}.zip"
 
 [server]
-rules_file = "RMCOverview"
+rules_file = "MCRules"
 default_guide = "RMC14"
 
 [shuttle]

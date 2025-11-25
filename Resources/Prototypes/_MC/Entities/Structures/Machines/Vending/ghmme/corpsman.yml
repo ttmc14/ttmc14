@@ -43,6 +43,21 @@
       - id: MCVendorBundleArmorJaegerGugnir
       - id: MCVendorBundleArmorJaegerAssault
       - id: MCVendorBundleArmorJaegerEOD
+    - name: Armor modules
+      choices:
+        MCArmourModule: 1
+      entries:
+      - id: MCArmorModuleMark1TyrArmor
+        recommended: true
+      - id: MCArmorModuleMark1Mimir
+        recommended: true
+      - id: MCArmorModuleHodBalistic
+      - id: MCArmorModuleBaldur
+        recommended: true
+      - id: MCArmorModuleValiChemical
+      - id: MCArmorModuleSvalinnEnergyShield
+      # Loki Illusion Module
+      # Thor Armorlock Module
     - name: Backpack
       choices:
         MCBackpack: 1

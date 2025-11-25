@@ -1,0 +1,25 @@
+﻿<ui:MCShuttleConsoleWindow xmlns="https://spacestation14.io"
+                           xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                            xmlns:ui="clr-namespace:Content.Client._MC.Shuttle.Console.UI"
+                            MinSize="400 120"
+                            Title="Ship console">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4">
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat
+                        BorderColor="#3A3A3A"
+                        BorderThickness="1"
+                        BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+
+                <BoxContainer Orientation="Vertical" Margin="8">
+                    <Label Text="Controls" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 16" />
+                    <Button Text="Initiate evacuation" Name="EvacuationButton" Access="Public" MaxWidth="180" HorizontalAlignment="Left" />
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+</ui:MCShuttleConsoleWindow>

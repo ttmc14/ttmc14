@@ -95,14 +95,14 @@ public sealed class MCHealthScannerBui : BoundUserInterface
         }
 
         var ent = new Entity<DamageableComponent>(target, damageable);
-        AddGroup(ent, _window.BruteLabel, Color.FromHex("#DF3E3E"), "Brute", Loc.GetString("mc-health-analyzer-brute"));
-        AddGroup(ent, _window.BurnLabel, Color.FromHex("#FFB833"), "Burn", Loc.GetString("mc-health-analyzer-burn"));
-        AddGroup(ent, _window.ToxinLabel, Color.FromHex("#25CA4C"), "Toxin", Loc.GetString("mc-health-analyzer-toxin"));
-        AddGroup(ent, _window.OxygenLabel, Color.FromHex("#2E93DE"), "Airloss", Loc.GetString("mc-health-analyzer-oxygen"));
-        if (damageable.DamagePerGroup["Genetic"] > 0)
+        AddGroup(ent, _window.BruteLabel, Color.FromHex("#DF3E3E"), "MCBrute", Loc.GetString("mc-health-analyzer-brute"));
+        AddGroup(ent, _window.BurnLabel, Color.FromHex("#FFB833"), "MCBurn", Loc.GetString("mc-health-analyzer-burn"));
+        AddGroup(ent, _window.ToxinLabel, Color.FromHex("#25CA4C"), "MCToxin", Loc.GetString("mc-health-analyzer-toxin"));
+        AddGroup(ent, _window.OxygenLabel, Color.FromHex("#2E93DE"), "MCOxygen", Loc.GetString("mc-health-analyzer-oxygen"));
+        if (damageable.Damage.DamageDict["MCClone"] > 0)
         {
             _window.CloneBox.Visible = true;
-            AddGroup(ent, _window.CloneLabel, Color.FromHex("#02c9c0"), "Genetic", Loc.GetString("mc-health-analyzer-clone"));
+            AddGroup(ent, _window.CloneLabel, Color.FromHex("#02c9c0"), "MCClone", Loc.GetString("mc-health-analyzer-clone"));
         }
         else
             _window.CloneBox.Visible = false;
@@ -266,19 +266,17 @@ public sealed class MCHealthScannerBui : BoundUserInterface
             SendMessage(new OpenChangeHolocardUIEvent(_entities.GetNetEntity(viewer), _lastTarget));
     }
 
-    private void AddGroup(Entity<DamageableComponent> damageable, RichTextLabel label, Color color, ProtoId<DamageGroupPrototype> group, string labelStr)
+    private void AddGroup(Entity<DamageableComponent> damageable, RichTextLabel label, Color color, ProtoId<DamageTypePrototype> type, string labelStr)
     {
         var msg = new FormattedMessage();
         msg.AddText($"{labelStr}: ");
         msg.PushColor(color);
 
-        var damage = damageable.Comp.DamagePerGroup.GetValueOrDefault(group)
+        var damage = damageable.Comp.Damage.DamageDict.GetValueOrDefault(type)
             .Int()
             .ToString(CultureInfo.InvariantCulture);
-        if (_wounds.HasUntreated(damageable.Owner, group))
-            msg.AddText($"{{{damage}}}");
-        else
-            msg.AddText($"{damage}");
+
+        msg.AddText(_wounds.HasUntreated(damageable.Owner, (string) type) ? $"{{{damage}}}" : $"{damage}");
 
         msg.Pop();
         label.SetMessage(msg);
@@ -369,11 +367,11 @@ public sealed class MCHealthScannerBui : BoundUserInterface
         //TODO RMC14 Pain related medical advice
 
         //Damage related
-        var airloss = target.Comp.DamagePerGroup.GetValueOrDefault("Airloss");
-        var brute = target.Comp.DamagePerGroup.GetValueOrDefault("Brute");
-        var burn = target.Comp.DamagePerGroup.GetValueOrDefault("Burn");
-        var toxin = target.Comp.DamagePerGroup.GetValueOrDefault("Toxin");
-        var genetic = target.Comp.DamagePerGroup.GetValueOrDefault("Genetic");
+        var airloss = target.Comp.Damage.DamageDict.GetValueOrDefault("MCOxygen");
+        var brute = target.Comp.Damage.DamageDict.GetValueOrDefault("MCBrute");
+        var burn = target.Comp.Damage.DamageDict.GetValueOrDefault("MCBurn");
+        var toxin = target.Comp.Damage.DamageDict.GetValueOrDefault("MCToxin");
+        var genetic = target.Comp.Damage.DamageDict.GetValueOrDefault("MCClone");
 
         if (airloss > 0 && !_mob.IsDead(target))
         {

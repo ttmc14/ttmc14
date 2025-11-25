@@ -1,11 +1,64 @@
 ﻿using Content.Shared._RMC14.Actions;
+using Content.Shared._RMC14.Armor;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Player;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities;
+
+public abstract class MCXenoAbilitySystem : EntitySystem
+{
+    /// <summary>
+    /// Reference to the central actions system used for validating and consuming ability actions.
+    /// Automatically injected by dependency resolution.
+    /// </summary>
+    [Dependency] protected readonly RMCActionsSystem RMCActions = null!;
+
+    [Dependency] protected readonly SharedActionsSystem Actions = null!;
+    [Dependency] protected readonly SharedColorFlashEffectSystem ColorFlash = null!;
+    [Dependency] protected readonly SharedMeleeWeaponSystem MeleeWeapon = null!;
+
+    protected DamageSpecifier GetDamage(EntityUid uid)
+    {
+        return MeleeWeapon.GetDamage(uid, uid);
+    }
+
+    protected int GetArmorPiercing(EntityUid uid)
+    {
+        return TryComp<CMArmorPiercingComponent>(uid, out var comp)
+            ? comp.Amount
+            : 0;
+    }
+
+    protected void RaiseEffect(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
+    {
+        var filter = Filter.Pvs(targetUid, entityManager: EntityManager).RemoveWhereAttachedEntity(uid => uid == ownerUid);
+        ColorFlash.RaiseEffect(color ?? Color.Red, new List<EntityUid> { targetUid }, filter);
+    }
+
+    protected bool IsMob(EntityUid uid)
+    {
+        return HasComp<MobStateComponent>(uid);
+    }
+
+    protected void RemCompDeferredDelayed<T>(EntityUid uid, TimeSpan duration) where T : IComponent
+    {
+        Timer.Spawn(duration, () => { RemCompDeferred<T>(uid); });
+    }
+
+    protected void ClearUseDelay<T>(EntityUid uid) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.ClearCooldown((action, action));
+            break;
+        }
+    }
+}
 
 /// <summary>
 /// Base generic system for handling Xeno abilities.
@@ -13,17 +66,8 @@ namespace Content.Shared._MC.Xeno.Abilities;
 /// </summary>
 /// <typeparam name="TComp">The component type required on the entity to receive the action.</typeparam>
 /// <typeparam name="TAction">The type of the action event to handle (derived from <see cref="BaseActionEvent"/>).</typeparam>
-public abstract class MCXenoAbilitySystem<TComp, TAction> : EntitySystem where TComp : IComponent where TAction : BaseActionEvent
+public abstract class MCXenoAbilitySystem<TComp, TAction> : MCXenoAbilitySystem where TComp : IComponent where TAction : BaseActionEvent
 {
-    /// <summary>
-    /// Reference to the central actions system used for validating and consuming ability actions.
-    /// Automatically injected by dependency resolution.
-    /// </summary>
-    [Dependency] protected readonly RMCActionsSystem RMCActions = default!;
-
-    [Dependency] protected readonly SharedActionsSystem Actions = default!;
-    [Dependency] protected readonly SharedColorFlashEffectSystem ColorFlash = default!;
-
     /// <summary>
     /// Determines whether the ability should automatically attempt to consume its action when it is triggered.
     /// When true, the action is immediately passed through <see cref="TryUse"/> which consumes it on success.
@@ -127,16 +171,5 @@ public abstract class MCXenoAbilitySystem<TComp, TAction> : EntitySystem where T
             Actions.StartUseDelay((action, action));
             break;
         }
-    }
-
-    protected DamageSpecifier GetDamage(EntityUid uid)
-    {
-        return TryComp<MeleeWeaponComponent>(uid, out var component) ? component.Damage : new DamageSpecifier();
-    }
-
-    protected void RaiseEffect(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
-    {
-        var filter = Filter.Pvs(targetUid, entityManager: EntityManager).RemoveWhereAttachedEntity(uid => uid == ownerUid);
-        ColorFlash.RaiseEffect(color ?? Color.Red, new List<EntityUid> { targetUid }, filter);
     }
 }

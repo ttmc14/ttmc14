@@ -37,7 +37,7 @@ public sealed class MCXenoToxicStacksSystem : EntitySystem
             if (component.Count == 0)
                 continue;
 
-            _damageable.TryChangeDamage(uid, component.BaseDamage + component.StacksDamage * Math.Round(component.Count / 10f));
+            _damageable.TryChangeDamage(uid, component.BaseDamage + component.StacksDamage * Math.Round(component.Count / 10f), ignoreResistances: true);
 
             if (component.Count >= 20)
                 _rmcSlow.TrySlowdown(uid, TimeSpan.FromSeconds(1));

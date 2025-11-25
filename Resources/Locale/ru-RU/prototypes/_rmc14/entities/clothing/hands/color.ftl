@@ -1,5 +1,7 @@
 ent-RMCHandsBlack = black gloves
     .desc = A simple pair of black gloves.
+ent-RMCHandsCombat = combat gloves
+    .desc = These tactical gloves are somewhat fire and impact resistant.
 ent-CMHandsInsulated = marine insulated gloves
     .desc = These gloves will protect the wearer from electric shocks.
 ent-CMHandsBrown = brown gloves

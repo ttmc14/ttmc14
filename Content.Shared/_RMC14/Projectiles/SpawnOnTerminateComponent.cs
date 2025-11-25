@@ -19,6 +19,9 @@ public sealed partial class SpawnOnTerminateComponent : Component
     public LocId? Popup;
 
     [DataField, AutoNetworkedField]
+    public float Range = 1.5f;
+
+    [DataField, AutoNetworkedField]
     public PopupType? PopupType;
 
     [DataField, AutoNetworkedField]

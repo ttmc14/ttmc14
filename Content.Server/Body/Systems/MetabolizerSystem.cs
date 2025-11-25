@@ -22,7 +22,7 @@ using Robust.Shared.Timing;
 namespace Content.Server.Body.Systems
 {
     /// <inheritdoc/>
-    public sealed class MetabolizerSystem : SharedMetabolizerSystem
+    public sealed partial class MetabolizerSystem : SharedMetabolizerSystem // mc-changes
     {
         [Dependency] private readonly IGameTiming _gameTiming = default!;
         [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
@@ -79,6 +79,8 @@ namespace Content.Server.Body.Systems
         {
             base.Update(frameTime);
 
+            UpdateExtension(frameTime);
+
             var metabolizers = new ValueList<(EntityUid Uid, MetabolizerComponent Component)>(Count<MetabolizerComponent>());
             var query = EntityQueryEnumerator<MetabolizerComponent>();
 
@@ -132,11 +134,18 @@ namespace Content.Server.Body.Systems
 
             if (solutionEntityUid is null
                 || soln is null
-                || solution is null
-                || solution.Contents.Count == 0)
+                || solution is null)
             {
                 return;
             }
+
+            if (solution.Contents.Count == 0)
+            {
+                ClearTickMetabolize(solutionEntityUid.Value, solution);
+                return;
+            }
+
+            BeforeMetabolize(solutionEntityUid.Value, solution); // mc-changes
 
             // randomize the reagent list so we don't have any weird quirks
             // like alphabetical order or insertion order mattering for processing
@@ -179,7 +188,7 @@ namespace Content.Server.Body.Systems
                     // Remove $rate, as long as there's enough reagent there to actually remove that much
                     mostToRemove = FixedPoint2.Clamp(rate, 0, quantity);
 
-                    float scale = (float) mostToRemove / (float) rate;
+                    var scale = rate > 0 ? (float) mostToRemove / (float) rate : 0f; // mc-changes
 
                     // if it's possible for them to be dead, and they are,
                     // then we shouldn't process any effects, but should probably

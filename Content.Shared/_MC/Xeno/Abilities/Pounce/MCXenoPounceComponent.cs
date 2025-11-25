@@ -14,7 +14,10 @@ public sealed partial class MCXenoPounceComponent : Component
     public int Strength = 45;
 
     [DataField, AutoNetworkedField]
-    public DamageSpecifier HitDamage;
+    public DamageSpecifier? HitDamage;
+
+    [DataField, AutoNetworkedField]
+    public bool StopOnHit = true;
 
     [DataField, AutoNetworkedField]
     public TimeSpan HitSelfParalyzeTime = TimeSpan.FromSeconds(0.5f);
@@ -23,5 +26,5 @@ public sealed partial class MCXenoPounceComponent : Component
     public TimeSpan HitKnockdownTime = TimeSpan.FromSeconds(2f);
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? HitSound = new SoundPathSpecifier("/Audio/_RMC14/Xeno/alien_pounce.ogg");
+    public SoundSpecifier? HitSound;
 }

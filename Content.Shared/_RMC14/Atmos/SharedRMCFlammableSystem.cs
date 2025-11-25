@@ -8,6 +8,7 @@ using Content.Shared._RMC14.Explosion;
 using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.OnCollide;
 using Content.Shared._RMC14.Weapons.Melee;
+using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.Alert;
 using Content.Shared.Atmos;
@@ -67,13 +68,14 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     [Dependency] private readonly XenoPlasmaSystem _plasma = default!;
     [Dependency] private readonly SharedRMCEmoteSystem _emote = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
+    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!; // mc-changes
 
     private static readonly ProtoId<AlertPrototype> FireAlert = "Fire";
     private static readonly ProtoId<ReagentPrototype> WaterReagent = "Water";
-    private static readonly ProtoId<ReagentPrototype> MCWaterReagent = "MCWater";
+    private static readonly ProtoId<ReagentPrototype> MCWaterReagent = "MCWater"; // mc-changes
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
-    private static readonly ProtoId<DamageTypePrototype> HeatDamage = "Heat";
+    private static readonly ProtoId<DamageTypePrototype> HeatDamage = "MCBurn"; // mc-changes
 
     private EntityQuery<BlockTileFireComponent> _blockTileFireQuery;
     private EntityQuery<DoorComponent> _doorQuery;
@@ -691,6 +693,11 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         if (checkIgnited && wasOnFire)
             return;
 
+        // mc-changes-start
+        if (_xenoHive.FromSameHive(ent.Owner, other))
+            return;
+        // mc-changes-end
+
         if (!CanBeIgnited(other, ent))
             return;
 
@@ -855,6 +862,11 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             var isStepping = false;
             foreach (var contact in _physics.GetContactingEntities(uid, approximate: true))
             {
+                // mc-changes-start
+                if (_xenoHive.FromSameHive(uid, contact))
+                    continue;
+                // mc-changes-end
+
                 if (!_igniteOnCollideQuery.TryComp(contact, out var ignite))
                     continue;
 
@@ -870,6 +882,12 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
                 if (nearbyEntities.Count != 0)
                 {
                     var nearbyEntity = nearbyEntities.First();
+
+                    // mc-changes-start
+                    if (_xenoHive.FromSameHive(uid, nearbyEntity.Owner))
+                        continue;
+                    // mc-changes-end
+
                     ApplyTileEffect((uid, stepping), nearbyEntity.Comp, nearbyEntity.Owner);
                     isStepping = true;
                 }

@@ -19,7 +19,7 @@
 
 # base
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCBaseHealingItem
   abstract: true
   components:
@@ -58,8 +58,8 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Burn: -3
+      types:
+        MCBurn: -3
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"
       params:
@@ -107,8 +107,8 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -3
+      types:
+        MCBrute: -3
     healingBeginSound:
       path: "/Audio/Items/Medical/brutepack_begin.ogg"
       params:
@@ -174,8 +174,8 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -12
+      types:
+        MCBrute: -12
   - type: WoundTreater
     wound: Brute
     treats: true
@@ -229,8 +229,8 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Burn: -12
+      types:
+        MCBurn: -12
     healingBeginSound:
       path: "/Audio/_RMC14/Medical/bandage.ogg"
       params:
@@ -341,8 +341,8 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Brute: -15
+      types:
+        MCBrute: -15
   - type: WoundTreater
     wound: Brute
     treats: true
@@ -397,8 +397,8 @@
     damageContainers:
     - Biological
     damage:
-      groups:
-        Burn: -15
+      types:
+        MCBurn: -15
     healingBeginSound:
       path: "/Audio/_RMC14/Medical/bandage.ogg"
       params:

@@ -1,0 +1,49 @@
+- type: job
+  parent: MCJob
+  id: MCTagila
+  name: mc-job-name-tagila
+  description: mc-job-description-tagila
+  playTimeTracker: MCTagila
+  startingGear: MCGearTagila
+  icon: MCSpatialAgent
+  joinNotifyCrew: true
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillMedical: 2
+        RMCSkillFirearms: 3
+        RMCSkillCqc: 3
+        RMCSkillFireman: 3
+        RMCSkillEndurance: 4
+        RMCSkillExecution: 3
+        RMCSkillNavigations: 4
+
+- type: playTimeTracker
+  id: MCTagila
+  isHumanoid: true
+
+- type: startingGear
+  id: MCGearTagila
+  equipment:
+    shoes: MCBootsBlack
+    jumpsuit: MCTagilaPants
+    head: MCTagilamask
+    outerClothing: MCTagilaArmourVest
+    back: MCTagilaHammer
+    belt: MCClothingBeltMarine
+    pocket1: MCPouchMedkitFill
+    pocket2: MCPouchGrenadeFill
+  inhand:
+    - MCWeaponRifleAK1225
+  storage:
+    belt:
+    - MCMagazineRifleAK1225
+    - MCMagazineRifleAK1225
+    - MCMagazineRifleAK1225
+    - MCMagazineRifleAK1225
+    - MCMagazineRifleAK1225
+    - MCMagazineRifleAK1225
+

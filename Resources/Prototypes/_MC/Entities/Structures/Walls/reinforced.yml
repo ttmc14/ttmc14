@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCWall
+  id: MCWallReinforcedInvincible
+  name: reinforced wall
+  description: A huge chunk of reinforced metal used to seperate rooms.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/reinforced.rsi
+    state: wall-invincible
+  - type: Icon
+    sprite: _MC/Structures/Walls/reinforced.rsi
+    state: wall-invincible
+  - type: IconSmooth
+    key: walls
+    base: rwall-
+    mode: MCCardinalFlagsExtended
+
+- type: entity
+  parent: MCWallReinforcedInvincible
+  id: MCWallReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/reinforced.rsi
+    state: wall-reinforced
+  - type: Icon
+    sprite: _MC/Structures/Walls/reinforced.rsi
+    state: wall-reinforced
+  - type: ReceiverXenoClaws
+    maxHealth: 3000
+    minimumClawStrength: VerySharp
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

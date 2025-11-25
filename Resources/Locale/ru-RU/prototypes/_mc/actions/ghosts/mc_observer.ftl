@@ -1,2 +1,4 @@
-ent-RespawnAction = Respawn
-    .desc = Click to return to the lobby
+ent-MCRespawnAction = Возрождение
+    .desc = Нажмите, чтобы вернуться в лобби
+ent-RespawnAction = Возрождение
+    .desc = Нажмите, чтобы вернуться в лобби

@@ -6,5 +6,5 @@ namespace Content.Shared._MC.Stamina;
 public sealed partial class MCStaminaDamageOnCollideComponent : Component
 {
     [DataField]
-    public double Damage;
+    public float Damage;
 }

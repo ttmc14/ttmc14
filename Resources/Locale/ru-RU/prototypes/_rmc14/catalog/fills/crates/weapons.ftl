@@ -16,5 +16,7 @@ ent-RMCCrateMOU53 = MOU-53 Break Action Shotgun Crate (x2)
     .desc = { ent-RMCCrateWeapons.desc }
 ent-RMCCrateXM51 = XM51 Breaching Scattergun Crate (x2)
     .desc = { ent-RMCCrateWeapons.desc }
+ent-RMCCrateM85A1 = M85A1 Grenade Launcher Crate (x2)
+    .desc = { ent-RMCCrateWeapons.desc }
 ent-RMCCrateM79 = M79 Grenade Launcher Crate (x2)
     .desc = { ent-RMCCrateWeapons.desc }

@@ -1,0 +1,4 @@
+- type: entity
+  id: MCGuidebookActionXeno
+  categories: [ HideSpawnMenu ]
+  abstract: true

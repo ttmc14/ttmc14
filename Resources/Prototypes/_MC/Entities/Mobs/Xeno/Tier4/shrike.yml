@@ -25,6 +25,9 @@
       0: Alive
       400: Critical
       500: Dead
+  - type: XenoAnnounceDeath
+    message: mc-xeno-hive-ruler-dead
+    color: "#921992"
   - type: XenoPlasma
     plasma: 925
     maxPlasma: 925
@@ -46,14 +49,13 @@
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
     # Main
-    - MCActionXenoAcidicSalve
+    - MCActionXenoPsychicCure
     - MCActionXenoPsychicFling
     - MCActionXenoUnrelentingForce
     - MCActionXenoPheromones
     - MCActionXenoAcidStrong
     hudOffset: -0.1,0.1
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     evolvesToWithoutPoints:
     - MCXenoQueen
@@ -64,18 +66,19 @@
     devolvesTo:
     - MCXenoDrone
   - type: MCArmor
-    melee: 45
-    bullet: 45
-    laser: 45
-    energy: 45
-    bomb: 20
-    bio: 25
-    fire: 45
-    acid: 20
+    soft:
+      melee: 45
+      bullet: 45
+      laser: 45
+      energy: 45
+      bomb: 20
+      bio: 25
+      fire: 45
+      acid: 20
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 25
+      types:
+        MCBrute: 25
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166
@@ -89,7 +92,6 @@
       state: shrike
   - type: XenoInhands
     prefix: shrike
-  - type: MCXenoAcidicSalve
   # - type: MCXenoLayEgg
   - type: MCXenoPsychicFling
   - type: MCXenoUnrelentingForce
@@ -124,3 +126,5 @@
     - MCDoorXenoResinThick
   - type: XenoAcid
   - type: MCXenoCreateResinJelly
+  # Abilities
+  - type: MCXenoPsychicCure

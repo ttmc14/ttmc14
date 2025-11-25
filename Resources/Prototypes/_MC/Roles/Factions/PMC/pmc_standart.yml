@@ -1,0 +1,87 @@
+﻿- type: job
+  parent: MCJob
+  id: MCSquadPMCStandart
+  name: mc-job-name-squad-pmc-standart
+  description: mc-job-description-squad-pmc-standart
+  playTimeTracker: MCSquadPMCStandart
+  startingGear: MCSquadPMCStandart
+  icon: MCPMCJobIcon
+  joinNotifyCrew: false
+  supervisors: mc-job-supervisors-nanotrasen
+  accessGroups: [ MCFC ]
+  ranks:
+    MCPMCGunner: []
+  roleWeight: 1
+  special:
+  - !type:AddComponentSpecial
+    components:
+    - type: Skills
+      skills:
+        RMCSkillFirearms: 1
+        RMCSkillSmartGun: -4
+        RMCSkillFireman: 1
+        RMCSkillConstruction: 1
+        RMCSkillEngineer: 1
+    - type: JobPrefix
+      prefix: mc-job-prefix-pmc-standart
+    - type: TacticalMapIcon
+      icon:
+        sprite: _MC/Interface/squad_marine_icons.rsi
+        state: pmc
+
+- type: playTimeTracker
+  id: MCSquadPMCStandart
+  isHumanoid: true
+
+- type: startingGear
+  id: MCSquadPMCStandart
+  equipment:
+    id: MCIDPMCGunner
+    back: RMCSatchelLightpack
+    belt: MCClothingBeltMarine
+    ears: MCHeadsetPMC
+    jumpsuit: MCJumpsuitVeteranPMCGunner
+    mask: RMCMaskBalaclavaPMC
+    pocket1: MCPouchMedicalInjector
+    pocket2: MCPouchGrenade
+    shoes: RMCBootsPMC # TODO TTMC14: Add in shoes "M2X HF-S self defencse blade"
+    #outerClothing: TODO TTMC14: Add "M4 Legionary pattern PMC armor"
+    #gloves: TODO TTMC14: Add "PMC elite gloves"
+    #head: TODO TTMC14: Add "M4 Legionary pattern PMC helmet"
+
+- type: entity
+  id: MCRandomHumanoidPMCGunner
+  name: NT pmc ghost role gunner
+  suffix: Spawner, Player
+  components:
+  - type: Sprite
+    sprite: _RMC14/Markers/landmarks.rsi
+    state: pmc_spawn
+  - type: RandomHumanoidSpawner
+    settings: MCPMCGunner
+
+- type: entity
+  parent: CMSpawnPointJobBase
+  id: MCSpawnPointPMCGunner
+  name: pmc gunner spawn point
+  components:
+  - type: SpawnPoint
+    job_id: MCSquadPMCStandart
+  - type: Sprite
+    sprite: _RMC14/Markers/landmarks.rsi
+    state: pmc_spawn
+
+- type: randomHumanoidSettings
+  parent: RMCEventHumanoid
+  id: MCPMCGunner
+  components:
+  - type: GhostRole
+    name: mc-ghost-name-pmc-gunner
+    description: mc-ghost-role-information-pmc-description
+    rules: mc-ghost-role-information-pmc-rules
+    reregister: false
+    job: MCSquadPMCStandart
+    raffle:
+      settings: short
+  - type: GhostRoleApplySpecial
+    squad: SquadPMC

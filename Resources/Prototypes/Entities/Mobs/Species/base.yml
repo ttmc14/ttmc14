@@ -98,11 +98,11 @@
     - "enum.HumanoidVisualLayers.RArm"
     - "enum.HumanoidVisualLayers.RLeg"
     damageOverlayGroups:
-      Brute:
-        sprite: Mobs/Effects/brute_damage.rsi
+      MCBrute: # mc-changes
+        sprite: _MC/Mobs/Effects/brute_damage.rsi # mc-changes
         color: "#FF0000"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+      MCBurn: # mc-changes
+        sprite: _MC/Mobs/Effects/burn_damage.rsi # mc-changes
   - type: GenericVisualizer
     visuals:
       enum.CreamPiedVisuals.Creamed:

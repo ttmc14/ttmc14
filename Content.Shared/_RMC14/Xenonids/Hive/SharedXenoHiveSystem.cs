@@ -1,3 +1,4 @@
+using Content.Shared._MC.Xeno.Spawner;
 using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.NightVision;
 using Content.Shared._RMC14.Xenonids.Announce;
@@ -354,7 +355,7 @@ public abstract partial class SharedXenoHiveSystem : EntitySystem
             return false;
         }
 
-        if (!TrySpawnAt<HiveCoreComponent>() &&
+        if (!TrySpawnAt<MCXenoStructureSpawnerComponent>() && // mc-changes
             !TrySpawnAt<XenoEvolutionGranterComponent>() &&
             !TrySpawnAt<XenoComponent>())
         {

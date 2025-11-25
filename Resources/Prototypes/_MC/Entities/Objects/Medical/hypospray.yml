@@ -1,9 +1,13 @@
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCHypospray
   name: hypospray
   description: A sterile injector for rapid administration of drugs to patients.
   components:
+  - type: Tag
+    tags:
+    - MCHypospray
+  - type: Appearance
   - type: Sprite
     sprite: _MC/Objects/Medical/hypospray.rsi
     layers:
@@ -26,12 +30,9 @@
   - type: StaticPrice
     price: 0
   - type: IconLabel
+    labelMaxSize: 4
     textColor: White
     storedOffset: -3, 12
-  - type: Tag
-    tags:
-    - MCHypospray
-  - type: Appearance
   - type: SolutionContainerVisuals
     maxFillLevels: 6
     fillBaseName: hypo_0
@@ -75,7 +76,7 @@
   suffix: Fill
   components:
   - type: IconLabel
-    labelTextLocId: mc-meralyne-hypo-container-label-text
+    labelTextLocId: mc-meralyne-container-label-text
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -92,7 +93,7 @@
   suffix: Fill
   components:
   - type: IconLabel
-    labelTextLocId: mc-dermaline-hypo-container-label-text
+    labelTextLocId: mc-dermaline-container-label-text
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -109,7 +110,7 @@
   suffix: Fill
   components:
   - type: IconLabel
-    labelTextLocId: mc-meraderm-hypo-container-label-text
+    labelTextLocId: mc-meraderm-container-label-text
   - type: SolutionContainerManager
     solutions:
       hypospray:
@@ -163,7 +164,6 @@
   components:
   - type: Hypospray
     transferAmount: 3
-    onlyAffectsMobs: false
   - type: IconLabel
     labelTextLocId: mc-hypervene-container-label-text
   - type: SolutionContainerManager
@@ -183,7 +183,6 @@
   components:
   - type: Hypospray
     transferAmount: 5
-    onlyAffectsMobs: false
   - type: IconLabel
     labelTextLocId: mc-quickclotplus-container-label-text
   - type: SolutionContainerManager
@@ -345,7 +344,6 @@
   components:
   - type: Hypospray
     transferAmount: 5
-    onlyAffectsMobs: false
   - type: IconLabel
     labelTextLocId: mc-quickclotplus-container-label-text
   - type: SolutionContainerManager
@@ -364,7 +362,7 @@
   suffix: Fill
   components:
   - type: IconLabel
-    labelTextLocId: mc-combat-bighypo-container-label-text
+    labelTextLocId: mc-combat-container-label-text
   - type: SolutionContainerManager
     solutions:
       hypospray:

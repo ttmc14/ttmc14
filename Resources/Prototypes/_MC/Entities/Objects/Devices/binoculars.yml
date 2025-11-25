@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCBinoculars
   name: binoculars
   description: A pair of binoculars.

@@ -8,12 +8,17 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.NPC.Systems;
 using Content.Shared.Popups;
+using Content.Shared.Maps;
+using Content.Shared.Interaction;
 using Content.Shared.Projectiles;
 using Content.Shared.Whitelist;
 using Robust.Shared.Network;
+using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
+using static Content.Shared.Physics.CollisionGroup;
 
 namespace Content.Shared._RMC14.Projectiles;
 
@@ -29,6 +34,10 @@ public sealed class RMCProjectileSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = default!;
     [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
+    [Dependency] private readonly TurfSystem _turf = default!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
+    [Dependency] private readonly SharedMapSystem _mapSystem = default!;
+
 
     public override void Initialize()
     {
@@ -44,6 +53,7 @@ public sealed class RMCProjectileSystem : EntitySystem
 
         SubscribeLocalEvent<SpawnOnTerminateComponent, MapInitEvent>(OnSpawnOnTerminatingMapInit);
         SubscribeLocalEvent<SpawnOnTerminateComponent, EntityTerminatingEvent>(OnSpawnOnTerminatingTerminate);
+        SubscribeLocalEvent<SpawnOnTerminateRangeComponent, EntityTerminatingEvent>(OnSpawnInRangeOnTerminatingTerminate);
 
         SubscribeLocalEvent<PreventCollideWithDeadComponent, PreventCollideEvent>(OnPreventCollideWithDead);
     }
@@ -70,7 +80,7 @@ public sealed class RMCProjectileSystem : EntitySystem
 
     private void OnFalloffProjectileMapInit(Entity<RMCProjectileDamageFalloffComponent> projectile, ref MapInitEvent args)
     {
-        projectile.Comp.ShotFrom = _transform.GetMoverCoordinates(projectile.Owner);
+        projectile.Comp.ShotFrom = _transform.GetWorldPosition(projectile.Owner);
         Dirty(projectile);
     }
 
@@ -79,7 +89,7 @@ public sealed class RMCProjectileSystem : EntitySystem
         if (projectile.Comp.ShotFrom == null || projectile.Comp.MinRemainingDamageMult < 0)
             return;
 
-        var distance = (_transform.GetMoverCoordinates(args.Target).Position - projectile.Comp.ShotFrom.Value.Position).Length();
+        var distance = (_transform.GetWorldPosition(args.Target) - projectile.Comp.ShotFrom.Value).Length();
         var minDamage = args.Damage.GetTotal() * projectile.Comp.MinRemainingDamageMult;
         foreach (var threshold in projectile.Comp.Thresholds)
         {
@@ -107,7 +117,7 @@ public sealed class RMCProjectileSystem : EntitySystem
 
     private void OnProjectileAccuracyMapInit(Entity<RMCProjectileAccuracyComponent> projectile, ref MapInitEvent args)
     {
-        projectile.Comp.ShotFrom = _transform.GetMoverCoordinates(projectile.Owner);
+        projectile.Comp.ShotFrom = _transform.GetWorldPosition(projectile.Owner);
         projectile.Comp.Tick = _timing.CurTick.Value;
 
         Dirty(projectile);
@@ -128,8 +138,8 @@ public sealed class RMCProjectileSystem : EntitySystem
             return;
 
         var accuracy = projectile.Comp.Accuracy;
-        var targetCoords = _transform.GetMoverCoordinates(args.OtherEntity);
-        var distance = (targetCoords.Position - projectile.Comp.ShotFrom.Value.Position).Length();
+        var targetCoords = _transform.GetWorldPosition(args.OtherEntity);
+        var distance = (targetCoords - projectile.Comp.ShotFrom.Value).Length();
 
         foreach (var threshold in projectile.Comp.Thresholds)
         {
@@ -150,8 +160,11 @@ public sealed class RMCProjectileSystem : EntitySystem
             accuracy -= threshold.Falloff * pastRange;
         }
 
-        if (!_examine.InRangeUnOccluded(_transform.ToMapCoordinates(projectile.Comp.ShotFrom.Value), _transform.ToMapCoordinates(targetCoords), distance, null))
-            accuracy += (int) AccuracyModifiers.TargetOccluded;
+        var mapId = _transform.GetMapId(args.OtherEntity);
+        var shootCoordinates = new MapCoordinates(projectile.Comp.ShotFrom.Value, mapId);
+        var targetCoordinates = new MapCoordinates(targetCoords, mapId);
+        if (!_examine.InRangeUnOccluded(shootCoordinates, targetCoordinates, distance, null))
+            accuracy += (int)AccuracyModifiers.TargetOccluded;
 
         if (!projectile.Comp.IgnoreFriendlyEvasion && IsProjectileTargetFriendly(projectile.Owner, args.OtherEntity))
             accuracy -= evasionComponent.ModifiedEvasionFriendly;
@@ -160,7 +173,7 @@ public sealed class RMCProjectileSystem : EntitySystem
 
         accuracy = accuracy > projectile.Comp.MinAccuracy ? accuracy : projectile.Comp.MinAccuracy;
 
-        var random = new Xoshiro128P(projectile.Comp.GunSeed, (long) projectile.Comp.Tick << 32 | GetNetEntity(args.OtherEntity).Id).NextFloat(0f, 100f);
+        var random = new Xoshiro128P(projectile.Comp.GunSeed, (long)projectile.Comp.Tick << 32 | GetNetEntity(args.OtherEntity).Id).NextFloat(0f, 100f);
 
         if (accuracy >= random)
             return;
@@ -214,6 +227,46 @@ public sealed class RMCProjectileSystem : EntitySystem
             _popup.PopupCoordinates(Loc.GetString(popup), coordinates, ent.Comp.PopupType ?? PopupType.Small);
     }
 
+    private void OnSpawnInRangeOnTerminatingTerminate(Entity<SpawnOnTerminateRangeComponent> ent, ref EntityTerminatingEvent args)
+    {
+        if (_net.IsClient)
+            return;
+
+        if (!TryComp(ent, out TransformComponent? transform))
+            return;
+
+        if (TerminatingOrDeleted(transform.ParentUid))
+            return;
+
+        var center = transform.Coordinates;
+
+        if (ent.Comp.ProjectileAdjust &&
+            ent.Comp.Origin is { } origin &&
+            center.TryDelta(EntityManager, _transform, origin, out var delta) &&
+            delta.Length() > 0)
+        {
+            center = center.Offset(delta.Normalized() / -2);
+        }
+
+        for (var x = ent.Comp.PositionXOne; x <= ent.Comp.PositionXTwo; x++)
+        {
+            for (var y = ent.Comp.PositionYOne; y <= ent.Comp.PositionYTwo; y++)
+            {
+                var offset = new Vector2(x, y);
+                var targetPos = center.Offset(offset);
+
+                if (!CanPlaceTile(targetPos))
+                    continue;
+
+                if (!_interaction.InRangeUnobstructed(ent.Owner, targetPos, ent.Comp.Range))
+                    continue;
+
+                var spawn = SpawnAtPosition(ent.Comp.Spawn, targetPos);
+                _hive.SetSameHive(ent.Owner, spawn);
+            }
+        }
+    }
+
     private void OnPreventCollideWithDead(Entity<PreventCollideWithDeadComponent> ent, ref PreventCollideEvent args)
     {
         if (args.Cancelled)
@@ -264,5 +317,15 @@ public sealed class RMCProjectileSystem : EntitySystem
 
             StopProjectile((uid, comp));
         }
+    }
+
+    private bool CanPlaceTile(EntityCoordinates coords)
+    {
+        if (_transform.GetGrid(coords) is not { } gridId ||
+            !TryComp<MapGridComponent>(gridId, out var grid))
+            return false;
+
+        var tile = _mapSystem.TileIndicesFor(gridId, grid, coords);
+        return !_turf.IsTileBlocked(gridId, tile, Impassable | MidImpassable | HighImpassable, grid);
     }
 }

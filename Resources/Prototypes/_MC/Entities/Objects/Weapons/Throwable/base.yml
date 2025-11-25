@@ -4,7 +4,7 @@
 
 # entities
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCGrenade
   name: grenade
   description: Duck and cover.

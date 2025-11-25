@@ -1,0 +1,62 @@
+- type: reagent
+  parent: MCReagentToxins
+  id: MCSleepToxin
+  name: reagent-name-mc-sleeptoxin
+  desc: reagent-desc-mc-sleeptoxin
+  group: Toxins
+  flavor: bitter
+  color: "#E895CC"
+  overdose: 30
+  criticalOverdose: 50
+  physicalDesc: reagent-physical-desc-nondescript
+  metabolisms:
+    Poison:
+      metabolismRate: 0.2
+      effects:
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectDrowsiness
+        time: 2
+        type: Add
+        refresh: false
+      - !type:ModifyStatusEffect
+        effectProto: StatusEffectForcedSleeping
+        time: 1
+        type: Add
+      - !type:Emote
+        emote: Yawn
+        showInChat: false
+        probability: 0.05
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            MCToxin: 1
+            MCBrute: 2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          types:
+            MCToxin: 1
+            MCBrute: 1
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCToxin
+  name: reagent-name-mc-toxin
+  desc: reagent-desc-mc-toxin
+  group: Toxins
+  flavor: bitter
+  color: "#CF3600"
+  physicalDesc: reagent-physical-desc-liquid
+  metabolisms:
+    Poison:
+      metabolismRate: 0.1
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            MCToxin: 0.35

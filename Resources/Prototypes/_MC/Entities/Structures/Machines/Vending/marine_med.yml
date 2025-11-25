@@ -42,8 +42,9 @@
       - id: MCAutoInjectorImidazoline
         amount: 20
       - id: MCAutoInjectorQuickClot
-        amount: 10
-      # medicalnanites = 20
+        amount: 20
+      - id: MCAutoInjectorNanoMachines
+        amount: 20
     - name: Heal Pack
       entries:
       - id: MCGauze

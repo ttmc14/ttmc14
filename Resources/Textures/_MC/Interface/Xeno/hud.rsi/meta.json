@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from cmss13 at https://github.com/cmss13-devs/cmss13/blob/daac1b70c46480c55b1e93b64f04529d364dd60f/icons/mob/hud/hud.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [ {
+      "name": "over_plasma0"
+    },
+    {
+      "name": "over_plasma10"
+    },
+    {
+      "name": "over_plasma20"
+    },
+    {
+      "name": "over_plasma30"
+    },
+    {
+      "name": "over_plasma40"
+    },
+    {
+      "name": "over_plasma50"
+    },
+    {
+      "name": "over_plasma60"
+    },
+    {
+      "name": "over_plasma70"
+    },
+    {
+      "name": "over_plasma80"
+    },
+    {
+      "name": "over_plasma90"
+    },
+    {
+      "name": "over_plasma100"
+    },
+    {
+      "name": "plasma0"
+    },
+    {
+      "name": "plasma10",
+      "delays": [
+        [
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "plasma20",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "plasma30",
+      "delays": [
+        [
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "plasma40",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "plasma50"
+    },
+    {
+      "name": "plasma60"
+    },
+    {
+      "name": "plasma70"
+    },
+    {
+      "name": "plasma80"
+    },
+    {
+      "name": "plasma90"
+    },
+    {
+      "name": "plasma100"
+    }
+  ]
+}

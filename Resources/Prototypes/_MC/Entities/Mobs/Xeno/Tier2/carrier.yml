@@ -30,14 +30,15 @@
     devolvesTo:
     - MCXenoDrone
   - type: MCArmor
-    melee: 35
-    bullet: 35
-    laser: 35
-    energy: 35
-    bomb: 0
-    bio: 20
-    fire: 30
-    acid: 20
+    soft:
+      melee: 35
+      bullet: 35
+      laser: 35
+      energy: 35
+      bomb: 0
+      bio: 20
+      fire: 30
+      acid: 20
   - type: XenoPheromones
     pheromonesMultiplier: 2.5
     pheroSuffix: hivelord
@@ -48,8 +49,8 @@
   - type: XenoDevour
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 22
+      types:
+        MCBrute: 20
   - type: TunnelRenamer
   - type: MovementSpeedModifier
     baseWalkSpeed: 2
@@ -125,7 +126,6 @@
     - MCActionXenoPlaceTrap
   - type: XenoParasiteThrower
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:

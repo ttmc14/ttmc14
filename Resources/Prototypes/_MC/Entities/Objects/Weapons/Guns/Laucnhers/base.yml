@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: [ BaseItem, CMBaseWeaponGun, RMCBaseAttachableHolder ]
+  parent: [ MCItem, MCWeaponGun, RMCBaseAttachableHolder ]
   id: MCWeaponGrenadeLauncher
   components:
   - type: Item
@@ -61,8 +61,6 @@
     slots:
     - back
     - suitstorage
-  - type: StaticPrice
-    price: 500
   - type: RMCNameItemOnVend
     item: PrimaryGun
   - type: WieldedCrosshair
@@ -70,3 +68,49 @@
       sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
       state: all
   - type: GunIgnorePrediction
+
+- type: entity
+  parent: [ MCWeaponGun, BaseWeaponLauncher ]
+  id: MCWeaponLauncher
+  abstract: true
+  components:
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - back
+    - suitStorage
+  - type: Gun
+    fireRate: 0.83
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/m5_shoot.ogg
+    resetOnHandSelected: false
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - RMCRocketAmmo84mm
+    capacity: 1
+    cycleable: true
+    proto: RMCRocket84mm
+    soundInsert:
+      path: /Audio/_RMC14/Weapons/Guns/Cock/m5_ammo.ogg
+  - type: ExplosionResistance
+    damageCoefficient: 0
+  - type: Wieldable
+  - type: GunRequiresWield
+  - type: RMCNameItemOnVend
+    item: PrimaryGun
+  - type: OnShootTriggerAmmoTimer
+    delay: 0.2 # TODO RMC14 Make some way for rockets to explode when they stop, for shooting at the ground closer than max range.
+    # This is a temporary hack to guarantee it will always go off after stopping even if it doesn't collide with anything.
+    # Works for almost all gameplay purposes at least right now because even max range rockets are less than 0.2s and it's fast enough not matter.
+  - type: ShootAtFixedPoint
+    shootArcProj: false
+  - type: WieldDelay
+    baseDelay: 1.2
+    preventFiring: true
+  - type: IgnorePredictionHide
+  - type: GunIgnorePrediction
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
+      state: all

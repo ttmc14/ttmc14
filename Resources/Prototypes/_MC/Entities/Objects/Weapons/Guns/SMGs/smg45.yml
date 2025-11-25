@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMBaseWeaponSMG
+  parent: MCWeaponSMG
   name: SMG-45 heavy submachinegun
   id: MCWeaponSMG45
   description: The SMG-45 is a heavier than usual subgun used by the TerraGov Marine Corps. Best known for carrying a punch within a small package. It's usually carried by troops who want a lightweight firearm to rush with while beating a mean punch, however it struggles at range. It uses .41 AE caseless rounds.
@@ -100,14 +100,14 @@
     multiplier: 1
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineSMG45
   name: "SMG-45 magazine (.41 AE)"
   description: "A .41 AE caseless submachinegun magazine."
   components:
   - type: Tag
     tags:
-    - CMMagazineSmg
+    - MCMagazineSmg
     - MCMagazineSMG45
   - type: BallisticAmmoProvider
     mayTransfer: True
@@ -131,7 +131,7 @@
   - type: Appearance
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineSMG45SH
   name: "SMG-45 squash-head magazine (.41 AE)"
   description: "A .41 AE caseless submachinegun magazine that does a minituare explosion upon contact, will shred the armor off of basically anything."
@@ -181,8 +181,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 27.5
+      types:
+        MCBrute: 27.5
   - type: MCXenoSunderDamageOnHit
     amount: 1
   - type: RMCProjectileDamageFalloff
@@ -215,8 +215,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 15
+      types:
+        MCBrute: 15
   - type: MCXenoSunderDamageOnHit
     amount: 1
   - type: RMCProjectileDamageFalloff

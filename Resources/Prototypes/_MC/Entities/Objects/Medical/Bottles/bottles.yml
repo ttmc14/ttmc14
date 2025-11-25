@@ -1,4 +1,4 @@
-#NEDICINE BOTTLES
+# MEDICINE BOTTLES
 - type: entity
   parent: MCBottleFilled
   id: MCBottleBicaridine

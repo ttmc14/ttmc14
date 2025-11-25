@@ -17,13 +17,21 @@
   id: MCSpear
 
 - type: entity
+  parent: MCItem
+  id: MCMeleeWeapon
+  categories: [ MCContent ]
   abstract: true
-  id: MCBaseMeleeWeapon
   components:
-  - type: MeleeDamageMultiplier
-    whitelist:
-      components:
-      - Xeno
+  - type: MeleeWeapon
+    angle: 0
+
+# Legacy shit don't use
+- type: entity
+  parent: MCMeleeWeapon
+  id: MCBaseMeleeWeapon
+  categories: [ MCContent ]
+  abstract: true
+  components:
   - type: MeleeWeapon
     angle: 0
   - type: CMArmorPiercing

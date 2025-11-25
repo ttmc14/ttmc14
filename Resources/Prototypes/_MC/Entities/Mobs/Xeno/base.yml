@@ -1,15 +1,23 @@
 - type: entity
   id: MCXenoNoMeleeBase
   abstract: true
+  categories: [ MCContent ]
   components:
+  - type: MCXenoHeal
+  - type: XenoAnnounceDeath
+    message: mc-xeno-death
+    color: "#459A62"
+  - type: ShowHealthBars
+    damageContainers:
+    - Biological
   - type: Flammable
     fireSpread: false
     canResistFire: true
     resistDuration: 1
     # per second, scales with number of fire 'stacks'
     damage:
-      groups:
-        Burn: 1
+      types:
+        MCBurn: 1
   - type: RMCSize
     size: Xeno
   - type: Tag
@@ -88,6 +96,8 @@
   id: MCXenoBase
   abstract: true
   components:
+  - type: MCXenoBiomass
+  - type: MCXenoPsydrain
   - type: ActiveInputMover
   - type: MCXenoDamageVisuals
 
@@ -135,12 +145,6 @@
   - type: MCXenoCreateResinJelly
 
 - type: entity
-  id: MCXenoAcidicSalve
-  abstract: true
-  components:
-  - type: MCXenoAcidicSalve
-
-- type: entity
   id: MCXenoPickupOne
   abstract: true
   components:
@@ -164,11 +168,11 @@
   components:
   - type: MCXenoCharge
     damage:
-      groups:
-        Brute: 37
+      types:
+        MCBrute: 37
     structureDamage:
-      groups:
-        Brute: 240
+      types:
+        MCBrute: 240
 
 - type: entity
   id: MCXenoHide

@@ -1,33 +1,32 @@
-﻿using System.Linq;
-using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Xeno.Heal;
+using Content.Shared._MC.Xeno.Sunder;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Heal;
 using Content.Shared._RMC14.Xenonids.Hive;
-using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
-using Content.Shared.Mobs;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Network;
 
 namespace Content.Shared._MC.Xeno.Abilities.AcidicSalve;
 
-public sealed class MCXenoAcidicSlaveSystem : EntitySystem
+public sealed class MCXenoAcidicSlaveSystem : MCXenoAbilitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly INetManager _net = null!;
 
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
 
-    [Dependency] private readonly SharedInteractionSystem _interaction = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
-    [Dependency] private readonly SharedXenoHealSystem _xenoHeal = default!;
-    [Dependency] private readonly SharedRMCFlammableSystem _flammable = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly SharedInteractionSystem _interaction = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
+    [Dependency] private readonly SharedRMCFlammableSystem _flammable = null!;
+
+    [Dependency] private readonly MCXenoHealSystem _mcXenoHeal = null!;
+    [Dependency] private readonly MCXenoSunderSystem _mcXenoSunder = null!;
 
     public override void Initialize()
     {
@@ -42,9 +41,6 @@ public sealed class MCXenoAcidicSlaveSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!HasComp<XenoComponent>(entity) || !HasComp<XenoComponent>(args.Target))
-            return;
-
         if (!_interaction.InRangeUnobstructed(entity.Owner, args.Target, entity.Comp.Range))
             return;
 
@@ -57,10 +53,7 @@ public sealed class MCXenoAcidicSlaveSystem : EntitySystem
         if (!_xenoHive.FromSameHive(entity.Owner, args.Target))
             return;
 
-        if (TryComp(args.Target, out DamageableComponent? damageComp) && damageComp.TotalDamage == 0)
-            return;
-
-        if (!_rmcActions.TryUseAction(entity, args.Action, entity))
+        if (!RMCActions.TryUseAction(entity, args.Action, entity))
             return;
 
         args.Handled = true;
@@ -68,8 +61,8 @@ public sealed class MCXenoAcidicSlaveSystem : EntitySystem
         var ev = new MCXenoAcidicSlaveDoAfterEvent();
         var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, ev, entity, args.Target)
         {
-            BreakOnMove = true,
-            RequireCanInteract = true,
+            RequireCanInteract = false,
+            DistanceThreshold = entity.Comp.Range,
         };
 
         _doAfter.TryStartDoAfter(doAfter);
@@ -77,18 +70,24 @@ public sealed class MCXenoAcidicSlaveSystem : EntitySystem
 
     private void OnDoAfter(Entity<MCXenoAcidicSalveComponent> entity, ref MCXenoAcidicSlaveDoAfterEvent args)
     {
-        if (args.Target is null)
+        if (args.Handled || args.Cancelled)
             return;
 
-        var pheromones = CompOrNull<XenoRecoveryPheromonesComponent>(args.Target)?.Multiplier ?? 1f;
-        var health = CompOrNull<MobThresholdsComponent>(args.Target)
-            ?.Thresholds.FirstOrDefault(e => e.Value == MobState.Critical)
-            .Key ?? 0;
+        if (args.Target is not {} target)
+            return;
 
-        var value = 50 + pheromones * health * 0.01f;
-        _xenoHeal.Heal(args.Target.Value, value);
+        args.Handled = true;
 
-        if(_net.IsServer)
-            SpawnAttachedTo(entity.Comp.EffectProtoId, args.Target.Value.ToCoordinates());
+        var value = 50 + _mcXenoHeal.GetRecoveryAura(target) * _mcXenoHeal.GetMaxHealth(target) * 0.01f;
+        _mcXenoHeal.Heal(target, value);
+        _mcXenoSunder.AddSunder(target, value * 0.1f);
+
+        if (entity.Comp.Sound is not null)
+            _audio.PlayPredicted(entity.Comp.Sound, entity, entity);
+
+        if (_net.IsClient)
+            return;
+
+        SpawnAttachedTo(entity.Comp.EffectProtoId, args.Target.Value.ToCoordinates());
     }
 }

@@ -12,7 +12,7 @@
   - type: FixedIdentity
     name: mc-job-name-xeno-mantis
   - type: Xeno
-    tier: 0
+    tier: -1
     role: MCXenoMinionMantis
     actionIds:
     - MCActionXenoRest
@@ -30,17 +30,18 @@
     plasmaRegenOnWeeds: 20
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: MCArmor
-    melee: 15
-    bullet: 5
-    laser: 5
-    energy: 0
-    bomb: 0
-    bio: 0
-    fire: 5
-    acid: 0
+    soft:
+      melee: 15
+      bullet: 5
+      laser: 5
+      energy: 0
+      bomb: 0
+      bio: 0
+      fire: 5
+      acid: 0
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166

@@ -1,2 +1,4 @@
-ent-MCMachineVendingNexusSquadLeader = NEXUS automated squad leader's equipment rack
-    .desc = An automated equipment rack hooked up to a colossal storage of basic cat-herding devices.
+ent-MCMachineVendingNexusSquadLeader = NEXUS автоматическая стойка снаряжения командира отряда
+    .desc = Автоматическая стойка снаряжения, подключённая к массивному складу базовых устройств для управления котами.
+ent-MCVendorBundleEssentialSquadLeader = Набор «Основное снаряжение командира отряда»
+    .desc = { "" }

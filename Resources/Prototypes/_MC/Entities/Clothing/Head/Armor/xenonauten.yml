@@ -6,14 +6,15 @@
   - type: Sprite
   - type: Clothing
   - type: MCArmor
-    melee: 50
-    bullet: 70
-    laser: 70
-    energy: 60
-    bomb: 55
-    bio: 55
-    fire: 55
-    acid: 60
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 70
+      energy: 60
+      bomb: 55
+      bio: 55
+      fire: 55
+      acid: 60
   - type: HideLayerClothing
     slots:
     - Hair

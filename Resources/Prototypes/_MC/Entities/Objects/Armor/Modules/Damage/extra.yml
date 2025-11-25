@@ -1,0 +1,43 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleMark1TyrArmor
+  name: tyr Mk.1 armor reinforcement system
+  description: Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will greatly impact mobility.
+  components:
+  - type: Sprite
+    state: mod_armor_lower
+  - type: MCArmor
+    soft:
+      melee: 10
+      bullet: 10
+      laser: 10
+      energy: 10
+      bomb: 10
+      bio: 10
+      fire: 10
+      acid: 10
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleMark2TyrArmor
+  name: tyr Mk.2 armor reinforcement system
+  description: Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility.
+  components:
+  - type: Sprite
+    state: mod_armor
+  - type: MCArmor
+    soft:
+      melee: 15
+      bullet: 15
+      laser: 15
+      energy: 15
+      bomb: 15
+      bio: 15
+      fire: 15
+      acid: 15
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9

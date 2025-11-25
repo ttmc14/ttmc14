@@ -6,5 +6,8 @@ namespace Content.Shared._MC.Xeno.Abilities.Pounce;
 public sealed partial class MCXenoPouncingComponent : Component
 {
     [DataField, AutoNetworkedField]
+    public List<EntityUid> Hit = new();
+
+    [DataField, AutoNetworkedField]
     public TimeSpan End;
 }

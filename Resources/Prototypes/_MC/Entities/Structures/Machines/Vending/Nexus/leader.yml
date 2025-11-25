@@ -13,4 +13,29 @@
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     jobs: [ MCSquadLeader ]
-    sections: []
+    sections:
+    - name: Essentials
+      choices:
+        MCEssentials: 1
+      entries:
+      - id: MCVendorBundleEssentialSquadLeader
+
+- type: entity
+  id: MCVendorBundleEssentialSquadLeader
+  name: Essential squad leader Set
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/beacon.rsi
+    state: motion_1
+  - type: CMVendorBundle
+    bundle:
+    - RMCExplosivePlastic
+    - MCBeaconSupply
+    - MCBeaconSupply
+    - MCBeaconOrbital
+    - MCWhistle
+    # /obj/item/compass,
+    - MCRangefinder
+    # /obj/item/pinpointer,
+    - MCGlassesHudHealth

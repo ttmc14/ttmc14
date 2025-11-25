@@ -17,17 +17,17 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 1
-            Burn: 1
+          types:
+            MCBurn: 1
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Toxin: 1
-            Burn: 1
+          types:
+            MCBurn: 1
+            MCToxin: 1
 
 - type: reagent
   parent: MCReagentElement
@@ -48,15 +48,15 @@
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Toxin: 2
+          types:
+            MCToxin: 2
       - !type:Emote
         conditions:
         - !type:ReagentThreshold
@@ -150,22 +150,22 @@
       effects:
         - !type:HealthChange
           damage:
-            groups:
-              Toxin: 0.5
+            types:
+              MCToxin: 0.5
         - !type:HealthChange
           conditions:
             - !type:ReagentThreshold
               min: 30
           damage:
-            groups:
-              Toxin: 1
+            types:
+              MCToxin: 1
         - !type:HealthChange
           conditions:
             - !type:ReagentThreshold
               min: 50
           damage:
-            groups:
-              Toxin: 1
+            types:
+              MCToxin: 1
 
 - type: reagent
   parent: MCReagentElement
@@ -186,15 +186,15 @@
             - !type:ReagentThreshold
               min: 30
           damage:
-            groups:
-              Toxin: 1
+            types:
+              MCToxin: 1
         - !type:HealthChange
           conditions:
             - !type:ReagentThreshold
               min: 50
           damage:
-            groups:
-              Toxin: 1
+            types:
+              MCToxin: 1
 
 - type: reagent
   parent: MCReagentElement
@@ -231,9 +231,9 @@
       effects:
         - !type:HealthChange
           damage:
-            groups:
-              Toxin: 0.5
-              Burn: 1
+            types:
+              MCBurn: 1
+              MCToxin: 0.5
 
 - type: reagent
   parent: MCReagentElement

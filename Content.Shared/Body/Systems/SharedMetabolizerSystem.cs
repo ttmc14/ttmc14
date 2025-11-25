@@ -2,7 +2,7 @@ using Content.Shared.Body.Events;
 
 namespace Content.Shared.Body.Systems;
 
-public abstract class SharedMetabolizerSystem : EntitySystem
+public abstract partial class SharedMetabolizerSystem : EntitySystem // mc-changes
 {
     /// <summary>
     /// Updates the metabolic rate multiplier for a given entity,

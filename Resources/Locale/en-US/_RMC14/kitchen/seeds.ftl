@@ -1,13 +1,12 @@
-﻿seeds-plump-name = plump helmet
-seeds-plump-display-name = plump helmet mushrooms
-seeds-peanut-name = peanut
-seeds-peanut-display-name = peanut vines
-seeds-sunflower-name = sunflower
-seeds-sunflower-display-name = sunflowers
-seeds-whitebeet-name = white beet
-seeds-whitebeet-display-name = white beets
-seeds-grass-name = grass
-seeds-grass-display-name = grass
-seeds-rmc-grape-name = grape
-seeds-rmc-grape-display-name = grape vines
-
+﻿seeds-plump-name = гриб-плюшка
+seeds-plump-display-name = грибы-плюшки
+seeds-peanut-name = арахис
+seeds-peanut-display-name = лозы арахиса
+seeds-sunflower-name = подсолнух
+seeds-sunflower-display-name = подсолнухи
+seeds-whitebeet-name = белая свёкла
+seeds-whitebeet-display-name = белая свёкла
+seeds-grass-name = трава
+seeds-grass-display-name = трава
+seeds-rmc-grape-name = виноград
+seeds-rmc-grape-display-name = виноградные лозы

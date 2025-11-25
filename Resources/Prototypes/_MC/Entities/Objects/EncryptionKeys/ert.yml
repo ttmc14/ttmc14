@@ -1,0 +1,21 @@
+﻿- type: entity
+  parent: CMEncryptionKey
+  id: MCEncryptionKeyPMC
+  name: pmc radio encryption key
+  components:
+  - type: EncryptionKey
+    channels:
+    - MarineCommand
+    - MarineAlpha
+    - MarineBravo
+    - MarineCharlie
+    - MarineDelta
+    - MarineEngineer
+    - MarineMedical
+    - MarineRequisition
+    - MarineJTAC
+    - MarineCommon
+    - MCPMCChannel
+    defaultChannel: MarineCommand
+  - type: Sprite
+    state: sl_key

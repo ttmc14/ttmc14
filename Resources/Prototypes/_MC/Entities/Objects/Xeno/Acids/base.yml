@@ -31,11 +31,11 @@
   - type: DamageOnCollide
     acidic: true
     damage:
-      groups:
-        Burn: 14
+      types:
+        MCBurn: 14
     chainDamage:
-      groups:
-        Burn: 14
+      types:
+        MCBurn: 14
     whitelist:
       components:
       - Marine

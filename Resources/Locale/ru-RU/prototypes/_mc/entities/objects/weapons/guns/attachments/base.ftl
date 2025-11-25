@@ -1,0 +1,16 @@
+ent-MCAttachableBase = { ent-MCItem }
+    .desc = { ent-MCItem.desc }
+ent-MCAttachableToggleableBase = { ent-MCAttachableBase }
+    .desc = { ent-MCAttachableBase.desc }
+ent-MCAttachmentBaseMuzzle = { ent-MCAttachableBase }
+    .desc = { ent-MCAttachableBase.desc }
+ent-MCAttachmentBaseRail = { ent-MCAttachableBase }
+    .desc = { ent-MCAttachableBase.desc }
+ent-MCAttachmentBaseStock = { ent-MCAttachableBase }
+    .desc = { ent-MCAttachableBase.desc }
+ent-MCAttachmentBaseUnderbarrel = { ent-MCAttachableBase }
+    .desc = { ent-MCAttachableBase.desc }
+ent-MCAttachmentBaseCollapsibleStock = { ent-MCAttachmentBaseStock }
+    .desc = { ent-MCAttachmentBaseStock.desc }
+ent-MCAttachmentBaseScope = { ent-MCAttachmentBaseRail }
+    .desc = { ent-MCAttachmentBaseRail.desc }

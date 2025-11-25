@@ -1,0 +1,73 @@
+﻿- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoInferno
+  name: Inferno (50)
+  description: After a short cast time, release a burst of fire in a 5x5 radius. All tiles are set on fire. Humans are set on fire and burnt.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/forger.rsi
+      state: inferno
+    useDelay: 1.5
+  - type: InstantAction
+    event: !type:MCXenoInfernoActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoFireball
+  name: Fireball (50)
+  description: Release a fireball that explodes on contact.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/forger.rsi
+      state: fireball
+    useDelay: 1.5
+  - type: TargetAction
+    checkCanAccess: false
+    range: 8
+  - type: WorldTargetAction
+    event: !type:MCXenoFireballActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoFirecharge
+  name: Fire Charge (30)
+  description: Charge up to 3 tiles, attacking any organic you come across. Extinguishes the target if they were set on fire, but deals extra damage depending on how many fire stacks they have.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/forger.rsi
+      state: fireslash
+    useDelay: 12
+  - type: TargetAction
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
+  - type: XenoActionPlasma
+    cost: 30
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoWhirlwind
+  name: Fire Storm (50)
+  description: Unleash a fiery tornado that goes in a straight line which will set fire around it as it goes and harm marines that directly touch it.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/forger.rsi
+      state: whirlwind
+    useDelay: 12
+  - type: TargetAction
+    range: 15
+  - type: WorldTargetAction
+    event: !type:MCXenoWhirlwindActionEvent
+  - type: ActionBlockIfResting

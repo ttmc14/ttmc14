@@ -1,0 +1,78 @@
+- type: reagent
+  parent: MCReagentToxins
+  id: MCNeurotoxin
+  name: reagent-name-mc-neurotoxin
+  desc: reagent-desc-mc-neurotoxin
+  group: Toxins
+  flavor: bitter
+  color: "#CF3600"
+  physicalDesc: reagent-physical-desc-opaque
+  metabolisms:
+    Poison:
+      metabolismRate: 0.4
+      effects:
+      - !type:MCReagentNeurotoxin
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCHemodile
+  name: reagent-name-mc-hemodile
+  desc: reagent-desc-mc-hemodile
+  group: Toxins
+  flavor: bitter
+  color: "#602cff"
+  physicalDesc: reagent-physical-desc-opaque
+  metabolisms:
+    Poison:
+      metabolismRate: 0.4
+      effects: []
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCTransvitox
+  name: reagent-name-mc-transvitox
+  desc: reagent-desc-mc-transvitox
+  group: Toxins
+  flavor: bitter
+  color: "#94ff00"
+  physicalDesc: reagent-physical-desc-opaque
+  metabolisms:
+    Poison:
+      metabolismRate: 0.4
+      effects: []
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCSanguinal
+  name: reagent-name-mc-sanguinal
+  desc: reagent-desc-mc-sanguinal
+  group: Toxins
+  flavor: bitter
+  color: "#bb0a1e"
+  physicalDesc: reagent-physical-desc-opaque
+  metabolisms:
+    Poison:
+      metabolismRate: 0.4
+      effects: []
+
+- type: reagent
+  parent: MCReagentToxins
+  id: MCOzelomelyn
+  name: reagent-name-mc-ozelomelyn
+  desc: reagent-desc-mc-ozelomelyn
+  physicalDesc: reagent-physical-desc-opaque
+  group: Toxins
+  flavor: acid
+  color: "#f1ddcf"
+  metabolisms:
+    Medicine:
+      metabolismRate: 1.5
+      effects:
+      - !type:MCPurgeGroups
+        groups:
+        - Medicine
+        amount: 5
+      - !type:HealthChange
+        damage:
+          types:
+            MCToxin: 0.75

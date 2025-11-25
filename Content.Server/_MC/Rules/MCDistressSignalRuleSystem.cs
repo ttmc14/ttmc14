@@ -7,6 +7,7 @@ using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Rules;
+using Content.Shared._MC.Rules.Crash;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -47,7 +48,7 @@ public sealed class MCDistressSignalRuleSystem : MCRuleSystem<MCDistressSignalRu
 
     private void OnMapLoading(LoadingMapsEvent ev)
     {
-        if (!GameTicker.IsGameRuleAdded<MCCrashRuleComponent>())
+        if (!GameTicker.IsGameRuleAdded<MCDistressSignalRuleComponent>())
             return;
 
         _mcXenoSpawn.SelectRandomPlanet();

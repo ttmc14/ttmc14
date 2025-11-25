@@ -17,3 +17,5 @@ ent-CMBottleTricordrazine = tricordrazine bottle
 ent-RMCBottleAntiZed = 'Pathogen' cure bottle
     .desc = The bottle has a biohazard symbol on the front, and has a label, designating its use against Agent A0-3959X.91–15, colloquially known as the "Black Goo".
     .suffix = DO NOT MAP
+ent-RMCBottleMindbreaker = mindbreaker bottle
+    .desc = A small bottle. Contains mindbreaker toxin - Fucks up anyone who takes it.

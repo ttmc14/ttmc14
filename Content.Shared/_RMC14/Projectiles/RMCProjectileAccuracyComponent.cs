@@ -1,3 +1,4 @@
+using System.Numerics;
 using Content.Shared._RMC14.Random;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.FixedPoint;
@@ -50,7 +51,7 @@ public sealed partial class RMCProjectileAccuracyComponent : Component
     /// These are the coordinates from which the projectile was shot. Used to determine the distance travelled.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public EntityCoordinates? ShotFrom;
+    public Vector2? ShotFrom;
 
     [DataField, AutoNetworkedField]
     public long GunSeed;

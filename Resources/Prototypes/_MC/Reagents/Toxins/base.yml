@@ -1,0 +1,5 @@
+- type: reagent
+  parent: MCReagent
+  id: MCReagentToxins
+  abstract: true
+  group: Toxins

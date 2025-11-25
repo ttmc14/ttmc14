@@ -12,7 +12,7 @@ public sealed class XenoClawsSystem : EntitySystem
 
     private EntityQuery<MeleeWeaponComponent> _meleeWeaponQuery;
     private EntityQuery<XenoClawsComponent> _xenoClawsQuery;
-    private readonly ProtoId<DamageGroupPrototype> _clawsDamageGroup = "Brute";
+    private readonly ProtoId<DamageGroupPrototype> _clawsDamageGroup = "MCBrute"; // mc-changes
 
     public override void Initialize()
     {

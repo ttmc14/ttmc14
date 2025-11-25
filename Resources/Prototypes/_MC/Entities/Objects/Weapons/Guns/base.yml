@@ -1,7 +1,8 @@
 - type: entity
-  parent: RMCBaseMeleeWeapon
+  parent: MCBaseMeleeWeapon
   id: MCWeaponGun
   abstract: true
+  categories: [ MCContent ]
   components:
   - type: UsableWhileDevoured
     canUnequip: true
@@ -17,8 +18,8 @@
   - type: MeleeWeapon
     attackRate: 1
     damage:
-      groups:
-        Brute: 5
+      types:
+        MCBrute: 5
     soundHit:
       collection: GenericHit
   - type: EmitSoundOnPickup
@@ -40,7 +41,18 @@
   - type: InteractionActivateOnClick
 
 - type: entity
+  id: MCWeaponMagazineVisuals
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+
+- type: entity
   id: MCAttachableHolder
+  categories: [ MCContent ]
   abstract: true
   components:
   - type: AttachableHolder
@@ -48,17 +60,13 @@
   - type: ActivatableUI
     verbText: rmc-verb-strip-attachables
     verbOnly: true
-    key:
-      enum.AttachmentUI.StripKey
+    key: enum.AttachmentUI.StripKey
   - type: UserInterface
     interfaces:
       enum.AttachmentUI.StripKey:
         type: AttachmentStripBui
       enum.AttachmentUI.ChooseSlotKey:
         type: AttachmentChooseSlotBui
-
-- type: Tag
-  id: MCMagazineRifle
 
 - type: Tag
   id: MCMagazineShotgun

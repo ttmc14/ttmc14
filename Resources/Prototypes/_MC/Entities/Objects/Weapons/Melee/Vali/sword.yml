@@ -1,0 +1,26 @@
+- type: entity
+  parent: MCMeleeWeaponVali
+  id: MCMeleeWeaponValiSword
+  name: HP-S Harvester blade
+  description: "TerraGov Marine Corps' experimental High Point-Singularity 'Harvester' blade. An advanced weapon that trades sheer force for the ability to apply a variety of debilitating effects when loaded with certain reagents. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
+  components:
+  - type: Tag
+    tags:
+    - MCMeleeWeaponVali
+    - MCMeleeWeaponValiSword
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Melee/Vali/sword.rsi
+    state: icon
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/Vali/sword.rsi
+  - type: Item
+    sprite: _MC/Objects/Weapons/Melee/Vali/sword.rsi
+  - type: MeleeWeapon
+    wideAnimationRotation: -90
+    attackRate: 0.85
+    damage:
+      types:
+        MCBrute: 60
+
+- type: Tag
+  id: MCMeleeWeaponValiSword

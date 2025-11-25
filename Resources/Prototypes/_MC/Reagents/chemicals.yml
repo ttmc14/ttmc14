@@ -104,15 +104,15 @@
           - !type:ReagentThreshold
             min: 30
           damage:
-            groups:
-              Toxin: 1
+            types:
+              MCToxin: 1
         - !type:HealthChange
           conditions:
           - !type:ReagentThreshold
             min: 50
           damage:
-            groups:
-              Toxin: 1
+            types:
+              MCToxin: 1
 
 - type: reagent
   id: MCSterilizine
@@ -134,6 +134,7 @@
           probability: 0.2
         - !type:HealthChange # Эта хуйня по факту должна инфекции уничтожать.
           damage:
-            groups:
-              Toxin: 3
-              Burn: 2
+            types:
+              MCBurn: 2
+              MCToxin: 3
+

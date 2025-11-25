@@ -1,0 +1,13 @@
+ent-RMCWeaponRevolver38Magnum = .38 magnum revolver
+    .desc = A lean .38 revolver. A timeless classic, from antiquity to the future. This specific model is known to be wildly inaccurate, yet extremely lethal.
+ent-RMCWeaponRevolver38Empty = { ent-RMCWeaponRevolver38Magnum }
+    .suffix = Empty
+    .desc = { ent-RMCWeaponRevolver38Magnum.desc }
+ent-RMCBaseSpeedLoader38 = Speed loader (.38)
+    .desc = { ent-BaseItem.desc }
+ent-RMCSpeedLoader38 = Speed loader (.38)
+    .desc = A revolver speed loader.
+ent-RMCCartridgeRevolver38 = cartridge (.38)
+    .desc = { ent-CMCartridgePistolBase.desc }
+ent-RMCBulletRevolver38 = bullet (.38)
+    .desc = { ent-CMBulletBase.desc }

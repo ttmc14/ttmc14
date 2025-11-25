@@ -18,3 +18,11 @@
   name: guide-entry-medicine
   text: "/ServerInfo/Guidebook/_MC/Chemicals/Medicine.xml"
   filterEnabled: True
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXeno
+  name: Руководство по ксеноморфам
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXeno.xml"
+  children:
+  - MCGuideXenoHiveStructures

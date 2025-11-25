@@ -1,7 +1,7 @@
 - type: entity
   id: MCFloorLavaEntity
   name: lava
-  suffix: MC
+  categories: [ MCContent ]
   placement:
     mode: SnapgridCenter
     snap:
@@ -56,12 +56,12 @@
     damageDead: false
     fire: true
     damage:
-      groups:
-        Burn: 31
+      types:
+        MCBurn: 35
   - type: RMCIgniteOnCollide
     maxStacks: 20
     intensity: 31
     duration: 10
     tileDamage:
-      groups:
-        Burn: 0.1
+      types:
+        MCBurn: 0.1

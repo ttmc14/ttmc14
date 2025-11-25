@@ -161,7 +161,7 @@
 
 - type: entity
   parent: MCAreaTemple
-  id: MCAreaTempleMiner'sOutpost
+  id: MCAreaTempleMinersOutpost
   name: Miner's Outpost
   components:
   - type: Sprite

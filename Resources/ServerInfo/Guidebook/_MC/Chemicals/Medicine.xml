@@ -32,16 +32,22 @@
 
   <GuideReagentGroupEmbed Group="Medicine"/>
 
+ # Все токсины
+
+  Это список всех доступных токсинов.
+
+  <GuideReagentGroupEmbed Group="Toxins"/>
+
+  # Все особые препараты
+
+  Это список всех доступных особых препаратов.
+
+  <GuideReagentGroupEmbed Group="Special"/>
+
   # Все химические элементы
 
   Это список всех доступных химических элементов.
 
   <GuideReagentGroupEmbed Group="Elements"/>
-
-  # Все токсины
-
-  Это список всех доступных токсинов.
-
-  <GuideReagentGroupEmbed Group="Toxins"/>
 
 </Document>

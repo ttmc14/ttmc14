@@ -1,0 +1,10 @@
+- type: entity
+  parent: RMCSecureCaseStrapped
+  id: MCCreateCaseSandbags
+  name: sandbags supply crate (x100)
+  description: A supply crate containing sandbags.
+  components:
+  - type: CrateOpenable
+    spawn:
+    - id: CMSandbagEmpty25
+      amount: 4

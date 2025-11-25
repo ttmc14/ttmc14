@@ -1,0 +1,28 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleMark1Mimir
+  name: mimir Mk.1 environmental resistance system
+  description: Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Will impact mobility.
+  components:
+  - type: Sprite
+    state: mod_biohazard
+  - type: MCArmor
+    soft:
+      bio: 15
+      acid: 15
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleMark2Mimir
+  name: mimir Mk.2 environmental resistance system
+  description: Designed for mounting on modular armor. This newer model provides great resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Will impact mobility.
+  components:
+  - type: Sprite
+    state: mod_biohazard
+  - type: MCArmor
+    soft:
+      bio: 40
+      acid: 30

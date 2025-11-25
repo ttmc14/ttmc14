@@ -17,24 +17,24 @@
         - MCRyetalyn
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -1.5
+          types:
+            MCBrute: -1.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Burn: 1
+          types:
+            MCBurn: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Burn: 3
-            Brute: 1
-            Toxin: 2
+          types:
+            MCBrute: 1
+            MCBurn: 3
+            MCToxin: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -51,23 +51,23 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Airloss: -3
+          types:
+            MCOxygen: -3
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Brute: 2
-            Toxin: 2
+          types:
+            MCBrute: 2
+            MCToxin: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -88,24 +88,24 @@
         - MCRyetalyn
       - !type:HealthChange
         damage:
-          groups:
-            Burn: -1.5
+          types:
+            MCBurn: -1.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Brute: 1
-            Toxin: 1
+          types:
+            MCBrute: 1
+            MCToxin: 1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Brute: 2
-            Toxin: 2
+          types:
+            MCBrute: 2
+            MCToxin: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -132,8 +132,8 @@
         - Toxins
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: -1.5
+          types:
+            MCToxin: -1.5
       - !type:ChemHealEyeDamage
         # Calculated a good number for blinding so that the effect would not be too strong
         amount: 0.08
@@ -150,9 +150,9 @@
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Brute: 2
-            Burn: 2
+          types:
+            MCBrute: 2
+            MCBurn: 2
   plantMetabolism:
   - !type:PlantAdjustToxins
     amount: -10
@@ -177,8 +177,8 @@
         - !type:MobStateCondition
           mobstate: Critical
         damage:
-          groups:
-            Airloss: -1
+          types:
+            MCOxygen: -1
       - !type:Jitter
         conditions:
         - !type:ReagentThreshold
@@ -210,15 +210,18 @@
         - MCRyetalyn
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -0.8
-            Burn: -0.8
-            Toxin: -0.4
-            Airloss: -0.5
-      # It's like brain damage, but not quite
-      - !type:GenericStatusEffect
+          types:
+            MCBrute: -0.8
+            MCBurn: -0.8
+            MCToxin: -0.5
+            MCOxygen: -0.5
+      - !type:GenericStatusEffect # It's like brain damage, but not quite
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
         key: Stutter
         component: ScrambledAccent
+      - !type:Jitter
         conditions:
         - !type:ReagentThreshold
           min: 30
@@ -227,14 +230,10 @@
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Brute: 3
-            Burn: 3
-            Toxin: 3
-      - !type:Jitter
-        conditions:
-        - !type:ReagentThreshold
-          min: 30
+          types:
+            MCBrute: 3
+            MCBurn: 3
+            MCToxin: 3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -250,23 +249,22 @@
       metabolismRate: 0.2
       effects:
       - !type:ChemHealEyeDamage
-        # Let's assume that this is a whole number
-        amount: -0.1
+        amount: -0.1 # Let's assume that this is a whole number
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
-          groups:
-            Toxin: 2
+          types:
+            MCToxin: 2
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Burn: 1
-            Toxin: 2
+          types:
+            MCBurn: 1
+            MCToxin: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -311,8 +309,8 @@
         - !type:ReagentThreshold
           min: 50
         damage:
-          groups:
-            Toxin: 3
+          types:
+            MCToxin: 3
 
 - type: reagent
   parent: MCReagentMedicine
@@ -334,11 +332,11 @@
         - MCKelotane
       - !type:HealthChange
         damage:
-          groups:
-            Brute: -0.2
-            Burn: -0.2
-            Toxin: -0.2
-            Airloss: -0.2
+          types:
+            MCBrute: -0.2
+            MCBurn: -0.2
+            MCToxin: -0.2
+            MCOxygen: -0.2
       - !type:ModifyStatusEffect
         effectProto: StatusEffectSeeingRainbow
         conditions:
@@ -352,12 +350,12 @@
         - !type:ReagentThreshold
           min: 60
         damage:
-          groups:
-            Toxin: 0.5
+          types:
+            MCToxin: 0.5
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 100
         damage:
-          groups:
-            Toxin: 3
+          types:
+            MCToxin: 3

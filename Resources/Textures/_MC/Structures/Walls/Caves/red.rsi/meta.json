@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/6b0be1ccffe1fdfc99e833909a3f20204ec3219e",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wall-invincible"
+    },
+    {
+      "name": "red_wall-0"
+    },
+    {
+      "name": "red_wall-1"
+    },
+    {
+      "name": "red_wall-2"
+    },
+    {
+      "name": "red_wall-3"
+    },
+    {
+      "name": "red_wall-4"
+    },
+    {
+      "name": "red_wall-5"
+    },
+    {
+      "name": "red_wall-6"
+    },
+    {
+      "name": "red_wall-7"
+    },
+    {
+      "name": "red_wall-8"
+    },
+    {
+      "name": "red_wall-9"
+    },
+    {
+      "name": "red_wall-10"
+    },
+    {
+      "name": "red_wall-11"
+    },
+    {
+      "name": "red_wall-12"
+    },
+    {
+      "name": "red_wall-13"
+    },
+    {
+      "name": "red_wall-14"
+    },
+    {
+      "name": "red_wall-15"
+    },
+    {
+      "name": "red_wall-21"
+    },
+    {
+      "name": "red_wall-23"
+    },
+    {
+      "name": "red_wall-29"
+    },
+    {
+      "name": "red_wall-31"
+    },
+    {
+      "name": "red_wall-38"
+    },
+    {
+      "name": "red_wall-39"
+    },
+    {
+      "name": "red_wall-46"
+    },
+    {
+      "name": "red_wall-47"
+    },
+    {
+      "name": "red_wall-55"
+    },
+    {
+      "name": "red_wall-63"
+    },
+    {
+      "name": "red_wall-74"
+    },
+    {
+      "name": "red_wall-75"
+    },
+    {
+      "name": "red_wall-78"
+    },
+    {
+      "name": "red_wall-79"
+    },
+    {
+      "name": "red_wall-95"
+    },
+    {
+      "name": "red_wall-110"
+    },
+    {
+      "name": "red_wall-111"
+    },
+    {
+      "name": "red_wall-127"
+    },
+    {
+      "name": "red_wall-137"
+    },
+    {
+      "name": "red_wall-139"
+    },
+    {
+      "name": "red_wall-141"
+    },
+    {
+      "name": "red_wall-143"
+    },
+    {
+      "name": "red_wall-157"
+    },
+    {
+      "name": "red_wall-159"
+    },
+    {
+      "name": "red_wall-175"
+    },
+    {
+      "name": "red_wall-191"
+    },
+    {
+      "name": "red_wall-203"
+    },
+    {
+      "name": "red_wall-207"
+    },
+    {
+      "name": "red_wall-223"
+    },
+    {
+      "name": "red_wall-239"
+    },
+    {
+      "name": "red_wall-255"
+    }
+  ]
+}

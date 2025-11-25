@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
 using Content.Server._RMC14.MapInsert;
 using Content.Server._RMC14.Xenonids.Hive;
 using Content.Server.Administration.Logs;
@@ -9,22 +8,19 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Systems;
-using Content.Shared._MC.Nuke.Components;
-using Content.Shared._MC.Rules;
+using Content.Shared._MC.Nuke.Generator.Components;
 using Content.Shared._RMC14.Bioscan;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Light;
 using Content.Shared._RMC14.Rules;
-using Content.Shared._RMC14.TacticalMap;
 using Content.Shared._RMC14.Thunderdome;
 using Content.Shared._RMC14.Weapons.Ranged.IFF;
-using Content.Shared._RMC14.WeedKiller;
 using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Construction.FloorResin;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Parasite;
-using Content.Shared.Coordinates;
 using Content.Shared.Fax.Components;
+using Content.Shared.Mobs;
+using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
 using Robust.Server.Player;
 using Robust.Shared.Configuration;
@@ -77,7 +73,6 @@ public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : ICom
     private bool _usingCustomOperationName;
     private int _mapVoteExcludeLast;
     private string _adminFaxAreaMap = string.Empty;
-
 
     public override void Initialize()
     {
@@ -209,5 +204,20 @@ public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : ICom
 
             Spawn(protoId, _random.PickAndTake(coordinates));
         }
+    }
+
+    protected int GetLiving<T>() where T : IComponent
+    {
+        var total = 0;
+        var query = EntityQueryEnumerator<T, MobStateComponent>();
+        while (query.MoveNext(out _, out _, out var mobStateComponent))
+        {
+            if (mobStateComponent.CurrentState == MobState.Dead)
+                continue;
+
+            total++;
+        }
+
+        return total;
     }
 }

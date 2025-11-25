@@ -1,5 +1,7 @@
 ent-RMCWeaponRevolverSpearhead = CMB Spearhead autorevolver
     .desc = A bulky revolver, occasionally carried by assault troops and officers in the Marine Corps, as well as civilian law enforcement. Fires .357 Magnum rounds.
+ent-RMCWeaponRevolverSpearheadCustom = Spearhead custom autorevolver
+    .desc = An automatic revolver chambered in .357, custom made of darker metal and with a wooden handle, clearly made for a person with taste in mind.
 ent-RMCWeaponRevolverSpearheadEmpty = { ent-RMCWeaponRevolverSpearhead }
     .suffix = Empty
     .desc = { ent-RMCWeaponRevolverSpearhead.desc }

@@ -1,6 +1,6 @@
-construction-category-cm-all = All
-construction-category-cm-structures = Structures
-construction-category-cm-utilities = Utilities
-construction-category-cm-materials = Materials
-construction-category-cm-furniture = Furniture
-construction-category-cm-box-magazine = Magazine Boxes
+construction-category-cm-all = Всё
+construction-category-cm-structures = Структуры
+construction-category-cm-utilities = Инженерные объекты
+construction-category-cm-materials = Материалы
+construction-category-cm-furniture = Мебель
+construction-category-cm-box-magazine = Магазинные коробки

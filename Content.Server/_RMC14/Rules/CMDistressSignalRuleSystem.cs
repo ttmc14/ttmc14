@@ -227,15 +227,15 @@ public sealed class CMDistressSignalRuleSystem : GameRuleSystem<CMDistressSignal
         SubscribeLocalEvent<DropshipHijackStartEvent>(OnDropshipHijackStart);
         SubscribeLocalEvent<DropshipHijackLandedEvent>(OnDropshipHijackLanded);
 
-        SubscribeLocalEvent<MarineComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<MarineComponent, ComponentRemove>(OnCompRemove);
-
-        SubscribeLocalEvent<XenoComponent, MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<XenoComponent, ComponentRemove>(OnCompRemove);
-
-        SubscribeLocalEvent<XenoEvolutionGranterComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<XenoComponent, ComponentInit>(OnXenoComponentInit);
-        SubscribeLocalEvent<HiveMemberComponent, HiveChangedEvent>(OnHiveChanged);
+        // SubscribeLocalEvent<MarineComponent, MobStateChangedEvent>(OnMobStateChanged);
+        // SubscribeLocalEvent<MarineComponent, ComponentRemove>(OnCompRemove);
+        //
+        // SubscribeLocalEvent<XenoComponent, MobStateChangedEvent>(OnMobStateChanged);
+        // SubscribeLocalEvent<XenoComponent, ComponentRemove>(OnCompRemove);
+        //
+        // SubscribeLocalEvent<XenoEvolutionGranterComponent, MapInitEvent>(OnMapInit);
+        // SubscribeLocalEvent<XenoComponent, ComponentInit>(OnXenoComponentInit);
+        // SubscribeLocalEvent<HiveMemberComponent, HiveChangedEvent>(OnHiveChanged);
 
         Subs.CVar(_config, RMCCVars.CMMarinesPerXeno, v => _marinesPerXeno = v, true);
         Subs.CVar(_config, RMCCVars.RMCAutoBalance, v => _autoBalance = v, true);

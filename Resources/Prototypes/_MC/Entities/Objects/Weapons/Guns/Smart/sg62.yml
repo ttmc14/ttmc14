@@ -30,8 +30,8 @@
     - Back
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -217,9 +217,55 @@
 - type: Tag
   id: MCAttachmentUnderbarrelSG62
 
+# Boxes SG-62
+- type: entity
+  parent: MCBoxBullets
+  id: MCBoxBulletsSmartGunSG62
+  name: SG-62 smart target rifle ammo box
+  description: A box containing 200 rounds of 10x27mm caseless.
+  components:
+  - type: Sprite
+    layers:
+    - state: rifle_box
+      color: "#7b8246"
+    - state: rifle_box_marking
+      color: "#7c4c1b"
+    - state: rifle_ammo_full_rounds_base
+      map: [ "enum.BulletBoxLayers.Fill" ]
+    - state: rifle_ammo_full_rounds_color
+      map: [ "enum.BulletBoxLayers2.Fill" ]
+      color: "#ffc000"
+  - type: BulletBox
+    bulletType: MCBoxBulletsSmartGunSG62
+    amount: 200
+    max: 200
+
+# Boxes SG-153
+- type: entity
+  parent: MCBoxBullets
+  id: MCBoxBulletsSmartGunSG153
+  name: SG-153 smart target rifle ammo box
+  description: A box containing 200 rounds of 10x27mm caseless.
+  components:
+  - type: Sprite
+    layers:
+    - state: rifle_box
+      color: "#7b8246"
+    - state: rifle_box_marking
+      color: "#7c4c1b"
+    - state: rifle_ammo_full_rounds_base
+      map: [ "enum.BulletBoxLayers.Fill" ]
+    - state: rifle_ammo_full_rounds_color
+      map: [ "enum.BulletBoxLayers2.Fill" ]
+      color: "#ffc000"
+  - type: BulletBox
+    bulletType: MCBoxBulletsSmartGunSG153
+    amount: 50
+    max: 50
+
 # Magazine SG-62
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineSmartGunSG62
   name: SG-62 magazine (10x27mm HV)
   description: A magazine filled with 10x27mm specialized smart rounds.
@@ -243,13 +289,15 @@
       - MCCartridgeSmartGunSG62
     proto: MCCartridgeSmartGunSG62
     capacity: 40
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsSmartGunSG62
 
 - type: Tag
   id: MCMagazineSmartGunSG62
 
 # Magazine SG-153
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineSmartGunSG153
   name: SG-153 magazine (12.7mm Smart Magnum)
   description: A magazine filled with 12.7mm lethal smart rounds, these will do nothing other than pack a big punch.
@@ -273,6 +321,8 @@
       - MCCartridgeSmartGunSG153
     proto: MCCartridgeSmartGunSG153
     capacity: 5
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsSmartGunSG153
 
 - type: Tag
   id: MCMagazineSmartGunSG153
@@ -488,8 +538,8 @@
       shader: unshaded
   - type: Projectile
     damage:
-      groups:
-        Brute: 40
+      types:
+        MCBrute: 40
   - type: CMArmorPiercing
     amount: 30
   - type: MCXenoSunderDamageOnHit
@@ -519,8 +569,8 @@
       shader: unshaded
   - type: Projectile
     damage:
-      groups:
-        Brute: 50
+      types:
+        MCBrute: 50
   - type: CMArmorPiercing
     amount: 25
   - type: MCXenoSunderDamageOnHit
@@ -539,8 +589,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0.5
   - type: MCStunOnHit
@@ -554,8 +604,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0.5
   - type: MCStunOnHit
@@ -569,8 +619,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0.5
   - type: MCXenoPlasmaDamageOnHit
@@ -583,8 +633,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0.5
   - type: MCStunOnHit
@@ -598,8 +648,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0.5
   - type: IgniteOnProjectileHit
@@ -612,8 +662,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 60
+      types:
+        MCBrute: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0.5
   - type: RMCAreaDamage

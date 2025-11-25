@@ -1,0 +1,5 @@
+﻿- type: entityCategory
+  id: MCContent
+  name: mc-entity-category-name-content
+  hideSpawnMenu: false
+

@@ -1,7 +1,7 @@
-﻿rmc-ladder-leads-nowhere = That ladder doesn't lead anywhere!
-rmc-ladder-start-climbing-self = You start climbing up the ladder.
-rmc-ladder-start-climbing-others = {$user} starts climbing up the ladder.
-rmc-ladder-finish-climbing-self = You climb up the ladder.
-rmc-ladder-finish-climbing-others = {$user} climbs up the ladder.
-rmc-ladder-someone-else-climbing = Someone else is currently using the ladder.
-rmc-ladder-look-through = Look Through
+﻿rmc-ladder-leads-nowhere = Эта лестница никуда не ведёт!
+rmc-ladder-start-climbing-self = Ты начинаешь подниматься по лестнице.
+rmc-ladder-start-climbing-others = {$user} начинает подниматься по лестнице.
+rmc-ladder-finish-climbing-self = Ты поднимаешься по лестнице.
+rmc-ladder-finish-climbing-others = {$user} поднимается по лестнице.
+rmc-ladder-someone-else-climbing = Кто-то другой сейчас использует лестницу.
+rmc-ladder-look-through = Посмотреть через

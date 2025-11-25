@@ -11,15 +11,15 @@
     damageDead: false
     fire: true
     damage:
-      groups:
-        Burn: 31 # damage = 31
+      types:
+        MCBurn: 31
   - type: RMCIgniteOnCollide
     maxStacks: 20
     intensity: 31 # burn_level = 31
     duration: 10
     tileDamage:
-      groups:
-        Burn: 0.1
+      types:
+        MCBurn: 0.1
   - type: TileFire
     id: MCFireFlamethrower
     duration: 17 # burn_time = 17
@@ -42,8 +42,8 @@
     intensity: 46 # burn_level = 46
     duration: 10
     tileDamage:
-      groups:
-        Burn: 0.5
+      types:
+        MCBurn: 0.5
     armorMultiplier: 1
   - type: TileFire
     id: MCFireFlamethrowerBlue
@@ -76,8 +76,8 @@
     intensity: 18 # burn_level = 18
     duration: 10
     tileDamage:
-      groups:
-        Burn: 0.5
+      types:
+        MCBurn: 0.5
     armorMultiplier: 0.5
     armorWhitelist:
       components:
@@ -111,17 +111,17 @@
     damageDead: false
     fire: true
     damage:
-      groups:
-        Burn: 16
-        Genetic: 15
+      types:
+        MCBurn: 16
+        MCClone: 15
   - type: RMCIgniteOnCollide
     maxStacks: 20
     intensity: 18
     duration: 10
     tileDamage:
-      groups:
-        Genetic: 0.4
-        Burn: 0.1
+      types:
+        MCBurn: 0.1
+        MCClone: 0.4
   - type: TileFire
     id: MCFireFlamethrowerRGB
     duration: 25

@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMWeaponPistolBase
+  parent: MCWeaponPistol
   id: MCWeaponP23
   name: P-23 service pistol
   description: A standard P-23 chambered in .45 ACP. Has a smaller magazine capacity, but packs a better punch. Has an irremovable laser sight. Uses .45 magazines.
@@ -15,8 +15,8 @@
     sprite: _MC/Objects/Weapons/Guns/Pistols/p23.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 8
+      types:
+        MCBrute: 8
   - type: Gun
     shotsPerBurst: 1
     availableModes:
@@ -128,8 +128,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22

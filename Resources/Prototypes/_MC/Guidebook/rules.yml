@@ -1,0 +1,6 @@
+- type: guideEntry
+  parent: MC
+  id: MCRules
+  name: guide-entry-rules
+  priority: 10
+  text: "/ServerInfo/Guidebook/_MC/Rules/MCDefault.xml"

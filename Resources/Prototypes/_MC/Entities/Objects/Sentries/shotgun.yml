@@ -1,0 +1,99 @@
+- type: entity
+  parent: MCSentry
+  id: MCSentryShotgun
+  name: SHT-573 sentry gun
+  description: A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy caliber SM-10 shotgun and a 100-round drum magazine.
+  components:
+  - type: Icon
+    sprite: _MC/Objects/Sentries/shotgun.rsi
+    state: handled
+  - type: Sprite
+    sprite: _MC/Objects/Sentries/shotgun.rsi
+  - type: MCSentry
+  - type: MCDeploy
+    deployTime: 5
+  - type: Gun
+    fireRate: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSentryShotgun
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSentryShotgun
+
+- type: entity
+  parent: MCMagazine
+  id: MCMagazineSentryShotgun
+  name: SHT-573 drum magazine (12G Caseless)
+  description: A drum of 200 specialized telescopic 12G rounds for the SST-573 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSentry
+    - MCMagazineSentryShotgun
+  - type: Sprite
+    sprite: _MC/Objects/Items/Ammunition/Sentry/shotgun.rsi
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSentryShotgun
+    proto: MCCartridgeSentryShotgun
+    capacity: 100
+
+- type: Tag
+  id: MCMagazineSentryShotgun
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeSentryShotgun
+  name: cartridge (12G Caseless)
+  description: ...
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeSentryShotgun
+  - type: CartridgeAmmo
+    proto: MCBulletSentryShotgun
+
+- type: Tag
+  id: MCCartridgeSentryShotgun
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSentryShotgun
+  name: turret buckshot shell
+  description: ...
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 20
+  - type: CMArmorPiercing
+    amount: 40
+  - type: MCXenoSunderDamageOnHit
+    amount: 2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 0
+      falloff: 0
+    - range: 10
+      falloff: 1
+  - type: MCStunOnHit
+    knockback: 1
+    maxDistance: 4
+  - type: ProjectileSpread
+    proto: MCBulletSentryShotgun
+    count: 6
+    spread: 5
+  - type: RMCProjectileAccuracy
+    minAccuracy: 100

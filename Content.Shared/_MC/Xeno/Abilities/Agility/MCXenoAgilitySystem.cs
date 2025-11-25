@@ -72,14 +72,7 @@ public sealed class MCXenoAgilitySystem : EntitySystem
 
     private void OnActiveArmorGet(Entity<MCXenoAgilityActiveComponent> entity, ref MCArmorGetEvent args)
     {
-        args.Melee += entity.Comp.ArmorFlat;
-        args.Bullet += entity.Comp.ArmorFlat;
-        args.Laser += entity.Comp.ArmorFlat;
-        args.Energy += entity.Comp.ArmorFlat;
-        args.Bomb += entity.Comp.ArmorFlat;
-        args.Bio += entity.Comp.ArmorFlat;
-        args.Fire += entity.Comp.ArmorFlat;
-        args.Acid += entity.Comp.ArmorFlat;
+        args.ArmorDefinition -= entity.Comp.ArmorFlat;
     }
 
     private bool TryUse(Entity<MCXenoAgilityComponent> entity, ref MCXenoAgilityActionEvent args)

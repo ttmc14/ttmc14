@@ -1,0 +1,68 @@
+﻿<ui1:MCNukeWindow xmlns="https://spacestation14.io"
+                  xmlns:ui1="clr-namespace:Content.Client._MC.Nuke.Bomb.UI"
+                  xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                  MinSize="400 120"
+                 Title="Nuke">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+
+        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4">
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat
+                        BorderColor="#3A3A3A"
+                        BorderThickness="1"
+                        BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+
+                <BoxContainer Orientation="Vertical" Margin="8">
+                    <Label Text="Status display" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 16" />
+
+                    <GridContainer Columns="2" HSeparationOverride="4">
+
+                        <Label Text="Time left:" />
+                        <ProgressBar Name="TimeLeftProgressBar"
+                                     Access="Public"
+                                     HorizontalExpand="True">
+                            <Label Name="TimeLeftLabel" Access="Public" Align="Right" Margin="0 0 5 0" />
+                        </ProgressBar>
+
+                        <Label Text="Timer:" />
+                        <Button Text="DEACTIVATED" Name="TimerButton" Disabled="True" Access="Public" MaxWidth="180"  HorizontalAlignment="Left" />
+
+                    </GridContainer>
+                </BoxContainer>
+            </PanelContainer>
+        </BoxContainer>
+
+        <BoxContainer Name="SettingsBoxContainer" Orientation="Vertical" Access="Public" Margin="4">
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat
+                        BorderColor="#3A3A3A"
+                        BorderThickness="1"
+                        BackgroundColor="#1A1A1A" />
+                </PanelContainer.PanelOverride>
+
+                <BoxContainer Orientation="Vertical" Margin="8">
+                    <Label Text="Settings" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 16" />
+
+                    <GridContainer Columns="2" HSeparationOverride="4">
+
+                        <Label Text="Time:" />
+                        <Label Text="N/D" Name="TimeLabel" Access="Public" />
+
+                        <Label Text="Safety:" />
+                        <Button Text="Enable" Name="SafetyButton" Access="Public" MinWidth="120" />
+
+                        <Label Text="Anchor:" />
+                        <Button Text="Engaged" Name="AnchorButton" Access="Public" MinWidth="120" />
+
+                    </GridContainer>
+
+                </BoxContainer>
+
+            </PanelContainer>
+        </BoxContainer>
+
+    </BoxContainer>
+</ui1:MCNukeWindow>

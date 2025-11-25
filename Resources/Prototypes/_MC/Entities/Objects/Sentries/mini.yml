@@ -1,0 +1,92 @@
+- type: entity
+  parent: MCSentry
+  id: MCSentryMini
+  name: SMT-580 sentry gun
+  description: A deployable, automated turret with AI targeting capabilities. This is a lightweight portable model meant for rapid deployment and point defense. Armed with an light, high velocity machine gun and a 300-round drum magazine.
+  components:
+  - type: Icon
+    sprite: _MC/Objects/Sentries/mini.rsi
+    state: handled
+  - type: Sprite
+    sprite: _MC/Objects/Sentries/mini.rsi
+  - type: MCSentry
+  - type: MCDeploy
+    deployTime: 1
+  - type: Gun
+    fireRate: 5
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSentryMini
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSentryMini
+
+- type: entity
+  parent: MCMagazine
+  id: MCMagazineSentryMini
+  name: "M30 box magazine (10x20mm Caseless)"
+  description: "A box of 100 10x20mm caseless rounds for SMT-580 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted."
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSentry
+    - MCMagazineSentryMini
+  - type: Sprite
+    sprite: _MC/Objects/Items/Ammunition/Sentry/mini.rsi
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSentryMini
+    proto: MCCartridgeSentryMini
+    capacity: 300
+
+- type: Tag
+  id: MCMagazineSentryMini
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeSentryMini
+  name: cartridge (10x20mm Caseless)
+  description: ...
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeSentryMini
+  - type: CartridgeAmmo
+    proto: MCBulletSentryMini
+
+- type: Tag
+  id: MCCartridgeSentryMini
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSentryMini
+  name: small caliber autocannon bullet
+  description: ...
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 20
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 10
+      falloff: 0
+    - range: 10
+      falloff: 0.25
+  - type: RMCProjectileAccuracy
+    minAccuracy: 100

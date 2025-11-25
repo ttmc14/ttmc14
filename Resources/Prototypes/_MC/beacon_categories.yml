@@ -1,0 +1,11 @@
+- type: MCBeaconCategory
+  id: None
+
+- type: MCBeaconCategory
+  id: Supply
+
+- type: MCBeaconCategory
+  id: Orbital
+
+- type: MCBeaconCategory
+  id: Medevac

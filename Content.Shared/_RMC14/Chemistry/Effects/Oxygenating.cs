@@ -11,10 +11,10 @@ namespace Content.Shared._RMC14.Chemistry.Effects;
 
 public sealed partial class Oxygenating : RMCChemicalEffect
 {
-    private static readonly ProtoId<DamageGroupPrototype> AirlossGroup = "Airloss";
+    private static readonly ProtoId<DamageGroupPrototype> AirlossGroup = "MCOxygen"; // mc-changes
 
-    private static readonly ProtoId<DamageTypePrototype> BluntType = "Blunt";
-    private static readonly ProtoId<DamageTypePrototype> PoisonType = "Poison";
+    private static readonly ProtoId<DamageTypePrototype> BluntType = "MCBrute"; // mc-changes
+    private static readonly ProtoId<DamageTypePrototype> PoisonType = "MCToxin"; // mc-changes
 
     private static readonly ProtoId<ReagentPrototype> Lexorin = "RMCLexorin";
 

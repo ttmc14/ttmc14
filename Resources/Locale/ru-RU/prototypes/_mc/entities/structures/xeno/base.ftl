@@ -1,8 +1,10 @@
 ent-MCXenoStructure = { "" }
     .desc = { "" }
-ent-MCXenoStructureSilo = silo
-    .desc = A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
-ent-MCXenoStructureTowerEvolution = evolution tower
-    .desc = A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
-ent-MCXenoStructureTowerPsychic = psychic tower
-    .desc = A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
+ent-MCXenoStructureSilo = сило
+    .desc = Отвратительный генератор биомассы с запахом гниющей плоти. Способен самостоятельно производить паразитов.
+ent-MCXenoStructureTowerEvolution = башня эволюции
+    .desc = Отвратительный генератор биомассы с запахом гниющей плоти. Способен самостоятельно производить паразитов.
+ent-MCXenoStructureTowerPsychic = психическая башня
+    .desc = Отвратительный генератор биомассы с запахом гниющей плоти. Способен самостоятельно производить паразитов.
+ent-MCXenoStructureSpawner = инкубатор
+    .desc = Скользкое, слизистое место с смолой, наполненное отвратительными яйцеподобными... вещами.

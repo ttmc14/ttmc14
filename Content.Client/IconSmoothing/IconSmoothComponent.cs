@@ -80,5 +80,9 @@ namespace Content.Client.IconSmoothing
         ///     Where this component contributes to our neighbors being calculated but we do not update our own sprite.
         /// </summary>
         NoSprite,
+
+        // mc-changes-start
+        MCCardinalFlagsExtended,
+        // mc-changes-end
     }
 }

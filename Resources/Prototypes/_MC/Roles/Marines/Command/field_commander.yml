@@ -32,6 +32,9 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: CMVendorUser
+      points: 45
+    - type: MCSendOrders
     - type: MarineOrders
     - type: Skills
       skills:
@@ -44,7 +47,7 @@
         RMCSkillLeadership: 4
         RMCSkillCqc: 1
         RMCSkillJtac: 2
-        RMCSkillSmartGun: -4
+        RMCSkillSmartGun: 0
         # RMCSkillMelee: 0
         RMCSkillFirearms: 1
         RMCSkillFireman: 1

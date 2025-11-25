@@ -1,4 +1,4 @@
-﻿rmc-dropship-ammo-examine = It has {$rounds ->
-    [1] 1 round.
-    *[other] {$rounds} rounds.
-  }
+﻿rmc-dropship-ammo-examine = В нём {$rounds ->
+    [1] 1 заряд.
+    *[other] {$rounds} зарядов.
+}

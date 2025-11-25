@@ -28,8 +28,8 @@
   - type: DamageOverTime
     affectsDead: false
     armorPiercingDamage:
-      groups:
-        Burn: 4
+      types:
+        MCBurn: 4
     emotes:
     - Cough
     - Gasp

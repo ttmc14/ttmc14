@@ -41,8 +41,8 @@ public sealed class CMArmorSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
 
-    private static readonly ProtoId<DamageGroupPrototype> ArmorGroup = "Brute";
-    private static readonly ProtoId<DamageGroupPrototype> BioGroup = "Burn";
+    private static readonly ProtoId<DamageGroupPrototype> ArmorGroup = "MCBrute"; // mc-changes
+    private static readonly ProtoId<DamageGroupPrototype> BioGroup = "MCBurn"; // mc-changes
     private static readonly int MaxXenoArmor = 55;
 
     private EntityQuery<RMCAllowSuitStorageUserWhitelistComponent> _rmcAllowSuitStorageUserWhitelistQuery;

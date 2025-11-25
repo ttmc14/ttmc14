@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using System.Numerics;
+using Robust.Shared.GameStates;
 using Robust.Shared.Map;
 
 namespace Content.Shared._MC.Stun;
@@ -7,7 +8,7 @@ namespace Content.Shared._MC.Stun;
 public sealed partial class MCStunOnHitComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public MapCoordinates? ShotFrom;
+    public Vector2? ShotFrom;
 
     [DataField, AutoNetworkedField]
     public float MaxDistance = 5;

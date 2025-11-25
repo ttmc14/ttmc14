@@ -1,0 +1,12 @@
+ent-RMCDoubleDoorSecuritySPPGlassLocked = { ent-CMDoubleDoorSecurityGlassLocked }
+    .suffix = SPP, Glass, Locked
+    .desc = { ent-CMDoubleDoorSecurityGlassLocked.desc }
+ent-RMCAirlockSecuritySPPLocked = { ent-CMAirlockSecurityLocked }
+    .suffix = SPP, Solid, Locked
+    .desc = { ent-CMAirlockSecurityLocked.desc }
+ent-RMCAirlockSecuritySPPSecLocked = { ent-CMAirlockSecurityLocked }
+    .suffix = SPP Security, Solid, Locked
+    .desc = { ent-CMAirlockSecurityLocked.desc }
+ent-RMCAirlockSecureSPPSecLocked = { ent-CMAirlockSecure }
+    .suffix = SPP Security, Locked
+    .desc = { ent-CMAirlockSecure.desc }

@@ -1,17 +1,17 @@
-cm-pull-whitelist-denied = We have no use for {THE($name)}, why would we want to touch it?
-cm-pull-whitelist-denied-dead = {THE($name)} is dead, why would we want to touch it?
+cm-pull-whitelist-denied = Мы не нуждаемся в {THE($name)}, зачем нам это трогать?
+cm-pull-whitelist-denied-dead = {THE($name)} мёртв(а), зачем нам это трогать?
 
-rmc-pull-paralyze-self = You try to pull {$pulled}, getting a tail swipe to the head!
-rmc-pull-paralyze-others = {$puller} tries to pull {$pulled}, but gets a tail swipe to the head instead!
+rmc-pull-paralyze-self = Вы пытаетесь потянуть {$pulled}, но получаете удар хвостом по голове!
+rmc-pull-paralyze-others = {$puller} пытается потянуть {$pulled}, но получает удар хвостом по голове!
 
-rmc-pull-infect-self = You try to pull {$pulled}, but get jumped on and infected in the process!
-rmc-pull-infect-others = {$puller} tries to pull {$pulled}, but gets jumped on and infected in the process!
+rmc-pull-infect-self = Вы пытаетесь потянуть {$pulled}, но вас прыгают и заражают!
+rmc-pull-infect-others = {$puller} пытается потянуть {$pulled}, но его прыгают и заражают!
 
-rmc-prevent-pull-alive = You can't pull {THE($target)} while {SUBJECT($target)} {CONJUGATE-BE($target)} alive!
+rmc-prevent-pull-alive = Вы не можете тянуть {THE($target)}, пока {SUBJECT($target)} жив(а)!
 
-rmc-pull-aggressive-self = You have grabbed {$pulled} aggressively!
-rmc-pull-aggressive-others = {$puller} has grabbed {$pulled} aggressively!
-rmc-pull-break-start-self = You struggle to break free of {$puller}'s grip!
-rmc-pull-break-start-others = {$pulled} struggles to break free of {$puller}'s grip!
-rmc-pull-break-finish-self = You break free of {$puller}'s grip!
-rmc-pull-break-finish-others = {$pulled} has broken free of {$puller}'s grip!
+rmc-pull-aggressive-self = Вы агрессивно схватили {$pulled}!
+rmc-pull-aggressive-others = {$puller} агрессивно схватил {$pulled}!
+rmc-pull-break-start-self = Вы пытаетесь вырваться из захвата {$puller}!
+rmc-pull-break-start-others = {$pulled} пытается вырваться из захвата {$puller}!
+rmc-pull-break-finish-self = Вы вырываетесь из захвата {$puller}!
+rmc-pull-break-finish-others = {$pulled} вырывается из захвата {$puller}!

@@ -94,7 +94,7 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
                         {
                             uiEntry.Texture.Modulate = entitySprites.AllLayers.Any() ? entitySprites.AllLayers.First().Color : Color.White;
                         }
-                        uiEntry.Panel.Button.Label.Text = entry.Name?.Replace("\\n", "\n") ?? entity.Name;
+                        uiEntry.Panel.Button.Label.Text = entry.Name is null ? entity.Name : Loc.GetString(entry.Name).Replace("\\n", "\n");
 
                         var name = entity.Name;
                         var color = CMAutomatedVendorPanel.DefaultColor;
@@ -306,8 +306,8 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
     private FormattedMessage GetSectionName(CMVendorUserComponent? user, CMVendorSection section)
     {
         var name = new FormattedMessage();
-        name.PushTag(new MarkupNode("bold", new MarkupParameter(section.Name.ToUpperInvariant()), null));
-        name.AddText(section.Name.ToUpperInvariant());
+        name.PushTag(new MarkupNode("bold", new MarkupParameter(Loc.GetString(section.Name)), null));
+        name.AddText(Loc.GetString(section.Name));
 
         if (section.TakeAll != null)
         {

@@ -79,6 +79,17 @@
   id: MCXenoBull
   isXeno: true
 
+# Pyrogen
+- type: job
+  parent: MCJobXeno
+  id: MCXenoForger
+  name: mc-job-name-xeno-forger
+  playTimeTracker: MCXenoForger
+
+- type: playTimeTracker
+  id: MCXenoForger
+  isXeno: true
+
 # Carrier
 - type: job
   parent: MCJobXeno

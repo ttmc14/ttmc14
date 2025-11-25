@@ -1,5 +1,5 @@
 - type: entity
-  parent: CMWeaponPistolBase
+  parent: MCWeaponPistol
   id: MCWeaponP17
   name: P-17 pocket pistol
   description: A tiny pistol used by the TGMC as an emergency handgun meant to be stored about anywhere. Fits in boots. Uses .380 ACP stored in an eight round magazine.
@@ -15,8 +15,8 @@
     sprite: _MC/Objects/Weapons/Guns/Pistols/p17.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 8
+      types:
+        MCBrute: 8
   - type: Gun
     shotsPerBurst: 1
     availableModes:
@@ -118,8 +118,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 22.5
+      types:
+        MCBrute: 23
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22

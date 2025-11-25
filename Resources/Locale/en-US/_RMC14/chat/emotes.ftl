@@ -1,25 +1,25 @@
-﻿rmc-hands-emotes-highfive-attempt-self = You raise your hand out for a high five from {$target}.
-rmc-hands-emotes-highfive-attempt = {$ent} raises {POSS-ADJ($ent)} hand out for a high five from {$target}.
+﻿rmc-hands-emotes-highfive-attempt-self = Ты поднимаешь руку, предлагая {$target} дать пять.
+rmc-hands-emotes-highfive-attempt = {$ent} поднимает {POSS-ADJ($ent)} руку, предлагая {$target} дать пять.
 
-rmc-hands-emotes-highfive-self = You give {$target} a high five!
-rmc-hands-emotes-highfive = {$ent} gives {$target} a high five!
+rmc-hands-emotes-highfive-self = Ты даёшь пять {$target}!
+rmc-hands-emotes-highfive = {$ent} даёт пять {$target}!
 
-rmc-hands-emotes-fistbump-self = You give {$target} a fistbump!
-rmc-hands-emotes-fistbump = {$ent} gives {$target} a fistbump!
+rmc-hands-emotes-fistbump-self = Ты стукаешься кулаком с {$target}!
+rmc-hands-emotes-fistbump = {$ent} стукается кулаком с {$target}!
 
-rmc-hands-emotes-fistbump-attempt-self = You raise your fist out for a fistbump from {$target}.
-rmc-hands-emotes-fistbump-attempt = {$ent} raises {POSS-ADJ($ent)} fist out for a fistbump from {$target}.
+rmc-hands-emotes-fistbump-attempt-self = Ты протягиваешь кулак {$target} для дружеского удара.
+rmc-hands-emotes-fistbump-attempt = {$ent} протягивает {POSS-ADJ($ent)} кулак {$target} для дружеского удара.
 
-rmc-hands-emotes-tailswipe-self = We clash our tail with {$target}!
-rmc-hands-emotes-tailswipe = {$ent} clashes their tail with {$target}!
+rmc-hands-emotes-tailswipe-self = Вы сталкиваетесь хвостами с {$target}!
+rmc-hands-emotes-tailswipe = {$ent} сталкивает свой хвост с {$target}!
 
-rmc-hands-emotes-tailswipe-attempt-self = We raise our tail out for a tail swipe from {$target}.
-rmc-hands-emotes-tailswipe-attempt = {$ent} raises their tail out for a swipe from {$target}.
+rmc-hands-emotes-tailswipe-attempt-self = Ты поднимаешь хвост, предлагая {$target} сделать удар хвостом.
+rmc-hands-emotes-tailswipe-attempt = {$ent} поднимает хвост, предлагая {$target} сделать удар хвостом.
 
-rmc-hands-emotes-left-hanging = You were left hanging!
+rmc-hands-emotes-left-hanging = Тебя оставили висеть!
 
-rmc-hands-emotes-fistbump-perform = Perform a fistbump
-rmc-hands-emotes-highfive-perform = Perform a high five
-rmc-hands-emotes-tailswipe-perform = Perform a tail swipe
+rmc-hands-emotes-fistbump-perform = Сделать удар кулаками
+rmc-hands-emotes-highfive-perform = Дать пять
+rmc-hands-emotes-tailswipe-perform = Столкнуться хвостами
 
-rmc-hands-emotes-get-closer = Get closer.
+rmc-hands-emotes-get-closer = Подойди ближе.

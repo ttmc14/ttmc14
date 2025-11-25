@@ -42,7 +42,6 @@
     - MCActionXenoPunch
     hudOffset: -0.15,0.25
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:
@@ -63,18 +62,19 @@
     - MCXenoRunner
     - MCXenoSentinel
   - type: MCArmor
-    melee: 60
-    bullet: 60
-    laser: 60
-    energy: 60
-    bomb: 30
-    bio: 50
-    fire: 55
-    acid: 50
+    soft:
+      melee: 60
+      bullet: 60
+      laser: 60
+      energy: 60
+      bomb: 30
+      bio: 50
+      fire: 55
+      acid: 50
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 25
+      types:
+        MCBrute: 25
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.777
     baseSprintSpeed: 3.846

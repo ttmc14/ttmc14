@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, MCBaseMeleeWeapon ]
+  parent: [ MCItem, MCBaseMeleeWeapon ]
   id: MCSpear
   name: M-23 spear
   description: A tactical spear. Used for 'tactical' combat.
@@ -36,16 +36,16 @@
     wideAnimationRotation: -135
     range: 2.5
     damage:
-      groups:
-        Brute: 40
+      types:
+        MCBrute: 40
     angle: 0
     animation: WeaponArcThrust
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 75
+      types:
+        MCBrute: 75
   - type: Item
     size: Large
   - type: Clothing
@@ -58,6 +58,6 @@
     path: null
   - type: IncreaseDamageOnWield
     damage:
-      groups:
-        Brute: 35
+      types:
+        MCBrute: 35
   - type: Appearance

@@ -1,18 +1,18 @@
-﻿rmc-construction-not-proper-surface = The {$construction} must be constructed on a proper surface!
-rmc-construction-not-barricade-clear = There's already a barricade facing in this direction!
+﻿rmc-construction-not-proper-surface = {$construction} должен быть построен на подходящей поверхности!
+rmc-construction-not-barricade-clear = Здесь уже стоит баррикада в этом направлении!
 
-rmc-construction-no-metal = You lack the required metal.
-rmc-construction-failure = You are not trained to touch {THE($ent)}!
+rmc-construction-no-metal = У тебя недостаточно металла.
+rmc-construction-failure = Ты не обучен обращаться с {THE($ent)}!
 
-rmc-construction-upgrade-explosive = You applied a composite upgrade.
-rmc-construction-upgrade-burn = You applied a biohazardous upgrade.
-rmc-construction-upgrade-brute = You applied a reinforced upgrade.
+rmc-construction-upgrade-explosive = Ты применил композитное улучшение.
+rmc-construction-upgrade-burn = Ты применил биологически опасное улучшение.
+rmc-construction-upgrade-brute = Ты применил усиленное улучшение.
 
-rmc-construction-untrained-build = You are not trained to build this...
-rmc-construction-more-material = You need more {$material} to build the {$object}!
+rmc-construction-untrained-build = Ты не обучен строить это...
+rmc-construction-more-material = Тебе нужно больше {$material}, чтобы построить {$object}!
 
 rmc-construction-list = {$name}
 rmc-construction-entry = {$name} ({$amount} {$material})
 
-rmc-construction-build-here = Build Here
-rmc-construction-name = construction
+rmc-construction-build-here = Построить здесь
+rmc-construction-name = конструкция

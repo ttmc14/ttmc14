@@ -19,8 +19,9 @@
   - type: Clothing
     sprite: _MC/Clothing/OuterClothing/Labcoats/labcoat.rsi
   - type: MCArmor
-    bio: 50
-    acid: 25
+    soft:
+      bio: 50
+      acid: 25
 
 - type: entity
   parent: [RMCBaseJacketButtonableOpened, MCLabcoatBase]

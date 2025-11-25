@@ -41,18 +41,19 @@
     - MCXenoBull
     - MCXenoSpitter
   - type: MCArmor
-    melee: 20
-    bullet: 20
-    laser: 20
-    energy: 20
-    bomb: 10
-    bio: 20
-    fire: 20
-    acid: 20
+    soft:
+      melee: 20
+      bullet: 20
+      laser: 20
+      energy: 20
+      bomb: 10
+      bio: 20
+      fire: 20
+      acid: 20
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 26
+      types:
+        MCBrute: 30
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.631
     baseSprintSpeed: 3.571

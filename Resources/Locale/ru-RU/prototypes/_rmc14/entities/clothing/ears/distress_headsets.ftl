@@ -39,3 +39,4 @@ ent-RMCHeadsetMarineDistress = UNMC headset
     .desc = A standard issue UNMC headset. This one is used by marines on colonial protection duties, and only comes equipped with civilian channels.
 ent-RMCHeadsetMARSOC = UNMC SOF headset
     .desc = Issued exclusively to Marine Raiders and members of the UNMC's Force Reconnaissance.
+    .suffix = ERT

@@ -21,7 +21,7 @@ public sealed partial class MCXenoToxicStacksComponent : Component
     {
         DamageDict =
         {
-            { "Burn", 1 }
+            { "MCBurn", 1 }
         },
     };
 
@@ -30,7 +30,7 @@ public sealed partial class MCXenoToxicStacksComponent : Component
     {
         DamageDict =
         {
-            { "Burn", 1 }
+            { "MCBurn", 1 }
         },
     };
 

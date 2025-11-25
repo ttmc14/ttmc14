@@ -70,7 +70,7 @@ namespace Content.Shared.Damage
         /// </summary>
         ///     TODO: Add support for adding damage types specifically rather than whole damage groups
         [DataField]
-        public List<ProtoId<DamageGroupPrototype>> PainDamageGroups = new() { "Brute", "Burn" };
+        public List<ProtoId<DamageGroupPrototype>> PainDamageGroups = new() { "MCBrute", "MCBurn" }; // mc-changes
 
         [DataField]
         public Dictionary<MobState, ProtoId<HealthIconPrototype>> HealthIcons = new()

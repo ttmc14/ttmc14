@@ -1,0 +1,6 @@
+- type: reagent
+  parent: MCReagent
+  id: MCReagentMedicine
+  group: Medicine
+  flavor: medicine
+  abstract: true

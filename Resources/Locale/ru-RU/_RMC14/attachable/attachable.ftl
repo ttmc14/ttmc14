@@ -24,7 +24,7 @@ attachable-popup-switch-to-generic = Вы переключаетесь на ис
 attachable-popup-switch-from-generic = Вы перестаете использовать { THE($attachable) }.
 rmc-attachable-examinable-verb-text = Прикрепляемые модификации
 rmc-attachable-examinable-verb-message = Изучите модификаторы, применяемы этим прикрепляемым предметом.
-rmc-attachable-examine-condition-always =  [bold]Всегда:[/bold]
+rmc-attachable-examine-condition-always = [bold]Всегда:[/bold]
 rmc-attachable-examine-condition-when = Тогда
 rmc-attachable-examine-condition-wielded = держатель [bold]приклеплен[/bold]
 rmc-attachable-examine-condition-unwielded = держатель [bold]не приклеплен[/bold]
@@ -36,17 +36,17 @@ rmc-attachable-examine-condition-whitelist-tags = держатель [bold]им�
 rmc-attachable-examine-condition-blacklist-comps = держателю [bold]не хватает { $compNumber }[/bold] следующих компонентов: [bold]{ $comps }[/bold]
 rmc-attachable-examine-condition-blacklist-sizes = держатель [bold]не имеет[/bold] один из следующих размеров: [bold]{ $sizes }[/bold]
 rmc-attachable-examine-condition-blacklist-tags = держателю [bold]не хватает { $tagNumber }[/bold] следующих тэгов: [bold]{ $tags }[/bold]
-rmc-attachable-examine-ranged-accuracy =  [color={ $colour }]{ $sign }{ $accuracy }[/color] множитель точности.
-rmc-attachable-examine-ranged-scatter =  [color={ $colour }]{ $sign }{ $scatter }[/color] степень разброса.
-rmc-attachable-examine-ranged-burst-scatter =  [color={ $colour }]{ $sign }{ $burstScatterMult }[/color] множитель разброса очередью.
-rmc-attachable-examine-ranged-shots-per-burst =  [color={ $colour }]{ $sign }{ $shots }[/color] выстрелов очередью.
-rmc-attachable-examine-ranged-fire-delay =  [color={ $colour }]{ $sign }{ TOSTRING($fireDelay, "F2") }[/color] сукенд между выстрелом.
-rmc-attachable-examine-ranged-recoil =  [color={ $colour }]{ $sign }{ $recoil }[/color] отдача.
-rmc-attachable-examine-ranged-damage =  [color={ $colour }]{ $sign }{ $damage }[/color] множитель урона от расстояния.
-rmc-attachable-examine-ranged-projectile-speed =  [color={ $colour }]{ $sign }{ $projectileSpeed }[/color] скорость снаряда.
-rmc-attachable-examine-ranged-damage-falloff =  [color={ $colour }]{ $sign }{ $falloff }[/color] множитель спада урона от расстояния.
-rmc-attachable-examine-melee-damage =  [color={ $colour }]{ $sign }{ $damage }[/color] урон от ближнего боя.
-rmc-attachable-examine-size =  [color={ $colour }]{ $sign }{ $size }[/color] размер предмета.
-rmc-attachable-examine-speed-walk =  [color={ $colour }]{ $sign }{ TOSTRING($speed, "F2") }[/color] множитель скорости при ходьбе.
-rmc-attachable-examine-speed-sprint =  [color={ $colour }]{ $sign }{ TOSTRING($speed, "F2") }[/color] множитель скорости при беге.
-rmc-attachable-examine-wield-delay =  [color={ $colour }]{ $sign }{ $delay }[/color] секунд задержки до взятия в две руки.
+rmc-attachable-examine-ranged-accuracy = [color={ $colour }]{ $sign }{ $accuracy }[/color] множитель точности.
+rmc-attachable-examine-ranged-scatter = [color={ $colour }]{ $sign }{ $scatter }[/color] степень разброса.
+rmc-attachable-examine-ranged-burst-scatter = [color={ $colour }]{ $sign }{ $burstScatterMult }[/color] множитель разброса очередью.
+rmc-attachable-examine-ranged-shots-per-burst = [color={ $colour }]{ $sign }{ $shots }[/color] выстрелов очередью.
+rmc-attachable-examine-ranged-fire-delay = [color={ $colour }]{ $sign }{ TOSTRING($fireDelay, "F2") }[/color] сукенд между выстрелом.
+rmc-attachable-examine-ranged-recoil = [color={ $colour }]{ $sign }{ $recoil }[/color] отдача.
+rmc-attachable-examine-ranged-damage = [color={ $colour }]{ $sign }{ $damage }[/color] множитель урона от расстояния.
+rmc-attachable-examine-ranged-projectile-speed = [color={ $colour }]{ $sign }{ $projectileSpeed }[/color] скорость снаряда.
+rmc-attachable-examine-ranged-damage-falloff = [color={ $colour }]{ $sign }{ $falloff }[/color] множитель спада урона от расстояния.
+rmc-attachable-examine-melee-damage = [color={ $colour }]{ $sign }{ $damage }[/color] урон от ближнего боя.
+rmc-attachable-examine-size = [color={ $colour }]{ $sign }{ $size }[/color] размер предмета.
+rmc-attachable-examine-speed-walk = [color={ $colour }]{ $sign }{ TOSTRING($speed, "F2") }[/color] множитель скорости при ходьбе.
+rmc-attachable-examine-speed-sprint = [color={ $colour }]{ $sign }{ TOSTRING($speed, "F2") }[/color] множитель скорости при беге.
+rmc-attachable-examine-wield-delay = [color={ $colour }]{ $sign }{ $delay }[/color] секунд задержки до взятия в две руки.

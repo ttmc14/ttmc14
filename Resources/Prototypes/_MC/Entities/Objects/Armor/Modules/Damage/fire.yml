@@ -1,0 +1,11 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleSurtPyrotechnical
+  name: surt pyrotechnical insulation system
+  description: Designed for mounting on modular armor. Providing a near immunity to being bathed in flames, and amazing flame retardant qualities, this is every pyromaniacs' first stop to survival. Will impact mobility.
+  components:
+  - type: Sprite
+    state: mod_fire
+  - type: MCArmor
+    soft:
+      fire: 40

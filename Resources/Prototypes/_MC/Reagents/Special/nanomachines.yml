@@ -1,0 +1,16 @@
+- type: reagent
+  parent: MCReagentSpecial
+  id: MCNanoMachines
+  name: reagent-name-mc-nano-machines
+  desc: reagent-desc-mc-nano-machines
+  group: Special
+  flavor: bitter
+  color: "#19C832"
+  physicalDesc: reagent-physical-desc-opaque
+  overdose: 36
+  criticalOverdose: 85
+  metabolisms:
+    Medicine:
+      metabolismRate: 0
+      effects:
+      - !type:MCReagentNanoMachines

@@ -1,2 +1,2 @@
-﻿rmc-smart-fridge-contents = [bold]Contents[/bold]
-rmc-smart-fridge-contents-empty = No items present!
+﻿rmc-smart-fridge-contents = [bold]Содержимое[/bold]
+rmc-smart-fridge-contents-empty = Предметов нет!

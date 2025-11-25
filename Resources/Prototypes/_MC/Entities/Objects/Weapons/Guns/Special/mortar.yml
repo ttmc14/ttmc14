@@ -1,7 +1,7 @@
 # TODO: FUCKING PARITYYYYYYY
 
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCMortarKit
   name: TA-50S mortar
   suffix: MC
@@ -59,14 +59,15 @@
     deployedState: mortar_deployed
     animationState: mortar_deployed_fire
   - type: MCArmor
-    melee: 0
-    bullet: 50
-    laser: 50
-    energy: 50
-    bomb: 15
-    bio: 100
-    fire: 0
-    acid: 0
+    soft:
+      melee: 0
+      bullet: 50
+      laser: 50
+      energy: 50
+      bomb: 15
+      bio: 100
+      fire: 0
+      acid: 0
   - type: Damageable
     damageContainer: Inorganic
   - type: Destructible
@@ -128,7 +129,7 @@
 
 - type: entity
   abstract: true
-  parent: BaseItem
+  parent: MCItem
   id: MCMortarShellBase
   name: 80mm mortar shell
   description: An unlabeled 80mm mortar shell, probably a casing.

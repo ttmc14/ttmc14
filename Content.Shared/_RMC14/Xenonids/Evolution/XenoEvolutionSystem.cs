@@ -64,6 +64,8 @@ public sealed class XenoEvolutionSystem : EntitySystem
     [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = default!;
     [Dependency] private readonly IMapManager _map = default!;
 
+    [Dependency] private readonly MCXenoEvolutionSystem _mcXenoEvolution = default!;
+
     private TimeSpan _evolutionPointsRequireOvipositorAfter;
     private TimeSpan _evolutionAccumulatePointsBefore;
     private TimeSpan _evolveSameCasteCooldown;
@@ -356,35 +358,8 @@ public sealed class XenoEvolutionSystem : EntitySystem
             return false;
         }
 
-        if (prototype.TryGetComponent<MCXenoEvolutionRequiredQuantityComponent>(
-                out var evolutionRequiredQuantityComponent,
-                _compFactory))
-        {
-            var living = GetLiving<XenoComponent>();
-            if (living < evolutionRequiredQuantityComponent.Count)
-            {
-                if (doPopup)
-                    _popup.PopupEntity(Loc.GetString("mc-xeno-evolution-not-enough-quantity", ("prototype", prototype.Name), ("count", evolutionRequiredQuantityComponent.Count - living)), xeno, xeno, PopupType.MediumCaution);
-
-                return false;
-            }
-        }
-
-        // TODO RMC14 only allow evolving towards Queen if none is alive
-        if (!xeno.Comp.CanEvolveWithoutGranter && !HasLiving<MCXenoHiveLeaderComponent>(1))
-        {
-            if (doPopup)
-            {
-                _popup.PopupEntity(
-                    Loc.GetString("cm-xeno-evolution-failed-hive-shaken"),
-                    xeno,
-                    xeno,
-                    PopupType.MediumCaution
-                );
-            }
-
+        if (!_mcXenoEvolution.CanEvolve(xeno, newXeno, doPopup))
             return false;
-        }
 
         prototype.TryGetComponent(out XenoComponent? newXenoComp, _compFactory);
 

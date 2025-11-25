@@ -1,0 +1,2 @@
+ent-RMCWeaponLauncherM85A1 = M85A1 grenade launcher
+    .desc = A heavy, low-angle, break-action 40mm grenade launcher. Archaic in core design, inferior to more modern semi automatic M92, M95 grenade launchers and M94 impact launcher, but doesn't require a magnetic armature or an advanced expertice to operate, not to mention near flawless reliability, extremely low cost and low weight due to mostly being made out of polymer materials.

@@ -8,6 +8,8 @@ namespace Content.Shared._MC;
 
 public sealed class MCStatusSystem : MCEntitySystemSingleton<MCStatusSystemComponent>
 {
+    public const int HighPlayerPop = 80;
+
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;

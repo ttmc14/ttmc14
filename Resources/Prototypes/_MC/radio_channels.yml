@@ -1,0 +1,8 @@
+﻿
+- type: radioChannel
+  id: MCPMCChannel
+  name: chat-radio-pmc
+  keycode: "г"
+  frequency: 1492
+  color: "#b17324"
+  longRange: true

@@ -1,3 +1,7 @@
+ent-RMCBaseWeaponRifleNoDualWieldPenaltyNoMagazineProvider = { ent-CMBaseWeaponGun }
+    .desc = { ent-CMBaseWeaponGun.desc }
+ent-RMCBaseWeaponRifleNoMagazineProvider = { ent-RMCBaseWeaponRifleNoDualWieldPenaltyNoMagazineProvider }
+    .desc = { ent-RMCBaseWeaponRifleNoDualWieldPenaltyNoMagazineProvider.desc }
 ent-CMBaseWeaponRifleNoDualWieldPenalty = { ent-CMBaseWeaponGun }
     .desc = { ent-CMBaseWeaponGun.desc }
 ent-CMBaseWeaponRifle = { ent-CMBaseWeaponRifleNoDualWieldPenalty }

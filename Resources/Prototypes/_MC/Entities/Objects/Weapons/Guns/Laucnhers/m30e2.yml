@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ BaseItem, RMCBaseSlideMagazineVisualsBallistic, CMBaseWeaponGun, RMCBaseAttachableHolder ]
+  parent: [ MCItem, RMCBaseSlideMagazineVisualsBallistic, MCWeaponGun, RMCBaseAttachableHolder ]
   id: MCWeaponFlareGunM30E2
   name: M30E2 flare gun
   description: A very tiny flaregun that fires flares equipped with long range irons, the mass amounts of markings on the back and barrel denote it as owned by the TGMC.
@@ -18,8 +18,8 @@
     baseDelay: 0.2
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 6
+      types:
+        MCBrute: 6
   - type: Gun
     projectileSpeed: 40
     selectedMode: SemiAuto

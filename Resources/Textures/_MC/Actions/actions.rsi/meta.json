@@ -100,7 +100,13 @@
       "name": "defend"
     },
     {
-      "name": "attack"
+      "name": "attack",
+        "delays": [
+            [
+                0.2,
+                0.2
+            ]
+        ]
     },
     {
       "name": "retreat"

@@ -1,0 +1,54 @@
+- type: entity
+  parent: MCMeleeWeapon
+  id: MCMeleeWeaponVali
+  abstract: true
+  components:
+  - type: Tag
+    tags: [ MCMeleeWeaponVali ]
+  - type: Appearance
+  - type: Sprite
+    layers:
+    - state: icon
+    - state: icon-loaded
+      color: "#008000"
+      map: [ "enum.MCWeaponValiVisualLayers.Blade" ]
+  - type: Item
+    size: Large
+  - type: MeleeWeapon
+    angle: 0
+    wideAnimationRotation: -135
+    soundHit:
+      path: /Audio/Weapons/bladeslice.ogg
+  - type: MCWeaponVali
+    allowedReagents:
+    - MCBicaridine
+    - MCKelotane
+    - MCTricordrazine
+    - MCTramadol
+    - MCDexalin
+    reagentEmptyIcon:
+      sprite: _MC/Interface/Actions/vali.rsi
+      state: empty_backgrounded
+    reagentIcons:
+      MCBicaridine:
+        sprite: _MC/Interface/Actions/vali.rsi
+        state: bicaridine_backgrounded
+      MCKelotane:
+        sprite: _MC/Interface/Actions/vali.rsi
+        state: kelotane_backgrounded
+      MCTricordrazine:
+        sprite: _MC/Interface/Actions/vali.rsi
+        state: tricordrazine_backgrounded
+      MCTramadol:
+        sprite: _MC/Interface/Actions/vali.rsi
+        state: tramadol_backgrounded
+      MCDexalin:
+        sprite: _MC/Interface/Actions/vali.rsi
+        state: dexalin_backgrounded
+  - type: UserInterface
+    interfaces:
+      enum.MCWeaponValiSelectReagentUi.Key:
+        type: MCWeaponValiSelectedReagentBui
+
+- type: Tag
+  id: MCMeleeWeaponVali

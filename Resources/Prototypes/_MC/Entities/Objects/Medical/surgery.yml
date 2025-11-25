@@ -94,8 +94,8 @@
     sprite: _MC/Objects/Medical/Surgery/cautery.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Burn: 5
+      types:
+        MCBurn: 5
     soundHit:
       path: /Audio/Effects/lightburn.ogg
   - type: CMCautery
@@ -128,8 +128,8 @@
     sprite: _MC/Objects/Medical/Surgery/drill.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: CMSurgicalDrill
@@ -173,8 +173,8 @@
     swingLeft: true
     attackRate: 1.5
     damage:
-      groups:
-        Brute: 8
+      types:
+        MCBrute: 8
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: CMScalpel
@@ -240,8 +240,8 @@
     sprite: _MC/Objects/Medical/Surgery/saw.rsi
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 15
+      types:
+        MCBrute: 15
     soundHit:
       path: /Audio/Items/drill_hit.ogg
   - type: Tool
@@ -378,8 +378,8 @@
     - Inorganic
     - Silicon
     damage:
-      groups: # не парити ну и похуй, всё равно для роботов и всё равно нанопасты мало
-        Brute: -30
+      types:
+        MCBrute: -30
     delay: 2
     healingBeginSound:
       path: "/Audio/Items/Medical/ointment_begin.ogg"

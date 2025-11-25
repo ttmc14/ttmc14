@@ -56,7 +56,7 @@ public sealed class AegisCrateSystem : EntitySystem
 
             _tagSystem.AddTag(ob, "RMCDropshipEnginePoint");
 
-            Log.Info($"OB spawned at {_transform.GetWorldPosition(ob)}");
+            Log.Info($"`OB spawned at {_transform.GetWorldPosition(ob)}");
         }
     }
 

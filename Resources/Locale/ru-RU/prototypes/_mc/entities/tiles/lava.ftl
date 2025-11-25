@@ -1,0 +1,2 @@
+ent-MCFloorLavaEntity = лава
+    .desc = { "" }

@@ -19,14 +19,14 @@
     wideAnimationRotation: -135
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 40
+      types:
+        MCBrute: 40
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
   - type: Item
     size: Normal
     sprite: _MC/Objects/Weapons/Melee/claymore.rsi
@@ -47,8 +47,8 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 39
+      types:
+        MCBrute: 40
 
 - type: entity
   parent: MCClaymore
@@ -59,8 +59,8 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 55
+      types:
+        MCBrute: 55
 
 - type: entity
   parent: MCClaymore
@@ -77,8 +77,8 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 75
+      types:
+        MCBrute: 75
 #No parity, there should be penetration 15
 
 - type: entity
@@ -96,8 +96,8 @@
   - type: MeleeWeapon
     attackRate: 1
     damage:
-      groups:
-        Brute: 80
+      types:
+        MCBrute: 80
 
 - type: entity
   parent: MCClaymore
@@ -119,8 +119,8 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 50
+      types:
+        MCBrute: 50
 
 - type: entity
   parent: MCKatana
@@ -132,12 +132,12 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 27
+      types:
+        MCBrute: 30
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 7
+      types:
+        MCBrute: 5
 
 - type: entity
   parent: MCKatanaReplica
@@ -149,14 +149,14 @@
   - type: MeleeWeapon
     attackRate: 0.9
     damage:
-      groups:
-        Brute: 5
+      types:
+        MCBrute: 5
     soundHit:
       path: /Audio/Weapons/boxingpunch1.ogg
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 5
+      types:
+        MCBrute: 5
 
 - type: entity
   parent: MCClaymore
@@ -177,12 +177,12 @@
   - type: MeleeWeapon
     attackRate: 0.8
     damage:
-      groups:
-        Brute: 60
+      types:
+        MCBrute: 60
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 10
+      types:
+        MCBrute: 10
 
 - type: entity
   parent: MCClaymore
@@ -204,8 +204,8 @@
   - type: MeleeWeapon
     attackRate: 0.8
     damage:
-      groups:
-        Brute: 75
+      types:
+        MCBrute: 75
 
 - type: entity
   parent: MCMachete
@@ -260,13 +260,13 @@
     attackRate: 2
     autoAttack: true
     damage:
-      groups:
-        Brute: 60
-        Genetic: 10
+      types:
+        MCBrute: 60
+        MCGenetic: 10
   - type: MCXenoPlasmaDamageOnHit
     amount: 60
     missingMultiplier: 1
   - type: DamageOtherOnHit
     damage:
-      groups:
-        Brute: 0
+      types:
+        MCBrute: 5

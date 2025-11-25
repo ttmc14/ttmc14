@@ -46,10 +46,13 @@
       - id: MCMagazineSMG45SH
     - name: Marksman
       entries:
-      - id: MCWeaponDMR37
+      - id: MCWeaponSniperDMR37
       - id: MCMagazineDMR37
-      - id: MCWeaponBR64
+      - id: MCWeaponSniperBR64
       - id: MCMagazineBR64
+      - id: MCWeaponSniperSR127
+      - id: MCMagazineSR127
+      # - id: MCMagazineSR127Flak
       - id: MCWeaponShotgunMosin
       - id: MCCartridgeMosin
       - id: MCWeaponShotgunMartini
@@ -77,6 +80,13 @@
       - id: MCKnifeBayonet
       - id: MCScabbardMacheteFilled
       - id: MCSpear
+    - name: Vali
+      entries:
+      - id: MCScabbardMachete
+      - id: MCMeleeWeaponValiClaymore
+      - id: MCMeleeWeaponValiKnife
+      - id: MCMeleeWeaponValiSpear
+      - id: MCMeleeWeaponValiSword
     - name: Sidearm
       entries:
       - id: MCWeaponP14

@@ -1,74 +1,64 @@
+# MC CHANGES
 - type: damageContainer
   id: Biological
   supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
-    - Airloss
-    - Genetic
+  - MCBrute
+  - MCBurn
+  supportedTypes:
+  - MCBrute
+  - MCBurn
+  - MCToxin
+  - MCOxygen
+  - MCClone
 
 - type: damageContainer
   id: Inorganic
-  supportedGroups:
-    - Brute
   supportedTypes:
-    - Heat
-    - Shock
+  - MCBrute
+  - MCBurn
 
 - type: damageContainer
   id: StructuralInorganic
-  supportedGroups:
-  - Brute
   supportedTypes:
-  - Heat
-  - Shock
-  - Structural
+  - MCBrute
+  - MCBurn
 
 - type: damageContainer
   id: Silicon
-  supportedGroups:
-    - Brute
   supportedTypes:
-    - Heat
-    - Shock
+  - MCBrute
+  - MCBurn
 
 - type: damageContainer
   id: Shield
-  supportedGroups:
-    - Brute
   supportedTypes:
-    - Heat
+  - MCBrute
+  - MCBurn
 
 - type: damageContainer
   id: Box
-  supportedGroups:
-    - Brute
-    - Burn
-    - Toxin
   supportedTypes:
-    - Shock
+  - MCBrute
+  - MCBurn
+  - MCToxin
 
 - type: damageContainer
   id: ShadowHaze
   supportedTypes:
-    - Heat
+  - MCBurn
 
 - type: damageContainer
   id: ManifestedSpirit
-  supportedGroups:
-    - Metaphysical
-    - Brute
   supportedTypes:
-    - Heat
-    - Shock
-    - Caustic
+  - MCBrute
+  - MCBurn
+  - MCClone
 
 - type: damageContainer
   id: BiologicalMetaphysical
-  supportedGroups:
-  - Brute
-  - Burn
-  - Toxin
-  - Airloss
-  - Genetic
-  - Metaphysical
+  supportedTypes:
+  - MCBrute
+  - MCBurn
+  - MCToxin
+  - MCOxygen
+  - MCClone

@@ -45,8 +45,8 @@ public sealed partial class DamageForceSayComponent : Component
     [DataField]
     public HashSet<ProtoId<DamageGroupPrototype>>? ValidDamageGroups = new()
     {
-        "Brute",
-        "Burn",
+        "MCBrute", // mc-changes
+        "MCBurn", // mc-changes
     };
 
     /// <summary>

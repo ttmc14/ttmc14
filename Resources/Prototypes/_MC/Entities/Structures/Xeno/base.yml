@@ -37,8 +37,8 @@
     fireSpread: false
     maximumFireStacks: 0.5
     damage:
-      groups:
-        Burn: 3.8
+      types:
+        MCBurn: 3.8
   - type: Corrodible
     isCorrodible: false
 
@@ -85,8 +85,9 @@
     range: 3
     spawns: MCXenoWeeds
     healOnStopSpreading:
-      groups:
-        Brute: -6
+      types:
+        MCBrute: -7.5
+        MCBurn: -7.5
   # Pheromones
   - type: XenoPheromones
     pheromonesMultiplier: 4
@@ -117,6 +118,8 @@
         - BulletImpassable
   - type: CollisionWake
     enabled: false
+  - type: MCXenoEvolutionAffectGain
+    multiplier: 1.5
   # - type: XenoStructureMapTracked
   # - type: TacticalMapTracked
   # - type: TacticalMapIcon

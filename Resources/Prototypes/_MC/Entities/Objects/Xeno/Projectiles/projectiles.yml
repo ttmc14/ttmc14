@@ -9,8 +9,8 @@
   - type: Projectile
     impactEffect: null
     damage:
-      groups:
-        Burn: 20
+      types:
+        MCBurn: 20
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
@@ -31,8 +31,8 @@
   - type: Projectile
     impactEffect: null
     damage:
-      groups:
-        Burn: 35
+      types:
+        MCBurn: 35
   - type: XenoProjectile
     deleteOnFriendlyXeno: true
   - type: ProjectileMaxRange
@@ -50,8 +50,8 @@
   - type: Projectile
     impactEffect: null
     damage:
-      groups:
-        Burn: 20
+      types:
+        MCBurn: 20
   - type: XenoProjectile
     deleteOnFriendlyXeno: true
   - type: ProjectileMaxRange
@@ -82,3 +82,56 @@
     superSlow: false
     slow: 3
     paralyze: 0
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileFireball
+  name: fireball
+  components:
+  - type: Sprite
+    layers:
+    - state: fireball
+      shader: unshaded
+  - type: Projectile
+    impactEffect: null
+    damage:
+      types:
+        MCBurn: 50
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: SpawnOnTerminateRange
+    positionXOne: -1
+    positionXTwo: 1
+    positionYOne: -1
+    positionYTwo: 1
+    range: 3
+    spawn: MCTileFireXenoAcid
+  - type: SpawnOnTerminate
+    spawn: MCEffectInfernoPyrogen
+  - type: ProjectileMaxRange
+    max: 5
+  - type: RMCProjectileAccuracy
+    accuracy: 95
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileWhirlwind
+  name: Plasma Whirlwind
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Xeno/whirlwind.rsi
+    noRot: true
+    layers:
+    - state: icon
+      shader: unshaded
+  - type: Projectile
+    impactEffect: null
+    damage:
+      types:
+        MCBurn: 50
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 7
+  - type: RMCProjectileAccuracy
+    accuracy: 95

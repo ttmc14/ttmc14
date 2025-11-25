@@ -1,3 +1,10 @@
 ent-RMCSuitBioGeneral = bio suit
     .desc = A suit that protects against biological contamination.
     .suffix = Generic, RMC
+ent-RMCArmorFirefighter = PT-LT firesuit
+    .desc = The 'PyroTex LT' is an advanced, lightweight firesuit developed by 'Fujin'. It provides protection against fire and heat, while also offering a degree of protection from blunt force trauma.
+ent-RMCArmorSPPFirefighter = T-20 fire response coat
+    .desc = A rugged, no-frills fire-resistant overcoat issued to SPP industrial and emergency crews. Based on the PyroTex LT design but using cheaper, domestically produced materials, it offers basic protection against heat and debris at the cost of weight and comfort.
+ent-RMCSuitBioWeYa = WeYa-TSS MK I - bio suit
+    .desc = The 'Weston-Yamada TerraScientia bio-suit MK I'. An advanced light-weight bio-suit developed in-house by Weston-Yamada. It's a suit that protects against biological contamination.
+    .suffix = Generic, WeYa

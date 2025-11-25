@@ -1,10 +1,11 @@
 ﻿using System.Numerics;
-using Content.Shared._MC.Knockback;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Stunnable;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
@@ -14,17 +15,20 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities.Pounce;
 
-public sealed class MCXenoPounceSystem : EntitySystem
+public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
+
+    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
+
+    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = default!;
+    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -35,7 +39,7 @@ public sealed class MCXenoPounceSystem : EntitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         SubscribeLocalEvent<MCXenoPounceComponent, MCXenoPounceActionEvent>(OnAction);
-        SubscribeLocalEvent<MCXenoPouncingComponent, StartCollideEvent>(OnHit);
+        SubscribeLocalEvent<MCXenoPouncingComponent, PreventCollideEvent>(OnHit);
     }
 
     public override void Update(float frameTime)
@@ -93,28 +97,67 @@ public sealed class MCXenoPounceSystem : EntitySystem
         Dirty(entity, pouncingComponent);
     }
 
-    private void OnHit(Entity<MCXenoPouncingComponent> entity, ref StartCollideEvent args)
+    private void OnHit(Entity<MCXenoPouncingComponent> entity, ref PreventCollideEvent args)
     {
-        if (_xenoHive.FromSameHive(entity.Owner, args.OtherEntity))
+        if (args.OtherFixture.CollisionLayer == (int) CollisionGroup.SlipLayer)
             return;
+
+        if (entity.Comp.Hit.Contains(args.OtherEntity))
+        {
+            args.Cancelled = true;
+            return;
+        }
+
+        entity.Comp.Hit.Add(args.OtherEntity);
+        Hit(entity, args.OtherEntity);
+
+        if (!IsMob(args.OtherEntity))
+            return;
+
+        args.Cancelled = true;
+    }
+
+    private void Hit(Entity<MCXenoPouncingComponent> entity, EntityUid target)
+    {
+        if (!IsMob(target))
+        {
+            Stop(entity);
+            return;
+        }
+
+        if (_mobState.IsDead(target))
+            return;
+
+        if (_rmcXenoHive.FromSameHive(entity.Owner, target))
+        {
+            Stop(entity);
+            return;
+        }
 
         if (!TryComp<MCXenoPounceComponent>(entity, out var pounceComponent))
             return;
 
-        if (!HasComp<MobStateComponent>(args.OtherEntity))
-            return;
-
-        Stop(entity);
+        if (pounceComponent.StopOnHit)
+            Stop(entity);
 
         // TODO: work with shields
 
         _stun.TrySlowdown(entity, pounceComponent.HitSelfParalyzeTime, true, 0f, 0f);
+        _stun.TryParalyze(target, pounceComponent.HitKnockdownTime, true);
 
-        _damageable.TryChangeDamage(args.OtherEntity, pounceComponent.HitDamage, origin: entity, tool: entity);
-        _stun.TryParalyze(args.OtherEntity, pounceComponent.HitKnockdownTime, true);
+        if (pounceComponent.HitDamage is { } damage)
+        {
+            _damageable.TryChangeDamage(target, damage, origin: entity, tool: entity);
+            RaiseEffect(entity, target);
+        }
 
-        if (pounceComponent.HitSound is not null)
+        var first = entity.Comp.Hit.Count == 1;
+
+        if (pounceComponent.HitSound is not null && first)
             _audio.PlayPredicted(pounceComponent.HitSound, entity, entity);
+
+        var ev = new MCXenoPounceHitEvent(target, first);
+        RaiseLocalEvent(entity, ref ev);
     }
 
     private void Stop(EntityUid entityUid)

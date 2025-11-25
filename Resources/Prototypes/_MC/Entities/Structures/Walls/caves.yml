@@ -1,0 +1,15 @@
+- type: entity
+  parent: MCWall
+  id: MCWallBigRedInvincible
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/red.rsi
+    state: wall-invincible
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/red.rsi
+    state: wall-invincible
+  - type: IconSmooth
+    key: caveWalls
+    base: red_wall-
+    mode: MCCardinalFlagsExtended

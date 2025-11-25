@@ -3,4 +3,3 @@ ent-RMCPouchGeneralLargeFilledSurvivorCommanderNewVaradero = { ent-RMCPouchGener
     .desc = { ent-RMCPouchGeneralLarge.desc }
 ent-CMSpawnPointSurvivorCommanderNewVardero = new varadero commanding officer spawn point
     .desc = { ent-CMSpawnPointJobBase.desc }
-

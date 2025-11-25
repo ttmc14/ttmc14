@@ -20,3 +20,5 @@ ent-RMCVestTan = tan vest
     .desc = A casual tan vest.
 ent-RMCWeYaFurCoat = WeYa fur coat
     .desc = An old, unmarked fur coat once issued to corporate liaisons stationed in harsh climates. It has clearly changed hands many times — the fabric is worn, it carries a distinct smell, and any manufacturer tags have long since faded. A faint corporate insignia remains, stitched above a yellowing label that simply reads: "Dry clean only."
+ent-RMCVestBrown = brown vest
+    .desc = A casual tan vest.

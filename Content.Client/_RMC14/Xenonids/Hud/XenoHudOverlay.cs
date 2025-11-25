@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client._RMC14.Medical.HUD;
 using Content.Client._RMC14.NightVision;
+using Content.Shared._MC.Xeno.Sunder;
 using Content.Shared._RMC14.Mobs;
 using Content.Shared._RMC14.Shields;
 using Content.Shared._RMC14.Stealth;
@@ -32,7 +33,7 @@ using Content.Shared._RMC14.Synth;
 
 namespace Content.Client._RMC14.Xenonids.Hud;
 
-public sealed class XenoHudOverlay : Overlay
+public sealed partial class XenoHudOverlay : Overlay // mc-changes
 {
     [Dependency] private readonly IEntityManager _entity = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
@@ -92,6 +93,7 @@ public sealed class XenoHudOverlay : Overlay
         _xenoShieldQuery = _entity.GetEntityQuery<XenoShieldComponent>();
         _invisQuery = _entity.GetEntityQuery<EntityActiveInvisibleComponent>();
         _xenoQuery = _entity.GetEntityQuery<XenoComponent>();
+        _mcXenoSunderQuery = _entity.GetEntityQuery<MCXenoSunderComponent>(); // mc-changes
 
         _shader = _prototype.Index<ShaderPrototype>("unshaded").Instance();
         ZIndex = 1;
@@ -180,6 +182,7 @@ public sealed class XenoHudOverlay : Overlay
             UpdatePlasma((uid, xeno, sprite), handle);
             UpdateShields((uid, xeno, sprite), handle);
             UpdateEnergy((uid, xeno, sprite), handle);
+            UpdateSunder((uid, xeno, sprite), handle); // mc-changes
         }
     }
 
@@ -553,6 +556,7 @@ public sealed class XenoHudOverlay : Overlay
         handle.DrawTexture(texture, position);
     }
 
+    /*
     private void UpdatePlasma(Entity<XenoComponent, SpriteComponent> ent, DrawingHandleWorld handle)
     {
         var (uid, xeno, sprite) = ent;
@@ -577,6 +581,7 @@ public sealed class XenoHudOverlay : Overlay
         var position = new Vector2(xOffset, yOffset);
         handle.DrawTexture(texture, position);
     }
+    */
 
     private void UpdateShields(Entity<XenoComponent, SpriteComponent> ent, DrawingHandleWorld handle)
     {

@@ -7,9 +7,10 @@
   - RMCXenoSpeechSounds
   - RMCXenoCommendationReceiver
   - RMCXenoMobCollision
-  id: MCXenoRavager
+  id: MCXenoRavagerBase
   name: Ravager
   description: A brutal, devastating front-line attacker.
+  abstract: true
   components:
   - type: Sprite
     sprite: _MC/Mobs/Xenos/ravager.rsi
@@ -21,7 +22,7 @@
     thresholds:
       0: Alive
       350: Critical
-      500: Dead
+      425: Dead
   - type: XenoPlasma
     plasma: 800
     maxPlasma: 800
@@ -36,6 +37,8 @@
     - MCActionXenoDevolve
     # Abilities
     - MCActionXenoRavage
+    - MCActionXenoCharge
+    - MCActionXenoEndure
     hudOffset: -0.1,0.1
   - type: XenoDevolve
     devolvesTo:
@@ -47,18 +50,23 @@
     - MCXenoBull
     - MCXenoSpitter
   - type: MCArmor
-    melee: 35
-    bullet: 55
-    laser: 50
-    energy: 50
-    bomb: 10
-    bio: 40
-    fire: 65
-    acid: 40
+    soft:
+      melee: 35
+      bullet: 55
+      laser: 50
+      energy: 50
+      bomb: 10
+      bio: 40
+      fire: 65
+      acid: 40
+  # Melee
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 25
+  - type: CMArmorPiercing
+    amount: 15
+  # ...
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.333
     baseSprintSpeed: 5
@@ -73,5 +81,57 @@
     multiplier: 1.5
   - type: MCXenoPlasmaOnAttacked
     multiplier: 0.5
+  - type: MCXenoRage
   # Abilities
+  # Ravage
   - type: MCXenoRavage
+  # Pounce (Charge)
+  - type: MCXenoPounceEmote
+    emote: XenoRoar
+  - type: MCXenoPounce
+    maxDistance: 4
+    strength: 45
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 2
+    stopOnHit: false
+    hitDamage:
+      types:
+        MCBrute: 30
+  # Endure
+  - type: MCXenoEndure
+    duration: 10
+
+- type: entity
+  parent: MCXenoRavagerBase
+  id: MCXenoRavager
+  name: ravager
+  description: A brutal, devastating front-line attacker.
+  components:
+  - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    strains:
+    - MCXenoRavagerBloodthirster
+
+- type: entity
+  parent: MCXenoRavagerBase
+  id: MCXenoRavagerBloodthirster
+  name: bloodthirster
+  description: A thirsting fighter that knows no rest.
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/ravager_bloodthirster.rsi
+  - type: FixedIdentity
+    name: mc-job-name-xeno-ravager-bloodthirster
+  - type: GhostRole
+    name: mc-job-name-xeno-ravager-bloodthirster
+  - type: XenoPlasma
+    plasma: 500
+    maxPlasma: 500
+    plasmaRegenLimit: 0
+    plasmaRegenOnWeeds: 0
+  # Passive
+  - type: MCXenoPlasmaOnAttack
+    multiplier: 2
+  - type: MCXenoPlasmaOnAttacked
+    multiplier: 0.75
+  - type: MCXenoBloodthirst

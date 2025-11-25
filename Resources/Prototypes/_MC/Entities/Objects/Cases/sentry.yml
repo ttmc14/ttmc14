@@ -1,0 +1,78 @@
+- type: entity
+  parent: MCCase
+  id: MCCaseSentry
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/case.rsi
+    layers:
+    - map: [ "full" ]
+      state: sentry_case
+    - map: [ "empty" ]
+      state: empty_case
+      visible: false
+  - type: Icon
+    sprite: _MC/Objects/Items/case.rsi
+    state: sentry_case
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,11,1
+    whitelist:
+      tags:
+      - MCSentry
+      - MCMagazineSentry
+
+- type: entity
+  parent: MCCaseSentry
+  id: MCCaseSentryST571
+  name: ST-571 sentry case
+  description: A large case containing all you need to set up an automated sentry.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSentryBig
+    - id: MCMagazineSentryBig
+
+- type: entity
+  parent: MCCaseSentry
+  id: MCCaseSentrySHT573
+  name: SHT-573 sentry case
+  description: A large case containing all you need to set up an automated sentry.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSentryShotgun
+    - id: MCMagazineSentryShotgun
+
+- type: entity
+  parent: MCCaseSentry
+  id: MCCaseSentrySST574
+  name: SST-574 sentry case
+  description: A large case containing all you need to set up an automated sentry.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCSentrySniper
+    - id: MCMagazineSentrySniper
+
+- type: entity
+  parent: MCCaseSentry
+  id: MCCaseSentrySMT580
+  name: SMT-580 sentry case
+  description: A large case containing all you need to set up an ST-580 point defense sentry.
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "full" ]
+      state: sentry_mini_case
+    - map: [ "empty" ]
+      state: empty_case
+      visible: false
+  - type: Icon
+    state: sentry_mini_case
+  - type: StorageFill
+    contents:
+    - id: MCSentryMini
+    - id: MCMagazineSentryMini
+      amount: 2

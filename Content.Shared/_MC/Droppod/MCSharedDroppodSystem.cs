@@ -1,6 +1,8 @@
 ﻿using System.Numerics;
 using Content.Shared._MC.Droppod.Components;
 using Content.Shared._MC.Droppod.Events;
+using Content.Shared._MC.Operation;
+using Content.Shared._MC.Operation.Events;
 using Content.Shared._RMC14.Explosion;
 using Content.Shared._RMC14.Rules;
 using Content.Shared.Actions;
@@ -16,7 +18,7 @@ namespace Content.Shared._MC.Droppod;
 
 public abstract class MCSharedDroppodSystem : EntitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MCOperationSystem _mcOperation = default!;
     [Dependency] private readonly MetaDataSystem _metaData = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
@@ -28,6 +30,8 @@ public abstract class MCSharedDroppodSystem : EntitySystem
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<MCOperationStartEvent>(OnOperationStart);
 
         SubscribeLocalEvent<MCDroppodComponent, ComponentStartup>(OnStartup);
 
@@ -43,8 +47,24 @@ public abstract class MCSharedDroppodSystem : EntitySystem
         SubscribeLocalEvent<MCDroppodUserComponent, MCDroppodTargetActionEvent>(RelayEvent);
     }
 
+    private void OnOperationStart(MCOperationStartEvent ev)
+    {
+        var query = EntityQueryEnumerator<MCDroppodComponent>();
+        while (query.MoveNext(out var uid, out var component))
+        {
+            if (component.OperationStarted)
+                continue;
+
+            component.OperationStarted = true;
+            Dirty(uid, component);
+        }
+    }
+
     private void OnStartup(Entity<MCDroppodComponent> entity, ref ComponentStartup args)
     {
+        entity.Comp.OperationStarted = _mcOperation.Started;
+        Dirty(entity);
+
         UpdateSprite(entity);
     }
 

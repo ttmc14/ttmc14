@@ -1,44 +1,44 @@
-﻿rmc-bioscan-ares-announcement = [color=white][font size=16][bold]ARES v3.2 Bioscan Status[/bold][/font][/color][color=red][font size=14][bold]
+﻿rmc-bioscan-ares-announcement = [color=white][font size=16][bold]ARES v3.2 — состояние биосканирования[/bold][/font][/color][color=red][font size=14][bold]
     {$message}[/bold][/font][/color]
 
-rmc-bioscan-ares = Bioscan complete.
+rmc-bioscan-ares = Биоскан завершён.
 
-  Sensors indicate { $shipUncontained ->
-    [0] no
+  Сенсоры показывают { $shipUncontained ->
+    [0] отсутствие
     *[other] {$shipUncontained}
-  } unknown lifeform { $shipUncontained ->
-    [0] signatures
-    [1] signature
-    *[other] signatures
-  } present on the ship{ $shipLocation ->
+  } неизвестных форм жизни { $shipUncontained ->
+    [0] сигнатур
+    [1] сигнатура
+    *[other] сигнатур
+  } на борту корабля{ $shipLocation ->
     [none] {""}
-    *[other], including one in {$shipLocation},
-  } and { $onPlanet ->
-    [0] no
-    *[other] approximately {$onPlanet}
+    *[other], включая одну в {$shipLocation},
+  } и { $onPlanet ->
+    [0] нет
+    *[other] примерно {$onPlanet}
   } { $onPlanet ->
-    [0] signatures
-    [1] signature
-    *[other] signatures
-  } located elsewhere{ $planetLocation ->
+    [0] сигнатур
+    [1] сигнатура
+    *[other] сигнатур
+  } обнаружено в других местах{ $planetLocation ->
     [none].
-    *[other], including one in {$planetLocation}
+    *[other], включая одну в {$planetLocation}
   }
 
-rmc-bioscan-xeno-announcement = [color=#318850][font size=14][bold]The Queen Mother reaches into your mind from worlds away.
+rmc-bioscan-xeno-announcement = [color=#318850][font size=14][bold]Матерь-Королева проникает в твой разум с далёких миров.
   {$message}[/bold][/font][/color]
 
-rmc-bioscan-xeno = To my children and their Queen: I sense { $onShip ->
-  [0] no hosts
-  [1] approximately 1 host
-  *[other] approximately {$onShip} hosts
-} in the metal hive{ $shipLocation ->
+rmc-bioscan-xeno = Моим детям и их Королеве: Я чувствую { $onShip ->
+  [0] отсутствие носителей
+  [1] приблизительно одного носителя
+  *[other] примерно {$onShip} носителей
+} в металлическом улье{ $shipLocation ->
   [none] {""}
-  *[other], including one in {$shipLocation},
-} and {$onPlanet ->
-  [0] none
+  *[other], включая одного в {$shipLocation},
+} и {$onPlanet ->
+  [0] никого
   *[other] {$onPlanet}
-} scattered elsewhere{$planetLocation ->
+} разбросанных в иных местах{$planetLocation ->
   [none].
-  *[other], including one in {$planetLocation}
+  *[other], включая одного в {$planetLocation}
 }

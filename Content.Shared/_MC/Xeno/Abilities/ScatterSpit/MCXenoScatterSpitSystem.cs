@@ -28,7 +28,6 @@ public sealed class MCXenoScatterSpitSystem : EntitySystem
 
         args.Handled = true;
 
-
         var ev = new MCXenoScatterSpitDoAfterEvent(GetNetCoordinates(args.Target), GetNetEntity(args.Entity));
         var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, ev, entity)
         {

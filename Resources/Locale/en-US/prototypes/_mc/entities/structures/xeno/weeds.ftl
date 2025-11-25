@@ -1,7 +1,7 @@
-ent-MCXenoWeedsBase = weeds
-    .desc = Weird black weeds...
-ent-MCXenoWeedsNodeBase = weed node
-    .desc = A weird, pulsating node
+ent-MCXenoWeedsBase = смоляная трава
+    .desc = Странные черные смоляная трава...
+ent-MCXenoWeedsNodeBase = узел смоляной травы
+    .desc = Странный пульсирующий узел
 ent-MCXenoWeeds = { ent-MCXenoWeedsBase }
     .desc = { ent-MCXenoWeedsBase.desc }
 ent-MCXenoWeedsNode = { ent-MCXenoWeedsNodeBase }

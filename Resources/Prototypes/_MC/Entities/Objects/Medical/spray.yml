@@ -2,7 +2,7 @@
   id: MCSpray
 
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCSprayBottleSterilizing
   suffix: MC, Empty
   name: sterilizing spray

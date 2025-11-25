@@ -1,0 +1,33 @@
+- type: entity
+  parent: [ MCWeaponLauncher, MCAttachableHolder ]
+  id: MCWeaponLauncherRl160
+  name: RL-160 recoilless rifle
+  description: The RL-160 recoilless rifle is a long range explosive ordanance device used by the TGMC used to fire explosive shells at far distances. Uses a variety of 67mm shells designed for various purposes.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Launchers/Rl160/inhands.rsi
+    layers:
+    - state: base
+      sprite: _MC/Objects/Weapons/Guns/Launchers/Rl160/icon.rsi
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Launchers/Rl160/inhands.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/m5_shoot.ogg
+  - type: AttachableHolder
+    slots:
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-rail: 0.447, 0.122
+  - type: WieldDelay
+    baseDelay: 1.2
+    preventFiring: true
+  # - type: MCWeaponFireDelay
+  #   delay: 1
+  # - type: DoAfter

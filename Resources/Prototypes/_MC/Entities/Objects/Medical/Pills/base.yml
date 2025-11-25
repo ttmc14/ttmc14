@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCItem
+  id: MCPill
+  name: pill
+  components:
+  - type: Tag
+    tags:
+    - MCPill
+  - type: Sprite
+    sprite: _RMC14/Objects/Chemistry/pills.rsi
+    layers:
+    - state: pill1
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+  - type: Item
+    sprite: _RMC14/Objects/Chemistry/pills.rsi
+    size: Tiny
+  - type: Pill
+  - type: Food
+    delay: 0
+    forceFeedDelay: 0
+    transferAmount: null
+    eatMessage: food-swallow
+    useSound: /Audio/Items/pill.ogg
+  - type: FlavorProfile
+    ignoreReagents: []
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 60
+  - type: SolutionSpiker
+    sourceSolution: food
+    ignoreEmpty: true
+  - type: Extractable
+    grindableSolutionName: food
+  - type: RMCSmartFridgeInsertable
+
+- type: Tag
+  id: MCPill

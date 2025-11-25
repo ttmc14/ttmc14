@@ -1,4 +1,7 @@
-﻿[game]
+﻿[mc.round_schedule]
+enabled = false
+
+[game]
 # Straight in-game baby
 lobbyenabled = false
 # Dev map for faster loading & convenience

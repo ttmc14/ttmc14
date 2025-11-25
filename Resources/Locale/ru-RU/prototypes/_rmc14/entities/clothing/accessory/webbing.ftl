@@ -1,5 +1,10 @@
 
 
+ent-RMCWebbingLegPouch = leg pouch
+    .desc = A camo conforming leg pouch usually worn by hunters, military and people who dream of being military.
+ent-RMCWebbingLegPouchBlack = black leg pouch
+    .desc = A black leg pouch usually worn by hunters, military and people who dream of being military.
+
 ent-RMCWebbingDropPouch = drop pouch
     .desc = A convenient pouch to carry loose items around.
 

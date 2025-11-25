@@ -22,8 +22,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      570: Critical
-      670: Dead
+      420: Critical
+      520: Dead
   - type: XenoPlasma
     plasma: 1000
     maxPlasma: 1000
@@ -35,13 +35,15 @@
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
-    - MCActionXenoAcidStrong
     # Main
+    - MCActionXenoAcidStrong
+    - MCActionXenoDash
     - MCActionXenoScatterSpitPraetorian
     - MCActionXenoSprayAcidPraetorian
     - MCActionXenoToggleXenoSpitPassthroughPraetorian
     - MCActionXenoToggleXenoSpitToxLossPraetorian
     - MCActionXenoPlaceTrap
+    - MCActionXenoPheromones
     hudOffset: -0.15,0.25
   - type: XenoDevolve
     devolvesTo:
@@ -53,21 +55,22 @@
     - MCXenoBull
     - MCXenoSpitter
   - type: MCArmor
-    melee: 45
-    bullet: 25
-    laser: 15
-    energy: 50
-    bomb: 10
-    bio: 40
-    fire: 20
-    acid: 40
+    soft:
+      melee: 45
+      bullet: 25
+      laser: 15
+      energy: 50
+      bomb: 10
+      bio: 40
+      fire: 20
+      acid: 40
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 23
+      types:
+        MCBrute: 25
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.857
-    baseSprintSpeed: 4
+    baseWalkSpeed: 2.8
+    baseSprintSpeed: 3.8
   - type: TacticalMapIcon
     icon:
       sprite: _MC/Interface/Xeno/icons.rsi
@@ -80,11 +83,21 @@
     acid: MCXenoAcidSprayPraetorian
     range: 5
     barricadeDamage:
-      groups:
-        Burn: 5
+      types:
+        MCBurn: 5
   - type: MCXenoScatterSpit
     count: 3
     projectileId: MCXenoProjectileHeavyScatterPraetorian
   - type: AcidTrap
     trapLevel: 3
     spray: XenoAcidSprayTrapStrong
+  - type: XenoPheromones
+    pheromonesMultiplier: 2.5
+    pheroSuffix: strong
+  # Pounce (Dash)
+  - type: MCXenoPounce
+    maxDistance: 6
+    strength: 45
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 0.1
+    stopOnHit: false

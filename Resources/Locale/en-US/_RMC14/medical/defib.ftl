@@ -1,3 +1,3 @@
-cm-defib-take-off-armor = Take off {POSS-ADJ($target)} armor first!
+cm-defib-take-off-armor = Сначала сними броню с {POSS-ADJ($target)}!
 
-rmc-defib-suicide = [color=purple][italic]The light has faded from {POSS-ADJ($victim)} eyes...[/italic][/color]
+rmc-defib-suicide = [color=purple][italic]Свет в глазах {POSS-ADJ($victim)} угас...[/italic][/color]

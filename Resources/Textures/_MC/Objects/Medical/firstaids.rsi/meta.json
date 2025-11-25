@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/blob/master/icons/obj/items/storage/firstaid.dmi, combat combat_empty added by F8ctor (github)",
+  "copyright": "Taken from https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/bda9b87d4da22b0fde8354c177f51f8878bd7292, (states: combat, combat_empty) Added by TornadoTechnology (github)",
   "size": {
     "x": 32,
     "y": 32

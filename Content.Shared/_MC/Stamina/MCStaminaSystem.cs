@@ -17,6 +17,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using System.Linq;
+using Robust.Shared.Configuration;
 
 namespace Content.Shared._MC.Stamina;
 
@@ -50,7 +51,7 @@ public sealed class MCStaminaSystem : EntitySystem
 
     private void OnStaminaRejuvenate(Entity<MCStaminaComponent> ent, ref RejuvenateEvent args)
     {
-        DoStaminaDamage((ent, ent.Comp), -ent.Comp.Max, false);
+        Damage((ent, ent.Comp), -ent.Comp.Max, false);
     }
 
     public override void Update(float frameTime)
@@ -73,32 +74,29 @@ public sealed class MCStaminaSystem : EntitySystem
             }
 
             if (time >= component.NextRegen)
-                DoStaminaDamage((uid, component), -component.RegenPerTick);
+                Damage((uid, component), -component.RegenPerTick);
 
             if (component.Current > component.DamageThresholds)
-                continue;
-
-            if (!TryComp<DamageableComponent>(uid, out var damageable))
                 continue;
 
             var spec = new DamageSpecifier
             {
                 DamageDict =
                 {
-                    ["Asphyxiation"] = component.DamageMultiplier * frameTime,
+                    ["MCOxygen"] = component.DamageMultiplier * frameTime,
                 },
             };
 
-            _damageable.TryChangeDamage(uid, spec, true, false, damageable);
+            _damageable.TryChangeDamage(uid, spec, true, false);
         }
     }
 
-    public void DoStaminaDamage(Entity<MCStaminaComponent?> ent, double amount, bool visual = true, bool updateRegenTimer = true)
+    public void Damage(Entity<MCStaminaComponent?> ent, float amount, bool visual = true, bool belowZero = true, bool updateRegenTimer = true)
     {
         if (!Resolve(ent, ref ent.Comp, false))
             return;
 
-        ent.Comp.Current = Math.Clamp(ent.Comp.Current - amount, -40, ent.Comp.Max);
+        ent.Comp.Current = float.Clamp(ent.Comp.Current - amount, belowZero ? ent.Comp.Min : 0, ent.Comp.Max);
 
         if (ent.Comp.Current <= -10)
             _sizeStun.TryKnockOut(ent, TimeSpan.FromSeconds(5));
@@ -119,7 +117,7 @@ public sealed class MCStaminaSystem : EntitySystem
             if (!TryComp<MCStaminaComponent>(target, out var stamina))
                 continue;
 
-            DoStaminaDamage((target, stamina), ent.Comp.Damage);
+            Damage((target, stamina), ent.Comp.Damage);
         }
     }
 
@@ -138,7 +136,7 @@ public sealed class MCStaminaSystem : EntitySystem
         if (!TryComp<MCStaminaComponent>(target, out var stamina))
             return;
 
-        DoStaminaDamage((target, stamina), ent.Comp.Damage);
+        Damage((target, stamina), ent.Comp.Damage);
     }
 
     private void SetStaminaAlert(Entity<MCStaminaComponent> ent)
@@ -159,5 +157,13 @@ public sealed class MCStaminaSystem : EntitySystem
         }
 
         _alerts.ShowAlert(ent, ent.Comp.StaminaAlert, 0);
+    }
+
+    public float GetDamage(EntityUid target)
+    {
+        if (!TryComp<MCStaminaComponent>(target, out var stamina))
+            return 0;
+
+        return float.Max(0, stamina.Max - stamina.Current);
     }
 }

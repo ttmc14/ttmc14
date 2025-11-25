@@ -1,0 +1,33 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSprayAcidBoiler
+  name: Spray Acid (250)
+  description: Spray a line of dangerous acid at your target.
+  components:
+  - type: WorldTargetAction
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: spray_acid
+    event: !type:XenoSprayAcidActionEvent
+    useDelay: 9
+    range: 15
+  - type: TargetAction
+    range: 15
+  - type: XenoActionPlasma
+    cost: 250
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoBoilerLongRange
+  name: Toggle Long Range Sight
+  description: Activates your weapon sight in the direction you are facing. Must remain stationary to use.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: toggle_long_range
+  - type: InstantAction
+    event: !type:MCXenoZoomActionEvent

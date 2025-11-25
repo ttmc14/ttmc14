@@ -7,7 +7,7 @@ namespace Content.Shared._MC.Stamina;
 public sealed partial class MCStaminaDamageOnHitComponent : Component
 {
     [DataField]
-    public double Damage;
+    public float Damage;
 
     [DataField, AutoNetworkedField]
     public bool RequiresWield = false;

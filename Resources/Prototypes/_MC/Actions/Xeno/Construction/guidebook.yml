@@ -1,0 +1,19 @@
+- type: entity
+  parent: MCGuidebookActionXeno
+  id: MCGuidebookActionXenoSelectWeeds
+  name: Select Weeds
+  description: Choose a weeds to plant with the 'Plant Weeds' ability.
+  components:
+  - type: Sprite
+    sprite: _MC/Interface/Xeno/weed_icons.rsi
+    state: default
+
+- type: entity
+  parent: MCGuidebookActionXeno
+  id: MCGuidebookActionXenoPlantWeeds
+  name: Plant Weeds
+  description: Plants a resin weed node, which will start growing resin weeds in a 3-tile radius that allows xenomorphs to heal and restore plasma while on top of the tile.
+  components:
+  - type: Sprite
+    sprite: _MC/Interface/Actions/Xeno/legacy.rsi
+    state: plant_weeds

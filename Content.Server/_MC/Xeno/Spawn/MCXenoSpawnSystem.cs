@@ -3,6 +3,7 @@ using Content.Server._MC.Xeno.Hive;
 using Content.Server._RMC14.MapInsert;
 using Content.Server._RMC14.Xenonids.Hive;
 using Content.Shared._MC.Rules;
+using Content.Shared._MC.Rules.Base;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Light;
 using Content.Shared._RMC14.Rules;
@@ -53,7 +54,7 @@ public sealed class MCXenoSpawnSystem : EntitySystem
         Subs.CVar(_config, RMCCVars.RMCPlanetMapVoteExcludeLast, v => _mapVoteExcludeLast = v, true);
     }
 
-    public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IXenoMapRuleComponent
+    public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IRulePlanet
     {
         var planet = SelectRandomPlanet();
         _lastPlanetMaps.Enqueue(planet.Proto.ID);

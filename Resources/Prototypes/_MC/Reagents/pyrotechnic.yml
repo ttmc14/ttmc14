@@ -20,8 +20,8 @@
       effects:
       - !type:HealthChange
         damage:
-          groups:
-            Toxin: 1
+          types:
+            MCToxin: 1
       - !type:FlammableReaction
         multiplier: 0.2
       - !type:ChemVomit

@@ -1,6 +1,6 @@
-ent-MCWindowDirectional = window
-    .desc = A glass window. It looks thin and flimsy. A few knocks with anything should shatter it.
-ent-MCWindowDirectionalReinforced = reinforced window
-    .desc = A glass window with a rod matrice. It looks rather strong. Might take a few good hits to shatter it.
-ent-MCWindowDirectionalPhoron = phoron window
-    .desc = A glass window with a rod matrice. It looks rather strong. Might take a few good hits to shatter it.
+ent-MCWindowDirectional = окно
+    .desc = Стеклянное окно. Выглядит тонким и хрупким. Несколько ударов любым предметом могут его разбить.
+ent-MCWindowDirectionalReinforced = усиленное окно
+    .desc = Стеклянное окно с металлической решёткой. Выглядит довольно прочным. Может потребоваться несколько сильных ударов, чтобы разбить его.
+ent-MCWindowDirectionalPhoron = окно из форона
+    .desc = Стеклянное окно с металлической решёткой. Выглядит довольно прочным. Может потребоваться несколько сильных ударов, чтобы разбить его.

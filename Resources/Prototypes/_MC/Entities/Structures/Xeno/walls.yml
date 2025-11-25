@@ -5,6 +5,7 @@
   id: MCWallXenoResinRegenerating
   name: thick resin wall
   description: Weird slime solidified into a thick wall.
+  categories: [ MCContent ]
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -15,8 +16,8 @@
     damageModifierSet: Resin
   - type: MeleeReceivedMultiplier
     xenoDamage:
-      groups:
-        Brute: 600
+      types:
+        MCBrute: 600
     otherMultiplier: 1
   - type: PlacementReplacement
     key: walls
@@ -25,13 +26,16 @@
     - Turf
     - Xeno
   - type: Sprite
-    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
+    sprite: _MC/Structures/Xeno/walls.rsi
+    layers:
+    - state: resin0
   - type: Icon
-    sprite: _RMC14/Structures/Xenos/xeno_resin_wall.rsi
-    state: thickresin
+    sprite: _MC/Structures/Xeno/walls.rsi
+    state: resin0
   - type: IconSmooth
-    key: walls
-    base: thickresin
+    key: xenoWalls
+    base: resin
+    mode: CardinalFlags
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -49,14 +53,15 @@
   description: Weird slime solidified into a thick wall.
   components:
   - type: MCArmor
-    melee: 45
-    bullet: 45
-    laser: 45
-    energy: 45
-    bomb: 30
-    bio: 30
-    fire: 40
-    acid: 30
+    soft:
+      melee: 45
+      bullet: 45
+      laser: 45
+      energy: 45
+      bomb: 30
+      bio: 30
+      fire: 40
+      acid: 30
   - type: XenoConstructionPlasmaCost
     plasma: 50
 
@@ -71,14 +76,15 @@
   - type: Icon
     color: "#ed99f6"
   - type: MCArmor
-    melee: 0
-    bullet: 110
-    laser: 100
-    energy: 100
-    bomb: 20
-    bio: 0
-    fire: 0
-    acid: 0
+    soft:
+      melee: 0
+      bullet: 110
+      laser: 100
+      energy: 100
+      bomb: 20
+      bio: 0
+      fire: 0
+      acid: 0
 
 - type: entity
   parent: MCWallXenoResinThick
@@ -91,14 +97,17 @@
   - type: Icon
     color: "#ff696e"
   - type: MCArmor
-    melee: 0
-    bullet: 65
-    laser: 75
-    energy: 75
-    bomb: 0
-    bio: 0
-    fire: 200
-    acid: 0
+    soft:
+      melee: 0
+      bullet: 65
+      laser: 75
+      energy: 75
+      bomb: 0
+      bio: 0
+      fire: 200
+      acid: 0
+  - type: RMCImmuneToIgnition
+  - type: RMCImmuneToFireTileDamage
 
 - type: entity
   parent: MCWallXenoResinThick
@@ -111,11 +120,12 @@
   - type: Icon
     color: "#6699ff"
   - type: MCArmor
-    melee: 80
-    bullet: 30
-    laser: 25
-    energy: 75
-    bomb: 80
-    bio: 0
-    fire: 0
-    acid: 0
+    soft:
+      melee: 80
+      bullet: 30
+      laser: 25
+      energy: 75
+      bomb: 80
+      bio: 0
+      fire: 0
+      acid: 0

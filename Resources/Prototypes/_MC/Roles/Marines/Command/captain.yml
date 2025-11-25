@@ -33,6 +33,7 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+    - type: MCSendOrders
     - type: Skills
       skills:
         RMCSkillMedical: 3

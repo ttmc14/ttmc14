@@ -7,7 +7,7 @@ public abstract class MCSharedFlammableSystem : EntitySystem
         return false;
     }
 
-    public virtual void RemoveStacks(EntityUid uid, float stacks)
+    public virtual void AdjustFireStacks(EntityUid uid, float stacks, bool ignite = false)
     {
     }
 }

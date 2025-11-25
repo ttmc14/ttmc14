@@ -30,8 +30,8 @@
     - Back
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -151,9 +151,32 @@
 - type: Tag
   id: MCAttachmentStockSG29
 
+# Boxes SG-62
+- type: entity
+  parent: MCBoxBullets
+  id: MCBoxBulletsSmartGunSG29
+  name: SG-29 & SG-25 smartrifle ammo box
+  description: A box containing 400 rounds of 10x26mm 'HP' caseless tuned for a smartgun.
+  components:
+  - type: Sprite
+    layers:
+    - state: rifle_box
+      color: "#7b8246"
+    - state: rifle_box_marking
+      color: "#7c4c1b"
+    - state: rifle_ammo_full_rounds_base
+      map: [ "enum.BulletBoxLayers.Fill" ]
+    - state: rifle_ammo_full_rounds_color
+      map: [ "enum.BulletBoxLayers2.Fill" ]
+      color: "#ffc000"
+  - type: BulletBox
+    bulletType: MCBoxBulletsSmartGunSG29
+    amount: 400
+    max: 400
+
 # Magazine
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineSmartGunSG29
   name: SG-29 drum magazine
   description: A wide drum magazine carefully filled to capacity with 10x26mm specialized smart rounds.
@@ -176,6 +199,8 @@
       - MCCartridgeSmartGunSG29
     proto: MCCartridgeSmartGunSG29
     capacity: 250
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsSmartGunSG29
 
 - type: Tag
   id: MCMagazineSmartGunSG29
@@ -209,8 +234,8 @@
       shader: unshaded
   - type: Projectile
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: CMArmorPiercing
     amount: 16
   - type: MCXenoSunderDamageOnHit

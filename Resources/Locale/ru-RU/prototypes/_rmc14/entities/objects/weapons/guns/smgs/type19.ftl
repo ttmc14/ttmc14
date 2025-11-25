@@ -1,0 +1,11 @@
+ent-RMCWeaponSMGType19 = Type-19 Submachinegun
+    .desc = An outdated, but reliable and powerful, submachinegun originating in the Socialist Progressive Peoples, it is still in limited service in the SPP but is most often used by paramilitary groups or corporate security forces. It is usually used with a 35 round stick magazine, or a 71 round drum.
+    .suffix = Filled
+ent-RMCMagazineSMGType19 = Type-19 stick magazine (7.62x25mm)
+    .desc = A stick magazine for the Type-19 submachinegun.
+ent-RMCMagazineSMGType19Drum = Type-19 drum magazine (7.62x25mm)
+    .desc = A 7.62x25mm drum magazine for the Type-19 submachinegun.
+ent-RMCCartridge762x25mm = cartridge (7.62x25mm SMG)
+    .desc = A 7.62x25mm magazine for the Type19.
+ent-RMCBullet762x25mm = { ent-Bullet10x20mm }
+    .desc = { ent-Bullet10x20mm.desc }

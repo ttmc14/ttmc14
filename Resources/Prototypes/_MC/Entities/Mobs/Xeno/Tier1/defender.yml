@@ -37,7 +37,6 @@
     - MCXenoLarva
     canBeDevolvedByOther: false
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:
@@ -48,18 +47,20 @@
     - MCXenoHunter
     - MCXenoBull
     - MCXenoSpitter
+    - MCXenoForger
     evolvesToWithoutPoints:
     - MCXenoShrike
     - MCXenoQueen
   - type: MCArmor
-    melee: 45
-    bullet: 45
-    laser: 45
-    energy: 45
-    bomb: 30
-    bio: 30
-    fire: 40
-    acid: 30
+    soft:
+      melee: 45
+      bullet: 45
+      laser: 45
+      energy: 45
+      bomb: 30
+      bio: 30
+      fire: 40
+      acid: 30
   - type: XenoPlasma
     plasma: 200
     maxPlasma: 200
@@ -67,22 +68,21 @@
   - type: XenoCrest
   - type: XenoHeadbutt
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
     crestedDamageReduction:
-      groups:
-        Brute: -10
+      types:
+        MCBrute: 0
   - type: XenoAnimateMovement
   - type: XenoFortify
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 22
+      types:
+        MCBrute: 22
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 185
         mask:
@@ -91,8 +91,7 @@
         layer:
         - MobLayer
       fix2:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.45
         density: 185
         layer:
@@ -105,15 +104,13 @@
     name: mc-job-name-xeno-defender
   - type: XenoTailSweep
     damage:
-      groups:
-        Brute: 30
+      types:
+        MCBrute: 30
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166
   - type: MCXenoRegenerateSkin
     heal:
-      groups:
-        Brute: 75 # 25 per type
-        Burn: 100 # 25 per type
-
-
+      types:
+        MCBrute: 25
+        MCBurn: 25

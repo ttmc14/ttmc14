@@ -1,19 +1,19 @@
-hc-none-description = Patient has no active holocard.
-hc-urgent-description = Patient needs non-urgent surgery.
-hc-emergency-description = Patient needs life-saving treatment.
-hc-permadead-description = Patient is permanently deceased.
-hc-xeno-description = Patient is infected with a xeno embryo.
+hc-none-description = У пациента нет активной голокарты.
+hc-urgent-description = Пациент нуждается в неотложной операции.
+hc-emergency-description = Пациент нуждается в жизненно важном лечении.
+hc-permadead-description = Пациент умер окончательно.
+hc-xeno-description = Пациент заражён эмбрионом ксеноморфа.
 
-hc-none-name = None
-hc-urgent-name = Surgery
-hc-emergency-name = Emergency
-hc-permadead-name = Permadead
-hc-xeno-name = Xeno Embryo
+hc-none-name = Нет
+hc-urgent-name = Операция
+hc-emergency-name = Чрезвычайная ситуация
+hc-permadead-name = Перманентная смерть
+hc-xeno-name = Эмбрион ксеноморфа
 
-scannable-holocard-verb-text = Change Holocard
-scannable-holocard-verb-message = Change Holocard
-ui-holocard-change-title = Change Holocard
-ui-holocard-change-searchbar-placeholder = Holocard
-ui-health-scanner-holocard-change = Change
+scannable-holocard-verb-text = Изменить голокарту
+scannable-holocard-verb-message = Изменить голокарту
+ui-holocard-change-title = Изменить голокарту
+ui-holocard-change-searchbar-placeholder = Голокарта
+ui-health-scanner-holocard-change = Изменить
 
-ui-holocard-change-insufficient-skill = You have insufficient medical skill to apply a holocard
+ui-holocard-change-insufficient-skill = У тебя недостаточно медицинских навыков, чтобы применить голокарту

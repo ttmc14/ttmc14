@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/ec3b87004e98227b0886a600908a2ed29c7eceff",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wall-reinforced"
+    },
+    {
+      "name": "wall-invincible"
+    },
+    {
+      "name": "rwall-0"
+    },
+    {
+      "name": "rwall-1"
+    },
+    {
+      "name": "rwall-2"
+    },
+    {
+      "name": "rwall-3"
+    },
+    {
+      "name": "rwall-4"
+    },
+    {
+      "name": "rwall-5"
+    },
+    {
+      "name": "rwall-6"
+    },
+    {
+      "name": "rwall-7"
+    },
+    {
+      "name": "rwall-8"
+    },
+    {
+      "name": "rwall-9"
+    },
+    {
+      "name": "rwall-10"
+    },
+    {
+      "name": "rwall-11"
+    },
+    {
+      "name": "rwall-12"
+    },
+    {
+      "name": "rwall-13"
+    },
+    {
+      "name": "rwall-14"
+    },
+    {
+      "name": "rwall-15"
+    },
+    {
+      "name": "rwall-21"
+    },
+    {
+      "name": "rwall-23"
+    },
+    {
+      "name": "rwall-29"
+    },
+    {
+      "name": "rwall-31"
+    },
+    {
+      "name": "rwall-38"
+    },
+    {
+      "name": "rwall-39"
+    },
+    {
+      "name": "rwall-46"
+    },
+    {
+      "name": "rwall-47"
+    },
+    {
+      "name": "rwall-55"
+    },
+    {
+      "name": "rwall-63"
+    },
+    {
+      "name": "rwall-75"
+    },
+    {
+      "name": "rwall-78"
+    },
+    {
+      "name": "rwall-79"
+    },
+    {
+      "name": "rwall-95"
+    },
+    {
+      "name": "rwall-110"
+    },
+    {
+      "name": "rwall-111"
+    },
+    {
+      "name": "rwall-127"
+    },
+    {
+      "name": "rwall-137"
+    },
+    {
+      "name": "rwall-139"
+    },
+    {
+      "name": "rwall-141"
+    },
+    {
+      "name": "rwall-143"
+    },
+    {
+      "name": "rwall-157"
+    },
+    {
+      "name": "rwall-159"
+    },
+    {
+      "name": "rwall-175"
+    },
+    {
+      "name": "rwall-191"
+    },
+    {
+      "name": "rwall-203"
+    },
+    {
+      "name": "rwall-207"
+    },
+    {
+      "name": "rwall-223"
+    },
+    {
+      "name": "rwall-239"
+    },
+    {
+      "name": "rwall-255"
+    },
+    {
+      "name": "rwall-74"
+    }
+  ]
+}

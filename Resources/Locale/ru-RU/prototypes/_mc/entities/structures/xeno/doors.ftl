@@ -1,4 +1,4 @@
-ent-MCDoorXenoResin = resin door
-    .desc = That's a resin door.
-ent-MCDoorXenoResinThick = thick resin door
-    .desc = A thick resin door, which is more durable.
+ent-MCDoorXenoResin = дверь из смолы
+    .desc = Это дверь из смолы.
+ent-MCDoorXenoResinThick = толстая дверь из смолы
+    .desc = Толстая дверь из смолы, более прочная.

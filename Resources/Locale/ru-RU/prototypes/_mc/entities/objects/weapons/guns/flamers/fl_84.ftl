@@ -1,0 +1,16 @@
+ent-MCWeaponFlamer = огнемёт FL-84
+    .desc = Огнемёт FL-84, основанный на блоке M34, зарекомендовал себя как одно из самых эффективных средств зачистки мягких целей. Оружие, заслуживающее страха и уважения, чрезвычайно смертоносно.
+ent-MCWeaponFlamerUnloaded = { ent-MCWeaponFlamer }
+    .suffix = Unloaded, NoAttachable
+    .desc = { ent-MCWeaponFlamer.desc }
+ent-MCWeaponFlamerUnloadedNoMag = { ent-MCWeaponFlamer }
+    .suffix = Unloaded, NoMag
+    .desc = { ent-MCWeaponFlamer.desc }
+ent-MCWeaponFlamerUnloadedAll = { ent-MCWeaponFlamer }
+    .suffix = Unloaded All
+    .desc = { ent-MCWeaponFlamer.desc }
+ent-MCBackFlamethrower = сумка для огнемета TGMC
+    .desc = Этот рюкзак позволяет переносить огнемёт и имеет умеренную вместимость для прочих вещей. Автоматически пополняет топливо огнемёта.
+ent-MCBackFlamethrowerFull = { ent-MCBackFlamethrower }
+    .suffix = Full
+    .desc = { ent-MCBackFlamethrower.desc }

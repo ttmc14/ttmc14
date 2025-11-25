@@ -1,29 +1,29 @@
-rmc-announcement-author = Command
-rmc-announcement-author-highcommand = UNMC High Command
-rmc-announcement-message = [font size=16][bold][color=#CECECE]{$author} Announcement[/color][/bold][/font][font size=16][color=red]
+rmc-announcement-author = Командование
+rmc-announcement-author-highcommand = Верховное командование TGMC
+rmc-announcement-message = [font size=16][bold][color=#CECECE]Объявление от {$author}[/color][/bold][/font][font size=16][color=red]
 
     {$message}
 
-rmc-announcement-message-signed = [font size=16][bold][color=#CECECE]{$author} Announcement[/color][/bold][/font][font size=16][color=red]
+rmc-announcement-message-signed = [font size=16][bold][color=#CECECE]Объявление от {$author}[/color][/bold][/font][font size=16][color=red]
 
     {$message}[italic]
 
-    Signed by,
+    Подписано,
     {$name}[/italic][/color][/font]
 
 rmc-announcement-message-raw = [font size=16][bold][color=#CECECE]{$author}[/color][/bold][/font][font size=16][color=red]
 
     {$message}
 
-rmc-announcement-ares-message = [color=#CECECE][font size=16][bold]ARES v3.2 Operation Staging Order[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-ares-message = [color=#CECECE][font size=16][bold]ARES v3.2 — Оперативный приказ[/bold][/font][/color][color=red][font size=16][bold]
 
     {$message}[/bold][/font][/color]
 
-rmc-announcement-ares-lz-designated = Command Order Issued:
+rmc-announcement-ares-lz-designated = Приказ командования:
 
-    {$name} has been designated as the primary landing zone.
+    {$name} назначена основной зоной высадки.
 
-rmc-announcement-ares-online = [color=#CECECE][font size=16][bold]ARES Online[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-ares-online = [color=#CECECE][font size=16][bold]ARES Онлайн[/bold][/font][/color][color=red][font size=16][bold]
 
     {$message}[/bold][/font][/color]
 
@@ -31,29 +31,29 @@ rmc-announcement-ares-map = [color=#CECECE][font size=16][bold]UNS Almayer[/bold
 
     {$message}[/bold][/font][/color]
 
-rmc-announcement-cooldown = Please allow at least {$seconds} seconds to pass between announcements
+rmc-announcement-cooldown = Подожди как минимум {$seconds} секунд между объявлениями.
 
-rmc-announcement-dropship-message = [color=#CECECE][font size=16][bold]Dropship Alert[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-dropship-message = [color=#CECECE][font size=16][bold]Предупреждение: десантный корабль[/bold][/font][/color][color=red][font size=16][bold]
 
     {$message}[/bold][/font][/color]
 
-rmc-announcement-emergency-dropship-crash = [font size=14][bold][color=#CECECE]EMERGENCY[/color][/bold][/font][font size=16][color=red]
-  DROPSHIP ON COLLISION COURSE. CRASH IMMINENT.[/color][/font]
+rmc-announcement-emergency-dropship-crash = [font size=14][bold][color=#CECECE]ЧРЕЗВЫЧАЙНАЯ СИТУАЦИЯ[/color][/bold][/font][font size=16][color=red]
+  ДЕСАНТНЫЙ КОРАБЛЬ НА КУРСЕ СТОЛКНОВЕНИЯ. СТОЛКНОВЕНИЕ НЕИЗБЕЖНО.[/color][/font]
 
-rmc-announcement-delta = [color=#CECECE][font size=16][bold]SELF-DESTRUCT SYSTEMS ACTIVE[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-delta = [color=#CECECE][font size=16][bold]СИСТЕМА САМОУНИЧТОЖЕНИЯ АКТИВНА[/bold][/font][/color][color=red][font size=16][bold]
 
-     DANGER, THE EMERGENCY DESTRUCT SYSTEM IS NOW ACTIVATED. PROCEED TO THE SELF-DESTRUCT CHAMBER FOR CONTROL ROD INSERTION.[/bold][/font][/color]
+     ВНИМАНИЕ: СИСТЕМА АВАРИЙНОГО САМОУНИЧТОЖЕНИЯ АКТИВИРОВАНА. ПРОСЛЕДУЙТЕ В ЗАЛ САМОУНИЧТОЖЕНИЯ ДЛЯ ВСТАВКИ УПРАВЛЯЮЩИХ СТЕРЖНЕЙ.[/bold][/font][/color]
 
-rmc-announcement-general-quarters = ATTENTION! GENERAL QUARTERS. ALL HANDS, MAN YOUR BATTLESTATIONS.
+rmc-announcement-general-quarters = ВНИМАНИЕ! БОЕВАЯ ТРЕВОГА. ВСЕМ НА СВОИ ПОСТЫ!
 
-rmc-announcement-dropship-hijack = Unscheduled dropship departure detected from operational area. Hijack likely. Shutting down autopilot.
+rmc-announcement-dropship-hijack = Обнаружен несанкционированный взлёт десантного корабля. Возможен захват. Автопилот отключён.
 
-rmc-announcement-dropship-hijack-hive = The Queen has commanded the metal bird to depart for the metal hive in the sky! Rejoice!
+rmc-announcement-dropship-hijack-hive = Королева повелела железной птице взлететь к железному улью в небе! Ликуйте!
 
 rmc-announcement-ares-command = [color=#CECECE][font size=16][bold]ARES v3.2[/bold][/font][/color][color=red][font size=16]
 
     {$message}[/font][/color]
 
-rmc-announcement-unidentified-lifesigns = [color=#CECECE][font size=16][bold]Unidentifled lifesigns[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-unidentified-lifesigns = [color=#CECECE][font size=16][bold]Неопознанные жизненные сигнатуры[/bold][/font][/color][color=red][font size=16][bold]
 
-    Unidentified lifesigns ({$count}) detected onboard the dropship {$name}. Recommendation: lockdown of exterior access ports, including ducting and ventilation.[/bold][/font][/color]
+    Обнаружены неопознанные жизненные сигнатуры ({$count}) на борту десантного корабля {$name}. Рекомендация: заблокировать все внешние точки доступа, включая вентиляцию и воздуховоды.[/bold][/font][/color]

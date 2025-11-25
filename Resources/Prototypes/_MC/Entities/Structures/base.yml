@@ -1,6 +1,28 @@
 - type: entity
   parent: BaseStructure
   id: MCStructure
+  categories: [ MCContent ]
   abstract: true
   placement:
     mode: SnapgridCenter
+
+- type: entity
+  parent:
+  - MCStructure
+  - MCCorrodible
+  id: MCStructureCorrodible
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Corrodible
+    timeToApply: 4
+    structure: true
+
+- type: entity
+  id: MCCorrodible
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Corrodible
+    timeToApply: 1

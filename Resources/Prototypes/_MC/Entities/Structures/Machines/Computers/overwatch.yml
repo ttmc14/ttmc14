@@ -1,0 +1,24 @@
+- type: entity
+  parent: MCComputerIndestructible
+  id: MCOverwatchConsole
+  name: overwatch console
+  description: State of the art machinery for giving orders to a squad.
+  components:
+  - type: Sprite
+    layers:
+    - state: overwatch
+    - state: overwatch_screen
+  - type: ActivatableUIRequiresAccess
+  - type: ActivatableUI
+    key: enum.OverwatchConsoleUI.Key
+  - type: AccessReader
+  - type: UserInterface
+    interfaces:
+      enum.OverwatchConsoleUI.Key:
+        type: OverwatchConsoleBui
+      enum.TacticalMapComputerUi.Key:
+        type: TacticalMapComputerBui
+      enum.DialogUiKey.Key:
+        type: DialogBui
+  - type: OverwatchConsole
+  - type: TacticalMapComputer

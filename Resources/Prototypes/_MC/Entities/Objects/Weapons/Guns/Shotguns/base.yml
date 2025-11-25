@@ -1,8 +1,8 @@
 ﻿- type: entity
   parent:
-  - BaseItem
-  - CMBaseWeaponGun
-  - RMCBaseAttachableHolder
+  - MCItem
+  - MCWeaponGun
+  - MCAttachableHolder
   id: MCWeaponShotgun
   abstract: true
   components:

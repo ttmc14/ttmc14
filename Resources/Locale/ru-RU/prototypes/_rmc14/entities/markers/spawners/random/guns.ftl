@@ -68,3 +68,7 @@ ent-RMCSpawnerRandomShotgunBoxes = shotgun shell box spawner
     .desc = This is a shotgun shell box.
 ent-RMCSpawnerRandomGrenadePackets = random grenade packets spawner
     .desc = This is a random grenade packet.
+ent-RMCSpawnerRandomRockets = random rockets spawner
+    .desc = This is a random rocket.
+ent-RMCSpawnerRandomRocketsDisposable = { ent-RMCSpawnerRandomRockets }
+    .desc = { ent-RMCSpawnerRandomRockets.desc }

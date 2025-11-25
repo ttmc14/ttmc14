@@ -1,0 +1,4 @@
+﻿- type: entity
+  parent: RMCJumpsuitVeteranPMCGunner
+  id: MCJumpsuitVeteranPMCGunner
+  description: A white set of fatigues, designed for private security contractors. The symbol of the Nanotrasen corporation is emblazed on the suit.

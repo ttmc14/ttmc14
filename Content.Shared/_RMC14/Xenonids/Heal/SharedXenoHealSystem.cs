@@ -51,8 +51,8 @@ public abstract class SharedXenoHealSystem : EntitySystem
     [Dependency] private readonly SharedXenoAnnounceSystem _xenoAnnounce = default!;
     [Dependency] private readonly XenoStrainSystem _xenoStrain = default!;
 
-    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
-    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
+    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "MCBrute"; // mc-changes
+    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "MCBurn"; // mc-changes
     private static readonly ProtoId<DamageTypePrototype> BluntGroup = "Blunt";
 
     private readonly HashSet<Entity<XenoComponent>> _xenos = new();

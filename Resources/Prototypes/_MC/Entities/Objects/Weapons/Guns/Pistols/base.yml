@@ -1,3 +1,29 @@
+- type: entity
+  parent: CMWeaponPistolBase
+  id: MCWeaponPistol
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponPistol
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.65
+
+- type: entity
+  parent: RMCWeaponRevolverBase
+  id: MCWeaponRevolver
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponRevolver
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.65
+
 - type: Tag
   id: MCWeaponSidearm
 
@@ -11,7 +37,7 @@
   id: MCMagazinePistol
 
 - type: Tag
-  id: MCWeaponRevoler
+  id: MCWeaponRevolver
 
 - type: Tag
-  id: MCMagazineRevoler
+  id: MCMagazineRevolver

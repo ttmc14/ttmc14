@@ -62,8 +62,9 @@ public sealed class MCXenoRavageSystem : MCXenoAbilitySystem<MCXenoRavageCompone
     private void ApplyEffect(EntityUid tragetUid, EntityUid ownerUid, Vector2 direction)
     {
         var damage = GetDamage(ownerUid);
+        var armorPiercing = GetArmorPiercing(ownerUid);
 
-        _damageable.TryChangeDamage(tragetUid, damage, origin: ownerUid, tool: ownerUid);
+        _damageable.TryChangeDamage(tragetUid, damage, origin: ownerUid, tool: ownerUid, armorPiercing: armorPiercing);
         _mcKnockback.Knockback(tragetUid, direction, 1, 5);
         _rmcCameraShake.ShakeCamera(tragetUid, 2, 1);
         _mcStun.Paralyze(tragetUid, TimeSpan.FromSeconds(1));

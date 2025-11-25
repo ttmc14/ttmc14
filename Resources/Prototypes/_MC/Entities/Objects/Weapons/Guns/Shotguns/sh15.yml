@@ -4,7 +4,7 @@
   - RMCBaseAttachableHolder
   - RMCBaseWeaponMagazineVisuals
   id: MCWeaponShotgunSH15
-  name: Zauer SH-15 automatic shotgun
+  name: zauer SH-15 automatic shotgun
   description: The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines.
   components:
   - type: Sprite
@@ -86,7 +86,7 @@
       rmc-aslot-underbarrel: 0.3, -0.34
 
 - type: entity
-  parent: CMMagazineRifleBase
+  parent: MCMagazineRifle
   id: MCMagazineShotgunSH15
   abstract: true
   components:

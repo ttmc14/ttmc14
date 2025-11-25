@@ -1,0 +1,170 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/7e8aea5e32b79c2213a0702c45f711d22150c01d",
+  "size": {
+    "x": 7,
+    "y": 7
+  },
+  "states": [
+    {
+      "name": "minion"
+    },
+    {
+      "name": "leader"
+    },
+    {
+      "name": "dragon"
+    },
+    {
+      "name": "king"
+    },
+    {
+      "name": "queen"
+    },
+    {
+      "name": "shrike"
+    },
+    {
+      "name": "gargoyle_passive"
+    },
+    {
+      "name": "gargoyle_warn",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "silo_passive"
+    },
+    {
+      "name": "silo_warn",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "spawner_passive"
+    },
+    {
+      "name": "spawner_warn",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "phero"
+    },
+    {
+      "name": "recovery"
+    },
+    {
+      "name": "turret_passive"
+    },
+    {
+      "name": "turret_firing",
+      "delays": [
+        [
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "tunnel"
+    },
+    {
+      "name": "drone"
+    },
+    {
+      "name": "runner"
+    },
+    {
+      "name": "defender"
+    },
+    {
+      "name": "sentinel"
+    },
+    {
+      "name": "hivelord"
+    },
+    {
+      "name": "carrier"
+    },
+    {
+      "name": "wraith"
+    },
+    {
+      "name": "hunter"
+    },
+    {
+      "name": "bull"
+    },
+    {
+      "name": "warrior"
+    },
+    {
+      "name": "spitter"
+    },
+    {
+      "name": "gorger"
+    },
+    {
+      "name": "defiler"
+    },
+    {
+      "name": "ravager"
+    },
+    {
+      "name": "crusher"
+    },
+    {
+      "name": "praetorian"
+    },
+    {
+      "name": "boiler"
+    },
+    {
+      "name": "hivemind"
+    },
+    {
+      "name": "larva"
+    },
+    {
+      "name": "widow"
+    },
+    {
+      "name": "spiderling"
+    },
+    {
+      "name": "puppeteer"
+    },
+    {
+      "name": "puppet"
+    },
+    {
+      "name": "behemoth"
+    },
+    {
+      "name": "forger"
+    },
+    {
+      "name": "acid_pool"
+    },
+    {
+      "name": "acid_maw"
+    },
+    {
+      "name": "acid_jaw"
+    }
+  ]
+}

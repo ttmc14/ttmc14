@@ -1,52 +1,71 @@
 rmc-ghost-role-information-pmc-rules =
-    You are a [color=orange][bold]PMC member[/bold][/color]. You may or may not be hostile to the marines, depending on admin instructions.
-    You don't remember any of your previous life, and you don't remember anything you learned as a ghost.
-    You are allowed to remember knowledge about the game in general, such as how to cook, how to use objects, etc.
-    You are absolutely [color=red]NOT[/color] allowed to remember, say, the name, appearance, etc. of your previous character.
-rmc-ghost-role-information-pmc-description = Ensure no damage is incurred against Weston-Yamada. Make sure the Corporate Liaison is safe. Deny the Weston-Yamada's involvement and do not trust the UNMC forces. Only fire if fired upon, or ordered to.
-rmc-ghost-name-pmc-standard = We-Ya PMC Operator (Neutral)
-rmc-job-name-pmc-standard = Operator
+    Вы — [color=orange][bold]сотрудник PMC[/bold][/color]. Вы можете быть враждебны или нейтральны к морпехам — в зависимости от указаний администратора.
+    Вы не помните свою прошлую жизнь и ничего не помните из того, что узнали будучи призраком.
+    Вам разрешено помнить знания об игре в целом, такие как приготовление пищи, использование предметов и т.п.
+    Вы категорически [color=red]НЕ[/color] можете помнить имя, внешность и прочие детали вашего предыдущего персонажа.
+
+rmc-ghost-role-information-pmc-description = Обеспечьте отсутствие ущерба для компании Weston-Yamada. Гарантируйте безопасность корпоративного связного. Отрицайте причастность Weston-Yamada и не доверяйте силам UNMC. Открывайте огонь только в ответ или по приказу.
+
+rmc-ghost-name-pmc-standard = Опер PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-standard = Оператор
 rmc-job-prefix-pmc-standard = OP
-rmc-ghost-name-pmc-engineer = We-Ya PMC Corporate Technician (Neutral)
-rmc-job-name-pmc-engineer = Corporate Technician
+
+rmc-ghost-name-pmc-engineer = Корпоративный техник PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-engineer = Корпоративный техник
 rmc-job-prefix-pmc-engineer = TEC
-rmc-ghost-name-pmc-medic = We-Ya PMC Corporate Medic (Neutral)
-rmc-job-name-pmc-medic = Corporate Medic
+
+rmc-ghost-name-pmc-medic = Корпоративный медик PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-medic = Корпоративный медик
 rmc-job-prefix-pmc-medic = CM
-rmc-ghost-name-pmc-doctor = We-Ya PMC Trauma Surgeon (Neutral)
-rmc-job-name-pmc-doctor = Trauma Surgeon
+
+rmc-ghost-name-pmc-doctor = Травматолог PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-doctor = Травматолог
 rmc-job-prefix-pmc-doctor = SGN
-rmc-ghost-name-pmc-investigator = We-Ya PMC Medical Investigator (Neutral)
-rmc-job-name-pmc-investigator = Medical Investigator
+
+rmc-ghost-name-pmc-investigator = Медицинский следователь PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-investigator = Медицинский следователь
 rmc-job-prefix-pmc-investigator = MI
-rmc-ghost-name-pmc-detainer = We-Ya PMC Detainer (Neutral)
-rmc-job-name-pmc-detainer = Security Enforcer
+
+rmc-ghost-name-pmc-detainer = Силовик PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-detainer = Сотрудник безопасности
 rmc-job-prefix-pmc-detainer = ENF
-rmc-ghost-name-pmc-gunner = We-Ya PMC Gunner (Neutral)
-rmc-job-name-pmc-gunner = Support Weapons Specialist
+
+rmc-ghost-name-pmc-gunner = Стрелок PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-gunner = Специалист по тяжёлому вооружению
 rmc-job-prefix-pmc-gunner = SG
-rmc-ghost-name-pmc-sniper = We-Ya PMC Sniper (Neutral)
-rmc-job-name-pmc-sniper = Weapons Specialist
+
+rmc-ghost-name-pmc-sniper = Снайпер PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-sniper = Специалист по вооружению
 rmc-job-prefix-pmc-sniper = Spc
-rmc-ghost-name-pmc-crewman = We-Ya PMC Crewman (Neutral)
-rmc-job-name-pmc-crewman = Vehicle Crewman
+
+rmc-ghost-name-pmc-crewman = Член экипажа PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-crewman = Экипажный
 rmc-job-prefix-pmc-crewman = VC
-rmc-ghost-name-pmc-xeno-handler = We-Ya PMC Xeno Handler (Neutral)
-rmc-job-name-pmc-xeno-handler = Xeno Handler
+
+rmc-ghost-name-pmc-xeno-handler = Специалист по ксеносам PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-xeno-handler = Специалист по ксеносам
 rmc-job-prefix-pmc-xeno-handler = XH
-rmc-ghost-name-pmc-leader = We-Ya PMC Leader (Neutral)
-rmc-job-name-pmc-leader = Leader
+
+rmc-ghost-name-pmc-leader = Лидер PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-leader = Лидер
 rmc-job-prefix-pmc-leader = SL
-rmc-ghost-name-pmc-lead-investigator = We-Ya PMC Lead Investigator (Neutral)
-rmc-job-name-pmc-lead-investigator = Lead Investigator
+
+rmc-ghost-name-pmc-lead-investigator = Старший следователь PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-lead-investigator = Старший следователь
 rmc-job-prefix-pmc-lead-investigator = SL
-rmc-ghost-name-pmc-director = We-Ya PMC Site Director (Neutral)
-rmc-job-name-pmc-director = Site Director
+
+rmc-ghost-name-pmc-director = Директор объекта PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-director = Директор объекта
 rmc-job-prefix-pmc-director = DIR
-rmc-ghost-name-pmc-synth = We-Ya PMC Support Synthetic (Neutral)
-rmc-job-name-pmc-synth = Support Synthetic
+
+rmc-ghost-name-pmc-synth = Синтетик поддержки PMC We-Ya (Нейтральный)
+rmc-job-name-pmc-synth = Синтетик поддержки
 rmc-job-prefix-pmc-synth = WeYa Syn
-rmc-job-name-pmc-bodyguard = Bodyguard
-rmc-ghost-name-pmc-bodyguard = Weston-Yamada Goon (Executive Bodyguard Detail)
-rmc-job-name-pmc-bodyguard-lead = Security Lead
-rmc-ghost-name-pmc-bodyguard-lead = Weston-Yamada Goon Leader (Executive Bodyguard Detail)
+
+rmc-job-name-pmc-bodyguard = Телохранитель
+rmc-ghost-name-pmc-bodyguard = Морпех Weston-Yamada (Группа телохранителей руководства)
+
+rmc-job-name-pmc-bodyguard-lead = Старший службы безопасности
+rmc-ghost-name-pmc-bodyguard-lead = Лидер охраны Weston-Yamada (Группа телохранителей руководства)
+
+rmc-job-name-pmc-corporate-goon = Корпоративная охрана We-Ya

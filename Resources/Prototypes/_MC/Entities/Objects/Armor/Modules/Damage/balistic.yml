@@ -1,0 +1,15 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHodBalistic
+  name: hod ballistic deflection system
+  description: Designed for mounting on modular armor. A substantial amount of additional reflective ballistic armor plating designed to reduce the impact of friendly fire incidents, will lessen the affects of bullets and lasers. Will impact mobility.
+  components:
+  - type: Sprite
+    state: mod_ff
+  - type: MCArmor
+    soft:
+      bullet: 40
+      laser: 40
+  - type: ClothingSpeedModifier
+    walkModifier: 0.95
+    sprintModifier: 0.95

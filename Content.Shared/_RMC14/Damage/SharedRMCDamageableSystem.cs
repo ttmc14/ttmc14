@@ -56,10 +56,10 @@ public abstract class SharedRMCDamageableSystem : EntitySystem
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
 
-    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
-    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
+    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "MCBrute"; // mc-changes
+    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "MCBurn"; // mc-changes
 
-    private static readonly ProtoId<DamageTypePrototype> LethalDamageType = "Asphyxiation";
+    private static readonly ProtoId<DamageTypePrototype> LethalDamageType = "MCOxygen"; // mc-changes
     private readonly HashSet<ProtoId<DamageTypePrototype>> _bruteTypes = new();
     private readonly HashSet<ProtoId<DamageTypePrototype>> _burnTypes = new();
     private readonly List<string> _types = [];

@@ -27,3 +27,6 @@ ent-RMCFogWallAdderThree = { ent-RMCFogWallAdderOne }
     .desc = { ent-RMCFogWallAdderOne.desc }
 ent-RMCFogShockwave = shockwave smoke
     .desc = { "" }
+ent-RMCFogSpawner15 = fog blocker
+    .suffix = 15 minutes
+    .desc = { ent-MarkerBase.desc }

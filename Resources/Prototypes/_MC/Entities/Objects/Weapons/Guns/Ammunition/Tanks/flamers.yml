@@ -1,7 +1,5 @@
-# Tanks
-
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCTankFlamer
   name: large flamethrower tank
   description: A large fuel tank of ultra thick napthal, a sticky combustible liquid chemical, for use in the FL-84 flamethrower.
@@ -23,7 +21,8 @@
   - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
-    targetWhitelist: # Для понятия работы
+    targetWhitelist:
+      # Для понятия работы
       tags:
       - MCPyroFlamer # Эта хуйня сможет дать тебе обычного топлива
       - MCBackpackFlamer # Эта хуйня сможет дать тебе обычного топлива через сумку
@@ -134,7 +133,7 @@
     - MCFlamerTank
 
 - type: entity
-  parent: BaseItem
+  parent: MCItem
   id: MCMiniTankFlamer
   name: mini incinerator tank
   description: A fuel tank of usually ultra thick napthal, a sticky combustable liquid chemical, for use in the underail incinerator unit. Handle with care.
@@ -179,7 +178,6 @@
     solution: rmc_flamer_tank
 
 # Backpack's
-
 - type: entity
   parent: MCMPersonalStorage
   id: MCBackpackFlamer

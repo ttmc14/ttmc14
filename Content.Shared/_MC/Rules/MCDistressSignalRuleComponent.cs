@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Weapons.Ranged.IFF;
+﻿using Content.Shared._MC.Rules.Base;
+using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -7,7 +8,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared._MC.Rules;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class MCDistressSignalRuleComponent : Component, IXenoMapRuleComponent
+public sealed partial class MCDistressSignalRuleComponent : Component, IRulePlanet
 {
     [DataField, AutoNetworkedField]
     public EntProtoId<IFFFactionComponent> MarineFaction = "FactionMarine";

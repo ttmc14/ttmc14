@@ -1,76 +1,76 @@
-﻿command-description-alertlevel-get = Prints the current alert level on the warship to the console.
-command-description-alertlevel-set = Changes the alert level on the warship.
+﻿command-description-alertlevel-get = Показывает текущий уровень тревоги на военном корабле в консоли.
+command-description-alertlevel-set = Изменяет уровень тревоги на военном корабле.
 
-command-description-areas-load = Load all saved areas to the map as entities.
-command-description-areas-loadmortar = Load only mortarable saved areas to the map as entities.
-command-description-areas-save = Save all mapped areas to the map.
+command-description-areas-load = Загружает все сохранённые зоны на карту как сущности.
+command-description-areas-loadmortar = Загружает только зоны, подходящие для миномётов, на карту как сущности.
+command-description-areas-save = Сохраняет все размеченные зоны на карту.
 
-command-description-bioscan-marine = Manually triggers an ARES bioscan to announce to marines where xenos are and how many are left.
-command-description-bioscan-xeno = Manually triggers a Queen Mother bioscan to announce to xenos where marines are and how many are left.
-command-description-bioscan-all = Manually triggers an ARES and Queen Mother bioscans to announce to both xenos and marines where each other are and how many are left.
+command-description-bioscan-marine = Вручную запускает биоскан ARES, чтобы сообщить морпехам, где находятся ксеносы и сколько их осталось.
+command-description-bioscan-xeno = Вручную запускает биоскан Королевы Матери, чтобы сообщить ксеносам, где находятся морпехи и сколько их осталось.
+command-description-bioscan-all = Вручную запускает биоскан ARES и Королевы Матери, чтобы одновременно сообщить ксеносам и морпехам, где находятся друг друга и сколько осталось.
 
-command-description-vendorpoints-get = Gets the points that a marine has left to purchase items with at an automated vendor.
-command-description-vendorpoints-getspecialist = Gets the points that a Weapons Specialist has left to purchase items with at their gear rack.
-command-description-vendorpoints-set = Sets the points that a marine or group of marines have to purchase items with at an automated vendor.
-command-description-vendorpoints-setspecialist = Sets the points that a Weapons Specialist or group of Weapons Specialists have to purchase items with at their gear rack.
+command-description-vendorpoints-get = Показывает, сколько очков осталось у морпеха для покупки предметов на автоматическом торговце.
+command-description-vendorpoints-getspecialist = Показывает, сколько очков осталось у оружейного специалиста для покупки предметов на его складе снаряжения.
+command-description-vendorpoints-set = Устанавливает очки, которыми морпех или группа морпехов могут пользоваться для покупок на автоматическом торговце.
+command-description-vendorpoints-setspecialist = Устанавливает очки, которыми оружейный специалист или группа специалистов могут пользоваться для покупок на своём складе снаряжения.
 
-command-description-evolutionpoints-get = Gets the evolution points of a xeno.
-command-description-evolutionpoints-set = Sets the evolution points of a xeno.
-command-description-evolutionpoints-max = Maxes out the evolution points of a xeno if they are lower than the max.
+command-description-evolutionpoints-get = Показывает очки эволюции ксеноса.
+command-description-evolutionpoints-set = Устанавливает очки эволюции ксеноса.
+command-description-evolutionpoints-max = Устанавливает максимальные очки эволюции ксеноса, если они ниже максимума.
 
-command-description-excluderoletimer-add = Exclude a player from the playtime requirements for a specific role.
-command-description-excluderoletimer-get = See all roles for which a player is manually excluded from the regular playtime requirements for.
-command-description-excluderoletimer-remove = Removes a player's exclusion for playtime requirements for a specific role.
+command-description-excluderoletimer-add = Исключает игрока из требований по времени игры для определённой роли.
+command-description-excluderoletimer-get = Показывает все роли, для которых игрок вручную исключён из требований по времени игры.
+command-description-excluderoletimer-remove = Убирает исключение игрока из требований по времени игры для определённой роли.
 
-command-description-figurine-export = Exports the current character as a figurine.
-command-description-figurine-openslots = Opens up infinite slots for all jobs on all map prototypes until the whole server is restarted.
+command-description-figurine-export = Экспортирует текущего персонажа как фигурку.
+command-description-figurine-openslots = Открывает бесконечное количество слотов для всех профессий на всех картах до перезапуска сервера.
 
-command-description-hive-alldefault = Sets the hive of all xenos to the default hive (the first one created).
-command-description-hive-set = Sets the hive of a xeno or group of xenos.
+command-description-hive-alldefault = Устанавливает улья всех ксеносов на стандартный (первый созданный).
+command-description-hive-set = Устанавливает улья ксеноса или группы ксеносов.
 
-command-description-icon-get_human_readable = Gets the human readable name of a player's job icon.
-command-description-icon-get = Gets the name of a player's job icon.
-command-description-icon-set = Sets a player's job icon.
-command-description-icon-del = Removes a player's job icon.
+command-description-icon-get_human_readable = Получает читаемое имя значка профессии игрока.
+command-description-icon-get = Получает название значка профессии игрока.
+command-description-icon-set = Устанавливает значок профессии игрока.
+command-description-icon-del = Убирает значок профессии игрока.
 
-command-description-marine-randomize = Deletes and then spawns a marine or group of marines in the same place with a randomized name, species and appearance.
-command-description-marine-randomizewithjob = Deletes and then spawns a marine or group of marines in the same place with a set job and a randomized name, species and appearance.
+command-description-marine-randomize = Удаляет и затем создаёт морпеха или группу морпехов на том же месте с случайным именем, видом и внешностью.
+command-description-marine-randomizewithjob = Удаляет и затем создаёт морпеха или группу морпехов на том же месте с заданной профессией и случайным именем, видом и внешностью.
 
-command-description-removeinvalidweeds = Removes any weeds that should not have normally spread to where they are from the map.
+command-description-removeinvalidweeds = Удаляет сорняки, которые не должны были распространяться на данном участке карты.
 
-command-description-requisitions-addbudget = Adds budget to the default Requisitions account.
-command-description-requisitions-removebudget = Removes budget from the default Requisitions account.
+command-description-requisitions-addbudget = Добавляет бюджет в стандартный счёт Requisitions.
+command-description-requisitions-removebudget = Убирает бюджет из стандартного счёта Requisitions.
 
-command-description-rmcrejuvenate-marineplayersinrange = Rejuvenates all marines within a specific range, restoring them to full health, clearing status effects, etc.
+command-description-rmcrejuvenate-marineplayersinrange = Восстанавливает всех морпехов в указанном радиусе: полное здоровье, очистка статусов и т.д.
 
-command-description-intel-addpoints = Adds points to the default Intel tech tree.
-command-description-intel-removepoints = Removes points from the default Intel tech tree.
-command-description-intel-spawnintel = Spawns intel on all initialized maps.
+command-description-intel-addpoints = Добавляет очки в стандартное дерево технологий Intel.
+command-description-intel-removepoints = Убирает очки из стандартного дерева технологий Intel.
+command-description-intel-spawnintel = Создаёт разведданные на всех инициализированных картах.
 
-command-description-prototypecontains = Filters entities by whether or not their prototype ID contains the given text.
+command-description-prototypecontains = Фильтрует сущности по наличию заданного текста в ID прототипа.
 
-command-description-skills-get = Gets the level of a specific skill for a marine.
-command-description-skills-set = Sets the level of a specific skill for a marine or group of marines.
-command-description-skills-all = Sets the level of all skills for a marine or group of marines.
+command-description-skills-get = Показывает уровень конкретного навыка морпеха.
+command-description-skills-set = Устанавливает уровень конкретного навыка морпеха или группы морпехов.
+command-description-skills-all = Устанавливает уровень всех навыков морпеха или группы морпехов.
 
-command-description-squad-get = Gets the squad ID of a marine.
-command-description-squad-getname = Gets the squad name of a marine.
-command-description-squad-set = Sets the squad of a marine or group of marines.
-command-description-squad-with = Filters a group of marines by their squad.
-command-description-squad-refresh = Manually refreshes the members of a squad.
+command-description-squad-get = Показывает ID отряда морпеха.
+command-description-squad-getname = Показывает имя отряда морпеха.
+command-description-squad-set = Устанавливает отряд морпеха или группы морпехов.
+command-description-squad-with = Фильтрует группу морпехов по отряду.
+command-description-squad-refresh = Вручную обновляет состав отряда.
 
-command-description-xenomature = Instantly matures a xeno. Applicable to the Queen, at which point she gets more health and abilities.
+command-description-xenomature = Мгновенно делает ксеноса зрелым. Применимо к Королеве: она получает больше здоровья и способностей.
 
-command-description-weedkiller = Runs weed killer on the current location's area. This kills all weeds and resin structures nearby.
+command-description-weedkiller = Активирует уничтожение сорняков в текущей области. Уничтожает все сорняки и смоляные структуры рядом.
 
-command-description-withxenotier = Filters entities or entity prototypes to those of a specific xenonid tier.
+command-description-withxenotier = Фильтрует сущности или прототипы по уровню ксеноидного ID.
 
-command-description-spawnallmapinserts = Spawns all map inserts, with forced guaranteed spawn probability.
+command-description-spawnallmapinserts = Создаёт все вставки карты с гарантированной вероятностью появления.
 
-command-description-forceplanetmap = Forces the next round to start with the specified planet.
+command-description-forceplanetmap = Заставляет следующий раунд начаться на указанной планете.
 
-command-description-rmcresetahelptracking = Resets all data about tracked AHelp conversations on the Discord. Useful for when AHelps are not showing up on the Discord relay properly.
+command-description-rmcresetahelptracking = Сбрасывает все данные о трекинге разговоров AHelp в Discord. Полезно, если AHelp не отображаются на реле Discord.
 
-command-description-hijack-trigger = Triggers hijack on the map that you are currently on.
+command-description-hijack-trigger = Запускает захват карты, на которой вы находитесь.
 
-command-description-setoperationname = Changes the name of the operation for the upcoming round.
+command-description-setoperationname = Изменяет название операции для следующего раунда.

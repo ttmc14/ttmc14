@@ -19,10 +19,11 @@
           MCFC: [ 1, 1 ]
           # Medical
           MCCMO: [ 1, 1 ]
-          MCDoctor: [ 6, 6 ]
+          MCDoctor: [ 1, 1 ]
+          MCResearcher: [ 1, 1 ]
           # Squad
-          MCSquadLeader: [ 4, 4 ]
-          MCSquadSmartgunner: [ 4, 4 ]
-          MCSquadEngineer: [ 8, 8 ]
-          MCSquadCorpsman: [ 8, 8 ]
+          MCSquadLeader: [ 1, 1 ]
+          MCSquadSmartgunner: [ 1, 1 ]
+          MCSquadEngineer: [ 1, 1 ]
+          MCSquadCorpsman: [ 1, 1 ]
           MCSquadMarine: [ -1, -1 ]

@@ -1,0 +1,12 @@
+- type: reaction
+  id: MCNanoMachines
+  reactants:
+    MCIron:
+      amount: 10
+    MCLemoline:
+      amount: 2
+    MCNanoMachines:
+      amount: 1
+      catalyst: true
+  products:
+    MCNanoMachines: 9

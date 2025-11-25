@@ -1,15 +1,15 @@
-﻿rmc-fusion-reactor-insert-already-has-cell = {$reactor} already has a cell. Remove it with a crowbar first!
-rmc-fusion-reactor-insert-start-self = You start inserting {$cell} into {$reactor}.
-rmc-fusion-reactor-insert-fail-self = You fail to insert {$cell} into {$reactor}.
-rmc-fusion-reactor-insert-finish-self = You insert {$cell} into {$reactor}.
+﻿rmc-fusion-reactor-insert-already-has-cell = {$reactor} уже содержит ячейку. Сначала извлеките её ломом!
+rmc-fusion-reactor-insert-start-self = Вы начинаете вставлять {$cell} в {$reactor}.
+rmc-fusion-reactor-insert-fail-self = Не удалось вставить {$cell} в {$reactor}.
+rmc-fusion-reactor-insert-finish-self = Вы вставляете {$cell} в {$reactor}.
 
-rmc-fusion-reactor-remove-none = There is no fuel cell to remove from {$reactor}.
-rmc-fusion-reactor-remove-start-self = You start prying {$cell} out of {$reactor}.
-rmc-fusion-reactor-remove-finish-self = You remove {$cell} from {$reactor}.
+rmc-fusion-reactor-remove-none = В {$reactor} нет топливной ячейки для извлечения.
+rmc-fusion-reactor-remove-start-self = Вы начинаете вынимать {$cell} из {$reactor}.
+rmc-fusion-reactor-remove-finish-self = Вы извлекаете {$cell} из {$reactor}.
 
-rmc-fusion-reactor-repair-not-needed = {$reactor} does not need repairs.
-rmc-fusion-reactor-repair-different-tool = You need a different tool to repair {$reactor}.
-rmc-fusion-reactor-repair-start-self = You start repairing {$reactor} with {$tool}.
+rmc-fusion-reactor-repair-not-needed = {$reactor} не требует ремонта.
+rmc-fusion-reactor-repair-different-tool = Для ремонта {$reactor} нужен другой инструмент.
+rmc-fusion-reactor-repair-start-self = Вы начинаете ремонтировать {$reactor} с помощью {$tool}.
 
-rmc-fusion-reactor-already-destroyed = You see no reason to attack the {$reactor}.
-rmc-fusion-reactor-destroyed = The {$reactor} gets torn apart!
+rmc-fusion-reactor-already-destroyed = Вы не видите смысла атаковать {$reactor}.
+rmc-fusion-reactor-destroyed = {$reactor} разрывается на части!

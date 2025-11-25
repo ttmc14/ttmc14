@@ -1,0 +1,44 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleBaldur
+  name: baldur light amplification system
+  description: Designed for mounting on modular armor. Substantially increases the power output of your modular armor's mounted flashlight. Be the light in the darkness. Does not slow down
+  components:
+  - type: Sprite
+    state: mod_lamp
+  - type: PointLight
+    enabled: false
+    radius: 9
+    offset: 0,-0.85
+    rotation: 90
+    softness: 5
+    autoRot: true
+    netsync: false
+    color: "#FFFFFF"
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleValkyrieAutomedical
+  name: valkyrie automedical armor system
+  description: Designed for mounting on modular armor. This module has advanced medical systems that inject tricordrazine and tramadol based on the user's needs, as well as automatically securing the bones and body of the wearer, effectively splinting them until professional medical attention can be admistered. Will definitely impact mobility.
+  components:
+  - type: Sprite
+    state: mod_autodoc
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleValiChemical
+  name: vali chemical enhancement module
+  description: A module that enhances the strength of reagents in the body. Requires a special substance, gathered from xenomorph lifeforms, to function.This substance needs to be gathered using an applicable weapon or tool.
+  components:
+  - type: Sprite
+    state: mod_chemsystem
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleSvalinnEnergyShield
+  name: svalinn Energy Shield System
+  description: Creates a shield around the user that is capable of negating all damage. If it sustains too much it will deactivate, and leave the user vulnerable.
+  components:
+  - type: Sprite
+    state: mod_eshield

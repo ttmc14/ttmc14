@@ -6,8 +6,13 @@
   name: Urist C.M. McHands
   suffix: RMC14
   components:
+  # mc-changes-start
+  - type: MCSolutionTicker
   - type: MCArmor
+    showExamine: false
   - type: MCXenoToxicStacks
+  - type: MCXenoPsydrainable
+  # mc-changes-end
   - type: Fixtures
     fixtures:
       fix1:
@@ -115,7 +120,7 @@
     resistDuration: 5
     damage:
       types:
-        Heat: 1
+        MCBurn: 1 # mc-changes
   - type: FireVisuals
     sprite: Mobs/Effects/onfire.rsi
     normalState: Generic_mob_burning

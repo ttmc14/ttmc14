@@ -42,7 +42,6 @@
     - MCActionXenoPlaceTrap
     hudOffset: -0.1,0.1
   - type: XenoEvolution
-    canEvolveWithoutGranter: true
     actionId: MCActionXenoEvolve
     max: 225
     evolvesTo:
@@ -53,6 +52,7 @@
     - MCXenoHunter
     - MCXenoBull
     - MCXenoSpitter
+    - MCXenoForger
     evolvesToWithoutPoints:
     - MCXenoShrike
     - MCXenoQueen
@@ -60,18 +60,19 @@
     devolvesTo:
     - MCXenoLarva
   - type: MCArmor
-    melee: 30
-    bullet: 30
-    laser: 30
-    energy: 30
-    bomb: 10
-    bio: 30
-    fire: 30
-    acid: 30
+    soft:
+      melee: 30
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 10
+      bio: 30
+      fire: 30
+      acid: 30
   - type: MeleeWeapon
     damage:
-      groups:
-        Brute: 18
+      types:
+        MCBrute: 20
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.225
     baseSprintSpeed: 4.761

@@ -1,0 +1,203 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/65a764c306f72c09658e7e2f5ce9c304b278dd8f",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "resin0"
+    },
+    {
+      "name": "resin1"
+    },
+    {
+      "name": "resin2"
+    },
+    {
+      "name": "resin3"
+    },
+    {
+      "name": "resin4"
+    },
+    {
+      "name": "resin5"
+    },
+    {
+      "name": "resin6"
+    },
+    {
+      "name": "resin7"
+    },
+    {
+      "name": "resin8"
+    },
+    {
+      "name": "resin9"
+    },
+    {
+      "name": "resin10"
+    },
+    {
+      "name": "resin11"
+    },
+    {
+      "name": "resin12"
+    },
+    {
+      "name": "resin13"
+    },
+    {
+      "name": "resin14"
+    },
+    {
+      "name": "resin15"
+    },
+    {
+      "name": "membrane0"
+    },
+    {
+      "name": "membrane1"
+    },
+    {
+      "name": "membrane2"
+    },
+    {
+      "name": "membrane3"
+    },
+    {
+      "name": "membrane4"
+    },
+    {
+      "name": "membrane5"
+    },
+    {
+      "name": "membrane6"
+    },
+    {
+      "name": "membrane7"
+    },
+    {
+      "name": "membrane8"
+    },
+    {
+      "name": "membrane9"
+    },
+    {
+      "name": "membrane10"
+    },
+    {
+      "name": "membrane11"
+    },
+    {
+      "name": "membrane12"
+    },
+    {
+      "name": "membrane13"
+    },
+    {
+      "name": "membrane14"
+    },
+    {
+      "name": "membrane15"
+    },
+    {
+      "name": "thickresin0"
+    },
+    {
+      "name": "thickresin1"
+    },
+    {
+      "name": "thickresin2"
+    },
+    {
+      "name": "thickresin3"
+    },
+    {
+      "name": "thickresin4"
+    },
+    {
+      "name": "thickresin5"
+    },
+    {
+      "name": "thickresin6"
+    },
+    {
+      "name": "thickresin7"
+    },
+    {
+      "name": "thickresin8"
+    },
+    {
+      "name": "thickresin9"
+    },
+    {
+      "name": "thickresin10"
+    },
+    {
+      "name": "thickresin11"
+    },
+    {
+      "name": "thickresin12"
+    },
+    {
+      "name": "thickresin13"
+    },
+    {
+      "name": "thickresin14"
+    },
+    {
+      "name": "thickresin15"
+    },
+    {
+      "name": "thickmembrane0"
+    },
+    {
+      "name": "thickmembrane1"
+    },
+    {
+      "name": "thickmembrane2"
+    },
+    {
+      "name": "thickmembrane3"
+    },
+    {
+      "name": "thickmembrane4"
+    },
+    {
+      "name": "thickmembrane5"
+    },
+    {
+      "name": "thickmembrane6"
+    },
+    {
+      "name": "thickmembrane7"
+    },
+    {
+      "name": "thickmembrane8"
+    },
+    {
+      "name": "thickmembrane9"
+    },
+    {
+      "name": "thickmembrane10"
+    },
+    {
+      "name": "thickmembrane11"
+    },
+    {
+      "name": "thickmembrane12"
+    },
+    {
+      "name": "thickmembrane13"
+    },
+    {
+      "name": "thickmembrane14"
+    },
+    {
+      "name": "thickmembrane15"
+    }
+  ]
+}

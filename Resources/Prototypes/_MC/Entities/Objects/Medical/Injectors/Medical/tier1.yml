@@ -1,0 +1,166 @@
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorBicaridine
+  name: bicaridine auto-injector
+  description: An auto-injector loaded with 3 doses of bicaridine, a common brute and circulatory damage medicine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-bicaridine-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorKelotane
+  name: kelotane auto-injector
+  description: An auto-injector loaded with 3 doses of kelotane, a common burn medicine.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCKelotane
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-kelotane-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDylovene
+  name: dylovene auto-injector
+  description: An auto-injector loaded with 3 doses of dylovene, an anti-toxin agent useful in cases of poisoning, overdoses and toxin build-up.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCDylovene
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-dylovene-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorTricordrazine
+  name: tricordrazine auto-injector
+  description: An auto-injector loaded with 3 doses of tricordrazine, a weak general use medicine for treating damage.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCTricordrazine
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-tricordrazine-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorInaprovaline
+  name: inaprovaline auto-injector
+  description: An auto-injector loaded with 2 doses of inaprovaline, an emergency stabilization medicine for patients in critical condition.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCInaprovaline
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-inaprovaline-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDexalin
+  name: dexalin auto-injector
+  description: An auto-injector loaded with 3 doses of dexalin, a medicine that oxygenates the body helping those with respiratory issues or low blood.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCDexalin
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-dexalin-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorImidazoline
+  name: imidazoline auto-injector
+  description: An auto-injector loaded with 3 doses of imidazoline, medicine for fixing eyesight.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCImidazoline
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-imidazoline-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorHypervene
+  name: hypervene auto-injector
+  description: An auto-injector loaded with 3 uses of hypervene, an emergency medicine that rapidly purges chems. Causes pain and vomiting.
+  components:
+  - type: Hypospray
+    transferAmount: 3
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 9
+        reagents:
+        - ReagentId: MCHypervene
+          Quantity: 9
+  - type: IconLabel
+    labelTextLocId: mc-hypervene-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorTramadol
+  name: tramadol auto-injector
+  description: An auto-injector loaded with 3 doses of tramadol, an effective painkiller for normal wounds.
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCTramadol
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-tramadol-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorParacetamol
+  name: paracetamol auto-injector
+  description: An auto-injector loaded with 2 doses of paracetamol, this chemical is a mild, simple painkiller.
+  components:
+  - type: Hypospray
+    transferAmount: 15
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCParacetamol
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-paracetamol-container-label-text
+

@@ -14,23 +14,27 @@ public sealed class MCXenoEvasionVisualizerSystem : VisualizerSystem<MCXenoToxic
     {
         base.OnAppearanceChange(uid, component, ref args);
 
-        if (_player.LocalEntity is null || !HasComp<XenoComponent>(_player.LocalEntity))
-            return;
-
         if (args.Sprite is null)
             return;
+
+        var sprite = new Entity<SpriteComponent?>(uid, args.Sprite);
+        if (!SpriteSystem.LayerMapTryGet(sprite, MCXenoToxicStacksLayer.Base, out var layer, false) ||
+            !SpriteSystem.LayerMapTryGet(sprite, MCXenoToxicStacksLayer.Icon, out var iconLayer, false))
+            return;
+
+        if (_player.LocalEntity is null || !HasComp<XenoComponent>(_player.LocalEntity))
+        {
+            SpriteSystem.LayerSetVisible(sprite, layer, false);
+            SpriteSystem.LayerSetVisible(sprite, iconLayer, false);
+            return;
+        }
 
         if (!AppearanceSystem.TryGetData<int>(uid, MCXenoToxicStacksVisuals.Visuals, out var value, args.Component))
             return;
 
-        if (!args.Sprite.LayerMapTryGet(MCXenoToxicStacksLayer.Base, out var layer) ||
-            !args.Sprite.LayerMapTryGet(MCXenoToxicStacksLayer.Icon, out var iconLayer))
-            return;
-
         var visible = value > 0;
-        args.Sprite.LayerSetVisible(layer, visible);
-        args.Sprite.LayerSetVisible(iconLayer, visible);
-
-        args.Sprite.LayerSetState(layer, $"intoxicated_amount{value}");
+        SpriteSystem.LayerSetVisible(sprite, layer, visible);
+        SpriteSystem.LayerSetVisible(sprite, iconLayer, visible);
+        SpriteSystem.LayerSetRsiState(sprite, layer, $"intoxicated_amount{value}");
     }
 }

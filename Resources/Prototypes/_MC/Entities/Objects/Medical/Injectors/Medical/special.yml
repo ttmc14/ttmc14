@@ -1,0 +1,13 @@
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorNanoMachines
+  name: nano machines auto-injector
+  description: An auto-injector loaded with medical nanites. A potent new method of healing that that reproduces using a subject's blood and has a brief but potentially dangerous activation period! Beware of Neurotoxin!
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 1
+        reagents:
+        - ReagentId: MCNanoMachines
+          Quantity: 1

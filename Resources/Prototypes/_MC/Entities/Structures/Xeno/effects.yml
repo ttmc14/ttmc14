@@ -3,5 +3,7 @@
   id: MCXenoFog
   suffix: Xeno
   components:
+  - type: Tag
+    tags: [ Wall ]
   - type: XenoFriendly
   - type: MCXenoIgnoreFriendlyCollision

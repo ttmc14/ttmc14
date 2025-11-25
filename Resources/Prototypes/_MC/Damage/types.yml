@@ -1,0 +1,19 @@
+- type: damageType
+  id: MCBrute
+  name: mc-damage-brute
+
+- type: damageType
+  id: MCBurn
+  name: mc-damage-burn
+
+- type: damageType
+  id: MCToxin
+  name: mc-damage-toxin
+
+- type: damageType
+  id: MCOxygen
+  name: mc-damage-oxygen
+
+- type: damageType
+  id: MCClone
+  name: mc-damage-clone

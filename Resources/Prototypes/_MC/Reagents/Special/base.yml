@@ -1,0 +1,5 @@
+- type: reagent
+  parent: MCReagent
+  id: MCReagentSpecial
+  group: Special
+  abstract: true

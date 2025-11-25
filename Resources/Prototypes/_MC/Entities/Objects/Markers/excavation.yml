@@ -1,0 +1,8 @@
+- type: entity
+  parent: MCMarker
+  id: MCSpawnExcavation
+  name: excavation site spawner
+  components:
+  - type: Sprite
+    sprite: _MC/Markers/landmarks.rsi
+    state: clockwork_orange

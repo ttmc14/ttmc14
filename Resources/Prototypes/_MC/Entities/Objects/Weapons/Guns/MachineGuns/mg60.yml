@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCBaseWeaponLMG
+  parent: MCWeaponMG
   name: MG-60 Raummetall general purpose machine gun
   id: MCWeaponMachineGunMG60
   description: The Raummetall MG-60 general purpose machinegun is the TGMC's current standard GPMG. Though usually seen mounted on vehicles, it is sometimes used by infantry to hold chokepoints or suppress enemies, or in rare cases for marching fire. It uses 10x26mm boxes.
@@ -131,8 +131,8 @@
   components:
   - type: Projectile
     damage:
-      groups:
-        Brute: 20
+      types:
+        MCBrute: 20
   - type: CMArmorPiercing
     amount: 10
   - type: MCXenoSunderDamageOnHit

@@ -1,8 +1,9 @@
 - type: entity
-  name: note on chemistry
   parent: Paper
   id: MCPaperNoteChem
+  name: note on chemistry
   description: Note used by chemists.
+  categories: [ MCContent ]
   components:
   - type: Sprite
     layers:
