@@ -8,3 +8,13 @@
     palette2: "#655f40ff"
     palette3: "#87865cff"
     palette4: "#b1b493ff"
+
+- type: shader
+  id: MCAuraOutline
+  kind: source
+  path: "/Textures/_MC/Shaders/outline.swsl"
+  params:
+    outline_color: "#000000FF"
+    light_boost: 4.0
+    light_gamma: 1.0
+    light_whitepoint: 1.0

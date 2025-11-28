@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Aura;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Weapons.Melee;
 using Content.Shared.Actions;
@@ -23,6 +24,8 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     [Dependency] protected readonly SharedActionsSystem Actions = null!;
     [Dependency] protected readonly SharedColorFlashEffectSystem ColorFlash = null!;
     [Dependency] protected readonly SharedMeleeWeaponSystem MeleeWeapon = null!;
+
+    [Dependency] protected readonly MCAuraSystem MCAura = null!;
 
     protected DamageSpecifier GetDamage(EntityUid uid)
     {

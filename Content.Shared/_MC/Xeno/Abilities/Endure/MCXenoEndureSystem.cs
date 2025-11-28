@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Armor;
+using Content.Shared._MC.Aura;
 using Content.Shared._MC.Stun.Events;
 using Content.Shared._RMC14.Aura;
 using Content.Shared._RMC14.Emote;
@@ -69,7 +70,7 @@ public sealed class MCXenoEndureSystem : MCXenoAbilitySystem
         args.Handled = true;
 
         if (!HasComp<AuraComponent>(entity))
-            _rmcAura.GiveAura(entity, entity.Comp.ActivationAuraColor, entity.Comp.Duration);
+            MCAura.Give(entity, "Endure", new MCAuraEntry(entity.Comp.ActivationAuraColor, 2), refresh: true);
 
         _rmcEmote.TryEmoteWithChat(entity, entity.Comp.ActivationEmote);
 
@@ -88,6 +89,7 @@ public sealed class MCXenoEndureSystem : MCXenoAbilitySystem
             _popup.PopupEntity(Loc.GetString("mc-xeno-ability-endure-end"), entity, entity, PopupType.MediumXeno);
 
         _mobState.UpdateMobState(entity);
+        MCAura.Remove(entity, "Endure");
     }
 
     private void OnActiveArmorGet(Entity<MCXenoEndureActiveComponent> entity, ref MCArmorGetEvent args)

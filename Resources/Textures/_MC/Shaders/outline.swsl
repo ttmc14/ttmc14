@@ -1,0 +1,78 @@
+uniform highp int outline_count;
+
+uniform highp float outline_width0;
+uniform highp float outline_width1;
+uniform highp float outline_width2;
+uniform highp float outline_width3;
+uniform highp float outline_width4;
+uniform highp float outline_width5;
+uniform highp float outline_width6;
+uniform highp float outline_width7;
+
+uniform highp vec4 outline_color0;
+uniform highp vec4 outline_color1;
+uniform highp vec4 outline_color2;
+uniform highp vec4 outline_color3;
+uniform highp vec4 outline_color4;
+uniform highp vec4 outline_color5;
+uniform highp vec4 outline_color6;
+uniform highp vec4 outline_color7;
+
+uniform bool outline_fullbright;
+
+uniform highp float light_boost;
+uniform highp float light_gamma;
+uniform highp float light_whitepoint;
+
+void fragment()
+{
+    vec4 base = zTexture(UV);
+    vec2 ps = TEXTURE_PIXEL_SIZE;
+
+    vec4 outColor = base;
+    float currentAlpha = base.a;
+
+    float sampledLight = outline_fullbright
+        ? 1.0
+        : clamp(
+            (pow(zGrayscale_BT601(lightSample.rgb) * light_whitepoint, light_gamma) / light_whitepoint)
+            * light_boost,
+            0.0, 1.0
+        );
+
+    for (int i = 0; i < outline_count; i++)
+    {
+        float w = 0.0;
+        vec4 col = vec4(0.0);
+
+        if (i == 0) { w = outline_width0; col = outline_color0; }
+        if (i == 1) { w = outline_width1; col = outline_color1; }
+        if (i == 2) { w = outline_width2; col = outline_color2; }
+        if (i == 3) { w = outline_width3; col = outline_color3; }
+        if (i == 4) { w = outline_width4; col = outline_color4; }
+        if (i == 5) { w = outline_width5; col = outline_color5; }
+        if (i == 6) { w = outline_width6; col = outline_color6; }
+        if (i == 7) { w = outline_width7; col = outline_color7; }
+
+        col *= vec4(1.0, 1.0, 1.0, sampledLight);
+
+        float maxAlpha = currentAlpha;
+
+        float a;
+        a = zTexture(UV + vec2(0.0, -w) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2(-w, -w) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2(0.0,  w) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2( w, -w) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2(-w,  0.0) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2(-w,  w) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2( w,  0.0) * ps).a; maxAlpha = max(maxAlpha, a);
+        a = zTexture(UV + vec2( w,  w) * ps).a; maxAlpha = max(maxAlpha, a);
+
+        float layerA = maxAlpha - currentAlpha;
+
+        outColor = mix(outColor, col, layerA);
+        currentAlpha = maxAlpha;
+    }
+
+    COLOR = outColor;
+}

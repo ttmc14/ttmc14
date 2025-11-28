@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Stun.Events;
+﻿using Content.Shared._MC.Aura;
+using Content.Shared._MC.Stun.Events;
 using Content.Shared._MC.Xeno.Abilities.Endure;
 using Content.Shared._MC.Xeno.Abilities.Pounce;
 using Content.Shared._MC.Xeno.Abilities.Ravage;
@@ -23,7 +24,6 @@ public sealed class MCXenoRageSystem : MCXenoAbilitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
 
     [Dependency] private readonly XenoPlasmaSystem _rmcXenoPlasma = null!;
-    [Dependency] private readonly SharedAuraSystem _rmcAura = null!;
 
     [Dependency] private readonly MCXenoHealSystem _mcXenoHeal = null!;
 
@@ -83,8 +83,8 @@ public sealed class MCXenoRageSystem : MCXenoAbilitySystem
             return;
         }
 
+        MCAura.Remove(entity, "Rage");
         RemCompDeferred<MCXenoRageActiveComponent>(entity);
-        RemCompDeferred<AuraComponent>(entity);
     }
 
     private void OnStartup(Entity<MCXenoRageActiveComponent> entity, ref ComponentStartup args)
@@ -92,7 +92,7 @@ public sealed class MCXenoRageSystem : MCXenoAbilitySystem
         if (_net.IsClient)
             return;
 
-        _rmcAura.GiveAura(entity, entity.Comp.AuraColor, null, entity.Comp.AuraStrength);
+        MCAura.Give(entity, "Rage", new MCAuraEntry(entity.Comp.AuraColor, entity.Comp.AuraStrength), refresh: true);
     }
 
     private void OnRemove(Entity<MCXenoRageActiveComponent> entity, ref ComponentRemove args)
