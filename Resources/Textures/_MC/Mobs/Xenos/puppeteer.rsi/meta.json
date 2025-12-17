@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from TerraGov-Marine-Corps at https://github.com/tgstation/TerraGov-Marine-Corps/blob/4aa92d5eca9456e4dca0126b62618471a4dbcb03/icons/Xeno/castes/puppeteer.dmi",
+  "size": {
+    "x": 64,
+    "y": 64
+  },
+  "states": [
+    {
+      "name": "puppeteer_sleeping"
+    },
+    {
+      "name": "puppeteer_knocked_down"
+    },
+    {
+      "name": "puppeteer_dead"
+    },
+    {
+      "name": "puppeteer_running",
+      "directions": 4
+    },
+    {
+      "name": "puppeteer_walking",
+      "directions": 4
+    },
+    {
+      "name": "gibbed-a",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "gibbed-a-corpse"
+    },
+    {
+      "name": "puppeteer_wounded_resting_3"
+    },
+    {
+      "name": "puppeteer_wounded_resting_2"
+    },
+    {
+      "name": "puppeteer_wounded_resting_1"
+    },
+    {
+      "name": "puppeteer_wounded_stunned_3"
+    },
+    {
+      "name": "puppeteer_wounded_stunned_2"
+    },
+    {
+      "name": "puppeteer_wounded_stunned_1"
+    },
+    {
+      "name": "puppeteer_wounded_sleeping_3"
+    },
+    {
+      "name": "puppeteer_wounded_sleeping_2"
+    },
+    {
+      "name": "puppeteer_wounded_sleeping_1"
+    },
+    {
+      "name": "puppeteer_wounded_3",
+      "directions": 4
+    },
+    {
+      "name": "puppeteer_wounded_2",
+      "directions": 4
+    },
+    {
+      "name": "puppeteer_wounded_1",
+      "directions": 4
+    },
+    {
+      "name": "alien_fire",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "alien_fire_lying",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}
