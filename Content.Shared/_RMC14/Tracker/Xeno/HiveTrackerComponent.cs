@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.Alert;
+using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
@@ -18,7 +19,7 @@ public sealed partial class HiveTrackerComponent : Component
     public HashSet<ProtoId<TrackerModePrototype>> TrackerModes = new();
 
     [DataField, AutoNetworkedField]
-    public ProtoId<TrackerModePrototype>? Mode = "Queen";
+    public ProtoId<TrackerModePrototype> Mode;
 
     [DataField, AutoNetworkedField]
     public EntityUid? Target;

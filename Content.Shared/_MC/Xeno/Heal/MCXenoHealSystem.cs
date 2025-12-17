@@ -139,11 +139,11 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
 
     public void Heal(EntityUid uid, float amount)
     {
-        var damage = _rmcDamageable.DistributeDamageCached(uid, BruteGroup, amount);
+        var damage = _rmcDamageable.DistributeDamage(uid, BruteGroup, amount);
         var totalHeal = damage.GetTotal();
         var leftover = amount - totalHeal;
         if (leftover > FixedPoint2.Zero)
-            damage = _rmcDamageable.DistributeDamageCached(uid, BurnGroup, leftover, damage);
+            damage = _rmcDamageable.DistributeDamage(uid, BurnGroup, leftover, damage);
         _damageable.TryChangeDamage(uid, -damage, true);
     }
 

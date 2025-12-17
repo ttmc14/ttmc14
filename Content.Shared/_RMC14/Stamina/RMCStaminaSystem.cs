@@ -13,7 +13,6 @@ using Content.Shared.StatusEffect;
 using Content.Shared.Throwing;
 using Content.Shared.Weapons.Melee.Events;
 using Content.Shared.Wieldable.Components;
-using Content.Shared.Damage.Events;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -160,11 +159,6 @@ public sealed partial class RMCStaminaSystem : EntitySystem
         {
             return;
         }
-
-        var ev = new StaminaDamageOnHitAttemptEvent();
-        RaiseLocalEvent(ent, ref ev);
-        if (ev.Cancelled)
-        return;
 
         var stamQuery = GetEntityQuery<RMCStaminaComponent>();
         var toHit = new List<(EntityUid Entity, RMCStaminaComponent Component)>();

@@ -64,9 +64,4 @@ public sealed partial class IdCardComponent : Component
 
     [DataField]
     public bool CanMicrowave = true;
-
-    //RMC14
-    [DataField, AutoNetworkedField]
-    public EntityUid? OriginalOwner;
-    //RMC14
 }

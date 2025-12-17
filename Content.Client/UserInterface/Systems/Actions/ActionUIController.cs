@@ -1,6 +1,5 @@
 using System.Linq;
 using System.Numerics;
-using Content.Client._RMC14.Actions;
 using Content.Client.Actions;
 using Content.Client.Construction;
 using Content.Client.Gameplay;
@@ -460,8 +459,6 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
 
         if (updateSlots)
             _container?.SetActionData(_actionsSystem, _actions.ToArray());
-
-        EntityManager.SystemOrNull<RMCActionsSystem>()?.ActionsChanged(_actions);
     }
 
     private void DragAction()
@@ -835,11 +832,8 @@ public sealed class ActionUIController : UIController, IOnStateChanged<GameplayS
         // - Add a yes/no checkmark where the HandItemOverlay usually is
 
         // Highlight valid entity targets
-        if (!EntityManager.TryGetComponent<EntityTargetActionComponent>(uid, out var entity) ||
-            !entity.ToggleOutline)
-        {
+        if (!EntityManager.TryGetComponent<EntityTargetActionComponent>(uid, out var entity))
             return;
-        }
 
         Func<EntityUid, bool>? predicate = null;
         var attachedEnt = action.AttachedEntity;

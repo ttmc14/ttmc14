@@ -8,10 +8,7 @@
   },
   "states": [
     {
-      "name": "fire_extinguisher0"
-    },
-    {
-      "name": "fire_extinguisher1"
+      "name": "fire_extinguisher"
     },
     {
       "name": "equipped-BELT",

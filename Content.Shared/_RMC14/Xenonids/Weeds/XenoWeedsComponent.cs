@@ -1,13 +1,11 @@
-using Content.Shared._RMC14.Xenonids.ManageHive.Boons;
 using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Xenonids.Weeds;
 
-// TODO RMC14 field deltas for auto states
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedXenoWeedsSystem), typeof(HiveBoonSystem))]
+[Access(typeof(SharedXenoWeedsSystem))]
 public sealed partial class XenoWeedsComponent : Component
 {
     [DataField]
@@ -57,7 +55,7 @@ public sealed partial class XenoWeedsComponent : Component
     public TimeSpan MaxRandomDelete = TimeSpan.FromSeconds(10);
 
     [DataField, AutoNetworkedField]
-    public bool SpreadsOnSemiWeedable;
+    public bool SpreadsOnSemiWeedable = false;
 
     [DataField, AutoNetworkedField]
     public float FruitGrowthMultiplier = 1.0f;

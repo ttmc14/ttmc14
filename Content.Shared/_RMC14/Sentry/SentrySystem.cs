@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._RMC14.Interaction;
 using Content.Shared._RMC14.Map;
@@ -6,7 +6,6 @@ using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared._RMC14.NPC;
 using Content.Shared._RMC14.Tools;
 using Content.Shared._RMC14.Weapons.Ranged.Homing;
-using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -53,7 +52,6 @@ public sealed class SentrySystem : EntitySystem
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly SharedToolSystem _tools = default!;
     [Dependency] private readonly DamageableSystem _damageableSystem = default!;
-    [Dependency] private readonly GunIFFSystem _gunIFF = default!;
 
     private readonly HashSet<EntityUid> _toUpdate = new();
 
@@ -134,12 +132,6 @@ public sealed class SentrySystem : EntitySystem
         _transform.AnchorEntity(sentry, xform);
 
         _rmcInteraction.SetMaxRotation(sentry.Owner, angle, sentry.Comp.MaxDeviation);
-
-        if (_gunIFF.TryGetFaction(args.User, out var faction))
-        {
-            _gunIFF.SetUserFaction(sentry.Owner, faction);
-        }
-
         UpdateState(sentry);
     }
 

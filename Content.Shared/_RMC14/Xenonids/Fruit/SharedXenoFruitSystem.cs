@@ -7,7 +7,6 @@ using Content.Shared._RMC14.Xenonids.Construction.ResinHole;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Fruit.Components;
 using Content.Shared._RMC14.Xenonids.Fruit.Events;
-using Content.Shared._RMC14.Xenonids.Hedgehog;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared._RMC14.Xenonids.Plasma;
@@ -440,9 +439,7 @@ public sealed class SharedXenoFruitSystem : EntitySystem
                 [FruitPlantDamageType] = args.HealthCost,
             },
         };
-
-        if (TryComp<DamageableComponent>(xeno, out var damage))
-            _damageable.AddDamage(xeno.Owner, damage, fruitDamage);
+        _damageable.TryChangeDamage(xeno.Owner, fruitDamage, ignoreResistances: true, interruptsDoAfters: false);
 
         // Apply cooldown
         args.Handled = true;
@@ -912,12 +909,14 @@ public sealed class SharedXenoFruitSystem : EntitySystem
     // Shield (unstable fruit)
     private void ApplyFruitShield(Entity<XenoFruitShieldComponent> fruit, EntityUid target)
     {
+        var ent = target;
         var comp = fruit.Comp;
-        var maxShield = _mobThreshold.GetThresholdForState(target, MobState.Dead) * comp.ShieldRatio;
+        var maxShield = _mobThreshold.GetThresholdForState(ent, MobState.Dead) * comp.ShieldRatio;
         var shieldAmount = maxShield < comp.ShieldAmount ? maxShield : comp.ShieldAmount;
 
-        _xenoShield.ApplyShield(target, XenoShieldSystem.ShieldType.Gardener, shieldAmount,
+        _xenoShield.ApplyShield(ent, XenoShieldSystem.ShieldType.Gardener, shieldAmount,
             comp.Duration, comp.ShieldDecay.Double(), true, shieldAmount.Double());
+
         EnsureComp<GardenerShieldComponent>(target);
     }
 

@@ -7,9 +7,3 @@ public enum TacticalMapUserUi
 {
     Key,
 }
-
-[Serializable, NetSerializable]
-public sealed class TacticalMapBuiState(string mapName) : BoundUserInterfaceState
-{
-    public readonly string MapName = mapName;
-}

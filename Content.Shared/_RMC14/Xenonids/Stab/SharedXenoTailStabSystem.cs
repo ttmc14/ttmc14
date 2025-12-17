@@ -94,7 +94,6 @@ public abstract class SharedXenoTailStabSystem : EntitySystem
 
         // TODO RMC14 sounds
         // TODO RMC14 lag compensation
-        var damaged = false;
         var damage = new DamageSpecifier(stab.Comp.TailDamage);
         var eve = new RMCGetTailStabBonusDamageEvent(new DamageSpecifier());
         RaiseLocalEvent(stab, ref eve);
@@ -155,10 +154,7 @@ public abstract class SharedXenoTailStabSystem : EntitySystem
                 var change = _damageable.TryChangeDamage(hit, _xeno.TryApplyXenoSlashDamageMultiplier(hit, modifiedDamage), origin: stab , tool: stab);
 
                 if (change?.GetTotal() > FixedPoint2.Zero)
-                {
-                    damaged = true;
                     _colorFlash.RaiseEffect(Color.Red, new List<EntityUid> { hit }, filter);
-                }
 
                 if (_net.IsServer)
                 {
@@ -175,43 +171,41 @@ public abstract class SharedXenoTailStabSystem : EntitySystem
 
                 _cameraShake.ShakeCamera(hit, 2, 1);
 
-                if (!HasComp<XenoComponent>(hit))
+                if (stab.Comp.InjectNeuro &&
+                    TryComp<NeurotoxinInjectorComponent>(stab, out var neuroTox) &&
+                    HasComp<XenoComponent>(hit))
                 {
-                    if (stab.Comp.InjectNeuro &&
-                        TryComp<NeurotoxinInjectorComponent>(stab, out var neuroTox))
+
+
+                    if (!EnsureComp<NeurotoxinComponent>(hit, out var neuro))
                     {
-
-
-                        if (!EnsureComp<NeurotoxinComponent>(hit, out var neuro))
-                        {
-                            neuro.LastMessage = _timing.CurTime;
-                            neuro.LastAccentTime = _timing.CurTime;
-                            neuro.LastStumbleTime = _timing.CurTime;
-                        }
-                        neuro.NeurotoxinAmount += neuroTox.NeuroPerSecond;
-                        neuro.ToxinDamage = neuroTox.ToxinDamage;
-                        neuro.OxygenDamage = neuroTox.OxygenDamage;
-                        neuro.CoughDamage = neuroTox.CoughDamage;
+                        neuro.LastMessage = _timing.CurTime;
+                        neuro.LastAccentTime = _timing.CurTime;
+                        neuro.LastStumbleTime = _timing.CurTime;
                     }
-                    else if (stab.Comp.Inject != null &&
-                             _solutionContainer.TryGetInjectableSolution(hit, out var solutionEnt, out _))
+                    neuro.NeurotoxinAmount += neuroTox.NeuroPerSecond;
+                    neuro.ToxinDamage = neuroTox.ToxinDamage;
+                    neuro.OxygenDamage = neuroTox.OxygenDamage;
+                    neuro.CoughDamage = neuroTox.CoughDamage;
+                }
+                else if (stab.Comp.Inject != null &&
+                    _solutionContainer.TryGetInjectableSolution(hit, out var solutionEnt, out _))
+                {
+                    var total = FixedPoint2.Zero;
+                    foreach (var amount in stab.Comp.Inject.Values)
                     {
-                        var total = FixedPoint2.Zero;
-                        foreach (var amount in stab.Comp.Inject.Values)
-                        {
-                            total += amount;
-                        }
+                        total += amount;
+                    }
 
-                        var available = solutionEnt.Value.Comp.Solution.AvailableVolume;
-                        if (available < total)
-                        {
-                            _solutionContainer.SplitSolution(solutionEnt.Value, total - available);
-                        }
+                    var available = solutionEnt.Value.Comp.Solution.AvailableVolume;
+                    if (available < total)
+                    {
+                        _solutionContainer.SplitSolution(solutionEnt.Value, total - available);
+                    }
 
-                        foreach (var (reagent, amount) in stab.Comp.Inject)
-                        {
-                            _solutionContainer.TryAddReagent(solutionEnt.Value, reagent, amount);
-                        }
+                    foreach (var (reagent, amount) in stab.Comp.Inject)
+                    {
+                        _solutionContainer.TryAddReagent(solutionEnt.Value, reagent, amount);
                     }
                 }
 
@@ -220,8 +214,7 @@ public abstract class SharedXenoTailStabSystem : EntitySystem
                 if (_net.IsServer)
                     _popup.PopupEntity(msg, stab, stab);
 
-                var userName = Identity.Name(stab, EntityManager, hit);
-                msg = Loc.GetString("rmc-xeno-tail-stab-target", ("user", userName));
+                msg = Loc.GetString("rmc-xeno-tail-stab-target", ("user", stab));
                 _popup.PopupEntity(msg, stab, hit, PopupType.MediumCaution);
 
                 var othersFilter = Filter.PvsExcept(stab).RemovePlayerByAttachedEntity(hit);
@@ -230,9 +223,8 @@ public abstract class SharedXenoTailStabSystem : EntitySystem
                     if (other.AttachedEntity is not { } otherEnt)
                         continue;
 
-                    userName = Identity.Name(stab, EntityManager, otherEnt);
                     hitName = Identity.Name(hit, EntityManager, otherEnt);
-                    msg = Loc.GetString("rmc-xeno-tail-stab-others", ("user", userName), ("target", hitName));
+                    msg = Loc.GetString("rmc-xeno-tail-stab-others", ("user", stab), ("target", hitName));
                     _popup.PopupEntity(msg, stab, othersFilter, true, PopupType.SmallCaution);
                 }
             }
@@ -247,7 +239,7 @@ public abstract class SharedXenoTailStabSystem : EntitySystem
                 _rotate.RotateXeno(stab, angle.GetDir());
             }
 
-            var sound = args.Entity != null && damaged && !TerminatingOrDeleted(args.Entity) && args.Entity != stab ? stab.Comp.SoundHit : stab.Comp.SoundMiss;
+            var sound = args.Entity != null && !TerminatingOrDeleted(args.Entity) && args.Entity != stab ? stab.Comp.SoundHit : stab.Comp.SoundMiss;
             _audio.PlayPvs(sound, stab);
         }
 

@@ -1,5 +1,4 @@
-using Content.Client._RMC14.Dropship.Weapon;
-using Content.Shared._RMC14.TacticalMap;
+﻿using Content.Shared._RMC14.TacticalMap;
 using Robust.Client.Player;
 
 namespace Content.Client._RMC14.TacticalMap;
@@ -48,8 +47,6 @@ public sealed class TacticalMapSystem : SharedTacticalMapSystem
             {
                 if (bui is TacticalMapComputerBui computerBui)
                     computerBui.Refresh();
-                else if (bui is DropshipWeaponsBui weaponsBui)
-                    weaponsBui.Refresh();
             }
         }
         catch (Exception e)

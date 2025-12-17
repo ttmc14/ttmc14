@@ -18,7 +18,7 @@ public sealed class MCXenoEvasionSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
 
     private EntityQuery<RMCBulletComponent> _bulletQuery;
     private EntityQuery<ProjectileComponent> _projectileQuery;

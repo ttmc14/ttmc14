@@ -79,7 +79,7 @@
   - type: PlacementReplacement
     key: walls
   - type: IconSmooth
-    key: doors
+    key: walls
     mode: NoSprite
   - type: PaintableAirlock
     group: Standard
@@ -96,7 +96,6 @@
   - type: Corrodible
     isCorrodible: false
     structure: true
-  - type: RMCMesonsNonviewable
 
 - type: entity
   abstract: true

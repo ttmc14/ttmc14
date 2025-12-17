@@ -9,9 +9,7 @@
     sprite: _RMC14/Structures/Windows/Frames/corsat_rframe.rsi
     state: padded_rframe0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: padded_rframe
     mode: CardinalFlags
   - type: Construction
@@ -31,9 +29,7 @@
     sprite: _RMC14/Structures/Windows/corsat_rwindow.rsi
     state: padded_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: padded_rwindow
     mode: CardinalFlags
   - type: Repairable
@@ -74,9 +70,9 @@
     spawnPrototype: RMCWindowFrameColonyReinforced
     sound:
       collection: WindowShatter
-
+      
 - type: entity
-  parent: RMCWindowCorsatReinforced
+  parent: RMCWindowCorsatReinforced 
   id: RMCWindowCorsatReinforcedSecurity
   description: A red tinted glass window with a special rod matrix inside a wall frame. It looks very strong.
   components:
@@ -87,14 +83,12 @@
     sprite: _RMC14/Structures/Windows/corsat_rwindow_sec.rsi
     state: paddedsec_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: paddedsec_rwindow
     mode: CardinalFlags
-
+    
 - type: entity
-  parent: RMCWindowCorsatReinforced
+  parent: RMCWindowCorsatReinforced 
   id: RMCWindowCorsatReinforcedResearch
   description: A purple tinted glass window with a special rod matrix inside a wall frame. It looks quite strong. Might take some good hits to shatter it.
   components:
@@ -103,11 +97,9 @@
     state: paddedresearch_rwindow0
   - type: Icon
     sprite: _RMC14/Structures/Windows/corsat_rwindow_sci.rsi
-    state: paddedresearch_rwindow0
+    state: paddedresearch_rwindow0  
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: paddedresearch_rwindow
     mode: CardinalFlags
 
@@ -126,12 +118,10 @@
     sprite: _RMC14/Structures/Windows/corsat_rwindow.rsi
     state: padded_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: padded_rwindow
     mode: CardinalFlags
-
+    
 - type: entity
   parent: RMCWindowCorsatHull
   id: RMCWindowCorsatHullResearch
@@ -143,12 +133,10 @@
     sprite: _RMC14/Structures/Windows/corsat_rwindow_sci.rsi
     state: paddedresearch_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: paddedresearch_rwindow
     mode: CardinalFlags
-
+    
 - type: entity
   parent: RMCWindowCorsatHull
   id: RMCWindowCorsatHullSec
@@ -160,8 +148,6 @@
     sprite: _RMC14/Structures/Windows/corsat_rwindow_sec.rsi
     state: paddedsec_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: paddedsec_rwindow
     mode: CardinalFlags

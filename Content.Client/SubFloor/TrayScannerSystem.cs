@@ -1,4 +1,3 @@
-using Content.Shared._RMC14.Vents;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.SubFloor;
@@ -46,7 +45,6 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
         var range = 0f;
         HashSet<Entity<SubFloorHideComponent>> inRange;
         var scannerQuery = GetEntityQuery<TrayScannerComponent>();
-        var crawlerQuery = GetEntityQuery<RMCTrayCrawlerComponent>();
 
         // TODO: Should probably sub to player attached changes / inventory changes but inventory's
         // API is extremely skrungly. If this ever shows up on dottrace ping me and laugh.
@@ -68,25 +66,17 @@ public sealed class TrayScannerSystem : SharedTrayScannerSystem
             }
         }
 
-        if (crawlerQuery.TryGetComponent(player.Value, out var scanner) && scanner.Enabled)
+        foreach (var hand in _hands.EnumerateHands(player.Value))
         {
-            range = MathF.Max(scanner.Range, range);
+            if (!_hands.TryGetHeldItem(player.Value, hand, out var heldEntity))
+                continue;
+
+            if (!scannerQuery.TryGetComponent(heldEntity, out var heldScanner) || !heldScanner.Enabled)
+                continue;
+
+            range = MathF.Max(heldScanner.Range, range);
             canSee = true;
-        }
-        else
-        {
-            foreach (var hand in _hands.EnumerateHands(player.Value))
-            {
-                if (!_hands.TryGetHeldItem(player.Value, hand, out var heldEntity))
-                    continue;
-
-                if (!scannerQuery.TryGetComponent(heldEntity, out var heldScanner) || !heldScanner.Enabled)
-                    continue;
-
-                range = MathF.Max(heldScanner.Range, range);
-                canSee = true;
-                break;
-            }
+            break;
         }
 
         inRange = new HashSet<Entity<SubFloorHideComponent>>();

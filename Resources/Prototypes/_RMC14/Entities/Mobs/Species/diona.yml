@@ -1,7 +1,7 @@
 - type: entity
   save: false
   name: Urist C.M McPlants
-  parent: RMCBaseMobSpeciesOrganic
+  parent: CMBaseMobSpeciesOrganic
   id: CMMobDiona
   suffix: RMC14
   components:

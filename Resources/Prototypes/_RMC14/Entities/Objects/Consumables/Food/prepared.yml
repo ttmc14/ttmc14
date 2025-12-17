@@ -195,8 +195,9 @@
 # Empty Tray
 
 - type: entity
+  categories: [ HideSpawnMenu ]
   parent: BaseItem
-  id: RMCTrayEmpty
+  id: RMCTray_empty
   name: empty tray
   description: Finished with its tour of duty.
   components:

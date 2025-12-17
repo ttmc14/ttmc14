@@ -304,9 +304,6 @@ public abstract class SharedStorageSystem : EntitySystem
         // close ui
         foreach (var entity in storageComp.Container.ContainedEntities)
         {
-            if (HasComp<RMCItemKeepUIOpenOnStorageClosedComponent>(entity))
-                continue;
-
             UI.CloseUis(entity, actor);
         }
     }
@@ -1373,17 +1370,15 @@ public abstract class SharedStorageSystem : EntitySystem
         {
             for (var x = storageBounding.Left; x <= storageBounding.Right; x++)
             {
-                // RMC14
-                // for (var angle = startAngle; angle <= Angle.FromDegrees(360 - startAngle); angle += Math.PI / 2f)
-                // {
-                var location = new ItemStorageLocation(Angle.Zero, (x, y));
-                if (ItemFitsInGridLocation(itemEnt, storageEnt, location))
+                for (var angle = startAngle; angle <= Angle.FromDegrees(360 - startAngle); angle += Math.PI / 2f)
                 {
-                    storageLocation = location;
-                    return true;
+                    var location = new ItemStorageLocation(angle, (x, y));
+                    if (ItemFitsInGridLocation(itemEnt, storageEnt, location))
+                    {
+                        storageLocation = location;
+                        return true;
+                    }
                 }
-                // }
-                // RMC14
             }
         }
 

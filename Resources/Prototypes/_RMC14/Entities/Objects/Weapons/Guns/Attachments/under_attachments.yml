@@ -45,7 +45,6 @@
     - RMCAttachmentUnderbarrel
     - RMCAttachmentBipod
   - type: AttachableToggleable
-    activateOnMove: false
     heldOnlyActivate: true
     userOnly: true
     doInterrupt: true
@@ -228,30 +227,6 @@
 
 - type: entity
   parent: RMCUnderAttachmentBase
-  id: RMCAttachmentMicroLaserSight
-  name: micro laser sight
-  description: A compact, high-precision laser sight engineered exclusively for the M13 Auto Pistol. Offers exceptional accuracy gains by interfacing directly with the weapon's internal targeting systems.
-  components:
-  - type: Sprite
-    state: lasersight_micro
-  - type: AttachableVisuals
-  - type: Tag
-    tags:
-    - RMCAttachmentUnderbarrel
-    - RMCAttachmentMicroLaserSight
-  - type: AttachableWeaponRangedMods
-    modifiers:
-    - conditions:
-        wieldedOnly: true
-      accuracyAddMult: 0.05
-      scatterFlat: -1
-    - conditions:
-        unwieldedOnly: true
-      accuracyAddMult: 0.05
-      scatterFlat: -2
-
-- type: entity
-  parent: RMCUnderAttachmentBase
   id: RMCAttachmentMiniFlamethrower
   name: underbarrel flamethrower # TODO RMC14 intensity toggle
   description: A weapon-mounted refillable flamethrower attachment. It has a secondary setting for a more intense flame with far less propulsion ability and heavy fuel usage.
@@ -280,12 +255,9 @@
         - ReagentId: RMCNapalmUT
           Quantity: 40
   - type: RMCFlamerAmmoProvider
-  - type: RMCFlamerTank
     maxIntensity: 10
     maxDuration: 10
-    reagentWhitelist:
-    - RMCNapalmUT
-    - WeldingFuel
+  - type: RMCFlamerTank
   - type: AttachableToggleable
     userOnly: true
     attachedOnly: true
@@ -307,14 +279,6 @@
       state: flamethrower-on
   - type: AttachableVisuals
     offset: -0.125, 0.245
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/flamer_mouse.rsi
-      state: all
-  - type: RMCFlushableSolution
-    solution: rmc_flamer_tank
-    flushTime: 1.5
-  - type: NoMixingReagents
 
 - type: entity
   parent: RMCUnderAttachmentBase
@@ -394,10 +358,6 @@
       sprite: _RMC14/Objects/Weapons/Guns/Attachments/under.rsi
       state: masterkey-on
   - type: AttachableVisuals
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/shotgun_mouse.rsi
-      state: all
 
 - type: entity
   parent: RMCUnderAttachmentBase
@@ -463,29 +423,6 @@
   - type: SolutionTransfer
     maxTransferAmount: 60
     transferAmount: 60
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/shotgun_mouse.rsi
-      state: all
-
-- type: entity
-  parent: RMCAttachmentUnderbarrelExtinguisher
-  id: RMCAttachmentUnderbarrelExtinguisherSpec
-  name: HME-88B underbarrel extinguisher
-  description: An experimental Taiho-Technologies HME-88B underbarrel extinguisher integrated with a select few gun models. It is capable of putting out the strongest of flames. Point at flame before applying pressure.
-  components:
-  - type: Spray
-    sprayedPrototype: RMCExtinguisherSpraySpec
-  - type: SolutionContainerManager
-    solutions:
-      spray:
-        maxVol: 500
-        reagents:
-        - ReagentId: Water
-          Quantity: 500
-  - type: SolutionTransfer
-    maxTransferAmount: 500
-    transferAmount: 500
 
 - type: entity
   parent: [ RMCUnderAttachmentBase, RMCAttachableToggleableBase ]
@@ -572,10 +509,6 @@
     tags:
     - RMCAttachmentUnderbarrel
     - RMCAttachmentU1GrenadeLauncher
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
-      state: all
 
 - type: entity
   parent: RMCAttachmentU1GrenadeLauncher
@@ -615,10 +548,6 @@
     tags:
     - RMCAttachmentUnderbarrel
     - RMCAttachmentMK1GrenadeLauncher
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
-      state: all
 
 - type: entity
   parent: RMCAttachmentU1GrenadeLauncher
@@ -658,10 +587,6 @@
     tags:
     - RMCAttachmentUnderbarrel
     - RMCAttachmentM203GrenadeLauncher
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/explosive_mouse.rsi
-      state: all
 
 - type: entity
   parent: RMCUnderAttachmentBase
@@ -837,9 +762,6 @@
 
 - type: Tag
   id: RMCAttachmentLaserSight
-
-- type: Tag
-  id: RMCAttachmentMicroLaserSight
 
 - type: Tag
   id: RMCAttachmentU7UnderbarrelShotgun

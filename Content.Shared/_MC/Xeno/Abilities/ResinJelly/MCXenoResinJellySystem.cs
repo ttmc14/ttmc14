@@ -23,7 +23,7 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedHandsSystem _hands = null!;
 
     [Dependency] private readonly SharedAuraSystem _rmcAura = null!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = null!;
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmote = null!;
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = null!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
@@ -39,7 +39,6 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
         SubscribeLocalEvent<MCXenoResinJellyComponent, MCXenoResinJellyConsumeDoAfterEvent>(OnAfterInteractDoAfter);
 
         SubscribeLocalEvent<MCXenoResinJellyFireproofComponent, RMCIgniteAttemptEvent>(OnFireproofIgniteAttempt);
-        SubscribeLocalEvent<MCXenoResinJellyFireproofComponent, RMCGetFireImmunityEvent>(OnFireproofGetFireImmunity);
     }
 
     private void OnCreateActionEvent(Entity<MCXenoCreateResinJellyComponent> entity, ref MCXenoCreateResinJellyActionEvent args)
@@ -108,12 +107,6 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
     private void OnFireproofIgniteAttempt(Entity<MCXenoResinJellyFireproofComponent> entity, ref RMCIgniteAttemptEvent args)
     {
         args.Cancel();
-    }
-
-    private void OnFireproofGetFireImmunity(Entity<MCXenoResinJellyFireproofComponent> ent, ref RMCGetFireImmunityEvent args)
-    {
-        args.Immune = true;
-        args.Ignite = false;
     }
 
     private bool TryConsume(Entity<MCXenoResinJellyComponent> entity, EntityUid user, EntityUid target)

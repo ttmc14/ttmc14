@@ -23,11 +23,11 @@ public abstract class SharedRMCCameraSystem : EntitySystem
     {
         SubscribeLocalEvent<RoundRestartCleanupEvent>(OnRoundRestartCleanup);
 
-        SubscribeLocalEvent<RMCCameraComponent, MapInitEvent>(OnCameraMapInit, after: new [] { typeof(AreaSystem) });
+        SubscribeLocalEvent<RMCCameraComponent, MapInitEvent>(OnCameraMapInit, after: [typeof(AreaSystem)]);
         SubscribeLocalEvent<RMCCameraComponent, ComponentRemove>(OnCameraRemove);
         SubscribeLocalEvent<RMCCameraComponent, EntityTerminatingEvent>(OnCameraTerminating);
 
-        SubscribeLocalEvent<RMCCameraComputerComponent, MapInitEvent>(OnComputerMapInit, after: new [] { typeof(AreaSystem) });
+        SubscribeLocalEvent<RMCCameraComputerComponent, MapInitEvent>(OnComputerMapInit, after: [typeof(AreaSystem)]);
 
         SubscribeLocalEvent<RMCCameraWatcherComponent, ComponentRemove>(OnWatcherRemove);
         SubscribeLocalEvent<RMCCameraWatcherComponent, EntityTerminatingEvent>(OnWatcherTerminating);
@@ -89,14 +89,11 @@ public abstract class SharedRMCCameraSystem : EntitySystem
         var query = EntityQueryEnumerator<RMCCameraComponent>();
         while (query.MoveNext(out var uid, out var camera))
         {
-            foreach (var protoId in ent.Comp.ProtoIds)
-            {
-                if (camera.Id != protoId)
-                    continue;
+            if (camera.Id != ent.Comp.Id)
+                continue;
 
-                ent.Comp.CameraIds.Add(GetNetEntity(uid));
-                ent.Comp.CameraNames.Add(Name(uid));
-            }
+            ent.Comp.CameraIds.Add(GetNetEntity(uid));
+            ent.Comp.CameraNames.Add(Name(uid));
         }
 
         Dirty(ent);
@@ -233,49 +230,24 @@ public abstract class SharedRMCCameraSystem : EntitySystem
         var computers = EntityQueryEnumerator<RMCCameraComputerComponent>();
         while (computers.MoveNext(out var uid, out var comp))
         {
-            foreach (var protoId in comp.ProtoIds)
-            {
-                if (protoId != camera.Comp.Id || TerminatingOrDeleted(uid))
-                    continue;
-
-                var index = comp.CameraIds.IndexOf(netCamera);
-                if (index >= 0)
-                {
-                    comp.CameraIds.RemoveAt(index);
-                    comp.CameraNames.RemoveAt(index);
-                }
-
-                if (comp.CurrentCamera == camera)
-                    comp.CurrentCamera = null;
-
-                Dirty(uid, comp);
-            }
-        }
-    }
-
-    public void AddProtoId(RMCCameraComputerComponent computer, EntProtoId protoId)
-    {
-        computer.ProtoIds.Add(protoId);
-    }
-
-    public void RemoveProtoId(RMCCameraComputerComponent computer, EntProtoId protoId)
-    {
-        computer.ProtoIds.Remove(protoId);
-
-        var cameraQuery = EntityQueryEnumerator<RMCCameraComponent>();
-        while (cameraQuery.MoveNext(out var uid, out var camera))
-        {
-            if (camera.Id != protoId)
+            if (comp.Id != camera.Comp.Id)
                 continue;
 
-            computer.CameraIds.Remove(GetNetEntity(uid));
-            computer.CameraNames.Remove(Name(uid));
-        }
-    }
+            if (TerminatingOrDeleted(uid))
+                continue;
 
-    public void RefreshCameras(EntProtoId protoId)
-    {
-        _refresh.Add(protoId);
+            var index = comp.CameraIds.IndexOf(netCamera);
+            if (index >= 0)
+            {
+                comp.CameraIds.RemoveAt(index);
+                comp.CameraNames.RemoveAt(index);
+            }
+
+            if (comp.CurrentCamera == camera)
+                comp.CurrentCamera = null;
+
+            Dirty(uid, comp);
+        }
     }
 
     public override void Update(float frameTime)
@@ -289,18 +261,15 @@ public abstract class SharedRMCCameraSystem : EntitySystem
             return;
         }
 
-        var monitors = new HashSet<Entity<RMCCameraComputerComponent>>();
+        var monitors = new List<Entity<RMCCameraComputerComponent>>();
         foreach (var refresh in _refresh)
         {
             monitors.Clear();
             var monitorQuery = EntityQueryEnumerator<RMCCameraComputerComponent>();
             while (monitorQuery.MoveNext(out var uid, out var computer))
             {
-                foreach (var protoId in computer.ProtoIds)
-                {
-                    if (protoId == refresh)
-                        monitors.Add((uid, computer));
-                }
+                if (computer.Id == refresh)
+                    monitors.Add((uid, computer));
             }
 
             if (monitors.Count == 0)
@@ -321,21 +290,8 @@ public abstract class SharedRMCCameraSystem : EntitySystem
 
             foreach (var monitor in monitors)
             {
-                foreach (var camera in cameraIds)
-                {
-                    if (monitor.Comp.CameraIds.Contains(camera))
-                        continue;
-
-                    monitor.Comp.CameraIds.Add(camera);
-                }
-
-                foreach (var name in cameraNames)
-                {
-                    if (monitor.Comp.CameraNames.Contains(name))
-                        continue;
-
-                    monitor.Comp.CameraNames.Add(name);
-                }
+                monitor.Comp.CameraIds = cameraIds;
+                monitor.Comp.CameraNames = cameraNames;
                 Dirty(monitor);
             }
         }

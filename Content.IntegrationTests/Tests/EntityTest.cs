@@ -44,8 +44,6 @@ namespace Content.IntegrationTests.Tests
                     .Where(p => !pair.IsTestPrototype(p))
                     .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
                     .Where(p => !p.Components.ContainsKey("RoomFill")) // This comp can delete all entities, and spawn others
-                    .Where(p => !p.Components.ContainsKey("HiveKingCocoon")) // Spawns an (audio) announcement.
-                    .Where(p => !p.Components.ContainsKey("HivePylon")) // Spawn an (audio) announcement on deletion.
                     .Select(p => p.ID)
                     .ToList();
             });
@@ -89,15 +87,7 @@ namespace Content.IntegrationTests.Tests
                             entityMan.DeleteEntity(uid);
                     }
 
-                    Assert.Multiple(() =>
-                    {
-                        foreach (var (uid, meta) in Query<MetaDataComponent>(entityMan))
-                        {
-                            Assert.Fail($"Failed to delete {meta.EntityPrototype}, NAME: {meta.EntityName}");
-                        }
-
-                        Assert.That(entityMan.EntityCount, Is.Zero, $"One of these prototypes is to blame: {string.Join(",", chunk)}");
-                    });
+                    Assert.That(entityMan.EntityCount, Is.Zero);
                 });
 
                 GC.Collect();
@@ -190,8 +180,6 @@ namespace Content.IntegrationTests.Tests
                 .Where(p => !p.Abstract)
                 .Where(p => !pair.IsTestPrototype(p))
                 .Where(p => !p.Components.ContainsKey("MapGrid")) // This will smash stuff otherwise.
-                .Where(p => !p.Components.ContainsKey("HiveKingCocoon")) // Spawns an (audio) announcement.
-                .Where(p => !p.Components.ContainsKey("HivePylon")) // Spawn an (audio) announcement on deletion.
                 .Select(p => p.ID)
                 .ToList();
 
@@ -243,15 +231,7 @@ namespace Content.IntegrationTests.Tests
                             sEntMan.DeleteEntity(uid);
                     }
 
-                    Assert.Multiple(() =>
-                    {
-                        foreach (var (uid, meta) in Query<MetaDataComponent>(sEntMan))
-                        {
-                            Assert.Fail($"Failed to delete {meta.EntityPrototype}, NAME: {meta.EntityName}");
-                        }
-
-                        Assert.That(sEntMan.EntityCount, Is.Zero, $"One of these prototypes is to blame: {string.Join(",", chunk)}");
-                    });
+                    Assert.That(sEntMan.EntityCount, Is.Zero);
                 });
 
                 GC.Collect();
@@ -304,11 +284,6 @@ namespace Content.IntegrationTests.Tests
                 "GridSpawner",
                 "CorpseSpawner",
                 "ItemCamouflage",
-                // RMC14
-                "ActivateDropshipWeaponOnSpawn",
-                "AmbientSound",
-                "HiveKingCocoon"
-                // RMC14
             };
 
             Assert.That(server.CfgMan.GetCVar(CVars.NetPVS), Is.False);
@@ -336,7 +311,7 @@ namespace Content.IntegrationTests.Tests
 
             // We consider only non-audio entities, as some entities will just play sounds when they spawn.
             int Count(IEntityManager ent) =>  ent.EntityCount - ent.Count<AudioComponent>();
-            IEnumerable<EntityUid> Entities(IEntityManager entMan) => entMan.GetEntities().Where(e => !entMan.HasComponent<AudioComponent>(e));
+            IEnumerable<EntityUid> Entities(IEntityManager entMan) => entMan.GetEntities().Where(entMan.HasComponent<AudioComponent>);
 
             await Assert.MultipleAsync(async () =>
             {
@@ -376,8 +351,8 @@ namespace Content.IntegrationTests.Tests
                     // Check that the number of entities has gone back to the original value.
                     Assert.That(Count(server.EntMan), Is.EqualTo(count), $"Server prototype {protoId} failed on deletion: count didn't reset properly\n" +
                         BuildDiffString(serverEntities, Entities(server.EntMan), server.EntMan));
-                    Assert.That(Count(client.EntMan), Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
-                        $"Expected {clientCount} and found {Count(client.EntMan)}.\n" +
+                    Assert.That(client.EntMan.EntityCount, Is.EqualTo(clientCount), $"Client prototype {protoId} failed on deletion: count didn't reset properly:\n" +
+                        $"Expected {clientCount} and found {client.EntMan.EntityCount}.\n" +
                         $"Server count was {count}.\n" +
                         BuildDiffString(clientEntities, Entities(client.EntMan), client.EntMan));
                 }
@@ -464,7 +439,7 @@ namespace Content.IntegrationTests.Tests
             var logmill = server.ResolveDependency<ILogManager>().GetSawmill("EntityTest");
 
             await pair.CreateTestMap();
-            await server.WaitRunTicks(15);
+            await server.WaitRunTicks(5);
             var testLocation = pair.TestMap.GridCoords;
 
             await server.WaitAssertion(() =>

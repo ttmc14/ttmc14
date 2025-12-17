@@ -513,16 +513,6 @@
 
 - type: entity
   parent: CMBaseAlamoWall
-  id: CMAlamoWall46a
-  suffix: 46a
-  components:
-  - type: Sprite
-    state: "46a"
-  - type: Icon
-    state: "46a"
-
-- type: entity
-  parent: CMBaseAlamoWall
   id: CMAlamoWall47
   suffix: 47
   components:
@@ -550,16 +540,6 @@
     state: "49"
   - type: Icon
     state: "49"
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall49a
-  suffix: 49a
-  components:
-  - type: Sprite
-    state: "49a"
-  - type: Icon
-    state: "49a"
 
 - type: entity
   parent: CMBaseAlamoWall
@@ -695,8 +675,6 @@
   - type: Tag
     tags:
     - RMCDropshipWeaponPoint
-  - type: Corrodible
-    isCorrodible: true
 
 - type: entity
   parent: CMBaseAlamoWall
@@ -752,8 +730,6 @@
   - type: Tag
     tags:
     - RMCDropshipWeaponPoint
-  - type: Corrodible
-    isCorrodible: true
 
 - type: entity
   parent: CMBaseAlamoWall
@@ -986,20 +962,15 @@
       offset: 0.5, 0.5
 
 - type: entity
-  parent: RMCElectronicSystemAttachPoint
+  parent: CMBaseAlamoWall
   id: CMAlamoWall85
+  name: electronic system attach point
+  description: A place where heavy equipment can be installed with a powerloader.
   suffix: 85
   components:
   - type: Sprite
-    sprite: _RMC14/Structures/Dropships/alamo.rsi
-    layers:
-    - state: "85"
-    - state: "85"
-      map: [ "enum.DropshipPointVisualsLayers.AttachedUtility"]
-    - state: "85"
-      map: [ "enum.DropshipPointVisualsLayers.AttachmentBase" ]
+    state: "85"
   - type: Icon
-    sprite: _RMC14/Structures/Dropships/alamo.rsi
     state: "85"
   - type: Occluder
     enabled: false
@@ -1012,10 +983,8 @@
   - type: Sprite
     layers:
     - state: "85_flipped"
-    - state: "85_flipped"
-      map: [ "enum.DropshipPointVisualsLayers.AttachedUtility"]
-    - state: "85_flipped"
-      map: [ "enum.DropshipPointVisualsLayers.AttachmentBase" ]
+    - map: [ "enum.DropshipWeaponPointLayers.Layer" ]
+      offset: 0.5, 0.5
 
 - type: entity
   parent: CMBaseAlamoWall
@@ -1026,30 +995,6 @@
     state: "86"
   - type: Icon
     state: "86"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall86a
-  suffix: 86a
-  components:
-  - type: Sprite
-    state: "86a"
-  - type: Icon
-    state: "86a"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall86b
-  suffix: 86b
-  components:
-  - type: Sprite
-    state: "86b"
-  - type: Icon
-    state: "86b"
   - type: Occluder
     enabled: false
 
@@ -1082,30 +1027,6 @@
     state: "89"
   - type: Icon
     state: "89"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall89a
-  suffix: 89a
-  components:
-  - type: Sprite
-    state: "89a"
-  - type: Icon
-    state: "89a"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall89b
-  suffix: 89b
-  components:
-  - type: Sprite
-    state: "89b"
-  - type: Icon
-    state: "89b"
   - type: Occluder
     enabled: false
 
@@ -1181,18 +1102,6 @@
 
 - type: entity
   parent: CMBaseAlamoWall
-  id: CMAlamoWall95a
-  suffix: 95a
-  components:
-  - type: Sprite
-    state: "95a"
-  - type: Icon
-    state: "95a"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
   id: CMAlamoWall96
   suffix: 96
   components:
@@ -1212,18 +1121,6 @@
     state: "97"
   - type: Icon
     state: "97"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall97a
-  suffix: 97a
-  components:
-  - type: Sprite
-    state: "97a"
-  - type: Icon
-    state: "97a"
   - type: Occluder
     enabled: false
 
@@ -1253,18 +1150,6 @@
 
 - type: entity
   parent: CMBaseAlamoWall
-  id: CMAlamoWall99a
-  suffix: 99a
-  components:
-  - type: Sprite
-    state: "99a"
-  - type: Icon
-    state: "99a"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
   id: CMAlamoWall100
   suffix: 100
   components:
@@ -1289,18 +1174,6 @@
 
 - type: entity
   parent: CMBaseAlamoWall
-  id: CMAlamoWall101a
-  suffix: 101a
-  components:
-  - type: Sprite
-    state: "101a"
-  - type: Icon
-    state: "101a"
-  - type: Occluder
-    enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
   id: CMAlamoWall102
   suffix: 102
   components:
@@ -1310,23 +1183,3 @@
     state: "102"
   - type: Occluder
     enabled: false
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall103
-  suffix: 103
-  components:
-  - type: Sprite
-    state: "103"
-  - type: Icon
-    state: "103"
-
-- type: entity
-  parent: CMBaseAlamoWall
-  id: CMAlamoWall104
-  suffix: 104
-  components:
-  - type: Sprite
-    state: "104"
-  - type: Icon
-    state: "104"

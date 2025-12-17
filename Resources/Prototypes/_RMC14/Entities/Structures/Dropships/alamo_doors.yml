@@ -1,42 +1,114 @@
 ﻿- type: entity
-  parent: RMCDropshipDoorBase
+  parent: CMBaseDoor
   id: CMAlamoDoor
   name: alamo crew hatch
+  placement:
+    mode: SnapgridCenter
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Dropships/alamo.rsi
+    layers:
+    - state: door_closed
+      map: [ "enum.DoorVisualLayers.Base" ]
+    - state: unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: unlit
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: door_locked
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: door_spark
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Occluder
+  - type: Door
+    closingSpriteState: door_closing
+    openingSpriteState: door_opening
+    openSpriteState: door_open
+    closedSpriteState: door_closed
+    canCrush: false
+    performCollisionCheck: true
+  - type: Airlock
+    denySpriteState: door_deny
+    powered: true
+  - type: ApcPowerReceiver
+    powerLoad: 0
+    needsPower: false
+  - type: Docking
+  - type: DockingSignalControl
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: Corrodible
+    isCorrodible: false
+  - type: BlockTileFire
 
 - type: entity
-  parent: RMCDropshipCockpitBase
+  parent: CMBaseDoor
   id: CMAlamoCockpit
+  name: cockpit
   suffix: Alamo
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Dropships/alamo.rsi
-  - type: RemoveComponents
-    components:
-    - type: DoorBolt
+    layers:
+    - state: pilot_door_closed
+      map: [ "enum.DoorVisualLayers.Base" ]
+    - state: unlit
+      map: ["enum.DoorVisualLayers.BaseUnlit"]
+    - state: unlit
+      map: [ "enum.WeldableLayers.BaseWelded" ]
+    - state: pilot_door_locked
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseBolted"]
+    - state: pilot_door_spark
+      shader: unshaded
+      map: ["enum.DoorVisualLayers.BaseEmergencyAccess"]
+    - state: panel_open
+      map: ["enum.WiresVisualLayers.MaintenancePanel"]
+  - type: Door
+    closingSpriteState: pilot_door_closing
+    openingSpriteState: pilot_door_opening
+    openSpriteState: pilot_door_open
+    closedSpriteState: pilot_door_closed
+    location: Cockpit
+  - type: Airlock
+    denySpriteState: pilot_door_deny
+    powered: true
+  - type: ApcPowerReceiver
+    powerLoad: 0
+    needsPower: false
+  - type: AccessReader
+    access: [["CMAccessDropship"]]
+  - type: BlockTileFire
 
 - type: entity
-  parent: RMCDropshipDoorAftBase
+  parent: CMAlamoDoor
   id: CMAlamoDoorAft
-  name: alamo cargo door
+  suffix: Aft
   components:
-  - type: Sprite
-    sprite: _RMC14/Structures/Dropships/Airlocks/alamo_cargo.rsi
+  - type: Door
+    location: Aft
 
 - type: entity
-  parent: RMCDropshipDoorPortBase
+  parent: CMAlamoDoor
   id: CMAlamoDoorPort
-  name: alamo crew hatch
+  suffix: Port
   components:
-  - type: Sprite
-    sprite: _RMC14/Structures/Dropships/Airlocks/alamo_doubledoor.rsi
+  - type: Door
+    location: Port
 
 - type: entity
-  parent: RMCDropshipDoorStarboardBase
+  parent: CMAlamoDoor
   id: CMAlamoDoorStarboard
-  name: alamo crew hatch
+  suffix: StarBoard
   components:
-  - type: Sprite
-    sprite: _RMC14/Structures/Dropships/Airlocks/alamo_doubledoor.rsi
+  - type: Door
+    location: Starboard

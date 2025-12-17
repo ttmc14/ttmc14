@@ -81,11 +81,9 @@
           tags:
           - RMCAttachmentRailFlashlight
           - RMCAttachmentS5RedDotSight
-          - RMCAttachmentS5MicroRedDotSight
           - RMCAttachmentS6ReflexSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-bslot-barrel: 0.215, 0.19
       rmc-aslot-barrel: 0.215, 0.19
       rmc-aslot-rail: -0.11, 0.22
   - type: ItemCamouflage
@@ -98,12 +96,10 @@
   - type: RMCAirShot
     preparationTime: 1.5
     requiresCombat: true
-    doAfterBreakOnMove: false
     ignoreRoof: true
     shakeAmount: 5
     requiredSkills:
       RMCSkillLeadership: 3
-  - type: RMCBattleExecute
 
 - type: entity
   parent: RMCWeaponRevolverMateba
@@ -134,11 +130,9 @@
           tags:
           - RMCAttachmentRailFlashlight
           - RMCAttachmentS5RedDotSight
-          - RMCAttachmentS5MicroRedDotSight
           - RMCAttachmentS6ReflexSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-bslot-barrel: 0.215, 0.19
       rmc-aslot-barrel: 0.215, 0.19
       rmc-aslot-rail: -0.11, 0.22
   - type: ItemCamouflage
@@ -168,7 +162,6 @@
           tags:
           - RMCAttachmentRailFlashlight
           - RMCAttachmentS5RedDotSight
-          - RMCAttachmentS5MicroRedDotSight
           - RMCAttachmentS6ReflexSight
   - type: AttachableHolderVisuals
     offsets:
@@ -376,24 +369,13 @@
   - type: CMArmorPiercing
     amount: 5
   - type: RMCStunOnHit
-    stuns:
-    - whitelist:
-        minMobSize: VerySmallXeno
-      maxRange: 4.5
-      stunTime: 1
+    maxRange: 4.5
+    stunTime: 1
   - type: RMCProjectileAccuracy
     accuracy: 90
-  - type: RMCDebilitate
-    blacklist:
-      components:
-      - Synth
-    whitelist:
-      components:
-      - Marine
-    knockdown: 4
 
 - type: entity
-  parent: RMCBulletMatebaHighImpact
+  parent: CMBulletBase
   id: RMCBulletMatebaHighImpactArmorPiercing #HIAP
   name: bullet (.454) HIAP
   categories: [ HideSpawnMenu ]
@@ -404,6 +386,11 @@
         Piercing: 45
   - type: CMArmorPiercing
     amount: 50
+  - type: RMCStunOnHit
+    maxRange: 4.5
+    stunTime: 1
+  - type: RMCProjectileAccuracy
+    accuracy: 90
 
 - type: entity
   parent: CMBulletBase
@@ -418,11 +405,8 @@
   - type: CMArmorPiercing
     amount: 50
   - type: RMCStunOnHit
-    stuns:
-    - whitelist:
-        minMobSize: VerySmallXeno
-      maxRange: 4.5
-      stunTime: 1
+    maxRange: 4.5
+    stunTime: 1
   - type: RMCProjectileAccuracy
     accuracy: 90
 
@@ -458,29 +442,6 @@
     - id: RMCAttachmentMatebaMarksman
     - id: RMCAttachmentMatebaSnubNose
 
-- type: entity
-  parent: RMCMatebaCustomizationCase
-  id: RMCMatebaCustomizationCaseWeapon
-  suffix: Filled, Mateba
-  description: A wooden case used for storing the tools and parts needed to customize a Mateba revolver. Comes with three barrel lengths, necessary key to swap them out, and the mateba handcannon itself.
-  components:
-  - type: IgnoreContentsSize
-    items:
-      tags:
-      - RMCMateba
-  - type: Storage
-    whitelist:
-      tags:
-      - RMCMateba
-      - RMCAttachmentMatebaStandard
-      - RMCAttachmentMatebaMarksman
-      - RMCAttachmentMatebaSnubNose
-  - type: StorageFill
-    contents:
-    - id: RMCWeaponRevolverMateba
-    - id: RMCAttachmentMatebaStandard
-    - id: RMCAttachmentMatebaMarksman
-    - id: RMCAttachmentMatebaSnubNose
 
 - type: entity
   parent: RMCMatebaCustomizationCase
@@ -508,31 +469,6 @@
     - id: RMCAttachmentMatebaMarksmanGolden
     - id: RMCAttachmentMatebaSnubNoseGolden
 
-- type: entity
-  parent: RMCMatebaCustomizationCaseWeapon
-  id: RMCMatebaCustomizationCaseLuxuryWeapon
-  description: A black case used for storing the tools and parts needed to customize a Mateba revolver. This variant is made for general-grade golden Matebas and comes with golden barrel attachments, and the mateba handcannon itself.
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Weapons/Guns/Attachments/mateba_kit.rsi
-    layers:
-    - state: c_matebacase
-  - type: Icon
-    sprite: _RMC14/Objects/Weapons/Guns/Attachments/mateba_kit.rsi
-    state: c_matebacase
-  - type: Storage
-    whitelist:
-      tags:
-      - RMCMateba
-      - RMCAttachmentMatebaStandardGolden
-      - RMCAttachmentMatebaMarksmanGolden
-      - RMCAttachmentMatebaSnubNoseGolden
-  - type: StorageFill
-    contents:
-    - id: RMCWeaponRevolverMatebaGold
-    - id: RMCAttachmentMatebaStandardGolden
-    - id: RMCAttachmentMatebaMarksmanGolden
-    - id: RMCAttachmentMatebaSnubNoseGolden
 
 - type: Tag
   id: RMCSpeedLoaderMateba

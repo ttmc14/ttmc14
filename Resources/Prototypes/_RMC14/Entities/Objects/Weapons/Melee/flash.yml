@@ -23,8 +23,12 @@
   - type: Appearance
   - type: GenericVisualizer
     visuals:
+      enum.FlashVisuals.Burnt:
+        enum.FlashVisuals.BaseLayer:
+          True: { state: burnt }
+          False: { state: flash }
       enum.FlashVisuals.Flashing:
-        enum.FlashVisualLayers.LightLayer:
+        enum.FlashVisuals.LightLayer:
           True: { visible: true }
           False: { visible: false }
   - type: MeleeRequiresSkill

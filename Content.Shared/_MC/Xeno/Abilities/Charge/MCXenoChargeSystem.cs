@@ -42,7 +42,7 @@ public sealed class MCXenoChargeSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
 
     private EntityQuery<InputMoverComponent> _inputMoverQuery;
     private EntityQuery<MCXenoChargeComponent> _xenoToggleChargingQuery;

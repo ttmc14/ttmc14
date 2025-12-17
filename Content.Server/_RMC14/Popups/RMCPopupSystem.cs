@@ -8,7 +8,9 @@ public sealed class RMCPopupSystem : EntitySystem
     public bool ShouldPopup(EntityUid recipient)
     {
         // Don't show popups to others while invisible.
-        return !HasComp<EntityActiveInvisibleComponent>(recipient) &&
-               !HasComp<XenoActiveInvisibleComponent>(recipient);
+        if(HasComp<EntityActiveInvisibleComponent>(recipient) || HasComp<XenoActiveInvisibleComponent>(recipient))
+            return false;
+
+        return true;
     }
 }

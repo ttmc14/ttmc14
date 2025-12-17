@@ -1,4 +1,3 @@
-using Content.Shared.Doors.Components;
 using Content.Shared.Shuttles.Systems;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -36,10 +35,13 @@ public sealed partial class DropshipComponent : Component
     public SoundSpecifier UnidentifledlifesignsSound = new SoundPathSpecifier("/Audio/_RMC14/Announcements/ARES/unidentified_lifesigns.ogg");
 
     [DataField, AutoNetworkedField]
-    public TimeSpan LockCooldown = TimeSpan.FromSeconds(1);
+    public bool Locked;
 
     [DataField, AutoNetworkedField]
-    public Dictionary<DoorLocation, TimeSpan> LastLocked = new ();
+    public TimeSpan LockCooldown = TimeSpan.FromSeconds(1);
+
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
+    public TimeSpan LastLocked;
 
     [DataField, AutoNetworkedField]
     public HashSet<EntityUid> AttachmentPoints = new();

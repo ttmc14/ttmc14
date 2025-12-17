@@ -3,6 +3,7 @@
   id: RMCSurvivorHybrisaTMCCMiner
   name: rmc-job-name-survivor-tmcc-miner
   description: cm-job-description-survivor
+  playTimeTracker: CMJobSurvivorHybrisaTMCCMiner
   startingGear: RMCGearSurvivorHybrisaTMCCMiner
   spawnMenuRoleName: TMCC Miner (Hybrisa Survivor)
   special:
@@ -26,7 +27,6 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivor # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorBaseNoBackpack
@@ -45,6 +45,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorHybrisaTMCCMiner
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetCivilian

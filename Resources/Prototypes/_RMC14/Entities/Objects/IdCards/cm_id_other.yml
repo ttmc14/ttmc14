@@ -84,32 +84,6 @@
     job: CMLiaison
 
 - type: entity
-  parent: CMIDCardSilver
-  id: CMIDCardPMC
-  name: pmc holo-badge
-  description: A corporate holo-badge. It has a unique uncapped bottom.
-  suffix: WeYa
-  components:
-  - type: Sprite
-    state: pmc
-  - type: ItemIFF
-    faction: FactionWeYa
-
-- type: entity
-  parent: CMIDCardLiaison
-  id: CMIDCardPMCExecutive
-  name: corporate holo-badge
-  description: A corporate holo-badge in standard corporate orange and white. It has a unique uncapped bottom. It is fingerprint locked with 5-X clearance level. Commonly held by corporate managers.
-  suffix: WeYa
-  components:
-  - type: Sprite
-    state: pmc
-  - type: ItemIFF
-    faction: FactionWeYa
-  - type: PresetIdCard
-    job: CMLiaison
-
-- type: entity
   parent: CMIDCardLiaison
   id: CMIDCardLiaisonColony
   name: liaison ID card
@@ -123,15 +97,15 @@
   name: we-ya corporate security ID card
   components:
   - type: PresetIdCard
-    job: CMSurvivorGoon
+    job: RMCSurvivorHybrisaCorporateSecurity
 
 - type: entity
   parent: CMIDCardLiaison
   id: RMCIDCardExecutiveCorporateSpecialist
-  name: executive legal specialist ID card
+  name: executive corporate specialist ID card
   components:
   - type: PresetIdCard
-    job: CMCorporateExecutiveSupervisorLegal
+    job: CMCorporateExecutiveSpecialist
 
 - type: entity
   parent: CMIDCardLiaison
@@ -139,7 +113,7 @@
   name: executive corporate supervisor ID card
   components:
   - type: PresetIdCard
-    job: CMCorporateExecutiveSpecialistLegal
+    job: CMCorporateExecutiveSupervisor
 
 - type: entity
   parent: CMIDCardLiaison
@@ -192,6 +166,23 @@
     job: CMBureauDeputy
   - type: ItemIFF
     faction: FactionMarine
+
+# for survs
+- type: entity
+  parent: CMIDCardSilver
+  id: RMCIDCardDeputySurvivor
+  name: bureau deputy silver badge
+  description: The silver badge which represents that the wearer is a Bureau Deputy. It is a sign of justice, authority, and protection. Protecting those who can't. This badge represents a commitment to a sworn oath always kept.
+  components:
+    - type: Sprite
+      sprite: _RMC14/Objects/CMIDs/cmb_deputy.rsi
+      state: icon
+    - type: Clothing
+      slots:
+      - idcard
+      sprite: _RMC14/Objects/CMIDs/cmb_deputy.rsi
+    - type: ItemIFF
+      faction: FactionMarine
 
 - type: entity
   parent: CMIDCardSilver
@@ -316,13 +307,11 @@
   components:
   - type: PresetIdCard
     job: RMCJobSyntheticColony
-  - type: ItemIFF
-    faction: FactionSurvivor
 
 - type: entity
-  parent: CMIDCardStandardDogtag
+  parent: CMIDCardBase
   id: RMCIDCardFORECONSpotter
-  name: FORECON Spotter's dogtags
+  name: FORECON Spotter ID card
   components:
   - type: IdCard
     jobTitle: rmc-job-name-forecon-spotter

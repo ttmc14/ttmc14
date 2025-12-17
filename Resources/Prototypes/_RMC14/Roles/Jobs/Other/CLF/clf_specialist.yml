@@ -9,20 +9,18 @@
   startingGear: RMCGearCLFSpecialist
   icon: RMCJobIconCLFSpecialist
   joinNotifyCrew: false
-  spawnMenuRoleName: CLF Specialist
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
       skills:
-        RMCSkillFirearms: 2
         RMCSkillMedical: 1
         RMCSkillCqc: 1
         RMCSkillEngineer: 1
         RMCSkillLeadership: 1
         RMCSkillEndurance: 2
         RMCSkillMeleeWeapons: 1
-        RMCSkillJtac: 2
+        RMCSkillJtac: 1
     - type: DemoSpecWhitelist
     - type: GrenadeSpecWhitelist
     - type: ScoutWhitelist
@@ -66,11 +64,11 @@
   id: RMCGearCLFSpecialist
   equipment:
     head: RMCHeadMilitiaBucket
-    mask: RMCCombatUtilityKnifeA
+    mask: RMCM5Bayonet # TODO RMC14
     ears: RMCHeadsetDistressCLF
     eyes: RMCGlassesM4SPRBattleSight
-    jumpsuit: RMCJumpsuitCLFWebbingMAR50
-    outerClothing: RMCCoatMilitia
+    jumpsuit: RMCJumpsuitCLFSoldier
+    outerClothing: RMCCoatMilitiaHauberk
     gloves: CMHandsBlackMarine
     shoes: RMCShoesBrown
     id: RMCIDCardCLFSpecialist
@@ -78,27 +76,19 @@
     back: RMCSatchelLightpack
     suitstorage: RMCWeaponMar50LMG
     pocket1: RMCPouchExplosiveFilledC4SPP
-    pocket2: RMCPouchFirstAidERTFill
+    pocket2: RMCPouchFirstAidERT
   inhand:
+  - RMCWeaponLauncherDisposable
   - RMCEarmuffs
   storage:
     back:
     - RMCFlashlight
     - CMFirstAidKitFilled
     - CMCrowbar
-    - RMCMRECLF
+    - CMMRE
     - RMCRangefinder
     - RMCGrenadeIED
     - RMCGrenadeIED
-    - RMCWeaponLauncherDisposableFolded
-    - RMCMagazineMar50LMG
-    - RMCMagazineMar50LMG
-    outerClothing:
-    - RMCMagazineMar50LMG
-    - RMCMagazineMar50LMG
-    pocket1:
-    - RMCExplosivePlastic
-    - RMCExplosivePlastic
 
 - type: playTimeTracker
   id: RMCJobCLFSpecialist

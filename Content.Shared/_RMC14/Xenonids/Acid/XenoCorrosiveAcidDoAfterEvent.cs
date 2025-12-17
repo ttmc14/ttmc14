@@ -12,9 +12,6 @@ public sealed partial class XenoCorrosiveAcidDoAfterEvent : DoAfterEvent
     public EntProtoId AcidId = "XenoAcidNormal";
 
     [DataField]
-    public XenoAcidStrength Strength = XenoAcidStrength.Normal;
-
-    [DataField]
     public FixedPoint2 PlasmaCost = 100;
 
     [DataField]
@@ -32,7 +29,6 @@ public sealed partial class XenoCorrosiveAcidDoAfterEvent : DoAfterEvent
     public XenoCorrosiveAcidDoAfterEvent(XenoCorrosiveAcidEvent ev)
     {
         AcidId = ev.AcidId;
-        Strength = ev.Strength;
         PlasmaCost = ev.PlasmaCost;
         Time = ev.Time;
         Dps = ev.Dps;

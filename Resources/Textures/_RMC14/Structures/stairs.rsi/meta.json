@@ -94,10 +94,6 @@
     {
       "name": "rampbottom",
       "directions": 4
-    },
-    {
-      "name": "ramptop",
-      "directions": 4
     }
   ]
 }

@@ -24,7 +24,4 @@ public sealed partial class XenoZoomComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan DoAfter = TimeSpan.Zero;
-
-    [DataField, AutoNetworkedField]
-    public bool BlockLeaps;
 }

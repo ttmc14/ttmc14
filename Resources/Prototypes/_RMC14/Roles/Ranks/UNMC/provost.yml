@@ -26,26 +26,25 @@
   prefix: PvDM.
   paygrade: O6
 
+# Fax responder
+- type: rank
+  id: RMCRankProvostCommunicationsOfficer
+  name: Communications Officer
+  prefix: ComOff.
+
 # Any player with high law understanding
 - type: rank
   id: RMCRankProvostChiefInspector
   name: Chief Inspector
   prefix: PvCI.
-  paygrade: O5
+  paygrade: CI
 
 # Any player with medium-low law understanding
 - type: rank
   id: RMCRankProvostInspector
   name: Provost Inspector
   prefix: PvI.
-  paygrade: O4
-
-# Fax responder
-- type: rank
-  id: RMCRankProvostCommunicationsOfficer
-  name: Communications Officer
-  prefix: ComOff.
-  paygrade: O2
+  paygrade: I
 
 # Any player with low law understanding, with guidance
 - type: rank

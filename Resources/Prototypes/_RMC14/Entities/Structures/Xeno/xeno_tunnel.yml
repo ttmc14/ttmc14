@@ -18,14 +18,12 @@
     transparency: 0.2
   - type: DestroyedByExplosionType
     explosion: RMCOBXenoTunnel
-  - type: RMCMesonsNonviewable
-    xenoVisible: true
   - type: XenoTunnel
   - type: XenoStructureMapTracked
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: xenotunnel
   - type: TacticalMapAlwaysVisible
     visibleToXenos: true

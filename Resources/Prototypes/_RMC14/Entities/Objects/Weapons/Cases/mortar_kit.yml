@@ -1,15 +1,18 @@
 - type: entity
-  parent: RMCBaseEquipmentCase
+  parent: RMCGunCaseBase
   id: RMCMortarEquipmentCase
   name: mortar kit
   description: Contains the equipment needed for the mortar.
   components:
   - type: Sprite
+    sprite: _RMC14/Objects/loadout_kits.rsi
     layers:
     - state: closed
       map: [ base ]
     - state: mortar
       map: [ label ]
+  - type: Icon
+    sprite: _RMC14/Objects/loadout_kits.rsi
   - type: Storage
     maxItemSize: Ginormous
     grid:
@@ -23,7 +26,16 @@
       - Rangefinder
       tags:
       - Wrench
-  - type: RemoveOnlyStorage
+  - type: GenericVisualizer
+    visuals:
+      enum.StorageVisuals.Open:
+        base:
+          True: { state: open }
+          False: { state: closed }
+        label:
+          True: { visible: false }
+          False: { visible: true }
+  #  - type: RemoveOnlyStorage TODO RMC14 fix being empty on map spawn
   - type: FixedItemSizeStorage
   - type: InteractedBlacklist
     blacklist:
@@ -47,4 +59,4 @@
       amount: 3
     - id: CMWrench
     - id: RMCRangefinder
-    - id: RMCLaserDesignator
+      amount: 2

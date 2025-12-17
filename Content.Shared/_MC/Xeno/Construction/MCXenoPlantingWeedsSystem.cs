@@ -31,7 +31,7 @@ public sealed class MCXenoPlantingWeedsSystem : EntitySystem
     [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = null!;
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = null!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = null!;
 
     public override void Initialize()
     {

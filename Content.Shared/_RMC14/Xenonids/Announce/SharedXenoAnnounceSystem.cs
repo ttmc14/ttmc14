@@ -1,5 +1,4 @@
 using Content.Shared._RMC14.Areas;
-using Content.Shared._RMC14.Bioscan;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Parasite;
@@ -90,16 +89,6 @@ public abstract class SharedXenoAnnounceSystem : EntitySystem
         AnnounceToHive(xeno, hive, message, sound, popup, color, needsQueen);
     }
 
-    public void AnnounceSameHiveDefaultSound(Entity<HiveMemberComponent?> xeno,
-        string message,
-        PopupType? popup = null,
-        Color? color = null,
-        bool needsQueen = false)
-    {
-        var sound = new BioscanComponent().XenoSound;
-        AnnounceSameHive(xeno, message, sound, popup, color, needsQueen);
-    }
-
     public void AnnounceAll(EntityUid source,
         string message,
         SoundSpecifier? sound = null,
@@ -115,16 +104,5 @@ public abstract class SharedXenoAnnounceSystem : EntitySystem
             popup,
             needsQueen
         );
-    }
-
-    public void AnnounceQueenMother(string message)
-    {
-        var sound = new BioscanComponent().XenoSound;
-        AnnounceAll(default, FormatQueenMother(message), sound);
-    }
-
-    public string FormatQueenMother(string message)
-    {
-        return $"\n[bold][color=#7575F3][font size=24]Queen Mother Psychic Directive[/font][/color][/bold]\n\n[color=red][font size=14]{message}[/font][/color]\n\n";
     }
 }

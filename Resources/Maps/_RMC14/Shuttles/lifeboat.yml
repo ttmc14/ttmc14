@@ -64,7 +64,7 @@ entities:
     - type: GasTileOverlay
     - type: RadiationGridResistance
     - type: RMCSpawnEntityOnFTLStart
-- proto: RMCLightFixtureAlwaysPowered
+- proto: CMLightFixtureAlwaysPowered
   entities:
   - uid: 116
     components:

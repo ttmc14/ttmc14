@@ -1,4 +1,4 @@
-using Robust.Shared.Serialization;
+﻿using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.Medal;
 
@@ -8,9 +8,5 @@ public enum RMCPlaytimeMedalType : byte
     Bronze,
     Silver,
     Gold,
-    Platinum,
-    Ruby,
-    Amethyst,
-    Emerald,
-    Prismatic,
+    Platinum
 }

@@ -1,11 +1,11 @@
 ﻿using Content.Shared.FixedPoint;
 using Content.Shared.Weapons.Ranged;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Weapons.Ranged.Flamer;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 [Access(typeof(SharedRMCFlamerSystem))]
 public sealed partial class RMCFlamerAmmoProviderComponent : Component, IShootable
 {
@@ -13,14 +13,20 @@ public sealed partial class RMCFlamerAmmoProviderComponent : Component, IShootab
     public string ContainerId = "gun_magazine";
 
     [DataField, AutoNetworkedField]
+    public int Range = 5;
+
+    [DataField, AutoNetworkedField]
     public TimeSpan DelayPer = TimeSpan.FromSeconds(0.05);
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 CostPer = FixedPoint2.New(1);
 
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
-    public TimeSpan CantShootPopupLast;
+    [DataField, AutoNetworkedField]
+    public EntProtoId? Spawn = "RMCTileFire";
 
     [DataField, AutoNetworkedField]
-    public TimeSpan CantShootPopupCooldown = TimeSpan.FromSeconds(0.25);
+    public int MaxIntensity = 80;
+
+    [DataField, AutoNetworkedField]
+    public int MaxDuration = 50;
 }

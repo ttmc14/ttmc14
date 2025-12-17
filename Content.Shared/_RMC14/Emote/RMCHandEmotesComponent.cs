@@ -50,15 +50,6 @@ public sealed partial class RMCHandEmotesComponent : Component
     public EntProtoId HighFiveEffect = "RMCEffectHighfive";
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? HugSound = new SoundPathSpecifier("/Audio/Effects/thudswoosh.ogg")
-    {
-        Params = AudioParams.Default.WithVariation(0.5f),
-    };
-
-    [DataField, AutoNetworkedField]
-    public EntProtoId HugEffect = "RMCEffectHug";
-
-    [DataField, AutoNetworkedField]
     public TimeSpan LeftHangingDelay = TimeSpan.FromSeconds(10);
 
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
@@ -70,6 +61,5 @@ public enum RMCHandsEmoteState : byte
 {
     Fistbump = 0,
     Highfive = 1,
-    Tailswipe = 2,
-    Hug = 3
+    Tailswipe = 2
 }

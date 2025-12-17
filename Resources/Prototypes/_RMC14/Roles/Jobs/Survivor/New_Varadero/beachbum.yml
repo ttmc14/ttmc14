@@ -3,7 +3,7 @@
   id: CMSurvivorBeachBum
   name: cm-job-name-surivor-beach-bum
   description: cm-job-description-survivor
-  playTimeTracker: CMJobSurvivor
+  playTimeTracker: CMJobSurvivorBeachBum
   startingGear: RMCGearSurvivorBeachBum
   spawnMenuRoleName: Beach Bum (NV Survivor)
   special:
@@ -28,7 +28,7 @@
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
     - type: RMCConditionalMarkings
-      targetCategory: UndergarmentTop
+      targetCategory: Undershirt
       markings:
         Male:
         - RMCUndershirtNone
@@ -39,7 +39,7 @@
         - RMCUndershirtClassicJungle
         - RMCUndershirtSportsJungle
         - RMCUndershirtStraplessJungle
-  useLoadoutOfJob: CMSurvivor # for inheritance
+  useLoadoutOfJob: CMSurvivor
 
 - type: startingGear
   parent: RMCGearSurvivorBase
@@ -61,7 +61,7 @@
     contents:
     - id: RMCCigarettePackWeYaGold
     - id: RMCKitchenKnifeButcher
-    - id: RMCBeerPack
+    - id: CMDrinkCanBeerLite
 
 - type: entity
   parent: CMSpawnPointJobBase
@@ -74,6 +74,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorBeachBum
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetCivilian

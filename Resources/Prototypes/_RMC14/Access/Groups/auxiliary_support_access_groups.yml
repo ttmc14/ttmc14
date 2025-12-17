@@ -1,10 +1,8 @@
 ﻿- type: accessGroup
   id: ASO
-  parent: RMCBaseAuxiliaryJob
-  name: Auxiliary Support Officer
   tags:
   - CMAccessASO
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessBrig
   - CMAccessArmory
   - CMAccessMedical
@@ -13,6 +11,7 @@
   - CMAccessEngineering
   - CMAccessMaint
   - CMAccessOT
+  - CMAccessQM
   - CMAccessRequisitions
   - CMAccessMarinePrep
   - CMAccessAlpha
@@ -24,15 +23,11 @@
   - CMAccessKitchen
   - CMAccessPress
   - CMAccessCrewman
-  - RMCAccessDatabase
-  - RMCAccessSeniorCommand
 
 - type: accessGroup
   id: Pilot
-  parent: RMCBaseAuxiliaryJob
-  name: Pilot
   tags:
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessDropship
   - CMAccessPilot
   - CMAccessCrewman
@@ -40,21 +35,17 @@
 
 - type: accessGroup
   id: DropshipCrewChief
-  parent: RMCBaseAuxiliaryJob
-  name: Dropship Crew Chief
   tags:
   - CMAccessCrewman
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessDropship
   - CMAccessPilot
   - CMAccessMedical
 
 - type: accessGroup
   id: IntelOfficer
-  parent: RMCBaseAuxiliaryJob
-  name: Intelligence Officer
   tags:
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessDropship
   - CMAccessMarinePrep
   - CMAccessCombatTechPrep

@@ -38,8 +38,8 @@
       # infra
       # timer
       # prox_sensor
-      - id: RMCLightTube
-      - id: RMCLightBulb
+      - id: CMLightTube
+      - id: CMLightBulb
       # glass
       # camera
       - id: RMCBucket

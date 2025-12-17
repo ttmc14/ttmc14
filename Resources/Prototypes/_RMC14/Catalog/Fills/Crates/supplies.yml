@@ -22,10 +22,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: RMCToolboxEmergencyFilled
-      amount: 2
-    - id: RMCHazardVest
-      amount: 2
+    # /obj/item/storage/toolbox/emergency x2
+    # /obj/item/clothing/suit/storage/hazardvest x2
     - id: CMGasTankOxygen # /obj/item/tank/emergency_oxygen
       amount: 5
     - id: CMMaskGas
@@ -68,7 +66,6 @@
       amount: 1
 
 # /datum/supply_packs/poster
-# /obj/item/poster x 5
 
 # /datum/supply_packs/crayons
 - type: entity

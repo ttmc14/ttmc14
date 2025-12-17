@@ -1,7 +1,5 @@
-using Content.Shared._RMC14.Slow;
 using Content.Shared.Actions;
 using Content.Shared.FixedPoint;
-using Content.Shared.StatusEffect;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Xenonids.Heal;
@@ -25,10 +23,4 @@ public sealed partial class XenoSacrificeHealActionEvent : EntityTargetActionEve
 
     [DataField]
     public EntProtoId HealEffect = "RMCEffectHealSacrifice";
-
-    [DataField]
-    public ProtoId<StatusEffectPrototype>[] AilmentsRemove = ["KnockedDown", "Stun", "Dazed", "Unconscious"];
-
-    [DataField]
-    public ComponentRegistry ComponentsRemove;
 }

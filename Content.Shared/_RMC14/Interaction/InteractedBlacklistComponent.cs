@@ -9,7 +9,4 @@ public sealed partial class InteractedBlacklistComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
     public EntityWhitelist? Blacklist;
-
-    [DataField, AutoNetworkedField]
-    public bool AnchoredOnly;
 }

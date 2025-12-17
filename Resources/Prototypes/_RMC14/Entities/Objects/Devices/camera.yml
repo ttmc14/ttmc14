@@ -11,8 +11,6 @@
     size: Huge
   - type: Wieldable
   - type: Eye
-    zoom: 0.5, 0.5
-  - type: RMCStaticZoomLevel
   - type: SurveillanceCameraMicrophone
     blacklist:
       components:

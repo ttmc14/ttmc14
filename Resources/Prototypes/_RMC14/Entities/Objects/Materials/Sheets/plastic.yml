@@ -28,14 +28,6 @@
       map: ["base"]
   - type: Item
     size: Normal
-  - type: RMCConstructionItem
-    buildable:
-      - RMCCratePlasticBuild
-      - RMCAshtrayBuild
-      - RMCDividerConstruction
-      - RMCForkPlasticBuild
-      - RMCSpoonPlasticBuild
-      - RMCKitchenKnifePlasticBuild
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -54,10 +46,6 @@
     tags:
     - Sheet
     - Plastic
-  - type: UserInterface
-    interfaces:
-      enum.RMCConstructionUiKey.Key:
-        type: RMCConstructionBui
 
 - type: entity
   parent: RMCSheetPlastic

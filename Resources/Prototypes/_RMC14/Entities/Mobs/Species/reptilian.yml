@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  parent: RMCBaseMobSpeciesOrganic
+  parent: CMBaseMobSpeciesOrganic
   id: CMMobReptilian
   name: Urisst' C-M Mzhand
   suffix: RMC14
@@ -18,9 +18,9 @@
   - type: Speech
     speechSounds: Lizard
     speechVerb: Reptilian
-    allowedEmotes: ['Thump', 'Hiss', 'Purr', 'RMCReptileRattle']
+    allowedEmotes: ['Thump']
   - type: BodyEmotes
-    soundsId: RMCReptilianBodyEmotes
+    soundsId: ReptilianBodyEmotes
   - type: TypingIndicator
     proto: lizard
   - type: Vocal

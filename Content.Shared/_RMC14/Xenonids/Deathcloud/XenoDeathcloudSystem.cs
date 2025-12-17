@@ -25,5 +25,6 @@ public sealed class XenoDeathcloudSystem : EntitySystem
 
         var spawn = SpawnAtPosition(xeno.Comp.Spawn, xeno.Owner.ToCoordinates());
         _hive.SetSameHive(xeno.Owner, spawn);
+        QueueDel(xeno);
     }
 }

@@ -4,7 +4,6 @@ using Content.Shared._RMC14.Dropship.Weapon;
 using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared._RMC14.Stun;
 using Content.Shared._RMC14.Weapons.Common;
-using Content.Shared._RMC14.Xenonids.Devour;
 using Content.Shared.CombatMode;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -51,9 +50,6 @@ public sealed class RMCAirShotSystem : EntitySystem
             return;
 
         if (ent.Comp.RequiredSkills != null && !_skills.HasAllSkills(args.UserUid, ent.Comp.RequiredSkills))
-            return;
-
-        if (HasComp<DevouredComponent>(args.UserUid))
             return;
 
         AttemptAirShot(ent, args.UserUid);
@@ -133,14 +129,8 @@ public sealed class RMCAirShotSystem : EntitySystem
 
     private void OnAirShotExamined(Entity<RMCAirShotComponent> ent, ref ExaminedEvent args)
     {
-        using (args.PushGroup(nameof(RMCAirShotComponent), 5))
-        {
-            if (ent.Comp.RequiredSkills == null || _skills.HasAllSkills(args.Examiner, ent.Comp.RequiredSkills))
-                args.PushMarkup(Loc.GetString("rmc-gun-shoot-air-examine", ("harm", ent.Comp.RequiresCombat)));
-
-            if (ent.Comp.LastFlareId is { } id)
-                args.PushMarkup(Loc.GetString("rmc-flare-gun-examine", ("id", id)));
-        }
+        if (ent.Comp.LastFlareId is { } id)
+            args.PushMarkup(Loc.GetString("rmc-flare-gun-examine", ("id", id)));
     }
 
     /// <summary>
@@ -168,7 +158,7 @@ public sealed class RMCAirShotSystem : EntitySystem
         var ev = new AirShotDoAfterEvent(GetNetCoordinates(shooterCoordinates));
         var doAfter = new DoAfterArgs(EntityManager, shooter, ent.Comp.PreparationTime, ev, ent)
         {
-            BreakOnMove = ent.Comp.DoAfterBreakOnMove,
+            BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = true,
             MovementThreshold = 0.5f,

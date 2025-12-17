@@ -3,7 +3,7 @@
   id: CMJobSurvivorMoHDoctor
   name: rmc-job-name-survivor-moh-doctor
   description: cm-job-description-survivor
-  playTimeTracker: CMJobSurvivorDoctor
+  playTimeTracker: CMJobSurvivorMoHDoctor
   ranks:
     RMCRankCivilianDoctor: []
   startingGear: RMCGearSurvivorMoHDoctor
@@ -31,7 +31,7 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivorDoctor # for inheritance
+  useLoadoutOfJob: CMSurvivorDoctor
 
 - type: startingGear
   parent: RMCGearSurvivorBaseNoBackpack
@@ -51,6 +51,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorMoHDoctor
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetDoctor

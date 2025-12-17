@@ -3,7 +3,7 @@
 namespace Content.Shared._RMC14.Actions;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedRMCActionsSystem))]
+[Access(typeof(RMCActionsSystem))]
 public sealed partial class ActionInRangeUnobstructedComponent : Component
 {
     [DataField, AutoNetworkedField]

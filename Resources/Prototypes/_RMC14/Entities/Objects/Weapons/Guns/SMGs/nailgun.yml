@@ -102,8 +102,6 @@
     zeroVisible: false
     zeroOnlyOnEmpty: true
   - type: Appearance
-  - type: Item
-    size: Small
 
 - type: entity
   parent: CMCartridgeSMGBase

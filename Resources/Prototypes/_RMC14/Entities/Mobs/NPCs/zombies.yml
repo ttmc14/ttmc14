@@ -29,7 +29,6 @@
     state: Zombie
   - type: CorpseSpawner
     spawn: RMCZombifiedColonist
-    skipLimit: true
 
 # Civilian
 

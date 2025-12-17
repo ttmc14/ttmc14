@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   - CMXenoDeveloped
   - CMXenoTail
@@ -95,7 +95,7 @@
     prefix: carrier
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: carrier
   - type: XenoInhands
     prefix: carrier
@@ -162,8 +162,6 @@
   - type: XenoEvolution
     strains:
     - RMCXenoCarrierEggsac
-  - type: RMCActionOrder
-    id: CMXenoCarrier
 
 - type: entity
   parent: RMCXenoCarrierBase
@@ -185,9 +183,6 @@
     - map: [ "enum.XenoInhandVisualLayers.Left" ]
       visible: false
     - map: [ "enum.XenoInhandVisualLayers.Right" ]
-      visible: false
-    - map: [ "enum.RMCShieldVisuals.Base" ]
-      sprite: _RMC14/Effects/xeno_shields.rsi
       visible: false
     - map: [ "focused" ]
       sprite: _RMC14/Interface/xeno_hud.rsi
@@ -228,6 +223,4 @@
   - type: XenoGenerateEggs
   - type: XenoEggSustainer
   - type: XenoHidden
-  - type: RMCActionOrder
-    id: RMCXenoCarrierEggsac
 

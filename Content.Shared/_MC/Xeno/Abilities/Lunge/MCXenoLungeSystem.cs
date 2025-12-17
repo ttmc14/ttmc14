@@ -36,7 +36,7 @@ public sealed class MCXenoLungeSystem : EntitySystem
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly RMCObstacleSlammingSystem _rmcObstacleSlamming = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly MCKnockbackSystem _mcKnockback = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;

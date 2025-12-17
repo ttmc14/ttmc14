@@ -49,11 +49,8 @@
     - type: CommandAccent
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: warden
-      background:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
-        state: background_mp
     - type: RMCTrackable
 
 - type: startingGear
@@ -84,14 +81,3 @@
 - type: playTimeTracker
   id: CMJobMilitaryWarden
   isHumanoid: true
-
-# Guidebook
-- type: entity
-  parent: CMGuidebookRole
-  id: RMCGuidebookRoleMW
-  name: Military Warden
-  description: Military Warden
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: warden

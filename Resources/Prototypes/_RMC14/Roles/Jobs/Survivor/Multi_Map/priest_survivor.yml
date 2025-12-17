@@ -4,7 +4,7 @@
   id: CMSurvivorPriest
   name: cm-job-name-surivor-priest
   description: cm-job-description-survivor
-  playTimeTracker: CMJobSurvivor
+  playTimeTracker: CMJobSurvivorPriest
   startingGear: RMCGearSurvivorPriest
   spawnMenuRoleName: Priest (Survivor)
   special:
@@ -27,7 +27,7 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivor # for inheritance
+  useLoadoutOfJob: CMSurvivor
 
 - type: startingGear
   parent: RMCGearSurvivorEquipped
@@ -58,6 +58,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorPriest
+  isHumanoid: true
 
 - type: entity
   parent: [RMCSurvivorPresetCivilianRareItem, RMCSurvivorPresetCivilian]

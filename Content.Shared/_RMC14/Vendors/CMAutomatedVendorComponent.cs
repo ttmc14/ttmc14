@@ -1,12 +1,9 @@
-using System.Numerics;
-using Content.Shared._RMC14.Marines.Roles.Ranks;
+﻿using System.Numerics;
 using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared.Access;
 using Content.Shared.Roles;
-using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._RMC14.Vendors;
 
@@ -20,9 +17,6 @@ public sealed partial class CMAutomatedVendorComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<ProtoId<JobPrototype>> Jobs = new();
-
-    [DataField, AutoNetworkedField]
-    public List<ProtoId<RankPrototype>> Ranks = new();
 
     [DataField, AutoNetworkedField]
     public List<CMVendorSection> Sections = new();
@@ -66,19 +60,4 @@ public sealed partial class CMAutomatedVendorComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public float? RandomEmptyChance;
-
-    [DataField, AutoNetworkedField]
-    public SoundSpecifier? Sound;
-
-    [DataField, AutoNetworkedField]
-    public SpriteSpecifier.Rsi? BaseSprite;
-
-    [DataField, AutoNetworkedField]
-    public SpriteSpecifier.Rsi? AnimationSprite;
-
-    /// <summary>
-    ///     Whether to eject all contents when the vendor is destroyed.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool EjectContentsOnDestruction = false;
 }

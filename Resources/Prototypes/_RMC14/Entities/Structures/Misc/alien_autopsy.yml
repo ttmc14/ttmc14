@@ -1,6 +1,6 @@
 - type: entity
   id: RMCResearchThingies
-  name: jar shelf
+  name: Research thingies
   description: ""
   placement:
     mode: SnapgridCenter

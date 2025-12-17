@@ -87,7 +87,7 @@ public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : ICom
         Subs.CVar(_config, RMCCVars.RMCMarinesPerSurvivor, v => MarinesPerSurvivor = v, true);
         Subs.CVar(_config, RMCCVars.RMCSurvivorsMinimum, v => MinimumSurvivors = v, true);
         Subs.CVar(_config, RMCCVars.RMCSurvivorsMaximum, v => MaximumSurvivors = v, true);
-        // Subs.CVar(_config, RMCCVars.RMCAdminFaxAreaMap, v => _adminFaxAreaMap = v, true);
+        Subs.CVar(_config, RMCCVars.RMCAdminFaxAreaMap, v => _adminFaxAreaMap = v, true);
     }
 
     protected int GetXenos(int players)

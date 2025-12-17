@@ -103,5 +103,3 @@ rmc-tacmap-alert-restricted-actions = [color=red]✗[/color] {$actions}
 rmc-tacmap-alert-no-area = Unknown area
 
 rmc-ui-options-alternate-sprites = Use non-trypophobia inducing sprites
-
-rmc-ui-options-chat-squad-color-mode = Colorize names of the speaker by squads

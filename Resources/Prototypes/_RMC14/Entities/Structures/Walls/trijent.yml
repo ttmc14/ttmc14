@@ -11,13 +11,10 @@
     state: hangar
   - type: IconSmooth
     key: walls
-    additionalKeys:
-    - windows
-    - doors
     base: hangar
 
 - type: entity
-  parent: RMCBaseWallReinforced
+  parent: CMWallReinforced
   id: RMCWallBunker
   name: bunker wall
   components:
@@ -29,13 +26,10 @@
     state: bunker
   - type: IconSmooth
     key: walls
-    additionalKeys:
-    - windows
-    - doors
     base: bunker
 
 - type: entity
-  parent: RMCBaseWallReinforced
+  parent: CMWallReinforced
   id: RMCWallChigusa
   name: facility wall
   components:
@@ -47,9 +41,6 @@
     state: chigusa
   - type: IconSmooth
     key: walls
-    additionalKeys:
-    - windows
-    - doors
     base: chigusa
 
 - type: entity

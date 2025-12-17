@@ -14,5 +14,4 @@ public enum NewPlayerVisuals
     One,
     Two,
     Three,
-    Four,
 }

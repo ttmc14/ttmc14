@@ -3,6 +3,7 @@
   id: RMCSurvivorHybrisaXenoarchaeologist
   name: rmc-job-name-survivor-xenoarchaeologist
   description: cm-job-description-survivor
+  playTimeTracker: CMJobSurvivorHybrisaXenoarchaeologist
   startingGear: RMCGearSurvivorHybrisaXenoarchaeologist
   spawnMenuRoleName: Xenoarchaeologist (Hybrisa Survivor)
   special:
@@ -26,7 +27,6 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivorScientist # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorBaseNoBackpack
@@ -45,6 +45,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorHybrisaXenoarchaeologist
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetScientist

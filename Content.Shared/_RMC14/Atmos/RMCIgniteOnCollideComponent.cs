@@ -32,7 +32,4 @@ public sealed partial class RMCIgniteOnCollideComponent : Component
 
     [DataField, AutoNetworkedField]
     public CollisionGroup Collision = CollisionGroup.FullTileLayer;
-
-    [DataField, AutoNetworkedField]
-    public Color BurnColor = Color.Orange;
 }

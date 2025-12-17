@@ -156,7 +156,7 @@
   - type: PointLight
     enabled: true
   - type: PoweredLight
-    hasLampOnSpawn: RMCLightTube # Временно
+    hasLampOnSpawn: CMLightTube # Временно
     unarmedHitShock: 0
   - type: DamageOnInteract
     damage:
@@ -243,7 +243,7 @@
   - type: RMCBreakLightOnAttack
 
 - type: entity
-  parent: RMCLightFixtureSmallAlwaysPowered
+  parent: CMLightFixtureSmallAlwaysPowered
   id: MCLightFixtureSmallBlueAlwaysPowered
   components:
   - type: Sprite
@@ -322,7 +322,7 @@
   - type: PointLight
     enabled: true
   - type: PoweredLight
-    hasLampOnSpawn: RMCLightBulb
+    hasLampOnSpawn: CMLightBulb
     unarmedHitShock: 0
   - type: DamageOnInteract
     damage:

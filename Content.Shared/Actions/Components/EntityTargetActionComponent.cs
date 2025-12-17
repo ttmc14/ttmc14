@@ -54,8 +54,5 @@ public sealed partial class EntityTargetActionComponent : Component
     // RMC14
     [DataField, AutoNetworkedField]
     public bool TargetCheckCanInteract = true;
-
-    [DataField, AutoNetworkedField]
-    public bool ToggleOutline = true;
     // RMC14
 }

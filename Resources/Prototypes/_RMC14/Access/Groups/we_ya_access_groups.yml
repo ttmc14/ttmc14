@@ -6,11 +6,9 @@
 
 - type: accessGroup
   id: RMCWeYaExec
-  parent: RMCBaseMiscellaneousJob
-  name: Corporate Liaison
   tags:
   - RMCAccessWeYa
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessResearch
   - CMAccessMedical
   - CMAccessMedPrep
@@ -19,7 +17,7 @@
   id: RMCWeYaExecColony
   tags:
   - RMCAccessWeYa
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessResearch
   - CMAccessMedical
   - CMAccessMedPrep

@@ -9,20 +9,24 @@
     department: CMRequisitions
     time: 36000 # 10 hours
   ranks:
-    RMCRankFirstLT:
+    RMCRankMasterSergeant:
     - !type:RoleTimeRequirement
       role: CMJobQuartermaster
       time: 252000 # 70 hours
-    RMCRankSecondLT: []
+    RMCRankGunnerySergeant:
+    - !type:RoleTimeRequirement
+      role: CMJobQuartermaster
+      time: 36000 # 10 hours
+    RMCRankStaffSergeant: []
   weight: 5
   startingGear: CMGearQuartermaster
   icon: "CMJobIconQuartermaster"
   requireAdminNotify: true
   joinNotifyCrew: false
-  marineAuthorityLevel: 8
-  supervisors: rmc-job-supervisors-commander
+  marineAuthorityLevel: 6
+  supervisors: cm-job-supervisors-aso
   accessGroups:
-  - QuarterMaster
+  - CMQM
   roleWeight: 0.25
   special:
   - !type:AddComponentSpecial
@@ -30,7 +34,6 @@
     - type: Skills
       skills:
         RMCSkillConstruction: 2
-        RMCSkillEndurance: 1
         RMCSkillFirearms: 1
         RMCSkillFireman: 1
         RMCSkillIntel: 1
@@ -39,9 +42,6 @@
         RMCSkillOverwatch: 1
         RMCSkillPolice: 1
         RMCSkillPowerLoader: 2
-    - type: CMVendorUser
-      id: CMQuartermaster
-      points: 45
     - type: MarineOrders
     - type: RMCPointing
     - type: JobPrefix
@@ -50,16 +50,15 @@
     - type: CommandAccent
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: cargo
     - type: RMCTrackable
-    - type: MutinyEligible
 
 - type: startingGear
   id: CMGearQuartermaster
   equipment:
     jumpsuit: CMJumpsuitQM
-    shoes: CMBootsBlackFilled
+    shoes: CMBootsBlack
     head: RMCHeadCapQuartermaster
     gloves: CMHandsInsulated
     id: CMIDCardQuartermaster
@@ -72,7 +71,7 @@
 - type: entity
   parent: CMSpawnPointJobBase
   id: CMSpawnPointQuartermaster
-  name: Logistics Officer spawn point
+  name: quartermaster spawn point
   components:
   - type: SpawnPoint
     job_id: CMQuartermaster
@@ -86,8 +85,8 @@
 - type: entity
   parent: CMGuidebookRole
   id: RMCGuidebookRoleQM
-  name: The LO
-  description: The Logistics Officer.
+  name: The QM
+  description: The Quartermaster.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

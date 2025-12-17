@@ -14,6 +14,5 @@ public readonly record struct TechOption(
     int CurrentCost,
     bool Purchased,
     List<object> Events,
-    SpriteSpecifier.Rsi Icon,
-    TimeSpan TimeLock
+    SpriteSpecifier.Rsi Icon
 );

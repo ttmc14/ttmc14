@@ -29,9 +29,6 @@
       visible: false
     - map: [ "enum.XenoInhandVisualLayers.Right" ]
       visible: false
-    - map: [ "enum.RMCShieldVisuals.Base" ]
-      sprite: _RMC14/Effects/xeno_shields.rsi
-      visible: false
     - map: [ "focused" ]
       sprite: _RMC14/Interface/xeno_hud.rsi
       state: hudeye
@@ -111,7 +108,6 @@
     xenoArmor: 25
     explosionArmor: 100
   - type: XenoWordQueen
-  - type: InnateCommandSpeech
   - type: XenoGut
   - type: XenoClaws
     clawType: VerySharp
@@ -172,7 +168,7 @@
     footstepSoundCollection:
       collection: XenoFootstepLarge
       params:
-        volume: 0
+        volume: -6
 #  - type: RandomSound
 #    sound:
 #      collection: XenoQueenBreath # TODO RMC14
@@ -229,10 +225,10 @@
     liveUpdate: true
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: xenoqueen
     background:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: xeno_ruler
   - type: AcidTrap
   - type: TacticalMapLiveUpdateOnOvi
@@ -273,15 +269,11 @@
   - type: RMCSurgeryXenoHeart
     item: RMCOrganXenoHeartTQ
   - type: RMCTrackable
-  - type: ExcludedFromKingVote
-    canVote: true
 
 - type: entity
   parent: RMCXenoQueenBase
   id: CMXenoQueen
-  components:
-  - type: RMCActionOrder
-    id: CMXenoQueen
+  #components:
   # - type: XenoEvolution #can be enabled for events like april fools.
   #   strains:
   #   - RMCXenoQueenMaid

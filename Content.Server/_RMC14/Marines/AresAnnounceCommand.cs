@@ -5,7 +5,7 @@ using Robust.Shared.Audio;
 
 namespace Content.Server._RMC14.Marines;
 
-[AdminCommand(AdminFlags.Fun)]
+[AdminCommand(AdminFlags.Moderator)]
 public sealed class AresAnnounceCommand : IConsoleCommand
 {
     public string Command => "aresannounce";
@@ -23,7 +23,7 @@ public sealed class AresAnnounceCommand : IConsoleCommand
 
         var message = string.Join(' ', args);
         var soundSpecifier = new SoundPathSpecifier("/Audio/_RMC14/AI/announce.ogg");
-        marineAnnounce.AnnounceARES(null, message, soundSpecifier);
+        marineAnnounce.AnnounceARES(null, message, soundSpecifier, "rmc-announcement-ares-command");
         shell.WriteLine("Sent!");
     }
 }

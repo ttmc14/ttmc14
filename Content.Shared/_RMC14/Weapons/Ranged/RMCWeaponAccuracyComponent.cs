@@ -23,10 +23,4 @@ public sealed partial class RMCWeaponAccuracyComponent : Component
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 ModifiedAccuracyMultiplier = 1;
-
-    [DataField, AutoNetworkedField]
-    public float RangeFlat;
-
-    [DataField, AutoNetworkedField]
-    public float RangeFlatModified;
 }

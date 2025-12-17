@@ -1,14 +1,9 @@
-- type: tile
-  abstract: true
+﻿- type: tile
+  parent: CMTileBase
   id: CMFloorStripedBase
   name: tiles-cm-striped
   baseTurf: ""
   deconstructTools: [ ]
-  footstepSounds:
-    collection: FootstepFloor
-  heatCapacity: 10000
-  isSubfloor: true
-  friction: 1
 
 - type: tile
   parent: CMFloorStripedBase

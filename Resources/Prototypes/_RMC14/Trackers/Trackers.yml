@@ -44,18 +44,8 @@
   job: CMSquadLeader
 
 - type: trackerMode
-  id: SectionSergeant
-  job: CMPVESectionSergeant
-  alert: SquadTrackerSunRiders
-
-- type: trackerMode
   id: FireteamLeader
   job: CMFireteamLeader
-
-- type: trackerMode
-  id: PVESquadLeader
-  job: CMPVESquadLeader
-  alert: SquadTrackerSunRiders
 
 - type: trackerMode
   id: Rifleman
@@ -68,16 +58,6 @@
 - type: trackerMode
   id: LeaderPmc
   job: RMCPMCLeader
-  alert: SquadTrackerPMCTeamLeader
-
-- type: trackerMode
-  id: LeaderPmcPVE
-  job: CMPMCForceLeadPVE
-  alert: SquadTrackerPMCForceLeader
-
-- type: trackerMode
-  id: TeamLeaderPmcPVE
-  job: CMPMCTeamLeadPVE
   alert: SquadTrackerPMCTeamLeader
 
 - type: trackerMode
@@ -99,11 +79,11 @@
 
 - type: trackerMode
   id: SupervisorWeYaExecutive
-  job: CMCorporateExecutiveSupervisorLegal
+  job: CMCorporateExecutiveSupervisor
 
 - type: trackerMode
   id: SupervisorWeYaSpecialist
-  job: CMCorporateExecutiveSpecialistLegal
+  job: CMCorporateExecutiveSpecialist
 
 - type: trackerMode
   id: ProvostMarshal
@@ -171,14 +151,9 @@
 - type: trackerMode
   id: HiveLeader
   component: HiveLeader
-  alert: LeaderTracker
+  alert: HiveTracker
 
 - type: trackerMode
   id: Tunnel
   component: XenoTunnel
-  alert: TunnelTracker
-
-- type: trackerMode
-  id: HiveCore
-  component: HiveCore
-  alert: HiveCoreTracker
+  alert: HiveTracker

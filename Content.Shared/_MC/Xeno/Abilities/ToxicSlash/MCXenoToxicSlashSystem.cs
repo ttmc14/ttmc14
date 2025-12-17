@@ -8,7 +8,7 @@ namespace Content.Shared._MC.Xeno.Abilities.ToxicSlash;
 
 public sealed class MCXenoToxicSlashSystem : EntitySystem
 {
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MCXenoToxicStacksSystem _toxicStacks = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;

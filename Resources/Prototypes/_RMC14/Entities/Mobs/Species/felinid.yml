@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  parent: RMCBaseMobSpeciesOrganic
+  parent: CMBaseMobSpeciesOrganic
   id: CMMobFelinid
   name: Urist McFelinid
   suffix: RMC14

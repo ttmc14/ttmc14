@@ -29,9 +29,6 @@ public sealed partial class SurvivorPresetComponent : Component
     public bool TryEquipRandomOtherGear = true;
 
     [DataField, AutoNetworkedField]
-    public bool TryEquipRandomWeapon = false;
-
-    [DataField, AutoNetworkedField]
     public Dictionary<EntProtoId, (int, int)> RareItems = new();
 
     [DataField, AutoNetworkedField]

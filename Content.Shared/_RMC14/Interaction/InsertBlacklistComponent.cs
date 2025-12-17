@@ -1,5 +1,4 @@
-using Content.Shared.Whitelist;
-using Content.Shared.Mobs;
+﻿using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._RMC14.Interaction;
@@ -8,15 +7,6 @@ namespace Content.Shared._RMC14.Interaction;
 [Access(typeof(RMCInteractionSystem))]
 public sealed partial class InsertBlacklistComponent : Component
 {
-    [DataField, AutoNetworkedField]
-    public EntityWhitelist? Whitelist;
-
-    [DataField]
+    [DataField(required: true), AutoNetworkedField]
     public EntityWhitelist? Blacklist;
-
-    [DataField]
-    public HashSet<MobState>? BlacklistedMobStates = null;
-
-    [DataField]
-    public HashSet<MobState>? WhitelistedMobStates = null;
 }

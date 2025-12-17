@@ -23,6 +23,8 @@
     Chest: MobRodentiaTorso
     UndergarmentTop: MobHumanoidAnyMarking
     UndergarmentBottom: MobHumanoidAnyMarking
+    Underwear: MobHumanoidAnyMarking
+    Undershirt: MobHumanoidAnyMarking
     HeadTop: MobHumanoidAnyMarking
     HeadSide: MobHumanoidAnyMarking
     Tail: MobHumanoidAnyMarking
@@ -68,11 +70,11 @@
     Chest:
       points: 2
       required: false
-    UndergarmentBottom:
+    Underwear:
       points: 1
       required: true
       defaultMarkings: [ RMCUnderwearBoxersBlue ]
-    UndergarmentTop:
+    Undershirt:
       points: 1
       required: true
       defaultMarkings: [ RMCUndershirtStandard ]

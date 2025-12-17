@@ -1,9 +1,7 @@
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Marines.Squads;
 using Content.Shared.Actions;
-using Content.Shared.Administration.Logs;
 using Content.Shared.Audio;
-using Content.Shared.Database;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
@@ -19,7 +17,6 @@ namespace Content.Shared._RMC14.Telephone;
 
 public abstract class SharedRMCTelephoneSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLog = default!;
     [Dependency] private readonly SharedAmbientSoundSystem _ambientSound = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
@@ -58,7 +55,6 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
             subs =>
             {
                 subs.Event<RMCTelephoneCallBuiMsg>(OnTelephoneCallMsg);
-                subs.Event<RMCTelephoneDndBuiMsg>(OnTelephoneDndMsg);
             });
     }
 
@@ -158,7 +154,7 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
         if (_net.IsClient)
             return;
 
-        if (GetEntity(args.Id) is not { Valid: true } target ||
+        if (GetEntity(args.Id) is not { Valid: true } target  ||
             ent.Owner == target ||
             !TryComp(target, out RotaryPhoneComponent? targetRotaryPhone))
         {
@@ -183,12 +179,10 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
         }
 
         // Emit the popup on a successful call.
-        // Check for the marine component because we don't want walls calling phones.
-        if (HasComp<MarineComponent>(user) &&
-            TryComp(user, out MetaDataComponent? marineMeta) &&
-            TryComp(ent, out MetaDataComponent? phoneMeta))
+        // Check for the marine component cause we don't want walls calling phones.
+        if (HasComp<MarineComponent>(user) && TryComp(user, out MetaDataComponent? marinemeta) && TryComp(ent, out MetaDataComponent? phonemeta))
         {
-            _popup.PopupEntity($"{marineMeta.EntityName} dials a number on the {phoneMeta.EntityName}.", ent);
+            _popup.PopupEntity($"{marinemeta.EntityName} dials a number on the {phonemeta.EntityName}.", ent);
         }
 
         ent.Comp.Idle = false;
@@ -221,7 +215,7 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
                 _ambientSound.SetRange(target, 16, otherSound);
                 _ambientSound.SetVolume(target, receivingSound.Params.Volume, otherSound);
                 _ambientSound.SetAmbience(target, true, otherSound);
-                var ev = new RMCTelephoneRingEvent(target, ent, args.Actor);
+                var ev = new RMCTelephoneRingEvent(target);
                 RaiseLocalEvent(ref ev);
             }
         }
@@ -231,27 +225,11 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
 
         UpdateAppearance((ent, ent));
         UpdateAppearance((target, targetRotaryPhone));
-
-        _adminLog.Add(LogType.RMCTelephone, $"{ToPrettyString(args.Actor)} started calling {ToPrettyString(target)} using {ToPrettyString(ent)}");
-    }
-
-
-    private void OnTelephoneDndMsg(Entity<RotaryPhoneComponent> ent, ref RMCTelephoneDndBuiMsg args)
-    {
-        if (args.Dnd && ent.Comp.CanDnd)
-        {
-            EnsureComp<RotaryPhoneDndComponent>(ent);
-        }
-        else
-        {
-            RemComp<RotaryPhoneDndComponent>(ent);
-        }
-        SendUIState(ent);
     }
 
     private bool IsPhoneBusy(EntityUid ent)
     {
-        return HasComp<RotaryPhoneDialingComponent>(ent) || HasComp<RotaryPhoneReceivingComponent>(ent) || HasComp<RotaryPhoneDndComponent>(ent);
+        return HasComp<RotaryPhoneDialingComponent>(ent) || HasComp<RotaryPhoneReceivingComponent>(ent);
     }
 
     private void UpdateAppearance(Entity<RotaryPhoneComponent?> phone, bool forceNotRinging = false)
@@ -304,7 +282,7 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
         }
     }
 
-    private void HangUp(EntityUid self, EntityUid other, EntityUid? user)
+    private void HangUp(EntityUid self, EntityUid other)
     {
         StopSound(self);
 
@@ -327,8 +305,6 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
 
         if (_net.IsServer)
             _audio.PlayPvs(RemoteHangupSound, other);
-
-        _adminLog.Add(LogType.RMCTelephone, $"{ToPrettyString(user)} hung up {ToPrettyString(self)} while calling {ToPrettyString(other)}");
     }
 
     private void StopSound(EntityUid ent)
@@ -409,10 +385,8 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
             var name = GetPhoneName((otherId, otherComp));
             phones.Add(new RMCPhone(GetNetEntity(otherId), otherComp.Category, name));
         }
-        var canDnd = Comp<RotaryPhoneComponent>(phone).CanDnd;
-        var dnd = HasComp<RotaryPhoneDndComponent>(phone);
 
-        _ui.SetUiState(phone, RMCTelephoneUiKey.Key, new RMCTelephoneBuiState(phones, canDnd, dnd));
+        _ui.SetUiState(phone, RMCTelephoneUiKey.Key, new RMCTelephoneBuiState(phones));
     }
 
     private void PickupReceiving(Entity<RotaryPhoneReceivingComponent> receiving, EntityUid user)
@@ -434,7 +408,6 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
         }
 
         UpdateAppearance((receiving, rotaryPhone));
-        _adminLog.Add(LogType.RMCTelephone, $"{ToPrettyString(user)} picked up {ToPrettyString(receiving)}");
     }
 
     protected string GetPhoneName(Entity<RotaryPhoneComponent?> phone)
@@ -471,7 +444,7 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
         if (ent.Comp.Other is { } other)
         {
             StopSound(other);
-            HangUp(ent, other, user);
+            HangUp(ent, other);
 
             if (!HasPickedUp(other))
             {
@@ -502,7 +475,7 @@ public abstract class SharedRMCTelephoneSystem : EntitySystem
                 Dirty(other, dialing);
             }
 
-            HangUp(ent, other, user);
+            HangUp(ent, other);
 
             if (!HasPickedUp(other))
                 RemCompDeferred<RotaryPhoneReceivingComponent>(other);

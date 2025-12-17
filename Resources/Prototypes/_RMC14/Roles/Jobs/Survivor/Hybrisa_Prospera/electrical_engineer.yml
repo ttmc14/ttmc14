@@ -3,6 +3,7 @@
   id: RMCSurvivorHybrisaEngineer
   name: rmc-job-name-survivor-hybrisa-engineer
   description: cm-job-description-survivor
+  playTimeTracker: RMCJobSurvivorHybrisaEngineer
   startingGear: RMCGearSurvivorHybrisaEngineer
   spawnMenuRoleName: Electrical Engineer (Hybrisa Survivor)
   special:
@@ -26,7 +27,6 @@
     - type: RMCAllowSuitStorage
     - type: EquipSurvivorPreset
       preset: RMCGearSurvivorPresetHybrisaEngineer
-  useLoadoutOfJob: CMSurvivorEngineer # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorBase
@@ -38,6 +38,10 @@
   storage:
     back:
     - WeaponNailgun
+
+- type: playTimeTracker
+  id: RMCJobSurvivorHybrisaEngineer
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetEngineer

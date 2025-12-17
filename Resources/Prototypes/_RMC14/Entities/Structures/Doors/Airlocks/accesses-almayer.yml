@@ -6,7 +6,7 @@
   suffix: Requisitions, Locked
   components:
   - type: AccessReader
-    access: [ ["CMAccessRequisitions"], ["RMCAccessCommand"] ]
+    access: [ ["CMAccessRequisitions"], ["CMAccessCommand"] ]
   - type: PaintableAirlock
     department: CMRequisitions
 
@@ -16,7 +16,7 @@
   suffix: Requisitions, Locked, Maint
   components:
   - type: AccessReader
-    access: [ [ "CMAccessRequisitions" ], ["RMCAccessCommand"] ]
+    access: [ [ "CMAccessRequisitions" ], ["CMAccessCommand"] ]
   - type: PaintableAirlock
     department: CMRequisitions
 
@@ -57,7 +57,7 @@
   suffix: Engineering, Locked
   components:
   - type: AccessReader
-    access: [ [ "CMAccessEngineering" ], ["RMCAccessCommand"] ]
+    access: [ [ "CMAccessEngineering" ], ["CMAccessCommand"] ]
 
 - type: entity
   parent: CMAirlockGlassEngineer
@@ -65,7 +65,7 @@
   suffix: Engineering, Locked, Glass
   components:
   - type: AccessReader
-    access: [ [ "CMAccessEngineering" ], ["RMCAccessCommand"] ]
+    access: [ [ "CMAccessEngineering" ], ["CMAccessCommand"] ]
 
 - type: entity
   parent: CMAirlockMaint
@@ -73,7 +73,7 @@
   suffix: Engineering, Locked, Maint
   components:
   - type: AccessReader
-    access: [ [ "CMAccessEngineering" ], ["RMCAccessCommand"] ]
+    access: [ [ "CMAccessEngineering" ], ["CMAccessCommand"] ]
   - type: PaintableAirlock
     department: CMEngineering
 
@@ -128,23 +128,6 @@
   - type: AccessReader
     access: [ [ "CMAccessResearch" ] ]
 
-- type: entity
-  parent: CMAirlockMedical
-  id: CMAirlockMedicalCMOLocked
-  suffix: CMO, Locked
-  components:
-  - type: AccessReader
-    access: [ [ "CMAccessCMO" ] ]
-
-- type: entity
-  parent: CMAirlockGlassMedical
-  id: CMAirlockGlassMedicalCMOLocked
-  suffix: CMO, Locked, Glass
-  components:
-  - type: AccessReader
-    access: [ [ "CMAccessCMO" ] ]
-
-
 # Correspondent
 - type: entity
   parent: CMAirlock
@@ -183,7 +166,7 @@
   suffix: Security, Locked
   components:
   - type: AccessReader
-    access: [ [ "CMAccessBrig" ], [ "RMCAccessCommand" ] ]
+    access: [ [ "CMAccessBrig" ], [ "CMAccessCommand" ] ]
 
 - type: entity
   parent: CMAirlockGlassSecurity
@@ -191,7 +174,7 @@
   suffix: Security, Locked
   components:
   - type: AccessReader
-    access: [ [ "CMAccessBrig" ], [ "RMCAccessCommand" ] ]
+    access: [ [ "CMAccessBrig" ], [ "CMAccessCommand" ] ]
 
 # Liaison
 - type: entity
@@ -210,14 +193,3 @@
   components:
   - type: AccessReader
     access: [ [ "RMCAccessWeYa" ] ]
-
-# high comm
-
-- type: entity
-  parent: CMAirlock
-  id: CMAirlockHC
-  name: High Command Door
-  suffix: HighComm, Locked
-  components:
-  - type: AccessReader
-    access: [ [ "CMAccessHighCommand" ] ]

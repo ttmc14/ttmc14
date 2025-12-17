@@ -22,8 +22,6 @@ using Content.Shared.Strip.Components;
 using Content.Shared.Verbs;
 using Robust.Shared.Utility;
 using Content.Shared._RMC14.Clothing;
-using Content.Shared._RMC14.Marines.Skills;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared.Strip;
 
@@ -43,10 +41,7 @@ public abstract class SharedStrippableSystem : EntitySystem
     [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
 
     // RMC14
-    [Dependency] private readonly SkillsSystem _skills = default!;
-
-    private static readonly EntProtoId<SkillDefinitionComponent> MultiStripSkill = "RMCSkillPolice";
-    private const int MultiStripSkillLevel = 2;
+    [Dependency] private readonly ISharedAdminManager _admin = default!;
 
     public override void Initialize()
     {
@@ -345,7 +340,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = _skills.HasSkill(user, MultiStripSkill, MultiStripSkillLevel) ? DuplicateConditions.SameTool : DuplicateConditions.SameEvent, // RMC14
+            DuplicateCondition = DuplicateConditions.SameTool,
             ForceVisible = user != target,
         };
 
@@ -561,7 +556,7 @@ public abstract class SharedStrippableSystem : EntitySystem
             BreakOnMove = true,
             NeedHand = true,
             BreakOnHandChange = false, // Allow simultaneously removing multiple items.
-            DuplicateCondition = _skills.HasSkill(user.Owner, MultiStripSkill, MultiStripSkillLevel) ? DuplicateConditions.SameTool : DuplicateConditions.SameEvent, // RMC14
+            DuplicateCondition = DuplicateConditions.SameTool,
             ForceVisible = user != target,
         };
 

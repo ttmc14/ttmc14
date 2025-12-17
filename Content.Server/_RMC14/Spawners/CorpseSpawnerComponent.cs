@@ -8,8 +8,5 @@ namespace Content.Server._RMC14.Spawners;
 public sealed partial class CorpseSpawnerComponent : Component
 {
     [DataField(required: true)]
-    public ProtoId<RandomHumanoidSettingsPrototype>? Spawn;
-
-    [DataField, AutoNetworkedField]
-    public bool SkipLimit;
+    public ProtoId<RandomHumanoidSettingsPrototype> Spawn;
 }

@@ -32,6 +32,7 @@
         RMCSkillJtac: 2
         RMCSkillCqc: 1
         RMCSkillPowerLoader: 2
+    - type: SquadArmorWearer
     - type: JobPrefix
       prefix: rmc-job-prefix-pmc-engineer
   hidden: true
@@ -82,15 +83,15 @@
   equipment:
     id: RMCIDCardPMC
     head: ArmorHelmetPMCEngineer
-    mask: RMCMaskCoifPMC
+    mask: RMCMaskBalaclava # TODO RMC14: M8 pattern armored balaclava
     ears: RMCHeadsetDistressPMC
-    jumpsuit: RMCJumpsuitVeteranPMCEngineer
+    jumpsuit: RMCJumpsuitMercenaryEngineer
     outerClothing: RMCArmorM4PMCEngineer
-    belt: RMCBeltPMC
+    belt: CMBeltMarine
     gloves: RMCHandsVeteranPMC
     shoes: RMCBootsPMCFilled
-    suitstorage: RMCWeaponRifleSSG45
-    back: RMCSatchelWelderPMC
+    suitstorage: WeaponRifleSSG45
+    back: RMCBackpackWelderPMC
     pocket1: RMCPouchToolsSocFill
     pocket2: RMCPouchConstructionFillFull
   storage:
@@ -102,7 +103,7 @@
     - RMCMagazineRifleSSG45AP
     outerClothing:
     - RMCExplosiveBreachingCharge
-    - RMCGrenadeCustomMetalFoam
+    - MetalFoamGrenade # TODO RMC14: This is upstream version
     back:
     - RMCSentryMiniWeYa
     - RMCSentryMiniWeYa
@@ -114,7 +115,7 @@
     pocket1:
     - CMWelder
     - CMEntrenchingTool
-    - RMCLightReplacer
+    - CMLightReplacer
 
 - type: playTimeTracker
   id: RMCJobPMCEngineer

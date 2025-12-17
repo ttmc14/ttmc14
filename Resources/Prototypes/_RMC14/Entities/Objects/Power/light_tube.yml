@@ -1,6 +1,6 @@
 - type: entity
-  parent: RMCLightBulbBase
-  id: RMCLightTubeBase
+  parent: CMLightBulbBase
+  id: CMLightTubeBase
   abstract: true
   components:
   - type: Sprite
@@ -13,8 +13,8 @@
     PowerUse: 25
 
 - type: entity
-  parent: RMCLightTubeBase
-  id: RMCLightTube
+  parent: CMLightTubeBase
+  id: CMLightTube
   name: light tube
   description: A replacement light tube.
   suffix: Warm
@@ -23,7 +23,7 @@
     color: "#FFEFD2"
 
 - type: entity
-  parent: RMCLightTube
+  parent: CMLightTube
   id: RMCLightTubeBlue
   suffix: Blue
   components:
@@ -31,16 +31,8 @@
     color: "#D2E3EC"
 
 - type: entity
-  parent: RMCLightTube
-  id: RMCLightTubeWarm
-  suffix: Orange
-  components:
-  - type: LightBulb
-    color: "#FA8E2A"
-
-- type: entity
-  parent: RMCLightTubeBase
-  id: RMCLightTubeBroken
+  parent: CMLightTubeBase
+  id: CMLightTubeBroken
   name: light tube
   description: A replacement light tube.
   suffix: Broken

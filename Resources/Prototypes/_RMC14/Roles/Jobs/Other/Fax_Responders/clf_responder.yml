@@ -12,7 +12,6 @@
   supervisors: cm-job-supervisors-staff
   accessGroups:
   - ShipMasterAccess
-  - RMCWeYa
   special:
   - !type:AddComponentSpecial
     components:
@@ -22,7 +21,6 @@
     - type: Skills
       skills:
         RMCSkillConstruction: 2
-        RMCSkillEndurance: 1
         RMCSkillEngineer: 2
         RMCSkillFirearms: 1
         RMCSkillFireman: 1
@@ -48,13 +46,10 @@
     head: RMCHeadCapFlippable
     id: RMCIDCardCLFResponder
     ears: CMHeadsetColony
-    eyes: RMCGlassesMedicalHUDGlasses
-    back: CMSatchelFilledFaxResponder
+    back: CMSatchel
     belt: CMClipboard
     pocket1: RMCPouchGeneralLarge
     pocket2: RMCPouchDocument
-  inhand:
-    - RMCStampCLF
 
 - type: entity
   parent: CMIDCardSilver

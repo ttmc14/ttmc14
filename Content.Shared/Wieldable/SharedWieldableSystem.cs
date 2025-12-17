@@ -259,8 +259,7 @@ public abstract class SharedWieldableSystem : EntitySystem
             return false;
         }
 
-        // RMC14
-        if (_hands.CountFreeableHands((user, hands), uid) < component.FreeHandsRequired)
+        if (_hands.CountFreeableHands((user, hands)) < component.FreeHandsRequired)
         {
             if (!quiet)
             {

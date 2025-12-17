@@ -14,7 +14,7 @@ public sealed partial class MCXenoBanishSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly MetaDataSystem _metaData = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = null!;
     [Dependency] private readonly ExamineSystemShared _examine = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly TagSystem _tag = null!;

@@ -1,6 +1,5 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._RMC14.Weapons.Ranged;
@@ -29,12 +28,6 @@ public sealed partial class BreechLoadedComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool ShowBreechOpen = true;
-
-    [DataField, AutoNetworkedField]
-    public string DelayId = "breech-toggle-delay";
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan ToggleDelay = TimeSpan.FromSeconds(0);
 }
 
 [Serializable, NetSerializable]

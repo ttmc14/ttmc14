@@ -3,6 +3,7 @@
   id: RMCSurvivorHybrisaXenobiologist
   name: rmc-job-name-survivor-xenobiologist
   description: cm-job-description-survivor
+  playTimeTracker: CMJobSurvivorHybrisaXenobiologist
   startingGear: RMCGearSurvivorHybrisaXenobiologist
   spawnMenuRoleName: Xenobiologist (Hybrisa Survivor)
   special:
@@ -26,7 +27,6 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivorScientist # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorBaseNoBackpack
@@ -44,6 +44,10 @@
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
 
+- type: playTimeTracker
+  id: CMJobSurvivorHybrisaXenobiologist
+  isHumanoid: true
+
 - type: entity
   parent: RMCSurvivorPresetScientist
   id: RMCGearSurvivorPresetHybrisaXenobiologist
@@ -56,5 +60,5 @@
     - [ CMSatchel, RMCJumpsuitCivilianScientist, CMHandsLatex, RMCLabcoat, RMCGlassesReagentHUDGlasses, RMCShoesLaceup ]
     - [ CMSatchel, RMCJumpsuitCivilianScientist, CMHandsLatex, RMCLabcoat, RMCGlassesMarineRpg, RMCShoesLaceup ]
     - [ CMSatchel, RMCJumpsuitCivilianScientist, CMHandsLatex, RMCLabcoat, RMCGlassesMarineRpg, RMCShoesLaceup ]
-    - [ CMSatchel, RMCJumpsuitCivilianScientist, RMCHandsVeteranCBRN, RMCArmorVestCivilian, RMCGlassesReagentHUDGlasses, RMCShoesBrown, CMHeadBandTan, RMCWeaponFlamerColony ]
+    - [ CMSatchel, RMCJumpsuitCivilianScientist, RMCHandsVeteranCBRN, RMCArmorVestCivilian, RMCGlassesReagentHUDGlasses, RMCShoesBrown, CMHeadBandTan, RMCWeaponFlamerImprovised ]
 

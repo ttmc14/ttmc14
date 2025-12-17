@@ -11,7 +11,7 @@ public sealed class MCXenoRegenerateSkinSystem : EntitySystem
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly MCSharedFlammableSystem _mcFlammable = default!;
     [Dependency] private readonly MCXenoSunderSystem _mcXenoSunder = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmoteSystem = default!;
 
     public override void Initialize()

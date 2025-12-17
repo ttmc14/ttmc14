@@ -98,9 +98,6 @@ public sealed class MeleeWeaponSystem : SharedMeleeWeaponSystem
 
     public override void DoLunge(EntityUid user, EntityUid weapon, Angle angle, Vector2 localPos, string? animation, bool predicted = true)
     {
-        if (localPos == Vector2.Zero) // RMC14
-            return;
-
         Filter filter;
 
         if (predicted)

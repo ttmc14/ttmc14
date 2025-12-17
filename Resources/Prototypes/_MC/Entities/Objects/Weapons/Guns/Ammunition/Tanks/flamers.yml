@@ -16,18 +16,21 @@
         reagents:
         - ReagentId: MCNapalm
           Quantity: 75
+  - type: MCFlamerTankFireType
+    spawn: MCFireFlamethrower
   - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
     targetWhitelist:
+      # Для понятия работы
       tags:
-      - MCPyroFlamer
-      - MCBackpackFlamer
+      - MCPyroFlamer # Эта хуйня сможет дать тебе обычного топлива
+      - MCBackpackFlamer # Эта хуйня сможет дать тебе обычного топлива через сумку
   - type: Tag
     tags:
-    - MCFlamerTank
-    - MCFlamerTankLarge
-    - MCPyroFlamer
+    - MCFlamerTank # Эта хуйня нужна чтобы можно было в огнемёт вставить бак
+    - MCFlamerTankLarge # Эта хуйня нужна для белого листа сумки
+    - MCPyroFlamer # Эта хуйня нужна для возможности в будущем перелить содержимость
   - type: SolutionStorageFillable
     solution: rmc_flamer_tank
   - type: RefillableSolution
@@ -53,8 +56,10 @@
       rmc_flamer_tank:
         maxVol: 75
         reagents:
-        - ReagentId: MCNapalmG
+        - ReagentId: MCNapalm
           Quantity: 75
+  - type: MCFlamerTankFireType
+    spawn: MCFireFlamethrowerGreen
   - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
@@ -81,8 +86,10 @@
       rmc_flamer_tank:
         maxVol: 75
         reagents:
-        - ReagentId: MCNapalmX
+        - ReagentId: MCNapalm
           Quantity: 75
+  - type: MCFlamerTankFireType
+    spawn: MCFireFlamethrowerBlue
   - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
@@ -111,8 +118,10 @@
       rmc_flamer_tank:
         maxVol: 75
         reagents:
-        - ReagentId: MCNapalmRGB
+        - ReagentId: MCNapalm
           Quantity: 75
+  - type: MCFlamerTankFireType
+    spawn: MCFireFlamethrowerRGB
   - type: RMCFlamerTank
   - type: RMCSolutionTransferWhitelist
     popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
@@ -250,7 +259,7 @@
       tank:
         maxVol: 500
         reagents:
-        - ReagentId: MCNapalmX
+        - ReagentId: MCNapalm
           Quantity: 500
   - type: DetailedExaminableSolution
     solution: tank

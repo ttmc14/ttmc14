@@ -1,7 +1,5 @@
 using System.Linq;
-using Content.Shared._RMC14.Overwatch;
 using Content.Shared._RMC14.Xenonids.Eye;
-using Content.Shared._RMC14.Xenonids.Watch;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
@@ -117,11 +115,8 @@ namespace Content.Shared.Examine
             if (!examinerComp.CheckInRangeUnOccluded)
                 return true;
 
-            if (Comp<TransformComponent>(examiner).MapID != target.MapId) 
-            {
-                if (!HasComp<OverwatchWatchingComponent>(examiner) && !HasComp<XenoWatchingComponent>(examiner))
-                    return false;
-            }
+            if (Comp<TransformComponent>(examiner).MapID != target.MapId)
+                return false;
 
             // Do target InRangeUnoccluded which has different checks.
             if (examined != null)
@@ -130,26 +125,6 @@ namespace Content.Shared.Examine
                     queen.Eye != null)
                 {
                     return _queenEye.CanSeeTarget((examiner, queen), examined.Value);
-                }
-
-                if (TryComp<OverwatchWatchingComponent>(examiner, out var overwatcher) && overwatcher.Watching is { } overwatched)
-                {
-                    // Uses the watched entity as the examiner
-                    return InRangeUnOccluded(
-                        overwatched,
-                        examined.Value,
-                        GetExaminerRange(overwatched),
-                        predicate: predicate,
-                        ignoreInsideBlocker: true);
-                } 
-                else if (TryComp<XenoWatchingComponent>(examiner, out var watcher) && watcher.Watching is { } watched)
-                {
-                    return InRangeUnOccluded(
-                        watched,
-                        examined.Value,
-                        GetExaminerRange(watched),
-                        predicate: predicate,
-                        ignoreInsideBlocker: true);
                 }
 
                 return InRangeUnOccluded(

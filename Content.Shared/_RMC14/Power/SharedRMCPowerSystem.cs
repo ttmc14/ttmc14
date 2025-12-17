@@ -1,7 +1,7 @@
+﻿using System.Numerics;
 using Content.Shared._RMC14.Areas;
 using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared._RMC14.Sprite;
-using Content.Shared._RMC14.Tools;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Access.Components;
 using Content.Shared.Damage;
@@ -25,7 +25,6 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
-using System.Numerics;
 using static Content.Shared.Popups.PopupType;
 
 namespace Content.Shared._RMC14.Power;
@@ -70,7 +69,6 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         _areaQuery = GetEntityQuery<AreaComponent>();
         _powerReceiverQuery = GetEntityQuery<RMCPowerReceiverComponent>();
 
-        SubscribeLocalEvent<RMCApcComponent, ComponentStartup>(OnApcStartup);
         SubscribeLocalEvent<RMCApcComponent, MapInitEvent>(OnApcUpdate);
         SubscribeLocalEvent<RMCApcComponent, EntParentChangedMessage>(OnApcUpdate);
         SubscribeLocalEvent<RMCApcComponent, ComponentRemove>(OnApcRemove);
@@ -105,11 +103,6 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
             });
     }
 
-    private void OnApcStartup(Entity<RMCApcComponent> ent, ref ComponentStartup args)
-    {
-        OffsetApc(ent);
-    }
-
     private void OnApcUpdate<T>(Entity<RMCApcComponent> ent, ref T args)
     {
         if (!TryComp(ent, out MetaDataComponent? metaData) ||
@@ -133,7 +126,26 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         if (ent.Comp.StartingCell is { } startingCell)
             TrySpawnInContainer(startingCell, ent, ent.Comp.CellContainerSlot, out _);
 
-        OffsetApc(ent);
+        /*
+        var sprite = EnsureComp<SpriteSetRenderOrderComponent>(ent);
+        switch (Transform(ent).LocalRotation.GetDir())
+        {
+            case Direction.South:
+                _sprite.SetOffset(ent, new Vector2(0.45f, -0.32f));
+                break;
+            case Direction.East:
+                _sprite.SetOffset(ent, new Vector2(0.7f, -1.45f));
+                break;
+            case Direction.North:
+                _sprite.SetOffset(ent, new Vector2(-0.5f, -1.5f));
+                break;
+            case Direction.West:
+                _sprite.SetOffset(ent, new Vector2(-0.7f, -0.4f));
+                break;
+        }
+
+        Dirty(ent, sprite);
+        */
     }
 
     private void OnApcRemove<T>(Entity<RMCApcComponent> ent, ref T args)
@@ -420,19 +432,6 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         {
             TryRepair(ent, user, used, RMCFusionReactorState.Wrench);
         }
-        else if (TryComp<RMCDeviceBreakerComponent>(used, out var breaker) && ent.Comp.State != RMCFusionReactorState.Weld)
-        {
-            var doafter = new DoAfterArgs(EntityManager, args.User, breaker.DoAfterTime, new RMCDeviceBreakerDoAfterEvent(), args.Used, args.Target, args.Used)
-            {
-                BreakOnMove = true,
-                RequireCanInteract = true,
-                BreakOnHandChange = true,
-                DuplicateCondition = DuplicateConditions.SameTool
-            };
-
-            _doAfter.TryStartDoAfter(doafter);
-            return;
-        }
     }
 
     private void OnFusionReactorCellDoAfter(Entity<RMCFusionReactorComponent> ent, ref RMCFusionReactorCellDoAfterEvent args)
@@ -543,14 +542,6 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         }
 
         args.Handled = true;
-        DestroyReactor(ent, args.User);
-
-        if (ent.Comp.State != RMCFusionReactorState.Weld)
-            args.Repeat = true;
-    }
-
-    public void DestroyReactor(Entity<RMCFusionReactorComponent> ent, EntityUid? user)
-    {
         ent.Comp.State = ent.Comp.State switch
         {
             RMCFusionReactorState.Working => RMCFusionReactorState.Wrench,
@@ -563,6 +554,9 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         UpdateAppearance(ent);
 
         _popup.PopupClient(Loc.GetString("rmc-fusion-reactor-destroyed", ("reactor", ent)), ent, user, SmallCaution);
+
+        if (ent.Comp.State != RMCFusionReactorState.Weld)
+            args.Repeat = true;
 
         ReactorUpdated(ent);
     }
@@ -823,30 +817,7 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         _recalculate = true;
     }
 
-    private void OffsetApc(Entity<RMCApcComponent> ent)
-    {
-        return; // mc-changes
-        var sprite = EnsureComp<SpriteSetRenderOrderComponent>(ent);
-        switch (Transform(ent).LocalRotation.GetDir())
-        {
-            case Direction.South:
-                _sprite.SetOffset(ent, new Vector2(0.45f, -0.32f));
-                break;
-            case Direction.East:
-                _sprite.SetOffset(ent, new Vector2(0.7f, -1.45f));
-                break;
-            case Direction.North:
-                _sprite.SetOffset(ent, new Vector2(-0.5f, -1.5f));
-                break;
-            case Direction.West:
-                _sprite.SetOffset(ent, new Vector2(-0.7f, -0.4f));
-                break;
-        }
-
-        Dirty(ent, sprite);
-    }
-
-    public override void Update(float frameTime)
+      public override void Update(float frameTime)
     {
         if (_recalculate)
         {
@@ -890,6 +861,27 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
             _reactorPoweredLights.Clear();
             _reactorsUpdated.Clear();
             return;
+        }
+
+        if (_reactorPoweredLights.Count > 0)
+        {
+            try
+            {
+                // mc-changes-start
+                foreach (var (gridUid, lights) in _reactorPoweredLights)
+                {
+                    var powered = AnyReactorsOnGrid(gridUid);
+                    foreach (var light in lights)
+                    {
+                        _pointLight.SetEnabled(light, powered);
+                    }
+                }
+                // mc-changes-end
+            }
+            finally
+            {
+                _reactorPoweredLights.Clear();
+            }
         }
 
         try

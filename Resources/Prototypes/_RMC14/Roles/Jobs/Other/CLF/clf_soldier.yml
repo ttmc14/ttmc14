@@ -9,7 +9,6 @@
   startingGear: RMCGearCLFSoldier
   icon: RMCJobIconCLFSoldier
   joinNotifyCrew: false
-  spawnMenuRoleName: CLF Soldier
   special:
   - !type:AddComponentSpecial
     components:
@@ -62,9 +61,9 @@
   id: RMCGearCLFSoldier
   equipment:
     head: RMCHeadMilitiaHood
-    mask: RMCCombatUtilityKnifeA
+    mask: RMCM5Bayonet # TODO RMC14
     ears: RMCHeadsetDistressCLF
-    jumpsuit: RMCJumpsuitCLFWebbing
+    jumpsuit: RMCJumpsuitCLFSoldier
     outerClothing: RMCCoatMilitiaVest
     gloves: CMHandsBlackMarine
     shoes: RMCShoesBrown
@@ -72,13 +71,10 @@
     belt: RMCM276ShotgunShellLoadingRigFill # TODO RMC14
     back: RMCWeaponShotgunHG3712
     pocket1: RMCFlashlight
-    pocket2: RMCPouchFirstAidERTFill
+    pocket2: RMCPouchFirstAidInjectors
   inhand:
-  - WeaponRifleMAR40
-  storage:
-    outerClothing:
-    - RMCMagazineRifleMAR40
-    - CMCrowbar
+  - RMCWeaponSMGP90
+  - RMCMagazineSMGP90
 
 - type: playTimeTracker
   id: CMJobCLFSoldier

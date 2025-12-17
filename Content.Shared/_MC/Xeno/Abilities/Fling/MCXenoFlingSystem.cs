@@ -23,7 +23,7 @@ public sealed class MCXenoFlingSystem : EntitySystem
     private static readonly LocId LocIdTargetSameHive= "mc-xeno-fling-target-from-same-hive";
 
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;

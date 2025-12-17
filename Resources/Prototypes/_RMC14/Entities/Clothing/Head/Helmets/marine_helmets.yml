@@ -117,6 +117,7 @@
     visorsToAdd:
     - RMCVisorMedicalAdvancedIntegrated
     - RMCVisorSquadIntegrated
+    
 
 - type: entity
   parent: CMArmorHelmetM10Medic
@@ -300,7 +301,6 @@
     visorsToAdd:
     - RMCVisorMedicalAdvancedIntegrated
     - RMCVisorSquadIntegrated
-    - RMCVisorPilotBlack
 
 # Press
 - type: entity
@@ -369,11 +369,9 @@
 - type: entity
   parent: ArmorHelmetM10
   id: CMArmorHelmetM35
-  name: M35 pyrotechnician helmet
-  description: A helmet designed for UNMC Pyrotechnicians.
+  name: M35 helmet
+  description: A custom helmet from the M3 series designed to be highly flame retardant.
   components:
-  - type: Corrodible
-    isCorrodible: false
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Head/Helmets/m35/jungle.rsi
   - type: Clothing
@@ -385,8 +383,6 @@
       Snow: _RMC14/Objects/Clothing/Head/Helmets/m35/snow.rsi
       Classic: _RMC14/Objects/Clothing/Head/Helmets/m35/classic.rsi
       Urban: _RMC14/Objects/Clothing/Head/Helmets/m35/urban.rsi
-  - type: TemperatureProtection
-    heatingCoefficient: 0.001
 
 # M45 Sniper Spec
 - type: entity

@@ -31,19 +31,15 @@
     - type: Skills
       skills:
         RMCSkillConstruction: 1
-        RMCSkillEndurance: 1
         RMCSkillFirearms: 1
         RMCSkillFireman: 1
         RMCSkillPowerLoader: 2
-    - type: CMVendorUser
-      id: CMCargoTech
     - type: JobPrefix
       prefix: cm-job-prefix-cargotech
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: cargo
-    - type: MutinyEligible
 
 - type: startingGear
   id: CMGearCargoTech
@@ -61,7 +57,7 @@
 - type: entity
   parent: CMSpawnPointJobBase
   id: CMSpawnPointCargoTech
-  name: req tech spawn point
+  name: cargo tech spawn point
   components:
   - type: SpawnPoint
     job_id: CMCargoTech

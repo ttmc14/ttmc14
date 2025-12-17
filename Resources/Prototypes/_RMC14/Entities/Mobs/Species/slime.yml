@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  parent: RMCBaseMobSpeciesOrganic
+  parent: CMBaseMobSpeciesOrganic
   id: CMMobSlimePerson
   name: Urist C.M McSlime
   suffix: RMC14

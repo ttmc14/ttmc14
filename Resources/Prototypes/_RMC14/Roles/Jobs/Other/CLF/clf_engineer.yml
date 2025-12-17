@@ -9,13 +9,11 @@
   startingGear: RMCGearCLFEngineer
   icon: RMCJobIconCLFEngineer
   joinNotifyCrew: false
-  spawnMenuRoleName: CLF Engineer
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
       skills:
-        RMCSkillFirearms: 1
         RMCSkillFireman: 1
         RMCSkillConstruction: 2
         RMCSkillEngineer: 2
@@ -61,10 +59,10 @@
   id: RMCGearCLFEngineer
   equipment:
     head: RMCHelmetWelding
-    mask: RMCCombatUtilityKnifeA
+    mask: RMCM5Bayonet # TODO RMC14
     ears: RMCHeadsetDistressCLF
   #  eyes: RMCMesonGoggles TODO RMC14
-    jumpsuit: RMCJumpsuitCLFWebbingBuckshot
+    jumpsuit: RMCJumpsuitCLFSoldier
     outerClothing: RMCCoatMilitia
     gloves: CMHandsInsulated
     shoes: RMCShoesBrown
@@ -72,7 +70,7 @@
     belt: CMBeltUtilityFilled
     back: RMCSatchelLightpackWelder
     pocket1: RMCPouchConstructionFillLowGrade
-    pocket2: RMCPouchFirstAidERTFill
+    pocket2: RMCPouchFirstAidInjectors
   inhand:
   - WeaponShotgunM357Sawn # TODO RMC14 - Make randomized
   - CMShellShotgunBuckshot # TODO RMC14 - Make randomized
@@ -83,13 +81,8 @@
     - RMCExplosiveBreachingCharge
     - RMCExplosivePlastic
     - RMCGrenadeMolotov
-    - RMCMRECLF
+    - CMMRE
     - RMCFlashlight
-    - CMShellShotgunBuckshot
-    - CMShellShotgunBuckshot
-    outerClothing:
-    - CMShellShotgunBuckshot
-    - CMShellShotgunBuckshot
 
 - type: playTimeTracker
   id: RMCJobCLFEngineer

@@ -18,7 +18,7 @@
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: Gun
-    burstCooldown: 1.5
+    burstCooldown: 0.625
     shotsPerBurst: 2
     selectedMode: SemiAuto
     availableModes:
@@ -35,14 +35,7 @@
     scatterWielded: 10
     scatterUnwielded: 30
     baseFireRate: 0.625
-    burstFireRateMultiplier: 25
-    modifiers:
-      Burst:
-        fireDelay: 0.1665
-        maxScatterModifier: 10
-        useBurstScatterMult: true
-        unwieldedScatterMultiplier: 2
-        shotsToMaxScatter: 6
+    burstFireRateMultiplier: 15
   - type: RMCExtraProjectilesDamageMods
     damageMultiplier:  0.18
   - type: RMCWeaponAccuracy
@@ -112,8 +105,6 @@
     rsi:
       sprite: _RMC14/Interface/MousePointer/shotgun_mouse.rsi
       state: all
-  - type: RMCGunChamber
-    enabled: false
 
 - type: Tag
   id: RMCWeaponShotgunXM51

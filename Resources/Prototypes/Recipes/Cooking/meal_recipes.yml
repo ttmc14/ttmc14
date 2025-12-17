@@ -852,7 +852,7 @@
   reagents:
     Rice: 15
     Milk: 10
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
   solids:
     FoodBowlBig: 1
 
@@ -1272,7 +1272,7 @@
   time: 15
   group: Pie
   reagents:
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
     Milk: 5
   solids:
     FoodDoughPie: 1
@@ -1286,7 +1286,7 @@
   time: 15
   group: Pie
   reagents:
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
     Milk: 5
   solids:
     FoodDoughPie: 1
@@ -1300,7 +1300,7 @@
   time: 15
   group: Pie
   reagents:
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
     Milk: 5
   solids:
     FoodDoughPie: 1
@@ -1314,7 +1314,7 @@
   time: 15
   group: Pie
   reagents:
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
     Milk: 5
   solids:
     FoodDoughPie: 1
@@ -1504,7 +1504,7 @@
   group: BarsAndCookies
   reagents:
     Flour: 5
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
   solids:
     FoodButterSlice: 1
     FoodSnackChocolateBar: 1
@@ -1517,7 +1517,7 @@
   group: BarsAndCookies
   reagents:
     Flour: 5
-    RMCSugar: 10 #Changed for RMC
+    Sugar: 10
   solids:
     FoodButterSlice: 1
 
@@ -1529,7 +1529,7 @@
   group: BarsAndCookies
   reagents:
     Flour: 5
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
   solids:
     FoodSnackRaisins: 1
 
@@ -1541,7 +1541,7 @@
   group: BarsAndCookies
   reagents:
     Oats: 5
-    RMCSugar: 5 #Changed for RMC
+    Sugar: 5
   solids:
     FoodButterSlice: 1
 
@@ -1727,18 +1727,6 @@
     OrganAnimalHeart: 1
 
 - type: microwaveMealRecipe
-  id: RecipeBerryDelight
-  name: berry delight recipe
-  result: FoodCakeBerryDelight
-  time: 5
-  group: Cake
-  solids:
-    FoodCakeBlueberry: 1
-    FoodBerries: 2
-  reagents:
-    Milk: 10
-
-- type: microwaveMealRecipe
   id: RecipeBreadDog
   name: bread dog recipe
   result: MobBreadDog
@@ -1771,7 +1759,7 @@
   group: BarsAndCookies
   reagents:
     Flour: 15
-    RMCSugar: 30 #Changed for RMC
+    Sugar: 30
     Egg: 18
   solids:
     FoodButter: 2
@@ -1880,14 +1868,14 @@
     FoodOnionSlice: 1
     FoodTomato: 1
 
-- type: microwaveMealRecipe # Changed for RMC
+- type: microwaveMealRecipe
   id: RecipeColdChili
   name: cold chili recipe
   result: FoodSoupChiliCold
   time: 5
   group: Soup
   reagents:
-    RMCNitrogen: 5
+    Nitrogen: 5
   solids:
     FoodSoupChiliHot: 1
 
@@ -2082,7 +2070,7 @@
     FoodPlateMuffinTin: 1
     FoodDoughSlice: 1
   reagents:
-    RMCSugar: 10 #Changed for RMC
+    Sugar: 10
 
 - type: microwaveMealRecipe
   id: RecipeMuffinChocolate
@@ -2095,7 +2083,7 @@
     FoodDoughSlice: 1
     FoodSnackChocolateBar: 1
   reagents:
-    RMCSugar: 10 #Changed for RMC
+    Sugar: 10
 
 - type: microwaveMealRecipe
   id: RecipeMuffinBerry
@@ -2108,7 +2096,7 @@
     FoodDoughSlice: 1
     FoodBerries: 1
   reagents:
-    RMCSugar: 10 #Changed for RMC
+    Sugar: 10
 
 - type: microwaveMealRecipe
   id: RecipeMuffinBanana
@@ -2121,7 +2109,7 @@
     FoodDoughSlice: 1
     FoodBanana: 1
   reagents:
-    RMCSugar: 10 #Changed for RMC
+    Sugar: 10
 
 - type: microwaveMealRecipe
   id: RecipeMuffinCherry
@@ -2134,7 +2122,7 @@
     FoodDoughSlice: 1
     FoodCherry: 3
   reagents:
-    RMCSugar: 10 #Changed for RMC
+    Sugar: 10
 
 # NOT ACTUAL FOOD
 
@@ -2190,7 +2178,7 @@
   solids:
     FoodCakeBatter: 2
   reagents:
-    RMCSugar: 30 #Changed for RMC
+    Sugar: 30
     Nitrogen: 10
     Plasma: 10
 
@@ -2231,7 +2219,7 @@
   group: BarsAndCookies
   reagents:
     Flour: 15
-    RMCSugar: 30 #Changed for RMC
+    Sugar: 30
     Egg: 18
   solids:
     FoodCannabisButter: 2
@@ -2493,14 +2481,3 @@
     PoppySeeds: 1
   reagents:
     SodaWater: 5
-
-- type: microwaveMealRecipe
-  id: RecipeCottonCake
-  name: cotton cake recipe
-  result: FoodCakeCotton
-  time: 5
-  group: Moth
-  reagents:
-    Fiber: 10
-  solids:
-    FoodCakePlain: 1

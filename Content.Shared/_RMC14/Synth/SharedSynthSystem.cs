@@ -1,10 +1,9 @@
 ﻿using Content.Shared._RMC14.IdentityManagement;
+using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Medical.HUD.Components;
-using Content.Shared._RMC14.Medical.Unrevivable;
 using Content.Shared._RMC14.Repairable;
 using Content.Shared._RMC14.StatusEffect;
 using Content.Shared.Bed.Sleep;
-using Content.Shared.Body.Systems;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Components;
 using Content.Shared.Damage.Prototypes;
@@ -42,7 +41,7 @@ public abstract class SharedSynthSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<SynthComponent, MapInitEvent>(OnMapInit, after: [typeof(SharedBloodstreamSystem)]);
+        SubscribeLocalEvent<SynthComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<SynthComponent, AttackAttemptEvent>(OnMeleeAttempted);
         SubscribeLocalEvent<SynthComponent, ShotAttemptedEvent>(OnShotAttempted);
         SubscribeLocalEvent<SynthComponent, TryingToSleepEvent>(OnSleepAttempt);
@@ -59,11 +58,11 @@ public abstract class SharedSynthSystem : EntitySystem
 
     protected virtual void MakeSynth(Entity<SynthComponent> ent)
     {
-        if (_prototypes.TryIndex(ent.Comp.AddComponents, out var addComponents))
-            EntityManager.AddComponents(ent.Owner, addComponents.Components);
+        if (ent.Comp.AddComponents != null)
+            EntityManager.AddComponents(ent.Owner, ent.Comp.AddComponents);
 
-        if (_prototypes.TryIndex(ent.Comp.RemoveComponents, out var removeComponents))
-            EntityManager.RemoveComponents(ent.Owner, removeComponents.Components);
+        if (ent.Comp.RemoveComponents != null)
+            EntityManager.RemoveComponents(ent.Owner, ent.Comp.RemoveComponents);
 
         if (ent.Comp.StunResistance != null)
             _rmcStatusEffects.GiveStunResistance(ent.Owner, ent.Comp.StunResistance.Value);
@@ -83,7 +82,6 @@ public abstract class SharedSynthSystem : EntitySystem
             Dirty(ent.Owner, healthIcons);
         }
 
-        RemCompDeferred<RMCRevivableComponent>(ent.Owner);
         RemCompDeferred<SlowOnDamageComponent>(ent.Owner);
     }
 

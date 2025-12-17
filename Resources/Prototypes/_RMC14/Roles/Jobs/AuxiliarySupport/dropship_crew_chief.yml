@@ -37,7 +37,6 @@
     components:
     - type: Skills
       skills:
-        RMCSkillEndurance: 1
         RMCSkillEngineer: 2
         RMCSkillFirearms: 1
         RMCSkillFireman: 1
@@ -49,19 +48,18 @@
         RMCSkillSurgery: 1
     - type: MarineOrders
     - type: CMVendorUser
-      id: CMDropshipCrewChief
       points: 45
     - type: RMCPointing
     - type: JobPrefix
       prefix: cm-job-prefix-dcc
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: dcc
       background:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: background_shipside
-    - type: MutinyEligible
+  hidden: false
 
 - type: startingGear
   id: CMGearDCC

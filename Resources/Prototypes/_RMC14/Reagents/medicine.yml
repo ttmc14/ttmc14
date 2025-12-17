@@ -11,9 +11,7 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:Antitoxic
-        potency: 2
-      - !type:Antihallucinogenic
+      - !type:Antitoxic #TODO removes 0.125u toxin/s 0.13u?
         potency: 2
 
 # TODO RMC14 other effects
@@ -29,8 +27,24 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:Focusing
-        potency: 3
+      - !type:GenericStatusEffect
+        key: Drunk
+        time: 1.5
+        type: Remove
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Toxin: 0.75
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Toxin: 2.25
 
 # TODO RMC14 other effects
 - type: reagent
@@ -45,10 +59,37 @@
     Medicine:
       metabolismRate: 0.03
       effects:
-      - !type:Antitoxic
-        potency: 1
-      - !type:Biocidic
-        potency: 1
+      - !type:EqualHealthChange #TODO removes 0.03125 toxin/s?
+        damage:
+        - Toxin: -0.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15 #TODO 0.25 eye damage/s at 15 OD
+        damage:
+          groups:
+            Brute: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          groups:
+            Brute: 1.25
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        key: Unconscious
+        component: RMCUnconscious
+        probability: 0.05
+        time: 10
+        type: Add
+        refresh: false
 
 - type: reagent
   parent: [ CMReagentMedicine, Bicaridine ]
@@ -65,7 +106,7 @@
       - !type:Neogenetic
         potency: 2
 
-# TODO RMC14 other effects
+# TODO RMC14 other effects (remove toxic reagents)
 - type: reagent
   parent: [ CMReagentMedicine, Cryoxadone ]
   id: CMCryoxadone
@@ -76,7 +117,7 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:EqualHealthChange
+      - !type:EqualHealthChange #TODO removes 0.125u toxin/s?
         conditions:
         - !type:Temperature
           max: 170
@@ -142,12 +183,26 @@
   color: "#6bd43c"
   overdose: 10.5
   criticalOverdose: 20
+  worksOnTheDead: true
   metabolisms:
     Medicine:
       metabolismRate: 0.2
       effects:
-      - !type:Electrogenetic
-        potency: 2
+      - !type:EqualHealthChange
+        conditions:
+        - !type:RecentlyDefibrillated
+        damage:
+        - Brute: -20
+        - Burn: -20
+        - Toxin: -20
+      - !type:AdjustReagent
+        conditions:
+        - !type:RecentlyDefibrillated
+        reagent: CMEpinephrine
+        amount: -1
+      - !type:RemoveRecentDefibrillation
+        conditions:
+        - !type:RecentlyDefibrillated
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
@@ -236,8 +291,28 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:Thermostabilizing
-        potency: 2
+      - !type:StabilizeTemperature
+        stable: 310
+        change: 30
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        key: Unconscious
+        component: RMCUnconscious
+        time: 20 #Yes, it's this much.
+        type: Add
+        refresh: false
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        key: Unconscious
+        component: RMCUnconscious
+        probability: 0.05
+        time: 10
+        type: Add
+        refresh: false
 
 # TODO RMC14 other effects
 - type: reagent
@@ -320,7 +395,7 @@
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:EqualHealthChange
+      - !type:EqualHealthChange #TODO removes 0.125u toxin/s?
         conditions:
         - !type:Temperature
           max: 170
@@ -343,10 +418,37 @@
     Medicine:
       metabolismRate: 0.5
       effects:
-      - !type:Antitoxic
-        potency: 1
-      - !type:Biocidic
-        potency: 2
+      - !type:EqualHealthChange #TODO removes 0.625u toxin/s?
+        damage:
+        - Toxin: -0.5
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20 #TODO 0.25 eye damage/s at 20 OD
+        damage:
+          groups:
+            Brute: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Brute: 2.5
+      - !type:GenericStatusEffect
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        key: Unconscious
+        component: RMCUnconscious
+        probability: 0.05
+        time: 10
+        type: Add
+        refresh: false
 
 # Antidepressants/ADHD meds
 - type: reagent
@@ -423,18 +525,3 @@
           conditions:
             - !type:ReagentThreshold
               min: 5
-
-- type: reagent
-  parent: [ CMReagentMedicine, Lipozine ]
-  id: RMCLipozine
-  name: reagent-name-rmclipozine
-  desc: reagent-desc-rmclipozine
-  color: "#BBEDA4"
-  overdose: 30
-  criticalOverdose: 50
-  metabolisms:
-    Medicine:
-      metabolismRate: 0.1
-      effects:
-      - !type:Ketogenic
-        potency: 4

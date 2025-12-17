@@ -3,6 +3,7 @@
   id: RMCSurvivorHybrisaTSEPAConstable
   name: rmc-job-name-tsepa-constable
   description: cm-job-description-survivor
+  playTimeTracker: RMCJobSurvivorHybrisaTSEPAConstable
   ranks:
     RMCRankTSEPASergeant:
     - !type:RoleTimeRequirement
@@ -24,7 +25,16 @@
   - !type:AddComponentSpecial
     components:
     - type: Skills
-      preset: SurvivorMarshal
+      skills:
+        RMCSkillEngineer: 1
+        RMCSkillMeleeWeapons: 1
+        RMCSkillConstruction: 1
+        RMCSkillMedical: 1
+        RMCSkillEndurance: 2
+        RMCSkillCqc: 2
+        RMCSkillFirearms: 1
+        RMCSkillPolice: 2
+        RMCSkillFireman: 2
     - type: EquipSurvivorPreset
       preset: RMCSurvivorPresetHybrisaConstable
     - type: RMCSurvivor
@@ -35,7 +45,6 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivorSecurity # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorBase
@@ -49,6 +58,10 @@
     back: RMCSatchelBlackFillSurvivorConstable
     ears: RMCHeadsetTSEPA
 
+- type: playTimeTracker
+  id: RMCJobSurvivorHybrisaTSEPAConstable
+  isHumanoid: true
+
 - type: entity
   parent: RMCSurvivorPresetSecurity
   id: RMCSurvivorPresetHybrisaConstable
@@ -60,7 +73,7 @@
     randomOutfits:
     - [ RMCHeadCapTSEPAPeaked, RMCCoatTSEPA, RMCPouchMagazineFilledMP5, WeaponSMGMP5 ]
     - [ RMCHeadCapTSEPAPeaked, RMCCoatTSEPAFormal, RMCPouchMagazineFilledMP5, WeaponSMGMP5 ]
-    - [ RMCHeadCapTSEPAPeaked, RMCArmorVestTSEPA, RMCPouchShotgunFilledConstable, RMCWeaponShotgunHG3712, RMCExplosiveBreachingChargeRubberTSEPA ]
+    - [ RMCHeadCapTSEPAPeaked, RMCArmorVestTSEPA, RMCPouchShotgunFilledConstable, RMCWeaponShotgunHG3712, RMCExplosiveBreachingChargeRubber ]
     - [ RMCHeadCapTSEPAPeaked, RMCCoatTSEPAHighVis, RMCPouchMagazineFilledMP5, WeaponSMGMP5, RMCHandsCombat ]
     - [ RMCHeadCapTSEPAPeakedGoldSilver, RMCCoatTSEPAHighVisVest, RMCPouchShotgunFilledConstable, RMCWeaponShotgunHG3712, RMCHandsCombat ]
     - [ RMCHeadCapTSEPAPeakedGold, RMCCoatTSEPAFormal, RMCPouchShotgunFilledConstable, RMCHandsCombat ]

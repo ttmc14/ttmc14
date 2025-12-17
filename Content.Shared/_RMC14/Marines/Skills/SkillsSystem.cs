@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Runtime.InteropServices;
 using Content.Shared._RMC14.Chemistry.Reagent;
-using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
@@ -20,7 +19,6 @@ using Content.Shared.Throwing;
 using Content.Shared.UserInterface;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Melee.Events;
-using Robust.Shared.Containers;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
@@ -36,8 +34,6 @@ public sealed class SkillsSystem : EntitySystem
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainerSystem = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly ItemToggleSystem _toggle = default!;
-    [Dependency] private readonly SharedContainerSystem _container = default!;
-    [Dependency] private readonly RMCReagentSystem _reagent = default!;
 
     private static readonly EntProtoId<SkillDefinitionComponent> MeleeSkill = "RMCSkillMeleeWeapons";
 
@@ -56,7 +52,6 @@ public sealed class SkillsSystem : EntitySystem
         SubscribeLocalEvent<PrototypesReloadedEventArgs>(OnPrototypesReloaded);
         SubscribeLocalEvent<GetMeleeDamageEvent>(OnGetMeleeDamage);
 
-        SubscribeLocalEvent<SkillsComponent, MapInitEvent>(OnSkillsMapInit);
         SubscribeLocalEvent<SkillsComponent, GetVerbsEvent<ExamineVerb>>(OnSkillsVerbExamine);
 
         SubscribeLocalEvent<MedicallyUnskilledDoAfterComponent, AttemptHyposprayUseEvent>(OnAttemptHyposprayUse);
@@ -97,20 +92,9 @@ public sealed class SkillsSystem : EntitySystem
         args.Damage = ApplyMeleeSkillModifier(args.User, args.Damage);
     }
 
-    private void OnSkillsMapInit(Entity<SkillsComponent> ent, ref MapInitEvent args)
-    {
-        if (!_prototypes.TryIndex(ent.Comp.Preset, out var skillPreset))
-            return;
-
-        ent.Comp.Skills = skillPreset.Skills;
-        Dirty(ent);
-    }
-
     private void OnSkillsVerbExamine(Entity<SkillsComponent> ent, ref GetVerbsEvent<ExamineVerb> args)
     {
-        var user = args.User;
-
-        if (!args.CanInteract || !args.CanAccess || HasComp<XenoComponent>(user))
+        if (!args.CanInteract || !args.CanAccess)
             return;
 
         _skillsSorted.Clear();
@@ -269,31 +253,13 @@ public sealed class SkillsSystem : EntitySystem
             return;
         }
 
-        // If ContainerId is specified, examine the entity inside the container instead
-        var entityToExamine = args.Examined;
-        if (ent.Comp.ContainerId != null)
-        {
-            if (!_container.TryGetContainer(args.Examined, ent.Comp.ContainerId, out var container) ||
-                !container.ContainedEntities.TryFirstOrNull(out var contained))
-            {
-                if (ent.Comp.NoContainerExamine == null)
-                    return;
-                using (args.PushGroup(nameof(ReagentExaminationRequiresSkillComponent)))
-                {
-                    args.PushMarkup(Loc.GetString(ent.Comp.NoContainerExamine, ("target", ent.Owner)));
-                }
-                return;
-            }
-            entityToExamine = contained.Value;
-        }
-
-        if (!TryComp(entityToExamine, out SolutionContainerManagerComponent? solutionContainerManager))
+        if (!TryComp(args.Examined, out SolutionContainerManagerComponent? solutionContainerManager))
             return;
 
         var foundReagents = new List<ReagentQuantity>();
         foreach (var solutionContainerId in solutionContainerManager.Containers)
         {
-            if (!_solutionContainerSystem.TryGetSolution(entityToExamine, solutionContainerId, out _, out var solution))
+            if (!_solutionContainerSystem.TryGetSolution(args.Examined, solutionContainerId, out _, out var solution))
                 continue;
 
             foreach (var reagent in solution.Contents)
@@ -306,18 +272,27 @@ public sealed class SkillsSystem : EntitySystem
         {
             using (args.PushGroup(nameof(ReagentExaminationRequiresSkillComponent)))
             {
-                args.PushMarkup(Loc.GetString(ent.Comp.SkilledExamineNone, ("target", ent.Owner)));
+                args.PushMarkup(Loc.GetString(ent.Comp.SkilledExamineNone));
             }
 
             return;
         }
 
-        var reagentsText = string.Join("; ",
-            foundReagents.Select(r => $"{_reagent.Index(r.Reagent.Prototype).LocalizedName}({r.Quantity}u)"));
+        var reagentCount = foundReagents.Count;
+        var fullMessage = $"{Loc.GetString(ent.Comp.SkilledExamineContains)} ";
+        for (var i = 0; i < foundReagents.Count; i++)
+        {
+            var reagent = foundReagents[i];
+            var reagentLocalizedName = _prototypes.IndexReagent<ReagentPrototype>(reagent.Reagent.Prototype).LocalizedName;
+            var reagentQuantity = reagent.Quantity;
+            fullMessage += $"{reagentLocalizedName}({reagentQuantity}u)";
+            if (i > reagentCount)
+                fullMessage += ", ";
+        }
 
         using (args.PushGroup(nameof(ReagentExaminationRequiresSkillComponent)))
         {
-            args.PushMarkup(Loc.GetString(ent.Comp.SkilledExamineContains, ("target", ent.Owner), ("reagents", reagentsText)));
+            args.PushMarkup(fullMessage);
         }
     }
 
@@ -602,18 +577,17 @@ public sealed class SkillsSystem : EntitySystem
         Dirty(ent);
     }
 
-    public float GetSkillDelayMultiplier(Entity<SkillsComponent?> user, EntProtoId<SkillDefinitionComponent> definition, float[]? multipliers = null)
+    public float GetSkillDelayMultiplier(Entity<SkillsComponent?> user, EntProtoId<SkillDefinitionComponent> definition)
     {
         if (!definition.TryGet(out var definitionComp, _prototypes, _compFactory))
             return 1f;
 
-        multipliers ??= definitionComp.DelayMultipliers;
-        if (multipliers.Length == 0)
+        if (definitionComp.DelayMultipliers.Length == 0)
             return 1f;
 
         var skill = GetSkill(user, definition);
-        if (!multipliers.TryGetValue(skill, out var multiplier))
-            multiplier = multipliers[^1];
+        if (!definitionComp.DelayMultipliers.TryGetValue(skill, out var multiplier))
+            multiplier = definitionComp.DelayMultipliers[^1];
 
         return multiplier;
     }

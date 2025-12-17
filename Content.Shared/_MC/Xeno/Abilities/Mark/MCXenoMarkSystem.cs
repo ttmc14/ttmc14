@@ -4,7 +4,7 @@ namespace Content.Shared._MC.Xeno.Abilities.Mark;
 
 public sealed class MCXenoMarkSystem : EntitySystem
 {
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
 
     public override void Initialize()
     {

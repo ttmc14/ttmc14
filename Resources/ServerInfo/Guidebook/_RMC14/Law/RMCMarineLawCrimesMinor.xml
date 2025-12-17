@@ -1,6 +1,6 @@
 ﻿<Document>
   # Minor Crimes
-  - These crimes are low severity, and can be instead punished with an NJP, or a warning.
+  - These crimes are low severity, and can be punished with an NJP.
   <Table Columns="3">
     <ColorBox>
       <Box>
@@ -116,17 +116,17 @@
 
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="3">
-        Disrespecting a Superior
+        Disrespecting a superior Officer
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="3">
-        Using offensive names or being directly disrespectful to someone of a higher rank or position.
+        Using offensive names or being directly disrespectful to a Commissioned Officer of higher rank or position.
       </Box>
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="3">
-        [bold]NJP.[/bold]
+        [bold]10 minutes.[/bold]
       </Box>
     </ColorBox>
 
@@ -137,7 +137,7 @@
     </ColorBox>
     <ColorBox>
       <Box HorizontalAlignment="Left" VerticalAlignment="Stretch" Margin="3">
-        To intentionally provide false information during a criminal investigation with the intent to disrupt said investigation.
+        To intentionally and willingly lie to an MP, or deputized officer, during a criminal investigation with the intent to disrupt said investigation.
       </Box>
     </ColorBox>
     <ColorBox>

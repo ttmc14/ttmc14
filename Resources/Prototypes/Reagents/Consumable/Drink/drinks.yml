@@ -442,7 +442,6 @@
   boilingPoint: 100.0
   meltingPoint: 0.0
   friction: 0.4
-  intensityMod: -3 # RMC14
   metabolisms:
     Drink:
       effects:

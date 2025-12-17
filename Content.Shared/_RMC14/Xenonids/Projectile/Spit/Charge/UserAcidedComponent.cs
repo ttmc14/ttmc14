@@ -1,4 +1,4 @@
-using Content.Shared.Damage;
+﻿using Content.Shared.Damage;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -32,15 +32,6 @@ public sealed partial class UserAcidedComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan ResistDuration = TimeSpan.FromSeconds(3);
-
-    [DataField, AutoNetworkedField]
-    public int ResistsNeeded = 1;
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan AllowVaporHitAfter;
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan ExtinguishGracePeriod = TimeSpan.FromSeconds(1);
 }
 
 [Serializable, NetSerializable]

@@ -7,7 +7,6 @@
   - RMCXenoSpeechSounds
   - RMCXenoCommendationReceiver
   - RMCXenoMobCollision
-  - RMCXenoVentCrawler
   id: CMXenoDroneBase
   name: Drone
   description: An alien drone.
@@ -74,7 +73,7 @@
     prefix: drone
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: drone
   - type: XenoConstruction
     buildDelay: 2
@@ -142,10 +141,6 @@
     - DoorXenoResin
     - XenoStickyResin
     - XenoFastResin
-  - type: VentCrawler
-    ventCrawlIcon: drone
-  - type: RMCActionOrder
-    id: CMXenoDrone
 
 - type: entity
   parent: CMXenoDroneBase
@@ -164,9 +159,6 @@
     - map: [ "enum.XenoInhandVisualLayers.Left" ]
       visible: false
     - map: [ "enum.XenoInhandVisualLayers.Right" ]
-      visible: false
-    - map: [ "enum.RMCShieldVisuals.Base" ]
-      sprite: _RMC14/Effects/xeno_shields.rsi
       visible: false
     - map: [ "focused" ]
       sprite: _RMC14/Interface/xeno_hud.rsi
@@ -218,10 +210,6 @@
     fruitFeedingMultiplier: 0.5
   - type: XenoResinSurge
   - type: XenoHidden
-  - type: VentCrawler
-    ventCrawlIcon: gardener
-  - type: RMCActionOrder
-    id: CMXenoDroneGardener
 
 - type: entity
   parent: CMXenoDroneBase
@@ -240,9 +228,6 @@
     - map: [ "enum.XenoInhandVisualLayers.Left" ]
       visible: false
     - map: [ "enum.XenoInhandVisualLayers.Right" ]
-      visible: false
-    - map: [ "enum.RMCShieldVisuals.Base" ]
-      sprite: _RMC14/Effects/xeno_shields.rsi
       visible: false
     - map: [ "focused" ]
       sprite: _RMC14/Interface/xeno_hud.rsi
@@ -312,7 +297,3 @@
   - type: XenoAcid
   - type: XenoSalveVisuals
   - type: XenoHidden
-  - type: VentCrawler
-    ventCrawlIcon: healer
-  - type: RMCActionOrder
-    id: CMXenoDroneHealer

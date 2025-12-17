@@ -187,7 +187,7 @@ public sealed class BioscanSystem : EntitySystem
             ("onPlanet", alivePlanet)
         );
 
-        _marineAnnounce.AnnounceARESStaging(null, message, bioscan.Comp.MarineSound, "rmc-bioscan-ares-announcement");
+        _marineAnnounce.AnnounceARES(null, message, bioscan.Comp.MarineSound, "rmc-bioscan-ares-announcement");
         Dirty(bioscan);
     }
 

@@ -1,5 +1,4 @@
-﻿using Content.Shared._RMC14.Xenonids.ManageHive.Boons;
-using Content.Shared.FixedPoint;
+﻿using Content.Shared.FixedPoint;
 using Content.Shared.Radio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -19,10 +18,6 @@ public sealed partial class CommunicationsTowerComponent : Component
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 TechPoints = FixedPoint2.New(0.7);
-
-    [DataField, AutoNetworkedField]
-    [Access(typeof(HiveBoonSystem))]
-    public bool XenoControlled;
 }
 
 [Serializable, NetSerializable]

@@ -422,7 +422,7 @@ public sealed class XenoConstructionGhostSystem : EntitySystem
             if (buildRange > 0 && !_transform.InRange(origin, target, buildRange))
                 return false;
 
-            if (_transform.InRange(origin, target, _xenoConstruction.GetStructureMinRange(buildChoice).Float()))
+            if (_transform.InRange(origin, target, 0.75f))
                 return false;
 
             if (isRemoteConstruction && !CanDoRemoteConstruction(xeno, target))
@@ -473,7 +473,7 @@ public sealed class XenoConstructionGhostSystem : EntitySystem
 
     private bool CanOrderConstruction(Entity<XenoConstructionComponent> xeno, EntityCoordinates target, EntProtoId? choice)
     {
-        if (!CanSecreteOnTile(xeno, choice, target, false, false))
+        if (!CanSecreteOnTile(xeno, xeno.Comp.BuildChoice, target, false, false))
             return false;
 
         if (_transform.GetGrid(target) is not { } gridId ||

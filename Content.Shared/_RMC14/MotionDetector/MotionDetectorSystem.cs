@@ -1,8 +1,6 @@
 ﻿using Content.Shared._RMC14.Inventory;
 using Content.Shared._RMC14.Weapons.Ranged.Battery;
-using Content.Shared._RMC14.Xenonids.Devour;
 using Content.Shared._RMC14.Xenonids.Parasite;
-using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Actions;
 using Content.Shared.Coordinates;
 using Content.Shared.Examine;
@@ -25,7 +23,6 @@ public sealed class MotionDetectorSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
-    [Dependency] private readonly GunIFFSystem _gunIFF = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
     [Dependency] private readonly MotionDetectorSystem _motionDetector = default!;
@@ -49,7 +46,6 @@ public sealed class MotionDetectorSystem : EntitySystem
 
         SubscribeLocalEvent<XenoParasiteInfectEvent>(OnXenoInfect);
         SubscribeLocalEvent<MobStateChangedEvent>(OnMobStateChanged);
-        SubscribeLocalEvent<XenoDevouredEvent>(OnMotionDetectorDevoured);
 
         SubscribeLocalEvent<MotionDetectorComponent, UseInHandEvent>(OnMotionDetectorUseInHand);
         SubscribeLocalEvent<MotionDetectorComponent, GetVerbsEvent<AlternativeVerb>>(OnMotionDetectorGetVerbs);
@@ -90,11 +86,7 @@ public sealed class MotionDetectorSystem : EntitySystem
         args.Handled = true;
         Toggle(ent);
 
-        var user = args.User;
-        ent.Comp.LastUser = user;
-        Dirty(ent);
-
-        _audio.PlayPredicted(ent.Comp.ToggleSound, ent, user);
+        _audio.PlayPredicted(ent.Comp.ToggleSound, ent, args.User);
     }
 
     private void OnMotionDetectorGetVerbs(Entity<MotionDetectorComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)
@@ -129,11 +121,6 @@ public sealed class MotionDetectorSystem : EntitySystem
         UpdateAppearance(ent);
         MotionDetectorUpdated(ent);
     }
-    
-    private void OnMotionDetectorDevoured(ref XenoDevouredEvent ent)
-    {
-        DisableDetectorsOnMob(ent.Target);
-    }
 
     private void OnMotionDetectorExamined(Entity<MotionDetectorComponent> ent, ref ExaminedEvent args)
     {
@@ -161,11 +148,7 @@ public sealed class MotionDetectorSystem : EntitySystem
     {
         var user = args.Performer;
         if (TryComp(ent, out MotionDetectorComponent? detector))
-        {
             _motionDetector.Toggle((ent, detector));
-            detector.LastUser = user;
-            Dirty(ent);
-        }
 
         _audio.PlayPredicted(ent.Comp.ToggleSound, ent, user);
         DetectorUpdated(ent);
@@ -335,17 +318,11 @@ public sealed class MotionDetectorSystem : EntitySystem
             detector.Blips.Clear();
             foreach (var tracked in _tracked)
             {
-                if (tracked.Owner == detector.LastUser) // User of the MD isn't tracked
+                if (tracked.Owner == Transform(uid).ParentUid) // User of the MD isn't tracked
                     continue;
 
                 if (tracked.Comp.LastMove < time - detector.MoveTime)
                     continue;
-
-                if (detector.LastUser is { } lastUser && _gunIFF.TryGetFaction(lastUser, out var userFaction))
-                {
-                    if (_gunIFF.IsInFaction(tracked.Owner, userFaction))
-                        continue;
-                }
 
                 detector.Blips.Add(new Blip(_transform.GetMapCoordinates(tracked), tracked.Comp.IsQueenEye));
             }

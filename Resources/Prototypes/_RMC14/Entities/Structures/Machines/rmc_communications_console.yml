@@ -37,7 +37,7 @@
     key: enum.MarineCommunicationsComputerUI.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [ [ "RMCAccessSeniorCommand" ] ]
+    access: [ [ "CMAccessCommand" ] ]
   - type: UserInterface
     interfaces:
       enum.MarineCommunicationsComputerUI.Key:
@@ -52,13 +52,6 @@
   - type: OverwatchConsole
     canMessageSquad: false
   - type: TacticalMapComputer
-  - type: GuideHelp
-    guides:
-    - RMCGuideMarineCommunications
-    - RMCLanguage
-    - RMCGuideCommunicationsTowers
-    - RMCGuideRoleCombatTechnician
-    - RMCGuideRoleMaintenanceTechnician
 
 - type: entity
   parent: RMCCommunicationsConsoleBase
@@ -70,7 +63,7 @@
     key: enum.MarineControlComputerUi.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [ [ "RMCAccessSeniorCommand" ] ]
+    access: [ [ "CMAccessCommand" ] ]
   - type: UserInterface
     interfaces:
       enum.MarineControlComputerUi.Key:
@@ -99,7 +92,7 @@
     key: enum.OverwatchConsoleUI.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [ [ "RMCAccessCommand" ] ]
+    access: [ [ "CMAccessCommand" ] ]
   - type: UserInterface
     interfaces:
       enum.OverwatchConsoleUI.Key:
@@ -114,13 +107,6 @@
   - type: OverwatchConsole
   - type: TacticalMapComputer
   - type: SupplyDropComputer
-  - type: GuideHelp
-    guides:
-    - RMCGuideMarineCommunications
-    - RMCLanguage
-    - RMCGuideCommunicationsTowers
-    - RMCGuideRoleCombatTechnician
-    - RMCGuideRoleMaintenanceTechnician
 
 - type: entity
   parent: RMCOverwatchConsole
@@ -130,15 +116,6 @@
   - type: Sprite
     overrideDir: South
     enableOverrideDir: false
-
-- type: entity
-  parent: RMCOverwatchConsoleRotating
-  id: RMCOverwatchConsoleRotatingPowered
-  suffix: Rotating, Powered
-  components:
-  - type: ApcPowerReceiver
-    powerLoad: 0
-    needsPower: false # intentionally!
 
 - type: entity
   parent: RMCCommunicationsConsoleBase
@@ -154,7 +131,7 @@
     key: enum.TacticalMapComputerUi.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [ [ "RMCAccessCommand" ] ]
+    access: [ [ "CMAccessCommand" ] ]
   - type: UserInterface
     interfaces:
       enum.TacticalMapComputerUi.Key:
@@ -162,13 +139,6 @@
   - type: TacticalMapComputer
   - type: EmitSoundOnUIOpen
     sound: null
-  - type: GuideHelp
-    guides:
-    - RMCGuideMarineCommunications
-    - RMCLanguage
-    - RMCGuideCommunicationsTowers
-    - RMCGuideRoleCombatTechnician
-    - RMCGuideRoleMaintenanceTechnician
 
 - type: entity
   parent: RMCTacticalMapTable
@@ -188,7 +158,7 @@
     key: enum.TacticalMapComputerUi.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [ [ "RMCAccessCommand" ] ]
+    access: [ [ "CMAccessCommand" ] ]
   - type: UserInterface
     interfaces:
       enum.TacticalMapComputerUi.Key:
@@ -245,27 +215,6 @@
         - LowImpassable
 
 - type: entity
-  parent: RMCTacticalMapTableLarge
-  id: RMCTacticalMapTableLargeSquare
-  suffix: 2x2
-  components:
-  - type: Sprite
-    sprite: _RMC14/Structures/Machines/2x2_map_table.rsi
-    offset: 0.5, 0.5
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,1.4,1.4"
-        density: 60
-        mask:
-        - MachineMask
-        layer:
-        - MidImpassable
-        - LowImpassable
-
-- type: entity
   parent: RMCCommunicationsConsoleBase
   id: RMCEscapePodController
   name: escape pod controller
@@ -313,7 +262,7 @@
         type: LifeboatComputerBui
   - type: LifeboatComputer
   - type: AccessReader
-    access: [ [ "CMAccessDropship" ], [ "RMCAccessSeniorCommand" ] ]
+    access: [ [ "CMAccessDropship" ], [ "CMAccessCommand" ] ] # replace Command with Senior access
   - type: ActivatableUIBlacklist
     blacklist:
       components:

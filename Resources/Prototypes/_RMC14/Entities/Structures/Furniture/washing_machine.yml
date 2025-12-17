@@ -63,7 +63,6 @@
         enum.OpenableVisuals.Layer:
           True: { state: washing_machine_open }
           False: { state: washing_machine_closed }
-  - type: RMCMesonsNonviewable
 
 - type: entity
   parent: CMWashingMachine

@@ -62,7 +62,7 @@
         amount: 4
       - id: CMWrench
         amount: 4
-      - id: RMCLightReplacer
+      - id: CMLightReplacer
         amount: 4
 
 # Circuits
@@ -210,9 +210,9 @@
     sections:
     - name: Equipment
       entries:
-      - id: RMCHoodBioGeneral # TODO scientist bio hood
+      - id: ClothingHeadHatHoodBioScientist
         amount: 2
-      - id: RMCSuitBioGeneral # TODO scientist bio suit
+      - id: ClothingOuterBioScientist
         amount: 2
       - id: CMJumpsuitResearch
         amount: 2
@@ -225,8 +225,8 @@
       - id: RemoteSignaller
         amount: 4
       # Tank transfer valve
-      - id: RMCTimerTrigger
-        amount: 4
+      # Timer
+
 
 # Robotics
 - type: entity

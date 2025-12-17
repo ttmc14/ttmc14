@@ -3,7 +3,6 @@
   parent: CMTileBase
   id: RMCFloorStrataGreenBase
   name: tiles-cm-default-green
-  suffix: Sorokyne
 
 - type: tile
   parent: RMCFloorStrataGreenBase

@@ -13,7 +13,6 @@ using Content.Shared.Chasm;
 using Content.Shared.Coordinates;
 using Content.Shared.Database;
 using Content.Shared.Mobs.Components;
-using Content.Shared.Physics;
 using Content.Shared.Random.Helpers;
 using Content.Shared.UserInterface;
 using Robust.Server.Audio;
@@ -21,7 +20,6 @@ using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
-using Robust.Shared.Physics.Dynamics;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -153,8 +151,7 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
 
         if (nextMode == Lowering)
         {
-            var mask = (int) (CollisionGroup.MobLayer | CollisionGroup.MobMask);
-            foreach (var entity in _physics.GetEntitiesIntersectingBody(elevator, mask, false))
+            foreach (var entity in _physics.GetContactingEntities(elevator))
             {
                 if (HasComp<MobStateComponent>(entity))
                     return;

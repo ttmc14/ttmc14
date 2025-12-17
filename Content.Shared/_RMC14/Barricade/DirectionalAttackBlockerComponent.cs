@@ -10,7 +10,4 @@ public sealed partial class DirectionalAttackBlockerComponent : Component
 
     [DataField, AutoNetworkedField]
     public int MaxHealth;
-
-    [DataField, AutoNetworkedField]
-    public bool BlockMarineAttacks;
 }

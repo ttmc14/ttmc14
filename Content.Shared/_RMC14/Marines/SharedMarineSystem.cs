@@ -3,7 +3,6 @@ using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.NPC.Prototypes;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
@@ -12,7 +11,6 @@ namespace Content.Shared._RMC14.Marines;
 public abstract class SharedMarineSystem : EntitySystem
 {
     [Dependency] private readonly InventorySystem _inventory = default!;
-    [Dependency] private readonly ISerializationManager _serialization = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
 
     public override void Initialize()
@@ -63,11 +61,11 @@ public abstract class SharedMarineSystem : EntitySystem
 
     public void SetMarineIcon(EntityUid marine, SpriteSpecifier specifier)
     {
-        if (!TryComp<MarineComponent>(marine, out var comp))
-            return;
-
-        comp.Icon = _serialization.CreateCopy(specifier, notNullableOverride: true);
-        Dirty(marine, comp);
+        if (TryComp<MarineComponent>(marine, out var comp))
+        {
+            comp.Icon = specifier;
+            Dirty(marine, comp);
+        }
     }
 
     public void ClearMarineIcon(EntityUid marine)
@@ -82,7 +80,7 @@ public abstract class SharedMarineSystem : EntitySystem
     public void MakeMarine(EntityUid uid, SpriteSpecifier? icon)
     {
         var marine = EnsureComp<MarineComponent>(uid);
-        marine.Icon = _serialization.CreateCopy(icon);
+        marine.Icon = icon;
         Dirty(uid, marine);
     }
 

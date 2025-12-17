@@ -2,8 +2,6 @@
   parent: CMLockerBase
   id: CMLockerFridge
   name: fridge
-  placement:
-    mode: SnapgridCenter
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Storage/Lockers/fridge.rsi
@@ -91,6 +89,4 @@
   - type: StorageFill
     contents:
     - id: FoodMeatFish # TODO RMC14 2 boxes of 7
-      amount: 14
-    - id: RMCFoodMeatFish
       amount: 14

@@ -28,7 +28,7 @@ public sealed class MCXenoPsydrainSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly SharedJitteringSystem _jittering = default!;
 
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = default!;
 
     [Dependency] private readonly MCStatusSystem _mcStatus = default!;

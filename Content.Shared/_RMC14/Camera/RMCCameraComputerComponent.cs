@@ -8,7 +8,7 @@ namespace Content.Shared._RMC14.Camera;
 public sealed partial class RMCCameraComputerComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]
-    public HashSet<EntProtoId> ProtoIds = new ();
+    public EntProtoId? Id;
 
     [DataField, AutoNetworkedField]
     public EntityUid? CurrentCamera;

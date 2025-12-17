@@ -1,28 +1,21 @@
 ﻿- type: accessGroup
-  id: QuarterMaster
-  parent: RMCBaseRequisitionsJob
-  name: Logistics Officer
+  id: CMQM
   tags:
   - CMAccessRequisitions
   - CMAccessQM
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessAlpha
   - CMAccessBravo
   - CMAccessCharlie
   - CMAccessDelta
   - CMAccessMarinePrep
-  - RMCAccessDatabase
 
 - type: accessGroup
   id: CMCargoTech
-  parent: RMCBaseRequisitionsJob
-  name: Requisitions Technician
   tags:
   - CMAccessRequisitions
 
 - type: accessGroup
   id: MessTech
-  parent: RMCBaseRequisitionsJob
-  name: Mess Technician
   tags:
   - CMAccessKitchen

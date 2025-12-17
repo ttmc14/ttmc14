@@ -18,17 +18,18 @@ public partial class RMCPopOutWindow : DefaultWindow
     public event Action? OnFinalClose;
     public event Action? OnPopout;
 
-    private OSWindow? _popOutWindow;
+    private IClydeWindow? _popOutWindow;
 
     public RMCPopOutWindow()
     {
         RobustXamlLoader.Load(this);
         OnClose += FinalClose;
-        AddButton();
     }
 
-    private void AddButton()
+    public void SetBui(BoundUserInterface bui)
     {
+        OnFinalClose += bui.Close;
+
         var button = new Button { Text = "Pop Out", StyleClasses = { "OpenBoth" }};
         button.Margin = new Thickness(5, 0);
         if (!WindowHeader.Children.OfType<BoxContainer>().TryFirstOrDefault(out var header))
@@ -39,25 +40,30 @@ public partial class RMCPopOutWindow : DefaultWindow
         button.OnPressed += _ =>
         {
             OnClose -= FinalClose;
+            var clyde = IoCManager.Resolve<IClyde>();
+            var monitor = clyde.EnumerateMonitors().First();
 
-            _popOutWindow = new OSWindow
+            _popOutWindow = clyde.CreateWindow(new WindowCreateParameters
             {
+                Maximized = false,
                 Title = Title ?? string.Empty,
-                SetWidth = PixelWidth,
-                SetHeight = PixelHeight,
-            };
+                Monitor = monitor,
+                Width = PixelWidth,
+                Height = PixelHeight,
+            });
 
             Control.Orphan();
             Close();
 
-            _popOutWindow.Closed += () => OnFinalClose?.Invoke();
+            _popOutWindow.RequestClosed += _ => OnFinalClose?.Invoke();
+            _popOutWindow.DisposeOnClose = true;
 
             var panel = new PanelContainer();
             panel.PanelOverride = new StyleBoxFlat(Color.FromHex("#25252A"));
             panel.AddChild(Control);
 
-            _popOutWindow.AddChild(panel);
-            _popOutWindow.Show();
+            var root = IoCManager.Resolve<IUserInterfaceManager>().CreateWindowRoot(_popOutWindow);
+            root.AddChild(panel);
 
             OnPopout?.Invoke();
         };
@@ -70,6 +76,6 @@ public partial class RMCPopOutWindow : DefaultWindow
 
     public void DisposePopOut()
     {
-        _popOutWindow?.Close();
+        _popOutWindow?.Dispose();
     }
 }

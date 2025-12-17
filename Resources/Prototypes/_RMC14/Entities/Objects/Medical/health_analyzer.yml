@@ -34,4 +34,3 @@
     quickEquip: false
     slots:
     - suitstorage
-  - type: RMCItemKeepUIOpenOnStorageClosed

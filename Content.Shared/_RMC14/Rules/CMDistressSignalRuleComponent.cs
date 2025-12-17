@@ -128,9 +128,6 @@ public sealed partial class CMDistressSignalRuleComponent : Component
     public Dictionary<ProtoId<JobPrototype>, ProtoId<JobPrototype>>? SurvivorJobOverrides;
 
     [DataField]
-    public Dictionary<ProtoId<JobPrototype>, List<(ProtoId<JobPrototype> Special, int Amount)>>? SurvivorJobScenarios;
-
-    [DataField]
     public TimeSpan AresGreetingDelay = TimeSpan.FromSeconds(5);
 
     [DataField]
@@ -172,12 +169,8 @@ public sealed partial class CMDistressSignalRuleComponent : Component
     [DataField]
     public ResPath Thunderdome = new("/Maps/_RMC14/thunderdome.yml");
 
-    public List<string> AuxiliaryMaps = new() {
-        "/Maps/_RMC14/admin_fax.yml"
-    };
-
     [DataField]
-    public ProtoId<JobPrototype> XenoSurvivorCorpseJob = "CMSurvivorHost";
+    public ProtoId<JobPrototype> XenoSurvivorCorpseJob = "CMSurvivor";
 
     [DataField]
     public TimeSpan XenoSurvivorCorpseBurstDelay = TimeSpan.FromSeconds(0);

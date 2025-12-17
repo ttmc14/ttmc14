@@ -41,7 +41,6 @@
         density: 1000
   - type: DamageMultiplierFlags
     flags: Breaching
-  - type: RMCMesonsNonviewable
 
 - type: entity
   abstract: true
@@ -57,8 +56,8 @@
       Brute:
         collection: GlassSmack
   - type: Damageable
-    damageContainer: StructuralMarine
-    damageModifierSet: StructuralMarine
+    damageContainer: StructuralInorganic
+    damageModifierSet: Glass
   - type: XenoToggleChargingDamage
     stageLoss: 2
     damage:
@@ -82,57 +81,9 @@
     sprite: _RMC14/Structures/Windows/almayer_window.rsi
     state: alm_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: alm_rwindow
     mode: CardinalFlags
-
-- type: entity
-  parent: CMBaseWindowIndestructible
-  id: RMCWindowReinforcedAIHull
-  name: hull window
-  description: A glass window with a special rod matrix inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here.
-  components:
-  - type: Corrodible
-    isCorrodible: false
-  - type: Sprite
-    sprite: _RMC14/Structures/Windows/ai_rwindow.rsi
-    state: ai_rwindow0
-  - type: Icon
-    sprite: _RMC14/Structures/Windows/ai_rwindow.rsi
-    state: ai_rwindow0
-  - type: IconSmooth
-    key: walls
-    base: ai_rwindow
-    mode: CardinalFlags
-
-- type: entity
-  parent: CMBaseWindowIndestructible
-  id: RMCWindowReinforcedAIHullBlack
-  name: hull window
-  description: A glass window with a special rod matrix inside a wall frame. This one was made out of exotic materials to prevent hull breaches. No way to get through here.
-  components:
-  - type: Corrodible
-    isCorrodible: false
-  - type: Sprite
-    sprite: _RMC14/Structures/Windows/ai_window_black.rsi
-    state: alm_ai_rwindow0
-  - type: Icon
-    sprite: _RMC14/Structures/Windows/ai_window_black.rsi
-    state: alm_ai_rwindow0
-  - type: IconSmooth
-    key: walls
-    base: alm_ai_rwindow
-    mode: CardinalFlags
-
-- type: entity
-  parent: CMWindowReinforcedAlmayerHull
-  id: RMCWindowReinforcedAlmayerHullHijackBustable
-  suffix: Hijack Bustable
-  components:
-  - type: RMCReplaceOnHijackLand # TODO RMC14 also spawn glass
-    id: RMCWindowFrameAlmayer
 
 - type: entity
   parent: CMBaseWindow
@@ -147,9 +98,7 @@
     sprite: _RMC14/Structures/Windows/almayer_window.rsi
     state: alm_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: alm_rwindow
     mode: CardinalFlags
   - type: Repairable
@@ -207,9 +156,7 @@
     sprite: _RMC14/Structures/Windows/white_reinforced_window.rsi
     state: white_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: white_rwindow
     mode: CardinalFlags
 
@@ -226,9 +173,7 @@
     sprite: _RMC14/Structures/Windows/white_reinforced_window.rsi
     state: white_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: white_rwindow
     mode: CardinalFlags
   - type: Repairable
@@ -283,9 +228,7 @@
     sprite: _RMC14/Structures/Windows/colony_window.rsi
     state: col_window0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: col_window
     mode: CardinalFlags
   - type: Repairable
@@ -337,9 +280,7 @@
     sprite: _RMC14/Structures/Windows/colony_rwindow.rsi
     state: col_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: col_rwindow
     mode: CardinalFlags
   - type: Repairable
@@ -397,9 +338,7 @@
     state: col_rwindow0
     color: "#aba9a9"
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: col_rwindow
     mode: CardinalFlags
   - type: Repairable
@@ -454,9 +393,7 @@
     sprite: _RMC14/Structures/Windows/wood_window.rsi
     state: wood_window0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: wood_window
     mode: CardinalFlags
   - type: Repairable
@@ -508,9 +445,7 @@
     sprite: _RMC14/Structures/Windows/wood_rwindow.rsi
     state: wood_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: wood_rwindow
     mode: CardinalFlags
   - type: Repairable
@@ -565,9 +500,7 @@
     sprite: _RMC14/Structures/Windows/ai_rwindow.rsi
     state: ai_rwindow0
   - type: IconSmooth
-    key: windows
-    additionalKeys:
-    - doors
+    key: walls
     base: ai_rwindow
     mode: CardinalFlags
   - type: Repairable

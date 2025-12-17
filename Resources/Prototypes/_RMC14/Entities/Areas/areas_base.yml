@@ -32,7 +32,6 @@
     medevac: true
     OB: true
     supplyDrop: true
-    paradropping: true
   - type: PlacementReplacement
     key: rmc_areas
 
@@ -50,7 +49,6 @@
     medevac: true
     OB: true
     supplyDrop: true
-    paradropping: true
 
 - type: entity
   parent: RMCAreaProtectionZero
@@ -74,7 +72,6 @@
     lasing: false
     mortar: false
     medevac: false
-    paradropping: false
 
 - type: entity
   parent: RMCAreaProtectionOne

@@ -135,11 +135,11 @@
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/Hats/beret_general.rsi
 
-# Logistics Officer hats
+# Quartermaster hats
 - type: entity
   parent: CMHeadCapCargo
   id: RMCHeadCapQuartermaster
-  name: UNMC Logistics Officer cap
+  name: UNMC quartermaster cap
   description: It's a fancy hat for a not-so-fancy military supply clerk.
   components:
   - type: Sprite
@@ -150,29 +150,10 @@
 - type: entity
   parent: CMHeadBeret
   id: RMCHeadBeretQuartermaster
-  name: UNMC Logistics Officer beret
+  name: UNMC quartermaster beret
   description: A beret with the sergeant insignia emblazoned on it. It symbolizes hard work and shady business.
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Head/Hats/beret_quartermaster.rsi
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/Hats/beret_quartermaster.rsi
-
-#UNMC Headset
-- type: entity
-  parent: CMHeadBeret
-  id: RMCHeadUNMCHeadset
-  name: UNMC headset
-  description: A headset typically found in use by radio-operators and officers. This one appears to be malfunctioning.
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Head/Hats/unmc_headset.rsi
-  - type: Clothing
-    sprite: _RMC14/Objects/Clothing/Head/Hats/unmc_headset.rsi
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/Head/Hats/unmc_headset.rsi
-      state: helmet
-    hatRsi:
-      sprite: _RMC14/Objects/Clothing/Head/Hats/unmc_headset.rsi
-      state: hat

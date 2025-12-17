@@ -25,14 +25,14 @@
   - type: Sprite
     sprite: _RMC14/Objects/fire_extinguisher.rsi
     layers:
-    - state: fire_extinguisher0
+    - state: fire_extinguisher
       map: [ "enum.ToggleableVisuals.Layer" ]
   - type: GenericVisualizer
     visuals:
       enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
-          True: { state: fire_extinguisher1 } # TODO RMC14
-          False: { state: fire_extinguisher0 }
+          True: { state: fire_extinguisher } # TODO RMC14
+          False: { state: fire_extinguisher }
   - type: InteractedBlacklist
     blacklist:
       components:
@@ -68,8 +68,8 @@
     visuals:
       enum.ToggleableVisuals.Enabled:
         enum.ToggleableVisuals.Layer:
-          True: { state: minife1 } # TODO RMC14
-          False: { state: minife0 }
+          True: { state: minife0 } # TODO RMC14
+          False: { state: minife1 }
   - type: Tag
     tags:
     - CMFireExtinguisherPortable
@@ -82,11 +82,3 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Undisposable
-
-- type: entity
-  parent: RMCExtinguisherSpray
-  id: RMCExtinguisherSpraySpec
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: RMCExtinguisherPower
-    power: 48

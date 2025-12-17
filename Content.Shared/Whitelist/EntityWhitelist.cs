@@ -1,5 +1,4 @@
 using Content.Shared._RMC14.Marines.Skills;
-using Content.Shared._RMC14.Stun;
 using Content.Shared.Item;
 using Content.Shared.Tag;
 using Robust.Shared.Prototypes;
@@ -63,8 +62,4 @@ public sealed partial class EntityWhitelist
     // RMC14
     [DataField]
     public Dictionary<EntProtoId<SkillDefinitionComponent>, int>? Skills;
-
-    [DataField]
-    public RMCSizes? MinMobSize;
-    // RMC14
 }

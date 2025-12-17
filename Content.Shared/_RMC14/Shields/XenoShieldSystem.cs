@@ -1,6 +1,8 @@
+﻿using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Content.Shared.Projectiles;
+using Content.Shared._RMC14.Armor;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
 using Robust.Shared.Audio.Systems;
@@ -14,10 +16,8 @@ public sealed partial class XenoShieldSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
 
     private static readonly ProtoId<DamageTypePrototype> ShieldSoundDamageType = "Piercing";
-
     public enum ShieldType
     {
         Generic,
@@ -29,7 +29,6 @@ public sealed partial class XenoShieldSystem : EntitySystem
         Warden,
         Gardener,
         ShieldPillar,
-        King,
         CumulativeGeneric
     }
 
@@ -74,35 +73,16 @@ public sealed partial class XenoShieldSystem : EntitySystem
         else
         {
             if (HasComp<ProjectileComponent>(args.Tool) && args.Damage.DamageDict.ContainsKey(ShieldSoundDamageType))
-            {
                 _audio.PlayPredicted(ent.Comp.ShieldImpact, ent, null);
-            }
-
             args.Damage.ClampMax(0);
-            _appearance.SetData(ent, RMCShieldVisuals.Current, ent.Comp.ShieldAmount);
         }
 
         Dirty(ent, ent.Comp);
     }
 
-    /// <summary>
-    /// Returns true if shield was applied successfully
-    /// </summary>
-    /// <param name="uid"> Entity getting shield</param>
-    /// <param name="type"> Identifier of the type of shield</param>
-    /// <param name="amount"> How much shield</param>
-    /// <param name="duration"> How long the shield lasts before decay starts</param>
-    /// <param name="decay"> Shield lost per decay tick</param>
-    /// <param name="addShield"> Does this add ontop existing shield of the same type?</param>
-    /// <param name="maxShield"> Max amount of shield that can be added</param>
-    /// <param name="visualState"> If this shield has a special visual overlay</param>
-    /// <returns></returns>
-    public bool ApplyShield(EntityUid uid, ShieldType type, FixedPoint2 amount, TimeSpan? duration = null,
-        double decay = 0, bool addShield = false, double maxShield = 200, string? visualState = null)
+    public void ApplyShield(EntityUid uid, ShieldType type, FixedPoint2 amount, TimeSpan? duration = null,
+        double decay = 0, bool addShield = false, double maxShield = 200)
     {
-        if (HasComp<UnshieldableComponent>(uid))
-            return false;
-
         var shieldComp = EnsureComp<XenoShieldComponent>(uid);
 
         if (shieldComp.Active && shieldComp.Shield == type)
@@ -112,8 +92,7 @@ public sealed partial class XenoShieldSystem : EntitySystem
             else
                 shieldComp.ShieldAmount = Math.Max(shieldComp.ShieldAmount.Double(), amount.Double());
 
-            _appearance.SetData(uid, RMCShieldVisuals.Current, shieldComp.ShieldAmount);
-            return true;
+            return;
         }
 
         RemoveShield(uid, shieldComp.Shield);
@@ -127,16 +106,8 @@ public sealed partial class XenoShieldSystem : EntitySystem
             shieldComp.ShieldDecayAt = _timing.CurTime + duration.Value;
 
         shieldComp.Active = true;
-        if (visualState != null)
-        {
-            _appearance.SetData(uid, RMCShieldVisuals.Prefix, visualState);
-            _appearance.SetData(uid, RMCShieldVisuals.Active, true);
-            _appearance.SetData(uid, RMCShieldVisuals.Current, shieldComp.ShieldAmount);
-            _appearance.SetData(uid, RMCShieldVisuals.Max, maxShield);
-        }
 
         Dirty(uid, shieldComp);
-        return true;
     }
 
     public void RemoveShield(EntityUid uid, ShieldType shieldType)
@@ -150,7 +121,6 @@ public sealed partial class XenoShieldSystem : EntitySystem
         if (shieldComp.Shield == shieldType)
         {
             shieldComp.Active = false;
-            _appearance.SetData(uid, RMCShieldVisuals.Active, false);
             shieldComp.ShieldAmount = 0;
             Dirty(uid, shieldComp);
             var ev = new RemovedShieldEvent(shieldType);
@@ -175,7 +145,6 @@ public sealed partial class XenoShieldSystem : EntitySystem
                 continue;
 
             shield.ShieldAmount -= shield.DecayPerSecond * frameTime;
-            _appearance.SetData(uid, RMCShieldVisuals.Current, shield.ShieldAmount);
 
             if (shield.ShieldAmount <= 0)
             {

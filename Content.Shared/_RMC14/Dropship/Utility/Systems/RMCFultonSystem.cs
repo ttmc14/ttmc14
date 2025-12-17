@@ -3,7 +3,6 @@ using Content.Shared._RMC14.Dropship.Utility.Components;
 using Content.Shared._RMC14.Dropship.Utility.Events;
 using Content.Shared._RMC14.Dropship.Weapon;
 using Content.Shared._RMC14.Marines.Skills;
-using Content.Shared._RMC14.Medical.Unrevivable;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Rules;
 using Content.Shared.Atmos.Rotting;
@@ -38,7 +37,6 @@ public sealed class RMCFultonSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RMCPullingSystem _rmcpulling = default!;
-    [Dependency] private readonly RMCUnrevivableSystem _unrevivable = default!;
 
     private int _fultonCount;
     private MapId? _fultonMap;
@@ -71,8 +69,7 @@ public sealed class RMCFultonSystem : EntitySystem
             return;
         }
 
-        if (HasComp<PerishableComponent>(target) && !_rotting.IsRotten(target) ||
-            HasComp<RMCRevivableComponent>(target) && !_unrevivable.IsUnrevivable(target))
+        if (HasComp<PerishableComponent>(target) && !_rotting.IsRotten(target))
         {
             _popup.PopupClient(Loc.GetString("rmc-fulton-not-unrevivable", ("fulton", used), ("target", target)), target, user);
             return;

@@ -22,7 +22,6 @@
     - type: Skills
       skills:
         RMCSkillConstruction: 2
-        RMCSkillEndurance: 1
         RMCSkillEngineer: 3
         RMCSkillFirearms: 1
         RMCSkillFireman: 1
@@ -99,7 +98,7 @@
     jumpsuit: CMJumpsuitSPPEngi
     outerClothing: RMCArmorSPPRifleman
     gloves: RMCHandsVeteranInsulated
-    shoes: RMCBootsSPPFilled
+    shoes: CMBootsBlackFilled
     suitstorage: RMCWeaponRifleType71Flamer
     id: RMCIDSPP
     belt: RMCType71BeltFilled

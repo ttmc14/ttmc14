@@ -6,14 +6,12 @@ using Content.Shared._RMC14.Chat;
 using Content.Shared._RMC14.Dialog;
 using Content.Shared._RMC14.Marines.Announce;
 using Content.Shared._RMC14.Marines.Roles.Ranks;
-using Content.Shared._RMC14.Marines.Skills.Pamphlets;
 using Content.Shared._RMC14.Marines.Squads;
 using Content.Shared._RMC14.OrbitalCannon;
 using Content.Shared._RMC14.Roles;
 using Content.Shared._RMC14.Rules;
 using Content.Shared._RMC14.SupplyDrop;
 using Content.Shared._RMC14.TacticalMap;
-using Content.Shared._RMC14.Vendors;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Chat;
@@ -536,9 +534,6 @@ public abstract class SharedOverwatchConsoleSystem : EntitySystem
         if (message.Length > 200)
             message = message[..200];
 
-        if (string.IsNullOrWhiteSpace(message))
-            return;
-
         if (!TryGetEntity(ent.Comp.Squad, out var squad) ||
             Prototype(squad.Value) is not { } squadProto)
         {
@@ -668,7 +663,6 @@ public abstract class SharedOverwatchConsoleSystem : EntitySystem
                             ? areaProto.Name
                             : string.Empty;
                         var netMember = GetNetEntity(member);
-                        var roleOverride = CompOrNull<RMCVendorRoleOverrideComponent>(member)?.GiveSquadRoleName ?? CompOrNull<UsedSkillPamphletComponent>(member)?.JobTitle;
 
                         Vector2? leaderDistance = null;
                         if (member != leader.Owner &&
@@ -691,8 +685,7 @@ public abstract class SharedOverwatchConsoleSystem : EntitySystem
                             location,
                             areaName,
                             leaderDistance,
-                            rank,
-                            roleOverride
+                            rank
                         );
                     }
 

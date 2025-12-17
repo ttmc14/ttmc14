@@ -11,6 +11,9 @@
       "name": "base"
     },
     {
+      "name": "bolt-open"
+    },
+    {
       "name": "icon"
     },
     {
@@ -33,11 +36,35 @@
       "directions": 4
     },
     {
+      "name": "inhand-right-color",
+      "directions": 4
+    },
+    {
+      "name": "inhand-left-color",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-left-color",
+      "directions": 4
+    },
+    {
+      "name": "wielded-inhand-right-color",
+      "directions": 4
+    },
+    {
       "name": "equipped-BACKPACK",
       "directions": 4
     },
     {
+      "name": "equipped-BACK-color",
+      "directions": 4
+    },
+    {
       "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE-color",
       "directions": 4
     }
   ]

@@ -164,8 +164,8 @@ public sealed class SharedGhillieSuitSystem : EntitySystem
 
             turnInvisible.UncloakTime = _timing.CurTime;
             Dirty(user, turnInvisible);
-            if (ent.Comp.BlockFriendlyFire)
-                EnsureComp<EntityIFFComponent>(user);
+
+            EnsureComp<EntityIFFComponent>(user);
             RemCompDeferred<RMCNightVisionVisibleComponent>(user);
 
             _thermalCloak.SpawnCloakEffects(user, comp.CloakEffect);
@@ -191,8 +191,7 @@ public sealed class SharedGhillieSuitSystem : EntitySystem
 
             RemComp<RMCPassiveStealthComponent>(user);
             RemComp<EntityActiveInvisibleComponent>(user);
-            if (ent.Comp.BlockFriendlyFire)
-                RemCompDeferred<EntityIFFComponent>(user);
+            RemCompDeferred<EntityIFFComponent>(user);
         }
     }
 

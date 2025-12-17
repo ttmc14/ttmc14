@@ -53,18 +53,14 @@ public sealed class XenoPylonSystem : SharedXenoPylonSystem
     {
         if (_hive.GetHive(ent.Owner) is {} hive &&
             _gameTicker.RoundDuration() > hive.Comp.PreSetupCutoff)
-        {
             hive.Comp.NewCoreAt = _timing.CurTime + hive.Comp.NewCoreCooldown;
-            hive.Comp.AnnouncedHiveCoreCooldownOver = false;
-        }
-
     }
 
     private void OnXenoSpawnerUsed(Entity<XenoComponent> xeno, ref GhostRoleSpawnerUsedEvent args)
     {
         _hive.SetSameHive(args.Spawner, xeno.Owner);
 
-        if (TryComp(args.Spawner, out HiveLesserSpawnerComponent? core))
+        if (TryComp(args.Spawner, out HivePylonComponent? core))
             core.LiveLesserDrones.Add(xeno);
     }
 
@@ -78,7 +74,7 @@ public sealed class XenoPylonSystem : SharedXenoPylonSystem
         ent.Comp.Core = args.Spawner;
     }
 
-    private void UpdateGhostRoles(Entity<HiveLesserSpawnerComponent, GhostRoleMobSpawnerComponent> coreEnt)
+    private void UpdateGhostRoles(Entity<HivePylonComponent, GhostRoleMobSpawnerComponent> coreEnt)
     {
         var (uid, core, spawner) = coreEnt;
         for (var i = core.LiveLesserDrones.Count - 1; i >= 0; i--)
@@ -128,7 +124,7 @@ public sealed class XenoPylonSystem : SharedXenoPylonSystem
         // TODO RMC14 30 second delay to grabbing the next lesser drone role
         // TODO RMC14 hive specific
         var time = _timing.CurTime;
-        var query = EntityQueryEnumerator<HiveLesserSpawnerComponent>();
+        var query = EntityQueryEnumerator<HivePylonComponent>();
         while (query.MoveNext(out var uid, out var core))
         {
             if (TryComp(uid, out GhostRoleMobSpawnerComponent? spawner))

@@ -40,7 +40,4 @@ public sealed partial class XenoCripplingStrikeComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool PreventTackle;
-
-    [DataField, AutoNetworkedField]
-    public bool ResetMeleeCooldown;
 }

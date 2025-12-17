@@ -113,7 +113,6 @@
   - type: Tag
     tags:
     - Wall
-  - type: Clickable
 
 - type: entity
   abstract: true
@@ -190,7 +189,6 @@
     damage:
       types:
         Blunt: 5
-  - type: XenoRecentlyBuiltPreventCollisions
 
 # Invisible Wall
 
@@ -203,8 +201,7 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: _RMC14/Markers/landmarks.rsi
-    state: invisible_wall
+    state: green
   - type: Transform
     anchored: true
   - type: Physics

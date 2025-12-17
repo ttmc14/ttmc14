@@ -146,7 +146,6 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: XenoCrusherChargable
-  - type: RMCMesonsNonviewable
 
 - type: entity
   parent: CMWindoor

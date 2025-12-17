@@ -20,7 +20,6 @@ using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Collections;
 using Robust.Shared.Network;
-using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Threading;
 using Robust.Shared.Timing;
@@ -41,7 +40,7 @@ public abstract class SharedXenoPheromonesSystem : EntitySystem
     [Dependency] private readonly IParallelManager _parallel = default!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _weeds = default!;
@@ -67,7 +66,6 @@ public abstract class SharedXenoPheromonesSystem : EntitySystem
         _damageableQuery = GetEntityQuery<DamageableComponent>();
 
         SubscribeLocalEvent<XenoPheromonesComponent, XenoPheromonesActionEvent>(OnXenoPheromonesAction);
-        SubscribeLocalEvent<XenoPheromonesComponent, PlayerDetachedEvent>(OnXenoPheromonesDetached);
 
         SubscribeLocalEvent<XenoWardingPheromonesComponent, UpdateMobStateEvent>(OnWardingUpdateMobState,
             after: [typeof(MobThresholdSystem)]);
@@ -92,20 +90,15 @@ public abstract class SharedXenoPheromonesSystem : EntitySystem
 
     private void OnActiveMobStateChanged(Entity<XenoActivePheromonesComponent> ent, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState is MobState.Critical or MobState.Dead)
+        if (args.NewMobState == MobState.Critical || args.NewMobState == MobState.Dead)
             DeactivatePheromones(ent.Owner);
     }
 
     private void OnXenoPheromonesAction(Entity<XenoPheromonesComponent> xeno, ref XenoPheromonesActionEvent args)
     {
         args.Handled = true;
-        DeactivatePheromones(xeno.AsNullable());
+        DeactivatePheromones((xeno, xeno));
         _ui.TryOpenUi(xeno.Owner, XenoPheromonesUI.Key, xeno);
-    }
-
-    private void OnXenoPheromonesDetached(Entity<XenoPheromonesComponent> xeno, ref PlayerDetachedEvent args)
-    {
-        DeactivatePheromones(xeno.AsNullable());
     }
 
     private void OnXenoPheromonesChosenBui(Entity<XenoPheromonesComponent> xeno, ref XenoPheromonesChosenBuiMsg args)
@@ -178,11 +171,11 @@ public abstract class SharedXenoPheromonesSystem : EntitySystem
 
         if (!TryComp<XenoRegenComponent>(warding, out var xeno) || (!xeno.HealOffWeeds && !_weeds.IsOnFriendlyWeeds(warding.Owner)))
         {
-            var damageReduct = _rmcDamageable.DistributeDamageCached(warding.Owner, warding.Comp.CritDamageGroup, warding.Comp.Multiplier * 0.25);
+            var damageReduct = _rmcDamageable.DistributeDamage(warding.Owner, warding.Comp.CritDamageGroup, warding.Comp.Multiplier * 0.25);
             args.Damage -= damageReduct;
         }
         else
-            args.Damage = -_rmcDamageable.DistributeDamageCached(warding.Owner, warding.Comp.CritDamageGroup, warding.Comp.Multiplier * 0.5f);
+            args.Damage = -_rmcDamageable.DistributeDamage(warding.Owner, warding.Comp.CritDamageGroup, warding.Comp.Multiplier * 0.5f);
     }
 
     private void OnFrenzyRemove(Entity<XenoFrenzyPheromonesComponent> ent, ref ComponentRemove args)

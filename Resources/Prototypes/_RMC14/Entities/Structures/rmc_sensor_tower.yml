@@ -46,9 +46,8 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: sensor_tower
-  - type: RMCMesonsNonviewable
 
 - type: entity
   parent: RMCSensorTower
@@ -58,11 +57,3 @@
   - type: SensorTower
     state: On
     breakChance: 0
-
-- type: entity
-  parent: RMCSensorTower
-  id: RMCSensorTowerOffset
-  suffix: Offset
-  components:
-  - type: Sprite
-    offset: 0.25,2

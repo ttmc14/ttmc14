@@ -1,7 +1,6 @@
 - type: dataset
   id: RMCMarineRankHierarchy
   values:
-  - "RMCRankRecruit"
   - "RMCRankPrivate"
   - "RMCRankPrivateFirstClass"
   - "RMCRankLanceCorporal"

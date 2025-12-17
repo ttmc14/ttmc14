@@ -5,11 +5,10 @@
   description: rmc-ghost-role-information-rcm-description
   playTimeTracker: RMCJobRoyalSmartGunOperator
   ranks:
-    RMCRankTSELanceCorporal: [ ]
+    RMCRankLanceCorporal: [ ]
   startingGear: RMCGearRoyalSmartGunOperator
   icon: RMCJobIconRoyalSmartGunOperator
   joinNotifyCrew: false
-  supervisors: cm-job-supervisors-royal-tl
   spawnMenuRoleName: RCM Smart Gun Operator
   special:
   - !type:AddComponentSpecial
@@ -34,6 +33,7 @@
         RMCSkillVehicles: 1
     - type: JobPrefix
       prefix: rmc-job-prefix-rcm-sgo
+  hasIcon: false
   hidden: true
 
 - type: entity
@@ -71,12 +71,12 @@
     head: RMCHeadRoyalHelmetBallistic
     eyes: RMCGlassesSmartGunSight
     ears: RMCHeadsetRoyalMarine
-    jumpsuit: RMCJumpsuitMarineRoyal
+    jumpsuit: RMCJumpsuitMarineRoyal # TOOD RMC14 royal marines commando uniform
     outerClothing: RMCArmorRoyalHarnessFilled
     gloves: RMCHandsVeteranRoyalMarine
     shoes: RMCBootsRoyalFilled
     suitstorage: RMCSmartGunRoyal
-    id: RMCIDRoyalMarinesSGO
+    id: RMCIDRoyalMarines
     belt: RMCMK80BeltFilled # TODO RMC14 L905 gunbelt
     back: RMCSatchelLightpackFilledRoyal # TODO RMC14 lightweight rmc backpack
     pocket1: RMCPouchGeneralLargeFilledSmartGunDrums

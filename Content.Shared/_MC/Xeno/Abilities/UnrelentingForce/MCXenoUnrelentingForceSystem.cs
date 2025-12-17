@@ -18,7 +18,7 @@ namespace Content.Shared._MC.Xeno.Abilities.UnrelentingForce;
 public sealed class MCXenoUnrelentingForceSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = default!;
     [Dependency] private readonly RMCCameraShakeSystem _rmcCameraShake = default!;

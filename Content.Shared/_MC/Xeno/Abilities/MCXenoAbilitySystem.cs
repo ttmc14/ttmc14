@@ -21,7 +21,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     /// Reference to the central actions system used for validating and consuming ability actions.
     /// Automatically injected by dependency resolution.
     /// </summary>
-    [Dependency] protected readonly SharedRMCActionsSystem RMCActions = null!;
+    [Dependency] protected readonly RMCActionsSystem RMCActions = null!;
     [Dependency] protected readonly SharedRMCMeleeWeaponSystem RMCMelee = null!;
 
     [Dependency] protected readonly SharedActionsSystem Actions = null!;

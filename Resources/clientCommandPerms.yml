@@ -93,7 +93,3 @@
 - Flags: ADMINCHAT
   Commands:
     - achatwindow
-
-- Flags: FUN
-  Commands:
-  - throwscoreboard

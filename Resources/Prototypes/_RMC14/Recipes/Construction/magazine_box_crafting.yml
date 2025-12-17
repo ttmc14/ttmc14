@@ -285,42 +285,6 @@
   iconColor: "#7c4c1b"
   objectType: Item
 
-- type: construction
-  parent: RMC
-  name: Magazine Box (M13 AP)
-  id: RMCBoxMagazinePistolM13APEmpty
-  graph: RMCBoxMagazine
-  startNode: start
-  targetNode: RMCBoxMagazinePistolM13APEmpty
-  category: construction-category-cm-box-magazine
-  description: A magazine box that can contain armor piercing M13 mags.
-  iconColor: "#7c4c1b"
-  objectType: Item
-
-- type: construction
-  parent: RMC
-  name: Magazine Box (M13 Ext AP)
-  id: RMCBoxMagazinePistolM13ExtAPEmpty
-  graph: RMCBoxMagazine
-  startNode: start
-  targetNode: RMCBoxMagazinePistolM13ExtAPEmpty
-  category: construction-category-cm-box-magazine
-  description: A magazine box that can contain extended armor piercing M13 mags.
-  iconColor: "#7c4c1b"
-  objectType: Item
-
-- type: construction
-  parent: RMC
-  name: Magazine Box (M13 Drum AP)
-  id: RMCBoxMagazinePistolM13DrumAPEmpty
-  graph: RMCBoxMagazine
-  startNode: start
-  targetNode: RMCBoxMagazinePistolM13DrumAPEmpty
-  category: construction-category-cm-box-magazine
-  description: A magazine box that can contain drum armor piercing M13 mags.
-  iconColor: "#7c4c1b"
-  objectType: Item
-
 # M34 Incinerator
 
 - type: construction
@@ -537,19 +501,6 @@
         amount: 1
         doAfter: 0.25
 
-    # SSG45
-    - to: RMCBoxMagazineRifleSSG45Empty
-      steps:
-      - material: RMCSheetCardboard
-        amount: 1
-        doAfter: 0.25
-
-    - to: RMCBoxMagazineRifleSSG45APEmpty
-      steps:
-      - material: RMCSheetCardboard
-        amount: 1
-        doAfter: 0.25
-
     # M63
     - to: RMCBoxMagazineSMGM63Empty
       steps:
@@ -614,25 +565,6 @@
       - material: RMCSheetCardboard
         amount: 1
         doAfter: 0.25
-
-    - to: RMCBoxMagazinePistolM13APEmpty
-      steps:
-      - material: RMCSheetCardboard
-        amount: 1
-        doAfter: 0.25
-
-    - to: RMCBoxMagazinePistolM13ExtAPEmpty
-      steps:
-      - material: RMCSheetCardboard
-        amount: 1
-        doAfter: 0.25
-
-    - to: RMCBoxMagazinePistolM13DrumAPEmpty
-      steps:
-      - material: RMCSheetCardboard
-        amount: 1
-        doAfter: 0.25
-
     # M16
     - to: RMCBoxMagazineRifleM16Empty
       steps:
@@ -785,12 +717,6 @@
   - node: RMCBoxBulletsRifleAPEmpty
     entity: RMCBoxBulletsRifleAPEmpty
 
-  # SSG45
-  - node: RMCBoxMagazineRifleSSG45Empty
-    entity: RMCBoxMagazineRifleSSG45Empty
-  - node: RMCBoxMagazineRifleSSG45APEmpty
-    entity: RMCBoxMagazineRifleSSG45APEmpty
-
   #AK4047
   - node: RMCBoxMagazineRifleAK4047Empty
     entity: RMCBoxMagazineRifleAK4047Empty
@@ -822,12 +748,6 @@
     entity: RMCBoxMagazinePistolM13ExtEmpty
   - node: RMCBoxMagazinePistolM13DrumEmpty
     entity: RMCBoxMagazinePistolM13DrumEmpty
-  - node: RMCBoxMagazinePistolM13APEmpty
-    entity: RMCBoxMagazinePistolM13APEmpty
-  - node: RMCBoxMagazinePistolM13ExtAPEmpty
-    entity: RMCBoxMagazinePistolM13ExtAPEmpty
-  - node: RMCBoxMagazinePistolM13DrumAPEmpty
-    entity: RMCBoxMagazinePistolM13DrumAPEmpty
 
   # M16
   - node: RMCBoxMagazineRifleM16Empty

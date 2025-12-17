@@ -13,7 +13,7 @@ namespace Content.Shared._MC.Xeno.Abilities.PsychicFling;
 public sealed class MCXenoPsychicFlingSystem : EntitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly RMCCameraShakeSystem _camera = default!;

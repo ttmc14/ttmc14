@@ -8,7 +8,6 @@
     mode: SnapgridCenter
   components:
   - type: Transform
-    anchored: true
     noRot: true
   - type: Clickable
   - type: InteractionOutline
@@ -36,7 +35,7 @@
     - state: "off"
       map: [ "enum.VendingMachineVisualLayers.Base" ]
     - state: "base"
-      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded", "rmc_flick_animation" ]
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: UserInterface
     interfaces:
       enum.CMAutomatedVendorUI.Key:
@@ -57,7 +56,6 @@
     blacklist:
       components:
       - Xeno
-  - type: RMCMesonsNonviewable
 
 - type: entity
   abstract: true

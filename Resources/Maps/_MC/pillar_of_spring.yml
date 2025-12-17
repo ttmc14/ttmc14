@@ -11943,7 +11943,7 @@ entities:
     - type: Transform
       pos: 8.5,-44.5
       parent: 1
-- proto: RMCLightBulb
+- proto: CMLightTube
   entities:
   - uid: 409
     components:

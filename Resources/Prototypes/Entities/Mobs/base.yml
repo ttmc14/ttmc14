@@ -98,18 +98,17 @@
       - ActionCritFakeDeath
       - ActionCritLastWords
   - type: Deathgasp
-#  - type: HealthExaminable # RMC14
-#    examinableTypes:
-#    - Blunt
-#    - Slash
-#    - Piercing
-#    - Heat
-#    - Shock
-#    - Cold
-#    - Caustic
-#    - Asphyxiation
-#    - Radiation
-  - type: RMCHealthExaminable # RMC14
+  - type: HealthExaminable
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+    - Cold
+    - Caustic
+    - Asphyxiation
+    - Radiation
   - type: DamageOnHighSpeedImpact
     damage:
       types:

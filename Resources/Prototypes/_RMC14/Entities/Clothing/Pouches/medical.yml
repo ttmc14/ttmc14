@@ -200,8 +200,9 @@
   components:
   - type: StorageFill
     contents:
-    - id: CMBeakerLarge
-    - id: CMBeaker
+    - id: LargeBeaker
+    - id: Beaker
+
 
 # Auto-Injector Pouch
 - type: entity

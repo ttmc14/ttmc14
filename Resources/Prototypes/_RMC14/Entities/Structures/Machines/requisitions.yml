@@ -26,8 +26,8 @@
       - RMCCrateBoxMagazineBreaching
       - RMCCrateMagazineSmartGun
       - RMCCrateMagazineNapthalUT
-      - RMCCrateMagazineBGel
-      - RMCCrateMagazineFlamerMixed
+#      - RMCCrateMagazineNapalmGel
+#      - RMCCrateMagazineFlamerMixed
       - RMCCrateGearPackFlare
       - RMCCrateFoodMRE
       - RMCCrateFlashlights
@@ -115,17 +115,6 @@
     blacklist:
       components:
       - Xeno
-  - type: RMCMesonsNonviewable
-
-- type: entity
-  parent: CMASRSConsole
-  id: CMASRSConsolePowered
-  suffix: Powered
-  components:
-  - type: ApcPowerReceiver
-    powerLoad: 0
-    needsPower: false # intentionally!
-
 
 - type: entity
   id: CMCargoElevator
@@ -203,7 +192,6 @@
   - type: RequisitionsRailing
     mode: Raised
   - type: CargoSellBlacklist
-  - type: RMCMesonsNonviewable
 
 - type: entity
   id: CMGear

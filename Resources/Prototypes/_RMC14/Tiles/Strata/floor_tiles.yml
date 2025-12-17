@@ -2,7 +2,7 @@
   abstract: true
   id: RMCFloorStrataMiscBase
   name: tiles-cm-default-misc
-  suffix: Sorokyne
+  suffix: strata
 
 - type: tile
   parent: RMCFloorStrataMiscBase

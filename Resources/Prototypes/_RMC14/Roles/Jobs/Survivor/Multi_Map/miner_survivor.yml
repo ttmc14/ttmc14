@@ -3,7 +3,7 @@
   id: CMSurvivorMiner
   name: cm-job-name-survivor-miner
   description: cm-job-description-survivor
-  playTimeTracker: CMJobSurvivor
+  playTimeTracker: CMJobSurvivorMiner
   startingGear: RMCGearSurvivorMiner
   special:
   - !type:AddComponentSpecial
@@ -26,7 +26,7 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivor # for inheritance
+  useLoadoutOfJob: CMSurvivor
 
 - type: startingGear
   id: RMCGearSurvivorMiner
@@ -55,6 +55,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorMiner
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetCivilian

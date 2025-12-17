@@ -74,6 +74,7 @@
         params:
           variation: 0.15
     hitAnimationId: RMCEffectSlam
+
   - type: Tackle
     max: 4
   - type: Fixtures
@@ -100,7 +101,7 @@
     prefix: defender
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: defender
   - type: IntelRecoverCorpseObjectiveOnDeath
     value: 0.1
@@ -134,8 +135,6 @@
   - type: XenoEvolution
     strains:
     - CMXenoDefenderSteelcrest
-  - type: RMCActionOrder
-    id: CMXenoDefender
 
 - type: entity
   parent: CMXenoDefenderBase
@@ -182,5 +181,3 @@
         Blunt: 37.5
   - type: XenoSoak
   - type: XenoHidden
-  - type: RMCActionOrder
-    id: CMXenoDefenderSteelcrest

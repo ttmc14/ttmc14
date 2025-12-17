@@ -3,18 +3,24 @@
   id: CMSurvivorGoon
   name: rmc-job-name-pmc-corporate-goon
   description: cm-job-description-survivor
+  playTimeTracker: CMJobSurvivorGoon
   startingGear: RMCGearSurvivorGoon
   spawnMenuRoleName: We-Ya Goon (Survivor)
   icon: "RMCJobIconPMCGoonStandard"
   hasIcon: true
-  accessGroups:
-  - ColonistAllAccessNoArmory
-  - ColonistCorporate
   special:
   - !type:AddComponentSpecial
     components:
     - type: Skills
-      preset: SurvivorGoon
+      skills:
+        RMCSkillConstruction: 1
+        RMCSkillMedical: 1
+        RMCSkillEndurance: 2
+        RMCSkillCqc: 1
+        RMCSkillFirearms: 2
+        RMCSkillPolice: 0 # RMC14
+        RMCSkillFireman: 2
+        RMCSkillVehicles: 1
     - type: RMCSurvivor
     - type: MotionDetectorTracked
     - type: NpcFactionMember
@@ -27,7 +33,7 @@
 - type: startingGear
   id: RMCGearSurvivorGoon
   equipment:
-    id: RMCIDCardWeYaCorporateSecurity
+    id: RMCIDCardPMC
     ears: RMCHeadsetDistressWeYa
     jumpsuit: RMCJumpsuitVeteranPMCCorporate
     outerClothing: CMArmorM4PMCCorporate
@@ -37,7 +43,7 @@
     back: RMCSatchelLightpack
     belt: CMM77BeltFilled # TODO RMC14: PMC re-sprite
     suitstorage: RMCWeaponRifleM54CWhite
-    pocket1: RMCPouchSurvivalBlackFilled
+    pocket1: RMCPouchSurvivalFill
     pocket2: RMCPouchFirstAidPMCFill
   storage:
     back:
@@ -59,3 +65,7 @@
       state: green
     - sprite: _RMC14/Markers/cm_jobs.rsi
       state: survivor
+
+- type: playTimeTracker
+  id: CMJobSurvivorGoon
+  isHumanoid: true

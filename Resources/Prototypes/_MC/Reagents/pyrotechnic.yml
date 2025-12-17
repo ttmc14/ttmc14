@@ -37,20 +37,3 @@
   color: "#cc7e93"
   intensity: 30
   duration: 50
-  fireEntity: MCFireFlamethrower
-  radius: 10
-
-- type: reagent
-  parent: MCNapalm
-  id: MCNapalmG
-  fireEntity: MCFireFlamethrowerGreen
-
-- type: reagent
-  parent: MCNapalm
-  id: MCNapalmX
-  fireEntity: MCFireFlamethrowerBlue
-
-- type: reagent
-  parent: MCNapalm
-  id: MCNapalmRGB
-  fireEntity: MCFireFlamethrowerRGB

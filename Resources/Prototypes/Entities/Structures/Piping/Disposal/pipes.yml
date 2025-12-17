@@ -62,7 +62,6 @@
       DisposalTube: !type:Container
   - type: StaticPrice
     price: 30
-  - type: RMCMesonsNonviewable
 
 - type: entity
   id: DisposalHolder

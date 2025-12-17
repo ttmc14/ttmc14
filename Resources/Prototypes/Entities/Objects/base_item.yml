@@ -45,7 +45,6 @@
   - type: Pullable
   - type: DamageExaminable
   - type: RMCItemPickup
-  - type: RMCMesonsNonviewable
 
 - type: entity
   name: "storage item"

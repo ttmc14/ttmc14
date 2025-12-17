@@ -1,4 +1,3 @@
-cm-defib-take-off-armor = Take off {POSS-ADJ($target)} armor first!
+cm-defib-take-off-armor = Сначала сними броню с {POSS-ADJ($target)}!
 
-rmc-defibrillator-heart-damage = Defibrillation failed. Patient's heart is too damaged. Immediate surgery is advised.
-rmc-defibrillator-unrevivable = Defibrillation failed. Patient's general condition does not allow reviving.
+rmc-defib-suicide = [color=purple][italic]Свет в глазах {POSS-ADJ($victim)} угас...[/italic][/color]

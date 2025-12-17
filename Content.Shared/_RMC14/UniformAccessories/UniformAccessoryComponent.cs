@@ -8,7 +8,7 @@ namespace Content.Shared._RMC14.UniformAccessories;
 public sealed partial class UniformAccessoryComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public Rsi? PlayerSprite;
+    public Rsi? PlayerSprite = new(new ResPath("_RMC14/Objects/Medals/bronze.rsi"), "equipped");
 
     [DataField, AutoNetworkedField]
     public NetEntity? User;

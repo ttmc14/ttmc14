@@ -786,7 +786,7 @@ entities:
     - type: Transform
       pos: 0.5,8.5
       parent: 1
-- proto: RMCWeaponRifleSSG45
+- proto: WeaponRifleSSG45
   entities:
   - uid: 78
     components:

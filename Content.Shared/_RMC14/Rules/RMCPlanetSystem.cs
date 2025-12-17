@@ -1,19 +1,12 @@
 ﻿using System.Collections.Immutable;
-using System.Linq;
 using Content.Shared._RMC14.CCVar;
-using Content.Shared._RMC14.Power;
-using Content.Shared._RMC14.TacticalMap;
 using Robust.Shared.Audio.Components;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
-using Robust.Shared.EntitySerialization;
-using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
-using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._RMC14.Rules;
 
@@ -21,12 +14,9 @@ public sealed class RMCPlanetSystem : EntitySystem
 {
     [Dependency] private readonly IComponentFactory _compFactory = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly ISharedPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototypes = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly SharedRMCPowerSystem _rmcPower = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
     private int _coordinateVariance;
@@ -45,7 +35,7 @@ public sealed class RMCPlanetSystem : EntitySystem
 
         SubscribeLocalEvent<RMCPlanetComponent, MapInitEvent>(OnPlanetMapInit);
 
-        SubscribeLocalEvent<RMCHijackSongComponent, ComponentStartup>(OnHijackSongStartup, after: new[] {typeof(SharedAudioSystem)});
+        SubscribeLocalEvent<RMCHijackSongComponent, ComponentStartup>(OnHijackSongStartup);
 
         Subs.CVar(_config, RMCCVars.RMCPlanetCoordinateVariance, v => _coordinateVariance = v, true);
         Subs.CVar(_config, RMCCVars.VolumeGainHijackSong, SetVolumeHijack, true);
@@ -71,20 +61,12 @@ public sealed class RMCPlanetSystem : EntitySystem
 
     private void OnHijackSongStartup(Entity<RMCHijackSongComponent> ent, ref ComponentStartup args)
     {
-        if (_net.IsServer)
-            return;
-
         if (TryComp(ent, out AudioComponent? audio))
-#pragma warning disable RA0002
-            audio.Params.Volume = SharedAudioSystem.GainToVolume(_hijackSongGain);
-#pragma warning restore RA0002
+            audio.Gain = _hijackSongGain;
     }
 
     private void SetVolumeHijack(float gain)
     {
-        if (_net.IsServer)
-            return;
-
         _hijackSongGain = gain;
         var query = AllEntityQuery<RMCHijackSongComponent, AudioComponent>();
         while (query.MoveNext(out _, out _, out var audio))
@@ -188,14 +170,9 @@ public sealed class RMCPlanetSystem : EntitySystem
         return candidates;
     }
 
-    public List<RMCPlanet> GetAllPlanetsInRotation()
+    public List<RMCPlanet> GetCandidates()
     {
-        return GetAllPlanets().Where(p => p.Comp.InRotation).ToList();
-    }
-
-    public List<RMCPlanet> GetCandidatesInRotation()
-    {
-        var candidates = GetAllPlanetsInRotation();
+        var candidates = GetAllPlanets();
         var players = _player.PlayerCount;
         if (players == 0)
             return candidates;
@@ -212,27 +189,5 @@ public sealed class RMCPlanetSystem : EntitySystem
         }
 
         return candidates;
-    }
-
-    public MapId? Load(ResPath path)
-    {
-        var options = new DeserializationOptions { InitializeMaps = true };
-        if (!_mapLoader.TryLoadMap(path, out var map, out _, options))
-            return null;
-
-        foreach (var entity in EntityManager.AllEntities<RMCPlanetComponent>())
-        {
-            RemComp<RMCPlanetComponent>(entity);
-        }
-
-        foreach (var entity in EntityManager.AllEntities<TacticalMapComponent>())
-        {
-            RemComp<TacticalMapComponent>(entity);
-        }
-
-        EnsureComp<RMCPlanetComponent>(map.Value);
-        EnsureComp<TacticalMapComponent>(map.Value);
-        _rmcPower.RecalculatePower();
-        return map.Value.Comp.MapId;
     }
 }

@@ -12,7 +12,6 @@
   supervisors: cm-job-supervisors-staff
   accessGroups:
   - ShipMasterAccess
-  - RMCWeYa
   spawnMenuRoleName: WEYA Communications Executive
   special:
   - !type:AddComponentSpecial
@@ -23,7 +22,6 @@
     - type: Skills
       skills:
         RMCSkillConstruction: 2
-        RMCSkillEndurance: 1
         RMCSkillEngineer: 2
         RMCSkillFirearms: 1
         RMCSkillFireman: 1
@@ -42,18 +40,15 @@
   id: RMCGearWeYaResponder
   equipment:
     ears: RMCHeadsetDistressPMCDirector
-    eyes: RMCGlassesMedicalHUDGlasses
-    back: CMSatchelFilledFaxResponder
+    back: CMSatchel
     belt: CMClipboard
-    head: RMCHeadCapWestonYamadaDark
+    head: ArmorHelmetPMC
     jumpsuit: CMJumpsuitLiaisonBlack
     outerClothing: RMCJacketCorporateFormal
     shoes: RMCShoesLaceup
     id: RMCIDCardWeYaResponder
     pocket1: RMCPouchGeneralLarge
     pocket2: RMCPouchDocument
-  inhand:
-    - CMStampWeYa
 
 - type: entity
   parent: CMIDCardGold

@@ -41,8 +41,7 @@
       #  points: 30
       #- id: /obj/item/reagent_container/hypospray/autoinjector/ultrazine/liaison
       #  points: 25
-      #- id: RMCPillCyanide # https://github.com/RMC-14/RMC-14/pull/8092
-      #  name: cyanide pill
+      #- id: /obj/item/reagent_container/pill/cyanide
       #  points: 20
       #- id: /obj/item/trash/ceramic_plate
       #  points: 10
@@ -55,23 +54,15 @@
       entries:
       - id: RMCCigarCase
         points: 5
-      - id: RMCShioRoyalsCase
-        points: 5
-      - id: RMCCigarettePackWeYaGold
-        points: 5
-      - id: RMCZippoExec
+      - id: CMCigarettePackLuckySlothsMini # TODO RMC14 WeYa cigarettes
         points: 5
       - id: RMCZippoGold
         points: 5
     - name: Drinkables
       entries:
-      - id: RMCDrinkAlcoholSake
+      - id: DrinkSakeBottleFull
         points: 5
-      - id: RMCDrinkCanSequoiaBeer
-        points: 5
-      - id: CMDrinkCanAle
-        points: 5
-      - id: CMDrinkCanBeerLite
+      - id: CMDrinkCanAle # TODO RMC14 Aspen Beer
         points: 5
       - id: DrinkGlass
         points: 1
@@ -90,14 +81,13 @@
       - id: CMClipboard
         points: 1
     - name: Misc
-      entries:
-      - id: RMCHollowCane
-        name: hollow cane
-        points: 15
+      entries: []
+      #- id: Hollow cane
+      #  points: 15
     - name: Ammo
-      entries:
-      - id: RMCMagazinePistolPK7
-        points: 10
+      entries: []
+      #- id: ES-4 stun mag
+      #  points: 10
     - name: Radio keys
       entries:
       - id: CMEncryptionKeyAlpha

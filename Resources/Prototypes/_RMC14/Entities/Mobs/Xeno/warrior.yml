@@ -98,7 +98,7 @@
     prefix: warrior
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: warrior
   - type: IntelRecoverCorpseObjectiveOnDeath
     value: 0.2
@@ -106,5 +106,3 @@
     name: cm-job-name-xeno-warrior
   - type: RMCSurgeryXenoHeart
     item: RMCOrganXenoHeartT2
-  - type: RMCActionOrder
-    id: CMXenoWarrior

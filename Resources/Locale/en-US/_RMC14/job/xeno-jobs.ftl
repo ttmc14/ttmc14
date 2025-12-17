@@ -20,7 +20,6 @@ cm-job-name-xeno-hivelord = Hivelord
 CMJobXenoHivelord = Hivelord
 
 cm-job-name-xeno-parasite = Parasite
-cm-job-name-xeno-parasite-xeno = Child
 CMJobXenoParasite = Parasite
 
 cm-job-name-xeno-larva = Larva
@@ -52,9 +51,6 @@ CMJobXenoSpitter = Spitter
 
 cm-job-name-xeno-warrior = Warrior
 CMJobXenoWarrior = Warrior
-
-rmc-job-name-xeno-king = King
-RMCJobXenoKing = King
 
 # TODO RMC14
 department-CMXeno = Xenonid

@@ -13,10 +13,4 @@ public abstract class SharedRMCGameTickerSystem : EntitySystem
     public virtual void PlayerJoinGame(ICommonSession session, bool silent = false)
     {
     }
-
-    public virtual bool ServerOnlyIsInRound()
-    {
-        // TODO RMC14
-        return false;
-    }
 }

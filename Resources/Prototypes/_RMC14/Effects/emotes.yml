@@ -39,11 +39,3 @@
   components:
   - type: Sprite
     state: emote_tailswipe
-
-- type: entity
-  parent: RMCEffectEmoteBase
-  id: RMCEffectHug
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: emote_hug

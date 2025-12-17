@@ -13,7 +13,7 @@ public sealed class MCXenoCrestTossSystem : EntitySystem
 {
     [Dependency] private readonly SharedCombatModeSystem _combatMode = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;

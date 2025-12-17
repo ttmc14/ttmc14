@@ -32,19 +32,12 @@
   id: CMXenoBase
   abstract: true
   save: false
-  components: # TODO RMC14 camera recoil from large explosions? check 13
-  - type: BlockEntityStorage
-    whitelist:
-      components:
-      - EntityStorage
+  components:
+  # TODO RMC14 camera recoil from large explosions? check 13
   - type: Damageable
     damageContainer: Xeno
   - type: Destructible
     thresholds: []
-  - type: RMCMedicalExamine
-    simple: true
-    deadText: rmc-medical-examine-dead-xeno
-  - type: RMCBlockMedicalExamine
   - type: MobState
     allowedStates:
     - Alive
@@ -73,17 +66,15 @@
       collection: XenoDeath
       params:
         volume: -4
-  - type: RMCHealthExaminable
-  # mc-changes-start
-  # - type: AcidBloodSplash
-  #   closeSplashRadius: 0.5
-  #   standardSplashRadius: 1.5
-  #   gibSplashRadius: 2.5
-  #   damage:
-  #     types:
-  #       Heat: 25
-  # mc-changes-end
-  - type: RMCDefibrillatorBlocked
+  - type: HealthExaminable
+    examineShowEmpty: false
+    examinableTypes:
+    - Blunt
+    - Slash
+    - Piercing
+    - Heat
+    - Shock
+  - type: CMDefibrillatorBlocked
     popup: defibrillator-xeno
     showOnExamine: false
   - type: MovementSpeedModifier
@@ -119,13 +110,8 @@
       Flammable: [ Touch ]
       Extinguish: [ Touch ]
   - type: FireVisuals
-    sprite: _RMC14/Mobs/Effects/on_fire_xeno.rsi
-    normalState: simple_onfire
-    lightEnergyPerStack: 0.2
-    lightRadiusPerStack: 0.1
-    maxLightRadius: 2
-    maxLightEnergy: 8
-  - type: RMCFireColor
+    sprite: Mobs/Effects/onfire.rsi
+    normalState: Generic_mob_burning
   - type: Sprite
     noRot: true
     drawdepth: Mobs
@@ -137,9 +123,6 @@
     - map: [ "enum.XenoInhandVisualLayers.Left" ]
       visible: false
     - map: [ "enum.XenoInhandVisualLayers.Right" ]
-      visible: false
-    - map: [ "enum.RMCShieldVisuals.Base" ]
-      sprite: _RMC14/Effects/xeno_shields.rsi
       visible: false
     - map: [ "focused" ]
       sprite: _RMC14/Interface/xeno_hud.rsi
@@ -173,24 +156,23 @@
             visible: true
       enum.TargetedVisuals.TargetedDirection:
         targetedDirection:
-          True: { visible: true}
-          False: { visible: false}
+          True: { visible: true }
+          False: { visible: false }
       enum.TargetedVisuals.TargetedDirectionIntense:
         targetedDirectionIntense:
           True: { visible: true }
           False: { visible: false }
       enum.FocusedVisuals.Focused:
         focused:
-          True: { visible: true}
-          False: { visible: false}
+          True: { visible: true }
+          False: { visible: false }
   - type: Spottable
   - type: Physics
     bodyType: KinematicController
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 185
         mask:
@@ -200,19 +182,12 @@
         layer:
         - MobLayer
       fix2:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.40
         density: 0
         layer:
         - BulletImpassable
   - type: CMSurgeryTarget
-  - type: Gibbable
-  - type: RMCGibOnDeath
-  - type: RMCSpawnEntitiesOnGib
-    entities:
-    - RMCDecalSpawnerGibsDrone # TODO one for every caste
-    - RMCGibEffectXenoSmall # TODO larger gib effect for larger xenos
   - type: Body
     prototype: Xenonid
   - type: Xeno
@@ -298,24 +273,18 @@
   - type: StandingState
   - type: SlowOnPull
     slowdowns:
-      - multiplier: 0.6
-        whitelist:
-          components:
-          - Marine
-      - multiplier: 0.665
-        whitelist:
-          components:
-          - XenoLight
-      - multiplier: 0.445
-        whitelist:
-          components:
-          - XenoHeavy
-  - type: PullWhitelist
-    whitelist:
-      components:
-      - Xeno
-      - Infectable
-      - Synth
+    - multiplier: 0.6
+      whitelist:
+        components:
+        - Marine
+    - multiplier: 0.665
+      whitelist:
+        components:
+        - XenoLight
+    - multiplier: 0.445
+      whitelist:
+        components:
+        - XenoHeavy
   - type: BlockPullingDead
   - type: XenoFriendly
   - type: Undisposable
@@ -323,7 +292,7 @@
   - type: DamageMobState
     critDamage:
       types:
-        MCBrute: 1.25 # mc-changes
+        MCBrute: 1.25
   - type: AffectableByWeeds
   - type: ComplexInteraction
   - type: UserLimitHits
@@ -344,13 +313,12 @@
     - enum.VendingMachineUiKey.Key
     - enum.PaperUiKey.Key
     - enum.RMCCameraUiKey.Key
-  - type: ActiveInputMover
   - type: HiveTracker
+    mode: Queen
     trackerModes:
     - Queen
     - HiveLeader
     - Tunnel
-    - HiveCore
   - type: RequireProjectileTarget
     active: false
   - type: TacticalMapTracked
@@ -363,15 +331,15 @@
   - type: MotionDetectorTracked
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: xeno
     background:
-      sprite: /Textures/_RMC14/Interface/map_blips.rsi
+      sprite: _RMC14/Interface/map_blips.rsi
       state: background_xeno
   - type: XenoMapTracked
   - type: Evasion
   - type: RMCWeaponAccuracy # This is so projectiles fired by xenos get a correctly-generated seed for RNG.
-  # - type: StunOnExplosionReceived # mc-changes
+  # - type: StunOnExplosionReceived
   #   weak: true
   - type: AssignXenoName
   - type: MobGibbedByExplosionType
@@ -384,9 +352,9 @@
     superSlowModifier: 1.5
     durationMultiplier: 0.666
   - type: RMCCanBeFultoned
-  # - type: CMArmor # mc-changes
+  # - type: CMArmor
   - type: CriticalGraceTime
-  # - type: RMCObstacleSlamming # mc-changes
+  # - type: RMCObstacleSlamming
   - type: Buckle
     buckleDelay: 0
     clickUnbuckle: false
@@ -409,8 +377,6 @@
       components:
       - Marine
   - type: EmoteCooldown
-  - type: RMCMesonsNonviewable
-    xenoVisible: true
 
 - type: entity
   abstract: true
@@ -419,7 +385,8 @@
   - type: Prying
     pryPowered: true
     speedModifier: 2.7
-    useSound: null
+    useSound:
+      path: /Audio/Items/crowbar.ogg
 
 - type: entity
   abstract: true
@@ -444,7 +411,7 @@
     animation: RMCWeaponArcXenoClaw
     damage:
       types:
-        MCBrute: 12 # mc-changes
+        MCBrute: 12
     soundSwing:
       path: /Audio/_RMC14/Weapons/alien_claw_swipe.ogg
       params:
@@ -477,14 +444,6 @@
 #  - type: HTN # TODO RMC14 needs to not target nested marines
 #    rootTask:
 #      task: CMXenoCompound
-
-- type: entity
-  abstract: true
-  id: RMCXenoVentCrawler
-  components:
-  - type: VentCrawler
-    ventCrawlIcon: unknown
-  - type: RMCTrayCrawler
 
 - type: entity
   id: CMXenoDeveloped
@@ -525,7 +484,7 @@
   - type: XenoTailStab
     tailDamage:
       types:
-        MCBrute: 30 # mc-changes
+        MCBrute: 30
     tailRange: 2.5
 
 - type: entity

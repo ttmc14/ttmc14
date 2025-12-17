@@ -12,9 +12,9 @@
       - LightBulb
   - type: StorageFill
     contents:
-    - id: RMCLightTube
+    - id: CMLightTube
       amount: 14
-    - id: RMCLightBulb
+    - id: CMLightBulb
       amount: 7
   - type: Sprite
     state: lightmixed

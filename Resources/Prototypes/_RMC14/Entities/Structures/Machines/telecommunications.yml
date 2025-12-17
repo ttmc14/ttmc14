@@ -70,14 +70,6 @@
       map: ["enum.PowerDeviceVisualLayers.Powered"]
 
 - type: entity
-  id: RMCTelecomBroadcasterDD
-  parent: RMCTelecomBroadcaster
-  suffix: DrawDepth
-  components:
-  - type: Sprite
-    drawdepth: "1"
-
-- type: entity
   id: RMCTelecomRelay #gets put ontop of stuff
   parent: RMCTelecomBusMainframe
   name: Telecomms Relay
@@ -91,14 +83,6 @@
       map: ["enum.PowerDeviceVisualLayers.Powered"]
 
 - type: entity
-  id: RMCTelecomRelayDD
-  parent: RMCTelecomRelay
-  suffix: DrawDepth
-  components:
-  - type: Sprite
-    drawdepth: "1"
-
-- type: entity
   id: RMCTelecomProcessorUnit #gets put ontop of stuff
   parent: RMCTelecomBusMainframe
   name: Processor Unit
@@ -110,14 +94,6 @@
     - state: processor_off
     - state: processor
       map: ["enum.PowerDeviceVisualLayers.Powered"]
-
-- type: entity
-  id: RMCTelecomProcessorUnitDD #gets put ontop of stuff
-  parent: RMCTelecomProcessorUnit
-  suffix: DrawDepth
-  components:
-  - type: Sprite
-    drawdepth: "1"
 
 - type: entity
   id: RMCTelecomHub
@@ -168,14 +144,6 @@
         acts: [ "Destruction" ]
   - type: Corrodible
     isCorrodible: true
-
-- type: entity
-  id: RMCTelecomBlackBoxDD
-  parent: RMCTelecomBlackBox
-  suffix: DrawDepth
-  components:
-  - type: Sprite
-    drawdepth: "1"
 
 - type: entity
   id: RMCTelecomSensorComputer

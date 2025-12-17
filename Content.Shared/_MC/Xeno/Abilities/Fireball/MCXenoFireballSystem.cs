@@ -23,7 +23,7 @@ public sealed class MCXenoFireballSystem : MCXenoAbilitySystem
     [Dependency] private readonly RMCProjectileSystem _rmcProjectile = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
     [Dependency] private readonly MCSharedXenoSpitSystem _mcXenoSpit = default!;
 
     public override void Initialize()

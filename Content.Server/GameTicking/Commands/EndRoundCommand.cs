@@ -1,6 +1,4 @@
-﻿using Robust.Shared.Configuration;
-using Content.Server.Administration;
-using Content.Shared._RMC14.CCVar;
+﻿using Content.Server.Administration;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 
@@ -10,8 +8,6 @@ namespace Content.Server.GameTicking.Commands
     sealed class EndRoundCommand : IConsoleCommand
     {
         [Dependency] private readonly IEntityManager _e = default!;
-        [Dependency] private readonly IConfigurationManager _cfg = default!;
-
 
         public string Command => "endround";
         public string Description => "Ends the round and moves the server to PostRound.";
@@ -26,10 +22,6 @@ namespace Content.Server.GameTicking.Commands
                 shell.WriteLine("This can only be executed while the game is in a round.");
                 return;
             }
-            //RMC14
-            //Again I do not trust le admins to remember to turn this off...
-            _cfg.SetCVar(RMCCVars.RMCDelayRoundEnd, false);
-            //RMC14
 
             ticker.EndRound();
         }

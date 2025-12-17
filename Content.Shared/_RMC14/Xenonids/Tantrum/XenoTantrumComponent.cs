@@ -35,7 +35,4 @@ public sealed partial class XenoTantrumComponent : Component
 
     [DataField, AutoNetworkedField]
     public Color EnrageColor = Color.FromHex("#A31010");
-
-    [DataField, AutoNetworkedField]
-    public float Range = 8;
 }

@@ -1,11 +1,9 @@
 ﻿- type: accessGroup
   id: CMP
-  parent: RMCBaseMPJob
-  name: Chief MP
   tags:
   - CMAccessBrig
   - CMAccessArmory
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessDropship
   - CMAccessMarinePrep
   - CMAccessCMP
@@ -17,16 +15,12 @@
   - CMAccessEngineering
   - CMAccessMaint
   - CMAccessOT
-  - RMCAccessDatabase
-  - RMCAccessSeniorCommand
 
 - type: accessGroup
   id: MP
-  parent: RMCBaseMPJob
-  name: Military Police
   tags:
   - CMAccessBrig
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessDropship
   - CMAccessMarinePrep
   - CMAccessMedical
@@ -37,15 +31,12 @@
   - CMAccessEngineering
   - CMAccessMaint
   - CMAccessOT
-  - RMCAccessDatabase
 
 - type: accessGroup
   id: CMWarden
-  parent: RMCBaseMPJob
-  name: Military Warden
   tags:
   - CMAccessBrig
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessDropship
   - CMAccessMarinePrep
   - CMAccessArmory
@@ -57,4 +48,3 @@
   - CMAccessEngineering
   - CMAccessMaint
   - CMAccessOT
-  - RMCAccessDatabase

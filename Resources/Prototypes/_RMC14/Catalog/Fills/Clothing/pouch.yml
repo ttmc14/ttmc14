@@ -223,26 +223,11 @@
   components:
   - type: StorageFill
     contents:
-    - id: RMCFlashlightLantern
+    - id: RMCFlashlight
     - id: CMCrowbarRed
     - id: CMPacketPillsTricordrazine
     - id: CMGauze10
     - id: RMCRadioHandheldColony
-    - id: RMCM5Bayonet
-      # 5 splints
-
-- type: entity
-  parent: RMCPouchSurvival
-  id: RMCPouchSurvivalFillRadioOff
-  suffix: Filled Radio OFF
-  components:
-  - type: StorageFill
-    contents:
-    - id: RMCFlashlightLantern
-    - id: CMCrowbarRed
-    - id: CMPacketPillsTricordrazine
-    - id: CMGauze10
-    - id: RMCRadioHandheldColonyOff
     - id: RMCM5Bayonet
       # 5 splints
 
@@ -251,7 +236,7 @@
   id: RMCPouchSurvivalBlackFilled
   components:
   - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Pouches/survivalpouch_black.rsi
+    sprite: _RMC14/Objects/Clothing/Pouches/soctools.rsi
 
 - type: entity
   parent: RMCPouchSurvivalSynth
@@ -260,9 +245,9 @@
   components:
   - type: StorageFill
     contents:
-    - id: CMSheetMetal50
+    - id: RMCFlashlight
     - id: CMCrowbarRed
     - id: CMWelder
     - id: RMCCableCoil
-    - id: RMCRadioHandheldColony
+    - id: RadioHandheld
     - id: RMCM5Bayonet

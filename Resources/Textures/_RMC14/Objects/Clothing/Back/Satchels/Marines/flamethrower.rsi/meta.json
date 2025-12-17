@@ -17,11 +17,11 @@
       "name": "full"
     },
     {
-      "name": "inhand-left",
+      "name": "inhand-LEFT",
       "directions": 4
     },
     {
-      "name": "inhand-right",
+      "name": "inhand-RIGHT",
       "directions": 4
     },
     {

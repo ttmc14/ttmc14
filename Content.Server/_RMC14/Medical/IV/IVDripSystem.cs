@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using Content.Server.Chat.Systems;
 using Content.Shared._RMC14.Medical.IV;
 using Content.Shared.Body.Components;
@@ -126,10 +126,7 @@ public sealed class IVDripSystem : SharedIVDripSystem
                 if (attachedStream is { } bloodSolutionEnt &&
                     bloodSolutionEnt.Comp.Solution.Volume < bloodSolutionEnt.Comp.Solution.MaxVolume)
                 {
-                    // Don't transfer non-blood reagants
-                    Solution excludedSolution = packSol.SplitSolutionWithout(packSol.MaxVolume, packComp.TransferableReagents);
                     _solutionContainer.TryTransferSolution(bloodSolutionEnt, packSol, packComp.TransferAmount);
-                    _solutionContainer.TryAddSolution(packSolEnt.Value, excludedSolution);
                     Dirty(packSolEnt.Value);
                 }
             }

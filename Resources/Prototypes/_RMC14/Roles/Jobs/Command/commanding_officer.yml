@@ -1,5 +1,4 @@
-﻿
-- type: job
+﻿- type: job
   parent: CMJobBase
   id: CMCommandingOfficer
   name: cm-job-name-commanding-officer
@@ -61,10 +60,27 @@
   - !type:AddComponentSpecial
     components:
     - type: Skills
-      preset: Commander
+      skills:
+        RMCSkillCqc: 2
+        RMCSkillConstruction: 2
+        RMCSkillFirearms: 1
+        RMCSkillFireman: 2
+        RMCSkillEndurance: 2
+        RMCSkillEngineer: 2
+        RMCSkillExecution: 1
+        RMCSkillIntel: 2
+        RMCSkillJtac: 4
+        RMCSkillLeadership: 3
+        RMCSkillMedical: 3
+        RMCSkillNavigations: 1
+        RMCSkillOverwatch: 1
+        RMCSkillPolice: 2
+        RMCSkillPowerLoader: 2
+        RMCSkillSmartGun: 1
+        RMCSkillSurgery: 1
+        RMCSkillVehicles: 1
     - type: MarineOrders
     - type: CMVendorUser
-      id: CMCommandingOfficer
       points: 120
     - type: RMCPointing
     - type: JobPrefix
@@ -72,13 +88,12 @@
     - type: CommendationGiver
     - type: ViewIntelObjectives
     - type: CommandAccent
-    - type: InnateCommandSpeech
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: co
       background:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: background_command
     - type: RMCTrackable
 
@@ -92,6 +107,8 @@
     ears: CMHeadsetSeniorCommand
     pocket1: RMCPouchCommand
     pocket2: RMCPouchGeneralLarge
+  inhand:
+    - RMCMatebaCustomizationCase
 
 - type: entity
   parent: CMSpawnPointJobBase

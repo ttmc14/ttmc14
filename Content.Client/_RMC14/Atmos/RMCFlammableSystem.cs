@@ -21,8 +21,7 @@ public sealed class RMCFlammableSystem : SharedRMCFlammableSystem
     {
         base.Initialize();
 
-        SubscribeAllEvent<RMCStopDropRollVisualsNetworkEvent>(OnResist);
-
+        SubscribeLocalEvent<RMCStopDropRollVisualsNetworkEvent>(OnResist);
         SubscribeLocalEvent<RMCStopDropRollVisualsComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<RMCStopDropRollVisualsComponent, StatusEffectEndedEvent>(OnStatusEffectEnded);
         SubscribeLocalEvent<RMCStopDropRollVisualsComponent, StoodEvent>(OnStood);

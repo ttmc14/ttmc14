@@ -3,7 +3,6 @@
   parent: CMTileBase
   id: CMFloorStrataMetalBase
   name: tiles-cm-default-metal
-  suffix: Sorokyne
 
 - type: tile
   parent: CMFloorStrataMetalBase

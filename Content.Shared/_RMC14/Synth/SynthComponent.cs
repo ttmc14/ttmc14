@@ -16,10 +16,10 @@ namespace Content.Shared._RMC14.Synth;
 public sealed partial class SynthComponent : Component
 {
     [DataField]
-    public EntProtoId AddComponents = "RMCSynthAddComponents";
+    public ComponentRegistry? AddComponents;
 
     [DataField]
-    public EntProtoId RemoveComponents = "RMCSynthRemoveComponents";
+    public ComponentRegistry? RemoveComponents;
 
     /// <summary>
     /// The final stun duration (after endurance skill) is divided by this number.
@@ -97,25 +97,10 @@ public sealed partial class SynthComponent : Component
     public ProtoId<ToolQualityPrototype> RepairQuality = "Welding";
 
     [DataField]
-    public DamageSpecifier? WelderDamageToRepair = new()
-    {
-        DamageDict = {
-            ["Blunt"] = -15,
-            ["Piercing"] = -15,
-            ["Slash"] = -15,
-        },
-    };
+    public DamageSpecifier? WelderDamageToRepair;
 
     [DataField]
-    public DamageSpecifier? CableCoilDamageToRepair = new()
-    {
-        DamageDict = {
-            ["Caustic"] = -15,
-            ["Heat"] = -15,
-            ["Shock"] = -15,
-            ["Cold"] = -15,
-        },
-    };
+    public DamageSpecifier? CableCoilDamageToRepair;
 
     [DataField, AutoNetworkedField]
     public ProtoId<DamageGroupPrototype> WelderDamageGroup = "Brute";

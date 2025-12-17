@@ -1,6 +1,5 @@
 using Content.Shared._RMC14.Xenonids.Energy;
 using Content.Shared._RMC14.Xenonids.Rest;
-using Content.Shared._RMC14.TrainingDummy;
 using Content.Shared.Mobs;
 using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
@@ -29,9 +28,6 @@ public sealed class XenoAciderGenerationSystem : EntitySystem
         {
             if (!_xeno.CanAbilityAttackTarget(xeno, hit))
                 continue;
-
-            if (HasComp<RMCTrainingDummyComponent>(hit))
-                return;
 
             startGenerating = true;
             break;

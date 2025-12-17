@@ -55,7 +55,6 @@
       types:
         Blunt: 22
   - type: XenoCrusherChargable
-  - type: RMCMesonsNonviewable
 
 - type: entity
   parent: CMBaseStructureCorrodible

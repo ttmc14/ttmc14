@@ -1,4 +1,4 @@
-using Content.Shared._RMC14.WeedKiller;
+﻿using Content.Shared._RMC14.WeedKiller;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._RMC14.Areas;
@@ -24,9 +24,6 @@ public sealed partial class AreaComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool Medevac;
-
-    [DataField, AutoNetworkedField]
-    public bool Paradropping;
 
     [DataField("OB"), AutoNetworkedField]
     public bool OB;
@@ -90,10 +87,4 @@ public sealed partial class AreaComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool RetrieveItemObjective;
-
-    [DataField, AutoNetworkedField]
-    public int BuildableTiles;
-
-    [DataField, AutoNetworkedField]
-    public int ResinConstructCount;
 }

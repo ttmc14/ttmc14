@@ -58,7 +58,7 @@ public sealed partial class AudioTab : Control
         Control.AddOptionPercentSlider(
             RMCCVars.VolumeGainCassettes,
             SliderVolumeCassettes,
-            scale: 1f);
+            scale: 0.12f);
 
         Control.AddOptionPercentSlider(
             RMCCVars.VolumeGainHijackSong,

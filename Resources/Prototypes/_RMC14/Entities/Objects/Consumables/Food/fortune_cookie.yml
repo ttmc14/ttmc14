@@ -49,7 +49,7 @@
     sprite: _RMC14/Objects/Consumable/Food/fortune_paper.rsi
     state: paper
   - type: Item
-    size: Tiny
+    size: Small
   - type: RandomMetadata
     descriptionSegments: [CMFortunes]
 

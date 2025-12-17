@@ -19,7 +19,6 @@
     mortarPlacement: false
     mortarFire: false
     medevac: false
-    paradropping: false
     OB: false
     supplyDrop: false
     weatherEnabled: false
@@ -104,7 +103,6 @@
     mortarPlacement: false
     mortarFire: false
     medevac: false
-    paradropping: false
     OB: false
     supplyDrop: false
     weatherEnabled: false

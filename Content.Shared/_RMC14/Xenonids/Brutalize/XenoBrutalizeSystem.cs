@@ -79,20 +79,20 @@ public sealed class XenoBrutalizeSystem : EntitySystem
 
     private void RefreshCooldowns(Entity<XenoBrutalizeComponent> xeno, int hits)
     {
-        foreach (var action in _actions.GetActions(xeno))
+        foreach (var (actionId, action) in _actions.GetActions(xeno))
         {
-            var actionEvent = _actions.GetEvent(action);
+            var actionEvent = _actions.GetEvent(xeno);
             if ((actionEvent is XenoChargeActionEvent || actionEvent is XenoDefensiveShieldActionEvent)
-                && action.Comp.Cooldown != null)
+                && action.Cooldown != null)
             {
                 //Additional cooldown only on Charge
-                var cooldownEnd = action.Comp.Cooldown.Value.End - (xeno.Comp.BaseCooldownReduction +
+                var cooldownEnd = action.Cooldown.Value.End - (xeno.Comp.BaseCooldownReduction +
                     (actionEvent is XenoChargeActionEvent ? hits * xeno.Comp.AddtionalCooldownReductions : TimeSpan.Zero));
 
-                if (cooldownEnd < action.Comp.Cooldown.Value.Start)
-                    _actions.ClearCooldown(action.AsNullable());
+                if (cooldownEnd < action.Cooldown.Value.Start)
+                    _actions.ClearCooldown(actionId);
                 else
-                    _actions.SetCooldown(action.AsNullable(), action.Comp.Cooldown.Value.Start, cooldownEnd);
+                    _actions.SetCooldown(actionId, action.Cooldown.Value.Start, cooldownEnd);
             }
         }
     }

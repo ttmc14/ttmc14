@@ -1,4 +1,4 @@
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
 using Content.Shared._RMC14.Areas;
 using Content.Tools;
@@ -156,7 +156,6 @@ public class AreaImporter
                             SetAreaComp(AreaField.medevac, true);
                             SetAreaComp(AreaField.OB, true);
                             SetAreaComp(AreaField.supplyDrop, true);
-                            SetAreaComp(AreaField.paradropping, true);
                             break;
                         case "CEILING_PROTECTION_TIER_1":
                         case "CEILING_METAL":
@@ -169,7 +168,6 @@ public class AreaImporter
                             SetAreaComp(AreaField.medevac, false);
                             SetAreaComp(AreaField.OB, true);
                             SetAreaComp(AreaField.supplyDrop, true);
-                            SetAreaComp(AreaField.paradropping, false);
                             break;
                         case "CEILING_PROTECTION_TIER_2":
                         case "CEILING_UNDERGROUND_METAL_ALLOW_CAS":
@@ -183,7 +181,6 @@ public class AreaImporter
                             SetAreaComp(AreaField.medevac, false);
                             SetAreaComp(AreaField.OB, true);
                             SetAreaComp(AreaField.supplyDrop, false);
-                            SetAreaComp(AreaField.paradropping, false);
                             break;
                         case "CEILING_PROTECTION_TIER_3":
                         case "CEILING_UNDERGROUND_BLOCK_CAS":
@@ -197,7 +194,6 @@ public class AreaImporter
                             SetAreaComp(AreaField.medevac, false);
                             SetAreaComp(AreaField.OB, true);
                             SetAreaComp(AreaField.supplyDrop, false);
-                            SetAreaComp(AreaField.paradropping, false);
                             break;
                         case "CEILING_PROTECTION_TIER_4":
                         case "CEILING_DEEP_UNDERGROUND":
@@ -214,7 +210,6 @@ public class AreaImporter
                             SetAreaComp(AreaField.medevac, false);
                             SetAreaComp(AreaField.OB, false);
                             SetAreaComp(AreaField.supplyDrop, false);
-                            SetAreaComp(AreaField.paradropping, false);
                             break;
                         default:
                             Console.WriteLine($"Found unknown ceiling {ceiling}");
@@ -296,12 +291,6 @@ public class AreaImporter
                 else if (TryExtract(linkedLz, out result))
                 {
                     isDefault = false;
-                    if (result.Contains('(') && result.Contains(')'))
-                    {
-                        //In the middle of a list(), remove the list part
-                        int startIndex = result.IndexOf('(') + 1;
-                        result = result.Substring(startIndex, result.LastIndexOf(')') - startIndex);
-                    }
                     area.Add((nameof(AreaComponent.LinkedLz), result.ToLowerInvariant()));
                 }
             }
@@ -429,7 +418,6 @@ public class AreaImporter
         medevac,
         OB,
         supplyDrop,
-        paradropping
         // ReSharper restore InconsistentNaming
     }
 

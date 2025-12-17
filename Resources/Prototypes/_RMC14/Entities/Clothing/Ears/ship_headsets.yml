@@ -33,13 +33,6 @@
     tags:
     - RMCHeadset
   - type: RMCHeadset
-  - type: GuideHelp
-    guides:
-    - RMCGuideMarineCommunications
-    - RMCLanguage
-    - RMCGuideCommunicationsTowers
-    - RMCGuideRoleCombatTechnician
-    - RMCGuideRoleMaintenanceTechnician
 
 - type: entity
   parent: RMCHeadsetIconsUNMC
@@ -132,8 +125,8 @@
 - type: entity
   parent: RMCHeadsetShip
   id: CMHeadsetRequisition
-  name: requisitions radio headset
-  description: Used by the Requisitions Technicians, lightweight and portable.
+  name: supply radio headset
+  description: Used by the lowly Cargo Technicians of the Marine, light weight and portable.
   components:
   - type: Sprite
     state: req_headset
@@ -141,11 +134,7 @@
     containers:
       key_slots:
       - CMEncryptionKeyCommon
-      - RMCEncryptionKeyCargotech
-  - type: RMCRadioFilter
-    disabledChannels:
-    - MarineEngineer
-    - MarineCommand
+      - CMEncryptionKeyRequisition
   - type: GrantSquadLeaderTracker
     defaultMode: Quartermaster
     trackerModes:
@@ -156,12 +145,6 @@
   id: CMHeadsetChef
   name: kitchen radio headset
   description: Used by the onboard kitchen staff, filled with background noise of sizzling pots.
-  components:
-  - type: ContainerFill
-    containers:
-      key_slots:
-      - CMEncryptionKeyCommon
-      - CMEncryptionKeyRequisition
 
 - type: entity
   parent: RMCHeadsetShip
@@ -202,8 +185,8 @@
 - type: entity
   parent: RMCHeadsetShip
   id: CMHeadsetQM
-  name: Logistics Officer radio headset
-  description: A headset used by the Logistics Officer.
+  name: quartermaster radio headset
+  description: A headset used by the quartermaster for controlling their slave(s).
   components:
   - type: Sprite
     state: ro_headset
@@ -244,7 +227,6 @@
     trackerModes:
     - ChiefMilitaryPolice
     - MilitaryWarden
-    - ProvostInspector
 
 - type: entity
   parent: CMHeadsetMPO
@@ -292,7 +274,6 @@
     - ExecutiveOfficer
     - AuxiliarySupportOfficer
     - MilitaryWarden
-    - ProvostInspector
 
 - type: entity
   parent: CMHeadsetCMP
@@ -307,7 +288,6 @@
     - ExecutiveOfficer
     - AuxiliarySupportOfficer
     - ChiefMilitaryPolice
-    - ProvostInspector
 
 - type: entity
   parent: RMCHeadsetShip
@@ -421,7 +401,7 @@
     containers:
       key_slots:
       - CMEncryptionKeyCommon
-      - RMCEncryptionKeyCorrespondent
+      - RMCEncryptionKeyMarineCommand
 
 - type: entity
   parent: RMCHeadsetShip
@@ -528,7 +508,7 @@
     containers:
       key_slots:
       - CMEncryptionKeyCommon
-      - RMCEncryptionKeySeniorCommand
+      - RMCEncryptionKeyMarineCommand
   - type: HeadsetMultiBroadcast
     cooldown: 60
   - type: GrantSquadLeaderTracker
@@ -544,4 +524,4 @@
   parent: RMCHeadsetShip
   id: RMCHeadsetPrisoner
   name: prisoner headset
-  description: Headset provided to prisoners as directed by Marine Law.
+  description: Headset provided to prisoners as directed by marine law.

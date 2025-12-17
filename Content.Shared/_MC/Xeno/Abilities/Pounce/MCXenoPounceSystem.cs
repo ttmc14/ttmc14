@@ -28,7 +28,7 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = default!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly RMCActionsSystem _rmcActions = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 

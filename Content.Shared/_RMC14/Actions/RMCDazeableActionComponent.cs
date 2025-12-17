@@ -6,7 +6,7 @@ namespace Content.Shared._RMC14.Actions;
 ///     Actions with this component are disabled when the entity is dazed
 /// </summary>
 [RegisterComponent]
-[Access(typeof(SharedRMCActionsSystem))]
+[Access(typeof(RMCActionsSystem))]
 public sealed partial class RMCDazeableActionComponent : Component
 {
     [DataField]

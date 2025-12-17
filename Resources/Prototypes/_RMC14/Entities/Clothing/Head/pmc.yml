@@ -13,35 +13,6 @@
     camouflageVariations: { }
 
 - type: entity
-  parent: [ArmorHelmetPMC, RMCMarineHelmetWithLightBase]
-  id: RMCArmorHelmetPMCTactical
-  name: tactical helmet
-  description: A contender for service with the Royal Crown Marines, it is presently, exclusively, field tested by Weston-Yamada mercenaries. Features a ballistic mask and integrated display connected to the visor.
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Head/PMC/helmet.rsi
-  - type: Clothing
-    sprite: _RMC14/Objects/Clothing/Head/PMC/helmet.rsi
-    clothingVisuals:
-      head:
-      - state: equipped-HELMET
-      head-feroxi:
-      - state: equipped-HELMET-feroxi
-      head-reptilian:
-      - state: equipped-HELMET-reptilian
-      head-vulpkanin:
-      - state: equipped-HELMET-vulpkanin
-  - type: HideLayerClothing
-    slots:
-    - Hair
-    - HeadTop
-    - HeadSide
-    - Snout
-    - FacialHair
-  - type: PointLight
-    color: "#73e6f5"
-
-- type: entity
   parent: ArmorHelmetPMC
   id: ArmorHelmetPMCOfficer
   name: PMC beret
@@ -53,21 +24,29 @@
     sprite: _RMC14/Objects/Clothing/Head/PMC/officer.rsi
 
 - type: entity
-  parent: RMCArmorHelmetPMCTactical
+  parent: ArmorHelmetPMC
+  id: ArmorHelmetPMCSniper
+  name: PMC sniper helmet
+  description: A helmet worn by PMC Marksmen.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Head/PMC/sniper.rsi
+  - type: Clothing
+    sprite: _RMC14/Objects/Clothing/Head/PMC/sniper.rsi
+
+- type: entity
+  parent: ArmorHelmetPMC
   id: ArmorHelmetPMCGunner
-  name: PMC specialist operator helmet
-  description: A modification of the standard PMC tactical helmet, featuring a frontal shield to protect the user's from shrapnel and small arms fire while operating heavy weaponry.
+  name: PMC gun operator helmet
+  description: A modification of the standard M3 armor.
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Head/PMC/heavy.rsi
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/PMC/heavy.rsi
-    clothingVisuals:
-      head:
-      - state: equipped-HELMET
 
 - type: entity
-  parent: RMCArmorHelmetPMCTactical
+  parent: ArmorHelmetPMC
   id: ArmorHelmetPMCCommando
   name: PMC M5X helmet
   description: A fully enclosed, armored helmet made to complete the M5X exoskeleton armor.
@@ -76,22 +55,14 @@
     sprite: _RMC14/Objects/Clothing/Head/PMC/commando.rsi
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/PMC/commando.rsi
+    clothingVisuals:
+      head:
+      - state: equipped-HELMET
+      - state: equipped-HELMET-Layer
+        shader: unshaded
   - type: Corrodible
     isCorrodible: false
   - type: RMCEarProtection
-  - type: PointLight
-    color: "#e41c1f"
-
-- type: entity
-  parent: ArmorHelmetPMCCommando
-  id: RMCArmorHelmetPMCCommandoAlt
-  suffix: Alt
-  description: A fully enclosed, armored helmet made to complete the M5X exoskeleton armor. This one has had a skull scratched into the visor.
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Head/PMC/commando_alt.rsi
-  - type: Clothing
-    sprite: _RMC14/Objects/Clothing/Head/PMC/commando_alt.rsi
 
 - type: entity
   parent: ArmorHelmetPMC
@@ -170,7 +141,7 @@
     sprite: _RMC14/Objects/Clothing/Head/PMC/kutjevo_medical.rsi
 
 - type: entity
-  parent: RMCArmorHelmetPMCTactical
+  parent: ArmorHelmetPMC
   id: ArmorHelmetPMCEngineer
   name: pmc engineer helmet
   description: An advanced technician helmet with a black finish, including advanced welding protection and resistence to the potential industrial hazards, but has less kevlar against potential firefights.
@@ -180,8 +151,6 @@
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/PMC/engineer.rsi
   - type: EyeProtection
-  - type: PointLight
-    color: "#c51ce4"
 
 - type: entity
   parent: ArmorHelmetPMC
@@ -193,22 +162,6 @@
     sprite: _RMC14/Objects/Clothing/Head/PMC/director.rsi
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/PMC/director.rsi
-
-- type: entity
-  parent: ArmorHelmetPMC
-  id: RMCHeadCapManager
-  name: manager's hat
-  description: Belongs to someone very important. Has minor protection to all damage types.
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Head/PMC/manager.rsi
-  - type: Clothing
-    sprite: _RMC14/Objects/Clothing/Head/PMC/manager.rsi
-  - type: CMArmor
-    melee: 15
-    bullet: 10
-    bio: 15
-    explosionArmor: 10
 
 - type: entity
   parent: RMCHeadCapFlippable
@@ -244,14 +197,3 @@
     sprite: _RMC14/Objects/Clothing/Head/PMC/hybrisa_lead.rsi
   - type: Clothing
     sprite: _RMC14/Objects/Clothing/Head/PMC/hybrisa_lead.rsi
-
-- type: entity
-  parent: CMHeadBeret
-  id: RMCHeadBeretWeYa
-  name: Weston-Yamada beret
-  description: Show off your megacorp pride with this stylish beret!
-  components:
-  - type: Sprite
-    sprite: _RMC14/Objects/Clothing/Head/PMC/weya_beret.rsi
-  - type: Clothing
-    sprite: _RMC14/Objects/Clothing/Head/PMC/weya_beret.rsi

@@ -1,8 +1,6 @@
 using Content.Shared._RMC14.UniformAccessories;
-using Content.Shared.Clothing.Components;
 using Content.Shared.Clothing.EntitySystems;
 using Content.Shared.Hands.EntitySystems;
-using Content.Shared.Interaction.Events;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
 using Content.Shared.Item;
@@ -34,10 +32,6 @@ public sealed class RMCClothingSystem : EntitySystem
         SubscribeLocalEvent<ClothingLimitComponent, BeingEquippedAttemptEvent>(OnClothingLimitBeingEquippedAttempt);
 
         SubscribeLocalEvent<ClothingRequireEquippedComponent, BeingEquippedAttemptEvent>(OnRequireEquippedBeingEquippedAttempt);
-
-        // this is here so clothing with ClothingRequireEquippedComponent can drop when required clothing is unequipped
-        // ex: scout cloak should not stay on when they take off the armor required for it
-        SubscribeLocalEvent<ClothingComponent, DroppedEvent>(OnDropped);
 
         SubscribeLocalEvent<NoClothingSlowdownComponent, ComponentStartup>(OnNoClothingSlowUpdate);
         SubscribeLocalEvent<NoClothingSlowdownComponent, DidEquipEvent>(OnNoClothingSlowUpdate);
@@ -84,52 +78,24 @@ public sealed class RMCClothingSystem : EntitySystem
         if (args.Cancelled)
             return;
 
-        if (HasEquippedItemsWithinWhitelist(args.EquipTarget, ent.Comp.Whitelist))
-            return;
+        foreach (var held in _hands.EnumerateHeld(args.EquipTarget))
+        {
+            if (_whitelist.IsValid(ent.Comp.Whitelist, held))
+                return;
+        }
+
+        var slots = _inventory.GetSlotEnumerator(args.EquipTarget);
+        while (slots.MoveNext(out var slot))
+        {
+            if (slot.ContainedEntity is not { } contained)
+                continue;
+
+            if (_whitelist.IsValid(ent.Comp.Whitelist, contained))
+                return;
+        }
 
         args.Cancel();
-
-        var denyReason = Loc.GetString(ent.Comp.DenyReason);
-        _popup.PopupClient(denyReason, args.EquipTarget, args.EquipTarget, PopupType.SmallCaution);
-    }
-
-    private void OnDropped(Entity<ClothingComponent> ent, ref DroppedEvent args)
-    {
-        var slots = _inventory.GetSlotEnumerator(args.User);
-        while (slots.MoveNext(out var slot))
-        {
-            if (slot.ContainedEntity is not { } contained)
-                continue;
-
-            if (TryComp<ClothingRequireEquippedComponent>(contained, out var requiresEquipped) && requiresEquipped.AutoUnequip && _whitelist.IsWhitelistPassOrNull(requiresEquipped.Whitelist, ent.Owner))
-            {
-                if (HasEquippedItemsWithinWhitelist(args.User, requiresEquipped.Whitelist))
-                    continue;
-
-                _inventory.TryUnequip(args.User, slot.ID);
-            }
-        }
-    }
-
-    private bool HasEquippedItemsWithinWhitelist(EntityUid uid, EntityWhitelist? whitelist)
-    {
-        foreach (var held in _hands.EnumerateHeld(uid))
-        {
-            if (_whitelist.IsWhitelistPassOrNull(whitelist, held))
-                return true;
-        }
-
-        var slots = _inventory.GetSlotEnumerator(uid);
-        while (slots.MoveNext(out var slot))
-        {
-            if (slot.ContainedEntity is not { } contained)
-                continue;
-
-            if (_whitelist.IsWhitelistPassOrNull(whitelist, contained))
-                return true;
-        }
-
-        return false;
+        args.Reason = ent.Comp.DenyReason;
     }
 
     private void AddFoldVerb(Entity<RMCClothingFoldableComponent> ent, ref GetVerbsEvent<AlternativeVerb> args)

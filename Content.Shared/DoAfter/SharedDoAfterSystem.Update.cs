@@ -16,7 +16,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly SharedHandsSystem _hands = default!;
     [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly RMCDoAfterSystem _rmcDoAfter = default!;
+    [Dependency] private readonly RMCDoafterSystem _rmcDoafter = default!;
 
     private DoAfter[] _doAfters = Array.Empty<DoAfter>();
 
@@ -95,7 +95,7 @@ public abstract partial class SharedDoAfterSystem : EntitySystem
             }
 
             // RMC14
-            if (_rmcDoAfter.ShouldCancel(doAfter))
+            if (_rmcDoafter.ShouldCancel(doAfter))
             {
                 InternalCancel(doAfter, comp);
                 dirty = true;

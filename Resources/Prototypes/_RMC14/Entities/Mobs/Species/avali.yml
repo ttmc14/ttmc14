@@ -1,6 +1,6 @@
 - type: entity
   save: false
-  parent: RMCBaseMobSpeciesOrganic
+  parent: CMBaseMobSpeciesOrganic
   id: CMMobAvali
   name: Urist C.M McRaptor
   suffix: RMC14
@@ -17,8 +17,6 @@
       Male: RMCMaleAvali
       Unsexed: RMCMaleAvali
       Female: RMCFemaleAvali
-  - type: Wagging 
-    action: ActionToggleAvaliWagging
   - type: Speech
     speechVerb: Parrot # Didn't come with one
     speechSounds: MaleAvali
@@ -26,9 +24,7 @@
     damageOverlayGroups:
       Brute:
         sprite: Mobs/Effects/brute_damage.rsi
-        color: "#E6C4FF"
-      Burn:
-        sprite: Mobs/Effects/burn_damage.rsi
+        color: "#7a8bf2"
   - type: MeleeWeapon
     soundHit:
       path: /Audio/Weapons/pierce.ogg

@@ -19,6 +19,7 @@ public sealed class StunShakeableSystem : EntitySystem
 {
     [Dependency] private readonly ISharedAdminLogManager _adminLogs = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
+    [Dependency] private readonly MobStateSystem _mobState = default!;
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedPopupSystem _popup = default!;
     [Dependency] private readonly RMCStandingSystem _rmcStanding = default!;
@@ -31,21 +32,14 @@ public sealed class StunShakeableSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<StunShakeableComponent, InteractHandEvent>(OnStunShakeableInteractHand,
-            before: [typeof(InteractionPopupSystem)]);
+        SubscribeLocalEvent<StunShakeableComponent, InteractHandEvent>(OnStunShakeableInteractHand);
     }
 
     private void OnStunShakeableInteractHand(Entity<StunShakeableComponent> ent, ref InteractHandEvent args)
     {
-        if (args.Handled)
-            return;
-
         var user = args.User;
-        if (user == args.Target ||
-            !TryComp(user, out StunShakeableUserComponent? shakeableUser))
-        {
+        if (user == args.Target || !TryComp(user, out StunShakeableUserComponent? shakeableUser))
             return;
-        }
 
         var target = args.Target;
         var rest = CompOrNull<RMCRestComponent>(target);

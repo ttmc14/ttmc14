@@ -26,7 +26,6 @@
   flavor: bitter
   color: "#1C1300"
   unknown: true
-  durationMod: 1
   metabolisms:
     Medicine:
       metabolismRate: 0.01 # 1 every 200 seconds in CM? 0.005 would be right but impossible because fixed point 2
@@ -44,14 +43,28 @@
   flavor: bitter
   color: "#808080"
   unknown: true
-  overdose: 30
-  criticalOverdose: 50
   metabolisms:
     Poison:
       metabolismRate: 0.1
       effects:
-      - !type:Biocidic
-        potency: 1
+      - !type:HealthChange
+        damage:
+          groups:
+            Brute: 0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Brute: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Brute: 2.5
 
 - type: reagent
   parent: RMCReagentElement
@@ -79,26 +92,30 @@
   flavor: bitter
   color: "#808080"
   overdose: 30
-  criticalOverdose: 50
   metabolisms:
     Poison:
       metabolismRate: 0.1
       effects:
-      - !type:Toxic
-        potency: 1
-      - !type:HealthChange #TODO PROPERTY_NEUTRALIZING = 1
+      - !type:HealthChange
         damage:
           groups:
-            Burn: 0.25
-            Toxin: 0.125
+            Burn: 0.5
+            Toxin: 0.375
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 30
         damage:
           groups:
-            Burn: 0.5
-            Toxin: 0.25
+            Burn: 1.0
+            Toxin: 0.75
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage: #TODO liver damage on high
+          groups:
+            Toxin: 2.5
 
 - type: reagent
   parent: RMCReagentElement
@@ -125,9 +142,6 @@
   physicalDesc: reagent-physical-desc-gaseous
   flavor: bitter
   color: "#808080"
-  durationMod: -0.5
-  radiusMod: 0.2
-  intensityMod: -0.5
   metabolisms:
     Medicine:
       metabolismRate: 0.01 # 1 every 200 seconds in CM?
@@ -143,15 +157,34 @@
   desc: reagent-desc-iron
   physicalDesc: reagent-physical-desc-metallic
   flavor: metallic
-  color: "#a19d94"
+  color: "#C8A5DC"
   overdose: 30
-  criticalOverdose: 50
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
-      - !type:Hemogenic
-        potency: 3
+      - !type:ModifyBloodLevel
+        conditions:
+        - !type:Hunger
+          min: 200
+        amount: 1.5
+      - !type:SatiateHunger
+        conditions:
+        - !type:Hunger
+          min: 200
+        factor: -15
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Toxin: 0.75
+      - !type:SatiateHunger
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        factor: -75
 
 - type: reagent
   parent: RMCReagentElement
@@ -163,12 +196,6 @@
   flavor: metallic
   color: "#808080"
   unknown: true
-  intensity: 8
-  duration: -3
-  radius: 0
-  intensityMod: 0.2
-  durationMod: -0.1
-  radiusMod: -0.01
   metabolisms:
     Poison:
       metabolismRate: 0.1
@@ -234,9 +261,6 @@
   flavor: metallic
   color: "#832828"
   unknown: true
-  intensityMod: 1
-  durationMod: 0.1
-  radiusMod: -0.12
   metabolisms:
     Medicine:
       metabolismRate: 0.01 # 1 every 200 seconds in CM?
@@ -258,9 +282,25 @@
     Poison:
       metabolismRate: 0.1
       effects:
-      - !type:Carcinogenic
-        potency: 2
-#TODO causes internal bleeding, OD organ damage, critical causes even more #PROPERTY_HEMORRAGING = 1
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Cellular: 2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Brute: 2
+#TODO causes internal bleeding, OD organ damage, critical causes even more
 
 - type: reagent
   parent: RMCReagentElement
@@ -344,8 +384,24 @@
     Poison:
       metabolismRate: 0.1
       effects:
-      - !type:Carcinogenic
-        potency: 2
+      - !type:HealthChange
+        damage:
+          types:
+            Cellular: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            Cellular: 2
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Brute: 2
 
 - type: reagent
   parent: RMCReagentElement
@@ -356,8 +412,6 @@
   flavor: bitter
   color: "#808080"
   unknown: true
-  intensityMod: 0.75
-  radiusMod: -0.08
   metabolisms:
     Medicine:
       metabolismRate: 0.01 # 1 every 200 seconds in CM?
@@ -381,7 +435,7 @@
       - !type:ChemVomit
         probability: 0
 
-- type: reagent # TODO rmc14
+- type: reagent
   parent: [RMCReagentElement, BaseAlcohol]
   id: RMCEthanol
   name: reagent-name-ethanol
@@ -448,8 +502,8 @@
     Food:
       metabolismRate: 0.1
       effects:
-      - !type:Nutritious
-        potency: 1
+      - !type:SatiateHunger
+        factor: 5
   metamorphicSprite:
     sprite: Objects/Consumable/Drinks/sugarglass.rsi
     state: icon_empty
@@ -467,13 +521,29 @@
   flavor: acid
   color: "#DB5008"
   unknown: true
-  toxin: true
   metabolisms:
     #TODO hurts on inject equal to amount
     Poison:
       metabolismRate: 0.05
       effects:
-      - !type:Toxic
-        potency: 1
-      - !type:Corrosive
-        potency: 3
+      - !type:HealthChange
+        damage:
+          groups:
+            Burn: 0.75
+            Toxin: 0.25
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          groups:
+            Burn: 3
+            Toxin: 0.5
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          groups:
+            Burn: 7.5
+            Toxin: 2.5

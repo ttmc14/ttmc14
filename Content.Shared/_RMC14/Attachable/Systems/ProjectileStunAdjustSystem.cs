@@ -1,4 +1,3 @@
-using System.Runtime.InteropServices;
 using Content.Shared._RMC14.Attachable.Components;
 using Content.Shared._RMC14.Attachable.Events;
 using Content.Shared._RMC14.Stun;
@@ -8,26 +7,18 @@ namespace Content.Shared._RMC14.Attachable.Systems;
 
 public sealed class ProjectileStunAdjustSystem : EntitySystem
 {
-    private const string ModifierExamineColour = "yellow";
-
     public override void Initialize()
     {
-        SubscribeLocalEvent<ProjectileStunAdjustComponent, AmmoShotEvent>(OnAmmoShot);
-        SubscribeLocalEvent<GrantProjectileStunAdjustComponent, AttachableAlteredEvent>(OnAttachableAltered);
-        SubscribeLocalEvent<GrantProjectileStunAdjustComponent, AttachableGetExamineDataEvent>(OnGrantProjectileStunAdjustmentGetExamineData);
+        SubscribeLocalEvent<ProjectileStunAdjustComponent, AmmoShotEvent>(ProjectileStunRemove);
+        SubscribeLocalEvent<GrantProjectileStunAdjustComponent, AttachableAlteredEvent>(CheckProjectileStunRemove);
     }
 
-    private void OnAmmoShot(Entity<ProjectileStunAdjustComponent> ent, ref AmmoShotEvent args)
+    private void ProjectileStunRemove(Entity<ProjectileStunAdjustComponent> ent, ref AmmoShotEvent args)
     {
         foreach (var projectile in args.FiredProjectiles)
         {
-            if (!TryComp(projectile, out RMCStunOnHitComponent? stunComp))
-                continue;
-
-            var stuns = CollectionsMarshal.AsSpan(stunComp.Stuns);
-            for (var i = 0; i < stuns.Length; i++)
+            if (TryComp(projectile, out RMCStunOnHitComponent? stun))
             {
-                ref var stun = ref stuns[i];
                 stun.StunTime *= ent.Comp.StunDurationAdjustment;
                 stun.DazeTime *= ent.Comp.DazeDurationAdjustment;
                 stun.MaxRange *= ent.Comp.MaxRangeAdjustment;
@@ -40,12 +31,10 @@ public sealed class ProjectileStunAdjustSystem : EntitySystem
                 stun.SlowTime *= ent.Comp.SlowTimeAdjustment;
                 stun.StunArea += ent.Comp.StunAreaAdjustment;
             }
-
-            Dirty(projectile, stunComp);
         }
     }
 
-    private void OnAttachableAltered(Entity<GrantProjectileStunAdjustComponent> ent, ref AttachableAlteredEvent args)
+    private void CheckProjectileStunRemove(Entity<GrantProjectileStunAdjustComponent> ent, ref AttachableAlteredEvent args)
     {
         switch (args.Alteration)
         {
@@ -62,28 +51,10 @@ public sealed class ProjectileStunAdjustSystem : EntitySystem
                 stunAdjust.SuperSlowTimeAdjustment = ent.Comp.SuperSlowTimeAdjustment;
                 stunAdjust.SlowTimeAdjustment = ent.Comp.SlowTimeAdjustment;
                 stunAdjust.StunAreaAdjustment = ent.Comp.StunAreaAdjustment;
-                Dirty(args.Holder, stunAdjust);
                 break;
             case AttachableAlteredType.Detached:
                 RemComp<ProjectileStunAdjustComponent>(args.Holder);
                 break;
         }
-    }
-
-    private void OnGrantProjectileStunAdjustmentGetExamineData(Entity<GrantProjectileStunAdjustComponent> attachable, ref AttachableGetExamineDataEvent args)
-    {
-        var effects = new List<string>();
-        if (attachable.Comp.StunDurationAdjustment is >= 1.01f or <= 0.99f)
-        {
-            effects.Add(Loc.GetString("rmc-attachable-examine-ranged-projectile-stun-duration",
-                ("colour", ModifierExamineColour),
-                ("sign", attachable.Comp.StunDurationAdjustment > 1 ? '+' : ""),
-                ("stunDurationMult", attachable.Comp.StunDurationAdjustment - 1)));
-        }
-
-        if (!args.Data.ContainsKey(0))
-            args.Data[0] = new (null, effects);
-        else
-            args.Data[0].effectStrings.AddRange(effects);
     }
 }

@@ -17,15 +17,9 @@
   - CMAccessColonyPublic
 
 - type: accessGroup
-  id: ColonistObserver
-  tags:
-  - CMAccessColonyPublic
-  - CMAccessColonyCommand
-
-- type: accessGroup
   id: ColonyCorrespondent
   tags:
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessResearch
   - CMAccessMedical
   - CMAccessColonyPublic
@@ -40,7 +34,7 @@
 - type: accessGroup
   id: CMCorrespondent
   tags:
-  - RMCAccessCommand
+  - CMAccessCommand
   - CMAccessPress
   - CMAccessMarinePrep
 
@@ -56,17 +50,6 @@
   tags:
   - CMAccessColonyPublic
   - CMAccessColonyBrig
-  - CMAccessColonyCommand
-
-- type: accessGroup
-  id: ColonistCMBSurvivor
-  tags:
-  - CMAccessColonyPublic
-  - CMAccessColonyResearch
-  - CMAccessColonyEngineering
-  - CMAccessColonyLogistics
-  - CMAccessColonyBrig
-  - CMAccessColonyMedbay
   - CMAccessColonyCommand
 
 - type: accessGroup
@@ -121,18 +104,3 @@
   - RMCAccessTSEPA
   - RMCAccessTSEPABrig
   - RMCAccessTSEPAInspector
-
-# Survivor Synth Access
-- type: accessGroup
-  id: ColonistSynthShipside
-  tags:
-  - CMAccessCMO
-  - CMAccessMedical
-  - CMAccessResearch
-  - CMAccessChemistry
-  - CMAccessMaint
-  - CMAccessEngineering
-  - CMAccessCE
-  - CMAccessOT
-  - RMCAccessSynth
-  - RMCAccessDatabase

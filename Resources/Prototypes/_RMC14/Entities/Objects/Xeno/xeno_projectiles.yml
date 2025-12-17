@@ -25,7 +25,7 @@
         - XenoProjectileImpassable
   - type: Projectile
     impactEffect: XenoProjectileImpactEffect
-    damage: { }
+    damage: {}
   - type: XenoProjectile
   - type: ProjectileMaxRange
     max: 7
@@ -41,7 +41,7 @@
       path: /Audio/_RMC14/Xeno/acid_impact1.ogg
 
 - type: entity
-  parent: [ XenoSpitImpactSounds, XenoBaseProjectile ]
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
   id: XenoSpitProjectile
   name: spit
   categories: [ HideSpawnMenu ]
@@ -94,7 +94,7 @@
 
 - type: entity
   id: XenoSlowingSpitProjectile
-  parent: XenoBaseProjectile
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
   name: slowing spit
   categories: [ HideSpawnMenu ]
   components:
@@ -113,7 +113,7 @@
 
 - type: entity
   id: XenoQueenNeuroSpitProjectile
-  parent: [ XenoSpitImpactSounds, XenoBaseProjectile ]
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
   name: neurotoxic spit
   categories: [ HideSpawnMenu ]
   components:
@@ -135,7 +135,7 @@
 
 - type: entity
   id: XenoScatteredSpitProjectile
-  parent: XenoBaseProjectile
+  parent: [XenoSpitImpactSounds, XenoBaseProjectile]
   name: scattered spit
   categories: [ HideSpawnMenu ]
   components:
@@ -181,35 +181,6 @@
     accuracy: 135
 
 - type: entity
-  parent: XenoBoneChipsProjectile # TODO one projectile out of the 8 spawned for fire spikes is this one
-  id: XenoHedgehogSpikeProjectile
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    impactEffect: null
-    damage:
-      types:
-        Slash: 8
-  - type: ProjectileMaxRange
-    max: 5
-
-- type: entity
-  parent: XenoHedgehogSpikeProjectile
-  id: XenoHedgehogSpikeProjectileSpread
-  name: small bone chips
-  components:
-  - type: ProjectileMaxRange
-    max: 4
-
-- type: entity
-  parent: XenoHedgehogSpikeProjectileSpread
-  id: XenoHedgehogSpikeProjectileSpreadShort
-  name: small bone chips
-  components:
-  - type: ProjectileMaxRange
-    max: 2
-
-- type: entity
   parent: XenoBaseProjectile
   id: XenoBombardAcidProjectile
   name: glob of acid gas
@@ -247,12 +218,6 @@
       - Marine
   - type: RMCProjectileAccuracy
     accuracy: 95
-  - type: Ammo
-    muzzleFlash: null
-  - type: IgnorePredictionHide
-  - type: TriggerOnFixedDistanceStop
-    delay: 0
-  - type: DeleteOnTrigger
 
 - type: entity
   id: CMGuidebookXenoBombardAcidProjectile
@@ -296,22 +261,16 @@
     affectsDead: false
     affectsInfectedNested: false
     toxinDamage:
-      groups:
-        Toxin: 2
+        groups:
+          Toxin: 2
     oxygenDamage:
-      types:
-        Asphyxiation: 150
+        types:
+          Asphyxiation: 150
     coughDamage:
-      groups:
-        Brute: 5
+        groups:
+          Brute: 5
   - type: RMCProjectileAccuracy
     accuracy: 95
-  - type: Ammo
-    muzzleFlash: null
-  - type: IgnorePredictionHide
-  - type: TriggerOnFixedDistanceStop
-    delay: 0
-  - type: DeleteOnTrigger
 
 - type: entity
   id: CMGuidebookXenoBombardNeurotoxinProjectile
@@ -420,7 +379,7 @@
       shader: unshaded
   - type: Projectile
     deleteOnCollide: false
-    damage: { }
+    damage: {}
   - type: TriggerOnFixedDistanceStop
     delay: 1
   - type: ProjectileGrenade

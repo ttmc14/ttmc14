@@ -10,8 +10,8 @@
 <!-- Summary of code changes for easier review. -->
 
 ## Media
-<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc).
-Small fixes/refactors are exempt. Media may be used in RMC14 progress reports with credit. -->
+<!-- Attach media if the PR makes ingame changes (clothing, items, features, etc). 
+Small fixes/refactors are exempt. Media may be used in SS14 progress reports with credit. -->
 
 ## Requirements
 <!-- Confirm the following by placing an X in the brackets [X]: -->
@@ -22,14 +22,12 @@ Small fixes/refactors are exempt. Media may be used in RMC14 progress reports wi
 
 **Changelog**
 <!-- Add a Changelog entry to make players aware of new features or changes that could affect gameplay.
-Admin changes may be listed for admins to see with admin:
-Coding changes with no changes visible in-game may be listed for other contributors with code:
-Make sure to read the guidelines.
+Make sure to read the guidelines and take this Changelog template out of the comment block in order for it to show up.
 Changelog must have a :cl: symbol, so the bot recognizes the changes and adds them to the game's changelog. -->
+<!--
 :cl:
 - add: Added fun!
 - remove: Removed fun!
 - tweak: Changed fun!
 - fix: Fixed fun!
-- admin: Admin related change!
-- code: Code related change for contributors!
+-->

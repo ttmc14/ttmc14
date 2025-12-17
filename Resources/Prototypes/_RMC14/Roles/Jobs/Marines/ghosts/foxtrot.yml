@@ -116,5 +116,3 @@
 - type: randomHumanoidSettings
   parent: [RMCWeaponsSpecialist, RMCFoxtrotBase]
   id: RMCFoxtrotWeaponsSpecialist
-  components:
-  - type: IgnoreSpecLimits

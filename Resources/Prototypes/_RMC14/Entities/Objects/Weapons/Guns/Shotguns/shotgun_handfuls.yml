@@ -71,13 +71,6 @@
     - RMCShellShotgun
     - RMCShellShotgunBreaching
 
-- type: entity
-  parent: RMCShellShotgunBreaching
-  id: RMCShellShotgunBreaching1
-  components:
-  - type: Stack
-    count: 1
-
 - type: stack
   id: RMCShellShotgunBreaching
   name: handful of breaching shells

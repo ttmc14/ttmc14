@@ -7,11 +7,10 @@ using Content.Server.Ghost;
 using Content.Server.Popups;
 using Content.Server.PowerCell;
 using Content.Shared._RMC14.Damage;
-using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared._RMC14.Medical.Defibrillator;
-using Content.Shared._RMC14.TrainingDummy;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
+using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory;
 using Content.Shared.Item.ItemToggle;
@@ -24,6 +23,7 @@ using Content.Shared.Timing;
 using Content.Shared.Traits.Assorted;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
+using Robust.Shared.Prototypes;
 
 namespace Content.Server.Medical;
 
@@ -32,6 +32,7 @@ namespace Content.Server.Medical;
 /// </summary>
 public sealed class DefibrillatorSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly ChatSystem _chatManager = default!;
     [Dependency] private readonly SharedRMCDamageableSystem _rmcDamageable = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
@@ -48,11 +49,8 @@ public sealed class DefibrillatorSystem : EntitySystem
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedMindSystem _mind = default!;
     [Dependency] private readonly UseDelaySystem _useDelay = default!;
+    [Dependency] private readonly CMDefibrillatorSystem _cmDefibrillator = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
-
-    // RMC14
-    [Dependency] private readonly RMCDefibrillatorSystem _rmcDefibrillator = default!;
-    [Dependency] private readonly SkillsSystem _skills = default!;
 
     /// <inheritdoc/>
     public override void Initialize()
@@ -76,7 +74,7 @@ public sealed class DefibrillatorSystem : EntitySystem
 
         if (args.Cancelled)
         {
-            _rmcDefibrillator.StopChargingAudio((uid, component));
+            _cmDefibrillator.StopChargingAudio((uid, component));
             return;
         }
 
@@ -130,24 +128,26 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
-        if (HasComp<MCDefibrillatorNoBlockComponent>(uid))
-            return true;
+        var ignoreBlock = TryComp(uid, out MCDefibrillatorNoBlockComponent? noBlock);
 
-        if (TryComp(target, out RMCDefibrillatorBlockedComponent? block))
+        if (!ignoreBlock)
         {
-            if (user != null)
-                _popup.PopupEntity(Loc.GetString(block.Popup, ("target", target)), uid, user.Value);
-            return false;
-        }
-
-        var slots = _inventory.GetSlotEnumerator(target, SlotFlags.OUTERCLOTHING);
-        while (slots.MoveNext(out var slot))
-        {
-            if (TryComp(slot.ContainedEntity, out RMCDefibrillatorBlockedComponent? comp))
+            if (TryComp(target, out CMDefibrillatorBlockedComponent? block))
             {
                 if (user != null)
-                    _popup.PopupEntity(Loc.GetString(comp.Popup, ("target", target)), uid, user.Value);
+                    _popup.PopupEntity(Loc.GetString(block.Popup, ("target", target)), uid, user.Value);
                 return false;
+            }
+
+            var slots = _inventory.GetSlotEnumerator(target, SlotFlags.OUTERCLOTHING);
+            while (slots.MoveNext(out var slot))
+            {
+                if (TryComp(slot.ContainedEntity, out CMDefibrillatorBlockedComponent? comp))
+                {
+                    if (user != null)
+                        _popup.PopupEntity(Loc.GetString(comp.Popup, ("target", target)), uid, user.Value);
+                    return false;
+                }
             }
         }
 
@@ -172,7 +172,7 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!CanZap(uid, target, user, component))
             return false;
 
-        _rmcDefibrillator.StopChargingAudio((uid, component));
+        _cmDefibrillator.StopChargingAudio((uid, component));
         component.ChargeSoundEntity = _audio.PlayPvs(component.ChargeSound, uid)?.Entity;
         if (component.ChargeSoundEntity is { } sound)
         {
@@ -183,8 +183,7 @@ public sealed class DefibrillatorSystem : EntitySystem
             Dirty(sound, audio);
         }
 
-        var delay = component.DoAfterDuration + component.SkillMultiplierDuration * _skills.GetSkillDelayMultiplier(user, component.Skill);
-        return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, delay, new DefibrillatorZapDoAfterEvent(),
+        return _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.DoAfterDuration, new DefibrillatorZapDoAfterEvent(),
             uid, target, uid)
         {
             NeedHand = true,
@@ -194,7 +193,6 @@ public sealed class DefibrillatorSystem : EntitySystem
             DuplicateCondition = DuplicateConditions.SameEvent,
             TargetEffect = "RMCEffectHealBusy",
             MovementThreshold = 0.5f,
-            RootEntity = true
         });
     }
 
@@ -256,11 +254,15 @@ public sealed class DefibrillatorSystem : EntitySystem
             if (_mobState.IsDead(target, mob))
             {
                 var heal = new DamageSpecifier(component.ZapHeal);
+                if (component.RMCZapDamage != null)
+                {
+                    foreach (var (type, amount) in component.RMCZapDamage)
+                    {
+                        heal += new DamageSpecifier(_prototypeManager.Index(type), FixedPoint2.New(amount));
+                    }
+                }
 
-                var rmcEv = new RMCDefibrillatorDamageModifyEvent(target, heal);
-                RaiseLocalEvent(uid, ref rmcEv);
-
-                _damageable.TryChangeDamage(target, rmcEv.Heal, true, origin: uid);
+                _damageable.TryChangeDamage(target, heal, true, origin: uid);
             }
 
             if (_mobThreshold.TryGetThresholdForState(target, MobState.Dead, out var threshold) &&
@@ -281,8 +283,7 @@ public sealed class DefibrillatorSystem : EntitySystem
                     _euiManager.OpenEui(new ReturnToBodyEui(mind, _mind, _player), session);
                 }
             }
-            // RMC14 don't show the pop-up for training dummies.
-            else if (!HasComp<RMCTrainingDummyComponent>(target))
+            else
             {
                 _chatManager.TrySendInGameICMessage(uid, Loc.GetString("defibrillator-no-mind"),
                     InGameICChatType.Speak, true);

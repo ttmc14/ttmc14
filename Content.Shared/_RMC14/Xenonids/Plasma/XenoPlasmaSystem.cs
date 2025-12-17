@@ -100,7 +100,6 @@ public sealed class XenoPlasmaSystem : EntitySystem
         if (self.Owner == target ||
             HasComp<XenoAttachedOvipositorComponent>(args.Target) ||
             !TryComp(target, out XenoPlasmaComponent? otherXeno) ||
-            otherXeno.Plasma == otherXeno.MaxPlasma ||
             !TryRemovePlasma((self, self), args.Amount))
         {
             return;
@@ -119,9 +118,7 @@ public sealed class XenoPlasmaSystem : EntitySystem
         _popup.PopupEntity(Loc.GetString("cm-xeno-plasma-transferred-to-self", ("plasma", args.Amount), ("target", self.Owner), ("total", otherXeno.Plasma)), target, target);
 
         _audio.PlayPredicted(self.Comp.PlasmaTransferSound, self, self);
-
-        if (otherXeno.Plasma != otherXeno.MaxPlasma)
-            args.Repeat = true;
+        args.Repeat = true;
     }
 
     private void OnNewXenoEvolved(Entity<XenoPlasmaComponent> newXeno, ref NewXenoEvolvedEvent args)
@@ -248,7 +245,7 @@ public sealed class XenoPlasmaSystem : EntitySystem
         return true;
     }
 
-    public bool TryRemovePlasmaPopup(Entity<XenoPlasmaComponent?> xeno, FixedPoint2 plasma, bool predicted = true)
+    public bool TryRemovePlasmaPopup(Entity<XenoPlasmaComponent?> xeno, FixedPoint2 plasma)
     {
         if (!Resolve(xeno, ref xeno.Comp, false))
             return false;
@@ -256,11 +253,7 @@ public sealed class XenoPlasmaSystem : EntitySystem
         if (TryRemovePlasma((xeno, xeno.Comp), plasma))
             return true;
 
-        if (predicted)
-            _popup.PopupClient(Loc.GetString("cm-xeno-not-enough-plasma"), xeno, xeno);
-        else
-            _popup.PopupEntity(Loc.GetString("cm-xeno-not-enough-plasma"), xeno, xeno);
-
+        _popup.PopupClient(Loc.GetString("cm-xeno-not-enough-plasma"), xeno, xeno);
         return false;
     }
 }

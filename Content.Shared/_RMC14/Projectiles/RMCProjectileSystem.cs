@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Shared._RMC14.Evasion;
 using Content.Shared._RMC14.Random;
+using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
@@ -108,16 +109,8 @@ public sealed class RMCProjectileSystem : EntitySystem
         }
     }
 
-    public void SetProjectileFalloffWeaponMult(Entity<RMCProjectileDamageFalloffComponent> projectile, FixedPoint2 mult, float range)
+    public void SetProjectileFalloffWeaponMult(Entity<RMCProjectileDamageFalloffComponent> projectile, FixedPoint2 mult)
     {
-        var count = 0;
-        while (projectile.Comp.Thresholds.Count > count)
-        {
-            var threshold = projectile.Comp.Thresholds[count];
-            projectile.Comp.Thresholds[count] = threshold with { Range = threshold.Range + range };
-            count++;
-        }
-
         projectile.Comp.WeaponMult = mult;
         Dirty(projectile);
     }
@@ -293,7 +286,7 @@ public sealed class RMCProjectileSystem : EntitySystem
     {
         if (ent.Comp.Delete)
         {
-            if (_net.IsServer || IsClientSide(ent))
+            if (_net.IsServer)
                 QueueDel(ent);
         }
         else
@@ -305,6 +298,9 @@ public sealed class RMCProjectileSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
+        if (_net.IsClient)
+            return;
+
         var maxQuery = EntityQueryEnumerator<ProjectileMaxRangeComponent>();
         while (maxQuery.MoveNext(out var uid, out var comp))
         {

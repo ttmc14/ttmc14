@@ -3,6 +3,7 @@
   id: RMCSurvivorHybrisaMaterialReprocessingTechnician
   name: rmc-job-name-survivor-material-reprocessing-technician
   description: cm-job-description-survivor
+  playTimeTracker: CMJobSurvivorHybrisaMaterialReprocessingTechnician
   startingGear: RMCGearSurvivorHybrisaMaterialReprocessingTechnician
   spawnMenuRoleName: Civilian - Material Reprocessing Technician (Hybrisa Survivor)
   special:
@@ -23,7 +24,6 @@
       - Civilian
     - type: IntelRescueSurvivorObjective
     - type: RMCAllowSuitStorage
-  useLoadoutOfJob: CMSurvivor # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorBase
@@ -40,6 +40,10 @@
     layers:
     - sprite: _RMC14/Markers/landmarks.rsi
       state: surv
+
+- type: playTimeTracker
+  id: CMJobSurvivorHybrisaMaterialReprocessingTechnician
+  isHumanoid: true
 
 - type: entity
   parent: RMCSurvivorPresetCivilian
@@ -58,4 +62,4 @@
     - [ RMCMaskRebreather, RMCJumpsuitSanitation, CMSatchelEngineer, RMCCoatSanitation, CMHandsBrown, CMBootsBrown]
     - [ RMCMaskRebreather, RMCJumpsuitSanitation, CMSatchelEngineer, RMCCoatSanitation, CMHandsBrown, CMBootsBrown]
     - [ RMCMaskRebreather, RMCJumpsuitSanitation, CMSatchelEngineer, RMCCoatSanitation, CMHandsBrown, CMBootsBrown]
-    - [ RMCHeadDuragBlack, RMCMaskRebreather, RMCJumpsuitSanitation, CMSatchelEngineer, RMCCoatSanitation, CMHandsBrown, CMBootsBrown, RMCWeaponFlamerColony]
+    - [ RMCHeadDuragBlack, RMCMaskRebreather, RMCJumpsuitSanitation, CMSatchelEngineer, RMCCoatSanitation, CMHandsBrown, CMBootsBrown, RMCWeaponFlamerImprovised]

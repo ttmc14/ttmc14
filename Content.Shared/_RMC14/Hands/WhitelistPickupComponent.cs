@@ -9,7 +9,4 @@ public sealed partial class WhitelistPickupComponent : Component
 {
     [DataField]
     public EntityWhitelist Whitelist = new();
-
-    [DataField]
-    public bool AllowDead;
 }

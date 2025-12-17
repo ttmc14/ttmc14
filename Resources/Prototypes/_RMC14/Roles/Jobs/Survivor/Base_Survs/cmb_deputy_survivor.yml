@@ -6,11 +6,10 @@
   id: CMSurvivorCMBDeputy
   name: rmc-job-name-survivor-cmb-deputy
   description: cm-job-description-survivor
+  playTimeTracker: CMJobSurvivorCMBDeputy
   ranks:
     RMCRankCMBDeputy: []
   startingGear: RMCGearSurvivorCMBDeputy
-  accessGroups:
-  - ColonistCMBSurvivor
   spawnMenuRoleName: CMB Deputy (Survivor)
   icon: "RMCJobIconBureauDeputy"
   hasIcon: true
@@ -18,7 +17,16 @@
   - !type:AddComponentSpecial
     components:
     - type: Skills
-      preset: SurvivorMarshal
+      skills:
+        RMCSkillEngineer: 1
+        RMCSkillMeleeWeapons: 1
+        RMCSkillConstruction: 1
+        RMCSkillMedical: 1
+        RMCSkillEndurance: 2
+        RMCSkillCqc: 2
+        RMCSkillFirearms: 1
+        RMCSkillPolice: 0 # RMC14
+        RMCSkillFireman: 2
     - type: RMCSurvivor
     - type: MotionDetectorTracked
     - type: NpcFactionMember
@@ -31,19 +39,18 @@
       preset: RMCGearSurvivorPresetCMBDeputy
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: deputy
       background:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: background_cmb
-  useLoadoutOfJob: CMSurvivorSecurity # for inheritance
 
 - type: startingGear
   parent: RMCGearSurvivorSecurity
   id: RMCGearSurvivorCMBDeputy
   equipment:
     head: RMCHeadCapBureau
-    id: RMCIDCardCMBDeputySurvivor
+    id: RMCIDCardDeputySurvivor
     jumpsuit: RMCMarshalCMBUniform
     outerClothing: RMCCoatBureauDeputy
     ears: RMCHeadsetDistressBureauDamaged

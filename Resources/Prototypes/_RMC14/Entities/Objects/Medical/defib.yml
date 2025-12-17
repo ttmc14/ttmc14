@@ -41,7 +41,7 @@
     - MCToxin: -12
     - MCClone: -12
     zapHeal:
-      groups:
+      types:
         MCOxygen: -400
     zapSound:
       path: /Audio/_RMC14/Medical/defib_release.ogg
@@ -114,7 +114,13 @@
     sprite: _RMC14/Objects/Medical/compact_defib.rsi
   - type: Item
     sprite: _RMC14/Objects/Medical/compact_defib.rsi
-    size: Small
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - pocket
+  - type: Tag
+    tags:
+    - Pouch
   - type: PowerCellDraw
     useRate: 132
 
@@ -167,19 +173,6 @@
       components:
         - Marine
   - type: Item
-    size: Small
+    size: Normal
     sprite: _RMC14/Objects/Devices/reset_key.rsi
     heldPrefix: null
-  - type: Tag
-    tags:
-    - RMCSynthResetKey
-
-- type: entity
-  parent: RMCSynthResetKey
-  id: RMCSynthResetKeySMART
-  name: SMART WeYa synthetic reset key
-  description: This device can fix major glitches or programming errors of synthetic units, as well as being able to restart a synthetic that has suffered critical failure. It can only be used once before being reset. This one has a microfunction AI and can be operated by anyone.
-  components:
-  - type: RequiresSkill
-    skills:
-      RMCSkillEngineer: 0

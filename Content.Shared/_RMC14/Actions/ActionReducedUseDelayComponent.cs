@@ -5,7 +5,7 @@ using Robust.Shared.Prototypes;
 namespace Content.Shared._RMC14.Actions;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedRMCActionsSystem))]
+[Access(typeof(RMCActionsSystem))]
 public sealed partial class ActionReducedUseDelayComponent : Component
 {
     // Default cooldown without reductions

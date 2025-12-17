@@ -42,9 +42,6 @@
           collection: MetalBreak
           params:
             volume: -6
-  - type: Damageable
-    damageContainer: StructuralMarine
-    damageModifierSet: StructuralMarine
   - type: ApcPowerReceiver
     powerLoad: 0
     needsPower: false
@@ -62,4 +59,3 @@
     stageLoss: 2
     minimumStage: 2
     unanchor: true
-  - type: RMCMesonsNonviewable

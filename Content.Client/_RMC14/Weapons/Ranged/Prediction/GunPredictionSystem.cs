@@ -19,7 +19,6 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly ProjectileSystem _projectile = default!;
-    [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
 
@@ -58,11 +57,12 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
 
     private void OnAfterSolve(ref PhysicsUpdateAfterSolveEvent ev)
     {
-        if (_timing.IsFirstTimePredicted)
-            return;
         var query = EntityQueryEnumerator<PredictedProjectileClientComponent>();
         while (query.MoveNext(out var uid, out var predicted))
         {
+            if (_timing.IsFirstTimePredicted)
+                continue;
+
             if (predicted.Coordinates is { } coordinates)
                 _transform.SetCoordinates(uid, coordinates);
 
@@ -113,7 +113,7 @@ public sealed class GunPredictionSystem : SharedGunPredictionSystem
             return;
 
         if (_spriteQuery.TryComp(ent, out var sprite))
-            _sprite.SetVisible((ent, sprite), false);
+            sprite.Visible = false;
     }
 
     public override void Update(float frameTime)

@@ -22,8 +22,8 @@
   icon: "CMJobIconStaffOfficer"
   requireAdminNotify: true
   joinNotifyCrew: false
-  marineAuthorityLevel: 13
-  supervisors: rmc-job-supervisors-commander
+  marineAuthorityLevel: 12
+  supervisors: cm-job-supervisors-co
   accessGroups:
   - SO
   roleWeight: 0.25
@@ -32,7 +32,6 @@
     components:
     - type: Skills
       skills:
-        RMCSkillEndurance: 1
         RMCSkillConstruction: 2
         RMCSkillEngineer: 2
         RMCSkillFirearms: 1
@@ -48,7 +47,6 @@
         RMCSkillVehicles: 2
     - type: MarineOrders
     - type: CMVendorUser
-      id: CMStaffOfficer
       points: 45
     - type: RMCPointing
     - type: JobPrefix
@@ -57,12 +55,11 @@
     - type: CommandAccent
     - type: TacticalMapIcon
       icon:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: so
       background:
-        sprite: /Textures/_RMC14/Interface/map_blips.rsi
+        sprite: _RMC14/Interface/map_blips.rsi
         state: background_command
-    - type: MutinyEligible
 
 - type: startingGear
   id: CMGearStaffOfficer

@@ -26,12 +26,6 @@ public sealed partial class RMCAirShotComponent : Component
     public bool RequiresCombat;
 
     /// <summary>
-    ///     If the do-after breaks when moving.
-    /// </summary>
-    [DataField, AutoNetworkedField]
-    public bool DoAfterBreakOnMove = true;
-
-    /// <summary>
     ///     How many shakes
     /// </summary>
     [DataField, AutoNetworkedField]
