@@ -28,4 +28,7 @@ public sealed partial class MCXenoFlayComponent : Component
 
     [DataField, AutoNetworkedField]
     public int GainEnergy = 100;
+
+    [DataField, AutoNetworkedField]
+    public int ArmorPiercing = 15;
 }
