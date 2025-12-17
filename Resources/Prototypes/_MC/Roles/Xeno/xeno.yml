@@ -156,6 +156,17 @@
   id: MCXenoWraith
   isXeno: true
 
+# Puppeteer
+- type: job
+  parent: MCJobXeno
+  id: MCXenoPuppeteer
+  name: mc-job-name-xeno-puppeteer
+  playTimeTracker: MCXenoPuppeteer
+
+- type: playTimeTracker
+  id: MCXenoPuppeteer
+  isXeno: true
+
 # Tier 3
 
 # Boiler

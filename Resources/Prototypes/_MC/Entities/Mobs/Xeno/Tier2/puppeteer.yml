@@ -1,0 +1,78 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentEvolutionTier2
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoPuppeteer
+  name: puppeteer
+  description: An alien creature of terrifying display, it has a tail adorned with needles that drips a strange chemical and elongated claws.
+  components:
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-puppeteer
+  - type: GhostRole
+    name: mc-job-name-xeno-puppeteer
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/puppeteer.rsi
+    offset: 0.25, 0.25
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/Xeno/icons.rsi
+      state: hunter # куколд
+  # Actions
+  - type: Xeno
+    tier: 2
+    role: MCXenoPuppeteer
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    hudOffset: -0.1, 0.1
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      365: Critical
+      465: Dead
+  - type: XenoPlasma
+    plasma: 0
+    maxPlasma: 0
+    plasmaRegenOnWeeds: 0
+  - type: MCArmor
+    soft:
+      melee: 20
+      bullet: 20
+      laser: 20
+      energy: 20
+      bomb: 10
+      bio: 20
+      fire: 20
+      acid: 20
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 18
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.125
+    baseSprintSpeed: 4.545
+  - type: XenoEnergy
+    gain: 0
+    max: 750
+    gainAttack: 0
+    gainAttackDowned: 0
+    gainOnProjectiles: false
+  - type: XenoPheromones
+    pheromonesMultiplier: 2.8
+    pheroSuffix: strong
+  - type: MCXenoFlay
+    damage:
+      types:
+        MCBrute: 18
+  - type: MCAttackEnergyGain
+  - type: MCXenoPincushion
