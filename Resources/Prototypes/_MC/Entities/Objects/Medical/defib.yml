@@ -50,7 +50,7 @@
     doAfterDuration: 7.5
     allowDoAfterMovement: false
     canDefibCrit: false
-    cmZapHeal:
+    rmcZapHeal:
     - MCBrute: -10
     - MCBurn: -10
     - MCToxin: -10

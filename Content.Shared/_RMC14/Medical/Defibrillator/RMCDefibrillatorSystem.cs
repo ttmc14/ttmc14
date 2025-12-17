@@ -8,11 +8,13 @@ using Content.Shared.Examine;
 using Content.Shared.FixedPoint;
 using Content.Shared.Medical;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Medical.Defibrillator;
 
 public sealed class RMCDefibrillatorSystem : EntitySystem
 {
+    [Dependency] private readonly IPrototypeManager _prototypeManager = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedRMCBloodstreamSystem _rmcBloodstream = default!;
@@ -31,9 +33,9 @@ public sealed class RMCDefibrillatorSystem : EntitySystem
     {
         if (ent.Comp.RMCZapDamage != null)
         {
-            foreach (var (group, amount) in ent.Comp.RMCZapDamage)
+            foreach (var (type, amount) in ent.Comp.RMCZapDamage)
             {
-                args.Heal = _rmcDamageable.DistributeDamageCached(args.Target, group, amount, args.Heal);
+                args.Heal += new DamageSpecifier(_prototypeManager.Index(type), FixedPoint2.New(amount));
             }
         }
 
