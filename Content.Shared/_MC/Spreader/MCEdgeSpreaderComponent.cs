@@ -13,4 +13,7 @@ public sealed partial class MCEdgeSpreaderComponent : Component
 
     [DataField, AutoNetworkedField]
     public int Range = 5;
+
+    [AutoNetworkedField]
+    public EntityUid CreatorUid;
 }

@@ -1,4 +1,5 @@
-﻿using Content.Server.Atmos.Components;
+﻿using Content.Server._RMC14.Xenonids.Hive;
+using Content.Server.Atmos.Components;
 using Content.Shared._MC.Spreader;
 using Content.Shared.Tag;
 using Robust.Shared.Collections;
@@ -14,6 +15,7 @@ public sealed class MCEdgeSpreaderSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly TagSystem _tag = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
+    [Dependency] private readonly XenoHiveSystem _xenoHive = null!;
 
     private readonly List<SpawnDeferredEntry> _spawnDeferredEntries = [];
 
@@ -57,6 +59,8 @@ public sealed class MCEdgeSpreaderSystem : EntitySystem
             foreach (var tile in entry.FreeTiles)
             {
                 var uid = SpawnSame(entry.Uid, entry.GridUid, tile);
+
+                _xenoHive.SetSameHive(entry.Uid, uid);
 
                 var spreader = EnsureComp<MCEdgeSpreaderComponent>(uid);
 

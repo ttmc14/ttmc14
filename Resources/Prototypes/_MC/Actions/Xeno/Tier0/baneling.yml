@@ -1,0 +1,16 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoBanelingExplode
+  name: Baneling Explode (60)
+  description: Explode and spread dangerous toxins to hinder or kill your foes. You die.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/baneling.rsi
+      state: explode
+    useDelay: 60
+  - type: InstantAction
+    event: !type:MCXenoExplodeActionEvent
+  - type: XenoActionPlasma
+    cost: 60

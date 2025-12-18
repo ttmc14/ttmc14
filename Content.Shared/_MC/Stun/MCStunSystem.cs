@@ -95,11 +95,14 @@ public sealed class MCStunSystem : EntitySystem
 
     public void Stagger(EntityUid uid, TimeSpan duration)
     {
-        var ev = new MCStaggerAttemptEvent();
-        RaiseLocalEvent(uid, ref ev);
+        var attemptEv = new MCStaggerAttemptEvent();
+        RaiseLocalEvent(uid, ref attemptEv);
 
-        if (ev.Canceled)
+        if (attemptEv.Canceled)
             return;
+
+        var ev = new MCStaggerEvent();
+        RaiseLocalEvent(uid, ref ev);
     }
 
     public bool IsStun(EntityUid uid)

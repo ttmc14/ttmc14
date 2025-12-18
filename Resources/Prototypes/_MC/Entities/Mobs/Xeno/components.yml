@@ -170,6 +170,12 @@
           state: sanguinal
         reagentId: MCSanguinal
         smokeEntityId: MCSmokeXenoSanguinal
+      Acid:
+        name: Acid
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: acid
+        smokeEntityId: MCSmokeXenoAcidLight
 
 # Evolution
 - type: entity

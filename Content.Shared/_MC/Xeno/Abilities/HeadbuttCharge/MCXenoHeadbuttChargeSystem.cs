@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Knockback;
+using Content.Shared._MC.Stun.Events;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Emote;
 using Content.Shared._RMC14.Weapons.Melee;
@@ -51,6 +52,7 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
         SubscribeLocalEvent<MCXenoHeadbuttChargeActiveComponent, RefreshMovementSpeedModifiersEvent>(OnActiveRefreshSpeedModifier);
         SubscribeLocalEvent<MCXenoHeadbuttChargeActiveComponent, StartCollideEvent>(OnActiveCollide);
         SubscribeLocalEvent<MCXenoHeadbuttChargeActiveComponent, MoveEvent>(OnActiveMove);
+        SubscribeLocalEvent<MCXenoHeadbuttChargeActiveComponent, MCStaggerEvent>(OnActiveStagger);
 
         SubscribeLocalEvent<MCXenoHeadbuttChargeComponent, MCXenoHeadbuttChargeDoAfterEvent>(OnUseDoAfter);
     }
@@ -141,6 +143,11 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
         _hive.SetSameHive(entity.Owner, spawn);
     }
 
+    private void OnActiveStagger(Entity<MCXenoHeadbuttChargeActiveComponent> ent, ref MCStaggerEvent args)
+    {
+        RemCompDeferred<MCXenoHeadbuttChargeActiveComponent>(ent);
+    }
+
     protected override void OnUse(Entity<MCXenoHeadbuttChargeComponent> entity, ref MCXenoHeadbuttChargeActionEvent args)
     {
         var ev = new MCXenoHeadbuttChargeDoAfterEvent(GetNetEntity(args.Action));
@@ -178,11 +185,6 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
         AddComp(entity, component, true);
         Dirty(entity, component);
 
-        Timer.Spawn(ev.Duration,
-            () =>
-            {
-                RemComp<MCXenoHeadbuttChargeActiveComponent>(entity);
-            }
-        );
+        RemCompDeferredDelayed<MCXenoHeadbuttChargeActiveComponent>(entity, ev.Duration);
     }
 }

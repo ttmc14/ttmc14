@@ -19,6 +19,7 @@
     reagents:
     - ReagentId: MCNeurotoxin
       Quantity: 7
+  - type: Occluder
 
 - type: entity
   parent: MCSmoke
@@ -31,6 +32,7 @@
     reagents:
     - ReagentId: MCHemodile
       Quantity: 7
+  - type: Occluder
 
 - type: entity
   parent: MCSmoke
@@ -43,6 +45,7 @@
     reagents:
     - ReagentId: MCTransvitox
       Quantity: 7
+  - type: Occluder
 
 - type: entity
   parent: MCSmoke
@@ -55,6 +58,7 @@
     reagents:
     - ReagentId: MCSanguinal
       Quantity: 7
+  - type: Occluder
 
 - type: entity
   parent: MCSmoke
@@ -67,3 +71,32 @@
     reagents:
     - ReagentId: MCOzelomelyn
       Quantity: 7
+  - type: Occluder
+
+# Acid
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeXenoAcid
+  name: smoke xeno acid
+  components:
+  - type: Sprite
+    color: "#86B028"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 25
+  - type: Occluder
+
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeXenoAcidLight
+  name: smoke xeno acid light
+  components:
+  - type: Sprite
+    color: "#85b0285e"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 25
+  - type: TimedDespawn
+    lifetime: 4

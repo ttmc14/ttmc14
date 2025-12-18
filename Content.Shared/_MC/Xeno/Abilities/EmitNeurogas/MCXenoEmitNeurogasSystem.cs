@@ -2,6 +2,7 @@
 using Content.Shared._MC.Spreader;
 using Content.Shared._MC.Stun.Events;
 using Content.Shared._MC.Xeno.Abilities.ReagentSelector;
+using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
 using Robust.Shared.Audio.Systems;
@@ -17,6 +18,7 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly MCXenoReagentSelectorSystem _mcXenoReagentSelector = null!;
+    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -26,6 +28,7 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
         SubscribeLocalEvent<MCXenoEmitNeurogasComponent, MCXenoEmitNeurogasDoAfterEvent>(OnActionDoAfter);
 
         SubscribeLocalEvent<MCXenoEmitNeurogasActiveComponent, MobStateChangedEvent>(OnActiveMobStateChanged);
+        SubscribeLocalEvent<MCXenoEmitNeurogasActiveComponent, MCStaggerEvent>(OnActiveStagger);
     }
 
     public override void Update(float frameTime)
@@ -38,6 +41,8 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
             if (component.ActivationTimeNext > _timing.CurTime)
                 continue;
 
+            var rangeModifier = component.Activations == 1 ? 1 : 0;
+
             component.ActivationTimeNext = _timing.CurTime + component.ActivationDelay;
             component.Activations--;
 
@@ -48,10 +53,11 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
             if (!smokeUid.Valid)
                 continue;
 
-            _audio.PlayEntity(neurogasComponent.Sound, smokeUid, smokeUid);
+            _rmcXenoHive.SetSameHive(uid, smokeUid);
+            _audio.PlayStatic(neurogasComponent.Sound, smokeUid, Transform(smokeUid).Coordinates);
 
             var spreader = EnsureComp<MCEdgeSpreaderComponent>(smokeUid);
-            spreader.Range = component.Range;
+            spreader.Range = component.Range + rangeModifier;
             Dirty(uid, spreader);
         }
     }
@@ -97,6 +103,11 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
             return;
 
         RemCompDeferred<MCXenoEmitNeurogasActiveComponent>(entity);
+    }
+
+    private void OnActiveStagger(Entity<MCXenoEmitNeurogasActiveComponent> ent, ref MCStaggerEvent args)
+    {
+        RemComp<MCXenoEmitNeurogasActiveComponent>(ent);
     }
 
     private bool CanUseAction(Entity<MCXenoEmitNeurogasComponent> entity, [NotNullWhen(true)] out EntProtoId? smokeId)
