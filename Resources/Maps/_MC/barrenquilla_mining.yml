@@ -35279,39 +35279,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 82.5,-112.5
       parent: 1
-- proto: CrateEmergencyRadiationKit
-  entities:
-  - uid: 2510
-    components:
-    - type: Transform
-      pos: 73.5,-33.5
-      parent: 1
-  - uid: 2511
-    components:
-    - type: Transform
-      pos: 75.5,-33.5
-      parent: 1
-  - uid: 2512
-    components:
-    - type: Transform
-      pos: 75.5,-34.5
-      parent: 1
-  - uid: 2513
-    components:
-    - type: Transform
-      pos: 47.5,-95.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 2514
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: CrateFoodMRE
   entities:
   - uid: 2515
@@ -47377,15 +47344,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 45.5,-18.5
       parent: 1
-- proto: PlushieRouny
-  entities:
-  - uid: 2514
-    components:
-    - type: Transform
-      parent: 1513
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: PosterContrabandBeachStarYamamoto
   entities:
   - uid: 4417
