@@ -108,6 +108,7 @@
   name: bloodthirster
   description: A thirsting fighter that knows no rest.
   components:
+  - type: XenoHidden
   # Name
   - type: FixedIdentity
     name: mc-job-name-xeno-ravager-bloodthirster

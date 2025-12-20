@@ -1,0 +1,67 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentEvolutionTier3
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoChimera
+  name: chimera
+  description: A slim, deadly alien creature. It has two additional arms with mantis blades.
+  components:
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-chimera
+  - type: GhostRole
+    name: mc-job-name-xeno-chimera
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/chimera.rsi
+    offset: 0, 0.35
+  - type: TacticalMapIcon
+    icon:
+      sprite: _MC/Interface/Xeno/icons.rsi
+      state: widow
+  # Actions
+  - type: Xeno
+    tier: 3
+    role: MCXenoChimera
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Abilities
+    hudOffset: -0.15, 0.25
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      350: Critical
+      450: Dead
+  - type: XenoPlasma
+    plasma: 500
+    maxPlasma: 500
+    plasmaRegenOnWeeds: 25
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 40
+      laser: 40
+      energy: 40
+      bomb: 0
+      bio: 50
+      fire: 0
+      acid: 50
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 18
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.35
+    baseSprintSpeed: 5
+  - type: RMCSize
+    size: Big
+  # Abilities
