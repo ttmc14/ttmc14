@@ -11,6 +11,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Audio;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._MC.Xeno.Abilities.UnrelentingForce;
@@ -94,12 +95,13 @@ public sealed class MCXenoUnrelentingForceSystem : EntitySystem
             if (entity.Owner == uid)
                 return;
 
+            var transform = Transform(uid);
+            if (!HasComp<MapGridComponent>(transform.ParentUid) || transform.Anchored)
+                return;
+
             _mcFlammable.AdjustFireStacks(uid, -10);
 
             if (!HasComp<MobStateComponent>(uid) && !HasComp<ItemComponent>(uid))
-                return;
-
-            if (Transform(uid).Anchored)
                 return;
 
             if (_mobState.IsDead(uid))
