@@ -79,6 +79,11 @@
   id: MCSmokeXenoAcid
   name: smoke xeno acid
   components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
   - type: Sprite
     color: "#86B028"
   - type: MCSmokeDamage
@@ -88,7 +93,7 @@
   - type: Occluder
 
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXenoAcid
   id: MCSmokeXenoAcidLight
   name: smoke xeno acid light
   components:
