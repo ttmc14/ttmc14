@@ -8,11 +8,13 @@ namespace Content.Shared._MC;
 
 public sealed class MCStatusSystem : MCEntitySystemSingleton<MCStatusSystemComponent>
 {
+    // TODO: [MC] Move to MCConfigVar
+    [ViewVariables]
     public const int HighPlayerPop = 80;
 
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly ISharedPlayerManager _playerManager = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly ISharedPlayerManager _playerManager = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
 
     public int ActivePlayerCount => Inst.Comp.MaximumConnectedPlayersCount;
 

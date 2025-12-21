@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._MC.Xeno.Abilities.PortalPlacer;
+using Content.Shared._MC.Xeno.Abilities.Wraith.PortalPlacer;
 using JetBrains.Annotations;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -8,17 +8,16 @@ using Robust.Client.Input;
 using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
-using Robust.Shared.Prototypes;
 
 namespace Content.Client._MC.Xeno.Abilities.PortalPlacer;
 
 [UsedImplicitly]
 public sealed class MCXenoChoosePortalBui : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = default!;
-    [Dependency] private readonly IInputManager _inputManager = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IEyeManager _eye = default!;
+    [Dependency] private readonly IClyde _displayManager = null!;
+    [Dependency] private readonly IInputManager _inputManager = null!;
+    [Dependency] private readonly IPlayerManager _player = null!;
+    [Dependency] private readonly IEyeManager _eye = null!;
 
     private readonly SpriteSystem _sprite;
     private readonly TransformSystem _transform;

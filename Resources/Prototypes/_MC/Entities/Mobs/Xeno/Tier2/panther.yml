@@ -2,6 +2,7 @@
   parent:
   # MC
   - MCXenoBase
+  - MCXenoComponentFixtureRunner
   - MCXenoComponentEvolutionTier2
   # RMC
   - CMXenoDeveloped
@@ -33,6 +34,8 @@
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
+    # Utilities
+    - MCActionXenoHide
     hudOffset: -0.15, 0.25
   # Statistics
   - type: MobThresholds
@@ -62,3 +65,11 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
     baseSprintSpeed: 6.66
+  # Abilities
+  - type: MCXenoPounce
+    hitSound: /Audio/_RMC14/Xeno/alien_pounce.ogg
+    hitDamage:
+      types:
+        MCBrute: 25
+  - type: MCXenoEvasion
+

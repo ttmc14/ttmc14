@@ -81,7 +81,6 @@
         MCBrute: 36 # distance * 6 (36)
     speed: 10
   - type: MCXenoStomp
-    throwSpeed: 2
     damage:
       types:
         MCBrute: 60

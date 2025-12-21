@@ -4,9 +4,10 @@ namespace Content.Shared._MC.Areas;
 
 public sealed class MCAreasSystem : EntitySystem
 {
+    [ViewVariables]
     private static readonly LocId UnknownAreaLocId = "mc-area-unknown";
 
-    [Dependency] private readonly AreaSystem _rmcArea = default!;
+    [Dependency] private readonly AreaSystem _rmcArea = null!;
 
     public string GetAreaName(EntityUid coordinates)
     {

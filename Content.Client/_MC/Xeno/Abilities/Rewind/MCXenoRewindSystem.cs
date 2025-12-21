@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Rewind;
+﻿using Content.Shared._MC.Xeno.Abilities.Wraith.Rewind;
 
 namespace Content.Client._MC.Xeno.Abilities.Rewind;
 

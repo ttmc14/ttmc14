@@ -3,7 +3,6 @@ using Content.Server.Atmos.Components;
 using Content.Server.Damage.Components;
 using Content.Server.Stunnable;
 using Content.Server.Temperature.Systems;
-using Content.Shared._MC.Xeno.Abilities.ResinJelly.Components;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Projectile.Spit;

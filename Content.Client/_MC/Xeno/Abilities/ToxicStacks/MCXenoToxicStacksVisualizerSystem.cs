@@ -1,5 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Evasion;
-using Content.Shared._MC.Xeno.Abilities.ToxicStacks;
+﻿using Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicStacks;
 using Content.Shared._RMC14.Xenonids;
 using Robust.Client.GameObjects;
 using Robust.Client.Player;

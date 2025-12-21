@@ -80,12 +80,12 @@ public sealed class MCStunSystem : EntitySystem
         _stun.TryStun(uid, duration, refresh: true);
     }
 
-    public void Paralyze(EntityUid uid, TimeSpan duration)
+    public void Paralyze(EntityUid uid, TimeSpan duration, bool refresh = true)
     {
         if (HasComp<XenoComponent>(uid))
             duration *= 0.2f;
 
-        _stun.TryParalyze(uid, duration, refresh: true);
+        _stun.TryParalyze(uid, duration, refresh: refresh);
     }
 
     public void Slowdown(EntityUid uid, TimeSpan duration)

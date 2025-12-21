@@ -1,10 +1,9 @@
 using Content.Client._RMC14.Sprite;
-using Content.Shared._MC.Xeno.Abilities.Charge;
-using Content.Shared._MC.Xeno.Abilities.HeadbuttCharge;
+using Content.Shared._MC.Xeno.Abilities.Bull.HeadbuttCharge;
+using Content.Shared._MC.Xeno.Abilities.Crusher.Charge;
 using Content.Shared._MC.Xeno.Visuals;
 using Content.Shared._RMC14.Sprite;
 using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Charge;
 using Content.Shared._RMC14.Xenonids.Egg;
 using Content.Shared._RMC14.Xenonids.Leap;
 using Content.Shared._RMC14.Xenonids.Movement;

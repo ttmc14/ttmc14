@@ -33,3 +33,5 @@
   - type: EntityTargetAction
     event: !type:MCXenoRecycleActionEvent
     canTargetSelf: false
+  - type: XenoActionPlasma
+    cost: 750
