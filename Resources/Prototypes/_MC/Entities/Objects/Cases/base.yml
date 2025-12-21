@@ -28,5 +28,5 @@
     blacklist:
       components:
       - Xeno
-  - type: CMStorageVisualizer
-    storageEmpty: empty
+  #- type: CMStorageVisualizer
+  #  storageEmpty: empty

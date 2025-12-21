@@ -54,7 +54,7 @@
       visible: false
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: carrier
   - type: XenoInhands
     prefix: carrier
@@ -65,8 +65,7 @@
     actionIds:
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
-      # Weeds
+    - MCActionXenoDevolve # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
     # Main

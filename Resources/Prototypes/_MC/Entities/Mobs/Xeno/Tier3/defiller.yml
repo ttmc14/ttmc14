@@ -26,7 +26,7 @@
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: defiler
   - type: XenoInhands
     prefix: hivelord
@@ -71,7 +71,7 @@
       acid: 40
   - type: MeleeWeapon
     damage:
-       types:
+      types:
         MCBrute: 27
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.333

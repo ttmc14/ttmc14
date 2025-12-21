@@ -24,7 +24,7 @@
     offset: 0, 0.35
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: crusher
   # Actions
   - type: Xeno

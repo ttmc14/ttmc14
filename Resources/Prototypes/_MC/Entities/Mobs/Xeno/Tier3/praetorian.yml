@@ -24,7 +24,7 @@
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: praetorian
   # Actions
   - type: Xeno
@@ -81,7 +81,7 @@
   - type: MCXenoScatterSpit
     count: 3
     projectileId: MCXenoProjectileHeavyScatterPraetorian
-  - type: XenoAcid      # TODO: Make MC component
+  - type: XenoAcid # TODO: Make MC component
   - type: XenoSprayAcid # TODO: Make MC component
     acid: MCXenoAcidSprayPraetorian
     range: 5

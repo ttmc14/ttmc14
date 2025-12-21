@@ -78,7 +78,7 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: silo_passive
   - type: XenoWeedsSpreading
   - type: XenoWeeds
@@ -124,7 +124,7 @@
   # - type: TacticalMapTracked
   # - type: TacticalMapIcon
   #   icon:
-  #     sprite: _MC/Interface/Xeno/icons.rsi
+  #     sprite: /Textures/_MC/Interface/Xeno/icons.rsi
   #     state: silo_passive
 
 - type: entity
@@ -153,7 +153,7 @@
   # - type: TacticalMapTracked
   # - type: TacticalMapIcon
   #   icon:
-  #     sprite: _MC/Interface/Xeno/icons.rsi
+  #     sprite: /Textures/_MC/Interface/Xeno/icons.rsi
   #     state: silo_passive
 
 - type: entity
@@ -192,5 +192,5 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: spawner_passive

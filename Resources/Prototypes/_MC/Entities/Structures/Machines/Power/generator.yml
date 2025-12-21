@@ -66,5 +66,5 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/power.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/power.rsi
       state: generator_off

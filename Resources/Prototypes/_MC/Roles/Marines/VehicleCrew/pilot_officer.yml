@@ -47,7 +47,7 @@
       prefix: mc-job-prefix-pilot-officer
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/job_icons.rsi
+        sprite: /Textures/_MC/Interface/job_icons.rsi
         state: assault_crew
 
 - type: playTimeTracker

@@ -24,7 +24,7 @@
     offset: 0, 0.65
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: bull
   # Abilities
   - type: Xeno
@@ -72,4 +72,3 @@
       types:
         MCBrute: 25
   - type: MCXenoEvasion
-
