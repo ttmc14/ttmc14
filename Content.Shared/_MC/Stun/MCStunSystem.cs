@@ -51,6 +51,7 @@ public sealed class MCStunSystem : EntitySystem
         {
             Stun(args.Target, entity.Comp.StunTime);
             Paralyze(args.Target, entity.Comp.ParalyzeTime);
+            Stagger(args.Target, entity.Comp.StaggerTime);
         }
 
         if (entity.Comp.Knockback == 0)
@@ -95,6 +96,9 @@ public sealed class MCStunSystem : EntitySystem
 
     public void Stagger(EntityUid uid, TimeSpan duration)
     {
+        if (duration == TimeSpan.Zero)
+            return;
+
         var attemptEv = new MCStaggerAttemptEvent();
         RaiseLocalEvent(uid, ref attemptEv);
 
