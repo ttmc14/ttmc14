@@ -37,7 +37,7 @@ public sealed partial class MCReagentSanguinal : MCReagentEffect
         if (HasReagent(solution, "MCOzelomelyn"))
             MCDamageable.AdjustOxyLoss(args.TargetEntity, Damage);
 
-        MCDamageable.AdjustBurnLoss(args.TargetEntity, Damage);
+        MCDamageable.AdjustBruteLoss(args.TargetEntity, Damage);
         Bloodstream.TryModifyBleedAmount(args.TargetEntity, BleedDamage);
     }
 }
