@@ -46,6 +46,7 @@
     - MCActionXenoSelectReagent
     - MCActionXenoReagentSlash
     - MCActionXenoEmitNeurogas
+    - MCActionXenoDefile
     # Utilities
     - MCActionXenoLayEgg
     hudOffset: -0.1, 0.1
@@ -83,3 +84,4 @@
   - type: MCXenoReagentSlash
   - type: MCXenoEmitNeurogas
   # - type: MCXenoLayEgg
+  - type: MCXenoDefile

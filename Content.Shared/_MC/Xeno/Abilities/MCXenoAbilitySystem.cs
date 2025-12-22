@@ -128,6 +128,18 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    protected void ActionSetUseDelay<T>(EntityUid uid, EntityUid actionUid, TimeSpan? delay) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Owner != actionUid)
+                continue;
+
+            Actions.SetUseDelay((action, action), delay);
+            break;
+        }
+    }
+
     protected void ActionSetToggled<T>(EntityUid uid, bool toggled) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
