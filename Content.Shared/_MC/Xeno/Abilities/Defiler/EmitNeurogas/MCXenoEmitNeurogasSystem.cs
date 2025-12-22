@@ -55,7 +55,7 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
                 continue;
 
             _rmcXenoHive.SetSameHive(uid, smokeUid);
-            _audio.PlayStatic(neurogasComponent.Sound, smokeUid, Transform(smokeUid).Coordinates);
+            _audio.PlayPvs(neurogasComponent.Sound, Transform(smokeUid).Coordinates);
 
             var spreader = EnsureComp<MCEdgeSpreaderComponent>(smokeUid);
             spreader.Range = component.Range + rangeModifier;
