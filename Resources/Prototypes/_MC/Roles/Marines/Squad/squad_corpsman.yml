@@ -47,7 +47,7 @@
       prefix: mc-job-prefix-squad-corpsman
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/squad_marine_icons.rsi
+        sprite: /Textures/_MC/Interface/squad_marine_icons.rsi
         state: corpsman
 
 - type: playTimeTracker
