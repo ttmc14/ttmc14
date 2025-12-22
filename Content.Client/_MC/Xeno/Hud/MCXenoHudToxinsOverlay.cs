@@ -105,6 +105,8 @@ public sealed class MCXenoHudToxinsOverlay : Overlay
                 var reagentState = quantity > component.ReagentHighQuantity ? $"{state}{component.ReagentHighPostfix}" : state;
                 DrawToxin(reagentState, bounds, sprite, handle);
             }
+
+            handle.SetTransform(Matrix3x2.Identity);
         }
     }
 
