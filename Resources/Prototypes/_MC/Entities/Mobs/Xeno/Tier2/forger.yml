@@ -23,7 +23,7 @@
     offset: 0, 0.35
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/xeno.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/xeno.rsi
       state: forger
   # Actions
   - type: Xeno
