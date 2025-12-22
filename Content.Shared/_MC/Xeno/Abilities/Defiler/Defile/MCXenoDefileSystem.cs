@@ -78,6 +78,8 @@ public sealed class MCXenoDefileSystem : MCXenoAbilitySystem
 
         _mcDamageable.AdjustToxLoss(target, power);
 
+        ActionStartUseDelay<MCXenoDefileActionEvent>(entity, action);
+
         var targetCoordinates = Transform(target).Coordinates;
         var smokeUid = ServerSpawn(entity.Comp.SmokeId, targetCoordinates);
         if (!smokeUid.Valid)
