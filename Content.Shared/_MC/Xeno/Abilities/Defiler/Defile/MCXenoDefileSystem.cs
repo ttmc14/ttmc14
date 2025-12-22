@@ -53,8 +53,8 @@ public sealed class MCXenoDefileSystem : MCXenoAbilitySystem
             return;
         }
 
-        _mcStamina.Damage(entity.Owner, 50, false);
-        _mcDamageable.AdjustBruteLoss(entity.Owner, 5);
+        _mcStamina.Damage(target, 50, false);
+        _mcDamageable.AdjustBruteLoss(target, 5);
 
         AnimateHit(entity, target);
 
