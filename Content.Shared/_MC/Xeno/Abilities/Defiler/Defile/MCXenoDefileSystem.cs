@@ -32,7 +32,7 @@ public sealed class MCXenoDefileSystem : MCXenoAbilitySystem
         if (args.Handled || !CanUseAction(entity, args.Action, args.Target))
             return;
 
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, new MCXenoDefileDoAfterEvent(args.Action, EntityManager), entity, args.Target)
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, new MCXenoDefileDoAfterEvent(args.Action, EntityManager), entity, args.Target, entity)
         {
             DistanceThreshold = entity.Comp.Range,
             RequireCanInteract = false,
@@ -49,7 +49,7 @@ public sealed class MCXenoDefileSystem : MCXenoAbilitySystem
 
         if (args.Cancelled)
         {
-            ActionSetUseDelay<MCXenoDefileActionEvent>(entity, action, entity.Comp.FailUseCooldown);
+            ActionSetCooldown<MCXenoDefileActionEvent>(entity, action, entity.Comp.FailUseCooldown);
             return;
         }
 

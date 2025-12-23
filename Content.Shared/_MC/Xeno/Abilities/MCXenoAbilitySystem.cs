@@ -128,6 +128,15 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    protected void ActionSetUseDelay<T>(EntityUid uid, TimeSpan? delay) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.SetUseDelay((action, action), delay);
+            break;
+        }
+    }
+
     protected void ActionSetUseDelay<T>(EntityUid uid, EntityUid actionUid, TimeSpan? delay) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -136,6 +145,18 @@ public abstract class MCXenoAbilitySystem : EntitySystem
                 continue;
 
             Actions.SetUseDelay((action, action), delay);
+            break;
+        }
+    }
+
+    protected void ActionSetCooldown<T>(EntityUid uid, EntityUid actionUid, TimeSpan cooldown) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Owner != actionUid)
+                continue;
+
+            Actions.SetCooldown((action, action), cooldown);
             break;
         }
     }
