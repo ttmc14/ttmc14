@@ -1,16 +1,20 @@
 using System.Numerics;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Abilities;
+using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._MC.Xeno.Plasma.Components.Conversions;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
+using Content.Shared._RMC14.Emote;
 using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.Popups;
+using Content.Shared.FixedPoint;
 
-namespace Content.Shared._MC.Xeno.Abilities.Flay;
+namespace Content.Shared._MC.Xeno.Abilities.Puppeteer.Flay;
 
-public sealed class MCXenoFlaySystem : MCXenoAbilitySystem<MCXenoFlayComponent, MCXenoFlayActionEvent>
+public sealed class MCXenoFlaySystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
@@ -30,7 +34,7 @@ public sealed class MCXenoFlaySystem : MCXenoAbilitySystem<MCXenoFlayComponent, 
     private void OnAction(Entity<MCXenoFlayComponent> ent, ref MCXenoFlayActionEvent args)
     {
         if (args.Handled)
-            return
+            return;
 
         if (_mobState.IsDead(args.Target))
             return;
@@ -48,11 +52,11 @@ public sealed class MCXenoFlaySystem : MCXenoAbilitySystem<MCXenoFlayComponent, 
             AnimateHit(ent.Owner, args.Target);
 
         _mcStun.Paralyze(args.Target, ent.Comp.ParalyzeTime);
-        _mcXenoPlasma.RegenPlasma(ent.Owner, ent.Comp.GainEnergy);
+        _mcXenoPlasma.RegenPlasma(ent.Owner, ent.Comp.GainPlasma);
 
         _rmcEmote.TryEmoteWithChat(args.Target, ent.Comp.HumanEmote, forceEmote: true);
         _rmcEmote.TryEmoteWithChat(ent.Owner, ent.Comp.XenoEmote);
 
-        _popup.PopupEntity(Loc.GetString(ent.Comp.Popup, ("xeno", ent.Owner), ("target", args.Target)));
+        _popup.PopupPredicted(Loc.GetString(ent.Comp.Popup, ("xeno", ent.Owner), ("target", args.Target)), ent.Owner, ent.Owner);
     }
 }

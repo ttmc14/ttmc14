@@ -1,9 +1,10 @@
 using Content.Shared.Damage;
+using Content.Shared.Chat.Prototypes;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._MC.Xeno.Abilities.Flay;
+namespace Content.Shared._MC.Xeno.Abilities.Puppeteer.Flay;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCXenoFlayComponent : Component
@@ -21,13 +22,13 @@ public sealed partial class MCXenoFlayComponent : Component
     public TimeSpan ParalyzeTime = TimeSpan.FromSeconds(0.8);
 
     [DataField, AutoNetworkedField]
-    public EntProtoId HumanEmote = "Scream";
+    public ProtoId<EmotePrototype> HumanEmote = "Scream";
 
     [DataField, AutoNetworkedField]
-    public EntProtoId XenoEmote = "XenoRoar";
+    public ProtoId<EmotePrototype> XenoEmote = "XenoRoar";
 
     [DataField, AutoNetworkedField]
-    public int GainEnergy = 100;
+    public int GainPlasma = 100;
 
     [DataField, AutoNetworkedField]
     public int ArmorPiercing = 15;

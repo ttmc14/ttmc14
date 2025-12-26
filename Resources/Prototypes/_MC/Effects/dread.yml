@@ -1,0 +1,12 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectDread
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: Sprite
+    sprite: _MC/Effects/Xeno/transfer_plasma.rsi # dread
+    drawdepth: Effects
+    state: base
+    noRot: true
