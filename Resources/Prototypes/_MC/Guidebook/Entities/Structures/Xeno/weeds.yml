@@ -1,0 +1,19 @@
+- type: entity
+  parent: MCXenoWeedsNode
+  id: MCGuidebookXenoWeedsNode
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCXenoWeedsNodeSticky
+  id: MCGuidebookXenoWeedsNodeSticky
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCXenoWeedsNodeResting
+  id: MCGuidebookXenoWeedsNodeResting
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCXenoWeedsNodeFireproof
+  id: MCGuidebookXenoWeedsNodeFireproof
+  categories: [ HideSpawnMenu ]

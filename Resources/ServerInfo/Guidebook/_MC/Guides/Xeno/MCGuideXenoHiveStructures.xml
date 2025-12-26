@@ -1,28 +1,133 @@
 <Document>
-  # Структуры улья
-
-  ## Трава улья
-
-  <GuideEntityEmbed Entity="MCGuidebookActionXenoPlantWeeds"/>
-
-  Перед началом любого строительства используйте "Посадить смоляную траву", что бы разместить узел смоляной травы, который распространит вокруг траву.
-  Радиус распространения травы 2 тайла от узла.
-
-  <GuideEntityEmbed Entity="MCGuidebookActionXenoSelectWeeds"/>
-
-  Вы можете выброть тип сажаемой травы, с помощью способнности, а так же включить автопосадку травы.
+  # Трава
 
   <Box>
-    <GuideEntityEmbed Entity="MCXenoWeedsNode"/>
-    <GuideEntityEmbed Entity="MCXenoWeedsNodeSticky"/>
-    <GuideEntityEmbed Entity="MCXenoWeedsNodeFireproof"/>
-    <GuideEntityEmbed Entity="MCXenoWeedsNodeResting"/>
+    <GuideEntityEmbed Entity="MCGuidebookActionXenoPlantWeeds"/>
+    <GuideEntityEmbed Entity="MCGuidebookActionXenoSelectWeeds"/>
   </Box>
 
-  Каждый вид травы имеет свои уникальные свойства:
-  - [bold]Обычная[/bold]: стоит 75 плазмы. Самые дешевые, более свойств не имеют.
-  - [bold]Липкая[/bold]: стоит 150 плазмы. Замедляют всех существ кроме ксеноморфов на 40%. (Остальные виды не замедляют)
-  - [bold]Огнеупорная[/bold]: стоит 150 плазмы. Полностью невосприимчивы к огню.
-  - [bold]Регенерирующая[/bold]: стоит 225 плазмы. Ускоряет регенрацию здоровья и плазмы на 20%, а так же востановление брони на 100%. Так же сильнее увеличивает силу регенерации. (0.15 вместо 0.1)
+  Используйте "Посадить сорняки", что бы разместить узел смоляной травы,
+  который распространит вокруг траву.
+  Радиус распространения травы 2 тайла от узла.
+
+  Вы можете выбрать тип сажаемой травы, с помощью способнности, а так же включить автопосадку травы.
+
+  <Table Columns="2">
+    <GuideEntityEmbed Entity="MCGuidebookXenoWeedsNode"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Обычная[/head] \n
+      Самая дешовая, более свойств не имеет \n
+      Стоимость: 75 \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCGuidebookXenoWeedsNodeSticky"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Липкая[/head] \n
+      Замедляет всех существ кроме ксеноморфов \n
+      Стоимость: 150 \n
+      Замедление: 40% \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCGuidebookXenoWeedsNodeFireproof"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Огнеупорная[/head] \n
+      Полностью невосприимчивы к огню \n
+      Стоимость: 150 \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCXenoWeedsNodeResting"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Регенерирующая[/head] \n
+      Полностью невосприимчивы к огню \n
+      Стоимость: 225 \n
+      Регенерация здоровья: 20% \n
+      Регенерация плазмы: 20% \n
+      Регенерация брони: 100% \n
+      Сила регенерации: 0.15 \n
+    </Box>
+  </Table>
+
+  # Базовые постройки
+
+  Постройки можно размещать только на траве
+
+  <Box>
+    <GuideEntityEmbed Entity="MCGuidebookActionXenoSecreteStructure"/>
+    <GuideEntityEmbed Entity="MCGuidebookActionXenoChooseStructure"/>
+  </Box>
+
+  Перед началом строительства используйте "Выбрать структуру",
+  что бы разместить структуру используйте "Построить структуру".
+  Разные ксеноморфы имеют отличающиеся значения скорости и дальности строительства
+
+  <Table Columns="2">
+    <GuideEntityEmbed Entity="MCGuidebookWallXenoResinThick"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Толстая стена[/head] \n
+      Стоимость: 50 \n
+      Прочность: 125 \n
+      Защита: 45/45/45/45/30/30/40/30 \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCGuidebookWallXenoResinThickBulletproof"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Пуленепробиваемая стена[/head] \n
+      Стоимость: 170 \n
+      Прочность: 125 \n
+      Защита: 0/110/100/100/20/0/0/0 \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCGuidebookWallXenoResinThickFireproof"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Огнеупорная стена[/head] \n
+      Стоимость: 50 \n
+      Прочность: 125 \n
+      Защита: 0/65/75/75/0/0/200/0 \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCGuidebookWallXenoResinThickHardy"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Укреплённая стена[/head] \n
+      Стоимость: 50 \n
+      Прочность: 125 \n
+      Защита: 80/30/25/75/80/0/0/0 \n
+    </Box>
+
+    <GuideEntityEmbed Entity="MCGuidebookDoorXenoResinThick"/>
+    <Box HorizontalAlignment="Left">
+      [head=3]Толстая дверь[/head] \n
+      Стоимость: 50 \n
+      Прочность: 125 \n
+      Защита: 45/45/45/45/30/30/40/30 \n
+    </Box>
+  </Table>
+
+  [head=2]Примечание[/head] \n
+  Параметры защиты перечислены в следующем порядке: \n
+  Ближний/Пули/Лазер/Энергия/Взрыв/Био/Огонь/Кислота
+
+  # Яйца
+
+  <GuideEntityEmbed Entity="MCGuidebookXenoActionLayEgg"/>
+
+  Яйца можно размещать на траве, с помощью способнности "Отложить яйцо"
+
+  <GuideEntityEmbed Entity="MCGuidebookStructureXenoEgg"/>
+  
+  При приблежении морпеха в радиус 1 тайла
+  яйцо расскроется и выпустит лицехвата, который черз несколько секунд совершит
+  прыжок на морпеха, что бы заразить его
+
+  # Постройки
+
+  <Box>
+    <GuideEntityEmbed Entity="MCGuidebookActionXenoBlessings"/>
+    <GuideEntityEmbed Entity="MCGuidebookActionXenoPsydrain"/>
+  </Box>
+  
+  <GuideEntityEmbed Entity="MCXenoStructureSilo"/>
+  <GuideEntityEmbed Entity="MCXenoStructureSpawner"/>
+  <GuideEntityEmbed Entity="MCXenoStructureTowerEvolution"/>
+  <GuideEntityEmbed Entity="MCXenoStructureTowerPsychic"/>
 
 </Document>
