@@ -35,7 +35,7 @@
       Стоимость: 150 \n
     </Box>
 
-    <GuideEntityEmbed Entity="MCXenoWeedsNodeResting"/>
+    <GuideEntityEmbed Entity="MCGuidebookXenoWeedsNodeResting"/>
     <Box HorizontalAlignment="Left">
       [head=3]Регенерирующая[/head] \n
       Полностью невосприимчивы к огню \n
@@ -80,7 +80,7 @@
     <GuideEntityEmbed Entity="MCGuidebookWallXenoResinThickFireproof"/>
     <Box HorizontalAlignment="Left">
       [head=3]Огнеупорная стена[/head] \n
-      Стоимость: 50 \n
+      Стоимость: 170 \n
       Прочность: 125 \n
       Защита: 0/65/75/75/0/0/200/0 \n
     </Box>
@@ -88,7 +88,7 @@
     <GuideEntityEmbed Entity="MCGuidebookWallXenoResinThickHardy"/>
     <Box HorizontalAlignment="Left">
       [head=3]Укреплённая стена[/head] \n
-      Стоимость: 50 \n
+      Стоимость: 170 \n
       Прочность: 125 \n
       Защита: 80/30/25/75/80/0/0/0 \n
     </Box>
@@ -96,13 +96,13 @@
     <GuideEntityEmbed Entity="MCGuidebookDoorXenoResinThick"/>
     <Box HorizontalAlignment="Left">
       [head=3]Толстая дверь[/head] \n
-      Стоимость: 50 \n
+      Стоимость: 170 \n
       Прочность: 125 \n
       Защита: 45/45/45/45/30/30/40/30 \n
     </Box>
   </Table>
 
-  [head=2]Примечание[/head] \n
+  [head=3]Примечание[/head] \n
   Параметры защиты перечислены в следующем порядке: \n
   Ближний/Пули/Лазер/Энергия/Взрыв/Био/Огонь/Кислота
 

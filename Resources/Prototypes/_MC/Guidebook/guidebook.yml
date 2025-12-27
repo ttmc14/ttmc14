@@ -35,4 +35,5 @@
   priority: 3
   text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXeno.xml"
   children:
-  - MCGuideXenoHiveStructures
+  - MCGuideXenoStructures
+  - MCGuideXenoCastes

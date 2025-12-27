@@ -1,0 +1,9 @@
+- type: entity
+  parent: MCXenoPraetorian
+  id: MCGuidebookXenoPraetorian
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XenoHidden
+  - type: Sprite
+    scale: 2, 2

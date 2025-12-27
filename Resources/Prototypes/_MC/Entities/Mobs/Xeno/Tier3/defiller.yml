@@ -85,3 +85,5 @@
   - type: MCXenoEmitNeurogas
   # - type: MCXenoLayEgg
   - type: MCXenoDefile
+  - type: VentCrawler
+    ventCrawlIcon: drone

@@ -76,7 +76,7 @@
     size: Big
   # Abilities
   - type: XenoPheromones
-    pheromonesMultiplier: 2.5
+    pheromonesMultiplier: 4.5
     pheroSuffix: strong
   - type: MCXenoScatterSpit
     count: 3

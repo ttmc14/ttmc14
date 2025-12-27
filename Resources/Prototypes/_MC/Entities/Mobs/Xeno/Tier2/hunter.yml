@@ -61,3 +61,5 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.846
     baseSprintSpeed: 6.25
+  - type: VentCrawler
+    ventCrawlIcon: drone

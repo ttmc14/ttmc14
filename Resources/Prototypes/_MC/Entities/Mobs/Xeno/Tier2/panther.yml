@@ -72,3 +72,5 @@
       types:
         MCBrute: 25
   - type: MCXenoEvasion
+  - type: VentCrawler
+    ventCrawlIcon: drone

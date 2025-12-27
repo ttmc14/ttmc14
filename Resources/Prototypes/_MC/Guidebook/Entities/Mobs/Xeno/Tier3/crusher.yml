@@ -1,0 +1,9 @@
+- type: entity
+  parent: MCXenoCrusher
+  id: MCGuidebookXenoCrusher
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XenoHidden
+  - type: Sprite
+    scale: 2, 2
