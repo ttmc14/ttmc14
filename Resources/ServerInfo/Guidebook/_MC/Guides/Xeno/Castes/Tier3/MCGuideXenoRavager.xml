@@ -2,8 +2,6 @@
   
   # БОЕВОЙ КСЕНОМОРФ
 
-  \n
-
   <Box>
     <GuideEntityEmbed Entity="MCGuidebookXenoRavager"/>
     <Box HorizontalAlignment="Left" VerticalAlignment="Bottom">

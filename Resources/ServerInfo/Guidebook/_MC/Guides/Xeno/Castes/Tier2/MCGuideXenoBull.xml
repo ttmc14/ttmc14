@@ -1,0 +1,27 @@
+<Document>
+  
+  # БОЕВОЙ КСЕНОМОРФ
+
+  <Box VerticalAlignment="Bottom">
+    <GuideEntityEmbed Entity="MCGuidebookXenoBull"/>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Bottom">
+      [head=1]Бык[/head] \n
+      [bold]Сложность:[/bold] [color=#ff0000]высокая[/color] \n
+      [bold]Обязанности:[/bold] сбивать морпехов со своего пути, впечатывать их в землю и наносить тяжёлые увечья \n
+      [bold]Цитата:[/bold] [italic]"Toro! Toro!"[/italic]
+    </Box>
+  </Box>
+
+  Бык - совокупность скорости Бегуна и силы Тарана, что делает его отличным бойцом стиля "бей и беги" на передовой.
+
+  # Характеристики и пути эволюции
+  Эволюционирует из бегуна
+
+  [bold]Здоровье:[/bold] 325 \n
+  [bold]Плзама:[/bold] 270 (регенерация 20) \n
+  [bold]Урон:[/bold] 25 брут \n
+  [bold]Скорость:[/bold] 4.5 \n
+  [bold]Защита:[/bold] 40/50/40/40/20/35/20/35 \n
+  [bold]Разлом:[/bold] x0.8 \n
+
+</Document>

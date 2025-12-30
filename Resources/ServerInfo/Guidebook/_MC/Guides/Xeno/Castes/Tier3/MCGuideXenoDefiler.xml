@@ -2,8 +2,6 @@
   
   # КСЕНОМОРФ ПОДДЕРЖКИ
 
-  \n
-
   <Box VerticalAlignment="Bottom">
     <GuideEntityEmbed Entity="MCGuidebookXenoDefiler"/>
     <Box HorizontalAlignment="Left" VerticalAlignment="Bottom">

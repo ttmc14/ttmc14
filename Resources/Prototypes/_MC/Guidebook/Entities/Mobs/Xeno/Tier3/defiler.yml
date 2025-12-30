@@ -1,9 +1,0 @@
-- type: entity
-  parent: MCXenoDefiler
-  id: MCGuidebookXenoDefiler
-  name: ""
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: XenoHidden
-  - type: Sprite
-    scale: 2, 2

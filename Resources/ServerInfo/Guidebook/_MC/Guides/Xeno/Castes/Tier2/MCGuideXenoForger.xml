@@ -1,0 +1,24 @@
+<Document>
+  
+  # БОЕВОЙ КСЕНОМОРФ
+
+  <Box VerticalAlignment="Bottom">
+    <GuideEntityEmbed Entity="MCGuidebookXenoForger"/>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Bottom">
+      [head=1]Форджер[/head] \n
+      [bold]Сложность:[/bold] [color=#ffff00]средняя[/color] \n
+      [bold]Обязанности:[/bold] Жги унгу!!! \n
+      [bold]Цитата:[/bold] [italic]"Я не спрашивал, какого размера комната; я сказал, [bold]кастую фаербол!!![/bold]"[/italic]
+    </Box>
+  </Box>
+
+  # Характеристики и пути эволюции
+  Эволюционирует из V, бегуна
+
+  [bold]Здоровье:[/bold] 275 \n
+  [bold]Плзама:[/bold] 380 (регенерация 18) \n
+  [bold]Урон:[/bold] 22 берн \n
+  [bold]Скорость:[/bold] 4.8 \n
+  [bold]Защита:[/bold] 40/40/40/40/0/30/200/30 \n
+
+</Document>

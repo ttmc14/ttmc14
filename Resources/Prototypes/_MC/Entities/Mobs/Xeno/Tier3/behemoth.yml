@@ -9,8 +9,8 @@
   - RMCXenoSpeechSounds
   - RMCXenoCommendationReceiver
   - RMCXenoMobCollision
-  id: MCXenoBehemot
-  name: behemot
+  id: MCXenoBehemoth
+  name: behemoth
   description: Behemoths are known to like rocks. Perhaps we should give them one!
   components:
   # Name

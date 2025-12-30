@@ -2,8 +2,6 @@
   
   # БОЕВОЙ КСЕНОМОРФ
 
-  \n
-
   <Box>
     <GuideEntityEmbed Entity="MCGuidebookXenoPraetorian"/>
     <Box HorizontalAlignment="Left" VerticalAlignment="Bottom">
