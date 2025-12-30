@@ -55,7 +55,7 @@
       prefix: mc-job-prefix-captain
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/job_icons.rsi
+        sprite: /Textures/_MC/Interface/job_icons.rsi
         state: captain
 
 - type: playTimeTracker

@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Shared._MC.Xeno.Weeds;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Damage;
@@ -96,7 +95,7 @@ public sealed partial class XenoSystem : EntitySystem
     private EntityQuery<XenoPlasmaComponent> _xenoPlasmaQuery;
     private EntityQuery<XenoRecoveryPheromonesComponent> _xenoRecoveryQuery;
     private EntityQuery<VictimInfectedComponent> _victimInfectedQuery;
-    private EntityQuery<MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery; // mc-changes
+    private EntityQuery<_MC.Xeno.Constructions.Weeds.MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery; // mc-changes
 
     private float _xenoDamageDealtMultiplier;
     private float _xenoDamageReceivedMultiplier;
@@ -116,7 +115,7 @@ public sealed partial class XenoSystem : EntitySystem
         _xenoPlasmaQuery = GetEntityQuery<XenoPlasmaComponent>();
         _xenoRecoveryQuery = GetEntityQuery<XenoRecoveryPheromonesComponent>();
         _victimInfectedQuery = GetEntityQuery<VictimInfectedComponent>();
-        _mcWeedsRegenerationQuery = GetEntityQuery<MCXenoWeedsRegenerationComponent>(); // mc-changes
+        _mcWeedsRegenerationQuery = GetEntityQuery<_MC.Xeno.Constructions.Weeds.MCXenoWeedsRegenerationComponent>(); // mc-changes
 
         SubscribeLocalEvent<XenoComponent, MapInitEvent>(OnXenoMapInit, before: [typeof(SharedXenoPheromonesSystem)]);
         SubscribeLocalEvent<XenoComponent, GetAccessTagsEvent>(OnXenoGetAdditionalAccess);
@@ -596,7 +595,7 @@ public sealed partial class XenoSystem : EntitySystem
         return GetWeedsRegenerationComponent(entity, affectable)?.PlasmaModifier ?? 1f;
     }
 
-    private MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<XenoRegenComponent> entity,
+    private _MC.Xeno.Constructions.Weeds.MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<XenoRegenComponent> entity,
         AffectableByWeedsComponent? affectable)
     {
         affectable ??= _affectableQuery.CompOrNull(entity);

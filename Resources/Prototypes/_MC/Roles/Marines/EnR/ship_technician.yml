@@ -46,7 +46,7 @@
       prefix: mc-job-prefix-st
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/job_icons.rsi
+        sprite: /Textures/_MC/Interface/job_icons.rsi
         state: st
 
 - type: playTimeTracker

@@ -1,0 +1,39 @@
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoCastesTier1
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXenoCastes.xml"
+  name: Тир 1
+  children:
+  - MCGuideXenoDefender
+  - MCGuideXenoDrone
+  - MCGuideXenoRunner
+  - MCGuideXenoSentinel
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoDefender
+  priority: 0
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier1/MCGuideXenoDefender.xml"
+  name: Защитник
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoDrone
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier1/MCGuideXenoDrone.xml"
+  name: Дрон
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoRunner
+  priority: 2
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier1/MCGuideXenoRunner.xml"
+  name: Бегун
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoSentinel
+  priority: 3
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier1/MCGuideXenoSentinel.xml"
+  name: Часовой

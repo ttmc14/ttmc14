@@ -71,9 +71,6 @@
         MCBrute: 70
   - type: CMArmorPiercing
     amount: 20
-  - type: MCXenoSunderDamageOnHit
-    amount: 1.25
-  - type: GunStacksProjectile
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22
@@ -86,6 +83,10 @@
     thresholds:
     - range: 14
       falloff: 10
+  - type: MCStunOnHit
+    staggerTime: 1
+    slowdownTime: 2
+    maxDistance: 3
 
 - type: entity
   parent: RMCBoxShotgunBase

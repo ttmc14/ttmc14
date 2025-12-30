@@ -1,0 +1,72 @@
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoCastesTier2
+  priority: 2
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXenoCastes.xml"
+  name: Тир 2
+  children:
+  - MCGuideXenoSpitter
+  - MCGuideXenoForger
+  - MCGuideXenoWraith
+  - MCGuideXenoBull
+  - MCGuideXenoPanther
+  - MCGuideXenoWarrior
+  - MCGuideXenoHivelord
+  - MCGuideXenoCarrier
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoSpitter
+  priority: 0
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoSpitter.xml"
+  name: Плеватель
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoForger
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoForger.xml"
+  name: Форджер
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoWraith
+  priority: 2
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoWraith.xml"
+  name: Призрак
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoBull
+  priority: 3
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoBull.xml"
+  name: Бык
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoPanther
+  priority: 4
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoPanther.xml"
+  name: Пантера
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoWarrior
+  priority: 5
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoWarrior.xml"
+  name: Воин
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoHivelord
+  priority: 6
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoHivelord.xml"
+  name: Лорд улья
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoCarrier
+  priority: 7
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier2/MCGuideXenoCarrier.xml"
+  name: Переносчик

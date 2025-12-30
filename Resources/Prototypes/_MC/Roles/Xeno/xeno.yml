@@ -1,3 +1,60 @@
+# Tier -1
+
+# Baneling
+- type: job
+  parent: MCJobXeno
+  id: MCXenoMinionBaneling
+  name: mc-job-name-xeno-baneling
+  playTimeTracker: MCXenoMinionBaneling
+
+- type: playTimeTracker
+  id: MCXenoMinionBaneling
+  isXeno: true
+
+# Beetle
+- type: job
+  parent: MCJobXeno
+  id: MCXenoMinionBeetle
+  name: mc-job-name-xeno-beetle
+  playTimeTracker: MCXenoMinionBeetle
+
+- type: playTimeTracker
+  id: MCXenoMinionBeetle
+  isXeno: true
+
+# Mantis
+- type: job
+  parent: MCJobXeno
+  id: MCXenoMinionMantis
+  name: mc-job-name-xeno-mantis
+  playTimeTracker: MCXenoMinionMantis
+
+- type: playTimeTracker
+  id: MCXenoMinionMantis
+  isXeno: true
+
+# Nymph
+- type: job
+  parent: MCJobXeno
+  id: MCXenoMinionNymph
+  name: mc-job-name-xeno-nymph
+  playTimeTracker: MCXenoMinionNymph
+
+- type: playTimeTracker
+  id: MCXenoMinionNymph
+  isXeno: true
+
+# Scorpion
+- type: job
+  parent: MCJobXeno
+  id: MCXenoMinionScorpion
+  name: mc-job-name-xeno-scorpion
+  playTimeTracker: MCXenoMinionScorpion
+
+- type: playTimeTracker
+  id: MCXenoMinionScorpion
+  isXeno: true
+
 # Tier 0
 - type: job
   parent: MCJobXeno

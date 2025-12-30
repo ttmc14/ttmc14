@@ -1,0 +1,79 @@
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoCastesTier3
+  priority: 3
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXenoCastes.xml"
+  name: Тир 3
+  children:
+  - MCGuideXenoCrusher
+  - MCGuideXenoDefiler
+  - MCGuideXenoRavager
+  - MCGuideXenoPraetorian
+  - MCGuideXenoBoiler
+  - MCGuideXenoWarlock
+  - MCGuideXenoGorger
+  - MCGuideXenoBehemoth
+  - MCGuideXenoChimera
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoCrusher
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoCrusher.xml"
+  name: Крушитель
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoDefiler
+  priority: 2
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoDefiler.xml"
+  name: Осквернитель
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoRavager
+  priority: 3
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoRavager.xml"
+  name: Опустошитель
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoPraetorian
+  priority: 4
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoPraetorian.xml"
+  name: Преторианец
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoBoiler
+  priority: 5
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoBoiler.xml"
+  name: Бойлер
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoWarlock
+  priority: 5
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoWarlock.xml"
+  name: Варлок
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoGorger
+  priority: 6
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoGorger.xml"
+  name: Поглотитель
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoBehemoth
+  priority: 7
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoBehemoth.xml"
+  name: Бегемот
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoChimera
+  priority: 8
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/Castes/Tier3/MCGuideXenoChimera.xml"
+  name: Химера

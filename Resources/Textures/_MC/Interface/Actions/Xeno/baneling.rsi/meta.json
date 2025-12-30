@@ -8,16 +8,7 @@
   },
   "states": [
     {
-      "name": "earth_riser"
-    },
-    {
-      "name": "seismic_fracture"
-    },
-    {
-      "name": "landslide"
-    },
-    {
-      "name": "primal_wrath"
+      "name": "explode"
     }
   ]
 }

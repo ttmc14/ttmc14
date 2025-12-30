@@ -51,6 +51,7 @@ public sealed class MCStunSystem : EntitySystem
         {
             Stun(args.Target, entity.Comp.StunTime);
             Paralyze(args.Target, entity.Comp.ParalyzeTime);
+            Stagger(args.Target, entity.Comp.StaggerTime);
         }
 
         if (entity.Comp.Knockback == 0)
@@ -80,12 +81,12 @@ public sealed class MCStunSystem : EntitySystem
         _stun.TryStun(uid, duration, refresh: true);
     }
 
-    public void Paralyze(EntityUid uid, TimeSpan duration)
+    public void Paralyze(EntityUid uid, TimeSpan duration, bool refresh = true)
     {
         if (HasComp<XenoComponent>(uid))
             duration *= 0.2f;
 
-        _stun.TryParalyze(uid, duration, refresh: true);
+        _stun.TryParalyze(uid, duration, refresh: refresh);
     }
 
     public void Slowdown(EntityUid uid, TimeSpan duration)
@@ -95,11 +96,17 @@ public sealed class MCStunSystem : EntitySystem
 
     public void Stagger(EntityUid uid, TimeSpan duration)
     {
-        var ev = new MCStaggerAttemptEvent();
-        RaiseLocalEvent(uid, ref ev);
-
-        if (ev.Canceled)
+        if (duration == TimeSpan.Zero)
             return;
+
+        var attemptEv = new MCStaggerAttemptEvent();
+        RaiseLocalEvent(uid, ref attemptEv);
+
+        if (attemptEv.Canceled)
+            return;
+
+        var ev = new MCStaggerEvent();
+        RaiseLocalEvent(uid, ref ev);
     }
 
     public bool IsStun(EntityUid uid)

@@ -1,0 +1,112 @@
+- type: entity
+  id: MCGuidebookXeno
+  name: ""
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: XenoHidden
+  - type: Sprite
+    scale: 2, 2
+
+- type: entity
+  id: MCGuidebookXenoIcon
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_MC/Interface/Xeno/icons.rsi
+    scale: 2, 2
+
+# Tier 1
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoDefender ]
+  id: MCGuidebookXenoDefender
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoDrone ]
+  id: MCGuidebookXenoDrone
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoRunner ]
+  id: MCGuidebookXenoRunner
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoSentinel ]
+  id: MCGuidebookXenoSentinel
+
+# Tier 2
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoCarrier ]
+  id: MCGuidebookXenoCarrier
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoHivelord ]
+  id: MCGuidebookXenoHivelord
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoSpitter ]
+  id: MCGuidebookXenoSpitter
+
+- type: entity
+  parent: MCGuidebookXenoIcon
+  id: MCGuidebookXenoIconSpitter
+  components:
+  - type: Sprite
+    state: spitter
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoForger ]
+  id: MCGuidebookXenoForger
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoWraith ]
+  id: MCGuidebookXenoWraith
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoBull ]
+  id: MCGuidebookXenoBull
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoPanther ]
+  id: MCGuidebookXenoPanther
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoWarrior ]
+  id: MCGuidebookXenoWarrior
+
+# Tier 3
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoBehemoth ]
+  id: MCGuidebookXenoBehemoth
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoBoiler ]
+  id: MCGuidebookXenoBoiler
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoChimera ]
+  id: MCGuidebookXenoChimera
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoCrusher ]
+  id: MCGuidebookXenoCrusher
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoDefiler ]
+  id: MCGuidebookXenoDefiler
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoGorger ]
+  id: MCGuidebookXenoGorger
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoPraetorian ]
+  id: MCGuidebookXenoPraetorian
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoRavager ]
+  id: MCGuidebookXenoRavager
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoWarlock ]
+  id: MCGuidebookXenoWarlock

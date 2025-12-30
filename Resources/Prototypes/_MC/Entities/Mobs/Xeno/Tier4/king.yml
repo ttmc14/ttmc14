@@ -1,0 +1,87 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentPickup
+  - MCXenoComponentBlessings
+
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoKing
+  name: king
+  description: A primordial creature, evolved to smash the hardiest of defences and hunt the hardiest of prey.
+  components:
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-king
+  - type: GhostRole
+    name: mc-job-name-xeno-king
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/king.rsi
+    offset: 0, 0.2
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
+      state: king
+  # Actions
+  - type: Xeno
+    tier: 0 # 4
+    role: MCXenoKing
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Construction
+    - MCActionXenoBlessings
+    # Weeds
+    - MCActionXenoPheromones
+    hudOffset: -0.1, 0.1
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      650: Critical
+      750: Dead
+  - type: XenoPlasma
+    plasma: 1200
+    maxPlasma: 1200
+    plasmaRegenOnWeeds: 70
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 45
+      laser: 45
+      energy: 45
+      bomb: 20
+      bio: 25
+      fire: 45
+      acid: 20
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 30
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.7
+    baseSprintSpeed: 3.5
+  # Special
+  - type: XenoAnnounceDeath
+    message: mc-xeno-hive-ruler-dead
+    color: "#921992"
+  - type: XenoEvolutionCapped
+    id: MCXenoKing
+    max: 1
+  - type: MCXenoHiveLeader
+  - type: DropshipHijacker
+  - type: TacticalMapUser
+    canDraw: true
+  # Abilities
+  - type: XenoPheromones
+    pheromonesMultiplier: 6
+    pheroSuffix: queen
+  # Passive
+  - type: MCXenoSunder
+    multiplier: 0.7

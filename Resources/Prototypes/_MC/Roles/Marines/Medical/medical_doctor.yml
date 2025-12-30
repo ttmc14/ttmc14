@@ -44,7 +44,7 @@
       prefix: mc-job-prefix-doctor
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/job_icons.rsi
+        sprite: /Textures/_MC/Interface/job_icons.rsi
         state: medical
 
 - type: playTimeTracker

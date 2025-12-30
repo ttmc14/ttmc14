@@ -1,0 +1,10 @@
+ent-MCGuidebookActionXenoSelectWeeds = { ent-MCActionXenoSelectWeeds }
+    .desc = { ent-MCActionXenoSelectWeeds.desc }
+ent-MCGuidebookActionXenoPlantWeeds = { ent-MCActionXenoPlantWeeds }
+    .desc = { ent-MCActionXenoPlantWeeds.desc }
+ent-MCGuidebookActionXenoSecreteStructure = { ent-MCActionXenoSecreteStructure }
+    .desc = { ent-MCActionXenoPlantWeeds.desc }
+ent-MCGuidebookActionXenoChooseStructure = { ent-MCActionXenoChooseStructure }
+    .desc = { ent-MCActionXenoChooseStructure.desc }
+ent-MCGuidebookXenoActionLayEgg = { ent-MCActionXenoLayEgg }
+    .desc = { ent-MCActionXenoLayEgg.desc }

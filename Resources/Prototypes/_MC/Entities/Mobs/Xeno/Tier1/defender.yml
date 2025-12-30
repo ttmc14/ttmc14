@@ -24,7 +24,7 @@
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
       state: defender
   # Actions
   - type: Xeno
@@ -70,24 +70,23 @@
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166
   # Abilities
-  - type: XenoCrest    # TODO: Make MC component
-  - type: XenoFortify  # TODO: Make MC component
-  - type: XenoHeadbutt # TODO: Make MC component
-    damage:
-      types:
-        MCBrute: 30
-    crestedDamageReduction:
-      types:
-        MCBrute: 0
+  - type: XenoCrest # TODO: Make MC component
+  - type: XenoFortify # TODO: Make MC component
   - type: XenoTailSweep # TODO: Make MC component
     damage:
       types:
         MCBrute: 30
   - type: MCXenoRegenerateSkin
-    heal:
+  # Pounce (Forward Charge)
+  - type: MCXenoPounce
+    maxDistance: 5
+    strength: 50
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 4
+    stopOnHit: false
+    hitDamage:
       types:
-        MCBrute: 25
-        MCBurn: 25
+        MCBrute: 11
 
 # Components (Separated for ease of editing/reading)
 - type: entity

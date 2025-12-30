@@ -10,4 +10,8 @@ public abstract class MCSharedFlammableSystem : EntitySystem
     public virtual void AdjustFireStacks(EntityUid uid, float stacks, bool ignite = false)
     {
     }
+
+    public virtual void AdjustFireStacks(EntityUid uid, int intensity, int duration, float stacks, bool ignite = false)
+    {
+    }
 }

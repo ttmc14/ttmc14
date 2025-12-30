@@ -1,0 +1,76 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentFixtureRunner
+  - MCXenoComponentEvolutionTier2
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoPanther
+  name: panther
+  description: What you have done with this cute little rouny?
+  components:
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-panther
+  - type: GhostRole
+    name: mc-job-name-panther
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/panther.rsi
+    offset: 0, 0.65
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
+      state: bull
+  # Abilities
+  - type: Xeno
+    tier: 2
+    role: MCXenoPanther
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Utilities
+    - MCActionXenoHide
+    hudOffset: -0.15, 0.25
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      280: Critical
+      380: Dead
+  - type: XenoPlasma
+    plasma: 150
+    maxPlasma: 150
+    plasmaRegenOnWeeds: 0
+  - type: MCArmor
+    soft:
+      melee: 20
+      bullet: 15
+      laser: 15
+      energy: 15
+      bomb: 0
+      bio: 7
+      fire: 0
+      acid: 5
+  - type: MeleeWeapon
+    attackRate: 1.7
+    damage:
+      types:
+        MCBrute: 23
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6.66
+  # Abilities
+  - type: MCXenoPounce
+    hitSound: /Audio/_RMC14/Xeno/alien_pounce.ogg
+    hitDamage:
+      types:
+        MCBrute: 25
+  - type: MCXenoEvasion
+  - type: VentCrawler
+    ventCrawlIcon: drone

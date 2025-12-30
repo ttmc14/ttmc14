@@ -1,16 +1,22 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Flammable;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
+using Content.Shared._RMC14.Stun;
 using Content.Shared._RMC14.Weapons.Melee;
+using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
 using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
+// ReSharper disable UseCollectionExpression
 namespace Content.Shared._MC.Xeno.Abilities;
 
 public abstract class MCXenoAbilitySystem : EntitySystem
@@ -23,10 +29,162 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     /// </summary>
     [Dependency] protected readonly SharedRMCActionsSystem RMCActions = null!;
     [Dependency] protected readonly SharedRMCMeleeWeaponSystem RMCMelee = null!;
+    [Dependency] protected readonly SharedXenoHiveSystem RMCXenoHive = null!;
 
     [Dependency] protected readonly SharedActionsSystem Actions = null!;
     [Dependency] protected readonly SharedColorFlashEffectSystem ColorFlash = null!;
     [Dependency] protected readonly SharedMeleeWeaponSystem MeleeWeapon = null!;
+
+    [Dependency] protected readonly MCSharedFlammableSystem MCFlammable = null!;
+
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+
+    protected bool TryUseAction(EntityUid uid, EntityUid actionUid, EntityUid? targetUid = null, bool affectOnStructures = false, bool affectOnDead = false, bool allowUseOnFire = true)
+    {
+        if (!ValidateTarget(uid, targetUid, affectOnStructures, affectOnDead))
+            return false;
+
+        if (MCFlammable.OnFire(uid) && !allowUseOnFire)
+            return false;
+
+        return RMCActions.TryUseAction(uid, actionUid, uid);
+    }
+
+    protected bool CanUseAction(EntityUid uid, EntityUid actionUid, EntityUid? targetUid = null, bool affectOnStructures = false, bool affectOnDead = false, bool allowUseOnFire = true)
+    {
+        if (!ValidateTarget(uid, targetUid, affectOnStructures, affectOnDead))
+            return false;
+
+        if (MCFlammable.OnFire(uid) && !allowUseOnFire)
+            return false;
+
+        return RMCActions.CanUseActionPopup(uid, actionUid, uid);
+    }
+
+    protected bool ValidateTarget(EntityUid uid, EntityUid? targetUid, bool affectOnStructures = false, bool affectOnDead = false)
+    {
+        if (targetUid is null)
+            return true;
+
+        if (!IsMob(targetUid.Value) && !affectOnStructures)
+            return false;
+
+        if (_mobState.IsDead(targetUid.Value) && !affectOnDead)
+            return false;
+
+        return !RMCXenoHive.FromSameHive(uid, targetUid.Value);
+    }
+
+    #region Effects
+
+    protected void AnimateHit(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
+    {
+        RMCMelee.DoLunge(ownerUid, targetUid);
+        RaiseEffect(ownerUid, targetUid, color);
+    }
+
+    protected void RaiseEffect(EntityUid uid, Color? color = null)
+    {
+        RaiseEffect(uid, uid, color);
+    }
+
+    protected void RaiseEffect(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
+    {
+        var filter = Filter.Pvs(targetUid, entityManager: EntityManager).RemoveWhereAttachedEntity(uid => uid == ownerUid);
+        ColorFlash.RaiseEffect(color ?? Color.Red, new List<EntityUid> { targetUid }, filter);
+    }
+
+    #endregion
+
+    #region Actions
+
+    protected void ActionClearUseDelay<T>(EntityUid uid) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.ClearCooldown((action, action));
+            break;
+        }
+    }
+
+    protected void ActionStartUseDelay<T>(EntityUid uid) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.StartUseDelay((action, action));
+            break;
+        }
+    }
+
+    protected void ActionStartUseDelay<T>(EntityUid uid, EntityUid actionUid) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Owner != actionUid)
+                continue;
+
+            Actions.StartUseDelay((action, action));
+            break;
+        }
+    }
+
+    protected void ActionSetUseDelay<T>(EntityUid uid, TimeSpan? delay) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.SetUseDelay((action, action), delay);
+            break;
+        }
+    }
+
+    protected void ActionSetUseDelay<T>(EntityUid uid, EntityUid actionUid, TimeSpan? delay) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Owner != actionUid)
+                continue;
+
+            Actions.SetUseDelay((action, action), delay);
+            break;
+        }
+    }
+
+    protected void ActionSetCooldown<T>(EntityUid uid, EntityUid actionUid, TimeSpan cooldown) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Owner != actionUid)
+                continue;
+
+            Actions.SetCooldown((action, action), cooldown);
+            break;
+        }
+    }
+
+    protected void ActionSetToggled<T>(EntityUid uid, bool toggled) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.SetToggled((action, action), toggled);
+            break;
+        }
+    }
+
+    protected void ActionSetToggled<T>(EntityUid uid, EntityUid actionUid, bool toggled) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Owner != actionUid)
+                continue;
+
+            Actions.SetToggled((action, action), toggled);
+            break;
+        }
+    }
+
+    #endregion
+
+    #region Utilities
 
     protected DamageSpecifier GetDamage(EntityUid uid)
     {
@@ -40,16 +198,9 @@ public abstract class MCXenoAbilitySystem : EntitySystem
             : 0;
     }
 
-    protected void AnimateHit(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
+    protected bool IsDead(EntityUid uid)
     {
-        RMCMelee.DoLunge(ownerUid, targetUid);
-        RaiseEffect(ownerUid, targetUid, color);
-    }
-
-    protected void RaiseEffect(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
-    {
-        var filter = Filter.Pvs(targetUid, entityManager: EntityManager).RemoveWhereAttachedEntity(uid => uid == ownerUid);
-        ColorFlash.RaiseEffect(color ?? Color.Red, new List<EntityUid> { targetUid }, filter);
+        return _mobState.IsDead(uid);
     }
 
     protected bool IsMob(EntityUid uid)
@@ -57,50 +208,59 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         return HasComp<MobStateComponent>(uid);
     }
 
+    protected bool IsXeno(EntityUid uid)
+    {
+        return HasComp<XenoComponent>(uid);
+    }
+
+    protected bool IsBig(EntityUid uid)
+    {
+        return TryComp<RMCSizeComponent>(uid, out var sizeComponent) && sizeComponent.Size == RMCSizes.Big;
+    }
+
+    protected float GetDistance(EntityUid fromUid, EntityUid destinationUid)
+    {
+        return (Transform(fromUid).Coordinates - Transform(destinationUid).Coordinates).Position.Length();
+    }
+
+    #endregion
+
+    #region Spawn
+
+    protected EntityUid ServerSpawn(string? prototype, EntityCoordinates coordinates)
+    {
+        return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates);
+    }
+
+    protected EntityUid ServerSpawn(string? prototype, MapCoordinates coordinates)
+    {
+        return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates);
+    }
+
+    protected EntityUid ServerSpawnAttachedTo(string? prototype, EntityCoordinates coordinates)
+    {
+        return Net.IsClient ? EntityUid.Invalid : SpawnAttachedTo(prototype, coordinates);
+    }
+
+    #endregion
+
+    #region Del
+
+    protected void ServerQueueDel(EntityUid? uid)
+    {
+        QueueDel(uid);
+    }
+
+    #endregion
+
+    #region Component
+
     protected void RemCompDeferredDelayed<T>(EntityUid uid, TimeSpan duration) where T : IComponent
     {
         Timer.Spawn(duration, () => { RemCompDeferred<T>(uid); });
     }
 
-    protected void ClearUseDelay<T>(EntityUid uid) where T : BaseActionEvent
-    {
-        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
-        {
-            Actions.ClearCooldown((action, action));
-            break;
-        }
-    }
-
-    protected void StartUseDelay<T>(EntityUid uid) where T : BaseActionEvent
-    {
-        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
-        {
-            Actions.StartUseDelay((action, action));
-            break;
-        }
-    }
-
-    protected void StartUseDelay<T>(EntityUid uid, EntityUid actionUid) where T : BaseActionEvent
-    {
-        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
-        {
-            if (action.Owner != actionUid)
-                continue;
-
-            Actions.StartUseDelay((action, action));
-            break;
-        }
-    }
-
-    protected EntityUid SpawnServer(string? prototype, EntityCoordinates coordinates)
-    {
-        return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates);
-    }
-
-    protected EntityUid SpawnServer(string? prototype, MapCoordinates coordinates)
-    {
-        return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates);
-    }
+    #endregion
 }
 
 /// <summary>

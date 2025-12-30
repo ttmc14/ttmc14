@@ -15,7 +15,22 @@ public sealed class MCFlammableSystem : MCSharedFlammableSystem
 
     public override void AdjustFireStacks(EntityUid uid, float stacks, bool ignite = false)
     {
-        base.AdjustFireStacks(uid, stacks);
+        base.AdjustFireStacks(uid, stacks, ignite);
+
+        AdjustFireStacks(uid, 20, 30, stacks, ignite);
+    }
+
+    public override void AdjustFireStacks(EntityUid uid, int intensity, int duration, float stacks, bool ignite = false)
+    {
+        base.AdjustFireStacks(uid, stacks, ignite);
+
+        if (!TryComp<FlammableComponent>(uid, out var component))
+            return;
+
+        component.Intensity = intensity;
+        component.Duration = duration;
+
+        Dirty(uid, component);
 
         _flammable.AdjustFireStacks(uid, stacks, ignite: ignite);
     }

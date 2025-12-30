@@ -17,7 +17,7 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/orders.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/orders.rsi
       state: attack
 
 - type: entity
@@ -39,7 +39,7 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/orders.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/orders.rsi
       state: defend
 
 - type: entity
@@ -61,7 +61,7 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/orders.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/orders.rsi
       state: retreat
 
 - type: entity
@@ -83,5 +83,5 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/orders.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/orders.rsi
       state: rally
