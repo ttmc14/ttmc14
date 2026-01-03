@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "lava_wall-0"
+        },
+        {
+            "name": "lava_wall-1"
+        },
+        {
+            "name": "lava_wall-2"
+        },
+        {
+            "name": "lava_wall-3"
+        },
+        {
+            "name": "lava_wall-4"
+        },
+        {
+            "name": "lava_wall-5"
+        },
+        {
+            "name": "lava_wall-6"
+        },
+        {
+            "name": "lava_wall-7"
+        },
+        {
+            "name": "lava_wall-8"
+        },
+        {
+            "name": "lava_wall-9"
+        },
+        {
+            "name": "lava_wall-10"
+        },
+        {
+            "name": "lava_wall-11"
+        },
+        {
+            "name": "lava_wall-12"
+        },
+        {
+            "name": "lava_wall-13"
+        },
+        {
+            "name": "lava_wall-14"
+        },
+        {
+            "name": "lava_wall-15"
+        },
+        {
+            "name": "lava_wall-21"
+        },
+        {
+            "name": "lava_wall-23"
+        },
+        {
+            "name": "lava_wall-29"
+        },
+        {
+            "name": "lava_wall-31"
+        },
+        {
+            "name": "lava_wall-38"
+        },
+        {
+            "name": "lava_wall-39"
+        },
+        {
+            "name": "lava_wall-46"
+        },
+        {
+            "name": "lava_wall-47"
+        },
+        {
+            "name": "lava_wall-55"
+        },
+        {
+            "name": "lava_wall-63"
+        },
+        {
+            "name": "lava_wall-74"
+        },
+        {
+            "name": "lava_wall-75"
+        },
+        {
+            "name": "lava_wall-78"
+        },
+        {
+            "name": "lava_wall-79"
+        },
+        {
+            "name": "lava_wall-95"
+        },
+        {
+            "name": "lava_wall-110"
+        },
+        {
+            "name": "lava_wall-111"
+        },
+        {
+            "name": "lava_wall-127"
+        },
+        {
+            "name": "lava_wall-137"
+        },
+        {
+            "name": "lava_wall-139"
+        },
+        {
+            "name": "lava_wall-141"
+        },
+        {
+            "name": "lava_wall-143"
+        },
+        {
+            "name": "lava_wall-157"
+        },
+        {
+            "name": "lava_wall-159"
+        },
+        {
+            "name": "lava_wall-175"
+        },
+        {
+            "name": "lava_wall-191"
+        },
+        {
+            "name": "lava_wall-203"
+        },
+        {
+            "name": "lava_wall-207"
+        },
+        {
+            "name": "lava_wall-223"
+        },
+        {
+            "name": "lava_wall-239"
+        },
+        {
+            "name": "lava_wall-255"
+        }
+    ]
+}

@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "carpet_green-0"
+        },
+        {
+            "name": "carpet_green-1"
+        },
+        {
+            "name": "carpet_green-2"
+        },
+        {
+            "name": "carpet_green-3"
+        },
+        {
+            "name": "carpet_green-4"
+        },
+        {
+            "name": "carpet_green-5"
+        },
+        {
+            "name": "carpet_green-6"
+        },
+        {
+            "name": "carpet_green-7"
+        },
+        {
+            "name": "carpet_green-8"
+        },
+        {
+            "name": "carpet_green-9"
+        },
+        {
+            "name": "carpet_green-10"
+        },
+        {
+            "name": "carpet_green-11"
+        },
+        {
+            "name": "carpet_green-12"
+        },
+        {
+            "name": "carpet_green-13"
+        },
+        {
+            "name": "carpet_green-14"
+        },
+        {
+            "name": "carpet_green-15"
+        },
+        {
+            "name": "carpet_green-21"
+        },
+        {
+            "name": "carpet_green-23"
+        },
+        {
+            "name": "carpet_green-29"
+        },
+        {
+            "name": "carpet_green-31"
+        },
+        {
+            "name": "carpet_green-38"
+        },
+        {
+            "name": "carpet_green-39"
+        },
+        {
+            "name": "carpet_green-46"
+        },
+        {
+            "name": "carpet_green-47"
+        },
+        {
+            "name": "carpet_green-55"
+        },
+        {
+            "name": "carpet_green-63"
+        },
+        {
+            "name": "carpet_green-74"
+        },
+        {
+            "name": "carpet_green-75"
+        },
+        {
+            "name": "carpet_green-78"
+        },
+        {
+            "name": "carpet_green-79"
+        },
+        {
+            "name": "carpet_green-95"
+        },
+        {
+            "name": "carpet_green-110"
+        },
+        {
+            "name": "carpet_green-111"
+        },
+        {
+            "name": "carpet_green-127"
+        },
+        {
+            "name": "carpet_green-137"
+        },
+        {
+            "name": "carpet_green-139"
+        },
+        {
+            "name": "carpet_green-141"
+        },
+        {
+            "name": "carpet_green-143"
+        },
+        {
+            "name": "carpet_green-157"
+        },
+        {
+            "name": "carpet_green-159"
+        },
+        {
+            "name": "carpet_green-175"
+        },
+        {
+            "name": "carpet_green-191"
+        },
+        {
+            "name": "carpet_green-203"
+        },
+        {
+            "name": "carpet_green-207"
+        },
+        {
+            "name": "carpet_green-223"
+        },
+        {
+            "name": "carpet_green-239"
+        },
+        {
+            "name": "carpet_green-255"
+        }
+    ]
+}

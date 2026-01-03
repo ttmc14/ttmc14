@@ -1,0 +1,181 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "testwall-0"
+        },
+        {
+            "name": "testwall-1"
+        },
+        {
+            "name": "testwall-2"
+        },
+        {
+            "name": "testwall-3"
+        },
+        {
+            "name": "testwall-4"
+        },
+        {
+            "name": "testwall-5"
+        },
+        {
+            "name": "testwall-6"
+        },
+        {
+            "name": "testwall-7"
+        },
+        {
+            "name": "testwall-8"
+        },
+        {
+            "name": "testwall-9"
+        },
+        {
+            "name": "testwall-10"
+        },
+        {
+            "name": "testwall-11"
+        },
+        {
+            "name": "testwall-12"
+        },
+        {
+            "name": "testwall-13"
+        },
+        {
+            "name": "testwall-14"
+        },
+        {
+            "name": "testwall-15"
+        },
+        {
+            "name": "testwall-21"
+        },
+        {
+            "name": "testwall-23"
+        },
+        {
+            "name": "testwall-29"
+        },
+        {
+            "name": "testwall-31"
+        },
+        {
+            "name": "testwall-38"
+        },
+        {
+            "name": "testwall-39"
+        },
+        {
+            "name": "testwall-46"
+        },
+        {
+            "name": "testwall-47"
+        },
+        {
+            "name": "testwall-55"
+        },
+        {
+            "name": "testwall-63"
+        },
+        {
+            "name": "testwall-74"
+        },
+        {
+            "name": "testwall-75"
+        },
+        {
+            "name": "testwall-78"
+        },
+        {
+            "name": "testwall-79"
+        },
+        {
+            "name": "testwall-95"
+        },
+        {
+            "name": "testwall-110"
+        },
+        {
+            "name": "testwall-111"
+        },
+        {
+            "name": "testwall-127"
+        },
+        {
+            "name": "testwall-137"
+        },
+        {
+            "name": "testwall-139"
+        },
+        {
+            "name": "testwall-141"
+        },
+        {
+            "name": "testwall-143"
+        },
+        {
+            "name": "testwall-157"
+        },
+        {
+            "name": "testwall-159"
+        },
+        {
+            "name": "testwall-175"
+        },
+        {
+            "name": "testwall-191"
+        },
+        {
+            "name": "testwall-203"
+        },
+        {
+            "name": "testwall-207"
+        },
+        {
+            "name": "testwall-223"
+        },
+        {
+            "name": "testwall-239"
+        },
+        {
+            "name": "testwall-255"
+        },
+        {
+            "name": "0",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "1"
+        },
+        {
+            "name": "2"
+        },
+        {
+            "name": "3",
+            "delays": [
+                [
+                    0.1,
+                    0.1
+                ]
+            ]
+        }
+    ]
+}

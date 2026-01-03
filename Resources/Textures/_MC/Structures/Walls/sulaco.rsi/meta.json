@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "sulaco-0"
+        },
+        {
+            "name": "sulaco-1"
+        },
+        {
+            "name": "sulaco-2"
+        },
+        {
+            "name": "sulaco-3"
+        },
+        {
+            "name": "sulaco-4"
+        },
+        {
+            "name": "sulaco-5"
+        },
+        {
+            "name": "sulaco-6"
+        },
+        {
+            "name": "sulaco-7"
+        },
+        {
+            "name": "sulaco-8"
+        },
+        {
+            "name": "sulaco-9"
+        },
+        {
+            "name": "sulaco-10"
+        },
+        {
+            "name": "sulaco-11"
+        },
+        {
+            "name": "sulaco-12"
+        },
+        {
+            "name": "sulaco-13"
+        },
+        {
+            "name": "sulaco-14"
+        },
+        {
+            "name": "sulaco-15"
+        },
+        {
+            "name": "sulaco-21"
+        },
+        {
+            "name": "sulaco-23"
+        },
+        {
+            "name": "sulaco-29"
+        },
+        {
+            "name": "sulaco-31"
+        },
+        {
+            "name": "sulaco-38"
+        },
+        {
+            "name": "sulaco-39"
+        },
+        {
+            "name": "sulaco-46"
+        },
+        {
+            "name": "sulaco-47"
+        },
+        {
+            "name": "sulaco-55"
+        },
+        {
+            "name": "sulaco-63"
+        },
+        {
+            "name": "sulaco-74"
+        },
+        {
+            "name": "sulaco-75"
+        },
+        {
+            "name": "sulaco-78"
+        },
+        {
+            "name": "sulaco-79"
+        },
+        {
+            "name": "sulaco-95"
+        },
+        {
+            "name": "sulaco-110"
+        },
+        {
+            "name": "sulaco-111"
+        },
+        {
+            "name": "sulaco-127"
+        },
+        {
+            "name": "sulaco-137"
+        },
+        {
+            "name": "sulaco-139"
+        },
+        {
+            "name": "sulaco-141"
+        },
+        {
+            "name": "sulaco-143"
+        },
+        {
+            "name": "sulaco-157"
+        },
+        {
+            "name": "sulaco-159"
+        },
+        {
+            "name": "sulaco-175"
+        },
+        {
+            "name": "sulaco-191"
+        },
+        {
+            "name": "sulaco-203"
+        },
+        {
+            "name": "sulaco-207"
+        },
+        {
+            "name": "sulaco-223"
+        },
+        {
+            "name": "sulaco-239"
+        },
+        {
+            "name": "sulaco-255"
+        }
+    ]
+}

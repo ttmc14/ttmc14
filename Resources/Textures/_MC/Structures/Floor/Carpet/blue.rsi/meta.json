@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "carpet_blue-0"
+        },
+        {
+            "name": "carpet_blue-1"
+        },
+        {
+            "name": "carpet_blue-2"
+        },
+        {
+            "name": "carpet_blue-3"
+        },
+        {
+            "name": "carpet_blue-4"
+        },
+        {
+            "name": "carpet_blue-5"
+        },
+        {
+            "name": "carpet_blue-6"
+        },
+        {
+            "name": "carpet_blue-7"
+        },
+        {
+            "name": "carpet_blue-8"
+        },
+        {
+            "name": "carpet_blue-9"
+        },
+        {
+            "name": "carpet_blue-10"
+        },
+        {
+            "name": "carpet_blue-11"
+        },
+        {
+            "name": "carpet_blue-12"
+        },
+        {
+            "name": "carpet_blue-13"
+        },
+        {
+            "name": "carpet_blue-14"
+        },
+        {
+            "name": "carpet_blue-15"
+        },
+        {
+            "name": "carpet_blue-21"
+        },
+        {
+            "name": "carpet_blue-23"
+        },
+        {
+            "name": "carpet_blue-29"
+        },
+        {
+            "name": "carpet_blue-31"
+        },
+        {
+            "name": "carpet_blue-38"
+        },
+        {
+            "name": "carpet_blue-39"
+        },
+        {
+            "name": "carpet_blue-46"
+        },
+        {
+            "name": "carpet_blue-47"
+        },
+        {
+            "name": "carpet_blue-55"
+        },
+        {
+            "name": "carpet_blue-63"
+        },
+        {
+            "name": "carpet_blue-74"
+        },
+        {
+            "name": "carpet_blue-75"
+        },
+        {
+            "name": "carpet_blue-78"
+        },
+        {
+            "name": "carpet_blue-79"
+        },
+        {
+            "name": "carpet_blue-95"
+        },
+        {
+            "name": "carpet_blue-110"
+        },
+        {
+            "name": "carpet_blue-111"
+        },
+        {
+            "name": "carpet_blue-127"
+        },
+        {
+            "name": "carpet_blue-137"
+        },
+        {
+            "name": "carpet_blue-139"
+        },
+        {
+            "name": "carpet_blue-141"
+        },
+        {
+            "name": "carpet_blue-143"
+        },
+        {
+            "name": "carpet_blue-157"
+        },
+        {
+            "name": "carpet_blue-159"
+        },
+        {
+            "name": "carpet_blue-175"
+        },
+        {
+            "name": "carpet_blue-191"
+        },
+        {
+            "name": "carpet_blue-203"
+        },
+        {
+            "name": "carpet_blue-207"
+        },
+        {
+            "name": "carpet_blue-223"
+        },
+        {
+            "name": "carpet_blue-239"
+        },
+        {
+            "name": "carpet_blue-255"
+        }
+    ]
+}
