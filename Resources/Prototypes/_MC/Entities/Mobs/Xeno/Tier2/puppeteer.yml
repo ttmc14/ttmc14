@@ -19,7 +19,7 @@
     name: mc-job-name-xeno-puppeteer
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/puppeteer.rsi
+    sprite: _MC/Mobs/Xenos/hunter.rsi
     offset: 0.25, 0.25
   - type: TacticalMapIcon
     icon:
@@ -79,3 +79,16 @@
   - type: MCXenoPlasmaOnAttack
     multiplier: 0.8
   - type: MCXenoPincushion
+  - type: MCXenoPuppeteer
+  - type: MCXenoDreadfulPresence
+  - type: MCXenoStitchPuppet
+  - type: UserInterface
+    interfaces:
+      enum.MCXenoPuppetSelectorUi.Key:
+        type: MCXenoPuppetSelectorBui
+      enum.MCXenoPuppetBlessingSelectorUi.Key:
+        type: MCXenoPuppetBlessingSelectorBui
+  - type: IntrinsicUI
+    uis:
+      enum.MCXenoPuppetSelectorUi.Key:
+        toggleAction: TESTPUPPETER5
