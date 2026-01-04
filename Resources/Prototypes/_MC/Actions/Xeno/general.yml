@@ -86,8 +86,8 @@
     icon:
       sprite: _MC/Interface/Actions/Xeno/general.rsi
       state: corrosive_acid
-  - type: TargetAction
     checkCanInteract: false
+  - type: TargetAction
   - type: EntityTargetAction
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidWeak
@@ -107,8 +107,8 @@
     icon:
       sprite: _MC/Interface/Actions/Xeno/general.rsi
       state: corrosive_acid
-  - type: TargetAction
     checkCanInteract: false
+  - type: TargetAction
   - type: EntityTargetAction
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidNormal
@@ -128,8 +128,8 @@
     icon:
       sprite: _MC/Interface/Actions/Xeno/general.rsi
       state: corrosive_acid
-  - type: TargetAction
     checkCanInteract: false
+  - type: TargetAction
   - type: EntityTargetAction
     event: !type:XenoCorrosiveAcidEvent
       acidId: XenoAcidStrong
