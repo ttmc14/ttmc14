@@ -62,21 +62,6 @@
     - MCBootsBlackFilled
 
 - type: entity
-  id: MCVendorBundleStandardKitEngineer
-  name: Standard Kit
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Shoes/Boots/black.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCVendorHeadsetSquadEngineer
-    - MCClothingHandsMarineCombat
-    - MCJumpsuitMarineSquadEngineer
-    - MCBootsBlackFilled
-
-- type: entity
   id: MCVendorBundleStandardKitCorpsman
   name: Standard Kit
   categories: [ HideSpawnMenu ]
