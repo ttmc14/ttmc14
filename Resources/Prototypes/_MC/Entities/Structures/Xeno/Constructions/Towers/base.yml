@@ -1,0 +1,79 @@
+- type: entity
+  parent: MCXenoStructure
+  id: MCXenoStructureTowerEvolution
+  name: evolution tower
+  description: A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Towers/evolution.rsi
+    state: icon
+    offset: 0, 0.5
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#35aa35"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # 1x1
+        density: 200
+        mask:
+        - ItemMask
+        layer:
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MCXenoEvolutionAffectGain
+    multiplier: 1.5
+  - type: XenoStructureMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: tower_evolution
+
+- type: entity
+  parent: MCXenoStructure
+  id: MCXenoStructureTowerPsychic
+  name: psychic tower
+  description: A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Towers/psychic.rsi
+    state: icon
+    offset: 0, 0.5
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#72308d"
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49" # 1x1
+        density: 200
+        mask:
+        - ItemMask
+        layer:
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: XenoStructureMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: tower_psychic

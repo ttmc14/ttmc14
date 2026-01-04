@@ -1,5 +1,6 @@
 - type: entity
   id: MCXenoStructure
+  categories: [ MCContent ]
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -41,6 +42,8 @@
         MCBurn: 3.8
   - type: Corrodible
     isCorrodible: false
+  - type: CollisionWake
+    enabled: false
 
 - type: entity
   parent: MCXenoStructure
@@ -50,8 +53,11 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/silo.rsi
-    layers:
-    - state: icon
+    state: icon
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: silo
   - type: Fixtures
     fixtures:
       fix1:
@@ -76,10 +82,6 @@
     mobsPerPlayer: 0.075
     respawnMultiplier: 2
   - type: TacticalMapTracked
-  - type: TacticalMapIcon
-    icon:
-      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
-      state: silo_passive
   - type: XenoWeedsSpreading
   - type: XenoWeeds
     range: 3
@@ -98,74 +100,17 @@
 
 - type: entity
   parent: MCXenoStructure
-  id: MCXenoStructureTowerEvolution
-  name: evolution tower
-  description: A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
-  components:
-  - type: Sprite
-    sprite: _MC/Structures/Xeno/towers.rsi
-    layers:
-    - state: evolution
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,0.49" # 1x1
-        density: 200
-        mask:
-        - ItemMask
-        layer:
-        - BulletImpassable
-  - type: CollisionWake
-    enabled: false
-  - type: MCXenoEvolutionAffectGain
-    multiplier: 1.5
-  # - type: XenoStructureMapTracked
-  # - type: TacticalMapTracked
-  # - type: TacticalMapIcon
-  #   icon:
-  #     sprite: /Textures/_MC/Interface/Xeno/icons.rsi
-  #     state: silo_passive
-
-- type: entity
-  parent: MCXenoStructure
-  id: MCXenoStructureTowerPsychic
-  name: psychic tower
-  description: A disgusting biomass generator that reeks of rotting flesh. Capable of producing parasites on its own.
-  components:
-  - type: Sprite
-    sprite: _MC/Structures/Xeno/towers.rsi
-    layers:
-    - state: psychic
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape: !type:PhysShapeAabb
-          bounds: "-0.49,-0.49,0.49,0.49"
-        density: 200
-        mask:
-        - ItemMask
-        layer:
-        - BulletImpassable
-  - type: CollisionWake
-    enabled: false
-  # - type: XenoStructureMapTracked
-  # - type: TacticalMapTracked
-  # - type: TacticalMapIcon
-  #   icon:
-  #     sprite: /Textures/_MC/Interface/Xeno/icons.rsi
-  #     state: silo_passive
-
-- type: entity
-  parent: MCXenoStructure
   id: MCXenoStructureSpawner
   name: spawner
   description: A slimy, oozy resin bed filled with foul-looking egg-like ...things.
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/spawner.rsi
-    layers:
-    - state: base
+    state: base
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: spawner
   - type: Fixtures
     fixtures:
       fix1:
@@ -190,7 +135,3 @@
     mobsPerPlayer: 0.15
     respawnMultiplier: 1
   - type: TacticalMapTracked
-  - type: TacticalMapIcon
-    icon:
-      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
-      state: spawner_passive

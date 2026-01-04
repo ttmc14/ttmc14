@@ -26,7 +26,7 @@
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: shrike
   - type: XenoInhands
     prefix: shrike

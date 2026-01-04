@@ -1,0 +1,107 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 7,
+    "y": 7
+  },
+  "states": [
+    {
+      "name": "behemoth"
+    },
+    {
+      "name": "boiler"
+    },
+    {
+      "name": "bull"
+    },
+    {
+      "name": "praetorian"
+    },
+    {
+      "name": "puppeteer"
+    },
+    {
+      "name": "queen"
+    },
+    {
+      "name": "ravager"
+    },
+    {
+      "name": "runner"
+    },
+    {
+      "name": "sentinel"
+    },
+    {
+      "name": "shrike"
+    },
+    {
+      "name": "spitter"
+    },
+    {
+      "name": "warlock"
+    },
+    {
+      "name": "warrior"
+    },
+    {
+      "name": "widow"
+    },
+    {
+      "name": "wraith"
+    },
+    {
+      "name": "carrier"
+    },
+    {
+      "name": "chimera"
+    },
+    {
+      "name": "crusher"
+    },
+    {
+      "name": "defender"
+    },
+    {
+      "name": "defiler"
+    },
+    {
+      "name": "drone"
+    },
+    {
+      "name": "empty"
+    },
+    {
+      "name": "facehugger"
+    },
+    {
+      "name": "forger"
+    },
+    {
+      "name": "gorger"
+    },
+    {
+      "name": "hivelord"
+    },
+    {
+      "name": "hivemind"
+    },
+    {
+      "name": "hunter"
+    },
+    {
+      "name": "king"
+    },
+    {
+      "name": "larva"
+    },
+    {
+      "name": "minion"
+    },
+    {
+      "name": "panther"
+    }
+  ]
+}

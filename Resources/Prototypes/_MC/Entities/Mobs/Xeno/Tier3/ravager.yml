@@ -21,7 +21,7 @@
     sprite: _MC/Mobs/Xenos/ravager.rsi
   - type: TacticalMapIcon
     icon:
-      sprite: /Textures/_MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: ravager
   # Actions
   - type: Xeno

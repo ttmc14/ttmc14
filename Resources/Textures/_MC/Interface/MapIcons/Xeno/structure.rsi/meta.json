@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 7,
+    "y": 7
+  },
+  "states": [
+    {
+      "name": "silo",
+      "delays": [
+        [
+          0.5,
+          0.4,
+          0.4,
+          0.4,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "tower_psychic"
+    },
+    {
+      "name": "spawner"
+    },
+    {
+      "name": "tower_evolution"
+    },
+    {
+      "name": "tower_pheromone_tier_1"
+    },
+    {
+      "name": "tower_pheromone_tier_2"
+    },
+    {
+      "name": "tower_pheromone_tier_3"
+    }
+  ]
+}
