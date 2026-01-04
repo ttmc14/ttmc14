@@ -1,0 +1,43 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "teleporter_deployed_on",
+            "delays": [
+                [
+                    2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "teleporter_deployed"
+        },
+        {
+            "name": "teleporter"
+        },
+        {
+            "name": "back",
+            "directions": 4
+        }
+    ]
+}

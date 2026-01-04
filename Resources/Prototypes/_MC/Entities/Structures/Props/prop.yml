@@ -114,5 +114,5 @@
   name: mining drill
   components:
   - type: Sprite
-    sprite: _MC/Structures/mining_drill.rsi
+    sprite: _MC/Structures/Nachines/mining_drill.rsi
     state: mining_drill_error
