@@ -53,22 +53,13 @@
       "directions": 4
     },
     {
-      "name": "wounded_stunned_1"
+      "name": "wounded_crit_1"
     },
     {
-      "name": "wounded_stunned_2"
+      "name": "wounded_crit_2"
     },
     {
-      "name": "wounded_stunned_3"
-    },
-    {
-      "name": "wounded_sleeping_3"
-    },
-    {
-      "name": "wounded_sleeping_2"
-    },
-    {
-      "name": "wounded_sleeping_1"
+      "name": "wounded_crit_3"
     },
     {
       "name": "wounded_resting_3"

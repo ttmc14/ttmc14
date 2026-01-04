@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "bluefrostwall-0"
+        },
+        {
+            "name": "bluefrostwall-1"
+        },
+        {
+            "name": "bluefrostwall-2"
+        },
+        {
+            "name": "bluefrostwall-3"
+        },
+        {
+            "name": "bluefrostwall-4"
+        },
+        {
+            "name": "bluefrostwall-5"
+        },
+        {
+            "name": "bluefrostwall-6"
+        },
+        {
+            "name": "bluefrostwall-7"
+        },
+        {
+            "name": "bluefrostwall-8"
+        },
+        {
+            "name": "bluefrostwall-9"
+        },
+        {
+            "name": "bluefrostwall-10"
+        },
+        {
+            "name": "bluefrostwall-11"
+        },
+        {
+            "name": "bluefrostwall-12"
+        },
+        {
+            "name": "bluefrostwall-13"
+        },
+        {
+            "name": "bluefrostwall-14"
+        },
+        {
+            "name": "bluefrostwall-15"
+        },
+        {
+            "name": "bluefrostwall-21"
+        },
+        {
+            "name": "bluefrostwall-23"
+        },
+        {
+            "name": "bluefrostwall-29"
+        },
+        {
+            "name": "bluefrostwall-31"
+        },
+        {
+            "name": "bluefrostwall-38"
+        },
+        {
+            "name": "bluefrostwall-39"
+        },
+        {
+            "name": "bluefrostwall-46"
+        },
+        {
+            "name": "bluefrostwall-47"
+        },
+        {
+            "name": "bluefrostwall-55"
+        },
+        {
+            "name": "bluefrostwall-63"
+        },
+        {
+            "name": "bluefrostwall-74"
+        },
+        {
+            "name": "bluefrostwall-75"
+        },
+        {
+            "name": "bluefrostwall-78"
+        },
+        {
+            "name": "bluefrostwall-79"
+        },
+        {
+            "name": "bluefrostwall-95"
+        },
+        {
+            "name": "bluefrostwall-110"
+        },
+        {
+            "name": "bluefrostwall-111"
+        },
+        {
+            "name": "bluefrostwall-127"
+        },
+        {
+            "name": "bluefrostwall-137"
+        },
+        {
+            "name": "bluefrostwall-139"
+        },
+        {
+            "name": "bluefrostwall-141"
+        },
+        {
+            "name": "bluefrostwall-143"
+        },
+        {
+            "name": "bluefrostwall-157"
+        },
+        {
+            "name": "bluefrostwall-159"
+        },
+        {
+            "name": "bluefrostwall-175"
+        },
+        {
+            "name": "bluefrostwall-191"
+        },
+        {
+            "name": "bluefrostwall-203"
+        },
+        {
+            "name": "bluefrostwall-207"
+        },
+        {
+            "name": "bluefrostwall-223"
+        },
+        {
+            "name": "bluefrostwall-239"
+        },
+        {
+            "name": "bluefrostwall-255"
+        }
+    ]
+}

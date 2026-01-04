@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingNexusEngineer
   name: NEXUS automated engineering equipment rack
   description: An automated equipment rack hooked up to a colossal storage of engineering-related goods.

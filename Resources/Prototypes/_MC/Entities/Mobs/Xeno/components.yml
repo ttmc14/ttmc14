@@ -170,6 +170,12 @@
           state: sanguinal
         reagentId: MCSanguinal
         smokeEntityId: MCSmokeXenoSanguinal
+      Acid:
+        name: Acid
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: acid
+        smokeEntityId: MCSmokeXenoAcidLight
 
 # Evolution
 - type: entity
@@ -198,6 +204,7 @@
     - MCXenoBull
     - MCXenoSpitter
     - MCXenoForger
+    - MCXenoPanther
   - type: XenoDevolve
     devolvesTo:
     - MCXenoLarva
@@ -216,6 +223,9 @@
     - MCXenoPraetorian
     # - MCXenoBoiler
     - MCXenoRavager
+    # - MCXenoWidow
+    # - MCXenoChimera
+    # - MCXenoBehemoths
   - type: XenoDevolve
     devolvesTo:
     - MCXenoDefender
@@ -237,3 +247,4 @@
     - MCXenoBull
     - MCXenoSpitter
     - MCXenoForger
+    - MCXenoPanther

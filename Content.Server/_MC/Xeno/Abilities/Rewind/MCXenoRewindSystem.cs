@@ -1,5 +1,5 @@
 ﻿using Content.Server.Atmos.EntitySystems;
-using Content.Shared._MC.Xeno.Abilities.Rewind;
+using Content.Shared._MC.Xeno.Abilities.Wraith.Rewind;
 using Content.Shared.Atmos.Components;
 
 namespace Content.Server._MC.Xeno.Abilities.Rewind;

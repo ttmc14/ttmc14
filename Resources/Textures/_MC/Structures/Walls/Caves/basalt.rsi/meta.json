@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "basaltwall-0"
+        },
+        {
+            "name": "basaltwall-1"
+        },
+        {
+            "name": "basaltwall-2"
+        },
+        {
+            "name": "basaltwall-3"
+        },
+        {
+            "name": "basaltwall-4"
+        },
+        {
+            "name": "basaltwall-5"
+        },
+        {
+            "name": "basaltwall-6"
+        },
+        {
+            "name": "basaltwall-7"
+        },
+        {
+            "name": "basaltwall-8"
+        },
+        {
+            "name": "basaltwall-9"
+        },
+        {
+            "name": "basaltwall-10"
+        },
+        {
+            "name": "basaltwall-11"
+        },
+        {
+            "name": "basaltwall-12"
+        },
+        {
+            "name": "basaltwall-13"
+        },
+        {
+            "name": "basaltwall-14"
+        },
+        {
+            "name": "basaltwall-15"
+        },
+        {
+            "name": "basaltwall-21"
+        },
+        {
+            "name": "basaltwall-23"
+        },
+        {
+            "name": "basaltwall-29"
+        },
+        {
+            "name": "basaltwall-31"
+        },
+        {
+            "name": "basaltwall-38"
+        },
+        {
+            "name": "basaltwall-39"
+        },
+        {
+            "name": "basaltwall-46"
+        },
+        {
+            "name": "basaltwall-47"
+        },
+        {
+            "name": "basaltwall-55"
+        },
+        {
+            "name": "basaltwall-63"
+        },
+        {
+            "name": "basaltwall-74"
+        },
+        {
+            "name": "basaltwall-75"
+        },
+        {
+            "name": "basaltwall-78"
+        },
+        {
+            "name": "basaltwall-79"
+        },
+        {
+            "name": "basaltwall-95"
+        },
+        {
+            "name": "basaltwall-110"
+        },
+        {
+            "name": "basaltwall-111"
+        },
+        {
+            "name": "basaltwall-127"
+        },
+        {
+            "name": "basaltwall-137"
+        },
+        {
+            "name": "basaltwall-139"
+        },
+        {
+            "name": "basaltwall-141"
+        },
+        {
+            "name": "basaltwall-143"
+        },
+        {
+            "name": "basaltwall-157"
+        },
+        {
+            "name": "basaltwall-159"
+        },
+        {
+            "name": "basaltwall-175"
+        },
+        {
+            "name": "basaltwall-191"
+        },
+        {
+            "name": "basaltwall-203"
+        },
+        {
+            "name": "basaltwall-207"
+        },
+        {
+            "name": "basaltwall-223"
+        },
+        {
+            "name": "basaltwall-239"
+        },
+        {
+            "name": "basaltwall-255"
+        }
+    ]
+}

@@ -6,6 +6,7 @@
   - MCXenoComponentPlantingWeeds
   - MCXenoComponentCharge
   - MCXenoComponentSpiting
+  - MCXenoComponentBlessings
   # RMC
   - CMXenoDeveloped
   - RMCXenoSpeechSounds
@@ -63,12 +64,12 @@
   - type: MCArmor
     soft:
       melee: 65
-      bullet: 65
-      laser: 65
+      bullet: 70
+      laser: 70
       energy: 65
-      bomb: 30
+      bomb: 100
       bio: 60
-      fire: 60
+      fire: 100
       acid: 60
   - type: MeleeWeapon
     damage:
@@ -83,27 +84,10 @@
   - type: TunnelRenamer
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: queen
   - type: XenoInhands
     prefix: queen
-  - type: MCXenoBlessings
-    entries:
-    - LarvaSilo
-    - EvolutionTower
-    - PsychicRelay
-    - PheromoneTower
-    - Spawner
-    - AcidPool
-    - AcidJaws
-    - AcidMaw
-    - AcidTurret
-    - StickyResinTurret
-    - Gargoyle
-    - PrimordialTierOne
-    - PrimordialTierTwo
-    - PrimordialTierThree
-    - PrimordialTierFour
   - type: MCXenoHiveLeader
   - type: RMCSize
     size: Big
@@ -119,9 +103,3 @@
     doAfter: 1
   - type: XenoConstruction
     buildDelay: 2
-    canBuild:
-    - MCWallXenoResinThick
-    - MCWallXenoResinThickBulletproof
-    - MCWallXenoResinThickFireproof
-    - MCWallXenoResinThickHardy
-    - MCDoorXenoResinThick

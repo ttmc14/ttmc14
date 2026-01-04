@@ -45,7 +45,7 @@
       prefix: mc-job-prefix-squad-smartgunner
     - type: TacticalMapIcon
       icon:
-        sprite: _MC/Interface/squad_marine_icons.rsi
+        sprite: /Textures/_MC/Interface/squad_marine_icons.rsi
         state: smartgunner
 
 - type: playTimeTracker

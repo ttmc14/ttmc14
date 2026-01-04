@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "carpet_purple-0"
+        },
+        {
+            "name": "carpet_purple-1"
+        },
+        {
+            "name": "carpet_purple-2"
+        },
+        {
+            "name": "carpet_purple-3"
+        },
+        {
+            "name": "carpet_purple-4"
+        },
+        {
+            "name": "carpet_purple-5"
+        },
+        {
+            "name": "carpet_purple-6"
+        },
+        {
+            "name": "carpet_purple-7"
+        },
+        {
+            "name": "carpet_purple-8"
+        },
+        {
+            "name": "carpet_purple-9"
+        },
+        {
+            "name": "carpet_purple-10"
+        },
+        {
+            "name": "carpet_purple-11"
+        },
+        {
+            "name": "carpet_purple-12"
+        },
+        {
+            "name": "carpet_purple-13"
+        },
+        {
+            "name": "carpet_purple-14"
+        },
+        {
+            "name": "carpet_purple-15"
+        },
+        {
+            "name": "carpet_purple-21"
+        },
+        {
+            "name": "carpet_purple-23"
+        },
+        {
+            "name": "carpet_purple-29"
+        },
+        {
+            "name": "carpet_purple-31"
+        },
+        {
+            "name": "carpet_purple-38"
+        },
+        {
+            "name": "carpet_purple-39"
+        },
+        {
+            "name": "carpet_purple-46"
+        },
+        {
+            "name": "carpet_purple-47"
+        },
+        {
+            "name": "carpet_purple-55"
+        },
+        {
+            "name": "carpet_purple-63"
+        },
+        {
+            "name": "carpet_purple-74"
+        },
+        {
+            "name": "carpet_purple-75"
+        },
+        {
+            "name": "carpet_purple-78"
+        },
+        {
+            "name": "carpet_purple-79"
+        },
+        {
+            "name": "carpet_purple-95"
+        },
+        {
+            "name": "carpet_purple-110"
+        },
+        {
+            "name": "carpet_purple-111"
+        },
+        {
+            "name": "carpet_purple-127"
+        },
+        {
+            "name": "carpet_purple-137"
+        },
+        {
+            "name": "carpet_purple-139"
+        },
+        {
+            "name": "carpet_purple-141"
+        },
+        {
+            "name": "carpet_purple-143"
+        },
+        {
+            "name": "carpet_purple-157"
+        },
+        {
+            "name": "carpet_purple-159"
+        },
+        {
+            "name": "carpet_purple-175"
+        },
+        {
+            "name": "carpet_purple-191"
+        },
+        {
+            "name": "carpet_purple-203"
+        },
+        {
+            "name": "carpet_purple-207"
+        },
+        {
+            "name": "carpet_purple-223"
+        },
+        {
+            "name": "carpet_purple-239"
+        },
+        {
+            "name": "carpet_purple-255"
+        }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "cave-0"
+        },
+        {
+            "name": "cave-1"
+        },
+        {
+            "name": "cave-2"
+        },
+        {
+            "name": "cave-3"
+        },
+        {
+            "name": "cave-4"
+        },
+        {
+            "name": "cave-5"
+        },
+        {
+            "name": "cave-6"
+        },
+        {
+            "name": "cave-7"
+        },
+        {
+            "name": "cave-8"
+        },
+        {
+            "name": "cave-9"
+        },
+        {
+            "name": "cave-10"
+        },
+        {
+            "name": "cave-11"
+        },
+        {
+            "name": "cave-12"
+        },
+        {
+            "name": "cave-13"
+        },
+        {
+            "name": "cave-14"
+        },
+        {
+            "name": "cave-15"
+        },
+        {
+            "name": "cave-21"
+        },
+        {
+            "name": "cave-23"
+        },
+        {
+            "name": "cave-29"
+        },
+        {
+            "name": "cave-31"
+        },
+        {
+            "name": "cave-38"
+        },
+        {
+            "name": "cave-39"
+        },
+        {
+            "name": "cave-46"
+        },
+        {
+            "name": "cave-47"
+        },
+        {
+            "name": "cave-55"
+        },
+        {
+            "name": "cave-63"
+        },
+        {
+            "name": "cave-74"
+        },
+        {
+            "name": "cave-75"
+        },
+        {
+            "name": "cave-78"
+        },
+        {
+            "name": "cave-79"
+        },
+        {
+            "name": "cave-95"
+        },
+        {
+            "name": "cave-110"
+        },
+        {
+            "name": "cave-111"
+        },
+        {
+            "name": "cave-127"
+        },
+        {
+            "name": "cave-137"
+        },
+        {
+            "name": "cave-139"
+        },
+        {
+            "name": "cave-141"
+        },
+        {
+            "name": "cave-143"
+        },
+        {
+            "name": "cave-157"
+        },
+        {
+            "name": "cave-159"
+        },
+        {
+            "name": "cave-175"
+        },
+        {
+            "name": "cave-191"
+        },
+        {
+            "name": "cave-203"
+        },
+        {
+            "name": "cave-207"
+        },
+        {
+            "name": "cave-223"
+        },
+        {
+            "name": "cave-239"
+        },
+        {
+            "name": "cave-255"
+        }
+    ]
+}

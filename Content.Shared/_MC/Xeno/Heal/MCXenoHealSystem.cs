@@ -1,5 +1,4 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Systems;
-using Content.Shared._MC.Xeno.Weeds;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Damage;
 using Content.Shared._RMC14.Xenonids.Pheromones;
@@ -38,7 +37,7 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
     private EntityQuery<DamageableComponent> _damageableQuery;
     private EntityQuery<AffectableByWeedsComponent> _rmcAffectableQuery;
     private EntityQuery<XenoRecoveryPheromonesComponent> _rmcXenoRecoveryPheromonesQuery;
-    private EntityQuery<MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery;
+    private EntityQuery<Constructions.Weeds.MCXenoWeedsRegenerationComponent> _mcWeedsRegenerationQuery;
     private EntityQuery<MCXenoHealCacheComponent> _mcXenoHealthCacheQuery;
 
     public override void Initialize()
@@ -48,7 +47,7 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
         _damageableQuery = GetEntityQuery<DamageableComponent>();
         _rmcAffectableQuery = GetEntityQuery<AffectableByWeedsComponent>();
         _rmcXenoRecoveryPheromonesQuery = GetEntityQuery<XenoRecoveryPheromonesComponent>();
-        _mcWeedsRegenerationQuery = GetEntityQuery<MCXenoWeedsRegenerationComponent>();
+        _mcWeedsRegenerationQuery = GetEntityQuery<Constructions.Weeds.MCXenoWeedsRegenerationComponent>();
         _mcXenoHealthCacheQuery = GetEntityQuery<MCXenoHealCacheComponent>();
 
         SubscribeLocalEvent<MCXenoHealComponent, DamageChangedEvent>(OnHealDamageChanged);
@@ -211,7 +210,7 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
         return GetWeedsRegenerationComponent(entity)?.HealthModifier ?? 1f;
     }
 
-    private MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<AffectableByWeedsComponent?> entity)
+    private Constructions.Weeds.MCXenoWeedsRegenerationComponent? GetWeedsRegenerationComponent(Entity<AffectableByWeedsComponent?> entity)
     {
         entity.Comp ??= _rmcAffectableQuery.CompOrNull(entity);
         return entity.Comp?.LastWeedsEntity is null

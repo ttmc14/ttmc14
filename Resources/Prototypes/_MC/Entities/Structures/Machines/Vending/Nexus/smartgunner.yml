@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingNexusSmartgunner
   name: NEXUS automated smartgun equipment rack
   description: An automated equipment rack hooked up to a colossal storage of smartgun-related goods.

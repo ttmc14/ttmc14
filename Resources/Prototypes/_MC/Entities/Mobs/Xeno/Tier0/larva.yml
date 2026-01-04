@@ -34,8 +34,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.2
         density: 185
         mask:
@@ -57,7 +56,7 @@
     size: Small
   - type: TacticalMapIcon
     icon:
-      sprite: _RMC14/Interface/map_blips.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: larva
   - type: Tag
     tags:

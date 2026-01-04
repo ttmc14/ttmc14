@@ -1,4 +1,4 @@
-using Content.Shared._MC.Xeno.Spawner;
+using Content.Shared._MC.Xeno.Constructions.Spawner;
 using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.NightVision;
 using Content.Shared._RMC14.Xenonids.Announce;

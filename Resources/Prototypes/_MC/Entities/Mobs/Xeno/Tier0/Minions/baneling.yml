@@ -16,7 +16,8 @@
     role: MCXenoMinionBaneling
     actionIds:
     - MCActionXenoRest
-    hudOffset: -0.2,0.3
+    - MCActionXenoBanelingExplode
+    hudOffset: -0.2, 0.3
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -45,23 +46,8 @@
     baseSprintSpeed: 4.444
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: minion
   - type: XenoDeathcloud
-    spawn: MCSmokeBanelingDeathcloud
-
-- type: entity
-  parent: MCSmokeAcid
-  id: MCSmokeBanelingDeathcloud
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: EvenSmoke
-    spawn: MCSmokeBanelingDeathcloud
-    range: 3
-  - type: ActiveEdgeSpreader
-  - type: EdgeSpreader
-    id: MCSmokeBanelingDeathcloud
-
-- type: edgeSpreader
-  id: MCSmokeBanelingDeathcloud
-  updatesPerSecond: 10
+    spawn: MCSmokeXenoAcidLight
+  - type: MCXenoExplode

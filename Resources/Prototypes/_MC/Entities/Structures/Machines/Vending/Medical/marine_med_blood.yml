@@ -1,0 +1,24 @@
+- type: entity
+  parent: MCMachineVending
+  id: MCMachineVendingMarineMedBlood
+  name: MM Blood Dispenser
+  description: Marine Med brand Blood Pack dispensery.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: bloodvendor-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: bloodvendor
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Blood
+      entries:
+      - id: MCBloodPackFull
+        name: blood pack (full)
+        amount: 30
+      - id: MCBloodPackFull
+        name: blood pack (empty)
+        amount: 10
+  

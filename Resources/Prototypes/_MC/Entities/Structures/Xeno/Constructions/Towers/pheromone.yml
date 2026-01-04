@@ -1,0 +1,78 @@
+- type: entity
+  parent: MCXenoStructure
+  id: MCXenoPheromoneTower
+  name: pheromone tower
+  description: A resin formation that looks like a small pillar. A faint, weird smell can be perceived from it.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t1.rsi
+    state: frenzy
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 400
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: XenoPheromones
+    pheromones: Frenzy
+    pheromonesMultiplier: 5
+    pheromonesRange: 32
+  - type: XenoPheromonesObject
+  - type: XenoActivePheromones
+  - type: PointLight
+    enabled: true
+    radius: 2
+    energy: 2
+    color: "#ff3b3b"
+  - type: XenoStructureMapTracked
+  - type: TacticalMapTracked
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerTier1
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t1.rsi
+    state: frenzy
+  - type: XenoPheromones
+    pheromones: Frenzy
+    pheromonesMultiplier: 3.5
+    pheromonesRange: 32
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: tower_pheromone_tier_1
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerTier2
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t2.rsi
+    state: frenzy
+  - type: XenoPheromones
+    pheromones: Frenzy
+    pheromonesMultiplier: 5.5
+    pheromonesRange: 32
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: tower_pheromone_tier_2
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerTier3
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t3.rsi
+    state: frenzy
+  - type: XenoPheromones
+    pheromones: Frenzy
+    pheromonesMultiplier: 7.5
+    pheromonesRange: 32
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
+      state: tower_pheromone_tier_3

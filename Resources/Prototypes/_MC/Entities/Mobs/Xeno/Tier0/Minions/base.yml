@@ -8,3 +8,5 @@
   - RMCXenoMobCollision
   id: MCXenoMinion
   abstract: true
+  components:
+  - type: InputMover

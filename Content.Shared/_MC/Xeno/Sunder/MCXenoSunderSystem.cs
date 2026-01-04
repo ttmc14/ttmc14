@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Weeds;
+﻿using Content.Shared._MC.Xeno.Constructions.Weeds;
 using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared._RMC14.Xenonids.Weeds;
@@ -11,8 +11,8 @@ namespace Content.Shared._MC.Xeno.Sunder;
 
 public sealed class MCXenoSunderSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly AlertsSystem _alerts = default!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly AlertsSystem _alerts = null!;
 
     private EntityQuery<MCXenoSunderComponent> _sunderQuery;
     private EntityQuery<XenoRestingComponent> _xenoRestingQuery;

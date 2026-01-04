@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingLoadout
   name: automated loadout vendor
   description: An advanced vendor used by the TGMC to rapidly equip their marines.

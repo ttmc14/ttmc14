@@ -56,10 +56,10 @@
       state: forward_charge
     useDelay: 10
   - type: TargetAction
-    range: 4
-    deselectOnMiss: false
-  - type: EntityTargetAction
-    event: !type:XenoHeadbuttActionEvent
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
   - type: XenoActionPlasma
     cost: 80
 

@@ -1,0 +1,174 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": ""
+        },
+        {
+            "name": "carpet-0"
+        },
+        {
+            "name": "carpet-1"
+        },
+        {
+            "name": "carpet-2"
+        },
+        {
+            "name": "carpet-3"
+        },
+        {
+            "name": "carpet-4"
+        },
+        {
+            "name": "carpet-5"
+        },
+        {
+            "name": "carpet-6"
+        },
+        {
+            "name": "carpet-7"
+        },
+        {
+            "name": "carpet-8"
+        },
+        {
+            "name": "carpet-9"
+        },
+        {
+            "name": "carpet-10"
+        },
+        {
+            "name": "carpet-11"
+        },
+        {
+            "name": "carpet-12"
+        },
+        {
+            "name": "carpet-13"
+        },
+        {
+            "name": "carpet-14"
+        },
+        {
+            "name": "carpet-15"
+        },
+        {
+            "name": "carpet-21"
+        },
+        {
+            "name": "carpet-23"
+        },
+        {
+            "name": "carpet-29"
+        },
+        {
+            "name": "carpet-31"
+        },
+        {
+            "name": "carpet-38"
+        },
+        {
+            "name": "carpet-39"
+        },
+        {
+            "name": "carpet-46"
+        },
+        {
+            "name": "carpet-47"
+        },
+        {
+            "name": "carpet-55"
+        },
+        {
+            "name": "carpet-63"
+        },
+        {
+            "name": "carpet-74"
+        },
+        {
+            "name": "carpet-75"
+        },
+        {
+            "name": "carpet-78"
+        },
+        {
+            "name": "carpet-79"
+        },
+        {
+            "name": "carpet-95"
+        },
+        {
+            "name": "carpet-110"
+        },
+        {
+            "name": "carpet-111"
+        },
+        {
+            "name": "carpet-127"
+        },
+        {
+            "name": "carpet-137"
+        },
+        {
+            "name": "carpet-139"
+        },
+        {
+            "name": "carpet-141"
+        },
+        {
+            "name": "carpet-143"
+        },
+        {
+            "name": "carpet-157"
+        },
+        {
+            "name": "carpet-159"
+        },
+        {
+            "name": "carpet-175"
+        },
+        {
+            "name": "carpet-191"
+        },
+        {
+            "name": "carpet-203"
+        },
+        {
+            "name": "carpet-207"
+        },
+        {
+            "name": "carpet-223"
+        },
+        {
+            "name": "carpet-239"
+        },
+        {
+            "name": "carpet-255"
+        },
+        {
+            "name": "carpetsymbol",
+            "directions": 8
+        },
+        {
+            "name": "carpetstar"
+        },
+        {
+            "name": "carpetside",
+            "directions": 8
+        },
+        {
+            "name": "carpetcorner",
+            "directions": 4
+        },
+        {
+            "name": "carpetedge",
+            "directions": 8
+        }
+    ]
+}

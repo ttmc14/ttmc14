@@ -11,6 +11,10 @@ public sealed partial class MCArmorComponent : Component
 
     [DataField, AutoNetworkedField]
     public MCArmorDefinition Soft;
+
+    // TODO: [MC] Hard armor
+    [DataField, AutoNetworkedField]
+    public MCArmorDefinition Hard;
 }
 
 [DataDefinition, Serializable, NetSerializable]

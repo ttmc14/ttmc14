@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingNexusMedical
   name: NEXUS automated medical equipment rack
   description: An automated equipment rack hooked up to a colossal storage of medical goods.

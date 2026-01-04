@@ -7,13 +7,14 @@ namespace Content.Shared._MC.Chemistry.Effects.Reagents;
 
 public sealed partial class MCReagentSanguinal : MCReagentEffect
 {
-    private const float Damage = 1f;
+    private const float Damage = 1.5f;
+    private const float BleedDamage = 3f;
 
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         return
         $"""
-        Наносит {Damage} [color=#ea0e4d]физический[/color] и {Damage} [color=#ff0000]кровотечение[/color] за тик.
+        Наносит {Damage} [color=#ea0e4d]физический[/color] и {BleedDamage} [color=#ff0000]кровотечение[/color] за тик.
 
         Наносит {Damage} [color=#64d1fc]выносливости[/color] за тик, если есть [color=#602cff]хемодайл[/color].
         Наносит {Damage} [color=#759a27]токсины[/color] за тик, если есть [color=#CF3600]нейротоксин[/color].
@@ -36,7 +37,7 @@ public sealed partial class MCReagentSanguinal : MCReagentEffect
         if (HasReagent(solution, "MCOzelomelyn"))
             MCDamageable.AdjustOxyLoss(args.TargetEntity, Damage);
 
-        MCDamageable.AdjustBurnLoss(args.TargetEntity, Damage);
-        Bloodstream.TryModifyBleedAmount(args.TargetEntity, Damage);
+        MCDamageable.AdjustBruteLoss(args.TargetEntity, Damage);
+        Bloodstream.TryModifyBleedAmount(args.TargetEntity, BleedDamage);
     }
 }

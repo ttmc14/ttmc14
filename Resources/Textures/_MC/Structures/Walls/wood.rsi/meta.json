@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "woodwall-0"
+        },
+        {
+            "name": "woodwall-1"
+        },
+        {
+            "name": "woodwall-2"
+        },
+        {
+            "name": "woodwall-3"
+        },
+        {
+            "name": "woodwall-4"
+        },
+        {
+            "name": "woodwall-5"
+        },
+        {
+            "name": "woodwall-6"
+        },
+        {
+            "name": "woodwall-7"
+        },
+        {
+            "name": "woodwall-8"
+        },
+        {
+            "name": "woodwall-9"
+        },
+        {
+            "name": "woodwall-10"
+        },
+        {
+            "name": "woodwall-11"
+        },
+        {
+            "name": "woodwall-12"
+        },
+        {
+            "name": "woodwall-13"
+        },
+        {
+            "name": "woodwall-14"
+        },
+        {
+            "name": "woodwall-15"
+        },
+        {
+            "name": "woodwall-21"
+        },
+        {
+            "name": "woodwall-23"
+        },
+        {
+            "name": "woodwall-29"
+        },
+        {
+            "name": "woodwall-31"
+        },
+        {
+            "name": "woodwall-38"
+        },
+        {
+            "name": "woodwall-39"
+        },
+        {
+            "name": "woodwall-46"
+        },
+        {
+            "name": "woodwall-47"
+        },
+        {
+            "name": "woodwall-55"
+        },
+        {
+            "name": "woodwall-63"
+        },
+        {
+            "name": "woodwall-74"
+        },
+        {
+            "name": "woodwall-75"
+        },
+        {
+            "name": "woodwall-78"
+        },
+        {
+            "name": "woodwall-79"
+        },
+        {
+            "name": "woodwall-95"
+        },
+        {
+            "name": "woodwall-110"
+        },
+        {
+            "name": "woodwall-111"
+        },
+        {
+            "name": "woodwall-127"
+        },
+        {
+            "name": "woodwall-137"
+        },
+        {
+            "name": "woodwall-139"
+        },
+        {
+            "name": "woodwall-141"
+        },
+        {
+            "name": "woodwall-143"
+        },
+        {
+            "name": "woodwall-157"
+        },
+        {
+            "name": "woodwall-159"
+        },
+        {
+            "name": "woodwall-175"
+        },
+        {
+            "name": "woodwall-191"
+        },
+        {
+            "name": "woodwall-203"
+        },
+        {
+            "name": "woodwall-207"
+        },
+        {
+            "name": "woodwall-223"
+        },
+        {
+            "name": "woodwall-239"
+        },
+        {
+            "name": "woodwall-255"
+        }
+    ]
+}

@@ -1,15 +1,88 @@
 - type: entity
   parent: MCWall
+  id: MCWallCaveInvincible
+  name: rock
+  abstract: true
+  components:
+  - type: Sprite
+    state: wall-invincible
+  - type: Icon
+    state: wall-invincible
+  - type: IconSmooth
+    key: caveWalls
+    mode: MCCardinalFlagsExtended
+  - type: Corrodible
+    isCorrodible: false
+
+- type: entity
+  parent: MCWallCaveInvincible
+  id: MCWallBigBasaltInvincible
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/basalt.rsi
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/basalt.rsi
+  - type: IconSmooth
+    base: basaltwall-
+
+- type: entity
+  parent: MCWallCaveInvincible
+  id: MCWallBigBlueFrostInvincible
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/blue_frost.rsi
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/blue_frost.rsi
+  - type: IconSmooth
+    base: bluefrostwall-
+
+- type: entity
+  parent: MCWallCaveInvincible
+  id: MCWallBigCaveInvincible
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/cave.rsi
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/cave.rsi
+  - type: IconSmooth
+    base: cave-
+
+- type: entity
+  parent: MCWallCaveInvincible
+  id: MCWallBigDarkFrostInvincible
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/dark_frost.rsi
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/dark_frost.rsi
+  - type: IconSmooth
+    base: darkfrostwall-
+    key: mcCaveDarkFrost
+
+- type: entity
+  parent: MCWallCaveInvincible
+  id: MCWallBigLavaInvincible
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/lava.rsi
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/lava.rsi
+  - type: IconSmooth
+    base: lavawall-
+
+- type: entity
+  parent: MCWallCaveInvincible
   id: MCWallBigRedInvincible
   name: rock
   components:
   - type: Sprite
     sprite: _MC/Structures/Walls/Caves/red.rsi
-    state: wall-invincible
   - type: Icon
     sprite: _MC/Structures/Walls/Caves/red.rsi
-    state: wall-invincible
   - type: IconSmooth
-    key: caveWalls
     base: red_wall-
-    mode: MCCardinalFlagsExtended

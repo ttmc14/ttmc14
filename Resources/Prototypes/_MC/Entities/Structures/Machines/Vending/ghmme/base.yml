@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingGhmme
   name: GHMME Automated Closet
   description: An automated closet hooked up to a colossal storage unit of standard-issue uniform and armor.
@@ -59,21 +59,6 @@
     - MCVendorHeadsetSquadLeader
     - MCClothingHandsMarineCombat
     - MCJumpsuitMarineSquad
-    - MCBootsBlackFilled
-
-- type: entity
-  id: MCVendorBundleStandardKitEngineer
-  name: Standard Kit
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Shoes/Boots/black.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCVendorHeadsetSquadEngineer
-    - MCClothingHandsMarineCombat
-    - MCJumpsuitMarineSquadEngineer
     - MCBootsBlackFilled
 
 - type: entity

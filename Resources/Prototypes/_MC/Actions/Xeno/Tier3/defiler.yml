@@ -48,3 +48,22 @@
   - type: XenoActionPlasma
     cost: 200
   - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoDefile
+  name: Defile (100)
+  description: Channel to inject an adjacent target with an accelerant that violently reacts with xeno toxins, releasing gas and dealing heavy tox damage in proportion to the amount in their system.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defiler.rsi
+      state: defiler_sting
+    useDelay: 20
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoDefileActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 100

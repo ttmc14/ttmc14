@@ -15,6 +15,8 @@
   - type: MCXenoPsydrainable
   - type: MCStamina
   - type: MCStaminaActive
+  # Hud's
+  - type: MCXenoHudToxins
   # mc-changes-end
   - type: Fixtures
     fixtures:

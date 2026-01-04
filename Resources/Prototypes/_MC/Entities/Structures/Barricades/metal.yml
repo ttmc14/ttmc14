@@ -1,0 +1,164 @@
+- type: entity
+  parent: MCBarricade
+  id: MCBarricadeMetal
+  name: metal barricade
+  description: A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair.
+  components:
+  # Armor
+  - type: MCArmor
+    soft:
+      melee: 10
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 20
+      bio: 100
+      fire: 80
+      acid: 40
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: metal
+    - map: [ "acided" ]
+    drawdepth: WallTops
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
+  - type: RMCRepairable
+    heal: 60
+    skill: RMCSkillConstruction
+    delay: 10
+    fuelUsed: 2
+    repairableDamageLimit: 340
+  - type: NailgunRepairable
+    # cm13 max_health%: 0.3, 0.45
+    repairMetal: 135
+    repairPlasteel: 200
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMSheetMetal1:
+            min: 2
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageVisuals
+    thresholds: [ 4, 8, 12 ]
+    damageDivisor: 25
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/metal_barricade_cracks.rsi
+  - type: Barbed
+    thornsDamage:
+      types:
+        Slash: 10
+  - type: Construction
+    graph: BarricadeMetalGraph
+    node: nodeMetal
+  - type: RMCConstructionUpgradeTarget
+    upgrades:
+    - "RMCExplosiveUpgrade"
+    - "RMCBiohazardUpgrade"
+    - "RMCBruteUpgrade"
+  - type: Tag
+    tags:
+    - MCMetalBarricade
+
+- type: Tag
+  id: MCMetalBarricade
+
+#  Upgrades
+- type: entity
+  parent: MCBarricadeMetal
+  id: MCBarricadeBurn
+  suffix: Biohazard
+  components:
+  # TODO: resistance_flags |= UNACIDABLE
+  # Armor
+  - type: MCArmor
+    soft:
+      melee: 0
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 20
+      bio: 100
+      fire: 80
+      acid: 80
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: metal
+    - state: burn_upgrade
+    - map: [ "acided" ]
+  - type: DamageVisuals
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/burn_barricade_cracks.rsi
+  - type: RMCConstructionUpgradeTarget
+    upgrades: null
+
+- type: entity
+  parent: MCBarricadeMetal
+  id: MCBarricadeBrute
+  suffix: Reinforced
+  components:
+  # Armor
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 80
+      laser: 80
+      energy: 80
+      bomb: 20
+      bio: 100
+      fire: 80
+      acid: 30
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: metal
+    - state: brute_upgrade
+    - map: [ "acided" ]
+  - type: DamageVisuals
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/brute_barricade_cracks.rsi
+  - type: RMCConstructionUpgradeTarget
+    upgrades: null
+
+- type: entity
+  parent: MCBarricadeMetal
+  id: MCBarricadeExplosive
+  suffix: Composite
+  components:
+  # Armor
+  - type: MCArmor
+    soft:
+      melee: 10
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 100
+      bio: 100
+      fire: 80
+      acid: 40
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: metal
+    - state: explosive_upgrade
+    - map: [ "acided" ]
+  - type: DamageVisuals
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/explosive_barricade_cracks.rsi
+  - type: RMCConstructionUpgradeTarget
+    upgrades: null

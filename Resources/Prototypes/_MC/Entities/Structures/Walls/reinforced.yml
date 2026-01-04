@@ -36,3 +36,29 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+
+- type: entity
+  parent: MCWallReinforcedInvincible
+  id: MCWallRegular
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/regular.rsi
+    state: metal-0
+  - type: Icon
+    sprite: _MC/Structures/Walls/regular.rsi
+    state: metal-0
+  - type: ReceiverXenoClaws
+    maxHealth: 1500
+    minimumClawStrength: VerySharp
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: IconSmooth
+    key: walls
+    base: metal-
+    mode: MCCardinalFlagsExtended

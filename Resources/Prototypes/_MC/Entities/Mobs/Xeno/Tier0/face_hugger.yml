@@ -92,8 +92,8 @@
         3.0
   - type: TacticalMapIcon
     icon:
-      sprite: _RMC14/Interface/map_blips.rsi
-      state: parasite
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
+      state: facehugger
   - type: AddAccentClothing
     accent: ReplacementAccent
     replacement: mumble

@@ -1,0 +1,25 @@
+<Document>
+  
+  # КСЕНОМОРФ ПОДДЕРЖКИ
+
+  <Box VerticalAlignment="Bottom">
+    <GuideEntityEmbed Entity="MCGuidebookXenoWarlock"/>
+    <Box HorizontalAlignment="Left" VerticalAlignment="Bottom">
+      [head=1]Варлок[/head] \n
+      [bold]Руководители:[/bold] королева, король, принцесса и разум улья \n
+      [bold]Сложность:[/bold] [color=#ffff00]средняя[/color] \n
+      [bold]Обязанности:[/bold] раскидывать морпехов, блокировать пули, ломать мехов \n
+      [bold]Цитата:[/bold] [italic]"THE MARINES SHALL FALL TO MY [bold]MIND!!!![/bold] WITNESS MY PSYCHIC [bold]POWERS!!!![/bold]"[/italic]
+    </Box>
+  </Box>
+
+  # Характеристики и пути эволюции
+  Эволюционирует из призрака, кукловода
+
+  [bold]Здоровье:[/bold] 325 \n
+  [bold]Плзама:[/bold] 1700 (регенерация 60) \n
+  [bold]Урон:[/bold] 15 брут \n
+  [bold]Скорость:[/bold] 4 \n
+  [bold]Защита:[/bold] 40/40/40/40/10/35/35/35 \n
+
+</Document>

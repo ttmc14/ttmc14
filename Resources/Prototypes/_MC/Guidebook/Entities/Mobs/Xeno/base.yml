@@ -1,0 +1,134 @@
+- type: entity
+  id: MCGuidebookXeno
+  name: ""
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: XenoHidden
+  - type: Sprite
+    scale: 2, 2
+
+- type: entity
+  id: MCGuidebookXenoIcon
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
+    scale: 2, 2
+
+# Tier 1
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoDefender ]
+  id: MCGuidebookXenoDefender
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoDrone ]
+  id: MCGuidebookXenoDrone
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoRunner ]
+  id: MCGuidebookXenoRunner
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoSentinel ]
+  id: MCGuidebookXenoSentinel
+  categories: [ HideSpawnMenu ]
+
+# Tier 2
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoCarrier ]
+  id: MCGuidebookXenoCarrier
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoHivelord ]
+  id: MCGuidebookXenoHivelord
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoSpitter ]
+  id: MCGuidebookXenoSpitter
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCGuidebookXenoIcon
+  id: MCGuidebookXenoIconSpitter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: spitter
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoForger ]
+  id: MCGuidebookXenoForger
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoWraith ]
+  id: MCGuidebookXenoWraith
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoBull ]
+  id: MCGuidebookXenoBull
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoPanther ]
+  id: MCGuidebookXenoPanther
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoWarrior ]
+  id: MCGuidebookXenoWarrior
+  categories: [ HideSpawnMenu ]
+
+# Tier 3
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoBehemoth ]
+  id: MCGuidebookXenoBehemoth
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoBoiler ]
+  id: MCGuidebookXenoBoiler
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoChimera ]
+  id: MCGuidebookXenoChimera
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoCrusher ]
+  id: MCGuidebookXenoCrusher
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoDefiler ]
+  id: MCGuidebookXenoDefiler
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoGorger ]
+  id: MCGuidebookXenoGorger
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoPraetorian ]
+  id: MCGuidebookXenoPraetorian
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoRavager ]
+  id: MCGuidebookXenoRavager
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: [ MCGuidebookXeno, MCXenoWarlock ]
+  id: MCGuidebookXenoWarlock
+  categories: [ HideSpawnMenu ]

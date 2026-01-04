@@ -24,7 +24,7 @@
     offset: -0.1, 0.2
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: sentinel
   # Actions
   - type: Xeno
@@ -78,3 +78,5 @@
     trapLevel: 1
     cost: 70
     spray: XenoAcidSprayTrapWeak
+  - type: VentCrawler
+    ventCrawlIcon: drone

@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "carpet_cyan-0"
+        },
+        {
+            "name": "carpet_cyan-1"
+        },
+        {
+            "name": "carpet_cyan-2"
+        },
+        {
+            "name": "carpet_cyan-3"
+        },
+        {
+            "name": "carpet_cyan-4"
+        },
+        {
+            "name": "carpet_cyan-5"
+        },
+        {
+            "name": "carpet_cyan-6"
+        },
+        {
+            "name": "carpet_cyan-7"
+        },
+        {
+            "name": "carpet_cyan-8"
+        },
+        {
+            "name": "carpet_cyan-9"
+        },
+        {
+            "name": "carpet_cyan-10"
+        },
+        {
+            "name": "carpet_cyan-11"
+        },
+        {
+            "name": "carpet_cyan-12"
+        },
+        {
+            "name": "carpet_cyan-13"
+        },
+        {
+            "name": "carpet_cyan-14"
+        },
+        {
+            "name": "carpet_cyan-15"
+        },
+        {
+            "name": "carpet_cyan-21"
+        },
+        {
+            "name": "carpet_cyan-23"
+        },
+        {
+            "name": "carpet_cyan-29"
+        },
+        {
+            "name": "carpet_cyan-31"
+        },
+        {
+            "name": "carpet_cyan-38"
+        },
+        {
+            "name": "carpet_cyan-39"
+        },
+        {
+            "name": "carpet_cyan-46"
+        },
+        {
+            "name": "carpet_cyan-47"
+        },
+        {
+            "name": "carpet_cyan-55"
+        },
+        {
+            "name": "carpet_cyan-63"
+        },
+        {
+            "name": "carpet_cyan-74"
+        },
+        {
+            "name": "carpet_cyan-75"
+        },
+        {
+            "name": "carpet_cyan-78"
+        },
+        {
+            "name": "carpet_cyan-79"
+        },
+        {
+            "name": "carpet_cyan-95"
+        },
+        {
+            "name": "carpet_cyan-110"
+        },
+        {
+            "name": "carpet_cyan-111"
+        },
+        {
+            "name": "carpet_cyan-127"
+        },
+        {
+            "name": "carpet_cyan-137"
+        },
+        {
+            "name": "carpet_cyan-139"
+        },
+        {
+            "name": "carpet_cyan-141"
+        },
+        {
+            "name": "carpet_cyan-143"
+        },
+        {
+            "name": "carpet_cyan-157"
+        },
+        {
+            "name": "carpet_cyan-159"
+        },
+        {
+            "name": "carpet_cyan-175"
+        },
+        {
+            "name": "carpet_cyan-191"
+        },
+        {
+            "name": "carpet_cyan-203"
+        },
+        {
+            "name": "carpet_cyan-207"
+        },
+        {
+            "name": "carpet_cyan-223"
+        },
+        {
+            "name": "carpet_cyan-239"
+        },
+        {
+            "name": "carpet_cyan-255"
+        }
+    ]
+}

@@ -1,0 +1,155 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "wall-invincible"
+        },
+        {
+            "name": "darkfrostwall-0"
+        },
+        {
+            "name": "darkfrostwall-1"
+        },
+        {
+            "name": "darkfrostwall-2"
+        },
+        {
+            "name": "darkfrostwall-3"
+        },
+        {
+            "name": "darkfrostwall-4"
+        },
+        {
+            "name": "darkfrostwall-5"
+        },
+        {
+            "name": "darkfrostwall-6"
+        },
+        {
+            "name": "darkfrostwall-7"
+        },
+        {
+            "name": "darkfrostwall-8"
+        },
+        {
+            "name": "darkfrostwall-9"
+        },
+        {
+            "name": "darkfrostwall-10"
+        },
+        {
+            "name": "darkfrostwall-11"
+        },
+        {
+            "name": "darkfrostwall-12"
+        },
+        {
+            "name": "darkfrostwall-13"
+        },
+        {
+            "name": "darkfrostwall-14"
+        },
+        {
+            "name": "darkfrostwall-15"
+        },
+        {
+            "name": "darkfrostwall-21"
+        },
+        {
+            "name": "darkfrostwall-23"
+        },
+        {
+            "name": "darkfrostwall-29"
+        },
+        {
+            "name": "darkfrostwall-31"
+        },
+        {
+            "name": "darkfrostwall-38"
+        },
+        {
+            "name": "darkfrostwall-39"
+        },
+        {
+            "name": "darkfrostwall-46"
+        },
+        {
+            "name": "darkfrostwall-47"
+        },
+        {
+            "name": "darkfrostwall-55"
+        },
+        {
+            "name": "darkfrostwall-63"
+        },
+        {
+            "name": "darkfrostwall-74"
+        },
+        {
+            "name": "darkfrostwall-75"
+        },
+        {
+            "name": "darkfrostwall-78"
+        },
+        {
+            "name": "darkfrostwall-79"
+        },
+        {
+            "name": "darkfrostwall-95"
+        },
+        {
+            "name": "darkfrostwall-110"
+        },
+        {
+            "name": "darkfrostwall-111"
+        },
+        {
+            "name": "darkfrostwall-127"
+        },
+        {
+            "name": "darkfrostwall-137"
+        },
+        {
+            "name": "darkfrostwall-139"
+        },
+        {
+            "name": "darkfrostwall-141"
+        },
+        {
+            "name": "darkfrostwall-143"
+        },
+        {
+            "name": "darkfrostwall-157"
+        },
+        {
+            "name": "darkfrostwall-159"
+        },
+        {
+            "name": "darkfrostwall-175"
+        },
+        {
+            "name": "darkfrostwall-191"
+        },
+        {
+            "name": "darkfrostwall-203"
+        },
+        {
+            "name": "darkfrostwall-207"
+        },
+        {
+            "name": "darkfrostwall-223"
+        },
+        {
+            "name": "darkfrostwall-239"
+        },
+        {
+            "name": "darkfrostwall-255"
+        }
+    ]
+}

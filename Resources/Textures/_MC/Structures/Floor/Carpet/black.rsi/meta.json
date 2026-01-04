@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "carpet_black-0"
+        },
+        {
+            "name": "carpet_black-1"
+        },
+        {
+            "name": "carpet_black-2"
+        },
+        {
+            "name": "carpet_black-3"
+        },
+        {
+            "name": "carpet_black-4"
+        },
+        {
+            "name": "carpet_black-5"
+        },
+        {
+            "name": "carpet_black-6"
+        },
+        {
+            "name": "carpet_black-7"
+        },
+        {
+            "name": "carpet_black-8"
+        },
+        {
+            "name": "carpet_black-9"
+        },
+        {
+            "name": "carpet_black-10"
+        },
+        {
+            "name": "carpet_black-11"
+        },
+        {
+            "name": "carpet_black-12"
+        },
+        {
+            "name": "carpet_black-13"
+        },
+        {
+            "name": "carpet_black-14"
+        },
+        {
+            "name": "carpet_black-15"
+        },
+        {
+            "name": "carpet_black-21"
+        },
+        {
+            "name": "carpet_black-23"
+        },
+        {
+            "name": "carpet_black-29"
+        },
+        {
+            "name": "carpet_black-31"
+        },
+        {
+            "name": "carpet_black-38"
+        },
+        {
+            "name": "carpet_black-39"
+        },
+        {
+            "name": "carpet_black-46"
+        },
+        {
+            "name": "carpet_black-47"
+        },
+        {
+            "name": "carpet_black-55"
+        },
+        {
+            "name": "carpet_black-63"
+        },
+        {
+            "name": "carpet_black-74"
+        },
+        {
+            "name": "carpet_black-75"
+        },
+        {
+            "name": "carpet_black-78"
+        },
+        {
+            "name": "carpet_black-79"
+        },
+        {
+            "name": "carpet_black-95"
+        },
+        {
+            "name": "carpet_black-110"
+        },
+        {
+            "name": "carpet_black-111"
+        },
+        {
+            "name": "carpet_black-127"
+        },
+        {
+            "name": "carpet_black-137"
+        },
+        {
+            "name": "carpet_black-139"
+        },
+        {
+            "name": "carpet_black-141"
+        },
+        {
+            "name": "carpet_black-143"
+        },
+        {
+            "name": "carpet_black-157"
+        },
+        {
+            "name": "carpet_black-159"
+        },
+        {
+            "name": "carpet_black-175"
+        },
+        {
+            "name": "carpet_black-191"
+        },
+        {
+            "name": "carpet_black-203"
+        },
+        {
+            "name": "carpet_black-207"
+        },
+        {
+            "name": "carpet_black-223"
+        },
+        {
+            "name": "carpet_black-239"
+        },
+        {
+            "name": "carpet_black-255"
+        }
+    ]
+}

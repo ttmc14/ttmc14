@@ -1,0 +1,7 @@
+- type: entity
+  id: MCGuidebookStructureXenoEgg
+  name: egg
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Xenos/xeno_egg.rsi
+    state: egg

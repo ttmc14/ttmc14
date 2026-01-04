@@ -23,7 +23,7 @@
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/Xeno/icons.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: gorger
   # Actions
   - type: Xeno
@@ -41,8 +41,8 @@
       700: Critical
       800: Dead
   - type: XenoPlasma
-    plasma: 575            # TODO: Not valid, check ss13 when developing
-    maxPlasma: 575         # TODO: Not valid, check ss13 when developing
+    plasma: 575 # TODO: Not valid, check ss13 when developing
+    maxPlasma: 575 # TODO: Not valid, check ss13 when developing
     plasmaRegenOnWeeds: 35 # TODO: Not valid, check ss13 when developing
   - type: MCArmor
     soft:

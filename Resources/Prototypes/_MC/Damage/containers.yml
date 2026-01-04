@@ -1,0 +1,14 @@
+- type: damageContainer
+  id: MCBiological
+  supportedTypes:
+  - MCBrute
+  - MCBurn
+  - MCToxin
+  - MCOxygen
+  - MCClone
+
+- type: damageContainer
+  id: MCStructural
+  supportedTypes:
+  - MCBrute
+  - MCBurn

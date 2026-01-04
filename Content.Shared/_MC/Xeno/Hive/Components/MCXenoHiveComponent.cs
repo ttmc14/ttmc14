@@ -38,9 +38,9 @@ public sealed partial class MCXenoHiveComponent : Component
     [DataField, AutoNetworkedField]
     public Dictionary<EntProtoId, int> CasteEvolutionCountRequire = new()
     {
-        { "MCXenoHivelord", 5 },
+        // { "MCXenoHivelord", 5 },
         { "MCXenoQueen", 10 },
-        // { "MCXenoKing", 14 },
+        { "MCXenoKing", 12 },
     };
 
     [DataField, AutoNetworkedField]

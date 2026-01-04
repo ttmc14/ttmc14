@@ -1,0 +1,19 @@
+- type: entity
+  parent: MCWallXenoResinThick
+  id: MCGuidebookWallXenoResinThick
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCWallXenoResinThickBulletproof
+  id: MCGuidebookWallXenoResinThickBulletproof
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCWallXenoResinThickFireproof
+  id: MCGuidebookWallXenoResinThickFireproof
+  categories: [ HideSpawnMenu ]
+
+- type: entity
+  parent: MCWallXenoResinThickHardy
+  id: MCGuidebookWallXenoResinThickHardy
+  categories: [ HideSpawnMenu ]

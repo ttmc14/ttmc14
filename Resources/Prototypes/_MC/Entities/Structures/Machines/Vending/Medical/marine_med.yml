@@ -1,0 +1,64 @@
+- type: entity
+  parent: MCMachineVending
+  id: MCMachineVendingMarineMed
+  name: MarineMed
+  description: Marine Medical drug dispenser - Provided by Nanotrasen Pharmaceuticals Division(TM).
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: marinemed-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: marinemed
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Pill Bottles
+      entries:
+      - id: MCPillCanisterBicaridine
+      - id: MCPillCanisterKelotane
+      - id: MCPillCanisterTramadol
+      - id: MCPillCanisterTricordrazine
+      - id: MCPillCanisterDylovene
+      - id: MCPillCanisterParacetamol
+      - id: MCPillCanisterSalineGlucose
+      - id: MCPillCanister
+    - name: Auto Injector
+      entries:
+      - id: MCAutoInjectorBicaridine
+      - id: MCAutoInjectorKelotane
+      - id: MCAutoInjectorTramadol
+      - id: MCAutoInjectorTricordrazine
+      - id: MCAutoInjectorDylovene
+      - id: MCAutoInjectorCombat
+      - id: MCAutoInjectorSalineGlucose
+      - id: MCAutoInjectorInaprovaline
+      - id: MCAutoInjectorOxycodone
+        amount: 30
+      # spaceacillin = 20
+      - id: MCAutoInjectorHypervene
+        amount: 20
+      # alkysine = 20
+      - id: MCAutoInjectorImidazoline
+        amount: 20
+      - id: MCAutoInjectorQuickClot
+        amount: 20
+      - id: MCAutoInjectorNanoMachines
+        amount: 20
+    - name: Heal Pack
+      entries:
+      - id: MCGauze
+      - id: MCOintment
+      - id: MCSplint
+      - id: MCTraumaKit
+        amount: 50
+      - id: MCBurnKit
+        amount: 50
+    - name: Misc
+      entries:
+      - id: MCDefibrillator
+        amount: 8
+      - id: MCHealthAnalyzer
+        amount: 16
+      - id: CMStasisBagFolded
+        amount: 24

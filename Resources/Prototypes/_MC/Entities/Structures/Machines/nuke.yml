@@ -45,7 +45,7 @@
   - type: TacticalMapTracked
   - type: TacticalMapIcon
     icon:
-      sprite: _MC/Interface/MapIcons/nuke.rsi
+      sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
       state: nuke_off
 
 - type: entity

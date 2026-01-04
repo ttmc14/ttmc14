@@ -1,0 +1,73 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentCharge
+  - MCXenoComponentEvolutionTier3
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoBehemoth
+  name: behemoth
+  description: Behemoths are known to like rocks. Perhaps we should give them one!
+  components:
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-behemot
+  - type: GhostRole
+    name: mc-job-name-xeno-behemot
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/behemot.rsi
+    offset: 0, 1
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
+      state: behemoth
+  # Actions
+  - type: Xeno
+    tier: 3
+    role: MCXenoCrusher
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Main
+    - MCActionXenoToggleChargingCrusher
+    hudOffset: -0.15, 0.25
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      750: Critical
+      850: Dead
+  - type: XenoPlasma
+    plasma: 200
+    maxPlasma: 200
+    plasmaRegenOnWeeds: 20
+  - type: MCArmor
+    soft:
+      melee: 20
+      bullet: 40
+      laser: 40
+      energy: 20
+      bomb: 50
+      bio: 50
+      fire: 20
+      acid: 50
+  # hard_armor = list(MELEE = 0, BULLET = 12, LASER = 6, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 26
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.85
+    baseSprintSpeed: 4
+  - type: RMCSize
+    size: Big
+  # Abilities
+  # Passive
+  - type: MCXenoSunder
+    multiplier: 0.5
