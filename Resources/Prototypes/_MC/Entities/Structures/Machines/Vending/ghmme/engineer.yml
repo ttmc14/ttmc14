@@ -29,7 +29,7 @@
         MCArmour: 1
       entries:
       - id: MCVendorBundleArmorXenonautenL
-        recommended: true
+        recommended: true 
       - id: MCVendorBundleArmorXenonautenM
         recommended: true
       - id: MCVendorBundleArmorXenonautenH
