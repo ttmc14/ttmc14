@@ -1,0 +1,66 @@
+- type: entity
+  parent: MCItem
+  id: MCBloodPack
+  name: blood pack
+  description: A blood pack. Contains fluids, typically used for transfusions.
+  suffix: empty
+  components:
+  - type: BloodPack
+  - type: Sprite
+    sprite: _RMC14/Objects/Medical/blood_pack.rsi
+    layers:
+    - state: bloodpack1
+      map: ["enum.BloodPackVisuals.Fill"]
+      visible: false
+    - state: bloodpack
+    - state: blank
+      map: ["enum.BloodPackVisuals.Label"]
+  - type: Item
+    size: Small
+    sprite: _RMC14/Objects/Medical/blood_pack.rsi
+  - type: SolutionContainerManager
+    solutions:
+      pack:
+        maxVol: 300
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: Appearance
+  - type: DrawableSolution
+    solution: pack
+  - type: InjectableSolution
+    solution: pack
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: Glass
+  - type: DamageOnHighSpeedImpact
+    minimumSpeed: 2
+    damage:
+      types:
+        Blunt: 5
+  - type: StaticPrice
+    price: 30
+  - type: Tag
+    tags:
+      - CMBloodPack
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - suitstorage
+
+- type: entity
+  parent: MCBloodPack
+  id: MCBloodPackFull
+  name: blood pack
+  suffix: full
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      pack:
+        maxVol: 300
+        reagents:
+        - ReagentId: Blood
+          Quantity: 300
