@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingWeapon
   name: automated weapon rack
   description: An automated weapon rack hooked up to a colossal storage of standard-issue weapons.

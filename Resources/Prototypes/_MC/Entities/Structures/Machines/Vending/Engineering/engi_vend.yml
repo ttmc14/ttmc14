@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingEngi
   name: Engi-Vend
   description: Spare engineer vending. What? Did you expect some witty description?

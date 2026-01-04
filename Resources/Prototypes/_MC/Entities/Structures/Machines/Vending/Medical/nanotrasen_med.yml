@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingNanotrasenMed
   name: NanotrasenMed Plus
   description: Medical Pharmaceutical dispenser. Provided by Nanotrasen Pharmaceuticals Division(TM).

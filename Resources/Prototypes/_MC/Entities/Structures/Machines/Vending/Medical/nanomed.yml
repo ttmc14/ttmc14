@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBaseAnchorable
+  parent: MCMachineVending
   id: MCMachineVendingNanoMed
   name: NanoMed
   description: Wall-mounted Medical Equipment dispenser.

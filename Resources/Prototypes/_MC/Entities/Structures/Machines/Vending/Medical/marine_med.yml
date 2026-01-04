@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingMarineMed
   name: MarineMed
   description: Marine Medical drug dispenser - Provided by Nanotrasen Pharmaceuticals Division(TM).

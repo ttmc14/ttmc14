@@ -1,5 +1,5 @@
 - type: entity
-  parent: ColMarTechBase
+  parent: MCMachineVending
   id: MCMachineVendingMarineMedBlood
   name: MM Blood Dispenser
   description: Marine Med brand Blood Pack dispensery.
@@ -16,7 +16,9 @@
     - name: Blood
       entries:
       - id: MCBloodPackFull
+        name: blood pack (full)
         amount: 30
       - id: MCBloodPackFull
+        name: blood pack (empty)
         amount: 10
   
