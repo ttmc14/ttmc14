@@ -3,6 +3,7 @@
   id: MCGuidebookActionXenoSelectWeeds
   name: Select Weeds
   description: Choose a weeds to plant with the 'Plant Weeds' ability.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _MC/Interface/Xeno/weed_icons.rsi
@@ -13,6 +14,7 @@
   id: MCGuidebookActionXenoPlantWeeds
   name: Plant Weeds
   description: Plants a resin weed node, which will start growing resin weeds in a 3-tile radius that allows xenomorphs to heal and restore plasma while on top of the tile.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _MC/Interface/Actions/Xeno/legacy.rsi
@@ -23,6 +25,7 @@
   id: MCGuidebookActionXenoSecreteStructure
   name: Secrete Resin
   description: Builds structures, which can be chosen by clicking on the ability while it's active.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _MC/Interface/Actions/Xeno/legacy.rsi
@@ -33,6 +36,7 @@
   id: MCGuidebookActionXenoChooseStructure
   name: Choose Resin Structure
   description: Choose a structure to secrete with the 'Secrete Resin' action.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _RMC14/Actions/xeno_actions.rsi
@@ -43,6 +47,7 @@
   id: MCGuidebookXenoActionLayEgg
   name: Lay Egg (200)
   description: Create an egg that will grow a larval hugger after a short delay. Empty eggs can have huggers inserted into them.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _MC/Interface/Actions/Xeno/construction.rsi

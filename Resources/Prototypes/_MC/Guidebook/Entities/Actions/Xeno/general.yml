@@ -3,6 +3,7 @@
   id: MCGuidebookActionXenoBlessings
   name: Queen Mother's Blessings
   description: Opens the Queen Mothers Blessings menu, where hive buildings and upgrades are bought.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _MC/Interface/Actions/Xeno/queen.rsi
@@ -13,6 +14,7 @@
   id: MCGuidebookActionXenoPsydrain
   name: Psy drain (50)
   description: Drain the victim of its life force to gain larva and psych points.
+  categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
     sprite: _MC/Interface/Actions/Xeno/general.rsi
