@@ -146,7 +146,7 @@
     attackRate: 1
     damage:
       types:
-        Blunt: 5
+        MCBrute: 5 # mc-changes
   - type: CMSurgeryTarget
   - type: UserInterface
     interfaces:
