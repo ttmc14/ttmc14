@@ -38,8 +38,7 @@
     repairPlasteel: 200
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 200
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -61,15 +60,15 @@
   - type: Barbed
     thornsDamage:
       types:
-        Slash: 10
+        MCBrute: 10
   - type: Construction
     graph: BarricadeMetalGraph
     node: nodeMetal
   - type: RMCConstructionUpgradeTarget
     upgrades:
-    - "RMCExplosiveUpgrade"
-    - "RMCBiohazardUpgrade"
-    - "RMCBruteUpgrade"
+    - MCExplosiveUpgrade
+    - MCBiohazardUpgrade
+    - MCBruteUpgrade
   - type: Tag
     tags:
     - MCMetalBarricade
@@ -77,7 +76,7 @@
 - type: Tag
   id: MCMetalBarricade
 
-#  Upgrades
+# Upgrades
 - type: entity
   parent: MCBarricadeMetal
   id: MCBarricadeBurn

@@ -89,7 +89,7 @@
   - type: Barbed
     thornsDamage:
       types:
-        Slash: 10
+        MCBrute: 10
   - type: Construction
     graph: BarricadeMetalDoorGraph
     node: nodeBarricadeMetalDoor

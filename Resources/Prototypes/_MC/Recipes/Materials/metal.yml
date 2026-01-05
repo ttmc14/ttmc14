@@ -1,0 +1,19 @@
+- type: rmcConstruction
+  id: MCMetalBarricadeBuild
+  name: metal barricade
+  prototype: MCBarricadeMetal
+  doAfterTime: 2
+  doAfterTimeMin: 1
+  materialCost: 4
+  skill: RMCSkillConstruction
+  requiredSkillLevel: 0
+
+- type: rmcConstruction
+  id: MCMetalBarricadeFoldingBuild
+  name: folding metal barricade
+  prototype: MCBarricadeMetalFolding
+  doAfterTime: 3
+  doAfterTimeMin: 1.5
+  materialCost: 6
+  skill: RMCSkillConstruction
+  requiredSkillLevel: 0

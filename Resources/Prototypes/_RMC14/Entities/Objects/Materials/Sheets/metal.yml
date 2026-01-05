@@ -38,8 +38,8 @@
     - type: RMCConstructionItem
       buildable:
       - RMCBarbedWireBuild
-      - RMCMetalBarricadeBuild
-      - RMCMetalBarricadeFoldableBuild
+      - MCMetalBarricadeBuild # mc-changes
+      - MCMetalBarricadeFoldingBuild # mc-changes
       - RMCHandrailBuild
       # - RMCDividerConstruction
       # APC frame
@@ -67,7 +67,7 @@
     - type: RMCConstructionUpgradeItem
       whitelist:
         tags:
-        - RMCMetalBarricade
+        - MCMetalBarricade # mc-changes
         - RMCPlasteelBarricade
     - type: Material
     - type: PhysicalComposition

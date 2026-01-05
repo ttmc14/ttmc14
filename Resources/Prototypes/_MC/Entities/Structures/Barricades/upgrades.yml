@@ -1,0 +1,46 @@
+# Base
+- type: entity
+  abstract: true
+  id: MCBarricadeUpgrade
+  components:
+  - type: RMCConstructionUpgrade
+  - type: Sprite
+    sprite: _RMC14/Interface/barricade_upgrades.rsi
+
+# Metal
+- type: entity
+  parent: MCBarricadeUpgrade
+  id: MCExplosiveUpgrade
+  name: composite upgrade (++Explosive, ++Projectile, ++Fire)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCConstructionUpgrade
+    upgradedPopup: rmc-construction-upgrade-explosive
+    upgradedEntity: MCBarricadeExplosive
+  - type: Sprite
+    state: explosive
+
+- type: entity
+  parent: MCBarricadeUpgrade
+  id: MCBiohazardUpgrade
+  name: biohazard upgrade (+Burn)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCConstructionUpgrade
+    upgradedPopup: rmc-construction-upgrade-burn
+    upgradedEntity: MCBarricadeBurn
+  - type: Sprite
+    state: burn
+
+- type: entity
+  parent: MCBarricadeUpgrade
+  id: MCBruteUpgrade
+  name: reinforced upgrade (+Brute)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCConstructionUpgrade
+    upgradedPopup: rmc-construction-upgrade-brute
+    upgradedEntity: MCBarricadeBrute
+  - type: Sprite
+    state: brute
+
