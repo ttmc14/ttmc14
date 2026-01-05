@@ -15,3 +15,12 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Backpacks/Marines/technician.rsi
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackMarineCorpsman
+  name: corpsman backpack
+  description: The standard-issue backpack worn by TGMC corpsmen. You can recharge defibrillators by plugging them in.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/medical.rsi

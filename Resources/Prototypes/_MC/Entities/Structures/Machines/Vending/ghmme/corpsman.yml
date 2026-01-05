@@ -62,8 +62,9 @@
       choices:
         MCBackpack: 1
       entries:
-      - id: MCSatchelMarineStandard
+      - id: MCSatchelMarineCorpsman
         recommended: true
+      - id: MCBackpackMarineCorpsman
       # Corspman Backpack
     - name: Webbing
       choices:

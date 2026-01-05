@@ -24,3 +24,12 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Satchels/Marines/technician.rsi
+
+- type: entity
+  parent: MCBackpack
+  id: MCSatchelMarineCorpsman
+  name: corpsman satchel
+  description: A heavy-duty satchel carried by some TGMC corpsmen. You can recharge defibrillators by plugging them in.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Satchels/Marines/medical.rsi
