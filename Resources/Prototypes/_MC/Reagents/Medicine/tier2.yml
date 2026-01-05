@@ -246,9 +246,28 @@
     Medicine:
       metabolismRate: 0.2
       effects:
-      # пуржит лексорин, тут передоз уже есть из говнокода оффов
-      - !type:Oxygenating
-        potency: 6
+      # - !type:MCPurge
+      #   reagents:
+      #   - MCLexorin
+      - !type:MCHealthAll
+        damageId: MCOxygen
+      # Overdose
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 25
+        damage:
+          types:
+            MCToxin: 1
+      # Critical overdose
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 25
+        damage:
+          types:
+            MCBrute: 2
 
 - type: reagent
   parent: MCReagentMedicine
@@ -413,16 +432,16 @@
       effects:
       - !type:ModifyBloodLevel
         amount: 0.2
-        conditions:
-        - !type:Temperature
-          max: 170
+      # Overdose
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold
           min: 15
+          max: 25
         damage:
           types:
             MCBrute: 2
+      # Critical overdose
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

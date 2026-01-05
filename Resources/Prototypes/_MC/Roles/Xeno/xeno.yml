@@ -180,6 +180,17 @@
   id: MCXenoHunter
   isXeno: true
 
+# Panther
+- type: job
+  parent: MCJobXeno
+  id: MCXenoPanther
+  name: mc-job-name-xeno-panther
+  playTimeTracker: MCXenoPanther
+
+- type: playTimeTracker
+  id: MCXenoPanther
+  isXeno: true
+
 # Spitter
 - type: job
   parent: MCJobXeno

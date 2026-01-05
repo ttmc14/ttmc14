@@ -53,10 +53,9 @@
     bloodRefreshAmount: 0.15
     bloodlossDamage:
       types:
-        Bloodloss: 0.5
+        MCOxygen: 5 # mc-changes
     bloodlossHealDamage:
-      types:
-        Bloodloss: -1
+      types: null   # mc-changes
     damageBleedModifiers: CMBloodlossHuman
   - type: Woundable
   - type: StatusEffects

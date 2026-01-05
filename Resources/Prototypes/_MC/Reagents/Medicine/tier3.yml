@@ -47,7 +47,6 @@
         reagent: MCToxin
         amount: 5
 
-# NO PARITY!!!
 - type: reagent
   parent: MCReagentMedicine
   id: MCDremin
@@ -81,7 +80,6 @@
           types:
             MCClone: 5
 
-# NO PARITY!!!
 - type: reagent
   parent: MCReagentMedicine
   id: MCTimeroll
