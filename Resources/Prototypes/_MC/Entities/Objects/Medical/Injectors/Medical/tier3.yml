@@ -15,3 +15,21 @@
           Quantity: 15
   - type: IconLabel
     labelTextLocId: mc-quickclotplus-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorRussianRed
+  name: russian red autoinjector
+  description: An autoinjector loaded with 3 doses of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage.
+  components:
+  - type: Hypospray
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 30
+        reagents:
+        - ReagentId: MCRussianRed
+          Quantity: 30
+  - type: IconLabel
+    labelTextLocId: mc-russian-red-container-label-text

@@ -21,7 +21,9 @@
       - id: MCPillCanisterTricordrazine
       - id: MCPillCanisterDylovene
       - id: MCPillCanisterParacetamol
-      - id: MCPillCanisterSalineGlucose
+      - id: MCPillCanisterSalineGlucose # isotonic
+      - id: MCPillCanisterSugar
+      - id: MCPillCanisterDoctorDelight
       - id: MCPillCanister
     - name: Auto Injector
       entries:

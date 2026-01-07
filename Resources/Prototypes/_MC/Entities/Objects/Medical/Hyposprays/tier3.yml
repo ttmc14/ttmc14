@@ -1,0 +1,19 @@
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillRussianRed
+  name: russian red hypospray
+  description: A hypospray loaded with Russian Red, a chemical that heals all damage rapidly at the cost of small amounts of unhealable damage.
+  suffix: Fill
+  components:
+  - type: Hypospray
+    transferAmount: 10
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCRussianRed
+          Quantity: 120
+  - type: IconLabel
+    labelTextLocId: mc-russian-red-container-label-text

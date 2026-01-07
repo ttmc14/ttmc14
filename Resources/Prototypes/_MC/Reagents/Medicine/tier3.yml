@@ -58,7 +58,7 @@
   criticalOverdose: 20
   metabolisms:
     Medicine:
-      metabolismRate: 1 # легкий крафт, попроще
+      metabolismRate: 1
       effects:
       - !type:HealthChange
         damage:
@@ -82,10 +82,49 @@
 
 - type: reagent
   parent: MCReagentMedicine
+  id: MCRussianRed
+  name: reagent-name-mc-russian-red
+  desc: reagent-desc-mc-russian-red
+  physicalDesc: mc-reagent-physical-desc-liquid
+  color: "#3d0000"
+  overdose: 15
+  criticalOverdose: 20
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            MCBrute: -7
+            MCBurn: -7
+            MCToxin: -2.5
+            MCClone: 0.7
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 15
+          max: 20
+        damage:
+          types:
+            MCBrute: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 20
+        damage:
+          types:
+            MCBrute: 1
+            MCBurn: 2
+            # brain loss?
+
+- type: reagent
+  parent: MCReagentMedicine
   id: MCTimeroll
   name: reagent-name-mc-timeroll
   desc: reagent-desc-mc-timeroll
-  physicalDesc: mc-reagent-physical-desc-unidentifiable # Играемся в гамбу
+  physicalDesc: mc-reagent-physical-desc-unidentifiable
   color: "#8403fc"
   overdose: 5
   criticalOverdose: 10

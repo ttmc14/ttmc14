@@ -42,8 +42,11 @@
         name: hypospray (60u Nanoblood)
         points: 3
       - id: MCHyposprayFillQuickClotPlus
-        name: Hypospray (60u QuickclotPlus)
+        name: hypospray (60u QuickclotPlus)
         points: 4
+      - id: MCHyposprayBigFillRussianRed
+        name: hypospray (120u Russian Red)
+        points: 14
     - name: Auto Injector
       entries:
       - id: MCAutoInjectorMeralyne

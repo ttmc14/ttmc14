@@ -302,7 +302,6 @@
   - type: IconLabel
     labelTextLocId: mc-tramadol-container-label-text
 
-
 - type: entity
   parent: MCPillCanister
   id: MCPillCanisterParacetamol
@@ -326,6 +325,54 @@
       amount: 16
   - type: IconLabel
     labelTextLocId: mc-paracetamol-container-label-text
+
+- type: entity
+  parent: MCPillCanister
+  id: MCPillCanisterSugar
+  name: sugar pill bottle
+  description: Contains pills used to prevent hunger, yum!
+  suffix: full
+  components:
+  - type: Item
+    heldPrefix: 5
+  - type: Sprite
+    layers:
+    - state: pill_canister6
+      map: [ "bottleSurfaceLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: closed
+      map: [ "closedLayer" ]
+  - type: StorageFill
+    contents:
+    - id: MCPillSugar
+      amount: 16
+  - type: IconLabel
+    labelTextLocId: mc-sugar-container-label-text
+
+- type: entity
+  parent: MCPillCanister
+  id: MCPillCanisterDoctorDelight
+  name: doctor's delight pill bottle
+  description: Contains pills used to heal slowly.
+  suffix: full
+  components:
+  - type: Item
+    heldPrefix: 5
+  - type: Sprite
+    layers:
+    - state: pill_canister7
+      map: [ "bottleSurfaceLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: closed
+      map: [ "closedLayer" ]
+  - type: StorageFill
+    contents:
+    - id: MCPillDoctorDelight
+      amount: 16
+  - type: IconLabel
+    labelTextLocId: mc-doctor-delight-container-label-text
 
 - type: entity
   parent: MCPillCanister

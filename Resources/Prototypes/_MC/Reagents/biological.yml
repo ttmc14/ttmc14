@@ -13,7 +13,7 @@
   meltingPoint: 0.0
   friction: 0.4
   overdose: 60
-  criticalOverdose: 120 #parity
+  criticalOverdose: 120
   metabolisms:
     Medicine:
       metabolismRate: 1 #не нихуя не всё пуржит, потом пурж сделать ибо заеб.
@@ -53,7 +53,7 @@
     Food:
       metabolismRate: 0.4
       effects:
-      - !type:SatiateHunger #Тут нужно будет накинуть taste_multi = 1.5 который блокирует вкусы других веществ.
+      - !type:SatiateHunger # Тут нужно будет накинуть taste_multi = 1.5 который блокирует вкусы других веществ.
         factor: 5
 
 - type: reagent

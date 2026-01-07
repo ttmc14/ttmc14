@@ -157,3 +157,36 @@
     layers:
     - state: pill6
       map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillDoctorDelight
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCDoctorDelight
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill5
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+
+- type: entity
+  parent: MCPill
+  id: MCPillSugar
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCSugar
+          Quantity: 15
+  - type: Sprite
+    layers:
+    - state: pill7
+      map: [ "enum.DamageStateVisualLayers.Base" ]

@@ -391,3 +391,25 @@
           types:
             MCBrute: 1
             MCToxin: 1
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCDoctorDelight
+  name: reagent-name-mc-doctor-delight
+  desc: reagent-desc-mc-doctor-delight
+  physicalDesc: mc-reagent-physical-desc-liquid
+  color: "#FF8CFF"
+  overdose: null
+  criticalOverdose: null
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.05
+      effects:
+      - !type:HealthChange
+        conditions:
+        damage:
+          types:
+            MCBrute: -0.5
+            MCBurn: -0.5
+            MCToxin: -0.5
+            MCOxygen: -0.5
