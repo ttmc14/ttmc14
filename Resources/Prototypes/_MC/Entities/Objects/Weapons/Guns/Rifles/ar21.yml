@@ -30,6 +30,10 @@
     scatterWielded: -2
     scatterUnwielded: 12 # default value
     baseFireRate: 4
+    modifiers:
+      FullAuto:
+        useBurstScatterMult: false
+        unwieldedScatterMultiplier: 1
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.2
     accuracyMultiplierUnwielded: 0.6
@@ -114,9 +118,9 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar21.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Appearance
 
 - type: entity
