@@ -7,6 +7,7 @@ using Content.Shared.Actions;
 using Content.Shared.Administration.Logs;
 using Content.Shared.Coordinates.Helpers;
 using Content.Shared.Database;
+using Content.Shared.Mobs;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
@@ -42,6 +43,7 @@ public sealed class MCXenoPlantingWeedsSystem : EntitySystem
 
         SubscribeLocalEvent<MCXenoPlantingWeedsComponent, MCXenoPlaceWeedsActionEvent>(OnPlaceEvent);
         SubscribeLocalEvent<MCXenoPlantingWeedsComponent, MCXenoChooseWeedsActionEvent>(OnChooseEvent);
+        SubscribeLocalEvent<MCXenoPlantingWeedsComponent, MobStateChangedEvent>(OnMobStateChanged);
 
         SubscribeLocalEvent<MCXenoChooseWeedsActionComponent, MCXenoWeedsChosenEvent>(OnActionWeedsChosen);
     }
@@ -122,6 +124,15 @@ public sealed class MCXenoPlantingWeedsSystem : EntitySystem
     private void OnPlaceEvent(Entity<MCXenoPlantingWeedsComponent> entity, ref MCXenoPlaceWeedsActionEvent args)
     {
         args.Handled = TryPlace(entity);
+    }
+
+    private void OnMobStateChanged(Entity<MCXenoPlantingWeedsComponent> entity, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Alive)
+            return;
+
+        entity.Comp.Auto = false;
+        Dirty(entity);
     }
 
     private bool TryPlace(Entity<MCXenoPlantingWeedsComponent> entity)
