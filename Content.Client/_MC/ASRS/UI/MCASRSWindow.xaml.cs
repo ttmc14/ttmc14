@@ -26,7 +26,7 @@ public sealed partial class MCASRSWindow : DefaultWindow
 
     public void HideAllViews()
     {
-        foreach (var child in MainContainer.Children.Where(child => child is not UI.Views.MCASRSCategoryView))
+        foreach (var child in MainContainer.Children.Where(child => child is not MCASRSCategoryView))
         {
             child.Visible = false;
         }

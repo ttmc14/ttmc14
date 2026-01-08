@@ -3,6 +3,7 @@ using Content.Shared._MC.Beacon.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.ASRS.Components;
 
@@ -45,7 +46,7 @@ public sealed partial class MCASRSConsoleComponent : Component
 public sealed partial class MCASRSCategory
 {
     [DataField]
-    public string Name = string.Empty;
+    public LocId Name = string.Empty;
 
     [DataField]
     public List<MCASRSEntry> Entries = new();
@@ -55,7 +56,10 @@ public sealed partial class MCASRSCategory
 public sealed partial class MCASRSEntry
 {
     [DataField]
-    public string? Name;
+    public SpriteSpecifier.Rsi? Icon;
+
+    [DataField]
+    public LocId? Name;
 
     [DataField]
     public int Cost;

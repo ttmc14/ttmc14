@@ -17,6 +17,10 @@ public sealed partial class MCASRSBui(EntityUid owner, Enum uiKey) : BoundUserIn
     [ViewVariables]
     private MCBeaconChooseWindow _beaconChooseWindow = null!;
 
+    public bool SettingShowIcons { get; private set; }
+
+    private MCASRSView? _openedView;
+
     protected override void Open()
     {
         base.Open();
@@ -40,10 +44,12 @@ public sealed partial class MCASRSBui(EntityUid owner, Enum uiKey) : BoundUserIn
         base.Dispose(disposing);
 
         _beaconChooseWindow.Close();
+        _openedView = null;
     }
 
     private void OpenView(MCASRSView view)
     {
         _window.OpenView(this, view);
+        _openedView = view;
     }
 }

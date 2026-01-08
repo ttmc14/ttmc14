@@ -36,7 +36,7 @@ public sealed partial class MCASRSRequestButton : BoxContainer
             if (count > 0)
                 message += $"{count}x";
 
-            message += $"{entry.Name} ({entry.Cost * count})";
+            message += $"{Loc.GetString(entry.Name ?? "Unknown")} ({entry.Cost * count})";
             label.SetMessage(message);
 
             Container.Children.Add(label);

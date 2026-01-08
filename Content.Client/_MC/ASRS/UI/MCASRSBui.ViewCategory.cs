@@ -20,6 +20,9 @@ public sealed partial class MCASRSBui
         CategoryView.ApprovedRequestsButton.OnPressed += _ => OpenView(_window.RequestsApprovedHistoryView);
         CategoryView.DeniedRequestsButton.OnPressed += _ => OpenView(_window.RequestsDeniedHistoryView);
 
+        // Settings
+        CategoryView.ShowIconsButton.OnToggled += args => SetShowIcons(args.Pressed);
+
         StoreRefreshed += CategoryRefresh;
         StateRefreshed += CategoryRefresh;
     }
@@ -44,5 +47,13 @@ public sealed partial class MCASRSBui
     {
         Category = category;
         OpenView(OrdersView);
+    }
+
+    private void SetShowIcons(bool pressed)
+    {
+        SettingShowIcons = pressed;
+
+        if (_openedView is not null)
+            OpenView(_openedView);
     }
 }

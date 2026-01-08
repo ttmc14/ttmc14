@@ -13,11 +13,11 @@
             </PanelContainer.PanelOverride>
 
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
-                <RichTextLabel Text="Operations" Name="CategoryNameLabel" Margin="8" />
+                <RichTextLabel Text="" Name="CategoryNameLabel" Margin="8" />
 
                 <cc:HSeparator />
 
-                <LineEdit PlaceHolder="Search..." Name="SearchBar" HorizontalExpand="True" Margin="8 8" />
+                <LineEdit PlaceHolder="{Loc 'asrs-ui-search-placeholder'}" Name="SearchBar" HorizontalExpand="True" Margin="8 8" />
 
                 <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
                     <BoxContainer Orientation="Vertical" Name="Container" HorizontalExpand="True" VerticalExpand="True" Margin="8"/>

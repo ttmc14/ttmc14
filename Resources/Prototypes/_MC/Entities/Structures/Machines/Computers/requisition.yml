@@ -14,232 +14,370 @@
     key: enum.MCASRSConsoleUI.Key
   - type: ActivatableUIRequiresAccess
   - type: AccessReader
-    access: [ [ "MCAccessCargo" ] ]
+    access: [ [ MCAccessCargo ] ]
   - type: UserInterface
     interfaces:
       enum.MCASRSConsoleUI.Key:
         type: MCASRSBui
   - type: MCASRSConsole
     categories:
-    - name: Operations
+    - name: mc-asrs-category-operations
       entries:
-      - name: Supply beacon
+      - name: mc-asrs-entry-supply-beacon
+        icon:
+          sprite: _MC/Objects/Items/beacon.rsi
+          state: motion_0
         cost: 100
         entities:
         - MCBeaconSupply
-      - name: Orbital beacon
+      - name: mc-asrs-entry-orbital-beacon
+        icon:
+          sprite: _MC/Objects/Items/beacon.rsi
+          state: motion_4
         cost: 50
         entities:
         - MCBeaconOrbital
-    - name: Weapons
+    - name: mc-asrs-category-weapons
       entries:
-      - name: PB-12 pepperball gun
+      - name: mc-asrs-entry-pb12-pepperball
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Special/pepperball.rsi
+          state: base
         cost: 100
         entities:
         - MCWeaponPepperball
-      # Flamer
-      - name: FL-84 flamethrower
+      - name: mc-asrs-entry-fl84-flamethrower
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+          state: base
         cost: 150
         entities:
         - MCWeaponFlamer
-      - name: FL-84 G-fuel tank
+      - name: mc-asrs-entry-fl84-gfuel-tank
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+          state: flametank_large_green
         cost: 75
         entities:
         - MCTankFlamerGreen
-      - name: FL-84 X-fuel tank
+      - name: mc-asrs-entry-fl84-xfuel-tank
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+          state: flametank_large_blue
         cost: 300
         entities:
         - MCTankFlamerBlue
-      - name: Standard backpack fuel tank
+      - name: mc-asrs-entry-standard-backpack-fuel
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamethrower_tank.rsi
+          state: flamethrower_tank
         cost: 200
         entities:
         - MCBackpackFlamer
-      - name: X-fuel backpack fuel tank
+      - name: mc-asrs-entry-xfuel-backpack-fuel
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/x_flamethrower_tank.rsi
+          state: x_flamethrower_tank
         cost: 600
         entities:
         - MCBackpackFlamerX
-      - name: SR-127 flak magazine
+      - name: mc-asrs-entry-sr127-flak-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127_flak.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSR127Flak
-      - name: AR-12 armor piercing magazine
+      - name: mc-asrs-entry-ar12-ap-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi
+          state: base
         cost: 30
         entities:
         - MCMagazineRifleAR12AP
-    - name: Stationary
+    - name: mc-asrs-category-stationary
       entries:
-      # Base
-      - name: SBT-571 sentry gun
+      - name: mc-asrs-entry-sbt571-sentry
+        icon:
+          sprite: _MC/Objects/Sentries/base.rsi
+          state: handled
         cost: 200
         entities:
         - MCSentryBig
-      - name: SBT-571 sentry gun magazine
+      - name: mc-asrs-entry-sbt571-magazine
+        icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/base.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSentryBig
-      # Mini
-      - name: SMT-580 sentry gun
+      - name: mc-asrs-entry-smt580-sentry
+        icon:
+          sprite: _MC/Objects/Sentries/mini.rsi
+          state: handled
         cost: 350
         entities:
         - MCSentryMini
-      - name: SMT-580 sentry gun magazine
+      - name: mc-asrs-entry-smt580-magazine
+        icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/mini.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSentryMini
-      # Sniper
-      - name: SST-574 sentry gun
+      - name: mc-asrs-entry-sst574-sentry
+        icon:
+          sprite: _MC/Objects/Sentries/sniper.rsi
+          state: handled
         cost: 350
         entities:
         - MCSentrySniper
-      - name: SBT-571 sentry gun magazine
+      - name: mc-asrs-entry-sst574-magazine
+        icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/sniper.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSentrySniper
-      # Shotgun
-      - name: SHT-573 sentry gun
+      - name: mc-asrs-entry-sht573-sentry
+        icon:
+          sprite: _MC/Objects/Sentries/shotgun.rsi
+          state: handled
         cost: 350
         entities:
         - MCSentryShotgun
-      - name: SHT-573 sentry gun magazine
+      - name: mc-asrs-entry-sht573-magazine
+        icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/shotgun.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSentryShotgun
-    - name: Explosives
-    - name: Armor
+    - name: mc-asrs-category-explosives
+    - name: mc-asrs-category-armor
       entries:
-      - name: Scout cloak (WIP)
+      - name: mc-asrs-entry-scout-cloak
+        icon:
+          sprite: _RMC14/Objects/Clothing/Back/Backpacks/Marines/scout_cloak.rsi
+          state: icon
         cost: 500
         entities:
         - RMCBackpackScout
-      - name: Sniper cloak (WIP)
+      - name: mc-asrs-entry-sniper-cloak
+        icon:
+          sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/ghillie/jungle.rsi
+          state: icon
         cost: 500
         entities:
         - CMArmorM45
-      - name: Valkyrie automedical system (WIP)
+      - name: mc-asrs-entry-valkyrie-automedical
+        icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_fire
         cost: 200
         entities:
         - MCArmorModuleValkyrieAutomedical
-      - name: Surt thermal insulation system
+      - name: mc-asrs-entry-surt-thermal
+        icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_fire
         cost: 120
         entities:
         - MCArmorModuleSurtPyrotechnical
-      - name: Tyr Mk.2 armor reinforcement system
+      - name: mc-asrs-entry-tyr-mk2
+        icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_armor
         cost: 120
         entities:
         - MCArmorModuleMark2TyrArmor
-      - name: Mimir Mk.2 environmental resistance system
+      - name: mc-asrs-entry-mimir-mk2
+        icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_biohazard
         cost: 120
         entities:
         - MCArmorModuleMark2Mimir
-      - name: hlin explosive compensation module
+      - name: mc-asrs-entry-hlin-explosive
+        icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_boomimmune
         cost: 100
         entities:
         - MCArmorModuleHlinExplosive
-    - name: Clothing
-    - name: Medical
-    - name: Engineering
+    - name: mc-asrs-category-clothing
+    - name: mc-asrs-category-medical
+    - name: mc-asrs-category-engineering
       entries:
-      - name: 50 empty sandbags
+      - name: mc-asrs-entry-sandbags-50
+        icon:
+          sprite: _RMC14/Objects/Misc/sandbags.rsi
+          state: sandbag_stack
         cost: 100
         entities:
         - CMSandbagEmpty50
-      - name: 50 metal sheets
+      - name: mc-asrs-entry-metal-sheets-50
+        icon:
+          sprite: _RMC14/Objects/Materials/Sheets/metal.rsi
+          state: metal_4
         cost: 200
         entities:
         - CMSheetMetal50
-      - name: 50 plasteel sheets
+      - name: mc-asrs-entry-plasteel-sheets-50
+        icon:
+          sprite: _RMC14/Objects/Materials/Sheets/plasteel.rsi
+          state: plasteel_4
         cost: 400
         entities:
         - CMSheetPlasteel50
-      - name: 50 glass sheets
+      - name: mc-asrs-entry-glass-sheets-50
+        icon:
+          sprite: _RMC14/Objects/Materials/Sheets/glass.rsi
+          state: glass_4
         cost: 100
         entities:
         - CMSheetGlass
-      - name: 50 phoron Sheets
+      - name: mc-asrs-entry-phoron-sheets-50
+        icon:
+          sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi
+          state: phoron
         cost: 200
         entities:
         - MCSheetPhoron
-    - name: Smartguns
+    - name: mc-asrs-category-smartguns
       entries:
-      # SG-29
-      - name: SG-29 smart machine gun
+      - name: mc-asrs-entry-sg29
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29.rsi
+          state: base
         cost: 400
         entities:
         - MCWeaponSmartGunSG29
-      - name: SG-29 ammo drum
+      - name: mc-asrs-entry-sg29-drum
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg29.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSmartGunSG29
-      # SG-25
-      - name: SG-25 smartrifle
+      - name: mc-asrs-entry-sg25
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
+          state: base
         cost: 400
         entities:
         - MCWeaponSmartGunSG25
-      - name: SG-25 smartrifle magazine
+      - name: mc-asrs-entry-sg25-mag
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg25.rsi
+          state: base
         cost: 20
         entities:
         - MCMagazineSmartGunSG25
-      - name: SG-25 extended magazine
+      - name: mc-asrs-entry-sg25-extended
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg25_ext.rsi
+          state: base
         cost: 200
         entities:
         - MCMagazineSmartGunSG25Extended
-      - name: SG-29 & SG-25 smartrifle ammo box
+      - name: mc-asrs-entry-sg-ammo-box
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
         cost: 400
         entities:
         - MCBoxBulletsSmartGunSG29
-      # SG-62
-      - name: SG-62 smart target rifle
+      - name: mc-asrs-entry-sg62
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg62.rsi
+          state: base
         cost: 400
         entities:
         - MCWeaponSmartGunSG62
-      - name: SG-62 smart target rifle ammo
+      - name: mc-asrs-entry-sg62-mag
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg62.rsi
+          state: base
         cost: 35
         entities:
         - MCMagazineSmartGunSG62
-      - name: SG-62 smart target rifle ammo box
+      - name: mc-asrs-entry-sg62-box
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
         cost: 50
         entities:
         - MCBoxBulletsSmartGunSG62
-      # SG-153
-      - name: SG-153 spotting rifle ammo
+      - name: mc-asrs-entry-sg153-mag
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153.rsi
+          state: base
         cost: 15
         entities:
         - MCMagazineSmartGunSG153
-      - name: SG-153 spotting rifle ammo box
+      - name: mc-asrs-entry-sg153-box
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
         cost: 10
         entities:
         - MCBoxBulletsSmartGunSG153
-      - name: SG-153 high impact spotting rifle ammo
+      - name: mc-asrs-entry-sg153-highimpact
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_hi.rsi
+          state: base
         cost: 50
         entities:
         - MCMagazineSmartGunSG153Highimpact
-      - name: SG-153 heavy rubber spotting rifle ammo
+      - name: mc-asrs-entry-sg153-heavyrubber
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_hr.rsi
+          state: base
         cost: 15
         entities:
         - MCMagazineSmartGunSG153Heavyrubber
-      - name: SG-153 tanglefoot spotting rifle ammo
+      - name: mc-asrs-entry-sg153-tanglefoot
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_pl.rsi
+          state: base
         cost: 15
         entities:
         - MCMagazineSmartGunSG153Plasmaloss
-      - name: SG-153 tungsten spotting rifle ammo
+      - name: mc-asrs-entry-sg153-tungsten
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_tg.rsi
+          state: base
         cost: 15
         entities:
         - MCMagazineSmartGunSG153Tungsten
-      - name: SG-153 flak spotting rifle ammo
+      - name: mc-asrs-entry-sg153-flak
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_fl.rsi
+          state: base
         cost: 15
         entities:
         - MCMagazineSmartGunSG153Flak
-      - name: SG-153 incendiary spotting rifle ammo
+      - name: mc-asrs-entry-sg153-incendiary
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_ic.rsi
+          state: base
         cost: 15
         entities:
         - MCMagazineSmartGunSG153Incendiary
-    - name: Medical
+    - name: mc-asrs-category-medical
       entries:
-      - name: Lemoline bottle
+      - name: mc-asrs-entry-lemoline
+        icon:
+          sprite: _MC/Objects/Chemistry/bottles.rsi
+          state: bottle-1
         cost: 80
         entities:
         - MCBottleLemoline
-      - name: Advanced medical packs
+      - name: mc-asrs-entry-advanced-medkits
+        icon:
+          sprite: /Textures/_MC/Objects/Medical/medical.rsi
+          state: combat_traumakit
         cost: 100
         entities:
         - MCTraumaKitCombat
@@ -252,19 +390,25 @@
         - MCBurnKitCombat
         - MCBurnKitCombat
         - MCBurnKitCombat
-      - name: Health scanner gloves
+      - name: mc-asrs-entry-health-scanner-gloves
+        icon:
+          sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
+          state: icon
         cost: 60
         entities:
         - MCClothingHandsHealthanalyzer
-      - name: Bluespace beakers
+      - name: mc-asrs-entry-bluespace-beakers
+        icon:
+          sprite: _MC/Objects/Chemistry/bluespace_beaker.rsi
+          state: beakerbluespace
         cost: 60
         entities:
         - MCBeakerBluespace
         - MCBeakerBluespace
-    - name: Supplies
-    - name: Imports
-    - name: Vehicles
-    - name: Factory
+    - name: mc-asrs-category-supplies
+    - name: mc-asrs-category-imports
+    - name: mc-asrs-category-vehicles
+    - name: mc-asrs-category-factory
 
 - type: entity
   parent: MCASRSConsole

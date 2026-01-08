@@ -3,24 +3,28 @@
     xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
     xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
     xmlns:views="clr-namespace:Content.Client._MC.ASRS.UI.Views">
+
     <BoxContainer Orientation="Vertical" VerticalExpand="True" Margin="4">
+
         <PanelContainer VerticalExpand="True">
+
             <PanelContainer.PanelOverride>
                 <graphics:StyleBoxFlat
                     BorderColor="#3A3A3A"
                     BorderThickness="1"
                     BackgroundColor="#1A1A1A" />
             </PanelContainer.PanelOverride>
+
             <BoxContainer Orientation="Vertical" Margin="8">
 
                 <BoxContainer Orientation="Vertical" Margin="8">
                     <BoxContainer Orientation="Horizontal">
-                        <RichTextLabel Text="Personal Points: " />
+                        <RichTextLabel Text="{Loc 'asrs-ui-personal-points'}" />
                         <RichTextLabel Text="0" Name="PersonalPointsLabel" />
                     </BoxContainer>
 
                     <BoxContainer Orientation="Horizontal">
-                        <RichTextLabel Text="Personal: " />
+                        <RichTextLabel Text="{Loc 'asrs-ui-points'}" />
                         <RichTextLabel Text="0" Name="PointsLabel" />
                     </BoxContainer>
                 </BoxContainer>
@@ -29,48 +33,108 @@
 
                 <BoxContainer Orientation="Vertical" Margin="8">
                     <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                        <Button Text="Awaiting delivery" Name="AwaitingDeliveryButton" StyleClasses="ButtonSquare" TextAlign="Left" HorizontalExpand="True" Disabled="True" Access="Public" />
+                        <Button Text="{Loc 'asrs-ui-awaiting-delivery'}"
+                                Name="AwaitingDeliveryButton"
+                                StyleClasses="ButtonSquare"
+                                TextAlign="Left"
+                                HorizontalExpand="True"
+                                Disabled="True"
+                                Access="Public" />
 
                         <BoxContainer Orientation="Horizontal" Align="Center" Margin="8 0">
                             <RichTextLabel Text="0" Name="OrdersLabel" />
-                            <RichTextLabel Text=" orders" />
+                            <RichTextLabel Text="{Loc 'asrs-ui-orders'}" />
                         </BoxContainer>
                     </BoxContainer>
                 </BoxContainer>
 
                 <cc:HSeparator Color="#4972A1" Margin="8 0" />
 
-                <BoxContainer Orientation="Vertical" Margin="8">
+                <BoxContainer Orientation="Vertical" Margin="8" MinWidth="350">
                     <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-                        <Button Text="Pending Order" Name="PendingOrderButton" StyleClasses="ButtonSquare" TextAlign="Left" HorizontalExpand="True" Disabled="True" Access="Public" />
+                        <Button Text="{Loc 'asrs-ui-pending-order'}"
+                                Name="PendingOrderButton"
+                                StyleClasses="ButtonSquare"
+                                TextAlign="Left"
+                                HorizontalExpand="True"
+                                Disabled="True"
+                                Access="Public" />
 
                         <BoxContainer Orientation="Horizontal" Align="Center" Margin="8 0">
-                            <RichTextLabel Text="0" Name="ItemsLabel" />
-                            <RichTextLabel Text=" items" />
+                            <RichTextLabel Text="" Name="ItemsLabel" />
+                            <RichTextLabel Text="{Loc 'asrs-ui-items'}" />
                         </BoxContainer>
 
                         <BoxContainer Orientation="Horizontal" Align="End" Margin="8 0">
-                            <RichTextLabel Text="Cost:" />
-                            <RichTextLabel Text="0" Name="CostLabel" />
+                            <RichTextLabel Text="{Loc 'asrs-ui-cost'}" />
+                            <RichTextLabel Text="" Name="CostLabel" />
                         </BoxContainer>
                     </BoxContainer>
 
-                    <Button Text="Previous Purchases" Name="PreviousPurchasesButton" StyleClasses="ButtonSquare" TextAlign="Left" HorizontalExpand="True" Disabled="True" Access="Public" />
-                    <Button Text="Export History" Name="ExportHistoryButton" StyleClasses="ButtonSquare" TextAlign="Left" HorizontalExpand="True" Disabled="True" Access="Public" />
+                    <Button Text="{Loc 'asrs-ui-previous-purchases'}"
+                            Name="PreviousPurchasesButton"
+                            StyleClasses="ButtonSquare"
+                            TextAlign="Left"
+                            HorizontalExpand="True"
+                            Disabled="True"
+                            Access="Public" />
+
+                    <Button Text="{Loc 'asrs-ui-export-history'}"
+                            Name="ExportHistoryButton"
+                            StyleClasses="ButtonSquare"
+                            TextAlign="Left"
+                            HorizontalExpand="True"
+                            Disabled="True"
+                            Access="Public" />
                 </BoxContainer>
 
                 <cc:HSeparator Color="#4972A1" Margin="8 0" />
 
                 <BoxContainer Orientation="Vertical" Access="Public" Margin="8">
-                    <Button Text="Requests" Name="RequestsButton" StyleClasses="ButtonSquare" TextAlign="Left" HorizontalExpand="True" Disabled="True" Access="Public" />
-                    <Button Text="Approved Requests" Name="ApprovedRequestsButton" TextAlign="Left" StyleClasses="ButtonSquare" HorizontalExpand="True" Disabled="True" Access="Public" />
-                    <Button Text="Denied Requests" Name="DeniedRequestsButton" TextAlign="Left" StyleClasses="ButtonSquare" HorizontalExpand="True" Disabled="True" Access="Public" />
+                    <Button Text="{Loc 'asrs-ui-requests'}"
+                            Name="RequestsButton"
+                            StyleClasses="ButtonSquare"
+                            TextAlign="Left"
+                            HorizontalExpand="True"
+                            Disabled="True"
+                            Access="Public" />
+
+                    <Button Text="{Loc 'asrs-ui-approved-requests'}"
+                            Name="ApprovedRequestsButton"
+                            StyleClasses="ButtonSquare"
+                            TextAlign="Left"
+                            HorizontalExpand="True"
+                            Disabled="True"
+                            Access="Public" />
+
+                    <Button Text="{Loc 'asrs-ui-denied-requests'}"
+                            Name="DeniedRequestsButton"
+                            TextAlign="Left"
+                            StyleClasses="ButtonSquare"
+                            HorizontalExpand="True"
+                            Disabled="True"
+                            Access="Public" />
                 </BoxContainer>
 
                 <cc:HSeparator Color="#4972A1" Margin="8 0" />
 
-                <BoxContainer Name="CategoriesContainer" Orientation="Vertical" Access="Public" Margin="8" />
+                <BoxContainer Orientation="Vertical" Access="Public" Margin="8">
+                    <CheckBox Text="{Loc 'asrs-ui-show-icons'}"
+                              Name="ShowIconsButton"
+                              Access="Public" />
+                </BoxContainer>
+
+                <cc:HSeparator Color="#4972A1" Margin="8 0" />
+
+                <BoxContainer Name="CategoriesContainer"
+                              Orientation="Vertical"
+                              Access="Public"
+                              Margin="8" />
+
             </BoxContainer>
+
         </PanelContainer>
+
     </BoxContainer>
+
 </views:MCASRSCategoryView>

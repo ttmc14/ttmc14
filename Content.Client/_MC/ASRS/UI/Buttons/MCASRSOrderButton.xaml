@@ -3,12 +3,23 @@
     xmlns:buttons="clr-namespace:Content.Client._MC.ASRS.UI.Buttons"
     Orientation="Horizontal">
     <BoxContainer Orientation="Horizontal" Margin="0 0 0 2">
-        <Button Text="-" Name="RemoveSingleButton" StyleClasses="ButtonSquare" />
-        <Label Text="0"
-               Name="CountLabel"
-               MinWidth="20"
-               Align="Center" />
-        <Button Text="+" Name="AddSingleButton" StyleClasses="ButtonSquare" />
+        <TextureRect Name="IconTextureRect"
+                     Stretch="KeepAspectCentered"
+                     TexturePath="/Textures/Interface/NavMap/beveled_circle.png"
+                     SetSize="32 32"
+                     TextureScale="2 2"
+                     Margin="0 0 8 0"
+                     Visible="False"/>
+
+        <BoxContainer Orientation="Horizontal" Margin="0 0 4 0">
+            <Button Text="-" SetSize="25 25" TextAlign="Center" Name="RemoveSingleButton" StyleClasses="ButtonSquare" />
+            <Label Text="0"
+                   Name="CountLabel"
+                   MinWidth="20"
+                   Align="Center" />
+            <Button Text="+" SetSize="25 25" TextAlign="Center" Name="AddSingleButton" StyleClasses="ButtonSquare" />
+        </BoxContainer>
+
         <RichTextLabel Name="OrderNameLabel" />
     </BoxContainer>
 </buttons:MCASRSOrderButton>

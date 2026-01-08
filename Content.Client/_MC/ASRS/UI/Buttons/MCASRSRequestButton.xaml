@@ -12,32 +12,32 @@
 
             <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="8">
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Margin="0 0 0 8">
-                    <RichTextLabel Text="Order" Margin="0 0 16 0" />
+                    <RichTextLabel Text="{Loc 'asrs-ui-order'}" Margin="0 0 16 0" />
 
                     <BoxContainer Name="DeliveryInteractionContainer" Orientation="Horizontal" HorizontalExpand="True" Align="End">
-                        <Button Text="Delivery" Name="DeliveryButton" StyleClasses="ButtonSquare" Margin="0 0 8 0" />
+                        <Button Text="{Loc 'asrs-ui-delivery'}" Name="DeliveryButton" StyleClasses="ButtonSquare" Margin="0 0 8 0" />
                     </BoxContainer>
 
                     <BoxContainer Name="InteractionContainer" Orientation="Horizontal" HorizontalExpand="True" Align="End">
-                        <Button Text="Approve" Name="ApproveButton" StyleClasses="ButtonSquare" Margin="0 0 8 0" />
-                        <Button Text="Deny" Name="DenyButton" StyleClasses="ButtonSquare" />
+                        <Button Text="{Loc 'asrs-ui-approve'}" Name="ApproveButton" StyleClasses="ButtonSquare" Margin="0 0 8 0" />
+                        <Button Text="{Loc 'asrs-ui-deny'}" Name="DenyButton" StyleClasses="ButtonSquare" />
                     </BoxContainer>
                 </BoxContainer>
 
                 <cc:HSeparator Margin="0 0 0 8" />
 
                 <GridContainer Columns="2">
-                    <RichTextLabel Text="Requested by: " />
+                    <RichTextLabel Text="{Loc 'asrs-ui-requested-by'}" />
                     <RichTextLabel Name="RequesterLabel" />
-                    <RichTextLabel Text="Reason: " />
+                    <RichTextLabel Text="{Loc 'asrs-ui-reason-label'}" />
                     <RichTextLabel Name="ReasonLabel" />
-                    <RichTextLabel Text="Total cost: " />
+                    <RichTextLabel Text="{Loc 'asrs-ui-total-cost'}" />
                     <RichTextLabel Name="TotalCostLabel" />
                 </GridContainer>
 
                 <cc:HSeparator Margin="0 8" />
 
-                <RichTextLabel Text="Contents: " Margin="0 0 0 4"/>
+                <RichTextLabel Text="{Loc 'asrs-ui-contents'}" Margin="0 0 0 4"/>
 
                 <BoxContainer Name="Container" Orientation="Vertical" VerticalExpand="True" HorizontalExpand="True" />
             </BoxContainer>

@@ -1,0 +1,13 @@
+mc-asrs-category-operations = Операции
+mc-asrs-category-weapons = Вооружение
+mc-asrs-category-stationary = Стационарные системы
+mc-asrs-category-explosives = Взрывчатка
+mc-asrs-category-armor = Броня
+mc-asrs-category-clothing = Одежда
+mc-asrs-category-medical = Медицина
+mc-asrs-category-engineering = Инженерия
+mc-asrs-category-smartguns = Смарт-оружие
+mc-asrs-category-supplies = Припасы
+mc-asrs-category-imports = Импорт
+mc-asrs-category-vehicles = Техника
+mc-asrs-category-factory = Производство

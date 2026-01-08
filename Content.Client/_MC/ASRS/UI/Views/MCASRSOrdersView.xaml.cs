@@ -19,12 +19,12 @@ public sealed partial class MCASRSOrdersView : MCASRSView
     {
         base.Open(bui);
 
-        CategoryNameLabel.SetMessage(bui.Category.Name);
+        CategoryNameLabel.SetMessage(Loc.GetString(bui.Category.Name));
 
         Container.Children.Clear();
         foreach (var entry in bui.Category.Entries)
         {
-            Container.Children.Add(new MCASRSOrderButton(entry, bui.Store.GetValueOrDefault(entry), OnCountChanged));
+            Container.Children.Add(new MCASRSOrderButton(entry, bui.Store.GetValueOrDefault(entry), OnCountChanged, bui.SettingShowIcons));
         }
     }
 

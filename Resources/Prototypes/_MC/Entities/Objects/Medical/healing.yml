@@ -376,7 +376,7 @@
   id: MCTraumaKitCombat
   name: combat trauma kit
   icon:
-    sprite: "/Textures/_MC14/Objects/Medical/medical.rsi"
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
     state: combat_traumakit
   spawn: MCTraumaKitCombat
   maxCount: 140

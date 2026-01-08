@@ -1,0 +1,12 @@
+mc-asrs-category-operations = Operations
+mc-asrs-category-weapons = Weapons
+mc-asrs-category-stationary = Stationary
+mc-asrs-category-armor = Armor
+mc-asrs-category-clothing = Clothing
+mc-asrs-category-medical = Medical
+mc-asrs-category-engineering = Engineering
+mc-asrs-category-smartguns = Smartguns
+mc-asrs-category-supplies = Supplies
+mc-asrs-category-imports = Imports
+mc-asrs-category-vehicles = Vehicles
+mc-asrs-category-factory = Factory

@@ -18,7 +18,7 @@ public sealed partial class MCASRSCategoryButton : BoxContainer
 
     public MCASRSCategoryButton(MCASRSCategory category, Action<MCASRSCategory> pressed) : this()
     {
-        Button.Text = category.Name;
+        Button.Text = Loc.GetString(category.Name);
         Button.Disabled = category.Entries.Count == 0;
         Button.OnPressed += _ => pressed.Invoke(category);
     }
