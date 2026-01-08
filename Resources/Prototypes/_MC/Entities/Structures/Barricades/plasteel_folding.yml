@@ -78,6 +78,11 @@
   - type: Construction
     graph: BarricadePlasteelDoorGraph
     node: nodeBarricadePlasteelDoor
+  - type: InteractedBlacklist
+    anchoredOnly: true
+    blacklist:
+      components:
+      - Xeno
 
 - type: entity
   parent: MCBarricadePlasteelFolding
