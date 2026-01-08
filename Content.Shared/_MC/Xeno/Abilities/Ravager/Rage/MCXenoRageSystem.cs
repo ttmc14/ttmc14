@@ -76,7 +76,7 @@ public sealed class MCXenoRageSystem : MCXenoAbilitySystem
             _rmcXenoPlasma.RegenPlasma(entity.Owner, CompOrNull<XenoPlasmaComponent>(entity)?.MaxPlasma ?? 0);
 
             ActionClearUseDelay<MCXenoRavageActionEvent>(entity);
-            ActionClearUseDelay<MCXenoPounceActionEvent>(entity);
+            ActionClearUseDelay<Runner.Pounce.MCXenoPounceActionEvent>(entity);
 
             entity.Comp.OnCooldown = true;
             return;

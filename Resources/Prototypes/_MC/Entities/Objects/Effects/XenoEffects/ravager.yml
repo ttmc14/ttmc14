@@ -1,0 +1,36 @@
+- type: entity
+  parent: RMCBaseEffect
+  id: MCEffectXenoSlash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags: [ HideContextMenu ]
+  - type: EffectVisuals
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _MC/Effects/Xeno/slash.rsi
+    state: ravager_slash
+    scale: 0.75, 0.75
+  - type: TimedDespawn
+    lifetime: 0.3
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.3
+
+- type: entity
+  parent: RMCBaseEffect
+  id: MCEffectXenoCharge
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags: [ HideContextMenu ]
+  - type: EffectVisuals
+  - type: Appearance
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _MC/Effects/Xeno/slash.rsi
+    state: ravager_charge
+    scale: 0.75, 0.75
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.25

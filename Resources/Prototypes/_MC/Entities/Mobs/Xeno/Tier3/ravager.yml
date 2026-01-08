@@ -73,6 +73,8 @@
   # Pounce (Charge)
   - type: MCXenoPounceEmote
     emote: XenoRoar
+  - type: MCXenoPounceEffect
+    entityId: MCEffectXenoCharge
   - type: MCXenoEndure
     duration: 10
   - type: MCXenoPounce

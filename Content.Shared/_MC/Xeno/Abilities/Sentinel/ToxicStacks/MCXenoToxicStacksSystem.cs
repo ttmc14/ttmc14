@@ -42,7 +42,7 @@ public sealed class MCXenoToxicStacksSystem : EntitySystem
             if (component.Count >= 20)
                 _rmcSlow.TrySlowdown(uid, TimeSpan.FromSeconds(1));
 
-            TryAdd((uid, component), -component.Decay);
+            Add((uid, component), -component.Decay);
         }
     }
 
@@ -56,7 +56,32 @@ public sealed class MCXenoToxicStacksSystem : EntitySystem
 
     private void OnProjectileHit(Entity<MCXenoToxicStacksOnHitComponent> entity, ref ProjectileHitEvent args)
     {
-        TryAdd(args.Target, entity.Comp.Amount);
+        Add(args.Target, entity.Comp.Amount);
+    }
+
+    public bool HasImmune(EntityUid uid)
+    {
+        return !HasComp<MCXenoToxicStacksComponent>(uid);
+    }
+
+    public int Get(EntityUid uid)
+    {
+        return CompOrNull<MCXenoToxicStacksComponent>(uid)?.Count ?? 0;
+    }
+
+    public int GetMax(EntityUid uid)
+    {
+        return CompOrNull<MCXenoToxicStacksComponent>(uid)?.Count ?? 0;
+    }
+
+    public void Add(Entity<MCXenoToxicStacksComponent?> entity, float count)
+    {
+        TryAdd(entity, (int) float.Round(count));
+    }
+
+    public void Add(Entity<MCXenoToxicStacksComponent?> entity, int count)
+    {
+        TryAdd(entity, count);
     }
 
     public bool TryAdd(Entity<MCXenoToxicStacksComponent?> entity, int count)
@@ -66,6 +91,19 @@ public sealed class MCXenoToxicStacksSystem : EntitySystem
 
         Set(entity, entity.Comp.Count + count);
         return true;
+    }
+
+    public void Remove(Entity<MCXenoToxicStacksComponent?> entity, float count)
+    {
+        Remove(entity, (int) float.Round(count));
+    }
+
+    public void Remove(Entity<MCXenoToxicStacksComponent?> entity, int count)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
+
+        Set(entity, entity.Comp.Count - count);
     }
 
     public void Set(Entity<MCXenoToxicStacksComponent?> entity, int count)

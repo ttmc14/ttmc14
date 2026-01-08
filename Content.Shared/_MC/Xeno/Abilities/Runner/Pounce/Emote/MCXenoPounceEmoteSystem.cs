@@ -1,10 +1,11 @@
-﻿using Content.Shared._RMC14.Emote;
+﻿using Content.Shared._MC.Xeno.Abilities.Pounce;
+using Content.Shared._RMC14.Emote;
 
-namespace Content.Shared._MC.Xeno.Abilities.Pounce.Emote;
+namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce.Emote;
 
 public sealed class MCXenoPounceEmoteSystem : EntitySystem
 {
-    [Dependency] private readonly SharedRMCEmoteSystem _emote = default!;
+    [Dependency] private readonly SharedRMCEmoteSystem _emote = null!;
 
     public override void Initialize()
     {

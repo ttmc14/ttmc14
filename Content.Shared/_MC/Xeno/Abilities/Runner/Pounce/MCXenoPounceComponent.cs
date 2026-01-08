@@ -2,7 +2,7 @@
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._MC.Xeno.Abilities.Pounce;
+namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCXenoPounceComponent : Component

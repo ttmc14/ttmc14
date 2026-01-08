@@ -1,4 +1,5 @@
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Serialization;
 
@@ -9,6 +10,8 @@ namespace Content.Shared.Popups
     /// </summary>
     public abstract class SharedPopupSystem : EntitySystem
     {
+        [Dependency] public readonly INetManager Net = null!; // mc-changes
+
         /// <summary>
         ///     Shows a popup at the local users' cursor. Does nothing on the server.
         /// </summary>

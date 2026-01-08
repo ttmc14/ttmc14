@@ -1,17 +1,17 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicStacks;
-using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Popup;
+using Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicStacks;
 using Content.Shared.Popups;
 using Content.Shared.Weapons.Melee.Events;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicSlash;
 
-public sealed class MCXenoToxicSlashSystem : EntitySystem
+public sealed class MCXenoToxicSlashSystem : MCXenoAbilitySystem
 {
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly MCXenoToxicStacksSystem _toxicStacks = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+
+    [Dependency] private readonly MCXenoToxicStacksSystem _toxicStacks = null!;
 
     public override void Initialize()
     {
@@ -19,8 +19,9 @@ public sealed class MCXenoToxicSlashSystem : EntitySystem
 
         SubscribeLocalEvent<MCXenoToxicSlashComponent, MCXenoToxicSlashActionEvent>(OnAction);
 
-        SubscribeLocalEvent<MCXenoToxicSlashActiveComponent, MeleeHitEvent>(OnActiveMeleeHit);
+        SubscribeLocalEvent<MCXenoToxicSlashActiveComponent, ComponentStartup>(OnActiveStart);
         SubscribeLocalEvent<MCXenoToxicSlashActiveComponent, ComponentShutdown>(OnActiveShutdown);
+        SubscribeLocalEvent<MCXenoToxicSlashActiveComponent, MeleeHitEvent>(OnActiveMeleeHit);
     }
 
     public override void Update(float frameTime)
@@ -30,11 +31,21 @@ public sealed class MCXenoToxicSlashSystem : EntitySystem
         var query = EntityQueryEnumerator<MCXenoToxicSlashActiveComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (_timing.CurTime < component.Duration)
+            if (_timing.CurTime < component.EndTime)
                 continue;
 
             RemCompDeferred<MCXenoToxicSlashActiveComponent>(uid);
         }
+    }
+
+    private void OnActiveStart(Entity<MCXenoToxicSlashActiveComponent> entity, ref ComponentStartup args)
+    {
+        _popup.PopupEntityServer(Loc.GetString("mc-xeno-ability-toxic-slash-start"), entity, PopupType.MediumXeno);
+    }
+
+    private void OnActiveShutdown(Entity<MCXenoToxicSlashActiveComponent> entity, ref ComponentShutdown args)
+    {
+        _popup.PopupEntityServer(Loc.GetString("mc-xeno-ability-toxic-slash-end"), entity, PopupType.MediumXeno);
     }
 
     private void OnAction(Entity<MCXenoToxicSlashComponent> entity, ref MCXenoToxicSlashActionEvent args)
@@ -42,24 +53,22 @@ public sealed class MCXenoToxicSlashSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (!_rmcActions.TryUseAction(entity, args.Action, entity))
+        if (!TryUseAction(entity, args.Action))
             return;
 
         args.Handled = true;
 
-        _popup.PopupClient("Toxic Slash active", entity, entity);
-
         if (EnsureComp<MCXenoToxicSlashActiveComponent>(entity, out var toxicSlashActiveComponent))
         {
             toxicSlashActiveComponent.Slashes += entity.Comp.Slashes;
-            toxicSlashActiveComponent.Duration += entity.Comp.Duration;
+            toxicSlashActiveComponent.EndTime += entity.Comp.Duration;
             Dirty(entity, toxicSlashActiveComponent);
             return;
         }
 
         toxicSlashActiveComponent.Stacks = entity.Comp.Stacks;
         toxicSlashActiveComponent.Slashes = entity.Comp.Slashes;
-        toxicSlashActiveComponent.Duration = _timing.CurTime + entity.Comp.Duration;
+        toxicSlashActiveComponent.EndTime = _timing.CurTime + entity.Comp.Duration;
         Dirty(entity);
     }
 
@@ -70,23 +79,16 @@ public sealed class MCXenoToxicSlashSystem : EntitySystem
             if (_toxicStacks.TryAdd(uid, entity.Comp.Stacks))
                 break;
 
-            _popup.PopupClient("Immune to Intoxication", entity, entity);
+            _popup.PopupClient(Loc.GetString("mc-xeno-ability-toxic-slash-immune"), entity, entity, PopupType.SmallCaution);
             return;
         }
 
         entity.Comp.Slashes--;
-
-        if (entity.Comp.Slashes <= 0)
-        {
-            RemCompDeferred<MCXenoToxicSlashActiveComponent>(entity);
-            return;
-        }
-
         Dirty(entity);
-    }
 
-    private void OnActiveShutdown(Entity<MCXenoToxicSlashActiveComponent> entity, ref ComponentShutdown args)
-    {
-        _popup.PopupClient("Toxic Slash over", entity, entity);
+        if (entity.Comp.Slashes > 0)
+            return;
+
+        RemCompDeferred<MCXenoToxicSlashActiveComponent>(entity);
     }
 }

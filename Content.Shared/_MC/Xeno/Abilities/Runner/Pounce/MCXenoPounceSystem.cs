@@ -3,7 +3,6 @@ using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Damage;
-using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
@@ -13,7 +12,7 @@ using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._MC.Xeno.Abilities.Pounce;
+namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce;
 
 public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 {
@@ -81,6 +80,9 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 
         var length = direction.Length();
         var distance = Math.Clamp(length, 0.1f, entity.Comp.MaxDistance);
+
+        var ev = new MCXenoPounceStartEvent(entity, origin, target, direction.Normalized(), distance);
+        RaiseLocalEvent(entity, ref ev);
 
         direction *= distance / length;
 

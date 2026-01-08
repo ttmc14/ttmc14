@@ -37,9 +37,13 @@ public sealed class MCXenoRavageSystem : MCXenoAbilitySystem<MCXenoRavageCompone
         var rotation = localRotation - Angle.FromDegrees(180);
         var direction = (localRotation - Angle.FromDegrees(90)).ToVec();
 
+        var effectCoords = Transform(entity).Coordinates.Offset(direction * 1.25f);
+        ServerSpawnAttachedTo(entity.Comp.EffectEntId, effectCoords, localRotation);
+        // ServerSpawnAttachedTo(entity.Comp.EffectEntId, entity.Owner.ToCoordinates(Vector2.UnitY * -1.25f));
+
         var aabb = new Box2Rotated(new Box2(position.X - 1, position.Y + 1.5f, position.X + 1, position.Y), rotation, position);
 
-        _rmcEmote.TryEmoteWithChat(entity, entity.Comp.Emote);
+        _rmcEmote.TryEmoteWithChat(entity, entity.Comp.EffectEmote);
 
         foreach (var uid in _entityLookup.GetEntitiesIntersecting(origin.MapId, aabb))
         {

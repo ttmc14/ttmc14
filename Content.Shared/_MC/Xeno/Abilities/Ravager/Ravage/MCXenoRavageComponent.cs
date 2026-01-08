@@ -8,5 +8,8 @@ namespace Content.Shared._MC.Xeno.Abilities.Ravager.Ravage;
 public sealed partial class MCXenoRavageComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public ProtoId<EmotePrototype> Emote = "XenoRoar";
+    public EntProtoId EffectEntId = "MCEffectXenoSlash";
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<EmotePrototype> EffectEmote = "XenoRoar";
 }

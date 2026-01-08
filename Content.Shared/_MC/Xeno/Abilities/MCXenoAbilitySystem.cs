@@ -232,14 +232,19 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates);
     }
 
-    protected EntityUid ServerSpawn(string? prototype, MapCoordinates coordinates)
+    protected EntityUid ServerSpawn(string? prototype, MapCoordinates coordinates, Angle rotation = default)
     {
-        return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates);
+        return Net.IsClient ? EntityUid.Invalid : Spawn(prototype, coordinates, rotation: rotation);
     }
 
-    protected EntityUid ServerSpawnAttachedTo(string? prototype, EntityCoordinates coordinates)
+    protected EntityUid ServerSpawnAttachedTo(string? prototype, EntityUid uid)
     {
-        return Net.IsClient ? EntityUid.Invalid : SpawnAttachedTo(prototype, coordinates);
+        return Net.IsClient ? EntityUid.Invalid : SpawnAttachedTo(prototype, Transform(uid).Coordinates);
+    }
+
+    protected EntityUid ServerSpawnAttachedTo(string? prototype, EntityCoordinates coordinates, Angle rotation = default)
+    {
+        return Net.IsClient ? EntityUid.Invalid : SpawnAttachedTo(prototype, coordinates, rotation: rotation);
     }
 
     #endregion

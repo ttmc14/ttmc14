@@ -4,7 +4,8 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicStacks;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[Access(typeof(MCXenoToxicStacksSystem), Other = AccessPermissions.None)]
 public sealed partial class MCXenoToxicStacksComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
@@ -21,7 +22,7 @@ public sealed partial class MCXenoToxicStacksComponent : Component
     {
         DamageDict =
         {
-            { "MCBurn", 1 }
+            { "MCBurn", 1 },
         },
     };
 

@@ -6,7 +6,7 @@ namespace Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicSlash;
 public sealed partial class MCXenoToxicSlashActiveComponent : Component
 {
     [ViewVariables, AutoNetworkedField]
-    public TimeSpan Duration;
+    public TimeSpan EndTime;
 
     [ViewVariables, AutoNetworkedField]
     public int Stacks;
