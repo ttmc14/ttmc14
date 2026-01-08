@@ -27,8 +27,8 @@
     baseFireModes:
     - FullAuto
     recoilUnwielded: 4
-    scatterWielded: 6
-    scatterUnwielded: 20
+    scatterWielded: -2
+    scatterUnwielded: 12 # default value
     baseFireRate: 4
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.2
@@ -36,12 +36,15 @@
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
   - type: WieldDelay
-    baseDelay: 0.6
-  - type: WieldableSpeedModifiers
-    base: 0.700
-    light: 1
-    medium: 1
-    heavy: 1
+    baseDelay: 0.8
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.95
+    aimFireModifier: 0.625
+    delay: 0.15
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:
