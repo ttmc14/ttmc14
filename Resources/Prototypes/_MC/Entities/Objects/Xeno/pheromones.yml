@@ -1,0 +1,5 @@
+- type: entity
+  id: MCXenoPheromoneRelay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: XenoPheromones

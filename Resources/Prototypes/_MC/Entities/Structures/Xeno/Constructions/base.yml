@@ -91,12 +91,17 @@
         MCBrute: -7.5
         MCBurn: -7.5
   # Pheromones
-  - type: XenoPheromones
-    pheromonesMultiplier: 4
-    pheromonesRange: 30
-  - type: XenoPheromonesObject
-  - type: XenoActivePheromones
-    pheromones: Recovery
+  - type: MCXenoPheromonesPassive
+    entries:
+    - pheromones: Recovery
+      range: 30
+      multiplier: 4
+    - pheromones: Warding
+      range: 30
+      multiplier: 4
+    - pheromones: Frenzy
+      range: 30
+      multiplier: 4
 
 - type: entity
   parent: MCXenoStructure

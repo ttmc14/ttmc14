@@ -6,7 +6,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._RMC14.Xenonids.Pheromones;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(SharedXenoPheromonesSystem), typeof(HiveLeaderSystem))]
+[Access(typeof(SharedXenoPheromonesSystem), typeof(HiveLeaderSystem), Other = AccessPermissions.ReadWriteExecute)] // mc-changes
 public sealed partial class XenoPheromonesComponent : Component
 {
     [DataField, AutoNetworkedField]
