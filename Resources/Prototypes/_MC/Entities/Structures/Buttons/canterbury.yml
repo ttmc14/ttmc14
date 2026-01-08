@@ -2,8 +2,17 @@
   parent: RMCPodDoorButton
   id: MCButtonShipCanterbury
   name: outer door
-  suffix: Canterbury, Left
+  suffix: Canterbury
+  categories: [ MCContent ]
   abstract: true
+
+- type: entity
+  parent: MCButtonShipCanterbury
+  id: MCButtonShipCanterburyCic
+  suffix: Canterbury, CIC
+  components:
+  - type: RMCDoorButton
+    id: mc_ship_canterbury_cic
 
 - type: entity
   parent: MCButtonShipCanterbury

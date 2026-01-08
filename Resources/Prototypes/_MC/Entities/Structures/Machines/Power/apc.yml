@@ -64,7 +64,7 @@
       - !type:DoActsBehavior
         acts: [ "Breakage" ]
   - type: RMCApc
-    startingCell: RMCPowerCellAPCNoPower
+    startingCell: MCPowerCellApcNoPower
     skillLevel: 0
   - type: ContainerContainer
     containers:
@@ -129,7 +129,7 @@
 - type: entity
   parent: MCApc
   id: MCApcAlmayer
-  suffix: MC, Almayer
+  suffix: Almayer, Powered
   components:
   - type: RMCApc
-    startingCell: RMCPowerCellHigh
+    startingCell: MCPowerCellApc

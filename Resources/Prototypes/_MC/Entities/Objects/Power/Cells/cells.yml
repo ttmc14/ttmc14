@@ -1,0 +1,101 @@
+- type: entity
+  parent: MCPowerCell
+  id: MCPowerCellApc
+  name: heavy-duty power cell
+  components:
+  - type: Battery
+    maxCharge: 5000
+    startingCharge: 5000
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base-yellowed
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: charge-5
+      shader: unshaded
+
+- type: entity
+  parent: MCPowerCellApc
+  id: MCPowerCellApcNoPower
+  suffix: no power
+  components:
+  - type: Battery
+    startingCharge: 0
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base-yellowed
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: charge-1
+      shader: unshaded
+    - state: label-orange
+
+- type: entity
+  parent: MCPowerCell
+  id: MCPowerCellHigh
+  name: high-capacity power cell
+  components:
+  - type: Battery
+    maxCharge: 10000
+    startingCharge: 10000
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base-dark
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: charge-5
+      shader: unshaded
+
+- type: entity
+  parent: MCPowerCell
+  id: MCPowerCellSuper
+  name: super-capacity power cell
+  components:
+  - type: Battery
+    maxCharge: 20000
+    startingCharge: 20000
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base-dark
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: charge-5
+      shader: unshaded
+    - state: label-lime
+
+- type: entity
+  parent: MCPowerCell
+  id: MCPowerCellHyper
+  name: hyper-capacity power cell
+  components:
+  - type: Battery
+    maxCharge: 30000
+    startingCharge: 30000
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base-dark
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: charge-5
+      shader: unshaded
+    - state: label-orange
+
+- type: entity
+  parent: MCPowerCell
+  id: MCPowerCellInfinite
+  name: infinite-capacity power cell
+  components:
+  - type: Battery
+    maxCharge: 30000
+    startingCharge: 30000
+  - type: BatterySelfRecharger
+    autoRecharge: true
+    autoRechargeRate: 1000
+  - type: Sprite
+    layers:
+    - map: [ "enum.PowerCellVisualLayers.Base" ]
+      state: base-purple
+    - map: [ "enum.PowerCellVisualLayers.Unshaded" ]
+      state: charge-5
+      shader: unshaded
+    - state: label-orange

@@ -56,7 +56,7 @@ public sealed class PowerCellSystem : SharedPowerCellSystem
         _sprite.LayerSetVisible((uid, args.Sprite), PowerCellVisualLayers.Unshaded, positiveCharge);
 
         if (positiveCharge)
-            _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"o{level}");
+            _sprite.LayerSetRsiState((uid, args.Sprite), PowerCellVisualLayers.Unshaded, $"{component.ChargePrefix}{level}"); // mc-changes
     }
 
     private enum PowerCellVisualLayers : byte

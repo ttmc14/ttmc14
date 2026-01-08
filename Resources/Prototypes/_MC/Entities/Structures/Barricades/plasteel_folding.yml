@@ -1,24 +1,13 @@
 - type: entity
   parent: MCBarricade
-  id: MCBarricadeMetalFolding
-  name: folding metal barricade
-  description: A folding metal barricade weaker than the non-folding counterpart. Able to be opened and closed at a moment's notice. Repair with a welder.
+  id: MCBarricadePlasteelFolding
+  name: folding plasteel barricade
+  description: A tough folding plasteel barricade stronger than its metal counterpart. Can be closed and opened at a moment's notice. Repair with a welder.
   components:
-  # Armor
-  - type: MCArmor
-    soft:
-      melee: 0
-      bullet: 30
-      laser: 30
-      energy: 30
-      bomb: 0
-      bio: 100
-      fire: 80
-      acid: 40
   - type: Sprite
     sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
     layers:
-    - state: folding_metal
+    - state: folding_plasteel
       map: [ "enum.DoorVisualLayers.Base" ]
     - map: [ "acided" ]
     drawdepth: WallTops
@@ -27,35 +16,32 @@
     skill: RMCSkillConstruction
     delay: 10
     fuelUsed: 2
-    repairableDamageLimit: 300
+    repairableDamageLimit: 600
   - type: NailgunRepairable
-    # cm13 max_health%: 0.3, 0.45
-    repairMetal: 120
-    repairPlasteel: 180
+    # cm13 max_health%: 0.3
+    repairPlasteel: 240
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 225
+    - trigger: !type:DamageTrigger
+        damage: 800
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          CMSheetMetal1:
-            min: 3
-            max: 3
+          CMSheetPlasteel1:
+            min: 4
+            max: 4
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: AnimationPlayer
   - type: GenericVisualizer
     visuals:
       enum.BarbedWireVisualLayers.Wire:
         barbWired:
-          UnWired: { state: folding_metal_closed_wire, visible: false }
-          WiredClosed: { state: folding_metal_wire, visible: true }
-          WiredOpen: { state: folding_metal_closed_wire, visible: true }
+          UnWired: { state: folding_plasteel_closed_wire, visible: false }
+          WiredClosed: { state: folding_plasteel_wire, visible: true }
+          WiredOpen: { state: folding_plasteel_closed_wire, visible: true }
       enum.SprayAcidedVisuals.Acided:
         acided:
           True:
@@ -64,10 +50,9 @@
             visible: true
           False:
             visible: false
-  - type: InteractionOutline
   - type: Door
-    openSpriteState: folding_metal_closed
-    closedSpriteState: folding_metal
+    openSpriteState: folding_plasteel_closed
+    closedSpriteState: folding_plasteel
     canPry: false
     occludes: false
     changeAirtight: false
@@ -91,29 +76,20 @@
       types:
         MCBrute: 10
   - type: Construction
-    graph: BarricadeMetalDoorGraph
-    node: nodeBarricadeMetalDoor
-  - type: InteractedBlacklist
-    anchoredOnly: true
-    blacklist:
-      components:
-      - Xeno
-  - type: UseDelay
-    delay: 0.3
-  - type: Climbable
-  - type: RMCOpenOnlyWhenUnanchored
+    graph: BarricadePlasteelDoorGraph
+    node: nodeBarricadePlasteelDoor
 
 - type: entity
-  parent: MCBarricadeMetalFolding
-  id: MCBarricadeMetalFoldingBarbed
+  parent: MCBarricadePlasteelFolding
+  id: MCBarricadePlasteelFoldingBarbed
   suffix: barbed
   components:
   - type: Sprite
     layers:
     - map: [ "enum.DoorVisualLayers.Base" ]
-      state: folding_metal
-    - map: [ "barbWired"]
-      state: folding_metal_wire
+      state: folding_plasteel
+    - map: [ "barbWired" ]
+      state: folding_plasteel_wire
     - map: [ "acided" ]
   - type: Barbed
     isBarbed: true

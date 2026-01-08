@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-SA",
+  "copyright": "Made by TornadoTechnology for TTMC",
+  "size": {
+    "x": 48,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "emissive",
+      "directions": 4,
+      "delays": [
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ],
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "base",
+      "directions": 4
+    }
+  ]
+}

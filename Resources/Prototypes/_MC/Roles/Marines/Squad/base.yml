@@ -7,8 +7,9 @@
 - type: entity
   parent: MarkerBase
   id: MCSpawnPointJob
-  description: A RMC14 job spawner. Used for roundstart and late joins.
+  description: A TTMC job spawner. Used for roundstart and late joins.
   suffix: Job Spawn
+  categories: [ MCContent ]
   abstract: true
   components:
   - type: SpawnPoint

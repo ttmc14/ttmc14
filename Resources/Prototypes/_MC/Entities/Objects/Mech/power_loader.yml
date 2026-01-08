@@ -1,0 +1,61 @@
+﻿- type: entity
+  parent: MCMechBase
+  id: MCMechPowerLoader
+  name: RPL-Y Cargo Loader
+  description: The RPL-Y Cargo Loader is a commercial mechanized exoskeleton used for lifting heavy materials and objects. An old but trusted design used in warehouses, constructions and military ships everywhere.
+  components:
+  - type: RMCAllowStrapMovement
+  - type: PowerLoader
+    skills:
+      all:
+        RMCSkillPowerLoader: 1
+  - type: Hands
+  - type: GiveHands
+    hands:
+    - name: Right Hand
+      location: Right
+    - name: Left Hand
+      location: Left
+  - type: IgnoreInteractionRange
+    whitelist:
+      tags:
+      - RMCDropshipEnginePoint
+    range: 2
+  - type: SpawnOnTerminate
+    spawn: MCMechPowerLoaderWreckage
+
+- type: entity
+  id: MCMechPowerLoaderWreckage
+  name: RPL-Y Cargo Loader
+  description: The RPL-Y Cargo Loader is a commercial mechanized exoskeleton used for lifting heavy materials and objects. An old but trusted design used in warehouses, constructions and military ships everywhere.
+  components:
+  - type: Corrodible
+    isCorrodible: true
+  - type: Sprite
+    drawdepth: Mobs
+    noRot: true
+    sprite: _MC/Objects/power_loader.rsi
+    layers:
+    - state: wreck
+  - type: Clickable
+  - type: InputMover
+  - type: InteractionOutline
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: FootstepModifier
+    footstepSoundCollection:
+      path: /Audio/Mecha/sound_mecha_powerloader_step.ogg
+  - type: Strap
+    blacklist:
+      components:
+      - Xeno
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

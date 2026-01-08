@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "base-dark"
+    },
+    {
+      "name": "base-purple"
+    },
+    {
+      "name": "base-yellowed"
+    },
+    {
+      "name": "charge-1"
+    },
+    {
+      "name": "charge-2"
+    },
+    {
+      "name": "charge-3"
+    },
+    {
+      "name": "charge-4"
+    },
+    {
+      "name": "charge-5"
+    },
+    {
+      "name": "label-cyan"
+    },
+    {
+      "name": "label-lime"
+    },
+    {
+      "name": "label-orange"
+    }
+  ]
+}

@@ -45,12 +45,18 @@
       # Hand-held cell charger
       # Large recharger powercell
       # Recharger powercell
-      - id: RMCPowerCellHigh
-        points: 1
       - id: RMCWeldingGoggles
         points: 2
       - id: RMCVisorWelding
         points: 2
+    - name: Power cells
+      entries:
+      - id: MCPowerCellHigh
+        points: 1
+      - id: MCPowerCellSuper
+        points: 5
+      - id: MCPowerCellHyper
+        points: 8
     - name: Explosives
       entries:
       # EX-62 Genghis incendiary charge

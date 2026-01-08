@@ -36,7 +36,16 @@
   id: MCShutterShipCanterbury
   name: transit shutters
   suffix: Canterbury
+  categories: [ MCContent ]
   abstract: true
+
+- type: entity
+  parent: MCShutterShipCanterbury
+  id: MCShutterShipCanterburyCic
+  suffix: Canterbury, CIC
+  components:
+  - type: RMCPodDoor
+    id: mc_ship_canterbury_cic
 
 - type: entity
   parent: MCShutterShipCanterbury

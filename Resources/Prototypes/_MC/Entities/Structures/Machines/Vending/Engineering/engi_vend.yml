@@ -22,7 +22,9 @@
       entries:
       - id: CMAPCElectronics
       # airlock
-      - id: RMCPowerCellHigh
+      - id: MCPowerCell
+      - id: MCPowerCellHigh
+        amount: 2
     - name: Equipment
       entries:
       # hardhat

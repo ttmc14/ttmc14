@@ -1,24 +1,19 @@
 - type: entity
   parent: MCMachineVending
-  id: MCMachineVendingNexusSquadCorpsman
+  id: MCMachineVendingNexusMedical
   name: NEXUS automated medical equipment rack
-  description: An automated equipment rack hooked up to a colossal storage of medical goods.
+  description: An automated equipment rack hooked up to a colossal storage of medical-related goods.
   components:
   - type: Sprite
-    sprite: _MC/Structures/Machines/vending.rsi
+    sprite: _MC/Structures/Machines/Vending/nexus_medical.rsi
     layers:
-    - state: medic-off
+    - state: base-off
       map: [ "enum.VendingMachineVisualLayers.Base" ]
-    - state: medic-deny
+    - state: base
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
-    jobs: [ MCSquadCorpsman ]
+    jobs: [ MCCMO, MCDoctor, MCResearcher ]
     sections:
-    - name: Essentials
-      choices:
-        MCEssentials: 1
-      entries:
-      - id: MCVendorBundleEssentialCorpsman
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne
@@ -92,24 +87,3 @@
         points: 2
       - id: MCDefibrillatorAdvanced
         points: 5
-
-- type: entity
-  id: MCVendorBundleEssentialCorpsman
-  name: Essential Medic Set
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Objects/Medical/firstaids.rsi
-    state: advfirstaid
-  - type: CMVendorBundle
-    bundle:
-    - MCGlassesHudHealth
-    - MCDefibrillator
-    - MCStasisBagFolded
-    - MCRollerBedSpawnFolded
-    - MCHyposprayFillOxycodone
-    - MCAidKitAdvancedFilled
-    - MCHealthAnalyzer
-    - MCMedicalTweezers
-    - MCBeaconMedevac
-    # /obj/structure/bed/medevac_stretcher

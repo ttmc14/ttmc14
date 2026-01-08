@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "powerloader",
+      "directions": 4
+    },
+    {
+      "name": "powerloader_ai",
+      "directions": 4
+    },
+    {
+      "name": "powerloader_open",
+      "directions": 4
+    },
+    {
+      "name": "powerloader_overlay",
+      "directions": 4
+    },
+    {
+      "name": "wreck"
+    }
+  ]
+}

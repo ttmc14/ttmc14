@@ -1,0 +1,32 @@
+- type: entity
+  parent: MCMachineVending
+  id: MCMachineVendingNanoAmmo
+  name: NanoAmmo
+  description: Wall-mounted Ammo dispenser.
+  components:
+  - type: Transform
+    noRot: false
+  - type: Fixtures
+    fixtures: {}
+  - type: Sprite
+    sprite: _MC/Structures/Machines/Vending/nanoammo.rsi
+    offset: 0, -1
+    layers:
+    - state: base
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: emissive
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Rifles
+      entries:
+      - id: MCMagazineRifleAR12
+        amount: 5
+      - id: MCMagazineRifleAR18
+        amount: 5
+      - id: MCMagazineRifleAR21
+        amount: 5
+      - id: MCMagazineRifleAR11
+        amount: 5
+      - id: MCBoxGovernmentRounds
+        amount: 5
