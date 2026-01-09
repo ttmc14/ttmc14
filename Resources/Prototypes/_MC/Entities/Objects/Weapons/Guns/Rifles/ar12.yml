@@ -95,9 +95,9 @@
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.7, -0.0225
-      rmc-aslot-rail: 0.2, 0.09
-      rmc-aslot-underbarrel: 0.28, -0.31
+      rmc-aslot-barrel: 0.4375, 0.03125
+      rmc-aslot-rail: -0.28125, 0.25
+      rmc-aslot-underbarrel: -0.09375, -0.125
 
 - type: entity
   parent: MCMagazineRifle
@@ -121,9 +121,9 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Appearance
 
 - type: entity
@@ -148,9 +148,9 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Appearance
 
 - type: entity
