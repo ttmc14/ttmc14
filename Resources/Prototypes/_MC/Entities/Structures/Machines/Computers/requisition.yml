@@ -206,6 +206,21 @@
         entities:
         - MCArmorModuleHlinExplosive
     - name: mc-asrs-category-clothing
+      entries:
+      - name: Corpsman satchel
+        icon:
+          sprite: _MC/Clothing/Back/Satchels/Marines/medical.rsi
+          state: icon
+        cost: 75
+        entities:
+        - MCSatchelMarineCorpsman
+      - name: Corpsman backpack
+        icon:
+          sprite: _MC/Clothing/Back/Backpacks/Marines/medical.rsi
+          state: icon
+        cost: 75
+        entities:
+        - MCBackpackMarineCorpsman
     - name: mc-asrs-category-medical
     - name: mc-asrs-category-engineering
       entries:
@@ -237,6 +252,13 @@
         cost: 100
         entities:
         - CMSheetGlass
+      - name: 50 wood
+        icon:
+          sprite: _RMC14/Objects/Materials/Sheets/wood.rsi
+          state: wood_4
+        cost: 100
+        entities:
+        - RMCPlankWood50
       - name: mc-asrs-entry-phoron-sheets-50
         icon:
           sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi
@@ -244,6 +266,20 @@
         cost: 200
         entities:
         - MCSheetPhoron
+      - name: Fuel tank
+        icon:
+          sprite: _RMC14/Structures/Storage/reagent_tank.rsi
+          state: weldtank
+        cost: 100
+        entries:
+        - RMCTankReagentFuel
+      - name: Water tank
+        icon:
+          sprite: _RMC14/Structures/Storage/reagent_tank.rsi
+          state: tank_normal
+        cost: 100
+        entries:
+        - RMCTankReagentWater
     - name: mc-asrs-category-smartguns
       entries:
       - name: mc-asrs-entry-sg29
@@ -367,6 +403,26 @@
         - MCMagazineSmartGunSG153Incendiary
     - name: mc-asrs-category-medical
       entries:
+      - name: Emergency medical supplies
+        icon:
+          sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
+          state: base
+        cost: 80
+        entities:
+        - MCPouchMedicalInjectorCorpsmanFull
+        - MCPouchMedicalInjectorCorpsmanFull
+        - MCPouchMedicalInjectorCorpsmanFull
+        - MCPouchMedicalInjectorCorpsmanFull
+        # /obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+        # /obj/item/stack/nanopaste
+      - name: MEDEVAC system
+        icon:
+          sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
+          state: stretcher_down
+        cost: 80
+        entities:
+        - RMCMedevacStretcherFolded
+        - MCBeaconMedevac
       - name: mc-asrs-entry-lemoline
         icon:
           sprite: _MC/Objects/Chemistry/bottles.rsi
@@ -397,14 +453,55 @@
         cost: 60
         entities:
         - MCClothingHandsHealthanalyzer
+      - name: Nanoblood hypospray
+        icon:
+          sprite: _MC/Objects/Medical/hypospray.rsi
+          state: base
+        cost: 100
+        entities:
+        - MCHyposprayBigFillNanoblood
+        - MCHyposprayBigFillNanoblood
+      - name: Meraderm pill bottle
+        icon:
+          sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
+          state: pill_canister0
+        cost: 300
+        entities:
+        - MCPillCanisterMeralyne
+        - MCPillCanisterDermaline
+        - MCPillCanisterMeraderm
+      - name: Anti-toxin pill bottles kit
+        icon:
+          sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
+          state: pill_canister12
+        cost: 20
+        entities:
+        - MCPillCanisterHypervene
+        - MCPillCanisterDylovene
+        - MCPillCanisterTricordrazine
+      - name: Russian Red pill bottle
+        icon:
+          sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
+          state: pill_canister10
+        cost: 250
+        entities:
+        - RMCPillCanisterRussianRed
       - name: mc-asrs-entry-bluespace-beakers
         icon:
           sprite: _MC/Objects/Chemistry/bluespace_beaker.rsi
           state: beakerbluespace
-        cost: 60
+        cost: 50
         entities:
         - MCBeakerBluespace
         - MCBeakerBluespace
+      - name: Medical defibrillator
+        icon:
+          sprite: _MC/Objects/Medical/defib.rsi
+          state: defib
+        cost: 50
+        entities:
+        - MCDefibrillator
+        - MCDefibrillator
     - name: mc-asrs-category-supplies
     - name: mc-asrs-category-imports
     - name: mc-asrs-category-vehicles

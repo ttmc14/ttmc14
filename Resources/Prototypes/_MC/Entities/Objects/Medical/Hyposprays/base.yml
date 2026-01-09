@@ -402,6 +402,23 @@
         - ReagentId: MCHyronalin
           Quantity: 15
 
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillNanoblood
+  name: big advanced nanoblood hypospray
+  description: A hypospray containing doses of advanced therapeutic and analgesic chemicals. Intended for use in active combat operations.
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-nanoblood-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCNanoblood
+          Quantity: 120
+
 # tags
 - type: Tag
   id: MCHypospray
