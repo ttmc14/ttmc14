@@ -1,0 +1,99 @@
+- type: randomHumanoidSettings
+  parent: MCCorpse
+  id: MCZombifiedCorpse
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      chemicals:
+        maxVol: 250
+        reagents:
+        - ReagentId: MCBlackGoo
+          Quantity: 250
+
+# Colonist
+
+- type: randomHumanoidSettings
+  parent: MCZombifiedCorpse
+  id: MCZombifiedColonist
+  components:
+  - type: Loadout
+    prototypes: []
+
+- type: entity
+  id: MCSpawnZombifiedColonist
+  name: zombie spawner
+  suffix: MC Colonist
+  components:
+  - type: Sprite
+    sprite: Interface/Misc/job_icons.rsi
+    state: Zombie
+  - type: CorpseSpawner
+    spawn: MCZombifiedColonist
+
+# Staff
+
+- type: randomHumanoidSettings
+  parent: MCZombifiedCorpse
+  id: MCZombifiedStaff
+  components:
+  - type: Loadout
+    prototypes: []
+
+- type: entity
+  parent: MCSpawnZombifiedColonist
+  id: MCSpawnZombifiedStaff
+  suffix: MC Staff
+  components:
+  - type: CorpseSpawner
+    spawn: MCZombifiedStaff
+
+# Scientist
+
+- type: randomHumanoidSettings
+  parent: MCZombifiedCorpse
+  id: MCZombifiedScientist
+  components:
+  - type: Loadout
+    prototypes: []
+
+- type: entity
+  parent: MCSpawnZombifiedColonist
+  id: MCSpawnZombifiedScientist
+  suffix: MC Scientist
+  components:
+  - type: CorpseSpawner
+    spawn: MCZombifiedScientist
+
+# Security
+
+- type: randomHumanoidSettings
+  parent: MCZombifiedCorpse
+  id: MCZombifiedSecurity
+  components:
+  - type: Loadout
+    prototypes: []
+
+- type: entity
+  parent: MCSpawnZombifiedColonist
+  id: MCSpawnZombifiedSecurity
+  suffix: MC Security
+  components:
+  - type: CorpseSpawner
+    spawn: MCZombifiedSecurity
+
+# Contractor
+
+- type: randomHumanoidSettings
+  parent: MCZombifiedCorpse
+  id: MCZombifiedContractor
+  components:
+  - type: Loadout
+    prototypes: []
+
+- type: entity
+  parent: MCSpawnZombifiedColonist
+  id: MCSpawnZombifiedContractor
+  suffix: MC Contractor
+  components:
+  - type: CorpseSpawner
+    spawn: MCZombifiedContractor

@@ -86,3 +86,43 @@
       effects:
       - !type:SatiateThirst
         factor: -0.5
+
+- type: reagent
+  id: MCBlackGoo
+  name: reagent-name-mcblackgoo
+  desc: reagent-desc-mcblackgoo
+  physicalDesc: reagent-physical-desc-unidentifiable
+  flavor: bitter
+  color: "#0a0b0d"
+  worksOnTheDead: true
+  unknown: true
+  metabolisms:
+    Medicine:
+      effects:
+        - !type:MCCauseZombieInfection
+          conditions:
+            - !type:ReagentThreshold
+              min: 5
+
+- type: reagent
+  id: MCZombieBlood
+  name: reagent-name-mczombie-blood
+  desc: reagent-desc-mczombie-blood
+  physicalDesc: reagent-physical-desc-necrotic
+  flavor: bitter
+  color: "#2b0700"
+  metabolisms:
+    Drink:
+      effects:
+      - !type:SatiateThirst
+        factor: -0.5
+    Poison:
+      effects:
+      - !type:HealthChange
+        damage:
+          types:
+            MCToxin: 2
+            MCClone: 2
+            MCOxygen: 1
+      - !type:ChemVomit
+        probability: 0.25

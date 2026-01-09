@@ -1,0 +1,22 @@
+- type: randomHumanoidSettings
+  parent: RMCEventHumanoid
+  id: MCCorpse
+  components:
+  - type: MCXenoPsydrainable
+    available: false
+  - type: Damageable
+    damage:
+      types:
+        MCOxygen: 110
+        MCBrute: 140
+#  - type: Loadout # it seems that cm-ss13 doesnt use this loadout
+#    prototypes: [ RMCGearCorpse ]
+
+- type: startingGear
+  id: MCGearCorpse
+  equipment:
+    jumpsuit: CMJumpsuitColonist
+    back: CMSatchel
+    id: CMIDCardColonist
+    ears: CMHeadsetColony
+# TODO RMC14 random equipment and weapon

@@ -1,3 +1,5 @@
+using Content.Shared._MC.Zombies;
+using Content.Server._MC.Zombies;
 using Content.Shared._RMC14.Medical.Wounds;
 using Content.Server._RMC14.Medical.Wounds;
 using System.Diagnostics.CodeAnalysis;
@@ -104,6 +106,7 @@ public sealed class EntityEffectSystem : EntitySystem
         SubscribeLocalEvent<ExecuteEntityEffectEvent<AdjustTemperature>>(OnExecuteAdjustTemperature);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<AreaReactionEffect>>(OnExecuteAreaReactionEffect);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<CauseZombieInfection>>(OnExecuteCauseZombieInfection);
+        SubscribeLocalEvent<ExecuteEntityEffectEvent<MCCauseZombieInfection>>(OnExecuteMCCauseZombieInfection);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemCleanBloodstream>>(OnExecuteChemCleanBloodstream);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<ChemVomit>>(OnExecuteChemVomit);
         SubscribeLocalEvent<ExecuteEntityEffectEvent<CreateEntityReactionEffect>>(OnExecuteCreateEntityReactionEffect);
@@ -551,6 +554,12 @@ public sealed class EntityEffectSystem : EntitySystem
     {
         EnsureComp<ZombifyOnDeathComponent>(args.Args.TargetEntity);
         EnsureComp<PendingZombieComponent>(args.Args.TargetEntity);
+    }
+
+    private void OnExecuteMCCauseZombieInfection(ref ExecuteEntityEffectEvent<MCCauseZombieInfection> args)
+    {
+        EnsureComp<MCZombifyOnDeathComponent>(args.Args.TargetEntity);
+        EnsureComp<MCPendingZombieComponent>(args.Args.TargetEntity);
     }
 
     private void OnExecuteChemCleanBloodstream(ref ExecuteEntityEffectEvent<ChemCleanBloodstream> args)
