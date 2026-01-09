@@ -14,7 +14,7 @@
     range: 100
     checkCanAccess: false
   - type: WorldTargetAction
-    event: !type:MCXenoPounceActionEvent ""
+    event: !type:MCXenoPounceActionEvent
   - type: XenoActionPlasma
     cost: 100
   - type: ActionBlockIfResting
@@ -88,7 +88,7 @@
   - type: TargetAction
     range: 15
   - type: WorldTargetAction
-    event: !type:XenoSprayAcidActionEvent ""
+    event: !type:XenoSprayAcidActionEvent
   - type: XenoActionPlasma
     cost: 100
   - type: ActionBlockIfResting
@@ -110,7 +110,7 @@
     checkCanAccess: false
     range: 15
   - type: WorldTargetAction
-    event: !type:MCXenoScatterSpitActionEvent ""
+    event: !type:MCXenoScatterSpitActionEvent
   - type: XenoActionPlasma
     cost: 280
   - type: ActionBlockIfResting
@@ -207,7 +207,7 @@
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
-    max: 5
+    max: 7
   - type: MCXenoSpawnAcidSprayOnTerminating
     spawn: MCXenoAcidHeavyScatterPraetorian
   - type: MCXenoProjectileTargetingTurf
