@@ -1,5 +1,5 @@
 - type: entity
-  id: MCSmoke
+  id: MCSmokeTile
   name: smoke
   categories: [ MCContent ]
   abstract: true
@@ -12,7 +12,6 @@
     sprite: _RMC14/Effects/smoke.rsi
     state: smoke2
   - type: MCSmoke
-  - type: MCEdgeSpreader
   - type: Transform
     anchored: true
   - type: Physics
@@ -28,6 +27,13 @@
         - MidImpassable
   - type: TimedDespawn
     lifetime: 12
+
+- type: entity
+  parent: MCSmokeTile
+  id: MCSmoke
+  abstract: true
+  components:
+  - type: MCEdgeSpreader
 
 - type: Tag
   id: MCSmoke

@@ -7,9 +7,11 @@
     delay: 0.1
   - type: TimedDespawn
     lifetime: 6
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 6
 
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXeno
   id: MCSmokeXenoNeurotoxin
   name: smoke xeno neurotoxin
   components:
@@ -22,7 +24,35 @@
   - type: Occluder
 
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXeno
+  id: MCSmokeXenoNeurotoxinLite
+  name: smoke xeno neurotoxin lite
+  components:
+  - type: Sprite
+    color: "#ffbf583c"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+
+- type: entity
+  parent: MCSmokeTile
+  id: MCSmokeXenoNeurotoxinLiteSpitHeavy
+  name: smoke xeno neurotoxin lite
+  components:
+  - type: Sprite
+    color: "#ffbf583c"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+  - type: TimedDespawn
+    lifetime: 1.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 1.25
+
+- type: entity
+  parent: MCSmokeXeno
   id: MCSmokeXenoHemodile
   name: smoke xeno hemodile
   components:
@@ -35,7 +65,7 @@
   - type: Occluder
 
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXeno
   id: MCSmokeXenoTransvitox
   name: smoke xeno transvitox
   components:
@@ -48,7 +78,7 @@
   - type: Occluder
 
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXeno
   id: MCSmokeXenoSanguinal
   name: smoke xeno sanguinal
   components:
@@ -61,7 +91,7 @@
   - type: Occluder
 
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXeno
   id: MCSmokeXenoOzelomelyn
   name: smoke xeno ozelomelyn
   components:
@@ -75,7 +105,7 @@
 
 # Acid
 - type: entity
-  parent: MCSmoke
+  parent: MCSmokeXeno
   id: MCSmokeXenoAcid
   name: smoke xeno acid
   components:
@@ -104,4 +134,6 @@
       types:
         MCBurn: 25
   - type: TimedDespawn
+    lifetime: 4
+  - type: MCTimedDespawnDisappearanceVisuals
     lifetime: 4
