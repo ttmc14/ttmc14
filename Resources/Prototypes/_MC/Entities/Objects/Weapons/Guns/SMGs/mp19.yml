@@ -88,10 +88,10 @@
           - MCAttachmentStockMP19
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.8, 0.06
-      rmc-aslot-rail: 0, 0.12
-      rmc-aslot-underbarrel: 0.37, -0.28
-      rmc-aslot-stock: -0.62, 0.02
+      rmc-aslot-barrel: -0.09375, -0.40625
+      rmc-aslot-rail: -0.71875, -0.34375
+      rmc-aslot-underbarrel: -0.34375, -0.53125
+      rmc-aslot-stock: -1.125, -0.5
   - type: GunDamageModifier
     multiplier: 1
 

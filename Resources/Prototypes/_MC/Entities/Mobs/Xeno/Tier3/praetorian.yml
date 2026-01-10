@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-praetorian
   - type: GhostRole
     name: mc-job-name-xeno-praetorian
+  - type: RMCActionOrder
+    id: MCXenoPraetorian
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/praetorian.rsi

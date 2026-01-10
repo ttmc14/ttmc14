@@ -108,9 +108,9 @@
           - MCAttachmentBipod
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.875, 0.03125
-      mc-slot-stock: -0.625, 0
-      mc-slot-underbarrel: 0.24, -0.064 # я на угад
+      mc-slot-barrel: 0.3125, -0.46875
+      mc-slot-underbarrel: -0.25, -0.5625
+      mc-slot-stock: -0.625, -0.59375
 
 # Magazine
 - type: entity

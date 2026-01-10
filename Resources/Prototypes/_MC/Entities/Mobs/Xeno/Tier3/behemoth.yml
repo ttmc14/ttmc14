@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-behemot
   - type: GhostRole
     name: mc-job-name-xeno-behemot
+  - type: RMCActionOrder
+    id: MCXenoBehemoth
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/behemot.rsi

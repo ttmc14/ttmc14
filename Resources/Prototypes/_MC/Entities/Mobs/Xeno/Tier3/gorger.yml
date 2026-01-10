@@ -17,6 +17,8 @@
     name: mc-job-name-xeno-gorger
   - type: GhostRole
     name: mc-job-name-xeno-gorger
+  - type: RMCActionOrder
+    id: MCXenoGorger
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/gorger.rsi

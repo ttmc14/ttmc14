@@ -99,6 +99,8 @@
   name: ravager
   description: A brutal, devastating front-line attacker.
   components:
+  - type: RMCActionOrder
+    id: MCXenoRavager
   - type: XenoEvolution
     actionId: MCActionXenoEvolve
     strains:
@@ -116,6 +118,8 @@
     name: mc-job-name-xeno-ravager-bloodthirster
   - type: GhostRole
     name: mc-job-name-xeno-ravager-bloodthirster
+  - type: RMCActionOrder
+    id: MCXenoRavagerBloodthirster
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/ravager_bloodthirster.rsi

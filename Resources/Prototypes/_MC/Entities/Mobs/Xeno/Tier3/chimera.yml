@@ -17,6 +17,8 @@
     name: mc-job-name-xeno-chimera
   - type: GhostRole
     name: mc-job-name-xeno-chimera
+  - type: RMCActionOrder
+    id: MCXenoChimera
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/chimera.rsi

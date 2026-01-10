@@ -17,6 +17,8 @@
     name: mc-job-name-xeno-widow
   - type: GhostRole
     name: mc-job-name-xeno-widow
+  - type: RMCActionOrder
+    id: MCXenoWidow
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/widow.rsi

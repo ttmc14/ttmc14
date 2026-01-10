@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-crusher
   - type: GhostRole
     name: mc-job-name-xeno-crusher
+  - type: RMCActionOrder
+    id: MCXenoCrusher
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/crusher.rsi

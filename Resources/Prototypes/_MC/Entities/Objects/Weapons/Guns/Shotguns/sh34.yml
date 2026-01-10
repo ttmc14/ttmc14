@@ -67,6 +67,7 @@
       rmc-aslot-barrel: 0.7, 0.02
       rmc-aslot-rail: 0.0, 0.05
       rmc-aslot-underbarrel: 0.3, -0.3
+      rmc-aslot-stock: -0.59375, -0.5
 
 - type: Tag
   id: MCWeaponShotgunSH34
