@@ -59,7 +59,7 @@
           - MCAttachmentStockSH35
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.8, 0.0
-      rmc-aslot-rail: -0.15, 0.085
-      rmc-aslot-underbarrel: 0.3, -0.35
-      rmc-aslot-stock: -1.09375, -0.5
+      rmc-aslot-barrel: 1.3, 0.5
+      rmc-aslot-rail: -0.15, 0.15625
+      rmc-aslot-underbarrel: 0.8, 0.15
+      rmc-aslot-stock: 0, 0

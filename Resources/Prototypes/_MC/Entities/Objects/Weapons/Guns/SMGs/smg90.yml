@@ -61,9 +61,9 @@
       rmc-aslot-barrel:
         whitelist:
           tags:
-           - MCAttachmentExtendedMuzzle
-           - MCAttachmentSuppressor
-           - MCAttachmentRecoilCompensator
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentSuppressor
+          - MCAttachmentRecoilCompensator
           # - TODO: Heavy Barrel
       rmc-aslot-rail:
         whitelist:
@@ -78,9 +78,9 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0, -0.53125
-      rmc-aslot-rail: -0.3125, -0.3125
-      rmc-aslot-underbarrel: -0.46875, -0.53125
+      rmc-aslot-barrel: 0.46875, -0.03125
+      rmc-aslot-rail: 0.1875, 0.1875
+      rmc-aslot-underbarrel: 0.46875, -0.125
       rmc-aslot-stock: -0.25, -0.6875
   - type: GunDamageModifier
     multiplier: 1
@@ -106,9 +106,9 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/smg90.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: MagazineVisuals
     magState: mag
     steps: 2

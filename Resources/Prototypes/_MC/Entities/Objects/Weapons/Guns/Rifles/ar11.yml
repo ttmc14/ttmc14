@@ -77,9 +77,9 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: -0.03125, -0.46875
-      rmc-aslot-rail: -0.8125, -0.375
-      rmc-aslot-underbarrel: -0.375, -0.625
+      rmc-aslot-barrel: 0.46875, 0.03125
+      rmc-aslot-rail: -0.3125, 0.125
+      rmc-aslot-underbarrel: 0.125, -0.125
 
 - type: entity
   parent: MCMagazineRifle
@@ -103,9 +103,9 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar11.rsi
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Appearance
 
 - type: entity
