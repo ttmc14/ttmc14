@@ -38,7 +38,7 @@
         points: 5
       - id: RMCExplosivePlastic
         points: 2
-    - name: Weapons
+    - name: Flamer
       entries:
       - id: MCWeaponFlamer
         points: 10
@@ -56,6 +56,23 @@
         points: 2
       - id: MCMagazineSmartGunSG25Extended
         points: 4
+    - name: RL-160
+      entries:
+      - id: MCBackpackMarineRocketFull
+        name: RL-160 Recoilless rifle kit
+        points: 15
+      - id: MCRocketShell
+        points: 2
+      - id: MCRocketShellLight
+        points: 2
+      - id: MCRocketShellHeat
+        points: 2
+      - id: MCRocketShellSmoke
+        points: 1
+      - id: MCRocketShellCloak
+        points: 1
+      - id: MCRocketShellTanglefoot
+        points: 2
     - name: Boxes
       entries:
       - id: MCBoxBulletsSmartGunSG29

@@ -1,9 +1,14 @@
+- type: Tag
+  id: MCWeaponLauncherRl160
+
 - type: entity
   parent: [ MCWeaponLauncher, MCAttachableHolder ]
   id: MCWeaponLauncherRl160
   name: RL-160 recoilless rifle
   description: The RL-160 recoilless rifle is a long range explosive ordanance device used by the TGMC used to fire explosive shells at far distances. Uses a variety of 67mm shells designed for various purposes.
   components:
+  - type: Tag
+    tags: [ MCWeaponLauncherRl160 ]
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Launchers/Rl160/inhands.rsi
     layers:
@@ -16,6 +21,17 @@
     fireRate: 1
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/m5_shoot.ogg
+  - type: Item
+    size: Large
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCRocketShell
+    capacity: 1
+    cycleable: true
+    proto: MCRocketShell
+    # soundInsert:
+    #   path: /Audio/_RMC14/Weapons/Guns/Cock/m5_ammo.ogg
   - type: AttachableHolder
     slots:
       mc-aslot-rail:
@@ -24,10 +40,229 @@
           - MCAttachmentMagneticHarness
   - type: AttachableHolderVisuals
     offsets:
-      mc-aslot-rail: 0.447, 0.122
+      mc-aslot-muzzle: 0.03125, -0.4375
+      mc-aslot-rail: -0.53125, -0.40625
+      mc-aslot-underbarrel: -0.40625, -0.5625
+      mc-aslot-stock: -0.40625, -0.5625
   - type: WieldDelay
     baseDelay: 1.2
     preventFiring: true
-  # - type: MCWeaponFireDelay
-  #   delay: 1
-  # - type: DoAfter
+  - type: MCWeaponFireDelay
+    delay: 1
+  - type: DoAfter
+
+# Rocket shells
+- type: Tag
+  id: MCRocketShell
+
+- type: entity
+  parent: MCItem
+  id: MCRocketShell
+  name: 67mm high-explosive shell
+  description: A high explosive shell for the RL-160 recoilless rifle. Causes a heavy explosion over a small area. Requires specialized storage to carry.
+  components:
+  - type: Tag
+    tags:
+    - MCRocketShell
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+    layers:
+    - state: shell
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRocketShell
+    deleteOnSpawn: true
+  - type: Item
+    size: Normal
+  - type: AssistedReloadAmmo
+  - type: IgnorePredictionHide
+
+- type: entity
+  parent: MCRocketShell
+  id: MCRocketShellCloak
+  name: 67mm Chemical (Cloak) shell
+  description: A chemical shell for the RL-160 recoilless rifle. Fires a low velocity shell for close quarters application of chemical gas, friendlies will be able to easily dodge it due to low velocity. This warhead contains advanced cloaking smoke. Requires specialized storage to carry.
+  components:
+  - type: Sprite
+    layers:
+    - state: shell_cloak
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRocketShellCloak
+
+- type: entity
+  parent: MCRocketShell
+  id: MCRocketShellHeat
+  name: 67mm HEAT shell
+  description: A high explosive-anti tank shell for the RL-160 recoilless rifle. Fires a penetrating shot with no explosion. It will do moderate damage to all types of enemies, sundering their armor. Requires specialized storage to carry.
+  components:
+  - type: Sprite
+    layers:
+    - state: shell_heat
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRocketShellHeat
+
+- type: entity
+  parent: MCRocketShell
+  id: MCRocketShellLight
+  name: 67mm light-explosive shell
+  description: A light explosive shell for the RL-160 recoilless rifle. Causes a light explosion over a large area. Can go farther than other shells of its type due to the light payload. Requires specialized storage to carry.
+  components:
+  - type: Sprite
+    layers:
+    - state: shell_le
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRocketShellLe
+
+- type: entity
+  parent: MCRocketShell
+  id: MCRocketShellSmoke
+  name: 67mm Chemical (Smoke) shell
+  description: A chemical shell for the RL-160 recoilless rifle. Fires a low velocity shell for close quarters application of chemical gas, friendlies will be able to easily dodge it due to low velocity. This warhead contains thick concealing smoke. Requires specialized storage to carry.
+  components:
+  - type: Sprite
+    layers:
+    - state: shell_smoke
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRocketShellSmoke
+
+- type: entity
+  parent: MCRocketShell
+  id: MCRocketShellTanglefoot
+  name: 67mm Chemical (Tanglefoot) shell
+  description: A chemical shell for the RL-160 recoilless rifle. Fires a low velocity shell for close quarters application of chemical gas, friendlies will be able to easily dodge it due to low velocity. This warhead contains plasma-draining Tanglefoot smoke. Requires specialized storage to carry.
+  components:
+  - type: Sprite
+    layers:
+    - state: shell_tanglefoot
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRocketShellTanglefoot
+
+# Rocket projectiles
+- type: entity
+  id: MCProjectileRocketShell
+  name: 67mm high-explosive shell
+  description: Uh oh.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - MCDamageBomb
+  - type: Projectile
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        MCBrute: 50
+    maxFixedRange: 30
+  - type: CMArmorPiercing
+    amount: 50
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+    rotation: 270
+    layers:
+    - state: shell
+  - type: CMExplosionEffect
+  - type: ExplodeOnTrigger
+  - type: Explosive
+    explosionType: RMC
+    maxIntensity: 200
+    intensitySlope: 70
+    totalIntensity: 200
+    maxTileBreak: 0
+  - type: RMCScorchEffect
+  - type: PointLight
+    radius: 3.5
+    color: orange
+    energy: 0.5
+  - type: IgnorePredictionHide
+  - type: TriggerOnCollide
+    # TODO RMC14 Make TriggerOnCollide spawn the explosion on the OtherEntity tile more consistently, so the explosion is centered properly
+    fixtureID: projectile # no parent entity from BaseBulletTrigger because it has Clickable
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.15, -0.15, 0.15, 0.15"
+          # Bigger than bullets. Rectangle won't work since AABB shapes don't rotate. This should help significantly with explosion consistency.
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        restitution: 0.0
+        density: 20
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRocketShellCloak
+  name: 67mm Chemical (Cloak) shell
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 10
+  - type: CMArmorPiercing
+    amount: 0
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRocketShellHeat
+  name: 67mm HEAT shell
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 200
+  - type: CMArmorPiercing
+    amount: 100
+  - type: MCXenoSunderDamageOnHit
+    amount: 50
+  - type: Explosive
+    maxIntensity: 50
+    intensitySlope: 25
+    totalIntensity: 50
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRocketShellLe
+  name: 67mm light-explosive shell
+  components:
+  - type: CMArmorPiercing
+    amount: 50
+  - type: MCXenoSunderDamageOnHit
+    amount: 25
+  - type: Explosive
+    maxIntensity: 150
+    intensitySlope: 50
+    totalIntensity: 150
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRocketShellSmoke
+  name: 67mm Chemical (Smoke) shell
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 10
+  - type: CMArmorPiercing
+    amount: 0
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRocketShellTanglefoot
+  name: 67mm Chemical (Tanglefoot) shell
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 10
+  - type: CMArmorPiercing
+    amount: 0

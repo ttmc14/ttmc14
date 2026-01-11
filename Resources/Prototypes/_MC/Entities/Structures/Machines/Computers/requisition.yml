@@ -95,6 +95,59 @@
         cost: 30
         entities:
         - MCMagazineRifleAR12AP
+    # Launchers
+    - name: Launchers
+      entries:
+      - name: RL-160 recoilless rifle kit
+        icon:
+          sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+          state: icon-full
+        cost: 400
+        entities:
+        - MCBackpackMarineRocketFull
+      - name: RL-160 RR HE shell
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell
+        cost: 30
+        entities:
+        - MCRocketShell
+      - name: RL-160 RR LE shell
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_le
+        cost: 30
+        entities:
+        - MCRocketShellLight
+      - name: RL-160 HEAT shell
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_heat
+        cost: 30
+        entities:
+        - MCRocketShellHeat
+      - name: RL-160 RR smoke shell
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_smoke
+        cost: 30
+        entities:
+        - MCProjectileRocketShellSmoke
+      - name: RL-160 RR cloak shell
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_cloak
+        cost: 30
+        entities:
+        - MCProjectileRocketShellCloak
+      - name: RL-160 RR tanglefoot shell
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_tanglefoot
+        cost: 30
+        entities:
+        - MCRocketShellTanglefoot
+    # Sentries
     - name: mc-asrs-category-stationary
       entries:
       - name: mc-asrs-entry-sbt571-sentry

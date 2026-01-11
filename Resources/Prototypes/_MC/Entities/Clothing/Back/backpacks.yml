@@ -6,6 +6,8 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
 
 - type: entity
   parent: MCBackpack
@@ -14,7 +16,9 @@
   description: The standard-issue backpack worn by TGMC technicians. Specially equipped to hold sentry gun and HSG-102 emplacement parts.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Back/Backpacks/Marines/technician.rsi
+    sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
 
 - type: entity
   parent: MCBackpack
@@ -23,4 +27,148 @@
   description: The standard-issue backpack worn by TGMC corpsmen. You can recharge defibrillators by plugging them in.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Back/Backpacks/Marines/medical.rsi
+    sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
+
+- type: entity
+  parent: [ MCBackpack, RMCScabbardBase ]
+  id: MCBackpackMarineRocket
+  name: rocket bag
+  description: This backpack can hold 4 67mm shells, in addition to a recoiless launcher.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - MCRocketShell
+  - type: FixedItemSizeStorage
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponLauncherRl160
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        whitelist:
+          tags:
+          - MCWeaponLauncherRl160
+
+- type: entity
+  parent: MCBackpackMarineRocket
+  id: MCBackpackMarineRocketFull
+  suffix: full
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        startingItem: MCWeaponLauncherRl160
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponLauncherRl160
+  - type: StorageFill
+    contents:
+    - id: MCRocketShell
+    - id: MCRocketShell
+    - id: MCRocketShellLight
+    - id: MCRocketShellLight
+
+- type: entity
+  parent: [ MCBackpack, RMCScabbardBase ]
+  id: MCBackFlamethrower
+  name: flamethrower bag
+  description: This backpack can carry its accompanying flamethrower as well as a modest general storage capacity. Automatically refuels it's accompanying flamethrower.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/pyro.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/pyro.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,1
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 280
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 280
+  - type: SolutionTransfer
+    transferAmount: 280
+    maxTransferAmount: 280
+    minTransferAmount: 280
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamer
+      - MCPyroFlamerMini
+  - type: NoMixingReagents
+  - type: CMStorageVisualizer
+    storageClosed: null
+    storageOpen: null
+  - type: RMCFlamerBackpack
+    solution: tank
+  - type: DetailedExaminableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: RMCRefillSolutionOnStore
+    solution: tank
+  - type: ItemSlots
+    slots:
+      item:
+        name: Flamethrower
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponIncineratorFL84
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        whitelist:
+          tags:
+          - MCWeaponIncineratorFL84
+  - type: Tag
+    tags:
+    - MCBackpackFlamer
+
+- type: entity
+  parent: MCBackFlamethrower
+  id: MCBackFlamethrowerFull
+  suffix: Full
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: Flamethrower
+        startingItem: MCWeaponFlamerUnloaded
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponIncineratorFL84

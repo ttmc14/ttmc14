@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.DoAfter;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._MC.Weapon;
 
@@ -8,6 +9,5 @@ public sealed partial class MCWeaponFireDelayComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan Delay = TimeSpan.FromSeconds(1);
 
-    [DataField, AutoNetworkedField]
-    public bool Ready;
+    public DoAfterId? DoAfterId;
 }
