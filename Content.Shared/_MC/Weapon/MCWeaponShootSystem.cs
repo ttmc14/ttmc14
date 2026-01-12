@@ -14,6 +14,8 @@ public sealed class MCWeaponShootSystem : EntitySystem
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedGunSystem _gun = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly IMapManager _mapManager = null!;
 
     public override void Initialize()
     {
@@ -32,19 +34,18 @@ public sealed class MCWeaponShootSystem : EntitySystem
         if (GetAmmoCount(args.Used) == 0)
             return;
 
-        // Okay it's can be predictable
-
-        // Yea it's shared, but don't predictable
-        // if (_net.IsClient)
-        // {
-        //    args.Cancel();
-        //    return;
-        // }
-
         if (_doAfter.IsRunning(entity.Comp.DoAfterId))
         {
             args.Cancel();
             return;
+        }
+
+        if (TryComp<GunComponent>(args.Used, out var gunComponent) && gunComponent.ShootCoordinates != null)
+        {
+            var mapCoords = _transform.ToMapCoordinates(gunComponent.ShootCoordinates.Value);
+            entity.Comp.ShootCoordinates = _transform.ToCoordinates(mapCoords);
+
+            Dirty(entity);
         }
 
         // TODO: cancel shoot with new attempt, but with delay for exclude immediately canceling
@@ -52,6 +53,7 @@ public sealed class MCWeaponShootSystem : EntitySystem
         var doAfter = new DoAfterArgs(EntityManager, args.User, entity.Comp.Delay, ev, args.Used, used: args.Used)
         {
             BreakOnMove = false,
+            NeedHand = true,
         };
 
         if (!_doAfter.TryStartDoAfter(doAfter, out var doAfterId))
@@ -68,20 +70,30 @@ public sealed class MCWeaponShootSystem : EntitySystem
         entity.Comp.DoAfterId = null;
 
         if (args.Handled || args.Cancelled)
+        {
+            entity.Comp.ShootCoordinates = null;
+            return;
+        }
+
+        if (entity.Comp.ShootCoordinates is null)
             return;
 
         if (!TryComp<GunComponent>(args.Used, out var gunComponent))
+        {
+            entity.Comp.ShootCoordinates = null;
             return;
-
-        if (gunComponent.ShootCoordinates is not { } toCoordinates)
-            return;
+        }
 
         args.Handled = true;
 
+        var toCoordinates = entity.Comp.ShootCoordinates.Value;
         var fromCoordinates = Transform(args.User).Coordinates;
         var ammo = TakeAmmo(entity, args.User, toCoordinates);
 
         _gun.Shoot(args.Used.Value, gunComponent, ammo, fromCoordinates, toCoordinates, out _, args.User, throwItems: false);
+
+        entity.Comp.ShootCoordinates = null;
+        Dirty(entity);
     }
 
     private int GetAmmoCount(EntityUid uid)
@@ -100,3 +112,7 @@ public sealed class MCWeaponShootSystem : EntitySystem
         return ev.Ammo;
     }
 }
+
+OnShootTriggerAmmoTimerComponent 
+
+OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent OnShootTriggerAmmoTimerComponent 

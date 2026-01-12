@@ -52,6 +52,8 @@
   - type: DoAfter
   - type: ShootAtFixedPoint
     maxFixedRange: 30
+  - type: OnShootTriggerAmmoTimer
+    delay: 0.4 # 0.2 -> 0.5 | Нужно увеличить это значение/насрать кодом, чтобы оно адекватно работало с Content.Shared\_MC\Weapon\MCWeaponShootSystem.cs
 
 # Rocket shells
 - type: Tag
