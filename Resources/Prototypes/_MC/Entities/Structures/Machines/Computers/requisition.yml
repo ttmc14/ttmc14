@@ -104,7 +104,7 @@
           state: icon-full
         cost: 400
         entities:
-        - MCBackpackMarineRocketFull
+        - MCBackpackMarineRL160Full
       - name: RL-160 RR HE shell
         icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi

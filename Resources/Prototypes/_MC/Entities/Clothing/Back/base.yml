@@ -49,20 +49,6 @@
     blacklist:
       components:
       - Xeno
-  - type: StorageStoreSkillRequired
-    entries:
-    - whitelist:
-        tags:
-        - RMCEngineerKit
-      skills:
-        all:
-          RMCSkillEngineer: 2
-    - whitelist:
-        tags:
-        - CMFirstAidKit
-      skills:
-        all:
-          RMCSkillMedical: 2
   - type: RMCStorageEjectHand
   - type: StoreAfterFailedInteract
 

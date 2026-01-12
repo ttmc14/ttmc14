@@ -33,14 +33,16 @@
 
 - type: entity
   parent: [ MCBackpack, RMCScabbardBase ]
-  id: MCBackpackMarineRocket
-  name: rocket bag
+  id: MCBackpackMarineRL160
+  name: RL-160 bag
   description: This backpack can hold 4 67mm shells, in addition to a recoiless launcher.
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
   - type: Clothing
     sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+  - type: StorageOpenDoAfter
+    duration: 0.5
   - type: Storage
     maxItemSize: Huge
     grid:
@@ -68,8 +70,8 @@
           - MCWeaponLauncherRl160
 
 - type: entity
-  parent: MCBackpackMarineRocket
-  id: MCBackpackMarineRocketFull
+  parent: MCBackpackMarineRL160
+  id: MCBackpackMarineRL160Full
   suffix: full
   components:
   - type: ItemSlots
@@ -90,6 +92,28 @@
     - id: MCRocketShell
     - id: MCRocketShellLight
     - id: MCRocketShellLight
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackMarineRLQuad
+  name: RL-57 bag
+  description: This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/quad.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/quad.rsi
+
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackMarineRL152
+  name: RL-152 bag
+  description: This backpack can hold 4 40mm shells, in addition to a SADAR launcher.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/sadar.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/sadar.rsi
 
 - type: entity
   parent: [ MCBackpack, RMCScabbardBase ]

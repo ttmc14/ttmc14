@@ -21,7 +21,7 @@
       - id: MCVendorBundleEssentialSquadLeader
     - name: RL-160
       entries:
-      - id: MCBackpackMarineRocketFull
+      - id: MCBackpackMarineRL160Full
         name: RL-160 Recoilless rifle kit
         points: 15
       - id: MCRocketShell

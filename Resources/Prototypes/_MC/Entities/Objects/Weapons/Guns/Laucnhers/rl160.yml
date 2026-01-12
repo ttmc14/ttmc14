@@ -50,6 +50,8 @@
   - type: MCWeaponFireDelay
     delay: 1
   - type: DoAfter
+  - type: ShootAtFixedPoint
+    maxFixedRange: 30
 
 # Rocket shells
 - type: Tag
