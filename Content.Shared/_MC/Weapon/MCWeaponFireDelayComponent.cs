@@ -1,7 +1,6 @@
 ﻿using Content.Shared.DoAfter;
-using Robust.Shared.GameStates;
 using Robust.Shared.Map;
-using Robust.Shared.Serialization;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._MC.Weapon;
 
