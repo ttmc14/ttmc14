@@ -11,6 +11,7 @@
   - type: Sprite
     sprite: _RMC14/Effects/smoke.rsi
     state: smoke2
+    drawdepth: Effects
   - type: MCSmoke
   - type: Transform
     anchored: true

@@ -132,14 +132,14 @@
           state: shell_smoke
         cost: 30
         entities:
-        - MCProjectileRocketShellSmoke
+        - MCRocketShellSmoke
       - name: RL-160 RR cloak shell
         icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
           state: shell_cloak
         cost: 30
         entities:
-        - MCProjectileRocketShellCloak
+        - MCRocketShellCloak
       - name: RL-160 RR tanglefoot shell
         icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi

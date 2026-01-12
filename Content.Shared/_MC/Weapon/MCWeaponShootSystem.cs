@@ -32,15 +32,6 @@ public sealed class MCWeaponShootSystem : EntitySystem
         if (GetAmmoCount(args.Used) == 0)
             return;
 
-        // Okay it's can be predictable
-
-        // Yea it's shared, but don't predictable
-        // if (_net.IsClient)
-        // {
-        //    args.Cancel();
-        //    return;
-        // }
-
         if (_doAfter.IsRunning(entity.Comp.DoAfterId))
         {
             args.Cancel();

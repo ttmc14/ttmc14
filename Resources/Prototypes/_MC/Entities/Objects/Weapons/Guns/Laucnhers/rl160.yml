@@ -171,7 +171,7 @@
   - type: CMExplosionEffect
   - type: ExplodeOnTrigger
   - type: Explosive
-    explosionType: RMC
+    explosionType: MC
     maxIntensity: 200
     intensitySlope: 70
     totalIntensity: 200
@@ -203,21 +203,12 @@
 
 - type: entity
   parent: MCProjectileRocketShell
-  id: MCProjectileRocketShellCloak
-  name: 67mm Chemical (Cloak) shell
-  components:
-  - type: Projectile
-    damage:
-      types:
-        MCBrute: 10
-  - type: CMArmorPiercing
-    amount: 0
-
-- type: entity
-  parent: MCProjectileRocketShell
   id: MCProjectileRocketShellHeat
   name: 67mm HEAT shell
   components:
+  - type: Sprite
+    layers:
+    - state: shell_heat
   - type: Projectile
     damage:
       types:
@@ -236,6 +227,9 @@
   id: MCProjectileRocketShellLe
   name: 67mm light-explosive shell
   components:
+  - type: Sprite
+    layers:
+    - state: shell_le
   - type: CMArmorPiercing
     amount: 50
   - type: MCXenoSunderDamageOnHit
@@ -250,21 +244,83 @@
   id: MCProjectileRocketShellSmoke
   name: 67mm Chemical (Smoke) shell
   components:
+  - type: Sprite
+    layers:
+    - state: shell_smoke
   - type: Projectile
     damage:
       types:
         MCBrute: 10
   - type: CMArmorPiercing
     amount: 0
+  - type: SpawnOnTerminate
+    spawn: MCSmokeRL160Smoke
+    projectileAdjust: false
 
 - type: entity
-  parent: MCProjectileRocketShell
+  parent: MCProjectileRocketShellSmoke
+  id: MCProjectileRocketShellCloak
+  name: 67mm Chemical (Cloak) shell
+  components:
+  - type: Sprite
+    layers:
+    - state: shell_cloak
+  - type: SpawnOnTerminate
+    spawn: MCSmokeRL160Cloak
+
+- type: entity
+  parent: MCProjectileRocketShellSmoke
   id: MCProjectileRocketShellTanglefoot
   name: 67mm Chemical (Tanglefoot) shell
   components:
-  - type: Projectile
-    damage:
-      types:
-        MCBrute: 10
-  - type: CMArmorPiercing
-    amount: 0
+  - type: Sprite
+    layers:
+    - state: shell_tanglefoot
+  - type: SpawnOnTerminate
+    spawn: MCSmokeRL160Tanglefoot
+
+# Smokes
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeRL160Smoke
+  components:
+  - type: Occluder
+  - type: MCEdgeSpreader
+    delay: 0.05
+    range: 7
+  - type: TimedDespawn
+    lifetime: 9
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 9
+
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeRL160Cloak
+  components:
+  - type: Sprite
+    color: "#ffffff3C"
+  - type: MCEdgeSpreader
+    delay: 0.05
+    range: 7
+  - type: TimedDespawn
+    lifetime: 9
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.2
+    lifetime: 9
+
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeRL160Tanglefoot
+  components:
+  - type: Sprite
+    color: "#7916973C"
+  - type: MCEdgeSpreader
+    delay: 0.05
+    range: 7
+  - type: MCSmokePlasma
+    multiplier: 0.2
+  - type: TimedDespawn
+    lifetime: 9
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.2
+    lifetime: 9
