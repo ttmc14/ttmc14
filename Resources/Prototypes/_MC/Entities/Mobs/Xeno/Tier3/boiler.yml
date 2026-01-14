@@ -84,4 +84,4 @@
     doAfter: 0.5
     barricadeDamage:
       types:
-        MCBurn: 5
+        MCBurn: 45

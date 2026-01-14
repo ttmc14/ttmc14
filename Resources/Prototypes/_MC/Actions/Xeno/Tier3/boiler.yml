@@ -4,16 +4,16 @@
   name: Spray Acid (250)
   description: Spray a line of dangerous acid at your target.
   components:
-  - type: WorldTargetAction
+  - type: Action
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/Xeno/boiler.rsi
       state: spray_acid
-    event: !type:XenoSprayAcidActionEvent
     useDelay: 9
-    range: 15
   - type: TargetAction
     range: 15
+  - type: WorldTargetAction
+    event: !type:XenoSprayAcidActionEvent
   - type: XenoActionPlasma
     cost: 250
   - type: ActionBlockIfResting

@@ -9,7 +9,7 @@
     - MCDamageAcid
   - type: Sprite
     sprite: _MC/Effects/xeno_acid.rsi
-    drawdepth: Effects
+    drawdepth: BelowMobs
     layers:
     - state: acid2
   - type: Transform

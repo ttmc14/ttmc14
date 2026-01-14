@@ -12,10 +12,6 @@
       types:
         MCBurn: 14
 
-# acid_spray_duration = 10 SECONDS
-# acid_spray_damage_on_hit = 35
-# acid_spray_damage = 16
-# acid_spray_structure_damage = 45
 - type: entity
   parent: MCXenoAcidSpray
   id: MCXenoAcidSpraySpitter
@@ -23,6 +19,7 @@
   - type: TimedDespawn
     lifetime: 10
   - type: DamageOnCollide
+    paralyze: 2
     damage:
       types:
         MCBurn: 35
@@ -37,6 +34,7 @@
   - type: TimedDespawn
     lifetime: 10
   - type: DamageOnCollide
+    paralyze: 2
     damage:
       types:
         MCBurn: 35
@@ -44,13 +42,6 @@
       types:
         MCBurn: 35
 
-# acid_spray_duration = 6 SECONDS
-# acid_spray_damage = 8
-# acid_spray_duration = 10 SECONDS
-# acid_spray_range = 5
-# acid_spray_damage = 16
-# acid_spray_damage_on_hit = 47
-# acid_spray_structure_damage = 69
 - type: entity
   parent: MCXenoAcidSpray
   id: MCXenoAcidSprayPraetorian
