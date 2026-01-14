@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/fc63c518f2dffb683190e3632c13262d1ff80ee1",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/fc63c518f2dffb683190e3632c13262d1ff80ee1, and take from https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/11796b7f6d7c99a8a05db802bc1ed63a492ac20f",
   "size": {
     "x": 32,
     "y": 32
@@ -11,31 +11,125 @@
       "name": "acid_glob"
     },
     {
-      "name": "neuro_glob"
-    },
-    {
       "name": "acid_lance_glob"
-    },
-    {
-      "name": "neuro_lance_glob"
-    },
-    {
-      "name": "bombard"
-    },
-    {
-      "name": "toggle_long_range"
-    },
-    {
-      "name": "spray_acid"
-    },
-    {
-      "name": "create_bomb"
     },
     {
       "name": "acid_shroud"
     },
     {
+      "name": "bombard"
+    },
+    {
+      "name": "create_bomb"
+    },
+    {
+      "name": "create_bomb_count_0",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_1",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_2",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_3",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_4",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_5",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_6",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "create_bomb_count_7",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "dump_acid"
+    },
+    {
+      "name": "neuro_glob"
+    },
+    {
+      "name": "neuro_lance_glob"
+    },
+    {
+      "name": "spray_acid"
+    },
+    {
+      "name": "spray_acid_line"
+    },
+    {
       "name": "steam_rush"
+    },
+    {
+      "name": "toggle_long_range"
     }
   ]
 }

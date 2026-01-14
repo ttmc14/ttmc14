@@ -8,7 +8,7 @@
     itemIconStyle: NoItem
     icon:
       sprite: _MC/Interface/Actions/Xeno/boiler.rsi
-      state: spray_acid
+      state: spray_acid_line
     useDelay: 9
   - type: TargetAction
     range: 15
@@ -17,6 +17,24 @@
   - type: XenoActionPlasma
     cost: 250
   - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoCreateGlob
+  name: Create bomb (200)
+  description: Creates a Boiler Bombard.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: create_bomb_count_0
+    useDelay: 1.5
+  - type: InstantAction
+    event: !type:MCXenoCreateGlobActionEvent
+      statePrefix: create_bomb_count_
+  - type: XenoActionPlasma
+    cost: 200
 
 - type: entity
   parent: ActionXenoBase
