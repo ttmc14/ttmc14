@@ -1,5 +1,8 @@
 ﻿using Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector.UI;
+using Content.Shared.Actions;
+using Content.Shared.Actions.Components;
 using Content.Shared.Chemistry.Reagent;
+using Robust.Shared.Containers;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector;
@@ -13,8 +16,30 @@ public sealed class MCXenoReagentSelectorSystem : MCXenoAbilitySystem
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MCXenoReagentSelectorComponent, EntInsertedIntoContainerMessage>(OnActionAdded);
         SubscribeLocalEvent<MCXenoReagentSelectorComponent, MCXenoReagentSelectorBuiMsg>(OnSelectMessage);
         SubscribeLocalEvent<MCXenoReagentSelectorComponent, MCXenoReagentSelectorActionEvent>(OnAction);
+    }
+
+    private void OnActionAdded(Entity<MCXenoReagentSelectorComponent> entity, ref EntInsertedIntoContainerMessage args)
+    {
+        if (args.Container.ID != ActionsContainerComponent.ContainerId)
+            return;
+
+        if (Actions.GetAction(args.Entity) is not {} action)
+            return;
+
+        if (Actions.GetEvent(action) is not MCXenoReagentSelectorActionEvent)
+            return;
+
+        if (entity.Comp.Entries.Keys.Count == 0)
+            return;
+
+        foreach (var key in entity.Comp.Entries.Keys)
+        {
+            Select(entity, key);
+            break;
+        }
     }
 
     public EntProtoId? GetSmoke(Entity<MCXenoReagentSelectorComponent?> entity)
@@ -46,7 +71,10 @@ public sealed class MCXenoReagentSelectorSystem : MCXenoAbilitySystem
     private void Select(Entity<MCXenoReagentSelectorComponent> entity, string id)
     {
         if (!entity.Comp.Entries.TryGetValue(id, out var entry))
+        {
+            Log.Warning($"Entity {id} not found");
             return;
+        }
 
         entity.Comp.SelectedEntry = entry;
         DirtyField(entity, entity.Comp, nameof(MCXenoReagentSelectorComponent.SelectedEntry));

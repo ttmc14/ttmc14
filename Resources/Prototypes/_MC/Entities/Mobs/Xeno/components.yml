@@ -177,6 +177,26 @@
           state: acid
         smokeEntityId: MCSmokeXenoAcidLight
 
+- type: entity
+  id: MCXenoComponentReagentSelectorBoiler
+  abstract: true
+  components:
+  - type: MCXenoReagentSelector
+    entries:
+      Neurotoxin:
+        name: Neurotoxin
+        sprite:
+          sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+          state: neuro_glob
+        reagentId: MCNeurotoxin
+        smokeEntityId: MCSmokeXenoNeurotoxin
+      Acid:
+        name: Acid
+        sprite:
+          sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+          state: acid_glob
+        smokeEntityId: MCSmokeXenoAcidLight
+
 # Evolution
 - type: entity
   id: MCXenoComponentEvolution

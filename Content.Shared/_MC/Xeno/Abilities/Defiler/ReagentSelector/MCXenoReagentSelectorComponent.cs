@@ -9,11 +9,11 @@ namespace Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCXenoReagentSelectorComponent : Component
 {
+    [ViewVariables, AutoNetworkedField]
+    public Entry? SelectedEntry;
+
     [DataField, AutoNetworkedField]
     public Dictionary<string, Entry> Entries = new();
-
-    [AutoNetworkedField]
-    public Entry? SelectedEntry;
 
     [DataDefinition, Serializable, NetSerializable]
     public sealed partial class Entry
@@ -21,7 +21,7 @@ public sealed partial class MCXenoReagentSelectorComponent : Component
         [DataField]
         public LocId Name;
 
-        [DataField]
+        [DataField(required: true)]
         public SpriteSpecifier.Rsi Sprite = null!;
 
         [DataField]

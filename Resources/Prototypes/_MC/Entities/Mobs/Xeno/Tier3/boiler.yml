@@ -2,6 +2,7 @@
   parent:
   # MC
   - MCXenoBase
+  - MCXenoComponentReagentSelectorBoiler
   - MCXenoComponentEvolutionTier3
   # RMC
   - CMXenoDeveloped
@@ -36,6 +37,7 @@
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
     # Abilities
+    - MCActionXenoSelectReagent
     - MCActionXenoSprayAcidBoiler
     - MCActionXenoBoilerLongRange
     - MCActionXenoCreateGlob
