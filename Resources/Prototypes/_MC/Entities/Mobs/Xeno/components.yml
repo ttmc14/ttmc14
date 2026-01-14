@@ -221,7 +221,7 @@
     # - MCXenoGorger
     # - MCXenoWarlock
     - MCXenoPraetorian
-    # - MCXenoBoiler
+    - MCXenoBoiler
     - MCXenoRavager
     # - MCXenoWidow
     # - MCXenoChimera
@@ -247,4 +247,4 @@
     - MCXenoBull
     - MCXenoSpitter
     - MCXenoForger
-    - MCXenoPanther
+    # - MCXenoPanther
