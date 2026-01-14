@@ -17,6 +17,8 @@
     name: mc-job-name-xeno-hunter
   - type: GhostRole
     name: mc-job-name-xeno-hunter
+  - type: RMCActionOrder
+    id: MCXenoHunter
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/hunter.rsi

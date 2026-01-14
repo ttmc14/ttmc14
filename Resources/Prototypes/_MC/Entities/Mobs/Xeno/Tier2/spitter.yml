@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-spitter
   - type: GhostRole
     name: mc-job-name-xeno-spitter
+  - type: RMCActionOrder
+    id: MCXenoSpitter
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/spitter.rsi

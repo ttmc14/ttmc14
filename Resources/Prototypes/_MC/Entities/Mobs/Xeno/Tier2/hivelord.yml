@@ -21,6 +21,8 @@
     name: mc-job-name-xeno-hivelord
   - type: GhostRole
     name: mc-job-name-xeno-hivelord
+  - type: RMCActionOrder
+    id: MCXenoHivelord
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/hivelord.rsi

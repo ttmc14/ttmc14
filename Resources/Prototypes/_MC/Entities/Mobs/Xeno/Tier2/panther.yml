@@ -18,6 +18,8 @@
     name: mc-job-name-panther
   - type: GhostRole
     name: mc-job-name-panther
+  - type: RMCActionOrder
+    id: MCXenoPanther
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/panther.rsi

@@ -19,6 +19,8 @@
     name: mc-job-name-xeno-runner
   - type: GhostRole
     name: mc-job-name-xeno-runner
+  - type: RMCActionOrder
+    id: MCXenoRunner
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/runner.rsi

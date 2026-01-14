@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-defender
   - type: GhostRole
     name: mc-job-name-xeno-defender
+  - type: RMCActionOrder
+    id: MCXenoDefender
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/defender.rsi

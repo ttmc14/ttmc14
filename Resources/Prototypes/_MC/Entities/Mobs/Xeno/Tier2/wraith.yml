@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-wraith
   - type: GhostRole
     name: mc-job-name-xeno-wraith
+  - type: RMCActionOrder
+    id: MCXenoWraith
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/wraith.rsi

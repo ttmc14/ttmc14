@@ -17,6 +17,8 @@
     name: mc-job-name-xeno-bull
   - type: GhostRole
     name: mc-job-name-xeno-bull
+  - type: RMCActionOrder
+    id: MCXenoBull
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/bull.rsi

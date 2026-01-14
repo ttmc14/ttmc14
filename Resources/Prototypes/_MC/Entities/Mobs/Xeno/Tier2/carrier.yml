@@ -19,6 +19,8 @@
     name: cm-job-name-xeno-carrier
   - type: GhostRole
     name: cm-job-name-xeno-carrier
+  - type: RMCActionOrder
+    id: MCXenoCarrier
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/carrier.rsi

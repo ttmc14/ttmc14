@@ -20,6 +20,8 @@
     name: mc-job-name-xeno-drone
   - type: GhostRole
     name: mc-job-name-xeno-drone
+  - type: RMCActionOrder
+    id: MCXenoDrone
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/drone.rsi

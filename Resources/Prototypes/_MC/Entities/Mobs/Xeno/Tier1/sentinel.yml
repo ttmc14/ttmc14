@@ -18,6 +18,8 @@
     name: mc-job-name-xeno-sentinel
   - type: GhostRole
     name: mc-job-name-xeno-sentinel
+  - type: RMCActionOrder
+    id: MCXenoSentinel
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/sentinel.rsi
