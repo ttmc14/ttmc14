@@ -39,7 +39,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
     private void OnNightVisionDetached(Entity<NightVisionComponent> ent, ref LocalPlayerDetachedEvent args)
     {
-        Off();
+        Off(ent);
     }
 
     protected override void NightVisionChanged(Entity<NightVisionComponent> ent)
@@ -50,7 +50,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         switch (ent.Comp.State)
         {
             case NightVisionState.Off:
-                Off();
+                Off(ent);
                 break;
             case NightVisionState.Half:
                 Half(ent);
@@ -68,7 +68,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         if (ent != _player.LocalEntity)
             return;
 
-        Off();
+        Off(ent);
     }
 
     private void SetMesons(bool on)
@@ -80,7 +80,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _eye.SetDrawFov(_player.LocalEntity.Value, !on);
     }
 
-    private void Off()
+    private void Off(Entity<NightVisionComponent> ent)
     {
         _overlay.RemoveOverlay<NightVisionOverlay>();
         _overlay.RemoveOverlay<NightVisionFilterOverlay>();
@@ -88,6 +88,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _light.DrawHardFov = true;
         _light.DrawLighting = true;
+
+        _eye.SetDrawFov(ent, true);
 
         SetMesons(false);
         SetMesonSprites(false);
@@ -103,8 +105,10 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _overlay.AddOverlay(new HalfNightVisionBrightnessOverlay());
 
-        _light.DrawHardFov = ent.Comp.DrawFov;
+        // _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = true;
+
+        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
 
         SetMesons(ent.Comp.Mesons);
     }
@@ -117,8 +121,10 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         if (ent.Comp.Green)
             _overlay.AddOverlay(new NightVisionFilterOverlay());
 
-        _light.DrawHardFov = ent.Comp.DrawFov;
+        // _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = false;
+
+        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
 
         SetMesons(ent.Comp.Mesons);
     }
