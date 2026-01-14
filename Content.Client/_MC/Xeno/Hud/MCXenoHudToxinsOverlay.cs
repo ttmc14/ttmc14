@@ -56,29 +56,24 @@ public sealed class MCXenoHudToxinsOverlay : Overlay
 
     protected override void Draw(in OverlayDrawArgs args)
     {
-        var eyeRotation = args.Viewport.Eye?.Rotation ?? default;
         var handle = args.WorldHandle;
 
         handle.UseShader(_shader);
 
-        var scaleMatrix = Matrix3x2.CreateScale(new Vector2(1, 1));
-        var rotationMatrix = Matrix3Helpers.CreateRotation(-eyeRotation);
-
-        DrawToxinsIcons(in args, scaleMatrix, rotationMatrix);
+        DrawToxinsIcons(in args);
 
         handle.UseShader(null);
         handle.SetTransform(Matrix3x2.Identity);
     }
 
-    private void DrawToxinsIcons(in OverlayDrawArgs args, Matrix3x2 scaleMatrix, Matrix3x2 rotationMatrix)
+    private void DrawToxinsIcons(in OverlayDrawArgs args)
     {
-        if (!_entityManager.HasComponent<XenoComponent>(_player.LocalEntity) && !_entityManager.HasComponent<CMGhostXenoHudComponent>(_player.LocalEntity))
+        if (!ValidEntity(_player.LocalEntity))
             return;
 
         var handle = args.WorldHandle;
-        var query = _entityManager
-            .AllEntityQueryEnumerator<MCXenoHudToxinsComponent, SolutionContainerManagerComponent, SpriteComponent, TransformComponent>();
 
+        var query = _entityManager.AllEntityQueryEnumerator<MCXenoHudToxinsComponent, SolutionContainerManagerComponent, SpriteComponent, TransformComponent>();
         while (query.MoveNext(out var uid, out var component, out var solutionContainer,  out var sprite, out var xform))
         {
             if (xform.MapID != args.MapId)
@@ -89,13 +84,12 @@ public sealed class MCXenoHudToxinsOverlay : Overlay
 
             var bounds = _sprite.GetLocalBounds((uid, sprite));
             var worldPosition = _transform.GetWorldPosition(xform, _xformQuery);
+
             if (!bounds.Translated(worldPosition).Intersects(args.WorldAABB))
                 continue;
 
-            var worldMatrix = Matrix3x2.CreateTranslation(worldPosition);
-            var worldScaled = Matrix3x2.Multiply(scaleMatrix, worldMatrix);
-
-            handle.SetTransform(Matrix3x2.Multiply(rotationMatrix, worldScaled));
+            var worldPos = _transform.GetWorldPosition(xform, _xformQuery);
+            handle.SetTransform(Matrix3x2.CreateTranslation(worldPos));
 
             foreach (var (reagentId, state) in component.Reagents)
             {
@@ -113,11 +107,19 @@ public sealed class MCXenoHudToxinsOverlay : Overlay
     private void DrawToxin(string state, Box2 bounds, SpriteComponent spriteComponent, DrawingHandleWorld worldHandle)
     {
         var texture = _sprite.GetFrame(new SpriteSpecifier.Rsi(_toxinPath, state), _timing.CurTime);
+
+        var size = texture.Size / EyeManager.PixelsPerMeter;
         var position = new Vector2(
-            (bounds.Height + spriteComponent.Offset.Y) / 2f - (float) texture.Height / EyeManager.PixelsPerMeter * bounds.Height,
-            (bounds.Width + spriteComponent.Offset.X) / 2f - (float) texture.Width / EyeManager.PixelsPerMeter * bounds.Width
+            -size.X / 2f,
+            -size.Y / 2f
         );
 
         worldHandle.DrawTexture(texture, position);
+    }
+
+    private bool ValidEntity(EntityUid? uid)
+    {
+        return _entityManager.HasComponent<XenoComponent>(uid) ||
+               _entityManager.HasComponent<CMGhostXenoHudComponent>(uid);
     }
 }

@@ -27,7 +27,6 @@
     - state: xeno_toxic
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
         MCBurn: 16

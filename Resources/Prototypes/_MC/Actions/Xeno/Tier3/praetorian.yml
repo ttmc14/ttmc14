@@ -127,7 +127,6 @@
     - state: xeno_acid_strong
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
         MCBurn: 30
@@ -149,7 +148,6 @@
     - state: neurotoxin
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types: null
   - type: XenoProjectile
@@ -177,7 +175,6 @@
     - state: neurotoxin
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
         MCToxin: 20
@@ -201,7 +198,6 @@
     - state: xeno_acid_normal
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
         MCBurn: 15

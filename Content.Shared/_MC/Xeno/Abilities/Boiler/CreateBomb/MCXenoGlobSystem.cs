@@ -19,13 +19,26 @@ public sealed class MCXenoGlobSystem : MCXenoAbilitySystem
         if (!TryUseAction(entity, args.Action))
             return;
 
-        if (!AddValue((entity, entity), 1, args.Action))
+        if (!AdjustValue((entity, entity), 1, args.Action))
             return;
 
         args.Handled = true;
     }
 
-    private bool AddValue(Entity<MCXenoGlobComponent?> entity, int amount, EntityUid? targetActionUid = null)
+    public bool HasValue(Entity<MCXenoGlobComponent?> entity, int amount)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return false;
+
+        return entity.Comp.Value >= amount;
+    }
+
+    public int GetValue(Entity<MCXenoGlobComponent?> entity)
+    {
+        return Resolve(entity, ref entity.Comp, logMissing: false) ? entity.Comp.Value : 0;
+    }
+
+    public bool AdjustValue(Entity<MCXenoGlobComponent?> entity, int amount, EntityUid? targetActionUid = null)
     {
         if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return false;

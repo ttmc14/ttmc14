@@ -1,4 +1,5 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.DoAfter;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard;
 
@@ -12,11 +13,17 @@ public sealed partial class MCXenoBombardComponent : Component
     public float AmmoCooldownReduction = 1.5f;
 
     [DataField, AutoNetworkedField]
+    public float ProjectileSpeed = 15f;
+
+    [DataField, AutoNetworkedField]
     public TimeSpan DiggingDuration = TimeSpan.FromSeconds(3);
 
     [DataField, AutoNetworkedField]
     public TimeSpan LaunchDuration = TimeSpan.FromSeconds(2);
 
     [ViewVariables, AutoNetworkedField]
-    public bool DugUp;
+    public bool Digging;
+
+    [ViewVariables]
+    public DoAfterId? DiggingDoAfterId;
 }

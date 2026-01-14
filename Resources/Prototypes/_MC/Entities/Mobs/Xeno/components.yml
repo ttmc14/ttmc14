@@ -188,14 +188,13 @@
         sprite:
           sprite: _MC/Interface/Actions/Xeno/boiler.rsi
           state: neuro_glob
-        reagentId: MCNeurotoxin
-        smokeEntityId: MCSmokeXenoNeurotoxin
+        smokeEntityId: MCXenoProjectileGlobNeurotoxin
       Acid:
         name: Acid
         sprite:
           sprite: _MC/Interface/Actions/Xeno/boiler.rsi
           state: acid_glob
-        smokeEntityId: MCSmokeXenoAcidLight
+        smokeEntityId: MCXenoProjectileGlobAcid
 
 # Evolution
 - type: entity

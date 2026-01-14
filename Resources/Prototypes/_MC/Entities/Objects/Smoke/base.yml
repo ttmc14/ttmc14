@@ -24,6 +24,8 @@
           bounds: "-0.4,-0.4,0.4,0.4"
         mask:
         - MobMask
+        - MobLayer
+        - BarricadeImpassable
         layer:
         - MidImpassable
   - type: TimedDespawn

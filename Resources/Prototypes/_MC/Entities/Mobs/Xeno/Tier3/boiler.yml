@@ -41,6 +41,7 @@
     - MCActionXenoSprayAcidBoiler
     - MCActionXenoBoilerLongRange
     - MCActionXenoCreateGlob
+    - MCActionXenoBombard
     # Utilities
     - MCActionXenoAcidStrong
     - MCActionXenoPlaceTrap
@@ -89,3 +90,4 @@
       types:
         MCBurn: 45
   - type: MCXenoGlob
+  - type: MCXenoBombard
