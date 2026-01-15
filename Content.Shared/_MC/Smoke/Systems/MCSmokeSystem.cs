@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Smoke.Components;
+using Content.Shared._RMC14.Map;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
@@ -7,6 +8,7 @@ namespace Content.Shared._MC.Smoke.Systems;
 public sealed class MCSmokeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly RMCMapSystem _rmcMap = null!;
 
     [ViewVariables] private readonly Dictionary<EntityUid, TimeSpan> _immunity = new();
     [ViewVariables] private readonly List<EntityUid> _immunityToRemove = new();
@@ -48,6 +50,12 @@ public sealed class MCSmokeSystem : EntitySystem
 
             component.EffectNext = _timing.CurTime + component.EffectDelay;
             DirtyField(uid, component, nameof(MCSmokeComponent.EffectNext));
+
+            var anchoredQuery = _rmcMap.GetAnchoredEntitiesEnumerator(uid);
+            while (anchoredQuery.MoveNext(out var anchoredUid))
+            {
+                component.AffectedEntities.Add(anchoredUid);
+            }
 
             Process((uid, component));
         }

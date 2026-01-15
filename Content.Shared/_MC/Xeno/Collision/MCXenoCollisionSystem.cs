@@ -6,7 +6,7 @@ namespace Content.Shared._MC.Xeno.Collision;
 
 public sealed class MCXenoCollisionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = default!;
+    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
 
     public override void Initialize()
     {
