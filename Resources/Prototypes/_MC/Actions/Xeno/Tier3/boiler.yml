@@ -38,20 +38,6 @@
 
 - type: entity
   parent: ActionXenoBase
-  id: MCActionXenoBoilerLongRange
-  name: Toggle Long Range Sight
-  description: Activates your weapon sight in the direction you are facing. Must remain stationary to use.
-  components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon:
-      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
-      state: toggle_long_range
-  - type: InstantAction
-    event: !type:MCXenoZoomActionEvent
-
-- type: entity
-  parent: ActionXenoBase
   id: MCActionXenoBombard
   name: Bombard
   description: Launch a glob of acid
@@ -63,13 +49,27 @@
       state: bombard
     useDelay: 27
   - type: TargetAction
-    targetingIndicator: false
-    repeat: true
+    targetingIndicator: true
     checkCanAccess: false
+    repeat: true
     range: 30
   - type: EntityTargetAction
   - type: WorldTargetAction
     event: !type:MCXenoBombardLaunchActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoBoilerLongRange
+  name: Toggle Long Range Sight
+  description: Activates your weapon sight in the direction you are facing. Must remain stationary to use.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: toggle_long_range
+  - type: InstantAction
+    event: !type:MCXenoZoomActionEvent
 
 # Projectiles
 - type: entity

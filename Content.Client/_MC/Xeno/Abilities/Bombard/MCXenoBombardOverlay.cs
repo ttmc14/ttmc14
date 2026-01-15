@@ -50,7 +50,7 @@ public sealed class MCXenoBombardOverlay : Overlay
         var uiScale = (args.ViewportControl as Control)?.UIScale ?? 1f;
         var limitedScale = uiScale > 1.25f ? 1.25f : uiScale;
 
-        var component = _entityManager.GetComponent<MCXenoBombardComponent>(_player.LocalEntity.Value);
+        var component = _entityManager.GetComponent<Shared._MC.Xeno.Abilities.Boiler.Bombard.Components.MCXenoBombardComponent>(_player.LocalEntity.Value);
         if (!component.Digging)
             return;
 
@@ -62,6 +62,6 @@ public sealed class MCXenoBombardOverlay : Overlay
 
     private bool ValidEntity(EntityUid? uid)
     {
-        return _entityManager.HasComponent<MCXenoBombardComponent>(uid);
+        return _entityManager.HasComponent<Shared._MC.Xeno.Abilities.Boiler.Bombard.Components.MCXenoBombardComponent>(uid);
     }
 }

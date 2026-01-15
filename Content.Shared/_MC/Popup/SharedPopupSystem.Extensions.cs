@@ -4,7 +4,7 @@ namespace Content.Shared._MC.Popup;
 
 public static class SharedPopupSystemExtensions
 {
-    public static void PopupEntityServer(this SharedPopupSystem popupSystem,
+    public static void PopupEntServer(this SharedPopupSystem popupSystem,
         string? message,
         EntityUid uid,
         PopupType type = PopupType.Small)
@@ -15,7 +15,7 @@ public static class SharedPopupSystemExtensions
         popupSystem.PopupEntity(message, uid, uid, type);
     }
 
-    public static void PopupEntityServer(this SharedPopupSystem popupSystem,
+    public static void PopupEntServer(this SharedPopupSystem popupSystem,
         string? message,
         EntityUid uid,
         EntityUid recipient,
@@ -25,5 +25,21 @@ public static class SharedPopupSystemExtensions
             return;
 
         popupSystem.PopupEntity(message, uid, recipient, type);
+    }
+
+    public static void PopupLocEntServer(this SharedPopupSystem popupSystem,
+        EntityUid uid,
+        LocId id,
+        PopupType type = PopupType.Small)
+    {
+        if (popupSystem.Net.IsClient)
+            return;
+
+        popupSystem.PopupEntServer(
+            Loc.GetString(id),
+            uid,
+            uid,
+            type
+        );
     }
 }

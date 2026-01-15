@@ -1,7 +1,7 @@
 ﻿using Content.Shared.DoAfter;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard;
+namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCXenoBombardComponent : Component
@@ -10,7 +10,7 @@ public sealed partial class MCXenoBombardComponent : Component
     public int? MinDistance = 5;
 
     [DataField, AutoNetworkedField]
-    public float AmmoCooldownReduction = 1.5f;
+    public float AmmoCooldownReduction = 2f;
 
     [DataField, AutoNetworkedField]
     public float ProjectileSpeed = 15f;

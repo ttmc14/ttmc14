@@ -1,4 +1,7 @@
-﻿using Content.Shared._RMC14.Xenonids.Rest;
+﻿using Content.Shared._MC.Popup;
+using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Components;
+using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.DoAfter;
+using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared.DoAfter;
 
 namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard;
@@ -21,11 +24,11 @@ public sealed partial class MCXenoBombardSystem
 
         if (args.Cancelled)
         {
-            Popup(entity, "mc-xeno-ability-bombard-dig-up-end-cancelled");
+            _popup.PopupLocEntServer(entity, "mc-xeno-ability-bombard-dig-up-end-cancelled");
             return;
         }
 
-        FinishDigging(entity);
+        SetDigging(entity, true, true);
     }
 
     private void OnRest(Entity<MCXenoBombardComponent> entity, ref XenoRestEvent args)
@@ -33,7 +36,7 @@ public sealed partial class MCXenoBombardSystem
         if (!entity.Comp.Digging || !args.Resting)
             return;
 
-        CancelDigging(entity);
+        SetDigging(entity, false, true);
     }
 
     private void OnMove(Entity<MCXenoBombardComponent> entity, ref MoveEvent args)
@@ -41,25 +44,16 @@ public sealed partial class MCXenoBombardSystem
         if (!entity.Comp.Digging || args.NewPosition == args.OldPosition)
             return;
 
-        CancelDigging(entity);
+        SetDigging(entity, false, true);
     }
 
-    private bool IsBusyDigging(Entity<MCXenoBombardComponent> entity)
-    {
-        return _doAfter.IsRunning(entity.Comp.DiggingDoAfterId);
-    }
 
-    private void FinishDigging(Entity<MCXenoBombardComponent> entity)
+    private void SetDigging(Entity<MCXenoBombardComponent> entity, bool state, bool popup = false)
     {
-        Popup(entity, "mc-xeno-ability-bombard-dig-up-end-success");
-        entity.Comp.Digging = true;
-        DirtyField(entity, entity.Comp, nameof(MCXenoBombardComponent.Digging));
-    }
+        if (popup)
+            _popup.PopupLocEntServer(entity, state ? "mc-xeno-ability-bombard-dig-up-end-success" : "mc-xeno-ability-bombard-dig-up");
 
-    private void CancelDigging(Entity<MCXenoBombardComponent> entity)
-    {
-        Popup(entity, "mc-xeno-ability-bombard-dig-up");
-        entity.Comp.Digging = false;
+        entity.Comp.Digging = state;
         DirtyField(entity, entity.Comp, nameof(MCXenoBombardComponent.Digging));
     }
 
@@ -68,23 +62,21 @@ public sealed partial class MCXenoBombardSystem
         if (entity.Comp.Digging)
             return false;
 
-        Popup(entity, "mc-xeno-ability-bombard-dig-up-start");
+        _popup.PopupLocEntServer(entity, "mc-xeno-ability-bombard-dig-up-start");
 
         var ev = new MCXenoBombardDiggingDoAfter(action, EntityManager);
-        var doAfter = CreateDiggingDoAfter(entity, ev);
-
-        _doAfter.TryStartDoAfter(doAfter, out var id);
-        entity.Comp.DiggingDoAfterId = id;
-
-        return true;
-    }
-
-    private DoAfterArgs CreateDiggingDoAfter(Entity<MCXenoBombardComponent> entity, MCXenoBombardDiggingDoAfter ev)
-    {
-        return new DoAfterArgs(EntityManager, entity, entity.Comp.DiggingDuration, ev, entity)
+        var doAfter =  new DoAfterArgs(EntityManager, entity, entity.Comp.DiggingDuration, ev, entity)
         {
             BreakOnMove = true,
             BreakOnRest = true,
         };
+
+        _doAfter.TryStartDoAfter(doAfter, out entity.Comp.DiggingDoAfterId);
+        return true;
+    }
+
+    private bool IsBusyDigging(Entity<MCXenoBombardComponent> entity)
+    {
+        return _doAfter.IsRunning(entity.Comp.DiggingDoAfterId);
     }
 }

@@ -1,22 +1,40 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector.UI;
+﻿using Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector.Events;
+using Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector.Events.Action;
+using Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector.UI;
 using Content.Shared.Actions;
-using Content.Shared.Chemistry.Reagent;
-using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector;
 
 // TODO: [MC] Use MCXenoAbilitySystem<TComponent, TEvent>
-public sealed class MCXenoReagentSelectorSystem : MCXenoAbilitySystem
+public sealed partial class MCXenoReagentSelectorSystem : MCXenoAbilitySystem
 {
+    private static readonly Enum UIKey = MCXenoReagentSelectorUI.Key;
+
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = null!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MCXenoReagentSelectorComponent, ActionAddedEvent>(OnActionAdded);
-        SubscribeLocalEvent<MCXenoReagentSelectorComponent, MCXenoReagentSelectorBuiMsg>(OnSelectMessage);
         SubscribeLocalEvent<MCXenoReagentSelectorComponent, MCXenoReagentSelectorActionEvent>(OnAction);
+        SubscribeLocalEvent<MCXenoReagentSelectorComponent, MCXenoReagentSelectorBuiMsg>(OnSelect);
+
+        SubscribeLocalEvent<MCXenoReagentSelectorComponent, ActionAddedEvent>(OnActionAdded);
+    }
+
+    private void OnAction(Entity<MCXenoReagentSelectorComponent> entity, ref MCXenoReagentSelectorActionEvent args)
+    {
+        args.Handled = true;
+
+        _userInterface.TryOpenUi(entity.Owner, UIKey, entity);
+    }
+
+    private void OnSelect(Entity<MCXenoReagentSelectorComponent> entity, ref MCXenoReagentSelectorBuiMsg args)
+    {
+        SetEntry((entity, entity), args.Id);
+        RefreshActionIcon((entity, entity));
+
+        _userInterface.CloseUi(entity.Owner, UIKey, entity);
     }
 
     private void OnActionAdded(Entity<MCXenoReagentSelectorComponent> entity, ref ActionAddedEvent args)
@@ -24,47 +42,27 @@ public sealed class MCXenoReagentSelectorSystem : MCXenoAbilitySystem
         if (Actions.GetEvent(args.Action) is not MCXenoReagentSelectorActionEvent)
             return;
 
-        if (entity.Comp.Entries.Values.Count == 0)
-            return;
-
-        foreach (var entry in entity.Comp.Entries.Values)
+        if (entity.Comp.Entries.Count == 0)
         {
-            entity.Comp.SelectedEntry = entry;
-            DirtyField(entity, entity.Comp, nameof(MCXenoReagentSelectorComponent.SelectedEntry));
+            Log.Warning("No entries found");
+            return;
+        }
 
+        foreach (var (key, entry) in entity.Comp.Entries)
+        {
+            SetEntry((entity, entity), key);
+
+            // Technically we don't have action yet, because GetActionsWithEvent can't get our event
             Actions.SetIcon(args.Action, entry.Sprite);
             break;
         }
     }
 
-    public EntProtoId? GetSmoke(Entity<MCXenoReagentSelectorComponent?> entity)
+    public void SetEntry(Entity<MCXenoReagentSelectorComponent?> entity, string id)
     {
-        return !Resolve(entity, ref entity.Comp)
-            ? null
-            : entity.Comp.SelectedEntry?.SmokeEntityId;
-    }
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
 
-    public ProtoId<ReagentPrototype>? GetReagent(Entity<MCXenoReagentSelectorComponent?> entity)
-    {
-        return !Resolve(entity, ref entity.Comp)
-            ? null
-            : entity.Comp.SelectedEntry?.ReagentId;
-    }
-
-    private void OnSelectMessage(Entity<MCXenoReagentSelectorComponent> entity, ref MCXenoReagentSelectorBuiMsg args)
-    {
-        Select(entity, args.Id);
-        _userInterface.CloseUi(entity.Owner, MCXenoReagentSelectorUI.Key, entity);
-    }
-
-    private void OnAction(Entity<MCXenoReagentSelectorComponent> entity, ref MCXenoReagentSelectorActionEvent args)
-    {
-        args.Handled = true;
-        _userInterface.TryOpenUi(entity.Owner, MCXenoReagentSelectorUI.Key, entity);
-    }
-
-    private void Select(Entity<MCXenoReagentSelectorComponent> entity, string id)
-    {
         if (!entity.Comp.Entries.TryGetValue(id, out var entry))
         {
             Log.Warning($"Entity {id} not found");
@@ -73,6 +71,21 @@ public sealed class MCXenoReagentSelectorSystem : MCXenoAbilitySystem
 
         entity.Comp.SelectedEntry = entry;
         DirtyField(entity, entity.Comp, nameof(MCXenoReagentSelectorComponent.SelectedEntry));
+
+        var ev = new MCXenoReagentSelectorSetEvent(id);
+        RaiseLocalEvent(entity, ref ev);
+    }
+
+    private void RefreshActionIcon(Entity<MCXenoReagentSelectorComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
+            return;
+
+        if (entity.Comp.SelectedEntry is not { } entry)
+        {
+            Log.Warning("Trying refresh icons with null entry");
+            return;
+        }
 
         foreach (var action in RMCActions.GetActionsWithEvent<MCXenoReagentSelectorActionEvent>(entity))
         {

@@ -105,12 +105,12 @@ public sealed class MCXenoDrainStingSystem : MCXenoAbilitySystem
 
     private void OnBuffStartup(Entity<MCXenoDrainStingBuffComponent> entity, ref ComponentStartup args)
     {
-        _popup.PopupEntityServer(Loc.GetString("mc-xeno-ability-drain-sting-buff-start"), entity, PopupType.MediumXeno);
+        _popup.PopupEntServer(Loc.GetString("mc-xeno-ability-drain-sting-buff-start"), entity, PopupType.MediumXeno);
     }
 
     private void OnBuffRemove(Entity<MCXenoDrainStingBuffComponent> entity, ref ComponentRemove args)
     {
-        _popup.PopupEntityServer(Loc.GetString("mc-xeno-ability-drain-sting-buff-end"), entity, PopupType.MediumXeno);
+        _popup.PopupEntServer(Loc.GetString("mc-xeno-ability-drain-sting-buff-end"), entity, PopupType.MediumXeno);
     }
 
     private static void OnBuffArmorGet(Entity<MCXenoDrainStingBuffComponent> entity, ref MCArmorGetEvent args)

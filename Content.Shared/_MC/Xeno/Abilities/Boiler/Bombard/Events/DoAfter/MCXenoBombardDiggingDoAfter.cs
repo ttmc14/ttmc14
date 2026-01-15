@@ -1,7 +1,7 @@
 ﻿using Content.Shared._MC.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard;
+namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.DoAfter;
 
 [Serializable, NetSerializable]
 public sealed partial class MCXenoBombardDiggingDoAfter : MCActionSimpleDoAfterEvent

@@ -2,7 +2,7 @@
 using Robust.Shared.Map;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard;
+namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.DoAfter;
 
 [Serializable, NetSerializable]
 public sealed partial class MCXenoBombardLaunchDoAfter : MCActionSimpleDoAfterEvent

@@ -40,12 +40,12 @@ public sealed class MCXenoToxicSlashSystem : MCXenoAbilitySystem
 
     private void OnActiveStart(Entity<MCXenoToxicSlashActiveComponent> entity, ref ComponentStartup args)
     {
-        _popup.PopupEntityServer(Loc.GetString("mc-xeno-ability-toxic-slash-start"), entity, PopupType.MediumXeno);
+        _popup.PopupEntServer(Loc.GetString("mc-xeno-ability-toxic-slash-start"), entity, PopupType.MediumXeno);
     }
 
     private void OnActiveShutdown(Entity<MCXenoToxicSlashActiveComponent> entity, ref ComponentShutdown args)
     {
-        _popup.PopupEntityServer(Loc.GetString("mc-xeno-ability-toxic-slash-end"), entity, PopupType.MediumXeno);
+        _popup.PopupEntServer(Loc.GetString("mc-xeno-ability-toxic-slash-end"), entity, PopupType.MediumXeno);
     }
 
     private void OnAction(Entity<MCXenoToxicSlashComponent> entity, ref MCXenoToxicSlashActionEvent args)

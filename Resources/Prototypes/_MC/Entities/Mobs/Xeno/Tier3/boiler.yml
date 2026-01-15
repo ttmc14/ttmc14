@@ -2,7 +2,7 @@
   parent:
   # MC
   - MCXenoBase
-  - MCXenoComponentReagentSelectorBoiler
+  - MCXenoComponentBoilerGlob
   - MCXenoComponentEvolutionTier3
   # RMC
   - CMXenoDeveloped
@@ -89,5 +89,28 @@
     barricadeDamage:
       types:
         MCBurn: 45
-  - type: MCXenoGlob
   - type: MCXenoBombard
+
+# Components
+- type: entity
+  id: MCXenoComponentBoilerGlob
+  abstract: true
+  components:
+  - type: MCXenoReagentSelector
+    entries:
+      Neurotoxin:
+        name: Neurotoxin
+        sprite:
+          sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+          state: neuro_glob
+      Acid:
+        name: Acid
+        sprite:
+          sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+          state: acid_glob
+  - type: MCXenoGlob
+    entries:
+      Neurotoxin:
+        globId: MCXenoProjectileGlobNeurotoxin
+      Acid:
+        globId: MCXenoProjectileGlobAcid

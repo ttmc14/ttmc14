@@ -6,10 +6,12 @@ using Content.Shared.Alert;
 using Content.Shared.IgnitionSource;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Rounding;
 using Content.Shared.Toggleable;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._RMC14.NightVision;
@@ -25,6 +27,8 @@ public abstract class SharedNightVisionSystem : EntitySystem
     [Dependency] private readonly SkillsSystem _skills = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly VisorSystem _visor = default!;
+    [Dependency] private readonly ISharedPlayerManager _player = default!;
+    [Dependency] private readonly SharedEyeSystem _eye = default!;
 
     public override void Initialize()
     {
@@ -282,6 +286,29 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
     protected virtual void NightVisionChanged(Entity<NightVisionComponent> ent)
     {
+        if (ent != _player.LocalEntity)
+            return;
+
+        switch (ent.Comp.State)
+        {
+            case NightVisionState.Off:
+                _eye.SetDrawFov(ent, true);
+                _eye.SetDrawLight(ent.Owner, true);
+                break;
+
+            case NightVisionState.Half:
+                _eye.SetDrawFov(ent, ent.Comp.DrawFov);
+                _eye.SetDrawLight(ent.Owner, true);
+                break;
+
+            case NightVisionState.Full:
+                _eye.SetDrawFov(ent, ent.Comp.DrawFov);
+                _eye.SetDrawLight(ent.Owner, false);
+                break;
+
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
     protected virtual void NightVisionRemoved(Entity<NightVisionComponent> ent)

@@ -44,6 +44,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
     protected override void NightVisionChanged(Entity<NightVisionComponent> ent)
     {
+        base.NightVisionChanged(ent);
+
         if (ent != _player.LocalEntity)
             return;
 
@@ -89,8 +91,6 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _light.DrawHardFov = true;
         _light.DrawLighting = true;
 
-        _eye.SetDrawFov(ent, true);
-
         SetMesons(false);
         SetMesonSprites(false);
     }
@@ -105,10 +105,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _overlay.AddOverlay(new HalfNightVisionBrightnessOverlay());
 
-        // _light.DrawHardFov = ent.Comp.DrawFov;
+        _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = true;
-
-        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
 
         SetMesons(ent.Comp.Mesons);
     }
@@ -121,10 +119,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         if (ent.Comp.Green)
             _overlay.AddOverlay(new NightVisionFilterOverlay());
 
-        // _light.DrawHardFov = ent.Comp.DrawFov;
+        _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = false;
-
-        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
 
         SetMesons(ent.Comp.Mesons);
     }
