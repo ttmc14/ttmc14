@@ -42,6 +42,7 @@
     - MCActionXenoBoilerLongRange
     - MCActionXenoCreateGlob
     - MCActionXenoBombard
+    - MCActionXenoAcidShroud
     # Utilities
     - MCActionXenoAcidStrong
     - MCActionXenoPlaceTrap
@@ -90,6 +91,7 @@
       types:
         MCBurn: 45
   - type: MCXenoBombard
+  - type: MCXenoAcidShroud
 
 # Components
 - type: entity
@@ -112,5 +114,7 @@
     entries:
       Neurotoxin:
         globId: MCXenoProjectileGlobNeurotoxin
+        shroudGlobId: MCSmokeXenoNeurotoxinBoiler
       Acid:
         globId: MCXenoProjectileGlobAcid
+        shroudGlobId: MCSmokeXenoAcidBoiler

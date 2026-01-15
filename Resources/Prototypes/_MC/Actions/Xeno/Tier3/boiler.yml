@@ -56,6 +56,7 @@
   - type: EntityTargetAction
   - type: WorldTargetAction
     event: !type:MCXenoBombardLaunchActionEvent
+  - type: ActionBlockIfResting
 
 - type: entity
   parent: ActionXenoBase
@@ -70,6 +71,24 @@
       state: toggle_long_range
   - type: InstantAction
     event: !type:MCXenoZoomActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAcidShroud
+  name: Acid Shroud
+  description: Create a smokescreen of gas, setting your Bombard on a longer cooldown. Does not require or consume a reserved globule.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: acid_shroud
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCXenoAcidShroudActionEvent
+  - type: XenoActionPlasma
+    cost: 200
 
 # Projectiles
 - type: entity

@@ -136,6 +136,16 @@ public sealed class MCXenoGlobSystem : MCXenoAbilitySystem
         return Resolve(entity, ref entity.Comp, logMissing: false) ? entity.Comp.Count : 0;
     }
 
+    public bool TryGetShroudId(Entity<MCXenoGlobComponent?> entity, out EntProtoId shroudId)
+    {
+        shroudId = default;
+        if (!TryGetEntry(entity, out var entry))
+            return false;
+
+        shroudId = entry.ShroudGlobId;
+        return true;
+    }
+
     public bool TryGetGlobId(Entity<MCXenoGlobComponent?> entity, out EntProtoId globId)
     {
         globId = default;
