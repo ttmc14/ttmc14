@@ -44,8 +44,6 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
     protected override void NightVisionChanged(Entity<NightVisionComponent> ent)
     {
-        base.NightVisionChanged(ent);
-
         if (ent != _player.LocalEntity)
             return;
 

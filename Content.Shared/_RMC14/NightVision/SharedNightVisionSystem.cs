@@ -286,29 +286,6 @@ public abstract class SharedNightVisionSystem : EntitySystem
 
     protected virtual void NightVisionChanged(Entity<NightVisionComponent> ent)
     {
-        if (ent != _player.LocalEntity)
-            return;
-
-        switch (ent.Comp.State)
-        {
-            case NightVisionState.Off:
-                _eye.SetDrawFov(ent, true);
-                _eye.SetDrawLight(ent.Owner, true);
-                break;
-
-            case NightVisionState.Half:
-                _eye.SetDrawFov(ent, ent.Comp.DrawFov);
-                _eye.SetDrawLight(ent.Owner, true);
-                break;
-
-            case NightVisionState.Full:
-                _eye.SetDrawFov(ent, ent.Comp.DrawFov);
-                _eye.SetDrawLight(ent.Owner, false);
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
     }
 
     protected virtual void NightVisionRemoved(Entity<NightVisionComponent> ent)
