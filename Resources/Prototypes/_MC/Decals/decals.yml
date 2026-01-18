@@ -87,3 +87,73 @@
   sprite:
     sprite: _MC/Decals/decals.rsi
     state: warningboxsmall
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoCentral
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_central
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoEast
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_east
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoCorner
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_north
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoSouth
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_south
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoWest
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_west
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoSouthEast
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_southeast
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoSouthWest
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_southwest
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoNorthWest
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_northwest
+  
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoNorthEast
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_northeast
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTGMCLogo
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: tgmc_logo
