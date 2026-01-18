@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared._RMC14.TacticalMap;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedTacticalMapSystem))]
+// [Access(typeof(SharedTacticalMapSystem))] // mc-changes
 public sealed partial class TacticalMapIconComponent : Component
 {
     [DataField(required: true), AutoNetworkedField]

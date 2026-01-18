@@ -1,0 +1,47 @@
+- type: entity
+  parent: MCStructure
+  id: MCMiner
+  name: mining drill
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/mining_drill.rsi
+    offset: 0, 0.25
+    layers:
+    - map: [ "base" ]
+      state: mining_drill_error
+  - type: Clickable
+  - type: Corrodible
+    isCorrodible: false
+  - type: InteractionOutline
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: MCMiner
+    state: Destroyed
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MCMinerLayers.Layer:
+        base:
+          Running: { state: "mining_drill_active_" }
+          SmallDamage: { state: "mining_drill_braced_" }
+          MediumDamage: { state: "mining_drill_" }
+          Destroyed: { state: "mining_drill_error_" }
+  - type: Speech
+  # Integrity
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: MCIntegrity
+    thresholds:
+      MinerSmallDamaged: 50
+      MinerMediumDamaged: 75
+      MinerDestroyed: 100
+  # Tactical map
+  - type: MarineMapTracked
+  - type: XenoMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
+      state: phoron

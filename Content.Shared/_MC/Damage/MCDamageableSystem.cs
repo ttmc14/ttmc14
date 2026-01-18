@@ -13,7 +13,8 @@ public sealed class MCDamageableSystem : EntitySystem
     public static readonly ProtoId<DamageTypePrototype> DamageOxygenId = "MCOxygen";
     public static readonly ProtoId<DamageTypePrototype> DamageCloneId = "MCClone";
 
-    private DamageTypePrototype _damageBrute = null!;
+    public DamageTypePrototype DamageBrute { get; private set; } = null!;
+
     private DamageTypePrototype _damageBurn = null!;
     private DamageTypePrototype _damageToxin = null!;
     private DamageTypePrototype _damageOxygen = null!;
@@ -30,7 +31,7 @@ public sealed class MCDamageableSystem : EntitySystem
 
         _damageableQuery = GetEntityQuery<DamageableComponent>();
 
-        _damageBrute = _prototype.Index(DamageBruteId);
+        DamageBrute = _prototype.Index(DamageBruteId);
         _damageBurn = _prototype.Index(DamageBurnId);
         _damageToxin = _prototype.Index(DamageToxinId);
         _damageOxygen = _prototype.Index(DamageOxygenId);
@@ -39,7 +40,7 @@ public sealed class MCDamageableSystem : EntitySystem
 
     public void AdjustBruteLoss(EntityUid uid, float damage)
     {
-        _damageable.TryChangeDamage(uid, new DamageSpecifier(_damageBrute, FixedPoint2.New(damage)), ignoreResistances: true);
+        _damageable.TryChangeDamage(uid, new DamageSpecifier(DamageBrute, FixedPoint2.New(damage)), ignoreResistances: true);
     }
 
     public void AdjustBurnLoss(EntityUid uid, float damage)

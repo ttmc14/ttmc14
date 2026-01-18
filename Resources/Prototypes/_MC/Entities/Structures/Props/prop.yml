@@ -107,12 +107,3 @@
   - type: Sprite
     sprite: _MC/Structures/Machines/cryogenics.rsi
     state: body_scannerconsole
-
-- type: entity
-  parent: MCProp
-  id: MCPropMiningDrill
-  name: mining drill
-  components:
-  - type: Sprite
-    sprite: _MC/Structures/Machines/mining_drill.rsi
-    state: mining_drill_error

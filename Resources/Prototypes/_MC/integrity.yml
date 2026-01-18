@@ -1,2 +1,12 @@
 - type: MCIntegrity
   id: Destruction
+
+# Miner
+- type: MCIntegrity
+  id: MinerSmallDamaged
+
+- type: MCIntegrity
+  id: MinerMediumDamaged
+
+- type: MCIntegrity
+  id: MinerDestroyed

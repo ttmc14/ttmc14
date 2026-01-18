@@ -4,7 +4,7 @@ using Robust.Shared.Utility;
 namespace Content.Shared._RMC14.TacticalMap;
 
 [RegisterComponent, NetworkedComponent]
-[Access(typeof(SharedTacticalMapSystem))]
+// [Access(typeof(SharedTacticalMapSystem))] // mc-changes
 public sealed partial class ActiveTacticalMapTrackedComponent : Component
 {
     [DataField]

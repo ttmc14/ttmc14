@@ -1,4 +1,6 @@
-﻿using Robust.Shared.GameStates;
+﻿using Content.Shared.Tools;
+using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Miners.Components;
@@ -36,18 +38,56 @@ public sealed partial class MCMinerComponent : Component
     [DataField, AutoNetworkedField]
     public TimeSpan MineralProductionTime = TimeSpan.FromSeconds(140);
 
+    [DataField, AutoNetworkedField]
+    public TimeSpan NextMineralProduction;
+
     /// <summary>
     /// Applies the actual bonus points for the dropship for each sale.
     /// </summary>
     [DataField, AutoNetworkedField]
     public int DropshipBonus = 15;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan RepairDelay = TimeSpan.FromSeconds(20);
+
+    [DataField, AutoNetworkedField]
+    public float WeldingCost = 1f;
+
+    public ProtoId<ToolQualityPrototype> CrowbarQuality = "Prying";
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<ToolQualityPrototype> WeldingQuality = "Welding";
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<ToolQualityPrototype> CuttingQuality = "Cutting";
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<ToolQualityPrototype> WrenchQuality = "Anchoring";
+}
+
+[Serializable, NetSerializable]
+public enum MCMinerLayers
+{
+    Layer,
 }
 
 [Serializable, NetSerializable]
 public enum MCMinerState : byte
 {
     Running,
+
+    /// <summary>
+    /// Wrench (step 3)
+    /// </summary>
     SmallDamage,
+
+    /// <summary>
+    /// Wirecutter (step 2)
+    /// </summary>
     MediumDamage,
+
+    /// <summary>
+    /// Weld (step 1)
+    /// </summary>
     Destroyed,
 }
