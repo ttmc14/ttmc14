@@ -157,3 +157,87 @@
   sprite:
     sprite: _MC/Decals/decals.rsi
     state: tgmc_logo
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorFullBlack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorfull_black
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcorner2Black
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner2_black
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcornerBlack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner_black   
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcorner
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorCeeblack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcee_black
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorCee
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcee
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloor_Black
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor_black
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloor
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderColorMonoFull
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: bordercolormonofull
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderColorHalf
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: bordercolorhalf
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTechFloorEdgesHalf
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: techfloor_edges_half
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTechFloorEdgesCorner
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: techfloor_edges_corner

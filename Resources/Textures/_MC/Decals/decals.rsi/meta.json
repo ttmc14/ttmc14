@@ -1174,6 +1174,15 @@
       "directions": 1
     },
     {
+      "name": "techfloor_edges_corner",
+      "directions": 1
+    },
+
+    {
+      "name": "techfloor_edges_half",
+      "directions": 1
+    },
+    {
       "name": "logo_north",
       "directions": 1
     },
