@@ -30,8 +30,7 @@
     minimumClawStrength: VerySharp
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 3000
       behaviors:
       - !type:DoActsBehavior
@@ -52,8 +51,7 @@
     minimumClawStrength: VerySharp
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 1500
       behaviors:
       - !type:DoActsBehavior
@@ -62,3 +60,10 @@
     key: walls
     base: metal-
     mode: MCCardinalFlagsExtended
+
+- type: entity
+  parent: RMCWindowHybrisaReinforced
+  id: MCWindowReinforced
+  components:
+  - type: IconSmooth
+    key: walls
