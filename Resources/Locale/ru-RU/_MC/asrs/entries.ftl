@@ -19,7 +19,7 @@ mc-asrs-entry-sst574-magazine = Магазин турели SST-574
 mc-asrs-entry-sht573-sentry = Турель SHT-573
 mc-asrs-entry-sht573-magazine = Магазин турели SHT-573
 
-mc-asrs-entry-scout-cloak = Плащ разведчика (WIP)
+mc-asrs-entry-scout-cloak = Плащ разведчика
 mc-asrs-entry-sniper-cloak = Плащ снайпера (WIP)
 mc-asrs-entry-valkyrie-automedical = Автомедицинская система «Валькирия» (WIP)
 mc-asrs-entry-surt-thermal = Термозащитная система «Сурт»

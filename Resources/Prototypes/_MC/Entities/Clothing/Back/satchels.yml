@@ -26,10 +26,41 @@
     sprite: _MC/Clothing/Back/Satchels/Marines/technician.rsi
 
 - type: entity
-  parent: MCBackpack
+  parent: MCSatchel
   id: MCSatchelMarineCorpsman
   name: corpsman satchel
   description: A heavy-duty satchel carried by some TGMC corpsmen. You can recharge defibrillators by plugging them in.
   components:
   - type: Sprite
     sprite: _MC/Clothing/Back/Satchels/Marines/medical.rsi
+
+- type: entity
+  parent: MCSatchel
+  id: MCSatchelScout
+  name: M68 thermal cloak
+  description: The lightweight thermal dampeners and optical camouflage provided by this cloak are weaker than those found in standard UNMC ghillie suits. In exchange, the cloak can be worn over combat armor and offers the wearer high maneuverability and adaptability to many environments.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Back/Backpacks/Marines/scout_cloak.rsi
+  - type: Storage
+    grid:
+    - 0,0,14,1
+  - type: ThermalCloak
+    opacity: 0.03
+    restrictWeapons: false
+    uncloakWeaponLock: 0
+    cloakedHideLayers:
+    - Hair
+    - HeadTop
+    - HeadSide
+    - Tail
+    - Snout
+    whitelist: null
+    cloakSound:
+      path: /Audio/_RMC14/Effects/Cloak/cloak_scout_on.ogg
+      params:
+        variation: 0.09
+    uncloakSound:
+      path: /Audio/_RMC14/Effects/Cloak/cloak_scout_off.ogg
+      params:
+        variation: 0.09
