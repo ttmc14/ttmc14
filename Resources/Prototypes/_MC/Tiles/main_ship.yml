@@ -427,11 +427,6 @@
 
 - type: tile
   parent: MCMainShip
-  id: MCMainShipBlackCatwalkPlate
-  sprite: /Textures/_MC/Tiles/MainShip/black_catwalk_plate.png
-
-- type: tile
-  parent: MCMainShip
   id: MCMainShipLightCatwalk
   sprite: /Textures/_MC/Tiles/MainShip/light_catwalk.png
 
@@ -443,4 +438,4 @@
 - type: tile
   parent: MCMainShip
   id: MCMainShipStripeSquare
-  sprite: /Textures/_MC/Tiles/MainShip/stripesquare.png
+  sprite: /Textures/_MC/Tiles/MainShip/stripesquare.pnga
