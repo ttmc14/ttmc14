@@ -7,6 +7,271 @@
 
 - type: tile
   parent: MCMainShip
+  id: MCMainShipRedTileHalf
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalfCorner1
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalfCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalfCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileHalfCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileCorner
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedTileCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_red_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileCorner1
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalf
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalfCorner
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalfCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalfCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueTileHalfCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_blue_half_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalf
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileCorner
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalfCorner
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalfCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalfCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleTileHalfCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_purple_half_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalf
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileCorner
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalfCorner
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalfCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalfCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeTileHalfCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/black_orange_half_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipLinoTile
+  sprite: /Textures/_MC/Tiles/MainShip/lino_grey_smooth.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlackFull
+  sprite: /Textures/_MC/Tiles/MainShip/blackfull.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlueFull
+  sprite: /Textures/_MC/Tiles/MainShip/bluefull.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRedFull
+  sprite: /Textures/_MC/Tiles/MainShip/redfull.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipOrangeFull
+  sprite: /Textures/_MC/Tiles/MainShip/orangefull.png
+
+- type: tile
+  parent: MCMainShip
   id: MCMainShipDefault
   sprite: /Textures/_MC/Tiles/MainShip/default.png
 
@@ -14,3 +279,168 @@
   parent: MCMainShip
   id: MCMainShipPlatingCatwalk
   sprite: /Textures/_MC/Tiles/MainShip/plating_catwalk.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipPurpleFull
+  sprite: /Textures/_MC/Tiles/MainShip/purplefull.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileFullFreen
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_fullgreen.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileFullPurple
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_fullpurple.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCorner
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_corner.png
+  
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCornerHalf
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCornerHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCornerHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenCornerHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenHalf
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterileGreenHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_green_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleHalf
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCornerHalf
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner_half.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCornerHalf2
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner_half2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCornerHalf3
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner_half3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCornerHalf4
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner_half4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCorner
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCorner2
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner2.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCorner3
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner3.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipSterilePurpleCorner4
+  sprite: /Textures/_MC/Tiles/MainShip/sterile_purple_corner4.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipFullSteel
+  sprite: /Textures/_MC/Tiles/MainShip/fullsteel.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlackCatwalkPlate
+  sprite: /Textures/_MC/Tiles/MainShip/black_catwalk_plate.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipBlackCatwalkPlate
+  sprite: /Textures/_MC/Tiles/MainShip/black_catwalk_plate.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipLightCatwalk
+  sprite: /Textures/_MC/Tiles/MainShip/light_catwalk.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipRubberCarpet
+  sprite: /Textures/_MC/Tiles/MainShip/rubber_carpet.png
+
+- type: tile
+  parent: MCMainShip
+  id: MCMainShipStripeSquare
+  sprite: /Textures/_MC/Tiles/MainShip/stripesquare.png

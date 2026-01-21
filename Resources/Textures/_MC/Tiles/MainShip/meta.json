@@ -1,0 +1,275 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13/blob/master/icons/turf/mainship.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "plating"
+    },
+    {
+      "name": "black_blue_corner"
+    },
+    {
+      "name": "black_blue_corner2"
+    },
+    {
+      "name": "black_blue_corner3"
+    },
+    {
+      "name": "black_blue_corner4"
+    },
+    {
+      "name": "black_blue_half"
+    },
+    {
+      "name": "black_blue_half2"
+    },
+    {
+      "name": "black_blue_half3"
+    },
+    {
+      "name": "black_blue_half4"
+    },
+    {
+      "name": "black_blue_half_corner"
+    },
+    {
+      "name": "black_blue_half_corner2"
+    },
+    {
+      "name": "black_blue_half_corner3"
+    },
+    {
+      "name": "black_blue_half_corner4"
+    },
+    {
+      "name": "bluefull"
+    },
+    {
+      "name": "black_orange_corner"
+    },
+    {
+      "name": "black_orange_corner2"
+    },
+    {
+      "name": "black_orange_corner3"
+    },
+    {
+      "name": "black_orange_corner4"
+    },
+    {
+      "name": "black_orange_half_corner"
+    },
+    {
+      "name": "black_orange_half_corner2"
+    },
+    {
+      "name": "black_orange_half_corner3"
+    },
+    {
+      "name": "black_orange_half_corner4"
+    },
+    {
+      "name": "black_orange_half"
+    },
+    {
+      "name": "black_orange_half2"
+    },
+    {
+      "name": "black_orange_half3"
+    },
+    {
+      "name": "black_orange_half4"
+    },
+    {
+      "name": "orangefull"
+    },
+    {
+      "name": "black_purple_corner"
+    },
+    {
+      "name": "black_purple_corner2"
+    },
+    {
+      "name": "black_purple_corner3"
+    },
+    {
+      "name": "black_purple_corner4"
+    },
+    {
+      "name": "black_purple_half_corner"
+    },
+    {
+      "name": "black_purple_half_corner2"
+    },
+    {
+      "name": "black_purple_half_corner3"
+    },
+    {
+      "name": "black_purple_half_corner4"
+    },
+    {
+      "name": "black_purple_half"
+    },
+    {
+      "name": "black_purple_half2"
+    },
+    {
+      "name": "black_purple_half3"
+    },
+    {
+      "name": "black_purple_half4"
+    },
+    {
+      "name": "purplefull"
+    },
+    {
+      "name": "black_red_half"
+    },
+    {
+      "name": "black_red_half2"
+    },
+    {
+      "name": "black_red_half3"
+    },
+    {
+      "name": "black_red_half4"
+    },
+    {
+      "name": "black_red_corner"
+    },
+    {
+      "name": "black_red_corner2"
+    },
+    {
+      "name": "black_red_corner3"
+    },
+    {
+      "name": "black_red_corner4"
+    },
+    {
+      "name": "black_red_corner_half"
+    },
+    {
+      "name": "black_red_corner_half2"
+    },
+    {
+      "name": "black_red_corner_half3"
+    },
+    {
+      "name": "black_red_corner_half4"
+    },
+    {
+      "name": "lino_grey_smooth"
+    },
+    {
+      "name": "blackfull"
+    },
+    {
+      "name": "plating_catwalk"
+    },
+    {
+      "name": "black_catwalk_plate"
+    },
+    {
+      "name": "default"
+    },
+    {
+      "name": "redfull"
+    },
+    {
+      "name": "sterile_green_corner"
+    },
+    {
+      "name": "sterile_green_corner2"
+    },
+    {
+      "name": "sterile_green_corner3"
+    },
+    {
+      "name": "sterile_green_corner4"
+    },
+    {
+      "name": "sterile_green_corner_half"
+    },
+    {
+      "name": "sterile_green_corner_half2"
+    },
+    {
+      "name": "sterile_green_corner_half3"
+    },
+    {
+      "name": "sterile_green_corner_half4"
+    },
+    {
+      "name": "sterile_green_half"
+    },
+    {
+      "name": "sterile_green_half2"
+    },
+    {
+      "name": "sterile_green_half3"
+    },
+    {
+      "name": "sterile_green_half4"
+    },
+    {
+      "name": "sterile_purple_half"
+    },
+    {
+      "name": "sterile_purple_half2"
+    },
+    {
+      "name": "sterile_purple_half3"
+    },
+    {
+      "name": "sterile_purple_half4"
+    },
+    {
+      "name": "sterile_purple_corner_half"
+    },
+    {
+      "name": "sterile_purple_corner_half2"
+    },
+    {
+      "name": "sterile_purple_corner_half3"
+    },
+    {
+      "name": "sterile_purple_corner_half4"
+    },
+    {
+      "name": "sterile_purple_corner"
+    },
+    {
+      "name": "sterile_purple_corner2"
+    },
+    {
+      "name": "sterile_purple_corner3"
+    },
+    {
+      "name": "sterile_purple_corner4"
+    },
+    {
+      "name": "sterile_fullgreen"
+    },
+    {
+      "name": "fullsteel"
+    },
+    {
+      "name": "light_catwalk"
+    },
+    {
+      "name": "rubber_carpet"
+    },
+    {
+      "name": "stripesquare"
+    },
+    {
+      "name": "sterile_fullpurple"
+    }
+  ]
+}

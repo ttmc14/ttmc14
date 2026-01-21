@@ -917,6 +917,38 @@
       "directions": 4
     },
     {
+      "name": "borderfloorcorner_black1",
+      "directions": 1
+    },
+    {
+      "name": "borderfloorcorner_black2",
+      "directions": 1
+    },
+    {
+      "name": "borderfloorcorner_black3",
+      "directions": 1
+    },
+    {
+      "name": "borderfloorcorner_black4",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short2",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short3",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short4",
+      "directions": 1
+    },
+    {
       "name": "corner_techfloor_gray",
       "directions": 8
     },
