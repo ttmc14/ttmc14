@@ -6,3 +6,6 @@
     map: /Maps/_MC/research_outpost.yml
     camouflage: Classic
     announcement: ""
+  - type: MCPlanetMapPrototype
+    mapsAbove:
+    - /Maps/_MC/research_outpost_level_1.yml

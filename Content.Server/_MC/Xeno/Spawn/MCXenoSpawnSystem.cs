@@ -2,7 +2,7 @@
 using Content.Server._MC.Xeno.Hive;
 using Content.Server._RMC14.MapInsert;
 using Content.Server._RMC14.Xenonids.Hive;
-using Content.Shared._MC.Rules;
+using Content.Shared._MC.Map;
 using Content.Shared._MC.Rules.Base;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Light;
@@ -107,6 +107,10 @@ public sealed class MCXenoSpawnSystem : EntitySystem
         _rmcAmbientLight.SetColor((xenoMap, rmcAmbientComp), colorSequence, _sunsetDuration);
 
         SetFriendlyHives(_mcXenoHive.DefaultHive);
+
+        var ev = new MCPlanetMapSpawnEvent(map, planet.Proto);
+        RaiseLocalEvent(ref ev);
+
         return true;
     }
 

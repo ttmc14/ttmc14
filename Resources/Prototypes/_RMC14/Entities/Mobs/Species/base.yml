@@ -7,6 +7,7 @@
   suffix: RMC14
   components:
   # mc-changes-start
+  - type: CEZPhysics #A [z-levels]
   - type: MCSolutionTicker
   - type: MCSolutionEventProvider
   - type: MCArmor

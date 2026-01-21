@@ -4,6 +4,7 @@
   id: BaseItem
   abstract: true
   components:
+  - type: CEZPhysics # mc-changes [z-levels]
   - type: Item
     size: Small
   - type: Animateable
