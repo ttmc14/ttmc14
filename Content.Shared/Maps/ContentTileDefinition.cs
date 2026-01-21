@@ -131,7 +131,7 @@ namespace Content.Shared.Maps
         /// CrystallEdge: Vanilla tile filtering
         /// </summary>
         [DataField]
-        public bool EditorHidden { get; private set; } = true;
+        public bool EditorHidden { get; private set; } = false;
 
         /// <summary>
         /// CrystallEdge: used for lightning calculation through zlevels

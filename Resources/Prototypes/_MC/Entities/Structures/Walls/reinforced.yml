@@ -62,7 +62,14 @@
     mode: MCCardinalFlagsExtended
 
 - type: entity
-  parent: RMCWindowHybrisaReinforced
+  parent: CMWindowWhiteColonyReinforced
+  id: MCWindow
+  components:
+  - type: IconSmooth
+    key: walls
+
+- type: entity
+  parent: RMCWindowHangar
   id: MCWindowReinforced
   components:
   - type: IconSmooth
