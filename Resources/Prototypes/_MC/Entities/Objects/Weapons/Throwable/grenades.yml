@@ -72,7 +72,7 @@
     deleteAfterExplosion: false
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
-    capacity: 48
+    capacity: 1 # TODO shrapnel lag 48
     directHit: false
   - type: ContainerContainer
     containers:
@@ -107,7 +107,8 @@
     deleteAfterExplosion: false
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
-    capacity: 48 # same as HEFA
+    capacity: 1 # TODO shrapnel lag 48
+    # same as HEFA
     directHit: false
   - type: ContainerContainer
     containers:
@@ -142,7 +143,8 @@
     deleteAfterExplosion: false
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
-    capacity: 48 #same as HEFA
+    capacity: 1 # TODO shrapnel lag 48
+    # capacity: 48 #same as HEFA
     directHit: false
   - type: ContainerContainer
     containers:

@@ -1,0 +1,14 @@
+- type: entity
+  parent: RMCStairs
+  id: MCStairs
+  components:
+  - type: Sprite
+    state: rampbottom
+    color: "#a6aeab"
+    drawdepth: Mobs
+  - type: CEZLevelHighGround
+    stick: true
+    heightCurve:
+    - 1.05
+    - 1.05
+    - 0.1

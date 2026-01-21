@@ -215,7 +215,7 @@
           state: icon
         cost: 500
         entities:
-        - RMCBackpackScout
+        - MCSatchelScout
       - name: mc-asrs-entry-sniper-cloak
         icon:
           sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/ghillie/jungle.rsi

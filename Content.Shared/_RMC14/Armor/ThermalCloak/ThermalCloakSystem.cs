@@ -77,7 +77,7 @@ public sealed class ThermalCloakSystem : EntitySystem
 
         args.Handled = true;
 
-        if (!_whitelist.IsWhitelistPass(ent.Comp.Whitelist, args.Performer))
+        if (!_whitelist.IsWhitelistPassOrNull(ent.Comp.Whitelist, args.Performer)) // mc-changes
         {
             var popup = Loc.GetString("cm-gun-unskilled", ("gun", ent.Owner));
             _popup.PopupClient(popup, args.Performer, args.Performer, PopupType.SmallCaution);
