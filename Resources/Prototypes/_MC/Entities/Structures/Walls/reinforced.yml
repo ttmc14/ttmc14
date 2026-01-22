@@ -11,7 +11,7 @@
     sprite: _MC/Structures/Walls/reinforced.rsi
     state: wall-invincible
   - type: IconSmooth
-    key: walls
+    key: mcWalls
     base: rwall-
     mode: MCCardinalFlagsExtended
 
@@ -57,7 +57,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: IconSmooth
-    key: walls
+    key: mcWalls
     base: metal-
     mode: MCCardinalFlagsExtended
 
@@ -66,11 +66,11 @@
   id: MCWindow
   components:
   - type: IconSmooth
-    key: walls
+    key: mcWalls
 
 - type: entity
   parent: RMCWindowHangar
   id: MCWindowReinforced
   components:
   - type: IconSmooth
-    key: walls
+    key: mcWalls
