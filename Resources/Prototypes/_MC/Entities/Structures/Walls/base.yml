@@ -8,6 +8,7 @@
     snap:
     - Wall
   components:
+  - type: CEZLevelHighGround
   - type: Transform
     anchored: true
   - type: Physics
