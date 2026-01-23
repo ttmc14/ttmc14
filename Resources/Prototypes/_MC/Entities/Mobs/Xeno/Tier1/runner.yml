@@ -156,7 +156,7 @@
   - type: AcidBloodSplash
     damage:
       types:
-        MCBurn: 2
+        MCBurn: 10
     minimalTriggerDamage: 5
     baseHitProbability: 100
     baseSplashTriggerProbability: 25
@@ -170,7 +170,7 @@
     stopOnHit: false
     hitDamage:
       types:
-        MCBurn: 20
+        MCBurn: 5
   - type: MCXenoPounceTrail
     trailId: MCXenoAcidSprayMelter
   - type: XenoHide # TODO: Make MC component
