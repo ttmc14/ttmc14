@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2
   forkId: ""
   forkVersion: ""
-  time: 01/23/2026 07:46:05
-  entityCount: 5020
+  time: 01/23/2026 11:01:06
+  entityCount: 5014
 maps:
 - 1
 grids:
@@ -1352,18 +1352,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 103.5,-91.5
       parent: 1
-  - uid: 2657
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 95.5,-88.5
-      parent: 1
-  - uid: 2658
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 86.5,-91.5
-      parent: 1
   - uid: 2835
     components:
     - type: Transform
@@ -1598,7 +1586,7 @@ entities:
   - uid: 318
     components:
     - type: Transform
-      pos: 85.5,-91.5
+      pos: 95.5,-88.5
       parent: 1
   - uid: 337
     components:
@@ -1628,12 +1616,12 @@ entities:
   - uid: 795
     components:
     - type: Transform
-      pos: 94.5,-89.5
+      pos: 85.5,-91.5
       parent: 1
   - uid: 796
     components:
     - type: Transform
-      pos: 95.5,-88.5
+      pos: 94.5,-89.5
       parent: 1
   - uid: 812
     components:
@@ -1643,12 +1631,12 @@ entities:
   - uid: 813
     components:
     - type: Transform
-      pos: 94.5,-88.5
+      pos: 96.5,-88.5
       parent: 1
   - uid: 814
     components:
     - type: Transform
-      pos: 96.5,-88.5
+      pos: 94.5,-88.5
       parent: 1
   - uid: 830
     components:
@@ -25003,26 +24991,6 @@ entities:
     components:
     - type: Transform
       pos: 91.5,-90.5
-      parent: 1
-  - uid: 1030
-    components:
-    - type: Transform
-      pos: 94.5,-89.5
-      parent: 1
-  - uid: 1031
-    components:
-    - type: Transform
-      pos: 96.5,-88.5
-      parent: 1
-  - uid: 1048
-    components:
-    - type: Transform
-      pos: 94.5,-88.5
-      parent: 1
-  - uid: 1049
-    components:
-    - type: Transform
-      pos: 86.5,-90.5
       parent: 1
   - uid: 2649
     components:
