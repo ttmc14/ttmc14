@@ -151,12 +151,12 @@
         MCBrute: 5
         MCBurn: 5
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.45
+    baseWalkSpeed: 3.25
     baseSprintSpeed: 5.85
   - type: AcidBloodSplash
     damage:
       types:
-        MCBurn: 20
+        MCBurn: 2
     minimalTriggerDamage: 5
     baseHitProbability: 100
     baseSplashTriggerProbability: 25
