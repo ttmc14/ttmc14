@@ -12,8 +12,8 @@ public sealed partial class CCVars
         CEBaseFallingOtherDamage = CVarDef.Create("zlevels.ce_base_falling_other_damage", 0.1f, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<float>
-        CEBaseFallingStunTime = CVarDef.Create("zlevels.ce_base_falling_stun_time", 0.1f, CVar.SERVER | CVar.REPLICATED);
+        CEBaseFallingStunTime = CVarDef.Create("zlevels.ce_base_falling_stun_time", 0f, CVar.SERVER | CVar.REPLICATED);
 
     public static readonly CVarDef<float>
-        CEBaseFallingOtherStunTime = CVarDef.Create("zlevels.ce_base_falling_other_stun_time", 0.01f, CVar.SERVER | CVar.REPLICATED);
+        CEBaseFallingOtherStunTime = CVarDef.Create("zlevels.ce_base_falling_other_stun_time", 0f, CVar.SERVER | CVar.REPLICATED);
 }

@@ -4,6 +4,7 @@
   name: projectile
   categories: [ HideSpawnMenu ]
   components:
+  - type: CEZPhysics # [z-levels]
   - type: Tag
     tags: [ MCDamageAcid ]
   - type: Clickable
@@ -20,8 +21,7 @@
   - type: Fixtures
     fixtures:
       projectile:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.1,-0.1,0.1,0.1"
         hard: false
         mask:

@@ -29,30 +29,14 @@ entities:
     - type: OccluderTree
     - type: MapGrid
       chunks: {}
-    - type: SpreaderGrid
-      updateAccumulator: 0.93349075
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       inherent: True
       enabled: True
-    - type: MapAtmosphere
-      space: False
-      mixture:
-        volume: 2500
-        immutable: True
-        temperature: 293.15
-        moles:
-          Oxygen: 21.824879
-          Nitrogen: 82.10312
     - type: DecalGrid
       chunkCollection:
         version: 2
         nodes: []
-    - type: Forensics
-      residues: []
-      dnas: []
-      fibers: []
-      fingerprints: []
 ...
