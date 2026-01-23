@@ -4,7 +4,6 @@ mc-job-name-xeno-mantis = Богомол
 mc-job-name-xeno-nymph = Нимф
 mc-job-name-xeno-scorpion = Скорпион
 mc-job-name-selectable-xenonid = Ксеноморф
-mc-job-name-xeno-baneling = Бейлинг
 mc-job-name-xeno-larva = Грудолом
 mc-job-name-xeno-defender = Защитник
 mc-job-name-xeno-drone = Дрон
