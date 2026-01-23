@@ -6,28 +6,33 @@ using Content.Shared.Damage;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
+using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce;
 
 public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
+    private static readonly ProtoId<TagPrototype> AcidSprayTag = "MCAcidSpray";
 
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
+    [Dependency] private readonly IGameTiming _timing = null!;
 
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedStunSystem _stun = null!;
+    [Dependency] private readonly DamageableSystem _damageable = null!;
+    [Dependency] private readonly TagSystem _tag = null!;
+
+    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+    [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
+    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -102,6 +107,9 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
     private void OnHit(Entity<MCXenoPouncingComponent> entity, ref PreventCollideEvent args)
     {
         if (args.OtherFixture.CollisionLayer == (int) CollisionGroup.SlipLayer)
+            return;
+
+        if (_tag.HasTag(args.OtherEntity, AcidSprayTag))
             return;
 
         if (entity.Comp.Hit.Contains(args.OtherEntity))

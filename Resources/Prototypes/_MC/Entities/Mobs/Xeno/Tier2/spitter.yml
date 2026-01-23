@@ -71,6 +71,14 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166
+  - type: AcidBloodSplash
+    damage:
+      types:
+        MCBurn: 15
+    minimalTriggerDamage: 5
+    baseHitProbability: 100
+    baseSplashTriggerProbability: 25
+    splashCooldown: 0.1
   # Abilities
   - type: XenoSprayAcid # TODO: Make MC component
     acid: MCXenoAcidSpraySpitter

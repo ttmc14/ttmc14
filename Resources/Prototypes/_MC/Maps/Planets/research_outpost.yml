@@ -3,9 +3,12 @@
   name: Исследовательский форпост
   components:
   - type: RMCPlanetMapPrototype
-    map: /Maps/_MC/research_outpost.yml
+    map: /Maps/_MC/Planets/ResearchOutpost/research_outpost0.yml
     camouflage: Classic
     announcement: ""
   - type: MCPlanetMapPrototype
+    mapsBelow:
+    - /Maps/_MC/Planets/ResearchOutpost/research_outpost-1.yml
     mapsAbove:
-    - /Maps/_MC/research_outpost_level_1.yml
+    - /Maps/_MC/Planets/ResearchOutpost/research_outpost1.yml
+    - /Maps/_MC/Planets/ResearchOutpost/research_outpost2.yml

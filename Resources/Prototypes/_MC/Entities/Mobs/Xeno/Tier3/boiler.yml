@@ -70,13 +70,20 @@
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 20
-        MCToxin: 10
+        MCBrute: 10
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.439
     baseSprintSpeed: 3.225
   - type: RMCSize
     size: Big
+  - type: AcidBloodSplash
+    damage:
+      types:
+        MCBurn: 30
+    minimalTriggerDamage: 5
+    baseHitProbability: 100
+    baseSplashTriggerProbability: 40
+    splashCooldown: 0.1
   # Abilities
   - type: MCXenoZoom
     zoom: 1.5, 1.5

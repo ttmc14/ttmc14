@@ -29,6 +29,10 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: runner
+  # Evolution
+  - type: XenoEvolution
+    strains:
+    - MCXenoRunnerMelter
   # Actions
   - type: Xeno
     tier: 1
@@ -48,8 +52,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      240: Critical
-      340: Dead
+      250: Critical
+      350: Dead
   - type: XenoPlasma
     plasma: 200
     maxPlasma: 200
@@ -70,7 +74,7 @@
       types:
         MCBrute: 20
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.846
+    baseWalkSpeed: 4
     baseSprintSpeed: 6.25
   # Abilities
   - type: MCXenoPounce
@@ -82,6 +86,101 @@
   - type: XenoHide # TODO: Make MC component
   - type: VentCrawler
     ventCrawlIcon: drone
+
+- type: entity
+  parent: MCXenoRunner
+  id: MCXenoRunnerMelter
+  name: melter
+  description: A fast, four-legged terror. It got acid covered all over it.
+  components:
+  - type: XenoHidden
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-runner-melter
+  - type: GhostRole
+    name: mc-job-name-xeno-runner-melter
+  - type: RMCActionOrder
+    id: MCXenoRunnerMelter
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/runner_melter.rsi
+    offset: 0, 0.65
+  # Evolution
+  - type: XenoEvolution
+    strains: []
+  # Actions
+  - type: Xeno
+    tier: 1
+    role: MCXenoRunnerMelter
+    actionIds:
+    # Base
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Main
+    - MCActionXenoMelterShroud
+    - MCActionXenoMelterPounce
+    - MCActionXenoMelterAcid
+    # Utilities
+    - MCActionXenoHide
+    hudOffset: -0.2, 0.3
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      300: Critical
+      400: Dead
+  - type: XenoPlasma
+    plasma: 200
+    maxPlasma: 200
+    plasmaRegenOnWeeds: 11
+  - type: MCArmor
+    soft:
+      melee: 35
+      bullet: 35
+      laser: 35
+      energy: 35
+      bomb: 5
+      bio: 10
+      fire: 25
+      acid: 10
+  - type: MeleeWeapon
+    attackRate: 1.7
+    damage:
+      types:
+        MCBrute: 5
+        MCBurn: 5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.25
+    baseSprintSpeed: 5.85
+  - type: AcidBloodSplash
+    damage:
+      types:
+        MCBurn: 10
+    minimalTriggerDamage: 5
+    baseHitProbability: 100
+    baseSplashTriggerProbability: 25
+    splashCooldown: 0.1
+  # Abilities
+  - type: MCXenoPounceEmote
+    emote: XenoRoar
+  - type: MCXenoPounce
+    maxDistance: 7
+    strength: 45
+    stopOnHit: false
+    hitDamage:
+      types:
+        MCBurn: 5
+  - type: MCXenoPounceTrail
+    trailId: MCXenoAcidSprayMelter
+  - type: XenoHide # TODO: Make MC component
+  - type: XenoAcid # TODO: Make MC component
+  - type: AcidTrap # TODO: Make MC component
+    trapLevel: 1
+    cost: 70
+    spray: XenoAcidSprayTrapWeak
+  - type: MCXenoMelterShroud
+    shroudId: MCSmokeXenoAcidMelter
 
 # Components (Separated for ease of editing/reading)
 - type: entity

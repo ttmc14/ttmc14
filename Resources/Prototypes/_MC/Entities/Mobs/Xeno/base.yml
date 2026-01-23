@@ -4,6 +4,7 @@
   categories: [ MCContent ]
   components:
   - type: CEZPhysics # [z-levels]
+  - type: MCZLevelHitStun # [z-levels]
   - type: TunnelRenamer
   - type: MCXenoHeal
   - type: MCXenoPlasma
