@@ -70,8 +70,7 @@
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 20
-        MCToxin: 10
+        MCBrute: 10
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.439
     baseSprintSpeed: 3.225
