@@ -6,7 +6,7 @@
   name: Larva
   components:
   - type: GhostRole
-    name: cm-job-name-xeno-larva
+    name: mc-job-name-xeno-larva
   - type: Sprite
     sprite: _MC/Mobs/Xenos/larva.rsi
   - type: MobThresholds

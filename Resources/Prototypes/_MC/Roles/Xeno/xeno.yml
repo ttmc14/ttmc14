@@ -112,6 +112,16 @@
   id: MCXenoRunner
   isXeno: true
 
+- type: job
+  parent: MCJobXeno
+  id: MCXenoRunnerMelter
+  name: mc-job-name-xeno-runner-melter
+  playTimeTracker: MCXenoRunnerMelter
+
+- type: playTimeTracker
+  id: MCXenoRunnerMelter
+  isXeno: true
+
 # Sentinel
 - type: job
   parent: MCJobXeno
