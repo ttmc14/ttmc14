@@ -77,6 +77,14 @@
     baseSprintSpeed: 3.225
   - type: RMCSize
     size: Big
+  - type: AcidBloodSplash
+    damage:
+      types:
+        MCBurn: 30
+    minimalTriggerDamage: 5
+    baseHitProbability: 100
+    baseSplashTriggerProbability: 40
+    splashCooldown: 0.1
   # Abilities
   - type: MCXenoZoom
     zoom: 1.5, 1.5
