@@ -149,7 +149,7 @@
     damage:
       types:
         MCBrute: 5
-        MCBurn: 10
+        MCBurn: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.45
     baseSprintSpeed: 5.85
