@@ -37,6 +37,9 @@
       points: 45
     - type: Skills
       skills:
+        # MC
+        MCSkillEngineer: 2
+        # RMC
         RMCSkillLeadership: 3
         RMCSkillEngineer: 2
         RMCSkillConstruction: 2

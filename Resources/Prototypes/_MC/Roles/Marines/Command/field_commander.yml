@@ -38,6 +38,9 @@
     - type: MarineOrders
     - type: Skills
       skills:
+        # MC
+        MCSkillEngineer: 3
+        # RMC
         RMCSkillMedical: 2
         RMCSkillSurgery: 1
         RMCSkillEngineer: 3

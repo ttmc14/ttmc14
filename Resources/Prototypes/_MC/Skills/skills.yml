@@ -1,0 +1,13 @@
+- type: entity
+  id: MCSkill
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: SkillDefinition
+- type: entity
+
+  id: MCSkillEngineer
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: SkillDefinition

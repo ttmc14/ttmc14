@@ -15,6 +15,9 @@
     components:
     - type: Skills
       skills:
+        # MC
+        MCSkillEngineer: 4
+        # RMC
         RMCSkillMedical: 4
         RMCSkillSurgery: 4
         RMCSkillEngineer: 4

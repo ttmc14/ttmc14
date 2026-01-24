@@ -5,6 +5,7 @@ using Content.Shared._MC.Damage.Integrity.Events;
 using Content.Shared._MC.Damage.Integrity.Systems;
 using Content.Shared._MC.Miners.Components;
 using Content.Shared._MC.Miners.Events;
+using Content.Shared._RMC14.Marines.Skills;
 using Content.Shared._RMC14.TacticalMap;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
@@ -23,6 +24,8 @@ public sealed class MCMinerSystem : EntitySystem
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly SharedToolSystem _tool = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
+
+    [Dependency] private readonly SkillsSystem _rmcSkills = null!;
 
     [Dependency] private readonly MCASRSSystem _mcAsrs = null!;
     [Dependency] private readonly MCIntegritySystem _mcIntegrity = null!;
@@ -65,23 +68,22 @@ public sealed class MCMinerSystem : EntitySystem
     {
         using (args.PushGroup(nameof(MCMinerComponent)))
         {
+            args.PushMarkup(Loc.GetString("mc-miner-examine-storage", ("count", entity.Comp.MineralStored)));
+
             if (entity.Comp.State == MCMinerState.Running)
-            {
-                args.PushMarkup($"Miner's storage module displays {entity.Comp.MineralStored} crates are ready to be exported.");
                 return;
-            }
 
             var state = entity.Comp.State;
             var repairMessage = state switch
             {
-                MCMinerState.Destroyed => "It's heavily damaged, and you can see internal workings. Use a [color=orange]Welder[/color] to repair it!",
-                MCMinerState.MediumDamage => "It's damaged, and there are broken wires hanging out. Use [color=orange]Wirecutter[/color] to repair it!",
-                MCMinerState.SmallDamage => "It's lightly damaged, and you can see some dents and loose piping. Use a [color=orange]Wrench[/color] to repair it!",
+                MCMinerState.Destroyed => "mc-miner-examine-repair-destroyed",
+                MCMinerState.MediumDamage => "mc-miner-examine-repair-medium",
+                MCMinerState.SmallDamage => "mc-miner-examine-repair-small",
                 _ => throw new ArgumentOutOfRangeException(nameof(state), state, null),
             };
 
 
-            args.PushMarkup(repairMessage);
+            args.PushMarkup(Loc.GetString(repairMessage, ("miner", entity)));
         }
     }
 
@@ -94,14 +96,14 @@ public sealed class MCMinerSystem : EntitySystem
 
         if (entity.Comp.MineralStored == 0)
         {
-            _mcChat.TrySendInGameICSpeakMessage(entity, "Miner is not ready to produce a shipment yet!");
+            _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-not-ready", ("miner", entity)));
             return;
         }
 
         var value = entity.Comp.MineralStored * entity.Comp.MineralValue;
 
         _mcAsrs.AddBalance(value);
-        _mcChat.TrySendInGameICSpeakMessage(entity, $"Ore shipment has been sold for {value} points.");
+        _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-sold", ("value", value)));
 
         entity.Comp.MineralStored = 0;
     }
@@ -157,6 +159,8 @@ public sealed class MCMinerSystem : EntitySystem
         {
             case MCMinerState.Running:
                 _mcIntegrity.ResetIntegrity(entity.Owner);
+
+                entity.Comp.NextMineralProduction = _timing.CurTime + entity.Comp.MineralProductionTime;
                 break;
 
             case MCMinerState.Destroyed:
@@ -241,13 +245,13 @@ public sealed class MCMinerSystem : EntitySystem
     {
         if (entity.Comp.State == MCMinerState.Running)
         {
-            _popup.PopupClient(Loc.GetString("rmc-fusion-reactor-repair-not-needed", ("miner", entity)), entity, user, PopupType.LargeCaution);
+            _popup.PopupClient(Loc.GetString("mc-miner-repair-not-needed", ("miner", entity)), entity, user, PopupType.LargeCaution);
             return;
         }
 
         if (entity.Comp.State != state)
         {
-            _popup.PopupClient(Loc.GetString("rmc-fusion-reactor-repair-different-tool", ("miner", entity)), entity, user, PopupType.LargeCaution);
+            _popup.PopupClient(Loc.GetString("mc-miner-repair-different-tool", ("miner", entity)), entity, user, PopupType.LargeCaution);
             return;
         }
 
@@ -263,7 +267,7 @@ public sealed class MCMinerSystem : EntitySystem
             used,
             user,
             entity,
-            (float) entity.Comp.RepairDelay.TotalSeconds,
+            (float) GetRepairDelay(entity, user).TotalSeconds,
             quality,
             new MCMinerRepairDoAfterEvent(state),
             entity.Comp.WeldingCost,
@@ -273,6 +277,11 @@ public sealed class MCMinerSystem : EntitySystem
         if (!toolUsed)
             return;
 
-        _popup.PopupClient(Loc.GetString("rmc-fusion-reactor-repair-start-self", ("miner", entity), ("tool", used)), entity, user);
+        _popup.PopupClient(Loc.GetString("mc-miner-repair-start-self", ("miner", entity), ("tool", used)), entity, user);
+    }
+
+    private TimeSpan GetRepairDelay(Entity<MCMinerComponent> entity, EntityUid user)
+    {
+        return TimeSpan.FromSeconds(10) - TimeSpan.FromSeconds(2) * _rmcSkills.GetSkill(user, "MCSkillEngineer");
     }
 }
