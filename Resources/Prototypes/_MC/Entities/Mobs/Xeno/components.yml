@@ -207,7 +207,7 @@
     - MCXenoPanther
   - type: XenoDevolve
     devolvesTo:
-    - MCXenoLarva
+    - MCXenoRafik
 
 - type: entity
   parent: MCXenoComponentEvolution

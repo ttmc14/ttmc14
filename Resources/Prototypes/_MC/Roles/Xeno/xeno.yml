@@ -58,12 +58,12 @@
 # Tier 0
 - type: job
   parent: MCJobXeno
-  id: MCXenoLarva
+  id: MCXenoRafik
   name: mc-job-name-xeno-larva
-  playTimeTracker: MCXenoLarva
+  playTimeTracker: MCXenoRafik
 
 - type: playTimeTracker
-  id: MCXenoLarva
+  id: MCXenoRafik
   isXeno: true
 
 - type: job

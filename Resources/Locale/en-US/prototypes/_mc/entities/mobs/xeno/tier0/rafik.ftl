@@ -1,2 +1,2 @@
-ent-MCXenoLarva = Larva
+ent-MCXenoRafik = rafik
     .desc = { ent-CMXenoUndeveloped.desc }

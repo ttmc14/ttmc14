@@ -1,0 +1,95 @@
+- type: entity
+  parent:
+  - MCXenoBase
+  - CMXenoUndeveloped
+  id: MCXenoRafik
+  name: rafik
+  components:
+  # Name
+  - type: GhostRole
+    name: mc-job-name-xeno-rafik
+  - type: FixedIdentity
+    name: mc-job-name-xeno-rafik
+  - type: RMCActionOrder
+    id: MCXenoRafik
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/rafik.rsi
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
+      state: larva
+  - type: RMCBuckleOffset
+    offset: 0, 0
+  # Evolution
+  - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 100
+    evolvesTo:
+    - MCXenoDrone
+    - MCXenoDefender
+    - MCXenoRunner
+    - MCXenoSentinel
+    canEvolveWithoutGranter: true
+  # Abilities
+  - type: Xeno
+    role: MCXenoRafik
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoHide
+    hudOffset: -0.1, 0.25
+    tier: 0
+    unlockAt: 0
+    emoteSounds: Larva
+  # Statistics
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      50: Critical
+      100: Dead
+  - type: XenoPlasma
+    plasma: 10
+    maxPlasma: 10
+    plasmaRegenOnWeeds: 0.1
+  - type: XenoRegen
+    healOffWeeds: true
+  - type: MCArmor
+    soft:
+      melee: 0
+      bullet: 0
+      laser: 0
+      energy: 0
+      bomb: 0
+      bio: 0
+      fire: 0
+      acid: 0
+  - type: MeleeWeapon
+    attackRate: 3
+    damage:
+      types:
+        MCBrute: 5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.75
+    baseSprintSpeed: 7.25
+  - type: XenoLight
+  - type: RMCSize
+    size: Small
+  # Others
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.2
+        density: 185
+        mask:
+        - SmallMobMask
+        - BarbedBarricade
+        - BarricadeImpassable
+        layer:
+        - SmallMobLayer
+  - type: IgnoreBlockPullingDead
+  - type: Speech
+    speechSounds: XenonidLarva
+    allowedEmotes: [ "XenoRoar" ]
+  # Abilities
+  - type: XenoHide
