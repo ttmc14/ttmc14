@@ -55,6 +55,8 @@
     - MCActionXenoPheromones
     - MCActionXenoToggleXenoSpitStickyResin
     - MCActionXenoAcidStrong
+    # Utilities
+    - MCActionXenoOzelomelynSting
     # Primo
     - MCActionXenoToggleChargingQueen
     hudOffset: -0.1,0.1
@@ -103,3 +105,7 @@
     doAfter: 1
   - type: XenoConstruction
     buildDelay: 2
+  - type: MCXenoNeurotoxinSting
+    reagents:
+    - ReagentId: MCOzelomelyn
+      Quantity: 5

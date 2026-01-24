@@ -53,6 +53,7 @@
     - MCActionXenoPheromones
     - MCActionXenoAcidStrong
     # Utilities
+    - MCActionXenoOzelomelynSting
     - MCActionXenoLayEgg
     - MCActionXenoCreateResinJelly
     hudOffset: -0.1, 0.1
@@ -113,3 +114,7 @@
     amount: 200
   - type: MCXenoCreateResinJelly
   - type: XenoAcid
+  - type: MCXenoNeurotoxinSting
+    reagents:
+    - ReagentId: MCOzelomelyn
+      Quantity: 5

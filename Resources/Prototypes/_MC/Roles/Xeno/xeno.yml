@@ -133,6 +133,16 @@
   id: MCXenoSentinel
   isXeno: true
 
+- type: job
+  parent: MCJobXeno
+  id: MCXenoSentinelRetrograde
+  name: mc-job-name-xeno-sentinel-retrograde
+  playTimeTracker: MCXenoSentinelRetrograde
+
+- type: playTimeTracker
+  id: MCXenoSentinelRetrograde
+  isXeno: true
+
 # Tier 2
 
 # Bull

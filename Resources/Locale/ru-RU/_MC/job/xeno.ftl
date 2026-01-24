@@ -10,6 +10,7 @@ mc-job-name-xeno-drone = Дрон
 mc-job-name-xeno-runner = Бегун
 mc-job-name-xeno-runner-melter = Мелтер
 mc-job-name-xeno-sentinel = Часовой
+mc-job-name-xeno-sentinel-retrograde = Ретроградный Часовой
 mc-job-name-xeno-bull = Бык
 mc-job-name-xeno-forger = Форджер
 mc-job-name-xeno-carrier = Переносчик

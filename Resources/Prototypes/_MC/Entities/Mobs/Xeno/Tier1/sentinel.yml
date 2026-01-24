@@ -28,6 +28,10 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: sentinel
+  # Evolution
+  - type: XenoEvolution
+    strains:
+    - MCXenoSentinelRetrograde
   # Actions
   - type: Xeno
     tier: 1
@@ -38,7 +42,7 @@
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
     # Main
-    - MCActionXenoToggleToxicSpit
+    - MCActionXenoToggleSpitToxic
     - MCActionXenoToxicSlash
     - MCActionXenoDrainSting
     # Utilities
@@ -82,3 +86,46 @@
     spray: XenoAcidSprayTrapWeak
   - type: VentCrawler
     ventCrawlIcon: drone
+
+- type: entity
+  parent: MCXenoSentinel
+  id: MCXenoSentinelRetrograde
+  name: retrograde sentinel
+  description: A weak ranged combat alien. This one seems to have a different kind of spit.
+  components:
+  - type: XenoHidden
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-sentinel-retrograde
+  - type: GhostRole
+    name: mc-job-name-xeno-sentinel-retrograde
+  - type: RMCActionOrder
+    id: MCXenoSentinelRetrograde
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/sentinel_retrograde.rsi
+    offset: -0.1, 0.2
+  # Evolution
+  - type: XenoEvolution
+    strains: []
+  # Actions
+  - type: Xeno
+    tier: 1
+    role: MCXenoSentinelRetrograde
+    actionIds:
+    # Base
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Main
+    - MCActionXenoToggleSpitPassthrough
+    - MCActionXenoToggleSpitToxin
+    - MCActionXenoNeurotoxinSting
+    # Utilities
+    - MCActionXenoAcidWeak
+    - MCActionXenoPlaceTrap
+  # Abilities
+  - type: MCXenoNeurotoxinSting
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 5
