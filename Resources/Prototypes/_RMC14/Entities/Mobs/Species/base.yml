@@ -62,7 +62,8 @@
       types:
         MCOxygen: 2.5 # mc-changes
     bloodlossHealDamage:
-      types: -2.5   # mc-changes
+      types:
+        MCOxygen: -2.5 # mc-changes
     damageBleedModifiers: CMBloodlossHuman
   - type: Woundable
   - type: StatusEffects
