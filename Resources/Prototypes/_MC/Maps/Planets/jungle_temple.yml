@@ -3,6 +3,12 @@
   name: Храм в джунглях
   components:
   - type: RMCPlanetMapPrototype
-    map: /Maps/_MC/jungle_temple.yml
+    map: /Maps/_MC/Planets/JungleTemple/jungle_temple0.yml
     camouflage: Classic
     announcement: ""
+  - type: MCPlanetMapPrototype
+    mapsBelow:
+    - /Maps/_MC/Planets/JungleTemple/jungle_temple-1.yml
+    mapsAbove:
+    - /Maps/_MC/Planets/JungleTemple/jungle_temple1.yml
+    - /Maps/_MC/Planets/JungleTemple/jungle_temple2.yml

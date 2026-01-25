@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2
   forkId: ""
   forkVersion: ""
-  time: 01/23/2026 05:12:49
-  entityCount: 1535
+  time: 01/24/2026 05:07:22
+  entityCount: 1536
 maps:
 - 1
 grids:
@@ -761,7 +761,7 @@ entities:
       parent: 1
 - proto: CMFilingCabinet
   entities:
-  - uid: 68
+  - uid: 646
     components:
     - type: Transform
       pos: 87.5,-84.5
@@ -953,7 +953,7 @@ entities:
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 86.5,-84.5
+      pos: 87.5,-84.5
       parent: 1
   - uid: 1215
     components:
@@ -1172,7 +1172,7 @@ entities:
       parent: 1
 - proto: MCPropComputer
   entities:
-  - uid: 70
+  - uid: 68
     components:
     - type: Transform
       pos: 86.5,-84.5
@@ -8381,6 +8381,13 @@ entities:
     components:
     - type: Transform
       pos: 103.5,-80.5
+      parent: 1
+- proto: RMCAutolatheEmpty
+  entities:
+  - uid: 70
+    components:
+    - type: Transform
+      pos: 97.5,-90.5
       parent: 1
 - proto: RMCCalendarColonist
   entities:
