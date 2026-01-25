@@ -46,7 +46,7 @@
     grid:
     - 0,0,14,1
   - type: ThermalCloak
-    opacity: 0.03
+    opacity: 0.2 #Изменил с 0.03 до 0.2, Жалобы ксеногоев на фулл невидимость. Реверт обратно до 0.03 при механике уменьшения невидимости при стрельбе, короче до парити
     restrictWeapons: false
     uncloakWeaponLock: 0
     cloakedHideLayers:
