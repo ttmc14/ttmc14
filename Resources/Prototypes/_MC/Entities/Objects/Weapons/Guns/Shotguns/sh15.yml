@@ -61,7 +61,7 @@
         whitelist:
           tags:
           - MCAttachmentMuzzleCharger
-          - MCAttachmentRecoilCompensator
+#          - MCAttachmentRecoilCompensator Убрано из за 0 разброса флешетт и пуль. Реверт когда сделают дабы снижение разброса не касалось дроби
           - MCAttachmentExtendedMuzzle
           - MCAttachmentBayonet
       rmc-aslot-rail:
