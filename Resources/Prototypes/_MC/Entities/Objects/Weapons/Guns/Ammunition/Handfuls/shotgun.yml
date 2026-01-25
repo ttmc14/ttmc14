@@ -95,7 +95,7 @@
     maxDistance: 3
   - type: ProjectileSpread
     proto: MCBulletShotgunBuckshot
-    count: 5
+    count: 6
     spread: 4
   - type: RMCProjectileDamageFalloff
     thresholds:
