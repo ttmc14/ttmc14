@@ -76,7 +76,7 @@
 - type: entity
   parent: ActionXenoBase
   id: MCActionXenoAcidShroud
-  name: Acid Shroud
+  name: Acid Shroud (200)
   description: Create a smokescreen of gas, setting your Bombard on a longer cooldown. Does not require or consume a reserved globule.
   components:
   - type: Action
@@ -175,6 +175,8 @@
     damage:
       types:
         MCBurn: 40
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
 
 - type: entity
   parent: MCSmokeXeno
@@ -186,4 +188,5 @@
     reagents:
     - ReagentId: MCNeurotoxin
       Quantity: 7
-
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36

@@ -133,7 +133,5 @@
     damage:
       types:
         MCBurn: 25
-  - type: TimedDespawn
-    lifetime: 4
   - type: MCTimedDespawnDisappearanceVisuals
-    lifetime: 4
+    maxAlpha: 0.36

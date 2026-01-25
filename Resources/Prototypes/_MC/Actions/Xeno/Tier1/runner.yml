@@ -36,3 +36,91 @@
   - type: XenoActionPlasma
     cost: 10
   - type: ActionBlockIfResting
+
+# Melter
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoMelterPounce
+  name: Pounce (50)
+  description: Leap at your target, tackling and disarming them.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/runner.rsi
+      state: pounce
+    useDelay: 15
+  - type: TargetAction
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
+  - type: XenoActionPlasma
+    cost: 50
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoMelterShroud
+  name: Melter Shroud (50)
+  description: Creates see-through acid smoke below yourself.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: acid_shroud
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCXenoMelterShroudActionEvent
+  - type: XenoActionPlasma
+    cost: 50
+
+- type: entity
+  parent: MCActionXenoAcidWeak
+  id: MCActionXenoMelterAcid
+  components:
+  - type: EntityTargetAction
+    event: !type:XenoCorrosiveAcidEvent
+      acidId: XenoAcidWeak
+      plasmaCost: 75
+      time: 125
+      dps: 4
+      expendableLightDps: 0.3
+      applyTimeMultiplier: 0.5
+
+# Acids
+- type: entity
+  parent: MCXenoAcidSpray
+  id: MCXenoAcidSprayMelter
+  components:
+  - type: TimedDespawn
+    lifetime: 5
+  - type: DamageOnCollide
+    damage:
+      types:
+        MCBurn: 15
+    chainDamage:
+      types:
+        MCBurn: 15
+
+# Smoke
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoAcidMelter
+  components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
+  - type: Sprite
+    color: "#85b028"
+  - type: MCEdgeSpreader
+    range: 2
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 20
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36

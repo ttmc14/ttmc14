@@ -7,13 +7,19 @@
   suffix: RMC14
   components:
   # mc-changes-start
-  - type: CEZPhysics #A [z-levels]
+  # [z-levels]
+  - type: CEZPhysics
+  - type: MCZLevelHitStun
+  # [solution]
   - type: MCSolutionTicker
   - type: MCSolutionEventProvider
+  # [armor]
   - type: MCArmor
     showExamine: false
+  # [xeno-human-effect]
   - type: MCXenoToxicStacks
   - type: MCXenoPsydrainable
+  # [stamina]
   - type: MCStamina
   - type: MCStaminaActive
   # Hud's

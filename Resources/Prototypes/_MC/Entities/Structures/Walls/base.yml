@@ -8,6 +8,7 @@
     snap:
     - Wall
   components:
+  - type: CEZLevelHighGround
   - type: Transform
     anchored: true
   - type: Physics
@@ -29,8 +30,8 @@
         layer:
         - WallLayer
         density: 1000
-  - type: XenoWeedable
-    spawn: XenoWeedsWall
+  # - type: XenoWeedable
+  #   spawn: XenoWeedsWall
   - type: XenoConstructionSupport
   - type: RMCDropshipBlocked
   - type: MinimapColor

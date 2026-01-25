@@ -19,8 +19,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         layer:
         - SlipLayer
@@ -48,7 +47,9 @@
     base: weed_dir
     mode: CardinalFlags
     additionalKeys:
-    - cm_xeno_weeds_walls
+    - xenoWalls
+    - caveWalls
+    - mcWalls
   - type: IconSmoothRandom
     overrides:
     - weed_dir0
@@ -93,8 +94,7 @@
     damageModifierSet: Weed
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 5
       behaviors:
       - !type:DoActsBehavior
@@ -140,8 +140,7 @@
     - state: weednode
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 11
       behaviors:
       - !type:DoActsBehavior
@@ -252,4 +251,3 @@
     spawns: MCXenoWeedsFireproof
   - type: RMCImmuneToIgnition
   - type: RMCImmuneToFireTileDamage
-
