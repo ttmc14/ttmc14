@@ -4,10 +4,10 @@
   abstract: true
   components:
   - type: SkillDefinition
-- type: entity
 
+- type: entity
   id: MCSkillEngineer
   categories: [ HideSpawnMenu ]
-  abstract: true
   components:
   - type: SkillDefinition
+
