@@ -438,4 +438,4 @@
 - type: tile
   parent: MCMainShip
   id: MCMainShipStripeSquare
-  sprite: /Textures/_MC/Tiles/MainShip/stripesquare.pnga
+  sprite: /Textures/_MC/Tiles/MainShip/stripesquare.png

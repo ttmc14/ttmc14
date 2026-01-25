@@ -1,0 +1,40 @@
+- type: gameMap
+  id: MCTalos
+  mapName: UPP Talos
+  mapPath: /Maps/_MC/talos.yml
+  mapsAbove:
+  - /Maps/_MC/talos_level_1.yml
+  - /Maps/_MC/talos_level_2.yml
+  minPlayers: 0
+  maxRandomOffset: 0
+  randomRotation: false
+  fallback: true
+  stations:
+    Talos:
+      stationProto: StandardUNMCWarship
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: UPP Talos
+      - type: StationJobs
+        availableJobs:
+          # Command
+          MCCaptain: [ 1, 1 ]
+          MCFC: [ 1, 1 ]
+          MCSO: [ 4, 4 ]
+          MCPilotOfficer: [ 1, 1 ]
+          MCAssaultCrewman: [ 2, 2 ]
+          MCTransportOfficer: [ 1, 1 ]
+          # Medical
+          MCCMO: [ 1, 1 ]
+          MCDoctor: [ 6, 6 ]
+          MCResearcher: [ 2, 2 ]
+          # EnR
+          MCCSE: [ 1, 1 ]
+          MCRO: [ 1, 1 ]
+          MCST: [ 1, 1 ]
+          # Squad
+          MCSquadLeader: [ 4, 4 ]
+          MCSquadSmartgunner: [ 4, 4 ]
+          MCSquadEngineer: [ 8, 8 ]
+          MCSquadCorpsman: [ 8, 8 ]
+          MCSquadMarine: [ -1, -1 ]
