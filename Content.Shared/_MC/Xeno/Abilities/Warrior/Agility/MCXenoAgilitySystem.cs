@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Armor;
+using Content.Shared._MC.Armor.Events;
 using Content.Shared._MC.Xeno.Visuals;
 using Content.Shared.Movement.Systems;
 
@@ -61,7 +62,7 @@ public sealed class MCXenoAgilitySystem : MCXenoAbilitySystem
 
     private static void OnActiveArmorGet(Entity<MCXenoAgilityActiveComponent> entity, ref MCArmorGetEvent args)
     {
-        args.ArmorDefinition += entity.Comp.ArmorFlat;
+        args.SoftArmor += entity.Comp.ArmorFlat;
     }
 
     private void SetEnabled(EntityUid uid, bool enabled)

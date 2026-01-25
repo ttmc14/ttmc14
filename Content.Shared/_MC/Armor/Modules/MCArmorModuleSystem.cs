@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Armor.Modules.Events;
+﻿using Content.Shared._MC.Armor.Events;
+using Content.Shared._MC.Armor.Modules.Events;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Clothing;
 using Content.Shared.Hands.EntitySystems;
@@ -191,7 +192,7 @@ public sealed class MCArmorModuleSystem : EntitySystem
 
     private static void OnModuleGetRelayed(Entity<MCArmorComponent> entity, ref MCArmorModuleRelayedEvent<MCArmorGetEvent> args)
     {
-        args.Args.ArmorDefinition += entity.Comp.Soft;
+        args.Args.SoftArmor += entity.Comp.Soft;
     }
 
     private void OnModuleMovementSpeedModifier(Entity<ClothingSpeedModifierComponent> entity, ref MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent> args)

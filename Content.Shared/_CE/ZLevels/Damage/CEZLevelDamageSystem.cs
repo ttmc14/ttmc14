@@ -87,6 +87,8 @@ public sealed class CEZLevelDamageSystem : EntitySystem
             RaiseLocalEvent(victim, fellOnMeEv);
 
             // Apply damage and stun to entities that were fallen upon
+
+            /*
             if (otherStun > 0)
                 _stun.TryKnockdown(victim, TimeSpan.FromSeconds(otherStun), true);
             if (otherDamage > 0)
@@ -94,23 +96,11 @@ public sealed class CEZLevelDamageSystem : EntitySystem
                 if (_damage.TryChangeDamage(victim, new DamageSpecifier(_proto.Index(BluntDamageType), otherDamage)) is not null && _net.IsClient)
                     redDamageFlash.Add(victim);
             }
+            */
         }
 
-        var damageAmount = args.ImpactPower * args.ImpactPower * BaseFallingDamage * damageModifier;
-        if (damageAmount > 0)
-        {
-            if (_damage.TryChangeDamage(ent.Owner, new DamageSpecifier(_proto.Index(BluntDamageType), damageAmount)) is not null && _net.IsClient)
-                redDamageFlash.Add(ent.Owner);
-        }
-
-        _color.RaiseEffect(Color.Red, redDamageFlash, Filter.Pvs(ent, entityManager: EntityManager));
-
-        var knockdownTime = MathF.Min(args.ImpactPower * args.ImpactPower * BaseFallingStunTime * stunModifier, 5f);
-        if (knockdownTime > 0)
-            _stun.TryKnockdown(ent.Owner, TimeSpan.FromSeconds(knockdownTime), true);
-
-        if (_net.IsClient && _timing.IsFirstTimePredicted) //Only visuals so client only
-            SpawnAtPosition(FallVFX, Transform(ent).Coordinates);
+        // if (_net.IsClient && _timing.IsFirstTimePredicted) //Only visuals so client only
+        //    SpawnAtPosition(FallVFX, Transform(ent).Coordinates);
     }
 }
 

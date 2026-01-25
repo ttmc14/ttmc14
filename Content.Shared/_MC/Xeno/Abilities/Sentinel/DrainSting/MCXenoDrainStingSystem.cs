@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Armor;
+using Content.Shared._MC.Armor.Events;
 using Content.Shared._MC.Damage;
 using Content.Shared._MC.Popup;
 using Content.Shared._MC.Stun;
@@ -115,7 +116,7 @@ public sealed class MCXenoDrainStingSystem : MCXenoAbilitySystem
 
     private static void OnBuffArmorGet(Entity<MCXenoDrainStingBuffComponent> entity, ref MCArmorGetEvent args)
     {
-        args.ArmorDefinition += entity.Comp.Armor;
+        args.SoftArmor += entity.Comp.Armor;
     }
 
     private static TimeSpan GetParalyzeDuration(Entity<MCXenoDrainStingComponent> entity, int stacks)

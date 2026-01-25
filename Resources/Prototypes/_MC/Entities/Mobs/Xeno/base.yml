@@ -4,7 +4,11 @@
   categories: [ MCContent ]
   components:
   - type: CEZPhysics # [z-levels]
-  - type: MCZLevelHitStun # [z-levels]
+  - type: MCZLevelFallStun # [z-levels]
+  - type: MCZLevelFallDamage
+    damage:
+      types:
+        MCBrute: 5
   - type: TunnelRenamer
   - type: MCXenoHeal
   - type: MCXenoPlasma
@@ -106,4 +110,3 @@
   - type: MCXenoPsydrain
   - type: ActiveInputMover
   - type: MCXenoDamageVisuals
-

@@ -10,3 +10,4 @@ mc-armor-bomb = защита от взрыва
 mc-armor-bio = защита от био
 mc-armor-fire = защита от огня
 mc-armor-acid = защита от кислоты
+mc-armor-fall = защита от падения

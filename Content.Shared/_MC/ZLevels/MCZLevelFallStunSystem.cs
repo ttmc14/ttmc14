@@ -3,7 +3,7 @@ using Content.Shared._MC.Stun;
 
 namespace Content.Shared._MC.ZLevels;
 
-public sealed class MCZLevelHitStunSystem : EntitySystem
+public sealed class MCZLevelFallStunSystem : EntitySystem
 {
     [Dependency] private readonly MCStunSystem _mcStun = null!;
 
@@ -11,10 +11,10 @@ public sealed class MCZLevelHitStunSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MCZLevelHitStunComponent, CEZLevelHitEvent>(OnHit);
+        SubscribeLocalEvent<MCZLevelFallStunComponent, CEZLevelHitEvent>(OnHit);
     }
 
-    private void OnHit(Entity<MCZLevelHitStunComponent> entity, ref CEZLevelHitEvent args)
+    private void OnHit(Entity<MCZLevelFallStunComponent> entity, ref CEZLevelHitEvent args)
     {
         _mcStun.Slowdown(entity, entity.Comp.SlowTime * args.ImpactPower);
         _mcStun.Paralyze(entity, entity.Comp.StunTime * args.ImpactPower);

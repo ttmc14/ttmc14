@@ -23,7 +23,7 @@ public sealed class MCXenoProjectileInjectSystem : MCXenoAbilitySystem
         if (!_solution.TryGetSolution(args.Target, entity.Comp.Solution, out var solution, out _))
             return;
 
-        var armor = MCArmorSystem.ArmorToValue(_mcArmor.GetArmor(args.Target, SlotFlags.HEAD)?.Bio ?? 0);
+        var armor = MCArmorSystem.ArmorToValue(_mcArmor.GetSoftArmor(args.Target, SlotFlags.HEAD)?.Bio ?? 0);
         foreach (var reagentQuantity in entity.Comp.Reagents)
         {
             _solution.TryAddReagent(solution.Value, reagentQuantity.Reagent, reagentQuantity.Quantity * armor, out _);

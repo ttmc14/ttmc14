@@ -3,7 +3,7 @@
 namespace Content.Shared._MC.ZLevels;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
-public sealed partial class MCZLevelHitStunComponent : Component
+public sealed partial class MCZLevelFallStunComponent : Component
 {
     [DataField, AutoNetworkedField]
     public TimeSpan SlowTime = TimeSpan.FromSeconds(1.5);

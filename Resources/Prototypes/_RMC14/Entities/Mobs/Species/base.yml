@@ -1,35 +1,17 @@
 ﻿- type: entity
   save: false
-  parent: BaseMobSpecies
+  parent:
+  - MCMobSpecies
+  - BaseMobSpecies
   id: RMCBaseMobSpeciesOrganic
   abstract: true
   name: Urist C.M. McHands
   suffix: RMC14
   components:
-  # mc-changes-start
-  # [z-levels]
-  - type: CEZPhysics
-  - type: MCZLevelHitStun
-  # [solution]
-  - type: MCSolutionTicker
-  - type: MCSolutionEventProvider
-  # [armor]
-  - type: MCArmor
-    showExamine: false
-  # [xeno-human-effect]
-  - type: MCXenoToxicStacks
-  - type: MCXenoPsydrainable
-  # [stamina]
-  - type: MCStamina
-  - type: MCStaminaActive
-  # Hud's
-  - type: MCXenoHudToxins
-  # mc-changes-end
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.35
         density: 185
         restitution: 0.0
@@ -41,8 +23,7 @@
         - Opaque
         - XenoProjectileImpassable
       fix2:
-        shape:
-          !type:PhysShapeCircle
+        shape: !type:PhysShapeCircle
           radius: 0.25
         density: 0
         restitution: 0.0
@@ -259,7 +240,7 @@
       Dead:
       - CMActionGhost
   - type: Destructible
-    thresholds: [ ]
+    thresholds: []
   - type: NpcFactionMember
     factions:
     - UNMC
@@ -308,8 +289,8 @@
             visible: true
       enum.TargetedVisuals.TargetedDirection:
         targetedDirection:
-          True: { visible: true}
-          False: { visible: false}
+          True: { visible: true }
+          False: { visible: false }
       enum.TargetedVisuals.TargetedDirectionIntense:
         targetedDirectionIntense:
           True: { visible: true }
