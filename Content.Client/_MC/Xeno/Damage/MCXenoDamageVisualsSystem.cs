@@ -1,13 +1,17 @@
-﻿using Content.Shared._RMC14.Xenonids;
+﻿using Content.Shared._MC.Xeno.Visuals.Damage;
+using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Damage;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._MC.Xeno.Damage;
 
-public sealed class MCXenoDamageVisualsSystem : VisualizerSystem<Shared._MC.Xeno.Visuals.Damage.MCXenoDamageVisualsComponent>
+public sealed class MCXenoDamageVisualsSystem : VisualizerSystem<MCXenoDamageVisualsComponent>
 {
-    protected override void OnAppearanceChange(EntityUid uid, Shared._MC.Xeno.Visuals.Damage.MCXenoDamageVisualsComponent component, ref AppearanceChangeEvent args)
+    protected override void OnAppearanceChange(EntityUid uid, MCXenoDamageVisualsComponent component, ref AppearanceChangeEvent args)
     {
+        if (!component.Enabled)
+            return;
+
         var sprite = args.Sprite;
         if (sprite is null ||
             !AppearanceSystem.TryGetData(uid, RMCDamageVisuals.State, out int level) ||

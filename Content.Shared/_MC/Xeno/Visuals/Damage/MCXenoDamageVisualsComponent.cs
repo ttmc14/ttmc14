@@ -7,4 +7,7 @@ public sealed partial class MCXenoDamageVisualsComponent : Component
 {
     [DataField, AutoNetworkedField]
     public int States = 3;
+
+    [DataField, AutoNetworkedField]
+    public bool Enabled = true;
 }

@@ -21,6 +21,8 @@
       state: larva
   - type: RMCBuckleOffset
     offset: 0, 0
+  - type: MCXenoDamageVisuals
+    enabled: false
   # Evolution
   - type: XenoEvolution
     actionId: MCActionXenoEvolve
