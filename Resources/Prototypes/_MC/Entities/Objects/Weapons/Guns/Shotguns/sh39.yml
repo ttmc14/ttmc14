@@ -43,7 +43,7 @@
         whitelist:
           tags:
           - MCAttachmentMuzzleCharger
-          - MCAttachmentRecoilCompensator
+#          - MCAttachmentRecoilCompensator Убрано до того времени пока не сделают дабы уменьшение разброса не затрагивало разброс пуль дробовика. Реверт если сделают
           - MCAttachmentExtendedMuzzle
           - MCAttachmentBayonet
       rmc-aslot-rail:
