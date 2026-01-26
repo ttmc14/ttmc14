@@ -218,7 +218,7 @@
       types:
         MCBrute: 15
   - type: MCXenoSunderDamageOnHit
-    amount: 1
+    amount: 4.5 # - TODO: Revert that to 1 sunder damage if Armor Shatter effect is made
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 22
