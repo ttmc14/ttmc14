@@ -86,6 +86,7 @@
   - type: XenoAcid # TODO: Make MC component
   - type: XenoSprayAcid # TODO: Make MC component
     acid: MCXenoAcidSprayPraetorian
+    doAfter: 0.25
     range: 5
     barricadeDamage:
       types:
