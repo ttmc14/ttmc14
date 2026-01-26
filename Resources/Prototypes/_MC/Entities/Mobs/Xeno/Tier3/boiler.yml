@@ -85,7 +85,7 @@
     baseSplashTriggerProbability: 40
     splashCooldown: 0.1
   # Utilities
-   - type: AcidTrap # TODO: Make MC component
+  - type: AcidTrap # TODO: Make MC component
     trapLevel: 3
     spray: XenoAcidSprayTrapStrong # TODO: Acid gas boiler trap
   # Abilities
