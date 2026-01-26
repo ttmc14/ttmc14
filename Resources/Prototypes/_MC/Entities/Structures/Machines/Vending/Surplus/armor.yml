@@ -16,39 +16,61 @@
     - name: Xenonauten
       entries:
       - id: MCArmorModularXenonautenL
-      - id: MCArmorModularXenonautenM
-      - id: MCArmorModularXenonautenH
       - id: MCArmorHelmetModularXenonautenM10X
       - id: MCArmorHelmetModularXenonautenM10XE
+      - id: MCArmorModularXenonautenM
+      - id: MCArmorModularXenonautenH
     - name: Jaeger
       entries:
+      # Scout
       - id: MCArmorModularJaegerScout
-      - id: MCArmorModularJaegerSkirmisher
-      - id: MCArmorModularJaegerTrooper
-      - id: MCArmorModularJaegerInfantry
-      - id: MCArmorModularJaegerEVA
-      - id: MCArmorModularJaegerHellJumper
-      - id: MCArmorModularJaegerRanger
-      - id: MCArmorModularJaegerGugnir
-      - id: MCArmorModularJaegerAssault
-      - id: MCArmorModularJaegerEOD
       - id: MCArmorHelmetModularJaegerScout
+      # Skirmisher
+      - id: MCArmorModularJaegerSkirmisher
       - id: MCArmorHelmetModularJaegerSkirmisher
+      # Trooper
+      - id: MCArmorModularJaegerTrooper
       - id: MCArmorHelmetModularJaegerTrooper
+      # Infantry
+      - id: MCArmorModularJaegerInfantry
       - id: MCArmorHelmetModularJaegerInfantry
+      # Evs
+      - id: MCArmorModularJaegerEVA
       - id: MCArmorHelmetModularJaegerEVA
+      # HellJumper
+      - id: MCArmorModularJaegerHellJumper
       - id: MCArmorHelmetModularJaegerHellJumper
+      # Ranger
+      - id: MCArmorModularJaegerRanger
       - id: MCArmorHelmetModularJaegerRanger
+      # Gugnir
+      - id: MCArmorModularJaegerGugnir
       - id: MCArmorHelmetModularJaegerGugnir
+      # Assault
+      - id: MCArmorModularJaegerAssault
       - id: MCArmorHelmetModularJaegerAssault
+      # Eod
+      - id: MCArmorModularJaegerEOD
       - id: MCArmorHelmetModularJaegerEOD
     - name: Jaeger modules
       entries:
+      # Tyr
       - id: MCArmorModuleMark1TyrArmor
+      - id: MCArmorModuleMark1TyrArmorHelmet
+      # Mimir
       - id: MCArmorModuleMark1Mimir
+      - id: MCArmorModuleMark1MimirHelmet
+      # Hod
       - id: MCArmorModuleHodBalistic
+      - id: MCArmorModuleHodBalisticHelmet
+      # Baldur
       - id: MCArmorModuleBaldur
       - id: MCArmorModuleValiChemical
       - id: MCArmorModuleSvalinnEnergyShield
       # Loki Illusion Module
       # Thor Armorlock Module
+      # Helmet
+      - id: MCArmorModuleHelmetWelding
+      - id: MCArmorModuleHelmetBinoculars
+      - id: MCArmorModuleHelmetArtemisMk1
+      - id: MCArmorModuleHelmetAntenna

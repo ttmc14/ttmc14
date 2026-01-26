@@ -4,7 +4,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._MC.Armor.Modules;
 
-public sealed partial class MCArmorModuleSystem
+public partial class MCArmorModuleSystem
 {
     private void InitializeContainer()
     {
@@ -17,10 +17,11 @@ public sealed partial class MCArmorModuleSystem
         if (entity.Comp.ContainerId != args.Container.ID)
             return;
 
-        if (TryInsertModule(entity, args.Entity))
+        if (!TryInsertModule(entity, args.Entity))
+        {
+            _container.Remove(args.Entity, args.Container, force: true);
             return;
-
-        _container.Remove(args.Entity, args.Container, force: true);
+        }
     }
 
     private void OnRemoved(Entity<MCArmorModularClothingComponent> entity, ref EntRemovedFromContainerMessage args)

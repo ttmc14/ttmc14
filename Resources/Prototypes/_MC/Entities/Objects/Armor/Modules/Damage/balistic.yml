@@ -4,8 +4,16 @@
   name: hod ballistic deflection system
   description: Designed for mounting on modular armor. A substantial amount of additional reflective ballistic armor plating designed to reduce the impact of friendly fire incidents, will lessen the affects of bullets and lasers. Will impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_ff
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_ff_a
   - type: MCArmor
     soft:
       bullet: 40
@@ -13,3 +21,24 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.95
     sprintModifier: 0.95
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHodBalisticHelmet
+  name: hod ballistic deflection system helmet module
+  description: Designed for mounting on a modular helmet. Contains large amounts of ballistic armor plating, as well as energetically reflective and thermally dissipative material that grant it a high level of defense against bullets and lasers alike. Will impact mobility.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: mod_ff_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_ff_head_a
+  - type: MCArmor
+    soft:
+      bullet: 40
+      laser: 40

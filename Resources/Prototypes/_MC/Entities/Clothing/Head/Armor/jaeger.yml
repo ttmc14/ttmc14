@@ -38,6 +38,11 @@
   - type: RMCBulkyArmor
   - type: OverwatchCamera
   - type: MCArmorModularClothing
+    slots:
+    - id: main
+      whitelist:
+        tags:
+        - MCArmorModuleHead
 
 - type: entity
   parent: MCArmorHelmetModularJaeger

@@ -4,8 +4,16 @@
   name: hlin explosive compensation module
   description: Designed for mounting on modular armor. Uses a complex set of armor plating and compensation to lessen the effect of explosions. Will impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_boomimmune
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_boomimmune_a
   - type: MCArmor
     soft:
       bomb: 40

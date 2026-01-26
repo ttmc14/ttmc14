@@ -4,7 +4,7 @@ using Content.Shared.Verbs;
 
 namespace Content.Shared._MC.Armor.Modules;
 
-public sealed partial class MCArmorModuleSystem
+public partial class MCArmorModuleSystem
 {
     private void InitializeVerbs()
     {
@@ -14,15 +14,15 @@ public sealed partial class MCArmorModuleSystem
 
     private void OnGetVerbs(Entity<MCArmorModularClothingComponent> entity, ref GetVerbsEvent<EquipmentVerb> args)
     {
-        AddRemoveModuleVerb(entity, args.User, args.Verbs, wearerRestricted: true);
+        AddRemoveModuleVerb(entity, args.User, args.Verbs, true, (text, act, iconEntity) => new EquipmentVerb { Text = text, Act = act, IconEntity = iconEntity });
     }
 
     private void OnGetVerbsInteraction(Entity<MCArmorModularClothingComponent> entity, ref GetVerbsEvent<InteractionVerb> args)
     {
-        AddRemoveModuleVerb(entity, args.User, args.Verbs, wearerRestricted: false);
+        AddRemoveModuleVerb(entity, args.User, args.Verbs, false, (text, act, iconEntity) => new InteractionVerb { Text = text, Act = act, IconEntity = iconEntity });
     }
 
-    private void AddRemoveModuleVerb<T>(Entity<MCArmorModularClothingComponent> entity, EntityUid user, SortedSet<T> verbs, bool wearerRestricted) where T : Verb, new()
+    private void AddRemoveModuleVerb<T>(Entity<MCArmorModularClothingComponent> entity, EntityUid user, SortedSet<T> verbs, bool wearerRestricted, Func<string, Action, NetEntity?, T> fabrica) where T : Verb
     {
         if (!CanInteractWithArmor(entity, user))
             return;
@@ -41,26 +41,17 @@ public sealed partial class MCArmorModuleSystem
 
         foreach (var module in modules)
         {
-            verbs.Add(CreateRemoveModuleVerb<T>(entity, module, user));
+            var text = Loc.GetString("mc-armor-remove-specific-module", ("module", Name(module.Owner)));
+            var iconEntity = GetNetEntity(module.Owner);
+
+            verbs.Add(fabrica(text, Act, iconEntity));
+
+            continue;
+
+            void Act() => TryDetachSpecificModule(entity, module, user);
         }
     }
 
-    private T CreateRemoveModuleVerb<T>(
-        Entity<MCArmorModularClothingComponent> armor,
-        Entity<MCArmorModuleComponent> module,
-        EntityUid user)
-        where T : Verb, new()
-    {
-        return new T
-        {
-            Text = Loc.GetString(
-                "mc-armor-remove-specific-module",
-                ("module", Name(module.Owner))),
-
-            Act = () => TryDetachSpecificModule(armor, module, user),
-            IconEntity = GetNetEntity(module.Owner),
-        };
-    }
 
     private bool CanInteractWithArmor(Entity<MCArmorModularClothingComponent> entity, EntityUid user)
     {

@@ -4,8 +4,16 @@
   name: tyr Mk.1 armor reinforcement system
   description: Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This older version has worse protection. Will greatly impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_armor_lower
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_armor_lower_a
   - type: MCArmor
     soft:
       melee: 10
@@ -22,12 +30,40 @@
 
 - type: entity
   parent: MCArmorModule
+  id: MCArmorModuleMark1TyrArmorHelmet
+  name: tyr Mk.1 armor reinforcement system helmet module
+  description: Designed for mounting on a modular helmet. A substantial amount of all-around armour plating designed to grant the user extra protection against any kind of threat.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: tyr_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: tyr_head_a
+  - type: MCArmor
+    soft:
+      melee: 5
+
+- type: entity
+  parent: MCArmorModule
   id: MCArmorModuleMark2TyrArmor
   name: tyr Mk.2 armor reinforcement system
   description: Designed for mounting on modular armor. A substantial amount of additional armor plating designed to grant the user extra protection against threats, ranging from xeno slashes to friendly fire incidents. This newer version has improved protection. Will definitely impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_armor
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_armor_a
   - type: MCArmor
     soft:
       melee: 15
@@ -41,3 +77,25 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleMark2TyrArmorHelmet
+  name: tyr Mk.2 armor reinforcement system helmet module
+  description: Designed for mounting on a modular helmet. When attached, this system provides substantial resistance to most damaging hazards, ranging from xeno slashes to friendly fire incidents.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: tyr_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: tyr_head_a
+  - type: MCArmor
+    soft:
+      melee: 10
+      bio: -5
+      acid: -5

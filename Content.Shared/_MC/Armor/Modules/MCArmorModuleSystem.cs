@@ -15,7 +15,7 @@ using Robust.Shared.Containers;
 
 namespace Content.Shared._MC.Armor.Modules;
 
-public sealed partial class MCArmorModuleSystem : EntitySystem
+public abstract partial class MCArmorModuleSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
@@ -25,13 +25,13 @@ public sealed partial class MCArmorModuleSystem : EntitySystem
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
 
-    private EntityQuery<MCArmorModuleComponent> _armorModuleQuery;
+    protected EntityQuery<MCArmorModuleComponent> ArmorModuleQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _armorModuleQuery = GetEntityQuery<MCArmorModuleComponent>();
+        ArmorModuleQuery = GetEntityQuery<MCArmorModuleComponent>();
 
         InitializeContainer();
         InitializeVerbs();
@@ -41,12 +41,10 @@ public sealed partial class MCArmorModuleSystem : EntitySystem
 
     private void OnInteract(Entity<MCArmorModularClothingComponent> entity, ref InteractUsingEvent args)
     {
-        if (!_armorModuleQuery.TryComp(args.Used, out var moduleComponent))
+        if (!ArmorModuleQuery.TryComp(args.Used, out var moduleComponent))
             return;
 
-        if (!TryAttachModuleToAnySlot(entity, (args.Used, moduleComponent), args.User))
-            return;
-
+        TryAttachModuleToAnySlot(entity, (args.Used, moduleComponent), args.User);
         args.Handled = true;
     }
 
@@ -76,10 +74,10 @@ public sealed partial class MCArmorModuleSystem : EntitySystem
     }
 
     private MCArmorModuleSlot? FindFreeSlotForModule(
-        Entity<MCArmorModularClothingComponent> armor,
+        Entity<MCArmorModularClothingComponent> entity,
         EntityUid module)
     {
-        return armor.Comp.Slots.FirstOrDefault(slot => slot.Module is null && !_whitelist.IsWhitelistFail(slot.Whitelist, module));
+        return entity.Comp.Slots.FirstOrDefault(slot => slot.Module is null && _whitelist.IsWhitelistPassOrNull(slot.Whitelist, module));
     }
 
     private bool CanAttachModule(
@@ -87,7 +85,7 @@ public sealed partial class MCArmorModuleSystem : EntitySystem
         EntityUid module,
         EntityUid? user)
     {
-        if (!_armorModuleQuery.HasComp(module))
+        if (!ArmorModuleQuery.HasComp(module))
             return false;
 
         if (!TryComp<ItemComponent>(armor, out _) ||
@@ -146,7 +144,7 @@ public sealed partial class MCArmorModuleSystem : EntitySystem
 
         foreach (var ent in container.ContainedEntities)
         {
-            if (_armorModuleQuery.TryComp(ent, out var comp))
+            if (ArmorModuleQuery.TryComp(ent, out var comp))
                 yield return (ent, comp);
         }
     }

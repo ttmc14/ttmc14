@@ -1,0 +1,25 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleBaldur
+  name: baldur light amplification system
+  description: Designed for mounting on modular armor. Substantially increases the power output of your modular armor's mounted flashlight. Be the light in the darkness. Does not slow down
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
+  - type: Sprite
+    state: mod_lamp
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_lamp_a
+  - type: PointLight
+    enabled: false
+    radius: 9
+    offset: 0,-0.85
+    rotation: 90
+    softness: 5
+    autoRot: true
+    netsync: false
+    color: "#FFFFFF"

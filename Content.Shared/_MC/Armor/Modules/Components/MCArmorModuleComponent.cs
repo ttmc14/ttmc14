@@ -8,7 +8,7 @@ namespace Content.Shared._MC.Armor.Modules.Components;
 public sealed partial class MCArmorModuleComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public SpriteSpecifier.Rsi? Sprite;
+    public SpriteSpecifier.Rsi? Visuals;
 
     [DataField, AutoNetworkedField]
     public MCArmorDefinition Armor;
