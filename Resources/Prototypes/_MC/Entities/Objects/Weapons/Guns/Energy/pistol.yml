@@ -42,6 +42,30 @@
     falloffMultiplier: 0.2
   - type: WieldDelay
     baseDelay: 0.4
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+          # - TODO: Pistol Lace
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentRedDotSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentMiniFlamethrower
+  - type: AttachableHolderVisuals # I dont wanna do that :(
+    offsets:
+      rmc-aslot-barrel: 0.46875, 0.03125
+      rmc-aslot-rail: -0.3125, 0.125
+      rmc-aslot-underbarrel: 0.125, -0.125
 
 - type: Tag
   id: MCWeaponEnergyPistol

@@ -35,3 +35,34 @@
     falloffMultiplier: 0.5
   - type: WieldDelay
     baseDelay: 0.5
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentBayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentRedDotSight
+          - MCAttachmentT47RailScope
+          # - TODO: Tactical Sensor
+          # - TODO: Build a Sentry
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentAngledGrip
+          - MCAttachmentVerticalGrip
+          - MCAttachmentGyroscopicStabilizer
+          - MCAttachmentMiniFlamethrower
+          - MCAttachmentUnderbarrelShotgun
+          # - TODO: Underbarrel Pepper Gun
+  - type: AttachableHolderVisuals # I dont wanna do that :(
+    offsets:
+      rmc-aslot-barrel: 0.46875, 0.03125
+      rmc-aslot-rail: -0.3125, 0.125
+      rmc-aslot-underbarrel: 0.125, -0.125
