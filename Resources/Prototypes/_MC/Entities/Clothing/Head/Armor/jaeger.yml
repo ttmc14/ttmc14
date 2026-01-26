@@ -39,7 +39,7 @@
   - type: OverwatchCamera
   - type: MCArmorModularClothing
     slots:
-    - id: main
+    - id: main_helmet
       whitelist:
         tags:
         - MCArmorModuleHead
