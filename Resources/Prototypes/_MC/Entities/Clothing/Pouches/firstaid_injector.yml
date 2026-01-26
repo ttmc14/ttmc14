@@ -9,9 +9,9 @@
   - type: Sprite
     sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Tiny
     grid:
-    - 0,0,15,1 # 8 slots
+    - 0,0,13,3 # 14 slots
     whitelist:
       tags:
       - MCAutoInjector
@@ -26,9 +26,9 @@
   - type: Sprite
     sprite: _MC/Clothing/Pouches/firstaid_injector_icc.rsi
   - type: Storage
-    maxItemSize: Normal
+    maxItemSize: Tiny
     grid:
-    - 0,0,15,1 # 8 slots
+    - 0,0,13,3 # 14 slots
     whitelist:
       tags:
       - MCAutoInjector
