@@ -28,17 +28,17 @@ public static class SharedPopupSystemExtensions
     }
 
     public static void PopupLocEntServer(this SharedPopupSystem popupSystem,
-        EntityUid uid,
+        EntityUid? uid,
         LocId id,
         PopupType type = PopupType.Small)
     {
-        if (popupSystem.Net.IsClient)
+        if (popupSystem.Net.IsClient || uid is null)
             return;
 
         popupSystem.PopupEntServer(
             Loc.GetString(id),
-            uid,
-            uid,
+            uid.Value,
+            uid.Value,
             type
         );
     }

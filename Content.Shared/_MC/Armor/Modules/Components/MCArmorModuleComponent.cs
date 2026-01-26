@@ -1,9 +1,8 @@
-﻿using Content.Shared._MC.Armor;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Shared._MC.Armor.Modules;
+namespace Content.Shared._MC.Armor.Modules.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCArmorModuleComponent : Component
