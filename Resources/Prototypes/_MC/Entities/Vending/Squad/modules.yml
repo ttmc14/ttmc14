@@ -21,6 +21,22 @@
       # Thor Armorlock Module
 
 - type: entity
+  id: MCVendingSectionsArmorModulesStorage
+  abstract: true
+  components:
+  - type: CMAutomatedVendor
+    sections:
+    - name: Armor storage modules
+      choices:
+        MCArmourModuleStorage: 1
+      entries:
+      - id: MCArmorModuleStorageMedical
+      - id: MCArmorModuleStorageInjector
+      - id: MCArmorModuleStorageGeneral
+      - id: MCArmorModuleStorageEngineering
+      - id: MCArmorModuleStorageGrenade
+
+- type: entity
   id: MCVendingSectionsArmorModulesHelmet
   abstract: true
   components:

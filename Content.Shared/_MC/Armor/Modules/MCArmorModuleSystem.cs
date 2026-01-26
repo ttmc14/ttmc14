@@ -116,6 +116,11 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
         EntityUid? user)
     {
         EntityManager.AddComponents(entity, module.Comp.Components);
+
+        if (user is null)
+            return;
+
+        EntityManager.AddComponents(user.Value, module.Comp.UserComponents);
         RefreshUser(user);
     }
 
@@ -125,6 +130,11 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
         EntityUid? user)
     {
         EntityManager.RemoveComponents(entity, module.Comp.Components);
+
+        if (user is null)
+            return;
+
+        EntityManager.RemoveComponents(user.Value, module.Comp.Components);
         RefreshUser(user);
     }
 

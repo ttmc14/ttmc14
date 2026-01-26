@@ -74,3 +74,10 @@
       - id: MCArmorModuleHelmetBinoculars
       - id: MCArmorModuleHelmetArtemisMk1
       - id: MCArmorModuleHelmetAntenna
+    - name: Jaeger storage modules
+      entries:
+      - id: MCArmorModuleStorageMedical
+      - id: MCArmorModuleStorageInjector
+      - id: MCArmorModuleStorageGeneral
+      - id: MCArmorModuleStorageEngineering
+      - id: MCArmorModuleStorageGrenade

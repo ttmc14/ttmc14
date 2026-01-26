@@ -3,6 +3,7 @@
   - MCMachineVending
   - MCVendingSectionsArmor
   - MCVendingSectionsArmorModules
+  - MCVendingSectionsArmorModulesStorage
   - MCVendingSectionsArmorModulesHelmet
   id: MCMachineVendingGhmme
   name: GHMME Automated Closet

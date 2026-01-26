@@ -15,4 +15,7 @@ public sealed partial class MCArmorModuleComponent : Component
 
     [DataField]
     public ComponentRegistry Components = new();
+
+    [DataField]
+    public ComponentRegistry UserComponents = new();
 }
