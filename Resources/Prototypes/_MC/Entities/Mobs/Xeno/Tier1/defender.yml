@@ -112,7 +112,7 @@
     id: MCXenoDefenderSteelCrest
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/defendersteelcrest.rsi
+    sprite: _MC/Mobs/Xenos/defender_steelcrest.rsi
     offset: 0, 0.2
     # Actions
   - type: Xeno
