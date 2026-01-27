@@ -1,0 +1,141 @@
+- type: entity
+  parent: MCSentry
+  id: MCSentryFlamer
+  name: SFT-575 sentry gun
+  description: A deployable, fully automatic turret with AI targeting capabilities. Armed with a heavy flamethrower and a 200-round drum magazine.
+  components:
+  - type: Icon
+    sprite: _MC/Objects/Sentries/flamer.rsi
+    state: handheld
+  - type: Sprite
+    sprite: _MC/Objects/Sentries/flamer.rsi
+    layers:
+    - map: [ "base" ]
+      state: handheld
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item: { state: handheld }
+          Deployed: { state: deployed }
+  - type: MCDeploy
+    deployTime: 5
+  - type: Gun
+    fireRate: 0.35
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSentryFlamer
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSentryFlamer
+  - type: HTN
+    rootTask:
+      task: RMCSentryCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+      VisionRadius: !type:Single "8.0"
+      AggroVisionRadius: !type:Single "8.0"
+
+- type: entity
+  parent: MCMagazine
+  id: MCMagazineSentryFlamer
+  name: SFT-575 fuel canister
+  description: A fuel canister for the SFT-575 sentry gun. Just feed it into the sentry gun's fuel port when its fuel is depleted.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSentry
+    - MCMagazineSentryFlamer
+  - type: Sprite
+    sprite: _MC/Objects/Items/Ammunition/Sentry/flamer.rsi
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSentryFlamer
+    proto: MCCartridgeSentryFlamer
+    capacity: 75
+
+- type: Tag
+  id: MCMagazineSentryFlamer
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeSentryFlamer
+  name: cartridge (10x28mm Caseless)
+  description: ...
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeSentryFlamer
+  - type: CartridgeAmmo
+    proto: MCBulletSentryFlamer
+
+- type: Tag
+  id: MCCartridgeSentryFlamer
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSentryFlamer
+  components:
+  - type: Tag
+    tags:
+    - MCDamageFire
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/pulse.rsi
+    layers:
+    - state: pulse0
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 50
+  - type: SpawnOnTerminate
+    spawn: MCFireFlamethrower
+  - type: IgnoreArc
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.15,-0.45,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+  - type: IgniteOnProjectileHit
+    intensity: 31
+    duration: 15
+  - type: IgnorePredictionHide
+  - type: RMCFireProjectile
+  # Fucking fire spawn
+  - type: MCStunOnHit
+    knockback: 1.5
+    knockbackSpeed: 15
+    maxDistance: 12
+
+- type: entity
+  parent: MCFire
+  id: MCFireFlamethrower
+  components:
+  - type: DamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        MCBurn: 31
+  - type: RMCIgniteOnCollide
+    maxStacks: 20
+    intensity: 31
+    duration: 15
+    tileDamage:
+      types:
+        MCBurn: 0.1
+  - type: TileFire
+    id: MCFireFlamethrower
+    duration: 15
+    extinguishInstantly: false

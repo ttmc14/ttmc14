@@ -11,7 +11,7 @@
     sprite: _MC/Objects/Sentries/sniper.rsi
   - type: MCSentry
   - type: MCDeploy
-    deployTime: 10
+    deployTime: 5
   - type: Gun
     fireRate: 0.5
   - type: ItemSlots
@@ -23,20 +23,19 @@
         whitelist:
           tags:
           - MCMagazineSentrySniper
-  # turret_range = 12
   - type: HTN
     rootTask:
       task: RMCSentryCompound
     blackboard:
       SoundTargetInLOS: !type:SoundPathSpecifier
         path: /Audio/Effects/double_beep.ogg
-      VisionRadius: !type:Single "12.0"
-      AggroVisionRadius: !type:Single "12.0"
+      VisionRadius: !type:Single "14.0"
+      AggroVisionRadius: !type:Single "14.0"
 
 - type: entity
   parent: MCMagazine
   id: MCMagazineSentrySniper
-  name: "SST-574 box magazine (10x28mm Caseless)"
+  name: SST-574 box magazine (10x28mm Caseless)"\
   description: "A magazine of 50 10x28mm caseless rounds for the SST-574 sentry gun. Just feed it into the sentry gun's ammo port when its ammo is depleted."
   components:
   - type: Tag
@@ -51,7 +50,7 @@
       tags:
       - MCCartridgeSentrySniper
     proto: MCCartridgeSentrySniper
-    capacity: 75
+    capacity: 50
 
 - type: Tag
   id: MCMagazineSentrySniper
@@ -59,8 +58,6 @@
 - type: entity
   parent: MCCartridge
   id: MCCartridgeSentrySniper
-  name: cartridge (10x28mm Caseless)
-  description: ...
   components:
   - type: Tag
     tags:
@@ -75,8 +72,6 @@
 - type: entity
   parent: MCBullet
   id: MCBulletSentrySniper
-  name: antimaterial bullet
-  description: ...
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
@@ -86,7 +81,7 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 80
+        MCBrute: 75
   - type: CMArmorPiercing
     amount: 50
   - type: MCXenoSunderDamageOnHit

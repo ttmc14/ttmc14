@@ -66,7 +66,7 @@
       # Large M20 mine box
       # M20 mine box
       # M21 APRDS "Minelayer"
-    - name: Other
+    - name: Sentries
       entries:
       - id: MCCaseSentryST571
         points: 35
@@ -76,19 +76,25 @@
         points: 45
       - id: MCCaseSentrySMT580
         points: 45
+      - id: MCCaseSentryFlamer
+        points: 45
       - id: RMCTesla
         points: 30
-      # Iguana Unmanned Vehicle
-      # Skink Unmanned Vehicle
       # Build-A-Sentry Attachment
+    - name: Flamer
+      entries:
       - id: MCTankFlamerGreen
-        points: 4 # Это оправдывает цену
+        points: 4
       - id: MCTankFlamer
-        points: 2 # КАКИЕ НАХУЙ 4 ПОИНТА НА ЭТУ ХУЙНЮ!?
+        points: 2
       - id: MCBeaconSupply
         points: 5
     - name: Mining
       entries: []
+    - name: Vehicle
+      entries: []
+      # Iguana Unmanned Vehicle
+      # Skink Unmanned Vehicle
     - name: Artillery
       entries:
       - id: MCCrateMortarKit
