@@ -28,6 +28,10 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: defender
+  # Evolution
+  - type: XenoEvolution
+    strains:
+    - MCXenoDefenderSteelCrest
   # Actions
   - type: Xeno
     tier: 1
