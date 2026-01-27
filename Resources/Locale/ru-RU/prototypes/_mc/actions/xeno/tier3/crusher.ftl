@@ -4,5 +4,5 @@ ent-MCActionXenoStomp = Топтать (100)
     .desc = Сбивает все соседние цели с ног.
 ent-MCActionXenoToggleChargingCrusher = Переключить таран
     .desc = Включает и выключает таран, основанный на разбеге.
-ent-MCActionXenoZoom = Toggle Long Range Sight
-    .desc = Extend your sight off into the distance. Must remain stationary to use.
+ent-MCActionXenoZoom = Включить дальне-видное зрение
+    .desc = Увеличь своё зрения на большой радиус. Должен оставатся стоячим при использовании.
