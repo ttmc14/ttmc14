@@ -130,8 +130,7 @@
     - ActionXenoSoak # - TODO: Make MC component
   # Evolution
   - type: XenoEvolution
-    strains:
-    - []
+    strains: []
     # Statistics
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.3528
