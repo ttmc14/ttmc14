@@ -74,12 +74,26 @@
       - id: MCBeakerLarge
         name: Beaker, Large (120 units)
       - id: MCDropper
-      #	/obj/item/storage/reagent_tank = 5
-      #	/obj/item/storage/reagent_tank/bicaridine = 1
-      #	/obj/item/storage/reagent_tank/kelotane = 1
-      #	/obj/item/storage/reagent_tank/tramadol = 1
-      #	/obj/item/storage/reagent_tank/tricordrazine = 1
-      #	/obj/item/storage/reagent_tank/bktt = 1
+    - name: Reagent tanks
+      entries:
+      - id: MCTankReagentEmpty
+        name: пустой # TODO: Locale
+        amount: 5
+      - id: MCTankReagentBicaridine
+        name: бикаридин # TODO: Locale
+        amount: 1
+      - id: MCTankReagentKelotane
+        name: келотан # TODO: Locale
+        amount: 1
+      - id: MCTankReagentTramadol
+        name: трамадол # TODO: Locale
+        amount: 1
+      - id: MCTankReagentTricordrazine
+        name: трикадрозин # TODO: Locale
+        amount: 1
+      - id: MCTankReagentCombatMix
+        name: боевой микс # TODO: Locale
+        amount: 1
     - name: Misc
       entries:
       # xeno_analyzer = 2
@@ -90,5 +104,5 @@
       - id: MCSoap
       - id: MCGlassesHudHealth
         amount: 6
-      - id: MCRollerBedSpawnFolded
+      - id: MCHealthAnalyzer
         amount: 6

@@ -19,6 +19,7 @@
       - id: MCPillCanisterKelotane
       - id: MCPillCanisterTramadol
       - id: MCPillCanisterTricordrazine
+      - id: MCPillCanisterCombatMix
       - id: MCPillCanisterDylovene
       - id: MCPillCanisterParacetamol
       - id: MCPillCanisterSalineGlucose # isotonic
@@ -58,6 +59,8 @@
         amount: 50
     - name: Misc
       entries:
+      - id: MCRollerBedSpawnFolded
+        amount: 6
       - id: MCDefibrillator
         amount: 8
       - id: MCHealthAnalyzer

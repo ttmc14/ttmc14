@@ -1,0 +1,137 @@
+﻿- type: entity
+  parent: [ StorageTank, StructureWheeled ]
+  id: MCTankReagentEmpty
+  name: reagent tank
+  description: A reagent tank, typically used to store large quantities of chemicals.
+  suffix: Empty
+  components:
+  - type: Sprite
+    sprite: _RMC14/Structures/Storage/reagent_tank.rsi
+    layers:
+    - state: tank_normal
+    - state: tn_color-1
+    - state: tn_color-1
+      map: [ "enum.SolutionContainerLayers.Fill" ]
+      visible: false
+    - state: t_inactive
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.4"
+        density: 155
+        mask:
+        - MachineMask
+        - HighImpassable
+        layer:
+        - HighImpassable
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Appearance
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: tn_color-
+  - type: DetailedExaminableSolution
+    solution: tank
+  - type: RMCToggleableSolutionTransfer
+    solution: tank
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 1200
+  - type: Corrodible
+    timeToApply: 4
+    structure: true
+  - type: Tag
+    tags:
+    - RMCTankReagent
+    - Structure
+  - type: XenoCrusherChargable
+    setDamage:
+      types:
+        Blunt: 0
+    throwRange: 2
+  - type: RMCMesonsNonviewable
+
+- type: entity
+  parent: MCTankReagentEmpty
+  id: MCTankReagentBicaridine
+  suffix: Bicaridine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 1200
+  - type: Label
+    currentLabel: reagent-name-mc-bicaridine
+
+- type: entity
+  parent: MCTankReagentEmpty
+  id: MCTankReagentKelotane
+  suffix: Kelotane
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: MCKelotane
+          Quantity: 1200
+  - type: Label
+    currentLabel: reagent-name-mc-kelotane
+
+- type: entity
+  parent: MCTankReagentEmpty
+  id: MCTankReagentTramadol
+  suffix: Tramadol
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: MCTramadol
+          Quantity: 1200
+  - type: Label
+    currentLabel: reagent-name-mc-tramadol
+
+- type: entity
+  parent: MCTankReagentEmpty
+  id: MCTankReagentTricordrazine
+  suffix: Tricordrazine
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: MCTricordrazine
+          Quantity: 1200
+  - type: Label
+    currentLabel: reagent-name-mc-tricordrazine
+
+- type: entity
+  parent: MCTankReagentEmpty
+  id: MCTankReagentCombatMix
+  suffix: BKTT
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 400
+        - ReagentId: MCKelotane
+          Quantity: 400
+        - ReagentId: MCKelotane
+          Quantity: 200
+        - ReagentId: MCTricordrazine
+          Quantity: 200
+  - type: Label
+    currentLabel: reagent-name-mc-combat-mix
+

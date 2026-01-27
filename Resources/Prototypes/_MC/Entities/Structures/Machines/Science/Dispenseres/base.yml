@@ -1,0 +1,96 @@
+- type: entity
+  parent: MCStructure
+  id: MCDispenser
+  abstract: true
+  categories: [ MCContent ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.40
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: InteractionOutline
+  - type: RMCChemicalDispenser
+    costPerUnit: 1
+    maxEnergy: 3000
+    settings: [ 1, 5, 10, 15, 20, 30, 40, 45, 50, 60, 100, 120, 300 ]
+    reagents:
+    - MCAluminum
+    - MCCarbon
+    - MCChlorine
+    - MCCopper
+    - MCEthanol
+    - MCFluorine
+    - MCHydrogen
+    - MCIron
+    - MCLithium
+    - MCMercury
+    - MCNitrogen
+    - MCOxygen
+    - MCPhosphorus
+    - MCPotassium
+    - MCRadium
+    - MCSilicon
+    - MCSodium
+    - MCSugar
+    - MCSulfur
+    - MCSulphuricAcid
+    - MCWater
+  - type: ApcPowerReceiver
+    needsPower: false
+    powerLoad: 0
+  - type: ItemSlots
+    slots:
+      chemical_dispenser_slot:
+        name: Chemical Dispenser
+        whitelist:
+          tags:
+          - GlassBeaker
+          - ChemDispensable
+  - type: ContainerContainer
+    containers:
+      chemical_dispenser_slot: !type:ContainerSlot
+      machine_board: !type:Container
+      machine_parts: !type:Container
+  - type: UserInterface
+    interfaces:
+      enum.RMCChemicalDispenserUi.Key:
+        type: RMCChemicalDispenserBui
+  - type: ActivatableUI
+    key: enum.RMCChemicalDispenserUi.Key
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+
+- type: entity
+  parent: MCDispenser
+  id: MCDispenserChemical
+  name: chemical dispenser
+  description: Creates and dispenses chemicals.
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Structures/Machines/Science/chem_dispenser.rsi
+    offset: 0, 0.5
+    layers:
+    - state: base
+    snapCardinals: true
+  - type: Machine
+    board: CMCircuitboardDispenserChem
+  - type: ItemSlots
+    slots:
+      chemical_dispenser_slot:
+        name: Chemical Dispenser
+        whitelist:
+          tags:
+          - GlassBeaker
+          - ChemDispensable

@@ -18,6 +18,6 @@
       - id: MCBloodPackFull
         name: blood pack (full)
         amount: 30
-      - id: MCBloodPackFull
+      - id: MCBloodPack
         name: blood pack (empty)
         amount: 10

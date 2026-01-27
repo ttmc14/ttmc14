@@ -8,6 +8,11 @@
 # WallSolid: Window
 # Table: null
 
+# 27-01-2026
+MCChemDispenserGround: MCDispenserChemicalGround
+MCChemDispenserMedbay: MCDispenserChemicalMedbay
+MCChemDispenserResearch: MCDispenserChemicalResearch
+
 # 18-01-2026
 MCPropMiningDrill: MCMiner
 
