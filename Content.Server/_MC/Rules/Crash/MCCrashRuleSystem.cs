@@ -35,26 +35,26 @@ namespace Content.Server._MC.Rules.Crash;
 
 public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponent>
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly IServerPreferencesManager _preferences = default!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly IBanManager _bans = null!;
+    [Dependency] private readonly IPlayerManager _player = null!;
+    [Dependency] private readonly IPrototypeManager _prototype = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly IServerPreferencesManager _preferences = null!;
 
-    [Dependency] private readonly XenoSystem _rmcXeno = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
-    [Dependency] private readonly RMCPowerSystem _rmcPower = default!;
-    [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = default!;
+    [Dependency] private readonly XenoSystem _rmcXeno = null!;
+    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
+    [Dependency] private readonly RMCPowerSystem _rmcPower = null!;
+    [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
 
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly PlayTimeTrackingSystem _playTime = null!;
+    [Dependency] private readonly ShuttleSystem _shuttle = null!;
+    [Dependency] private readonly MindSystem _mind = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = null!;
 
-    [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = default!;
-    [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = default!;
+    [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
+    [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = null!;
 
     private readonly TimeSpan _updateSpawnXenosDelay = TimeSpan.FromSeconds(10);
     private TimeSpan _nextUpdateSpawnXenos;
@@ -243,8 +243,8 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
             var xenoSpawnPoints = GetEntities<XenoSpawnPointComponent>();
 
             var xenos = GetXenos(ev.PlayerPool.Count);
-            var survivors = GetSurvivors(ev.PlayerPool.Count);
-            var marines = GetMarines(ev.PlayerPool.Count);
+            // var survivors = GetSurvivors(ev.PlayerPool.Count);
+            // var marines = GetMarines(ev.PlayerPool.Count);
 
             var priorities = Enum.GetValues<JobPriority>().Length;
             var xenoCandidates = new List<NetUserId>[priorities];
