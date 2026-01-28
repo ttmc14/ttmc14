@@ -20,6 +20,10 @@
     name: mc-job-name-xeno-boiler
   - type: RMCActionOrder
     id: MCXenoBoiler
+  # Evolution
+  - type: XenoEvolution
+    strains:
+    - MCXenoBoilerSizzler
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/boiler.rsi
@@ -104,6 +108,73 @@
   - type: MCXenoBombard
   - type: MCXenoAcidShroud
 
+  # Strain: Sizzler 
+- type: entity
+  parent:
+  # MC
+  - MCXenoBoiler
+  - MCXenoComponentReagentSelector
+  id: MCXenoBoilerSizzler
+  name: sizzler
+  description: Gross!
+  components:
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-boiler-sizzler
+  - type: GhostRole
+    name: mc-job-name-xeno-boiler-sizzler
+  - type: RMCActionOrder
+    id: MCXenoBoiler
+  # Evolution
+  - type: XenoEvolution
+    strains:
+    - []
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/boiler_sizzler.rsi
+    offset: 0, 0.35
+  - type: Xeno
+    tier: 3
+    role: MCXenoBoiler
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Abilities
+    - MCActionXenoEmitNeurogas
+    - MCActionXenoCreateGlob
+    - MCActionXenoAcidShroud
+    - MCActionXenoPounce
+    # Utilities
+    - MCActionXenoAcidStrong
+    - MCActionXenoPlaceTrap
+    hudOffset: -0.15, 0.25
+    # Statistic
+  - type: MCArmor
+    soft:
+      melee: 40
+      bullet: 25
+      laser: 20
+      energy: 20
+      bomb: 0
+      bio: 35
+      fire: 20
+      acid: 20
+      fall: 100
+    - type: MovementSpeedModifier
+      baseWalkSpeed: 2.777
+      baseSprintSpeed: 4
+    # Abilities
+  - type: MCXenoPounce
+    maxDistance: 7
+    strength: 50
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 0
+    stopOnHit: false
+    hitDamage: 0
+  - type: MCXenoAcidShroud
+  - type: MCXenoEmitNeurogas
+    
 # Components
 - type: entity
   id: MCXenoComponentBoilerGlob
