@@ -20,6 +20,7 @@ mc-job-name-xeno-spitter = Плеватель
 mc-job-name-xeno-warrior = Воин
 mc-job-name-xeno-wraith = Призрак
 mc-job-name-xeno-boiler = Бойлер
+mc-job-name-xeno-boiler-sizzler = Душитель
 mc-job-name-xeno-crusher = Крушитель
 mc-job-name-xeno-defiler = Осквернитель
 mc-job-name-xeno-gorger = Поглотитель
