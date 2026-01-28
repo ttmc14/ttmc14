@@ -251,6 +251,7 @@
         cost: 120
         entities:
         - MCArmorModuleSurtPyrotechnical
+        - MCArmorModuleSurtPyrotechnicalHelmet
       - name: mc-asrs-entry-tyr-mk2
         icon:
           sprite: _MC/Clothing/modular.rsi
@@ -258,6 +259,7 @@
         cost: 120
         entities:
         - MCArmorModuleMark2TyrArmor
+        - MCArmorModuleMark2TyrArmorHelmet
       - name: mc-asrs-entry-mimir-mk2
         icon:
           sprite: _MC/Clothing/modular.rsi
@@ -265,6 +267,7 @@
         cost: 120
         entities:
         - MCArmorModuleMark2Mimir
+        - MCArmorModuleMark2MimirHelmet
       - name: mc-asrs-entry-hlin-explosive
         icon:
           sprite: _MC/Clothing/modular.rsi
