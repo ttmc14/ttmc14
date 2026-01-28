@@ -81,7 +81,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
             return;
 
         var query = QueryAllRules();
-        while (query.MoveNext(out _, out var distress, out _))
+        while (query.MoveNext(out _, out var ruleComponent, out _))
         {
             var xenoCandidates = 0;
             foreach (var player in ev.Players)
@@ -90,19 +90,30 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
                     continue;
 
                 var profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
-                if (profile.JobPriorities.TryGetValue(distress.XenoSelectableJob, out var xenoPriority) && xenoPriority > JobPriority.Never
-                    || profile.JobPriorities.TryGetValue(distress.ShrikeJob, out var shrikePriority) && shrikePriority > JobPriority.Never)
+                if (profile.JobPriorities.TryGetValue(ruleComponent.XenoSelectableJob, out var xenoPriority) && xenoPriority > JobPriority.Never ||
+                    profile.JobPriorities.TryGetValue(ruleComponent.ShrikeJob, out var shrikePriority) && shrikePriority > JobPriority.Never)
                     xenoCandidates++;
+            }
+
+            if (ev.Players.Length <= 2)
+            {
+                Announce($"Невозможно запустить крушение. Требуется как минимум 2 игрока, но у нас есть {ev.Players.Length}.");
+                ev.Cancel();
             }
 
             if (xenoCandidates >= 1)
                 continue;
 
-            var msg = $"Невозможно запустить крушение. Требуется как минимум 1 ксено-игрок, но у нас есть {xenoCandidates}.";
+            Announce($"Невозможно запустить крушение. Требуется как минимум 1 ксено-игрок, но у нас есть {xenoCandidates}.");
+            ev.Cancel();
+        }
 
+        return;
+
+        void Announce(string msg)
+        {
             ChatManager.SendAdminAnnouncement(msg);
             ChatManager.DispatchServerAnnouncement(msg);
-            ev.Cancel();
         }
     }
 
