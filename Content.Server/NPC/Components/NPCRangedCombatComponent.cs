@@ -51,7 +51,7 @@ public sealed partial class NPCRangedCombatComponent : Component
     /// Delay after target is in LOS before we start shooting.
     /// </summary>
     [ViewVariables(VVAccess.ReadWrite)]
-    public float ShootDelay = 0.2f;
+    public float ShootDelay = 0; // Haha funny
 
     [ViewVariables(VVAccess.ReadWrite)]
     public float ShootAccumulator;

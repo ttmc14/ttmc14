@@ -1,0 +1,59 @@
+- type: entity
+  parent: MCStructure
+  id: MCChemicalStorage
+  name: chemical storage system
+  description: Storage system for a large supply of chemicals, which slowly recharges.
+  placement:
+    mode: SnapgridCenter
+  abstract: true
+  components:
+  - type: Transform
+    anchored: false
+  - type: Physics
+    bodyType: Static
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 60
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+  - type: Sprite
+    sprite: _RMC14/Structures/Machines/chemical_storage.rsi
+    state: chemstorage
+    offset: 0.5,0
+  - type: RMCChemicalStorage
+    rechargeEvery: 20
+    energy: 3000
+    maxEnergy: 3000
+    baseMax: 3000
+    maxPer: 0
+    baseRecharge: 5
+    rechargePer: 5
+
+- type: entity
+  parent: MCChemicalStorage
+  id: MCChemStorageGround
+  suffix: Ground
+  components:
+  - type: RMCChemicalStorage
+    network: MCChemStorageGround
+
+- type: entity
+  parent: MCChemicalStorage
+  id: MCChemStorageMedbay
+  suffix: Medbay
+  components:
+  - type: RMCChemicalStorage
+    network: MCChemStorageMedbay
+
+- type: entity
+  parent: MCChemicalStorage
+  id: MCChemStorageResearch
+  suffix: Research
+  components:
+  - type: RMCChemicalStorage
+    network: MCChemStorageResearch

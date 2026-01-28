@@ -1,0 +1,23 @@
+- type: entity
+  parent: MCDispenserChemical
+  id: MCDispenserChemicalGround
+  suffix: Ground
+  components:
+  - type: RMCChemicalDispenser
+    network: MCChemStorageGround
+
+- type: entity
+  parent: MCDispenserChemical
+  id: MCDispenserChemicalMedbay
+  suffix: Medbay
+  components:
+  - type: RMCChemicalDispenser
+    network: MCChemStorageMedbay
+
+- type: entity
+  parent: MCDispenserChemical
+  id: MCDispenserChemicalResearch
+  suffix: Research
+  components:
+  - type: RMCChemicalDispenser
+    network: MCChemStorageResearch

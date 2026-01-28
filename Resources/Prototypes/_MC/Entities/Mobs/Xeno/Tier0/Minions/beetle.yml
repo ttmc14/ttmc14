@@ -16,6 +16,9 @@
     role: MCXenoMinionBeetle
     actionIds:
     - MCActionXenoRest
+  # Abilities
+    - MCActionXenoForwardCharge
+    - MCActionXenoCrestDefense
     hudOffset: -0.2,0.3
   - type: MobThresholds
     thresholds:
@@ -40,6 +43,18 @@
       bio: 25
       fire: 25
       acid: 25
+# Abilities
+  - type: XenoCrest # TODO: Make MC component
+  # Pounce (Forward Charge)
+  - type: MCXenoPounce
+    maxDistance: 5
+    strength: 50
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 4
+    stopOnHit: false
+    hitDamage:
+      types:
+        MCBrute: 11
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.5
     baseSprintSpeed: 3.333

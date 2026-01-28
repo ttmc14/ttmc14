@@ -1,0 +1,26 @@
+- type: entity
+  id: MCMobSpecies
+  abstract: true
+  save: false
+  components:
+  # [z-levels]
+  - type: CEZPhysics
+  - type: MCZLevelFallStun
+  - type: MCZLevelFallDamage
+    damage:
+      types:
+        MCBrute: 10
+  # [solution]
+  - type: MCSolutionTicker
+  - type: MCSolutionEventProvider
+  # [armor]
+  - type: MCArmor
+    showExamine: false
+  # [xeno-human-effect]
+  - type: MCXenoToxicStacks
+  - type: MCXenoPsydrainable
+  # [stamina]
+  - type: MCStamina
+  - type: MCStaminaActive
+  # [hud]
+  - type: MCXenoHudToxins

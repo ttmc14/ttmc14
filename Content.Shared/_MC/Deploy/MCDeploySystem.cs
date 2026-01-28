@@ -61,7 +61,10 @@ public sealed class MCDeploySystem : EntitySystem
 
     public bool Deployed(EntityUid uid)
     {
-        return _deployQuery.TryComp(uid, out var component) && component.State == MCDeployState.Deployed;
+        if (!_deployQuery.TryComp(uid, out var component))
+            return true;
+
+        return component.State == MCDeployState.Deployed;
     }
 
     private void OnMapInit(Entity<MCDeployComponent> entity, ref MapInitEvent args)

@@ -95,7 +95,7 @@
     maxDistance: 3
   - type: ProjectileSpread
     proto: MCBulletShotgunBuckshot
-    count: 5
+    count: 6
     spread: 4
   - type: RMCProjectileDamageFalloff
     thresholds:
@@ -375,9 +375,9 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 50
+        MCBrute: 19
   - type: CMArmorPiercing
-    amount: 15
+    amount: 17
   - type: MCXenoSunderDamageOnHit
     amount: 1.5
   - type: ProjectileSpread

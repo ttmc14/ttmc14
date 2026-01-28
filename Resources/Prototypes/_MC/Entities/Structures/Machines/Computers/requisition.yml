@@ -37,6 +37,13 @@
         cost: 50
         entities:
         - MCBeaconOrbital
+      - name: asrs export point
+        icon:
+          sprite: _MC/Structures/Machines/teleporter.rsi
+          state: teleporter_deployed_on
+        cost: 300
+        entities:
+        - MCASRSExportPad
     - name: mc-asrs-category-weapons
       entries:
       - name: mc-asrs-entry-pb12-pepperball
@@ -206,6 +213,20 @@
         cost: 50
         entities:
         - MCMagazineSentryShotgun
+      - name: mc-asrs-entry-flamer-sentry
+        icon:
+          sprite: _MC/Objects/Sentries/flamer.rsi
+          state: handheld
+        cost: 350
+        entities:
+        - MCSentryFlamer
+      - name: mc-asrs-entry-flamer-magazine
+        icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/flamer.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSentryFlamer
     - name: mc-asrs-category-explosives
     - name: mc-asrs-category-armor
       entries:
@@ -237,6 +258,7 @@
         cost: 120
         entities:
         - MCArmorModuleSurtPyrotechnical
+        - MCArmorModuleSurtPyrotechnicalHelmet
       - name: mc-asrs-entry-tyr-mk2
         icon:
           sprite: _MC/Clothing/modular.rsi
@@ -244,6 +266,7 @@
         cost: 120
         entities:
         - MCArmorModuleMark2TyrArmor
+        - MCArmorModuleMark2TyrArmorHelmet
       - name: mc-asrs-entry-mimir-mk2
         icon:
           sprite: _MC/Clothing/modular.rsi
@@ -251,6 +274,7 @@
         cost: 120
         entities:
         - MCArmorModuleMark2Mimir
+        - MCArmorModuleMark2MimirHelmet
       - name: mc-asrs-entry-hlin-explosive
         icon:
           sprite: _MC/Clothing/modular.rsi

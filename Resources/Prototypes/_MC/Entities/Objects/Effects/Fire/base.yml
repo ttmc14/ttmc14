@@ -62,7 +62,5 @@
   id: MCFire
   name: fire
   categories: [ MCContent ]
-  placement:
-    mode: SnapgridCenter
   components:
   - type: BlockWeeds

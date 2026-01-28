@@ -35,3 +35,22 @@
     canTargetSelf: false
   - type: XenoActionPlasma
     cost: 750
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoOzelomelynSting
+  name: Ozelomelyn Sting (100)
+  description: A channeled melee attack that injects the target with Ozelomelyn over a few seconds, purging chemicals and dealing minor toxin damage to a moderate cap while inside them.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/shrike.rsi
+      state: drone_sting
+    useDelay: 12
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoNeurotoxinStingActionEvent
+  - type: XenoActionPlasma
+    cost: 100
+  - type: ActionBlockIfResting

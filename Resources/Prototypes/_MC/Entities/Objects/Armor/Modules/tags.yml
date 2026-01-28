@@ -1,0 +1,11 @@
+- type: Tag
+  id: MCArmorModule
+
+- type: Tag
+  id: MCArmorModuleBody
+
+- type: Tag
+  id: MCArmorModuleBodyStorage
+
+- type: Tag
+  id: MCArmorModuleHead

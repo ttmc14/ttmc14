@@ -4,8 +4,46 @@
   name: surt pyrotechnical insulation system
   description: Designed for mounting on modular armor. Providing a near immunity to being bathed in flames, and amazing flame retardant qualities, this is every pyromaniacs' first stop to survival. Will impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_fire
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_fire_a
+    userComponents:
+    - type: RMCImmuneToIgnition
+    - type: RMCImmuneToFireTileDamage
   - type: MCArmor
     soft:
-      fire: 40
+      fire: 100
+    hard:
+      fire: 100
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleSurtPyrotechnicalHelmet
+  name: surt thermal insulation system helmet module
+  description: Designed for mounting on a modular helmet. It shields you from the effects of fire, and prevents you from being set alight by any means. Wearing this in combination with the corresponding helmet module will render you completely impervious to fire. Will definitely impact mobility
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: mod_fire_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_fire_head_a
+  - type: MCArmor
+    soft:
+      fire: 100
+    hard:
+      fire: 100

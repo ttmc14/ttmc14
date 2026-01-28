@@ -12,7 +12,6 @@ public sealed partial class MCArmorComponent : Component
     [DataField, AutoNetworkedField]
     public MCArmorDefinition Soft;
 
-    // TODO: [MC] Hard armor
     [DataField, AutoNetworkedField]
     public MCArmorDefinition Hard;
 }
@@ -20,39 +19,27 @@ public sealed partial class MCArmorComponent : Component
 [DataDefinition, Serializable, NetSerializable]
 public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
 {
-    [DataField]
-    public int Melee;
-
-    [DataField]
-    public int Bullet;
-
-    [DataField]
-    public int Laser;
-
-    [DataField]
-    public int Energy;
-
-    [DataField]
-    public int Bomb;
-
-    [DataField]
-    public int Bio;
-
-    [DataField]
-    public int Fire;
-
-    [DataField]
-    public int Acid;
+    [DataField] public int Melee;
+    [DataField] public int Bullet;
+    [DataField] public int Laser;
+    [DataField] public int Energy;
+    [DataField] public int Bomb;
+    [DataField] public int Bio;
+    [DataField] public int Fire;
+    [DataField] public int Acid;
+    [DataField] public int Fall;
 
     public bool Equals(MCArmorDefinition other)
     {
-        return Melee == other.Melee && Bullet == other.Bullet
-                                    && Laser == other.Laser
-                                    && Energy == other.Energy
-                                    && Bomb == other.Bomb
-                                    && Bio == other.Bio
-                                    && Fire == other.Fire
-                                    && Acid == other.Acid;
+        return Melee == other.Melee
+            && Bullet == other.Bullet
+            && Laser == other.Laser
+            && Energy == other.Energy
+            && Bomb == other.Bomb
+            && Bio == other.Bio
+            && Fire == other.Fire
+            && Acid == other.Acid
+            && Fall == other.Fall;
     }
 
     public override bool Equals(object? obj)
@@ -62,7 +49,29 @@ public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
 
     public override int GetHashCode()
     {
-        return HashCode.Combine(Melee, Bullet, Laser, Energy, Bomb, Bio, Fire, Acid);
+        var hash = new HashCode();
+
+        hash.Add(Melee);
+        hash.Add(Bullet);
+        hash.Add(Laser);
+        hash.Add(Energy);
+        hash.Add(Bomb);
+        hash.Add(Bio);
+        hash.Add(Fire);
+        hash.Add(Acid);
+        hash.Add(Fall);
+
+        return hash.ToHashCode();
+    }
+
+    public static bool operator ==(MCArmorDefinition left, MCArmorDefinition right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(MCArmorDefinition left, MCArmorDefinition right)
+    {
+        return !left.Equals(right);
     }
 
     public static MCArmorDefinition operator +(MCArmorDefinition left, int right)
@@ -77,6 +86,7 @@ public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
             Bio = left.Bio + right,
             Fire = left.Fire + right,
             Acid = left.Acid + right,
+            Fall = left.Fall + right,
         };
     }
 
@@ -92,6 +102,7 @@ public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
             Bio = left.Bio + right.Bio,
             Fire = left.Fire + right.Fire,
             Acid = left.Acid + right.Acid,
+            Fall = left.Fall + right.Fall,
         };
     }
 
@@ -107,6 +118,7 @@ public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
             Bio = left.Bio - right,
             Fire = left.Fire - right,
             Acid = left.Acid - right,
+            Fall = left.Fall - right,
         };
     }
 
@@ -122,6 +134,7 @@ public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
             Bio = left.Bio - right.Bio,
             Fire = left.Fire - right.Fire,
             Acid = left.Acid - right.Acid,
+            Fall = left.Fall - right.Fall,
         };
     }
 }

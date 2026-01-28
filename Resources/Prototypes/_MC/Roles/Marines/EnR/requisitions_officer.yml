@@ -30,6 +30,9 @@
     - type: MarineOrders
     - type: Skills
       skills:
+        # MC
+        MCSkillEngineer: 4
+        # RMC
         RMCSkillEngineer: 4
         RMCSkillConstruction: 4
         RMCSkillPolice: 2

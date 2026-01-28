@@ -1,0 +1,17 @@
+- type: entity
+  parent: MCMarker
+  id: MCMarkerTgsCanterbury
+  name: marker tgs canterbury
+  components:
+  - type: MCCrashPoint
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: pink
+    - sprite: _MC/Objects/Items/beacon.rsi
+      state: motion_0
+  - type: MCBeacon
+    category: Supply
+    name: ТГК Кентербери
+  - type: WarpPoint
+    location: ТГК Кентербери

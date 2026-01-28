@@ -4,8 +4,16 @@
   name: mimir Mk.1 environmental resistance system
   description: Designed for mounting on modular armor. This older model provides minor resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Will impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_biohazard
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_biohazard_a
   - type: MCArmor
     soft:
       bio: 15
@@ -16,13 +24,63 @@
 
 - type: entity
   parent: MCArmorModule
+  id: MCArmorModuleMark1MimirHelmet
+  name: mimir Mk.1 environmental resistance system helmet module
+  description: Designed for mounting on a modular helmet. This older model provides minor resistance to acid and biological attacks.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: mimir_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mimir_head_a
+  - type: MCArmor
+    soft:
+      bio: 5
+      acid: 10
+
+- type: entity
+  parent: MCArmorModule
   id: MCArmorModuleMark2Mimir
   name: mimir Mk.2 environmental resistance system
   description: Designed for mounting on modular armor. This newer model provides great resistance to acid, biological, and radiological attacks. Pairing this with a Mimir helmet module and mask will make the user impervious to xeno gas clouds. Will impact mobility.
   components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
   - type: Sprite
     state: mod_biohazard
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_biohazard_a
   - type: MCArmor
     soft:
       bio: 40
       acid: 30
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleMark2MimirHelmet
+  name: mimir Mk.2 environmental resistance system helmet module
+  description: Designed for mounting on a modular helmet. Provides good resistance to xeno gas clouds. This newer model provides great resistance to acid, biological, and even radiological attacks.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: mimir_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mimir_head_a
+  - type: MCArmor
+    soft:
+      bio: 10
+      acid: 25

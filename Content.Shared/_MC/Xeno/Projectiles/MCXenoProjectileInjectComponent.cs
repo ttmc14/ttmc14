@@ -11,4 +11,10 @@ public sealed partial class MCXenoProjectileInjectComponent : Component
 
     [DataField, AutoNetworkedField]
     public List<ReagentQuantity> Reagents = new();
+
+    [DataField, AutoNetworkedField]
+    public bool Effect = true;
+
+    [DataField, AutoNetworkedField]
+    public Color EffectColor = Color.DarkOrange;
 }

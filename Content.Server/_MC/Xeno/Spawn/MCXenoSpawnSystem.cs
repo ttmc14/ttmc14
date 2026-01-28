@@ -106,10 +106,10 @@ public sealed class MCXenoSpawnSystem : EntitySystem
         var colorSequence = _rmcAmbientLight.ProcessPrototype(rmcAmbientEffectComp.Sunset);
         _rmcAmbientLight.SetColor((xenoMap, rmcAmbientComp), colorSequence, _sunsetDuration);
 
-        SetFriendlyHives(_mcXenoHive.DefaultHive);
-
         var ev = new MCPlanetMapSpawnEvent(map, planet.Proto);
         RaiseLocalEvent(ref ev);
+
+        SetFriendlyHives(_mcXenoHive.DefaultHive);
 
         return true;
     }

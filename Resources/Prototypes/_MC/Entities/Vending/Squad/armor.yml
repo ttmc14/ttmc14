@@ -1,0 +1,30 @@
+- type: entity
+  id: MCVendingSectionsArmor
+  abstract: true
+  components:
+  - type: CMAutomatedVendor
+    sections:
+    - name: Armor
+      choices:
+        MCArmour: 1
+      entries:
+      - id: MCVendorBundleArmorXenonautenL
+        recommended: true
+      - id: MCVendorBundleArmorXenonautenM
+        recommended: true
+      - id: MCVendorBundleArmorXenonautenH
+        recommended: true
+      - id: MCVendorBundleArmorJaegerScout
+      - id: MCVendorBundleArmorJaegerSkirmisher
+      - id: MCVendorBundleArmorJaegerTrooper
+      - id: MCVendorBundleArmorJaegerInfantry
+        recommended: true
+      - id: MCVendorBundleArmorJaegerEVA
+        recommended: true
+      - id: MCVendorBundleArmorJaegerHellJumper
+        recommended: true
+      - id: MCVendorBundleArmorJaegerRanger
+        recommended: true
+      - id: MCVendorBundleArmorJaegerGugnir
+      - id: MCVendorBundleArmorJaegerAssault
+      - id: MCVendorBundleArmorJaegerEOD

@@ -1,0 +1,53 @@
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageMedical
+  name: medical storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Can hold a substantial variety of medical supplies and apparatus, but cannot hold as much as a medkit could."
+  components:
+  - type: Sprite
+    state: mod_medic_bag
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_medic_bag_a
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,9,1 # 5 slots
+    - type: FixedItemSizeStorage
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,9,1 # 5 slots
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageInjector
+  name: injector Storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Can hold a substantial variety of injectors."
+  components:
+  - type: Sprite
+    state: mod_injector_bag
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_injector_bag_a
+    components:
+    - type: Storage
+      maxItemSize: Tiny
+      grid:
+      - 0,0,13,3 # 14 slots
+      whitelist:
+        tags:
+        - MCAutoInjector
+    - type: FixedItemSizeStorage
+  - type: Storage
+    maxItemSize: Tiny
+    grid:
+    - 0,0,13,3 # 14 slots
+    whitelist:
+      tags:
+      - MCAutoInjector
+  - type: FixedItemSizeStorage

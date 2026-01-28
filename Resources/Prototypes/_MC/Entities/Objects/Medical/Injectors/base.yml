@@ -17,7 +17,7 @@
       map: [ "enum.SolutionContainerLayers.Fill" ]
       visible: false
   - type: Item
-    size: Small
+    size: Tiny
   - type: Hypospray
     solutionName: pen
     injectSound: /Audio/_RMC14/Medical/hypospray.ogg

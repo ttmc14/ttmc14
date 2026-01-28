@@ -11,7 +11,7 @@
     sprite: _MC/Objects/Sentries/base.rsi
   - type: MCSentry
   - type: MCDeploy
-    deployTime: 6
+    deployTime: 5
   - type: Gun
     fireRate: 4
   - type: ItemSlots
@@ -23,6 +23,14 @@
         whitelist:
           tags:
           - MCMagazineSentryBig
+  - type: HTN
+    rootTask:
+      task: RMCSentryCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+      VisionRadius: !type:Single "8.0"
+      AggroVisionRadius: !type:Single "8.0"
 
 - type: entity
   parent: MCMagazine
@@ -50,8 +58,6 @@
 - type: entity
   parent: MCCartridge
   id: MCCartridgeSentryBig
-  name: cartridge (10x28mm Caseless)
-  description: ...
   components:
   - type: Tag
     tags:
@@ -66,8 +72,6 @@
 - type: entity
   parent: MCBullet
   id: MCBulletSentryBig
-  name: autocannon bullet
-  description: ...
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
@@ -77,16 +81,14 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 25
+        MCBrute: 20
   - type: CMArmorPiercing
     amount: 20
   - type: MCXenoSunderDamageOnHit
     amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 10
-      falloff: 0
-    - range: 10
+    - range: 1
       falloff: 0.25
   - type: RMCProjectileAccuracy
     minAccuracy: 100

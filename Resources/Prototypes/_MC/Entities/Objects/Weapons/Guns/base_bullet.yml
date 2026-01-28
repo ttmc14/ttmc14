@@ -20,21 +20,9 @@
         Piercing: 14
     soundHit:
       path: /Audio/_RMC14/Bullets/bullet_impact1.ogg
-  - type: Reflective
-  - type: Clickable
-  - type: Physics
-    bodyType: Dynamic
-    linearDamping: 0
-    angularDamping: 0
-  - type: Fixtures
-    fixtures:
-      projectile:
-        shape: !type:PhysShapeAabb
-          bounds: "-0.1,-0.1,0.1,0.1"
-        hard: false
-        mask:
-        - Impassable
-        - BulletImpassable
-  - type: TimedDespawn
-    lifetime: 10
-  - type: LagCompensation
+  - type: CauseEmoteOnProjectileHit
+    emote: Hiss
+    rareEmote: XenoRoar
+    whitelist:
+      components:
+      - Xeno

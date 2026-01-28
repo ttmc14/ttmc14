@@ -1,0 +1,16 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleSvalinnEnergyShield
+  name: svalinn Energy Shield System
+  description: Creates a shield around the user that is capable of negating all damage. If it sustains too much it will deactivate, and leave the user vulnerable.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBody
+  - type: Sprite
+    state: mod_eshield
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_eshield_a

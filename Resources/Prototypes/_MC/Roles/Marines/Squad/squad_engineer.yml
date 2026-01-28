@@ -36,6 +36,9 @@
       points: 75
     - type: Skills
       skills:
+        # MC
+        MCSkillEngineer: 3
+        # RMC
         RMCSkillEngineer: 3
         RMCSkillConstruction: 3
         RMCSkillPowerLoader: 1
@@ -50,6 +53,8 @@
       icon:
         sprite: /Textures/_MC/Interface/squad_marine_icons.rsi
         state: engineer
+    - type: MCASRSCost
+      cost: 100
 
 - type: playTimeTracker
   id: MCSquadEngineer

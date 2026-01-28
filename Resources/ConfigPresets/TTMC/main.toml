@@ -8,6 +8,7 @@ end = "24:00"
 
 [rmc]
 active_input_mover_enabled = false
+corrosive_acid_damage_type = "MCBurn"
 
 [accessibility]
 screen_shake_intensity = 1

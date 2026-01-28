@@ -1,21 +1,21 @@
-﻿using Content.Shared._MC.Armor.Modules.Events;
-using Content.Shared._RMC14.Xenonids;
-using Content.Shared.Clothing;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Linq;
+using Content.Shared._MC.Armor.Modules.Components;
+using Content.Shared._MC.Popup;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
-using Content.Shared.Inventory;
 using Content.Shared.Item;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
-using Content.Shared.Verbs;
+using Content.Shared.Whitelist;
 using Robust.Shared.Containers;
 
 namespace Content.Shared._MC.Armor.Modules;
 
-public sealed class MCArmorModuleSystem : EntitySystem
+public abstract partial class MCArmorModuleSystem : EntitySystem
 {
     [Dependency] private readonly SharedContainerSystem _container = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
@@ -23,189 +23,178 @@ public sealed class MCArmorModuleSystem : EntitySystem
     [Dependency] private readonly SharedHandsSystem _hands = null!;
     [Dependency] private readonly MobStateSystem _mobState = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
+
+    protected EntityQuery<MCArmorModuleComponent> ArmorModuleQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<MCArmorModularClothingComponent, EntInsertedIntoContainerMessage>(OnClothingInserted);
-        SubscribeLocalEvent<MCArmorModularClothingComponent, EntRemovedFromContainerMessage>(OnClothingRemoved);
+        ArmorModuleQuery = GetEntityQuery<MCArmorModuleComponent>();
+
+        InitializeContainer();
+        InitializeVerbs();
 
         SubscribeLocalEvent<MCArmorModularClothingComponent, InteractUsingEvent>(OnInteract, before: [ typeof(SharedStorageSystem) ]);
-        SubscribeLocalEvent<MCArmorModularClothingComponent, GetVerbsEvent<EquipmentVerb>>(OnGetVerbs);
-        SubscribeLocalEvent<MCArmorModularClothingComponent, GetVerbsEvent<InteractionVerb>>(OnGetVerbsInteraction);
-
-        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(RelayEvent);
-        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<MCArmorGetEvent>>(RelayEvent);
-
-        SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);
-        SubscribeLocalEvent<ClothingSpeedModifierComponent, MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModuleMovementSpeedModifier);
-    }
-
-    private void OnClothingInserted(Entity<MCArmorModularClothingComponent> clothing, ref EntInsertedIntoContainerMessage args)
-    {
-        if (clothing.Comp.Container != args.Container.ID)
-            return;
-
-        clothing.Comp.ModuleUid = args.Entity;
-
-        Dirty(clothing);
-        _item.VisualsChanged(clothing);
-    }
-
-    private void OnClothingRemoved(Entity<MCArmorModularClothingComponent> clothing, ref EntRemovedFromContainerMessage args)
-    {
-        if (clothing.Comp.Container != args.Container.ID)
-            return;
-
-        clothing.Comp.ModuleUid = null;
-
-        Dirty(clothing);
-        _item.VisualsChanged(clothing);
     }
 
     private void OnInteract(Entity<MCArmorModularClothingComponent> entity, ref InteractUsingEvent args)
     {
-        if (TryGetModule((entity, entity), out _))
+        if (!ArmorModuleQuery.TryComp(args.Used, out var moduleComponent))
             return;
 
-        Attach(entity, args.Used, args.User, out var handled);
-        args.Handled = handled;
+        TryAttachModuleToAnySlot(entity, (args.Used, moduleComponent), args.User);
+        args.Handled = true;
     }
 
-    private void OnGetVerbs(Entity<MCArmorModularClothingComponent> entity, ref GetVerbsEvent<EquipmentVerb> args)
+    private bool TryAttachModuleToAnySlot(
+        Entity<MCArmorModularClothingComponent> entity,
+        Entity<MCArmorModuleComponent> module,
+        EntityUid? user)
     {
-        if (!args.CanAccess || !args.CanInteract || HasComp<XenoComponent>(args.User))
-            return;
-
-        if (!TryGetModule((entity, entity), out _))
-            return;
-
-        var wearer = Transform(entity).ParentUid;
-        var user = args.User;
-
-        // To avoid duplicate verbs
-        if (user == wearer)
-            return;
-
-        // To prevent stripping webbing from alive players
-        if (!_mobState.IsDead(wearer))
-            return;
-
-        args.Verbs.Add(new EquipmentVerb
-        {
-            Text = Loc.GetString("mc-armor-remove-module"),
-            Act = () => Detach(entity, user),
-            IconEntity = GetNetEntity(entity),
-        });
-    }
-
-    private void OnGetVerbsInteraction(Entity<MCArmorModularClothingComponent> entity, ref GetVerbsEvent<InteractionVerb> args)
-    {
-        if (!args.CanAccess || !args.CanInteract || HasComp<XenoComponent>(args.User))
-            return;
-
-        if (!TryGetModule((entity, entity), out _))
-            return;
-
-        var user = args.User;
-        args.Verbs.Add(new InteractionVerb
-        {
-            Text = Loc.GetString("mc-armor-remove-module"),
-            Act = () => Detach(entity, user),
-            IconEntity = GetNetEntity(entity),
-        });
-    }
-
-    public bool Attach(Entity<MCArmorModularClothingComponent> entity, EntityUid moduleUid, EntityUid? userUid, out bool handled)
-    {
-        handled = false;
-
-        if (!TryComp<MCArmorModuleComponent>(moduleUid, out var module))
+        if (!CanAttachModule(entity, module, user))
             return false;
 
-        if (!TryComp<ItemComponent>(entity, out _) || !TryComp<ItemComponent>(moduleUid, out _))
+        var slot = FindFreeSlotForModule(entity, module);
+        if (slot is null)
+        {
+            _popup.PopupLocEntServer(user, "mc-module-no-free-slot", PopupType.MediumCaution);
+            return false;
+        }
+
+        var container = _container.EnsureContainer<Container>(entity, entity.Comp.ContainerId);
+        if (!_container.Insert(module.Owner, container))
             return false;
 
-        if (_container.TryGetContainingContainer(entity.Owner, out var containing))
+        slot.Module = module;
+        ApplyModuleEffects(entity, module, user);
+
+        return true;
+    }
+
+    private MCArmorModuleSlot? FindFreeSlotForModule(
+        Entity<MCArmorModularClothingComponent> entity,
+        EntityUid module)
+    {
+        return entity.Comp.Slots.FirstOrDefault(slot => slot.Module is null && _whitelist.IsWhitelistPassOrNull(slot.Whitelist, module));
+    }
+
+    private bool CanAttachModule(
+        Entity<MCArmorModularClothingComponent> armor,
+        EntityUid module,
+        EntityUid? user)
+    {
+        if (!ArmorModuleQuery.HasComp(module))
+            return false;
+
+        if (!TryComp<ItemComponent>(armor, out _) ||
+            !TryComp<ItemComponent>(module, out _))
+            return false;
+
+        if (IsInStorage(armor))
         {
-            if (TryComp<StorageComponent>(containing.Owner, out var storage) && storage.StoredItems.ContainsKey(entity))
+            _popup.PopupLocEntServer(user, "mc-module-cannot-in-storage", PopupType.SmallCaution);
+            return false;
+        }
+
+        return true;
+    }
+
+    private bool IsInStorage(EntityUid entity)
+    {
+        if (!_container.TryGetContainingContainer(entity, out var containing))
+            return false;
+
+        return TryComp<StorageComponent>(containing.Owner, out var storage) &&
+               storage.StoredItems.ContainsKey(entity);
+    }
+
+    private void ApplyModuleEffects(
+        Entity<MCArmorModularClothingComponent> entity,
+        Entity<MCArmorModuleComponent> module,
+        EntityUid? user)
+    {
+        EntityManager.AddComponents(entity, module.Comp.Components);
+
+        if (user is null)
+            return;
+
+        EntityManager.AddComponents(user.Value, module.Comp.UserComponents);
+        RefreshUser(user);
+    }
+
+    private void RemoveModuleEffects(
+        Entity<MCArmorModularClothingComponent> entity,
+        Entity<MCArmorModuleComponent> module,
+        EntityUid? user)
+    {
+        EntityManager.RemoveComponents(entity, module.Comp.Components);
+
+        if (user is null)
+            return;
+
+        EntityManager.RemoveComponents(user.Value, module.Comp.Components);
+        RefreshUser(user);
+    }
+
+    private void RefreshUser(EntityUid? uid)
+    {
+        if (uid is not { } user)
+            return;
+
+        _speedModifier.RefreshMovementSpeedModifiers(user);
+    }
+
+    private IEnumerable<Entity<MCArmorModuleComponent>> EnumerateModules(
+        Entity<MCArmorModularClothingComponent> entity)
+    {
+        if (!TryGetArmorContainer(entity, out var container))
+            yield break;
+
+        foreach (var ent in container.ContainedEntities)
+        {
+            if (ArmorModuleQuery.TryComp(ent, out var comp))
+                yield return (ent, comp);
+        }
+    }
+
+    private bool TryGetArmorContainer(Entity<MCArmorModularClothingComponent> entity, [NotNullWhen(true)] out Container? container)
+    {
+        container = null;
+        if (!_container.TryGetContainer(entity, entity.Comp.ContainerId, out var baseContainer))
+            return false;
+
+        container = (Container) baseContainer;
+        return true;
+    }
+
+    public bool HasAnyModule(Entity<MCArmorModularClothingComponent> entity)
+    {
+        return EnumerateModules(entity).Any();
+    }
+
+    private bool TryDetachSpecificModule(
+        Entity<MCArmorModularClothingComponent> armor,
+        Entity<MCArmorModuleComponent> module,
+        EntityUid user)
+    {
+        if (!_container.TryRemoveFromContainer(module.Owner))
+            return false;
+
+        foreach (var slot in armor.Comp.Slots)
+        {
+            if (slot.Module == module.Owner)
             {
-                handled = true;
-                UserPopup(Loc.GetString("mc-module-cannot-in-storage"));
-                return false;
+                slot.Module = null;
+                break;
             }
         }
 
-        var container = _container.EnsureContainer<ContainerSlot>(entity, entity.Comp.Container);
-        if (container.Count > 0 || !_container.Insert(moduleUid, container))
-            return false;
-
-        EntityManager.AddComponents(entity, module.Components);
-
-        if (userUid is not null)
-            _speedModifier.RefreshMovementSpeedModifiers(userUid.Value);
-
-        handled = true;
-        return true;
-
-        void UserPopup(string message)
-        {
-            if (userUid is not null)
-                _popup.PopupClient(message, userUid, PopupType.LargeCaution);
-        }
-    }
-
-    private void Detach(Entity<MCArmorModularClothingComponent> entity, EntityUid user)
-    {
-        if (TerminatingOrDeleted(entity) || !entity.Comp.Running)
-            return;
-
-        if (!TryGetModule((entity, entity), out var module))
-            return;
-
-        _container.TryRemoveFromContainer(module.Owner);
         _hands.TryPickupAnyHand(user, module);
-        _speedModifier.RefreshMovementSpeedModifiers(user);
 
-        EntityManager.AddComponents(module, module.Comp.Components);
-    }
-
-    public bool TryGetModule(Entity<MCArmorModularClothingComponent?> entity, out Entity<MCArmorModuleComponent> module)
-    {
-        module = default;
-
-        if (!Resolve(entity, ref entity.Comp, false))
-            return false;
-
-        if (!_container.TryGetContainer(entity, entity.Comp.Container, out var container) || container.Count <= 0)
-            return false;
-
-        var ent = container.ContainedEntities[0];
-        if (!TryComp<MCArmorModuleComponent>(ent, out var moduleComponent))
-            return false;
-
-        module = (ent, moduleComponent);
+        RefreshUser(user);
+        RemoveModuleEffects(armor, module, user);
         return true;
-    }
-
-    private static void OnModuleGetRelayed(Entity<MCArmorComponent> entity, ref MCArmorModuleRelayedEvent<MCArmorGetEvent> args)
-    {
-        args.Args.ArmorDefinition += entity.Comp.Soft;
-    }
-
-    private void OnModuleMovementSpeedModifier(Entity<ClothingSpeedModifierComponent> entity, ref MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
-    {
-        args.Args.ModifySpeed(entity.Comp.WalkModifier, entity.Comp.SprintModifier);
-    }
-
-    public void RelayEvent<T>(Entity<MCArmorModularClothingComponent> entity, ref InventoryRelayedEvent<T> args)
-    {
-        var ev = new MCArmorModuleRelayedEvent<T>(args.Args);
-        if (entity.Comp.ModuleUid is not {} moduleUid)
-            return;
-
-        RaiseLocalEvent(moduleUid, ev);
-        args.Args = ev.Args;
     }
 }

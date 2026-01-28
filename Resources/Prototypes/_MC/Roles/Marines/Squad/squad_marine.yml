@@ -44,6 +44,8 @@
       icon:
         sprite: /Textures/_MC/Interface/squad_marine_icons.rsi
         state: marine
+    - type: MCASRSCost
+      cost: 100
 
 - type: playTimeTracker
   id: MCSquadMarine

@@ -49,6 +49,7 @@
   - type: TimedDespawn
     lifetime: 10
   - type: DamageOnCollide
+    paralyze: 2
     damage:
       types:
         MCBurn: 40

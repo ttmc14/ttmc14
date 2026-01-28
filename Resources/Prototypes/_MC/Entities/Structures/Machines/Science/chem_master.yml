@@ -3,20 +3,22 @@
   parent: [ BaseMachinePowered, ConstructibleMachine ]
   name: ChemMaster 3000
   description: Used to separate chemicals and distribute them in a variety of forms.
+  categories: [ MCContent ]
   placement:
     mode: SnapgridCenter
   components:
   - type: Sprite
-    sprite: Structures/Machines/mixer.rsi
+    sprite: _MC/Structures/Machines/Science/chem_manipulator.rsi
+    offset: 0, 0.5
     snapCardinals: true
     layers:
-    - state: mixer_empty
-    - state: mixer_screens
+    - state: base
+    - state: screen-on
       shader: unshaded
       map: ["enum.PowerDeviceVisualLayers.Powered"]
   - type: Icon
-    sprite: Structures/Machines/mixer.rsi
-    state: mixer_empty
+    sprite: _MC/Structures/Machines/Science/chem_manipulator.rsi
+    state: icon
   - type: Physics
     bodyType: Static
   - type: Fixtures
@@ -30,8 +32,6 @@
         - MachineMask
         layer:
         - MachineLayer
-  - type: AccessReader
-    access: [ [ "CMAccessCMO" ], [ "CMAccessChemistry" ], [ "CMAccessMedPrep" ] ]
   - type: Destructible
     thresholds:
     - trigger:
@@ -56,8 +56,8 @@
     visuals:
       enum.PowerDeviceVisuals.Powered:
         enum.PowerDeviceVisualLayers.Powered:
-          True: { visible: true }
-          False: { visible: false }
+          True: { state: screen-on }
+          False: { state: screen-base }
   - type: WiresPanel
   - type: Machine
     board: CMCircuitboardChemMaster

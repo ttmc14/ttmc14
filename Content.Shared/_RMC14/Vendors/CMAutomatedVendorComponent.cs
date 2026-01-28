@@ -24,7 +24,7 @@ public sealed partial class CMAutomatedVendorComponent : Component
     [DataField, AutoNetworkedField]
     public List<ProtoId<RankPrototype>> Ranks = new();
 
-    [DataField, AutoNetworkedField]
+    [DataField, AutoNetworkedField, AlwaysPushInheritance] // mc-changes
     public List<CMVendorSection> Sections = new();
 
     [DataField, AutoNetworkedField]

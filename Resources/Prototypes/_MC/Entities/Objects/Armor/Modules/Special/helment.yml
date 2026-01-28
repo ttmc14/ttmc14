@@ -1,0 +1,118 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetAntenna
+  name: HM-9 antenna helmet module
+  description: Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console and shield against the interference of caves, allowing for normal messaging in shallow caves, and only minor interference when deep.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: antenna_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: antenna_head_a
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetArtemisMk1
+  name: freyr Mk.1 visual assistance helmet system
+  description: Designed for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: artemis_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: artemis_head_a
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetArtemisMk2
+  name: freyr Mk.2 visual assistance helmet system
+  description: gned for mounting on a modular helmet. The Freyr module is designed with an overlay visor that clarifies the user's vision, allowing them to see clearly even in the harshest of circumstances. This version is enhanced and allows the marine to peer through the visor, akin to binoculars.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: artemis_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: artemis_head_mk2_a
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetBinoculars
+  name: HM-6 binocular helmet module
+  description: Designed for mounting on a modular helmet. Can be flipped down to view into the distance.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: binocular_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: binocular_head_a
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetMotionDetector
+  name: tactical sensor helmet module
+  description: Help you to detect the xeno in the darkness.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: mod_head_scanner
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_head_scanner_a
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetNightVision
+  name: BE-35 night vision kit
+  description: Installation kit for the BE-35 night vision system. Slightly impedes movement.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: night_vision
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_head_scanner_a
+
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleHelmetWelding
+  name: HM-3 welding visor helmet module
+  description: Designed for mounting on a modular helmet. This module can be toggled on or off to function as welding protection for your delicate eyes.
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleHead
+  - type: Sprite
+    state: welding_head
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: welding_head_a

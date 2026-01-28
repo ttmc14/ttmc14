@@ -30,7 +30,7 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
     public ProtoId<JobPrototype> XenoSelectableJob = "MCXenoSelectableXeno";
 
     [DataField, AutoNetworkedField]
-    public EntProtoId LarvaEnt = "MCXenoLarva";
+    public EntProtoId LarvaEnt = "MCXenoRafik";
 
     [DataField, AutoNetworkedField]
     public ResPath Thunderdome = new("/Maps/_RMC14/thunderdome.yml");

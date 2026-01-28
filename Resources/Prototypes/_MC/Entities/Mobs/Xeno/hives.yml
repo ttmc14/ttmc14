@@ -4,5 +4,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Hive
-    burrowedLarvaId: MCXenoLarva
+    burrowedLarvaId: MCXenoRafik
     lateJoinGainLarva: true

@@ -36,6 +36,9 @@
     - type: MCSendOrders
     - type: Skills
       skills:
+        # MC
+        MCSkillEngineer: 3
+        # RMC
         RMCSkillMedical: 3
         RMCSkillSurgery: 1
         RMCSkillEngineer: 3
@@ -57,6 +60,8 @@
       icon:
         sprite: /Textures/_MC/Interface/job_icons.rsi
         state: captain
+    - type: MCASRSCost
+      cost: 1000
 
 - type: playTimeTracker
   id: MCCaptain

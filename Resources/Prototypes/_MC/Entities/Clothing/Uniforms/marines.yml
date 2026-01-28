@@ -7,7 +7,7 @@
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Uniforms/Auxiliary/pilot/jungle.rsi
   - type: Clothing
-    sprite:
+    sprite: _RMC14/Objects/Clothing/Uniforms/Auxiliary/pilot/jungle.rsi
 
 - type: entity
   parent: RMCMarineUniformBase
@@ -18,7 +18,7 @@
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Uniforms/Auxiliary/pilot/jungle.rsi
   - type: Clothing
-    sprite:
+    sprite: _RMC14/Objects/Clothing/Uniforms/Auxiliary/pilot/jungle.rsi
 
 - type: entity
   parent: RMCMarineUniformBase

@@ -1,44 +1,5 @@
 - type: entity
   parent: ActionXenoBase
-  id: MCActionXenoToggleToxicSpit
-  name: Toxic Spit
-  description: Spit a toxin at your target up to 7 tiles away, inflicting the Intoxicated debuff and dealing damage over time.
-  components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon:
-      sprite: _MC/Interface/Actions/Xeno/spits.rsi
-      state: shift_spit_xeno_toxic
-    useDelay: 0.1
-  - type: InstantAction
-    event: !type:MCXenoSpitToggleActionEvent
-      projectileId: MCXenoProjectileToxicSpit
-      plasmaCost: 30
-      delay: 1
-      speed: 30
-
-- type: entity
-  parent: MCXenoProjectile
-  id: MCXenoProjectileToxicSpit
-  components:
-  - type: Sprite
-    sprite: _MC/Objects/Xeno/projectiles.rsi
-    layers:
-    - state: xeno_toxic
-      shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        MCBurn: 16
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
-  - type: ProjectileMaxRange
-    max: 7
-  - type: MCXenoToxicStacksOnHit
-    amount: 5
-
-- type: entity
-  parent: ActionXenoBase
   id: MCActionXenoToxicSlash
   name: Toxic Slash (100)
   description: Imbue your claws with acid, inflicting the Intoxicated debuff with every slash. You won't have Toxic Slash after 4 seconds or after 3 slashes have been dealt.
@@ -71,3 +32,145 @@
     event: !type:MCXenoDrainStingActionEvent
   - type: XenoActionPlasma
     cost: 75
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoNeurotoxinSting
+  name: Neurotoxin Sting (150)
+  description: A channeled melee attack that injects the target with neurotoxin over a few seconds, temporarily stunning them.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/shrike.rsi
+      state: drone_sting
+    useDelay: 12
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoNeurotoxinStingActionEvent
+  - type: XenoActionPlasma
+    cost: 150
+  - type: ActionBlockIfResting
+
+# Spits
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoToggleSpitToxic
+  name: Toxic Spit (30)
+  description: Spit a toxin at your target up to 7 tiles away, inflicting the Intoxicated debuff and dealing damage over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_xeno_toxic
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoProjectileToxicSpit
+      plasmaCost: 30
+      delay: 1
+      speed: 30
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoToggleSpitPassthrough
+  name: Toxic Spit (50)
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_xeno_toxic
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoProjectilePassthrough
+      plasmaCost: 50
+      delay: 1
+      speed: 30
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoToggleSpitToxin
+  name: Toxin Spit (30)
+  description: Spit a toxin at your target up to 7 tiles away, inflicting the Intoxicated debuff and dealing damage over time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_neurotoxin
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoProjectileToxinSpit
+      plasmaCost: 55
+      delay: 1
+      speed: 30
+
+# Projectiles
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileToxicSpit
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Xeno/projectiles.rsi
+    layers:
+    - state: xeno_toxic
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 16
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 7
+  - type: MCXenoToxicStacksOnHit
+    amount: 5
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileToxinSpit
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Xeno/projectiles.rsi
+    layers:
+    - state: xeno_toxic
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 10 # 40 to mach
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 10
+  - type: MCStunOnHit
+    staggerTime: 1
+    slowdownTime: 1.5
+    maxDistance: 10
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 4
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectilePassthrough
+  name: acid spittle
+  components:
+  - type: Sprite
+    layers:
+    - state: xeno_acid_weak
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 20
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+  - type: ProjectileMaxRange
+    max: 8

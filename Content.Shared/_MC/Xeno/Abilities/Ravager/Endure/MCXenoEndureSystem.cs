@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Armor;
+using Content.Shared._MC.Armor.Events;
 using Content.Shared._MC.Stun.Events;
 using Content.Shared._RMC14.Aura;
 using Content.Shared._RMC14.Emote;
@@ -92,9 +93,9 @@ public sealed class MCXenoEndureSystem : MCXenoAbilitySystem
 
     private void OnActiveArmorGet(Entity<MCXenoEndureActiveComponent> entity, ref MCArmorGetEvent args)
     {
-        args.ArmorDefinition.Bomb += 20;
-        args.ArmorDefinition.Melee += 40;
-        args.ArmorDefinition.Fire += 30;
+        args.SoftArmor.Bomb += 20;
+        args.SoftArmor.Melee += 40;
+        args.SoftArmor.Fire += 30;
     }
 
     private void OnActiveUpdateMobState(Entity<MCXenoEndureActiveComponent> entity, ref UpdateMobStateEvent args)

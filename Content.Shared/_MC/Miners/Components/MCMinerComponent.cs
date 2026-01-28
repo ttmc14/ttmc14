@@ -48,9 +48,6 @@ public sealed partial class MCMinerComponent : Component
     public int DropshipBonus = 15;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan RepairDelay = TimeSpan.FromSeconds(20);
-
-    [DataField, AutoNetworkedField]
     public float WeldingCost = 1f;
 
     public ProtoId<ToolQualityPrototype> CrowbarQuality = "Prying";

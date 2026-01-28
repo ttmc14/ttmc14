@@ -16,7 +16,7 @@
       laser: 70
       energy: 60
       bomb: 55
-      bio: 40 # 55
+      bio: 55
       fire: 55
       acid: 60
   - type: HideLayerClothing
@@ -37,6 +37,12 @@
     - RMCVisorSquadIntegrated
   - type: RMCBulkyArmor
   - type: OverwatchCamera
+  - type: MCArmorModularClothing
+    slots:
+    - id: main_helmet
+      whitelist:
+        tags:
+        - MCArmorModuleHead
 
 - type: entity
   parent: MCArmorHelmetModularJaeger

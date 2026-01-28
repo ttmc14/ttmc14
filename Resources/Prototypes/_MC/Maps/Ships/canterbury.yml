@@ -1,7 +1,7 @@
 - type: gameMap
   id: MCCanterbury
   mapName: Canterbury
-  mapPath: /Maps/_MC/tgs_canterbury.yml
+  mapPath: /Maps/_MC/Shuttles/tgs_canterbury.yml
   minPlayers: 0
   maxRandomOffset: 0
   randomRotation: false

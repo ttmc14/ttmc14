@@ -26,25 +26,36 @@ public sealed class MCBeaconSystem : EntitySystem
 
         _beaconQuery = GetEntityQuery<MCBeaconComponent>();
 
-        SubscribeLocalEvent<MCBeaconComponent, ComponentInit>(OnMapInit);
+        SubscribeLocalEvent<MCBeaconComponent, ComponentStartup>(OnMapInit);
         SubscribeLocalEvent<MCBeaconComponent, MCDeployChangedStateEvent>(OnDeployChangedState);
     }
 
-    private void OnMapInit(Entity<MCBeaconComponent> entity, ref ComponentInit args)
+    private void OnMapInit(Entity<MCBeaconComponent> entity, ref ComponentStartup args)
     {
         if (_net.IsClient)
+            return;
+
+        if (!string.IsNullOrEmpty(entity.Comp.Name))
             return;
 
         var symbols = new [] { "A", "B", "G", "D", "X", "Z" };
         entity.Comp.Name = $"{string.Join("", _random.GetItems(symbols, 2))}-{_random.Next(0, 999):000}";
 
         Dirty(entity);
+
+        if (!_mcDeploy.Deployed(entity))
+            return;
+
+        var ev = new MCBeaconActiveChangedEvent(entity, true);
+        RaiseLocalEvent(ref ev);
     }
 
     public bool Active(EntityUid uid, ProtoId<MCBeaconCategoryPrototype> categoryId)
     {
-        return _beaconQuery.TryComp(uid,  out var component) && _mcDeploy.Deployed(uid)
-                                                             && component.Category == categoryId;
+        if (!_beaconQuery.TryComp(uid, out var component))
+            return false;
+
+        return _mcDeploy.Deployed(uid) && component.Category == categoryId;
     }
 
     public bool Active(NetEntity uid, ProtoId<MCBeaconCategoryPrototype> categoryId)

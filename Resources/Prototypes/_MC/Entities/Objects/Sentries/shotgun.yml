@@ -23,6 +23,14 @@
         whitelist:
           tags:
           - MCMagazineSentryShotgun
+  - type: HTN
+    rootTask:
+      task: RMCSentryCompound
+    blackboard:
+      SoundTargetInLOS: !type:SoundPathSpecifier
+        path: /Audio/Effects/double_beep.ogg
+      VisionRadius: !type:Single "5.0"
+      AggroVisionRadius: !type:Single "5.0"
 
 - type: entity
   parent: MCMagazine
@@ -42,7 +50,7 @@
       tags:
       - MCCartridgeSentryShotgun
     proto: MCCartridgeSentryShotgun
-    capacity: 100
+    capacity: 75
 
 - type: Tag
   id: MCMagazineSentryShotgun
@@ -50,8 +58,6 @@
 - type: entity
   parent: MCCartridge
   id: MCCartridgeSentryShotgun
-  name: cartridge (12G Caseless)
-  description: ...
   components:
   - type: Tag
     tags:
@@ -66,8 +72,6 @@
 - type: entity
   parent: MCBullet
   id: MCBulletSentryShotgun
-  name: turret buckshot shell
-  description: ...
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
@@ -79,15 +83,15 @@
       types:
         MCBrute: 20
   - type: CMArmorPiercing
-    amount: 40
+    amount: 20
   - type: MCXenoSunderDamageOnHit
-    amount: 2
+    amount: 0.25
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 0
-      falloff: 0
-    - range: 10
+    - range: 1
       falloff: 1
+    - range: 10
+      falloff: 9999
   - type: MCStunOnHit
     knockback: 1
     maxDistance: 4

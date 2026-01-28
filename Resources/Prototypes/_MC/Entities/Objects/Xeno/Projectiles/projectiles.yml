@@ -40,25 +40,6 @@
 
 - type: entity
   parent: MCXenoProjectile
-  id: MCXenoProjectilePassthrough
-  name: acid spittle
-  components:
-  - type: Sprite
-    layers:
-    - state: xeno_acid_weak
-      shader: unshaded
-  - type: Projectile
-    impactEffect: null
-    damage:
-      types:
-        MCBurn: 20
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: true
-  - type: ProjectileMaxRange
-    max: 8
-
-- type: entity
-  parent: MCXenoProjectile
   id: MCXenoProjectileStickyResin
   name: sticky resin spit
   components:

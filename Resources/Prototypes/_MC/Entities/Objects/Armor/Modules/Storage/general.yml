@@ -1,0 +1,93 @@
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageGeneral
+  name: general-purpose storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Certainly not as specialised as any other storage modules, but definitely able to hold some larger things, like binoculars, maps, and motion detectors."
+  components:
+  - type: Sprite
+    state: mod_general_bag
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_general_bag_a
+    components:
+    - type: Storage
+      maxItemSize: Normal
+      grid:
+      - 0,0,3,1 # 2 slots
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1 # 2 slots
+
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageEngineering
+  name: engineering storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Can hold about as much as a tool pouch, and sometimes small spools of things like barbed wire, or an entrenching tool."
+  components:
+  - type: Sprite
+    state: mod_engineer_bag
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_engineer_bag_a
+    components:
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+      - 0,0,9,1 # 5 slots
+      whitelist:
+        tags:
+        - Sheet
+        - RodMetal1
+        - CableCoil
+        components:
+        - BarbedWire
+        - EntrenchingTool
+        - EmptySandbag
+    - type: FixedItemSizeStorage
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,1 # 5 slots
+    whitelist:
+      tags:
+      - Sheet
+      - RodMetal1
+      - CableCoil
+      components:
+      - BarbedWire
+      - EntrenchingTool
+      - EmptySandbag
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageGrenade
+  name: grenade Storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Can hold a respectable amount of grenades."
+  components:
+  - type: Sprite
+    state: mod_grenade_harness
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_grenade_harness_a
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,11,1 # 6 slots
+      whitelist:
+        tags:
+        - MCGrenade
+    - type: FixedItemSizeStorage
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,11,1 # 6 slots
+    whitelist:
+      tags:
+      - MCGrenade
+  - type: FixedItemSizeStorage

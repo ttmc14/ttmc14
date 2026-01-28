@@ -1,0 +1,124 @@
+- type: entity
+  id: MCVendorBundleModuleHodBalistic
+  name: hod ballistic deflection system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_ff
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleHodBalistic
+    - MCArmorModuleHodBalisticHelmet
+
+- type: entity
+  id: MCVendorBundleModuleMark1Mimir
+  name: mimir Mk.1 environmental resistance system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_biohazard
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleMark1Mimir
+    - MCArmorModuleMark1MimirHelmet
+
+- type: entity
+  id: MCVendorBundleModuleMark2Mimir
+  name: mimir Mk.2 environmental resistance system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_biohazard
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleMark2Mimir
+    - MCArmorModuleMark2MimirHelmet
+
+- type: entity
+  id: MCVendorBundleModuleHlinExplosive
+  name: hlin explosive compensation module
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_boomimmune
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleHlinExplosive
+
+- type: entity
+  id: MCVendorBundleModuleMark1TyrArmor
+  name: tyr Mk.1 armor reinforcement system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_armor_lower
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleMark1Mimir
+    - MCArmorModuleMark1MimirHelmet
+
+- type: entity
+  id: MCVendorBundleModuleMark2TyrArmor
+  name: tyr Mk.2 armor reinforcement system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_armor
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleMark2Mimir
+    - MCArmorModuleMark2MimirHelmet
+
+- type: entity
+  id: MCVendorBundleModuleBaldur
+  name: baldur light amplification system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_lamp
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleBaldur
+
+- type: entity
+  id: MCVendorBundleModuleValkyrieAutomedical
+  name: valkyrie automedical armor system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_autodoc
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleValkyrieAutomedical
+
+- type: entity
+  id: MCVendorBundleModuleValiChemical
+  name: vali chemical enhancement module
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_chemsystem
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleValiChemical
+
+- type: entity
+  id: MCVendorBundleModuleSvalinnEnergyShield
+  name: svalinn energy shield system
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+    state: mod_eshield
+  - type: CMVendorBundle
+    bundle:
+    - MCArmorModuleSvalinnEnergyShield

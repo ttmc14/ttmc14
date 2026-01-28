@@ -51,6 +51,7 @@ reagent-name-mc-quickclot = Гемостатик
 reagent-desc-mc-quickclot = Химическое средство, предназначенное для быстрого прекращения всевозможных кровотечений за счёт стимуляции свёртывания крови.
 reagent-name-mc-oxycodone = Оксикодон
 reagent-desc-mc-oxycodone = Эффективное и очень вызывающее привыкание обезболивающее средство.
+reagent-name-mc-doctor-delight = "Радость" доктора
 
 # T3
 
@@ -60,3 +61,8 @@ reagent-name-mc-timeroll = Таймролл
 reagent-desc-mc-timeroll = Странное вещество изменяющее генетику, официально не используется докторами.
 reagent-name-mc-quickclotplus = Гемостатик Плюс
 reagent-desc-mc-quickclotplus = Химическое вещество, предназначенное для быстрого и болезненного устранения внутреннего кровотечения путем стимулирования свертывания крови. Не следует применять самостоятельно.
+reagent-name-mc-russian-red = Красный русский
+
+# Mixes
+
+reagent-name-mc-combat-mix = Боевой микс

@@ -1,0 +1,39 @@
+- type: entity
+  parent: MCPill
+  id: MCPillCombatMix
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 5
+        - ReagentId: MCKelotane
+          Quantity: 5
+        - ReagentId: MCTricordrazine
+          Quantity: 2.5
+        - ReagentId: MCTramadol
+          Quantity: 2.5
+  - type: Sprite
+    layers:
+    - state: pill20
+      map: [ "enum.DamageStateVisualLayers.Base" ]
+
+- type: entity
+  parent: MCPill
+  id: MCPillMeraderm
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 7.5
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 3.75
+        - ReagentId: MCDermaline
+          Quantity: 3.75
+  - type: Sprite
+    layers:
+    - state: pill20
+      map: [ "enum.DamageStateVisualLayers.Base" ]

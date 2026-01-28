@@ -1,0 +1,46 @@
+- type: entity
+  parent: MCArmorModule
+  id: MCArmorModuleStorage
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleBodyStorage
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+  - type: Item
+    size: Huge
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: [ ]
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,5,1 # 3 slots
+  - type: MCArmorModule
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,5,1 # 3 slots
+    - type: FixedItemSizeStorage
+    - type: ExplosionResistance
+      damageCoefficient: 0
+      worn: false
+    - type: RMCStorageEjectHand
+      state: Open
+    - type: StoreAfterFailedInteract
+  - type: ExplosionResistance
+    damageCoefficient: 0
+    worn: false
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: StoreAfterFailedInteract
