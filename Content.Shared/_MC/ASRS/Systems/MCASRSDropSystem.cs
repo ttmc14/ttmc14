@@ -11,7 +11,7 @@ namespace Content.Shared._MC.ASRS.Systems;
 public sealed class MCASRSDropSystem : EntitySystem
 {
     private static readonly TimeSpan DefaultDropDelay = TimeSpan.FromSeconds(5);
-    private static readonly EntProtoId DefaultCrateId = "RMCCrateBase";
+    private static readonly EntProtoId DefaultCrateId = "MCCrate";
     private static readonly EntProtoId DefaultLandingEffectId = "RMCEffectAlert";
 
     [Dependency] private readonly IGameTiming _timing = null!;

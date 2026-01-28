@@ -53,6 +53,8 @@
       icon:
         sprite: /Textures/_MC/Interface/squad_marine_icons.rsi
         state: engineer
+    - type: MCASRSCost
+      cost: 100
 
 - type: playTimeTracker
   id: MCSquadEngineer

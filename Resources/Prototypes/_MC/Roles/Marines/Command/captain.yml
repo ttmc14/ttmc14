@@ -60,6 +60,8 @@
       icon:
         sprite: /Textures/_MC/Interface/job_icons.rsi
         state: captain
+    - type: MCASRSCost
+      cost: 1000
 
 - type: playTimeTracker
   id: MCCaptain

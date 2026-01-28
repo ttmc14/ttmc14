@@ -10,3 +10,5 @@
   abstract: true
   components:
   - type: InputMover
+  - type: MCASRSCost
+    cost: 50

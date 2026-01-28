@@ -60,6 +60,8 @@
       icon:
         sprite: /Textures/_MC/Interface/job_icons.rsi
         state: fieldcommander
+    - type: MCASRSCost
+      cost: 1000
 
 - type: playTimeTracker
   id: MCFC

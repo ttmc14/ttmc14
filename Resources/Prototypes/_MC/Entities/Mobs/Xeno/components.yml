@@ -208,6 +208,8 @@
   - type: XenoDevolve
     devolvesTo:
     - MCXenoRafik
+  - type: MCASRSCost
+    cost: 150
 
 - type: entity
   parent: MCXenoComponentEvolution
@@ -232,6 +234,8 @@
     - MCXenoDrone
     - MCXenoRunner
     - MCXenoSentinel
+  - type: MCASRSCost
+    cost: 300
 
 - type: entity
   id: MCXenoComponentEvolutionTier3
@@ -248,3 +252,5 @@
     - MCXenoSpitter
     - MCXenoForger
     # - MCXenoPanther
+  - type: MCASRSCost
+    cost: 500

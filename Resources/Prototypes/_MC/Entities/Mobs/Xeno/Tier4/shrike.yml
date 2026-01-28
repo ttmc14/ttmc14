@@ -122,3 +122,5 @@
     reagents:
     - ReagentId: MCOzelomelyn
       Quantity: 5
+  - type: MCASRSCost
+    cost: 1000

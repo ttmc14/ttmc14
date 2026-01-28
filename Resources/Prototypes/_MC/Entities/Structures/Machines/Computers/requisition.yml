@@ -37,6 +37,13 @@
         cost: 50
         entities:
         - MCBeaconOrbital
+      - name: asrs export point
+        icon:
+          sprite: _MC/Structures/Machines/teleporter.rsi
+          state: teleporter_deployed_on
+        cost: 300
+        entities:
+        - MCASRSExportPad
     - name: mc-asrs-category-weapons
       entries:
       - name: mc-asrs-entry-pb12-pepperball

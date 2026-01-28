@@ -1,0 +1,115 @@
+- type: entity
+  parent: BaseStructureDynamic
+  id: MCCrate
+  name: crate
+  description: A rectangular metal crate.
+  components:
+  - type: Transform
+    noRot: true
+  - type: Sprite
+    sprite: _RMC14/Structures/Storage/Crates/basic.rsi
+    noRot: true
+    layers:
+    - state: base
+      map: ["enum.StorageVisualLayers.Base"]
+    - state: closed
+      map: ["enum.StorageVisualLayers.Door"]
+    - state: welded
+      visible: false
+      map: ["enum.WeldableLayers.BaseWelded"]
+    - state: invoice
+      sprite: _RMC14/Structures/Storage/Crates/labels.rsi
+      visible: false
+      map: ["enum.PaperLabelVisuals.Layer"]
+  - type: Icon
+    sprite: _RMC14/Structures/Storage/Crates/basic.rsi
+    state: icon
+  - type: RequisitionsCrate
+  - type: InteractionOutline
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.4,-0.4,0.4,0.29"
+        density: 50
+        mask:
+        - CrateMask
+        layer:
+        - MachineLayer
+  - type: EntityStorage
+  - type: PlaceableSurface
+    isPlaceable: false
+  - type: Damageable
+    damageContainer: StructuralInorganic
+  - type: Corrodible
+    timeToApply: 4
+    structure: true
+  - type: RMCContainerEmptyOnDestruction
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+  - type: Appearance
+  - type: EntityStorageVisuals
+    stateDoorOpen: open
+    stateDoorClosed: closed
+  - type: GenericVisualizer
+    visuals:
+      enum.PaperLabelVisuals.HasLabel:
+        enum.PaperLabelVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.PaperLabelVisuals.LabelType:
+        enum.PaperLabelVisuals.Layer:
+          Invoice: { state: invoice }
+  - type: PaperLabel
+    labelSlot:
+      insertVerbText: Attach Invoice
+      ejectVerbText: Remove Invoice
+      whitelist:
+        components:
+        - RequisitionsInvoice
+  - type: ContainerContainer
+    containers:
+      entity_storage: !type:Container
+      paper_label: !type:ContainerSlot
+  - type: ItemSlots
+  - type: StaticPrice
+    price: 50
+  - type: Weldable
+  - type: ResistLocker
+  - type: RequireProjectileTarget
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: CanBeSupplyDropped
+    landingDamage:
+      types:
+        Blunt: 5000
+  - type: PowerLoaderGrabbable
+    virtualRight: RMCVirtualCrateRight
+    virtualLeft: RMCVirtualCrateLeft
+  - type: RMCCanBeFultoned
+  - type: ReceiverXenoClaws
+    minimumClawStrength: ImpossiblySharp
+  - type: XenoCrusherChargable
+    setDamage:
+      types:
+        Blunt: 0
+    throwRange: 2
+  - type: CrashLandable
+  - type: ParaDroppable
+    dropScatter: 4
+  - type: AnimationPlayer
+  - type: RMCMesonsNonviewable
+

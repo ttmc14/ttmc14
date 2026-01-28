@@ -1,0 +1,37 @@
+- type: entity
+  parent: MCStructure
+  id: MCASRSExportPad
+  name: asrs export point
+  description: A telepad for sending valuble assets, such as valuble minerals and alien corpses. It needs to be wrenched down in a powered area to function.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/teleporter.rsi
+    state: teleporter_deployed_on
+  # Integrity
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: MCIntegrity
+    thresholds:
+      Destruction: 200
+  - type: MCIntegrityDestructible
+  # Physics
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: false
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.00"
+        density: 190
+        mask:
+        - MachineMask
+  - type: CollideOnAnchor
+  - type: Anchorable
+  # Main
+  - type: Speech
+  - type: MCASRSExporter
+    efficiency: 1
