@@ -76,11 +76,8 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         return true;
     }
 
-    public bool CanDevolve(Entity<XenoDevolveComponent> xeno, bool doPopup)
+    public bool CanDevolve(Entity<XenoDevolveComponent> xeno, EntProtoId target, bool doPopup)
     {
-        if (MetaData(xeno).EntityPrototype is not { } target)
-            return false;
-
         if (!_prototype.TryIndex(target, out var targetPrototype))
             return false;
 

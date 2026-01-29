@@ -511,7 +511,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
         if (damagedCheck && !DamagedCheckPopup(xeno))
             return;
 
-        if (!_mcXenoEvolution.CanDevolve(xeno, true))
+        if (!_mcXenoEvolution.CanDevolve(xeno, to, true))
             return;
 
         if (Devolve(xeno, to) is { } newXeno && _net.IsServer)
