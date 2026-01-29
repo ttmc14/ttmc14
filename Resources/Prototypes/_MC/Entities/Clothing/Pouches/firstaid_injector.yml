@@ -57,3 +57,27 @@
       amount: 2
     - id: MCAutoInjectorParacetamol # временно вместо Peridaxon Plus
       amount: 2
+
+- type: entity
+  parent: MCPouchMedicalInjector
+  id: MCPouchMedicalInjectorBaseFull
+  suffix: Base, Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCAutoInjectorBicaridine
+      amount: 2
+    - id: MCAutoInjectorKelotane
+      amount: 2
+    - id: MCAutoInjectorTramadol
+      amount: 2
+    - id: MCAutoInjectorTricordrazine
+      amount: 2
+    - id: MCAutoInjectorCombat
+      amount: 3
+    - id: MCAutoInjectorInaprovaline
+      amount: 1
+    - id: MCAutoInjectorSalineGlucose
+      amount: 1
+    - id: MCAutoInjectorHypervene
+      amount: 1

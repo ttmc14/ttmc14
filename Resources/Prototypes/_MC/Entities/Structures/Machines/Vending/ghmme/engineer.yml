@@ -57,6 +57,10 @@
       - id: MCPouchConstructionFill
         name: Construction pouch (materials included)
       - id: MCPouchPistolMagazineLarge
+      - id: MCPouchMedkitSquadBaseFill
+        name: Medical pouch (chems included)
+      - id: MCPouchMedicalInjectorBaseFull
+        name: Auto-injetcor's medical pouch (chems included)
 
 # Kits
 - type: entity
