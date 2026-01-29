@@ -917,6 +917,38 @@
       "directions": 4
     },
     {
+      "name": "borderfloorcorner_black1",
+      "directions": 1
+    },
+    {
+      "name": "borderfloorcorner_black2",
+      "directions": 1
+    },
+    {
+      "name": "borderfloorcorner_black3",
+      "directions": 1
+    },
+    {
+      "name": "borderfloorcorner_black4",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short2",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short3",
+      "directions": 1
+    },
+    {
+      "name": "borderfloor_black_short4",
+      "directions": 1
+    },
+    {
       "name": "corner_techfloor_gray",
       "directions": 8
     },
@@ -1166,20 +1198,49 @@
       "directions": 4
     },
     {
-      "name": "logo_directional_south",
-      "directions": 8
+      "name": "tgmc_logo",
+      "directions": 1
     },
     {
-      "name": "logo_directional_north",
-      "directions": 8
+      "name": "logo_east",
+      "directions": 1
     },
     {
-      "name": "logo_directional_east",
-      "directions": 8
+      "name": "techfloor_edges_corner",
+      "directions": 1
+    },
+
+    {
+      "name": "techfloor_edges_half",
+      "directions": 1
     },
     {
-      "name": "logo_directional_west",
-      "directions": 8
+      "name": "logo_north",
+      "directions": 1
+    },
+    {
+      "name": "logo_south",
+      "directions": 1
+    },
+    {
+      "name": "logo_west",
+      "directions": 1
+    },
+    {
+      "name": "logo_southeast",
+      "directions": 1
+    },
+    {
+      "name": "logo_southwest",
+      "directions": 1
+    },
+    {
+      "name": "logo_northwest",
+      "directions": 1
+    },
+    {
+      "name": "logo_northeast",
+      "directions": 1
     },
     {
       "name": "spline_plain",

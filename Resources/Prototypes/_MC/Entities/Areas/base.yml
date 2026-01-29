@@ -1,6 +1,12 @@
+- type: entityCategory
+  id: MCArea
+  name: mc-entity-category-name-content
+  hideSpawnMenu: false
+
 - type: entity
   id: MCArea
   name: area
+  categories: [ MCArea ]
   suffix: Area
   abstract: true
   placement:

@@ -87,3 +87,241 @@
   sprite:
     sprite: _MC/Decals/decals.rsi
     state: warningboxsmall
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoCentral
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_central
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoEast
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_east
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoCorner
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_north
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoSouth
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_south
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoWest
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_west
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoSouthEast
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_southeast
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoSouthWest
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_southwest
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoNorthWest
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_northwest
+  
+- type: decal
+  parent: MCDecal
+  id: MCDecalLogoNorthEast
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: logo_northeast
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTGMCLogo
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: tgmc_logo
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorFullBlack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorfull_black
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcornerBlack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner_black1
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcornerBlack2
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner_black2
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcornerBlack3
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner_black3
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcornerBlack4
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner_black4
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorShortBlack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor_black_short
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorShortBlack2
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor_black_short2
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorShortBlack3
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor_black_short3
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorShortBlack4
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor_black_short4
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorcorner
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcorner
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorCeeblack
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcee_black
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloorCee
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloorcee
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderFloor
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: borderfloor
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderColorMonoFull
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: bordercolormonofull
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalBorderColorHalf
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: bordercolorhalf
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTechFloorEdgesHalf
+  sprite:
+    sprite: _MC/Decals/decals.rsi
+    state: techfloor_edges_half
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosU1
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: U1
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosU2
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: U2
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosU3
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: U3
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosU4
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: U4
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosP1
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: P1
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosP2
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: P2
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosP3
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: P3
+
+- type: decal
+  parent: MCDecal
+  id: MCDecalTalosP4
+  sprite:
+    sprite: _MC/Decals/mainship_props64x.rsi
+    state: P4

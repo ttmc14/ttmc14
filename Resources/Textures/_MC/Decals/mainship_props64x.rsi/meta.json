@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13/blob/master/icons/obj/structures/mainship_props64.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "U1",
+      "directions": 1
+    },
+    {
+      "name": "U2",
+      "directions": 1
+    },
+    {
+      "name": "U3",
+      "directions": 1
+    },
+    {
+      "name": "U4",
+      "directions": 1
+    },
+    {
+      "name": "P1",
+      "directions": 1
+    },
+    {
+      "name": "P2",
+      "directions": 1
+    },
+    {
+      "name": "P3",
+      "directions": 1
+    },
+    {
+      "name": "P4",
+      "directions": 1
+    }
+  ]
+}

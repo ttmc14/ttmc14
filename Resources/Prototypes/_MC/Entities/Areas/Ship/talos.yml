@@ -1,0 +1,799 @@
+# --- base ---
+
+- type: entity
+  parent: MCArea
+  id: MCAreaTalosShip
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Areas/ship.rsi
+    state: almayer
+  - type: Area
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: true
+    lasing: false
+    medevac: true
+    OB: false
+    supplyDrop: false
+    powerNet: almayer
+    hijackEvacuationArea: false
+    hijackEvacuationWeight: 0
+    hijackEvacuationType: None
+  - type: IntelRescueSurvivorArea
+
+# --- 2 floor ---
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaCombatInformationCentre
+  name: верхняя палуба — КИК
+  components:
+  - type: Sprite
+    state: cic
+  - type: Area
+    minimapColor: "#2f00ff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSelfDestructTech
+  name: верхняя палуба — техтоннели ядра самоуничтожения
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosBrig
+  name: верхняя палуба — бриг
+  components:
+  - type: Sprite
+    state: brig
+  - type: Area
+    minimapColor: "#bc0101"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosBrigCells
+  name: верхняя палуба — гаупвахта
+  components:
+  - type: Sprite
+    state: brigcells
+  - type: Area
+    minimapColor: "#b10303"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSelfDestructCore
+  name: верхняя палуба — ядро самоуничтожения
+  components:
+  - type: Sprite
+    state: self_destruct
+  - type: Area
+    minimapColor: "#009dff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCommunications
+  name: верхняя палуба — телекоммуникации
+  components:
+  - type: Sprite
+    state: telecommunications
+  - type: Area
+    minimapColor: "#009dff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosExecutionOfficerBunk
+  name: верхняя палуба — каюта полевого командира
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#00e331"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCorporateLiasonBunk
+  name: верхняя палуба — каюта корпоративного представителя
+  components:
+  - type: Sprite
+    state: corporatespace
+  - type: Area
+    minimapColor: "#0091ff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosExtendedBunks
+  name: верхняя палуба — дополнительные каюты
+  components:
+  - type: Sprite
+    state: starboardemb
+  - type: Area
+    minimapColor: "#13f143"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipHullUpper2Floor
+  name: верхняя палуба — северные техтоннели
+  components:
+  - type: Sprite
+    state: lowerhull
+  - type: Area
+    minimapColor: "#da8f02"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosStaffOfficersBunks
+  name: верхняя палуба — офицерские каюты
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#13f143"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosAICore
+  name: верхняя палуба — ядро ИИ
+  components:
+  - type: Sprite
+    state: ai
+  - type: Area
+    minimapColor: "#008cff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosNorthBow
+  name: верхняя палуба — северные коридоры
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+    minimapColor: "#4e4122"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSouthBow
+  name: верхняя палуба — южные коридоры
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+    minimapColor: "#4e4122"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosGarden
+  name: верхняя палуба — сад-мемориал
+  components:
+  - type: Sprite
+    state: starboardemb
+  - type: Area
+    minimapColor: "#00dd4a"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosLounge
+  name: верхняя палуба — кафетерий
+  components:
+  - type: Sprite
+    state: food
+  - type: Area
+    minimapColor: "#199241"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosBasketBallCourt
+  name: верхняя палуба — баскетбольная площадка
+  components:
+  - type: Sprite
+    state: basketball
+  - type: Area
+    minimapColor: "#006302"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipHullEast2Floor
+  name: верхняя палуба — восточные техтоннели
+  components:
+  - type: Sprite
+    state: lowerhull
+  - type: Area
+    minimapColor: "#da8f02"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipCaptainBunks
+  name: верхняя палуба — капитанская каюта
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#0d7c01"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosExtendedMissionBunks
+  name: верхняя палуба — каюта продвинутого предназначения
+  components:
+  - type: Sprite
+    state: lowerhull
+  - type: Area
+    minimapColor: "#d72b00"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipBriefRoom
+  name: верхняя палуба — комната для брифингов
+  components:
+  - type: Sprite
+    state: briefing
+  - type: Area
+    minimapColor: "#10b316"
+
+# --- 1 floor ---
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSquadCharliePraparition
+  name: нижняя палуба — комнаты подготовки чарли
+  components:
+  - type: Sprite
+    state: charlie
+  - type: Area
+    minimapColor: "#c108d9"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipSquadDeltaPreparition
+  name: нижняя палуба — комнаты подготовки дельты
+  components:
+  - type: Sprite
+    state: delta
+  - type: Area
+    minimapColor: "#1e00ff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSquadAlphaPreparition
+  name: нижняя палуба — комнаты подготовки альфы
+  components:
+  - type: Sprite
+    state: alpha
+  - type: Area
+    minimapColor: "#f40202"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipSquadBravoPreparition
+  name: нижняя палуба — комнаты подготовки браво
+  components:
+  - type: Sprite
+    state: bravo
+  - type: Area
+    minimapColor: "#deb900"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSouthHullFoor1
+  name: нижняя палуба — южные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosNorthHullFoor1
+  name: нижняя палуба — северные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEastHullFoor1
+  name: нижняя палуба — восточные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosWestHullFoor1
+  name: нижняя палуба — западые техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCargo
+  name: нижняя палуба — отдел поставок
+  components:
+  - type: Sprite
+    state: req
+  - type: Area
+    minimapColor: "#714703"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEscapePod
+  name: нижняя палуба — спасительная капсула
+  components:
+  - type: Sprite
+    state: cyan
+  - type: Area
+    minimapColor: "#009bfb"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosExperimentalFiringRange
+  name: нижняя палуба — тир
+  components:
+  - type: Sprite
+    state: firingrange
+  - type: Area
+    minimapColor: "#b00606"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCryoCells
+  name: нижняя палуба — капсулы криосна
+  components:
+  - type: Sprite
+    state: lifesupport
+  - type: Area
+    minimapColor: "#b00606"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCafeteria
+  name: нижняя палуба — столовая
+  components:
+  - type: Sprite
+    state: food
+  - type: Area
+    minimapColor: "#06f626"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEngineReactor
+  name: нижняя палуба — ядерный реактор
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosChiefEngineerOffice
+  name: нижняя палуба — офис главного инженера
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEngineerWorkshop
+  name: нижняя палуба — мастерская
+  components:
+  - type: Sprite
+    state: workshop
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosAtmosPort
+  name: нижняя палуба — отдел жизнеобеспечения
+  components:
+  - type: Sprite
+    state: portatmos
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosVehicleCrewBunks
+  name: нижняя палуба — каюты экипажа наземного транспорта
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#119322"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosPilotBunks
+  name: нижняя палуба — каюты пилотов
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#0d8e1e"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMechPilotBunks
+  name: нижняя палуба — каюта мехвода
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#08a11d"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosVehicleHangar
+  name: нижняя палуба — ангар наземного транспорта
+  components:
+  - type: Sprite
+    state: weapon
+  - type: Area
+    minimapColor: "#594b0d"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosHangar
+  name: нижняя палуба — ангар
+  components:
+  - type: Sprite
+    state: hangar
+  - type: Area
+    minimapColor: "#594b0d"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosDroppodHangar
+  name: нижняя палуба — ангар десантных капсул
+  components:
+  - type: Sprite
+    state: dropshiprepair
+  - type: Area
+    minimapColor: "#3f360e"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosHallwayWest
+  name: нижняя палуба — западные коридоры
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+    minimapColor: "#7d6a14"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosHallwayEast
+  name: нижняя палуба — восточные коридоры
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+    minimapColor: "#7d6a14"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalReserchLaboratory
+  name: нижняя палуба — исследовательская лаборатория
+  components:
+  - type: Sprite
+    state: science
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalOperatingRoom1
+  name: нижняя палуба — южная операционная
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalOperatingRoom2
+  name: нижняя палуба — северная операционная
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalOperatingRoomHallway
+  name: нижняя палуба — коридор хирургических операционных
+  components:
+  - type: Sprite
+    state: operating
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalLounge
+  name: нижняя палуба — холл медицинского отдела
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalChemicalLaboratory
+  name: нижняя палуба — химическая лаборатория
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalMorgue
+  name: нижняя палуба — морг
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMedicalStorage
+  name: нижняя палуба — медицинский склад
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosChiefMedicalOfficer
+  name: нижняя палуба — офис СМО
+  components:
+  - type: Sprite
+    state: medical
+  - type: Area
+    minimapColor: "#6f0091"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosWeaponControlRoom
+  name: нижняя палуба — артиллерийский отсек
+  components:
+  - type: Sprite
+    state: weapon
+  - type: Area
+    minimapColor: "#da0909"
+
+# --- catwalks / mezzanine floor ---
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSquadCharliePraparitionCatwalks
+  name: подмостки — комнаты подготовки чарли
+  components:
+  - type: Sprite
+    state: charlie
+  - type: Area
+    minimapColor: "#c108d9"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipSquadDeltaPreparitionCatwalks
+  name: подмостки — комнаты подготовки дельты
+  components:
+  - type: Sprite
+    state: delta
+  - type: Area
+    minimapColor: "#1e00ff"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSquadAlphaPreparitionCatwalks
+  name: подмостки — комнаты подготовки альфы
+  components:
+  - type: Sprite
+    state: alpha
+  - type: Area
+    minimapColor: "#f40202"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosShipSquadBravoPreparitionCatwalks
+  name: подмостки — комнаты подготовки браво
+  components:
+  - type: Sprite
+    state: bravo
+  - type: Area
+    minimapColor: "#deb900"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosSouthHullFloor1Catwalks
+  name: подмостки — южные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosNorthHullFloor1Catwalks
+  name: подмостки — северные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEastHullFloor1Catwalks
+  name: подмостки — восточные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosWestHullFloor1Catwalks
+  name: подмостки — западные техтоннели
+  components:
+  - type: Sprite
+    state: upperhull
+  - type: Area
+    minimapColor: '#B47714FF'
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCargoCatwalks
+  name: подмостки — отдел поставок
+  components:
+  - type: Sprite
+    state: req
+  - type: Area
+    minimapColor: "#714703"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEscapePodCatwalks
+  name: подмостки — спасительная капсула
+  components:
+  - type: Sprite
+    state: cyan
+  - type: Area
+    minimapColor: "#009bfb"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosExperimentalFiringRangeCatwalks
+  name: подмостки — тир
+  components:
+  - type: Sprite
+    state: firingrange
+  - type: Area
+    minimapColor: "#b00606"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCryoCellsCatwalks
+  name: подмостки — капсулы криосна
+  components:
+  - type: Sprite
+    state: lifesupport
+  - type: Area
+    minimapColor: "#b00606"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosCafeteriaCatwalks
+  name: подмостки — столовая
+  components:
+  - type: Sprite
+    state: food
+  - type: Area
+    minimapColor: "#06f626"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEngineReactorCatwalks
+  name: подмостки — ядерный реактор
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosChiefEngineerOfficeCatwalks
+  name: подмостки — офис главного инженера
+  components:
+  - type: Sprite
+    state: engineering
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosEngineerWorkshopCatwalks
+  name: подмостки — мастерская
+  components:
+  - type: Sprite
+    state: workshop
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosAtmosPortCatwalks
+  name: подмостки — отдел жизнеобеспечения
+  components:
+  - type: Sprite
+    state: portatmos
+  - type: Area
+    minimapColor: "#7f6504"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosVehicleCrewBunksCatwalks
+  name: подмостки — каюты экипажа наземного транспорта
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#119322"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosPilotBunksCatwalks
+  name: подмостки — каюты пилотов
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#0d8e1e"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosMechPilotBunksCatwalks
+  name: подмостки — каюта мехвода
+  components:
+  - type: Sprite
+    state: livingspace
+  - type: Area
+    minimapColor: "#08a11d"
+
+- type: entity
+  parent: MCAreaTalosShip
+  id: MCAreaTalosVehicleHangarCatwalks
+  name: подмостки — ангар наземного транспорта
+  components:
+  - type: Sprite
+    state: weapon
+    minimapColor: "#ff0000" 

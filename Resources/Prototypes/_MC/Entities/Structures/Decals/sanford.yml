@@ -1,0 +1,19 @@
+- type: entity
+  parent: BaseSign
+  id: MCEmployeeOfTheMonth
+  name: работник месяца
+  description: Этот сертификат вручен Сэнфорду Стефано. За выдающиеся заслуги перед NT и за введение случайным людям рулетиума по их желанию.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/sanford.rsi
+    state: sanford
+
+- type: entity
+  parent: BaseSign
+  id: MCEmployeeOfTheYear
+  name: работник года
+  description: Этот сертификат вручен Сэнфорду Стефано. За выдающиеся заслуги перед NT и за введение случайным людям рулетиума по их желанию.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/sanford.rsi
+    state: sanford2

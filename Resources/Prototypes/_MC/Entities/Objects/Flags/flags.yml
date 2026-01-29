@@ -5,7 +5,7 @@
   description: A flag bearing the symbol of TerraGov. It flutters in the breeze heroically. This one looks ready to be planted into the ground.
   components:
   - type: Sprite
-    sprite: _MC/Objects/Flags/tg.rsi
+    sprite: _MC/Objects/Flags/tgmc.rsi
 
 - type: entity
   parent: MCFlag
