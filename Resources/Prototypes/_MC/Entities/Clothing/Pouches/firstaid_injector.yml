@@ -45,15 +45,22 @@
 
 - type: entity
   parent: MCPouchMedicalInjector
-  id: MCPouchMedicalInjectorCorpsmanFull
+  id: MCPouchMedicalInjectorBaseFull
   suffix: Corpsman, Full
   components:
   - type: StorageFill
     contents:
-    - id: MCAutoInjectorCombatAdv
+    - id: MCAutoInjectorBicaridine
+      amount: 2
+    - id: MCAutoInjectorKelotane
+      amount: 2
+    - id: MCAutoInjectorTramadol
+      amount: 2
+    - id: MCAutoInjectorTricordrazine
+      amount: 2
+    - id: MCAutoInjectorCombat
       amount: 3
-    - id: MCAutoInjectorDexalinPlus
-    - id: MCAutoInjectorQuickClotPlus
-      amount: 2
-    - id: MCAutoInjectorParacetamol # временно вместо Peridaxon Plus
-      amount: 2
+    - id: MCAutoInjectorDylovene
+      amount: 1
+    - id: MCAutoInjectorSalineGlucose
+      amount: 1
