@@ -71,6 +71,10 @@
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
+  - type: MCXenoEvolutionAffectSlots
+    slots:
+      2: 2
+      3: 1
   - type: XenoStructureMapTracked
   - type: TacticalMapTracked
   - type: TacticalMapIcon

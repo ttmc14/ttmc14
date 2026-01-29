@@ -1,6 +1,8 @@
 ﻿using Content.Shared._MC.Utilities;
 using Content.Shared._MC.Xeno.Evolution.Components;
 using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._RMC14.Marines;
+using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
 
 namespace Content.Shared._MC.Xeno.Hive.Systems;
@@ -27,6 +29,30 @@ public abstract partial class MCSharedXenoHiveSystem
         { 3, 0.3f }, // Tier 3 gets only 30% of the calculated slots
     };
 
+    public Dictionary<int, int> GetAvailableTierSlots(Entity<MCXenoHiveComponent> hive, int minTier = 2, int maxTier = 3)
+    {
+        var totalSlots = GetTierSlots(hive, minTier, maxTier);
+        var livingXenoPerTier = new Dictionary<int, int>();
+
+        var query = EntityQueryEnumerator<XenoComponent, HiveMemberComponent>();
+        while (query.MoveNext(out var uid, out var xeno, out var hiveMember))
+        {
+            if (hiveMember.Hive != hive.Owner || _mobState.IsDead(uid))
+                continue;
+
+            livingXenoPerTier.TryAdd(xeno.Tier, 0);
+            livingXenoPerTier[xeno.Tier]++;
+        }
+
+        foreach (var (tier, value) in totalSlots)
+        {
+            var occupied = livingXenoPerTier.GetValueOrDefault(tier, 0);
+            totalSlots[tier] = int.Max(value - occupied, 0);
+        }
+
+        return totalSlots;
+    }
+
     /// <summary>
     /// Calculates the number of Xeno slots available per tier in a hive.
     /// Takes into account the number of active humans and applies all hive-specific modifiers.
@@ -36,7 +62,7 @@ public abstract partial class MCSharedXenoHiveSystem
     /// <param name="minTier">Minimum tier to include in calculations.</param>
     /// <param name="maxTier">Maximum tier to include in calculations.</param>
     /// <returns>A dictionary mapping tier numbers to available slots.</returns>
-    public Dictionary<int, int> GetTierSlots(Entity<MCXenoHiveComponent> hive, int activeHumans = 0, int minTier = 2, int maxTier = 3)
+    public Dictionary<int, int> GetTierSlots(Entity<MCXenoHiveComponent> hive, int activeHumans, int minTier, int maxTier)
     {
         var tiers = GetTiers(hive); // Get hive tier counts
         var ratedXeno = CalculateRatedXeno(activeHumans); // Determine total Xenos to spawn
@@ -51,12 +77,17 @@ public abstract partial class MCSharedXenoHiveSystem
         return tierSlots;
     }
 
+    public Dictionary<int, int> GetTierSlots(Entity<MCXenoHiveComponent> hive, int minTier = 2, int maxTier = 3)
+    {
+        return GetTierSlots(hive, GetLiving<MarineComponent>(), minTier, maxTier);  // TODO: shitcode detected
+    }
+
     /// <summary>
     /// Calculates the "rated" number of Xenos to spawn based on active humans.
     /// </summary>
     private static int CalculateRatedXeno(int activeHumans)
     {
-        return (int)Math.Floor(activeHumans * (LarvaPointsRegular / XenoJobPointsNeeded));
+        return (int) float.Floor(activeHumans * (LarvaPointsRegular / XenoJobPointsNeeded));
     }
 
     /// <summary>
@@ -90,7 +121,7 @@ public abstract partial class MCSharedXenoHiveSystem
 
         for (var tier = maxTier; tier >= minTier; tier--)
         {
-            sum -= tiers.GetValueOrDefault(tier);
+            sum += tiers.GetValueOrDefault(tier);
             cumulative[tier] = sum;
         }
 
@@ -115,12 +146,12 @@ public abstract partial class MCSharedXenoHiveSystem
             var nextTierSlots = result.GetValueOrDefault(tier + 1, 0);
 
             // Ensure the Xeno count is within the lower and upper cumulative bounds
-            var adjustedXeno = int.Max(ratedXeno - cumulativeUpper[tier], cumulativeLower[tier] + 1);
+            var adjustedXeno = float.Max(ratedXeno - cumulativeUpper[tier], cumulativeLower[tier]);
 
             // Apply the tier-specific modifier and remove slots already allocated to the next tier
-            var slots = (int) float.Floor(adjustedXeno * TiersModifiers.GetValueOrDefault(tier, 1)) - nextTierSlots;
+            var slots = (int) float.Floor(adjustedXeno * TiersModifiers.GetValueOrDefault(tier, 1)) + 1 - nextTierSlots;
 
-            result[tier] = Math.Max(slots, 0); // Ensure non-negative slots
+            result[tier] = int.Max(slots, 1); // Ensure non-negative slots
         }
 
         return result;
@@ -146,5 +177,23 @@ public abstract partial class MCSharedXenoHiveSystem
 
             slots.MergeSumInPlace(component.Slots); // Merge member-specific slots
         }
+    }
+
+    private int GetLiving<T>(Predicate<Entity<T>>? predicate = null) where T : IComponent
+    {
+        var total = 0;
+        var query = EntityQueryEnumerator<T>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (_mobStateQuery.TryComp(uid, out var mobState) && _mobState.IsDead(uid, mobState))
+                continue;
+
+            if (predicate != null && !predicate((uid, comp)))
+                continue;
+
+            total++;
+        }
+
+        return total;
     }
 }

@@ -361,69 +361,6 @@ public sealed class XenoEvolutionSystem : EntitySystem
         if (!_mcXenoEvolution.CanEvolve(xeno, newXeno, doPopup))
             return false;
 
-        prototype.TryGetComponent(out XenoComponent? newXenoComp, _compFactory);
-
-        if (newXenoComp != null &&
-            !newXenoComp.BypassTierCount &&
-            _xenoHive.GetHive(xeno.Owner) is { } oldHive &&
-            _xenoHive.TryGetTierLimit((oldHive, oldHive.Comp), newXenoComp.Tier, out var limit))
-        {
-            var existing = 0;
-            var total = Math.Sqrt(oldHive.Comp.BurrowedLarva * oldHive.Comp.BurrowedLarvaSlotFactor);
-            total = Math.Min(total, oldHive.Comp.BurrowedLarva);
-
-            var current = EntityQueryEnumerator<XenoComponent, HiveMemberComponent>();
-            var slotCount = oldHive.Comp.FreeSlots.ToDictionary();
-            while (current.MoveNext(out var uid, out var existingComp, out var member))
-            {
-                if (_mobState.IsDead(uid))
-                    continue;
-
-                if (member.Hive != oldHive.Owner || !existingComp.CountedInSlots)
-                    continue;
-
-                total++;
-
-                if (existingComp.Tier < newXenoComp.Tier)
-                    continue;
-
-                if (slotCount.ContainsKey(existingComp.Role.Id) && slotCount[existingComp.Role.Id] > 0)
-                    slotCount[existingComp.Role.Id] -= 1;
-                else
-                    existing++;
-            }
-
-            if (total != 0 && existing / (float) total >= limit && (!slotCount.ContainsKey(newXeno) || slotCount[newXeno] <= 0))
-            {
-                if (doPopup)
-                {
-                    _popup.PopupEntity(
-                        Loc.GetString("cm-xeno-evolution-failed-hive-full", ("tier", newXenoComp.Tier)),
-                        xeno,
-                        xeno,
-                        PopupType.MediumCaution
-                    );
-                }
-
-                return false;
-            }
-        }
-
-        if (TryComp(xeno, out XenoRecentlyDevolvedComponent? recently) &&
-            recently.Recent.TryGetValue(newXeno, out var at) &&
-            at + _evolveSameCasteCooldown > _timing.CurTime)
-        {
-            var timeRemaining = at + _evolveSameCasteCooldown - _timing.CurTime;
-            var msg = Loc.GetString("rmc-xeno-evolution-cant-evolve-caste-cooldown",
-                ("minutes", timeRemaining.Minutes),
-                ("seconds", timeRemaining.Seconds));
-
-            if (doPopup)
-                _popup.PopupEntity(msg, xeno, xeno, PopupType.MediumCaution);
-
-            return false;
-        }
-
         return true;
     }
 

@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
+using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -13,6 +14,7 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
 
     private EntityQuery<MCXenoHiveComponent> _hiveQuery;
+    private EntityQuery<MobStateComponent> _mobStateQuery;
     private EntityQuery<HiveComponent> _rmcHiveQuery;
     private EntityQuery<HiveMemberComponent> _rmcHiveMemberQuery;
 
@@ -24,6 +26,7 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         base.Initialize();
 
         _hiveQuery = GetEntityQuery<MCXenoHiveComponent>();
+        _mobStateQuery = GetEntityQuery<MobStateComponent>();
         _rmcHiveQuery = GetEntityQuery<HiveComponent>();
         _rmcHiveMemberQuery = GetEntityQuery<HiveMemberComponent>();
 

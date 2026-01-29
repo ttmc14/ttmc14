@@ -7,8 +7,10 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Rules;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.GameTicking.Components;
@@ -23,21 +25,22 @@ namespace Content.Server._MC.Rules.Distress;
 
 public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignalRuleComponent>
 {
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IBanManager _bans = null!;
+    [Dependency] private readonly IPlayerManager _player = null!;
+    [Dependency] private readonly IPrototypeManager _prototype = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IServerPreferencesManager _preferences = null!;
 
-    [Dependency] private readonly XenoSystem _rmcXeno = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
+    [Dependency] private readonly XenoSystem _rmcXeno = null!;
+    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
+    [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
 
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly ShuttleSystem _shuttle = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
+    [Dependency] private readonly PlayTimeTrackingSystem _playTime = null!;
+    [Dependency] private readonly ShuttleSystem _shuttle = null!;
+    [Dependency] private readonly MindSystem _mind = null!;
 
-    [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = default!;
-    [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = default!;
+    [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
+    [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = null!;
 
     public override void Initialize()
     {
@@ -110,19 +113,44 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
             if (!_mcXenoSpawn.SpawnXenoMap<MCDistressSignalRuleComponent>((uid, comp)))
                 continue;
 
+            // Hive settings
+            if (_mcXenoHive.DefaultHive is { } defaultHive)
+            {
+                var configuration = new MCXenoHiveConfiguration
+                {
+                    General = new MCXenoHiveConfigGeneral
+                    {
+                        AllowCollapse = true,
+                        AllowHarvestLarvaPoints = true,
+                        AllowGenerateLarvaPoint = true,
+                    },
+                    Evolution = new MCXenoHiveConfigEvolution
+                    {
+                        WithoutRuler = false,
+                        RequiredCasteCount =
+                        {
+                            { "MCXenoQueen", 6 },
+                            { "MCXenoKing", 12 },
+                        },
+                    },
+                };
+
+                _mcXenoHive.SetConfiguration(defaultHive, configuration);
+            }
+
             StartBioscan();
 
             SpawnAdminAreas(comp.Thunderdome);
-            SpawnNukeDiskGenerators();
+            // SpawnNukeDiskGenerators();
 
             RefreshIFF(comp.MarineFaction);
             RefreshFaxes();
 
-            var xenoSpawnPoints = GetEntities<XenoSpawnPointComponent>();
+          var xenoSpawnPoints = GetEntities<XenoSpawnPointComponent>();
 
             var xenos = GetXenos(ev.PlayerPool.Count);
-            var survivors = GetSurvivors(ev.PlayerPool.Count);
-            var marines = GetMarines(ev.PlayerPool.Count);
+            // var survivors = GetSurvivors(ev.PlayerPool.Count);
+            // var marines = GetMarines(ev.PlayerPool.Count);
 
             var priorities = Enum.GetValues<JobPriority>().Length;
             var xenoCandidates = new List<NetUserId>[priorities];
@@ -260,6 +288,9 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
                 GameTicker.PlayerJoinGame(player);
                 var xenoEnt = SpawnXenoEnt(ent);
 
+                if (TryComp<XenoEvolutionComponent>(xenoEnt, out var xenoEvolution))
+                    _rmcEvolution.SetPoints((xenoEnt, xenoEvolution), 100);
+
                 if (!_mind.TryGetMind(playerId, out var mind))
                     mind = _mind.CreateMind(playerId);
 
@@ -278,5 +309,4 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
             }
         }
     }
-
 }

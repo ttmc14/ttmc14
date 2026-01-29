@@ -6,7 +6,7 @@ namespace Content.Server._MC.Xeno.Hive;
 
 public sealed class MCXenoHiveSystem : MCSharedXenoHiveSystem
 {
-    [Dependency] private readonly XenoHiveSystem _rmcHive = default!;
+    [Dependency] private readonly XenoHiveSystem _rmcHive = null!;
 
     public override void Initialize()
     {

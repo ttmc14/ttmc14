@@ -13,6 +13,7 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Rules.Crash;
 using Content.Shared._MC.Shuttle.Events;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
@@ -224,11 +225,36 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
                 continue;
 
             // Hive settings
-            if (_mcXenoHive.DefaultHive is not null)
+            if (_mcXenoHive.DefaultHive is { } defaultHive)
             {
-                // _mcXenoHive.SetConfiguration(_mcXenoHive.DefaultHive.Value, true);
-                // _mcXenoHive.SetCanCollapse(_mcXenoHive.DefaultHive.Value, false);
-                // _mcXenoHive.SetCanLarvaPoints(_mcXenoHive.DefaultHive.Value, false);
+                var configuration = new MCXenoHiveConfiguration
+                {
+                    General = new MCXenoHiveConfigGeneral
+                    {
+                        AllowCollapse = false,
+                        AllowHarvestLarvaPoints = false,
+                        AllowGenerateLarvaPoint = false,
+                        AdditionalSlots =
+                        {
+                          { 3, -1 },
+                        },
+                    },
+                    Evolution = new MCXenoHiveConfigEvolution
+                    {
+                        WithoutRuler = true,
+                        BlockedCastes =
+                        {
+                            "MCXenoWraith",
+                        },
+                        RequiredCasteCount =
+                        {
+                            { "MCXenoQueen", 6 },
+                            { "MCXenoKing", 12 },
+                        },
+                    },
+                };
+
+                _mcXenoHive.SetConfiguration(defaultHive, configuration);
             }
 
             StartBioscan();
