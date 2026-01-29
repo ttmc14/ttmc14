@@ -183,6 +183,7 @@ entities:
   entities:
   - uid: 1
     components:
+    - type: Almayer
     - type: MetaData
       name: Mapping UPP Talos
     - type: Transform
