@@ -7,6 +7,31 @@ namespace Content.Shared._MC.Xeno.Hive.Systems;
 public abstract partial class MCSharedXenoHiveSystem
 {
     [PublicAPI]
+    public void AddBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value)
+    {
+        SetBurrowedLarva(entity, GetBurrowedLarva(entity) + value);
+    }
+
+    [PublicAPI]
+    public void SetBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value)
+    {
+        if (!_hiveQuery.Resolve(entity, ref entity.Comp) || !_rmcHiveQuery.TryComp(entity, out var rmcComponent))
+            return;
+
+        rmcComponent.BurrowedLarva = value;
+        Dirty(entity, rmcComponent);
+    }
+
+    [PublicAPI]
+    public int GetBurrowedLarva(Entity<MCXenoHiveComponent?> entity)
+    {
+        if (!_hiveQuery.Resolve(entity, ref entity.Comp) || !_rmcHiveQuery.TryComp(entity, out var rmcComponent))
+            return 0;
+
+        return rmcComponent.BurrowedLarva;
+    }
+
+    [PublicAPI]
     public void AddLarva(Entity<MCXenoHiveComponent?> entity, int value, bool bypassConfiguration = false)
     {
         if (!_hiveQuery.Resolve(entity, ref entity.Comp))

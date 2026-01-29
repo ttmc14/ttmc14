@@ -153,15 +153,15 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
 
         if (ration >= 1)
         {
-            // _mcXenoHive.AddBurrowedLarvaSlots(hive, 1);
+            _mcXenoHive.AddBurrowedLarva(hive, 1);
             return;
         }
 
-        // var totalXenos = _mcXenoHive.GetLiving(hive, 0) + _mcXenoHive.GetBurrowedLarvaSlots(hive);
-        // if (totalXenos >= 2)
-        //    return;
+        var totalXenos = _mcXenoHive.GetLiving(hive, 0) + _mcXenoHive.GetBurrowedLarva(hive);
+        if (totalXenos >= 2)
+            return;
 
-        // _mcXenoHive.AddBurrowedLarvaSlots(hive, 1);
+        _mcXenoHive.AddBurrowedLarva(hive, 1);
     }
 
     private float GetJobPointDifference()
@@ -169,17 +169,16 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
         if (_mcXenoHive.DefaultHive is not {} hive)
             return 0;
 
-        // var burrowed = _mcXenoHive.GetBurrowedLarvaSlots(hive);
+        var burrowed = _mcXenoHive.GetBurrowedLarva(hive);
         var xenos = _mcXenoHive.GetLiving(hive, 0);
         var marines = GetLiving<MarineComponent>();
-        var marinePoints = marines * 3.55f;
+        var marinePoints = marines * 3.55f; // TODO: shitcode detected
 
 #if !FULL_RELEASE
-        // Log.Info($"Burrowed: {burrowed}, Xenos {xenos}, Marines {marines}, Marines points {marinePoints}");
+        Log.Info($"Burrowed: {burrowed}, Xenos {xenos}, Marines {marines}, Marines points {marinePoints}");
 #endif
 
-        // return marinePoints - (xenos + burrowed) * 10f;
-        return 0;
+        return marinePoints - (xenos + burrowed) * 10f;
     }
 
     private void OnRoundEndMessage(RoundEndMessageEvent ev)
