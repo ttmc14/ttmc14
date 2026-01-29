@@ -23,15 +23,17 @@ public sealed partial class MCXenoHiveComponent : Component
     [DataField, AutoNetworkedField]
     public MCXenoHiveConfiguration Configuration = new();
 
-    #region Game mod configuration
-
     [DataField, AutoNetworkedField]
     public TimeSpan RespawnTime = TimeSpan.FromMinutes(3);
 
     [DataField, AutoNetworkedField]
     public TimeSpan CasteSwapTime = TimeSpan.FromMinutes(5);
 
-    #endregion
+    [DataField, AutoNetworkedField]
+    public bool Collapsed;
+
+    [DataField]
+    public Dictionary<MCXenoHiveCollapseType, TimeSpan> Collapse = new();
 }
 
 [DataDefinition, Serializable, NetSerializable]
@@ -58,6 +60,13 @@ public sealed partial class MCXenoHiveConfigGeneral
 
     [DataField]
     public Dictionary<int, int> AdditionalSlots = new();
+
+    [DataField]
+    public Dictionary<MCXenoHiveCollapseType, TimeSpan> CollapseTime = new()
+    {
+        { MCXenoHiveCollapseType.Ruler, TimeSpan.FromMinutes(5) },
+        { MCXenoHiveCollapseType.Silo, TimeSpan.FromMinutes(5) },
+    };
 }
 
 [DataDefinition, Serializable, NetSerializable]
@@ -71,4 +80,10 @@ public sealed partial class MCXenoHiveConfigEvolution
 
     [DataField]
     public Dictionary<EntProtoId, int> RequiredCasteCount = new();
+}
+
+public enum MCXenoHiveCollapseType
+{
+    Silo,
+    Ruler,
 }

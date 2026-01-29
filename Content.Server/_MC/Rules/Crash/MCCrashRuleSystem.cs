@@ -14,6 +14,7 @@ using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Rules.Crash;
 using Content.Shared._MC.Shuttle.Events;
 using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Events;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
@@ -71,6 +72,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
 
         SubscribeLocalEvent<MCShuttleEvacuationEvent>(OnShuttleEvacuationEvent);
         SubscribeLocalEvent<MCNukeExplodedEvent>(OnNukeExploded);
+        SubscribeLocalEvent<MCXenoHiveCollapsed>(OnHiveCollapsed);
 
         SubscribeLocalEvent<MarineComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<MarineComponent, ComponentRemove>(OnCompRemove);
@@ -235,7 +237,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
                         AllowGenerateLarvaPoint = false,
                         AdditionalSlots =
                         {
-                          { 3, -1 },
+                          { 3, 0 }, // Why -1, whyyyy?
                         },
                     },
                     Evolution = new MCXenoHiveConfigEvolution
@@ -431,6 +433,17 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
     }
 
     private void OnNukeExploded(MCNukeExplodedEvent ev)
+    {
+        foreach (var gameRule in GameTicker.GetActiveGameRules())
+        {
+            if (!TryComp<MCCrashRuleComponent>(gameRule, out var component))
+                continue;
+
+            EndRound((gameRule, component), MCCrashRuleResult.MajorMarineVictory);
+        }
+    }
+
+    private void OnHiveCollapsed(ref MCXenoHiveCollapsed ev)
     {
         foreach (var gameRule in GameTicker.GetActiveGameRules())
         {

@@ -53,17 +53,6 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
     [DataField, AutoNetworkedField]
     public TimeSpan MarineRespawnTime = TimeSpan.FromMinutes(15);
 
-    // Xenos
-
-    [DataField, AutoNetworkedField]
-    public List<EntProtoId> XenoRestrictedCastes = new();
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan XenoRespawnTime = TimeSpan.FromMinutes(3);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan XenoSwapTimer = TimeSpan.FromMinutes(5);
-
     [DataField]
     public MCCrashRuleResult Result = MCCrashRuleResult.None;
 

@@ -511,6 +511,9 @@ public sealed class XenoEvolutionSystem : EntitySystem
         if (damagedCheck && !DamagedCheckPopup(xeno))
             return;
 
+        if (!_mcXenoEvolution.CanDevolve(xeno, true))
+            return;
+
         if (Devolve(xeno, to) is { } newXeno && _net.IsServer)
             _popup.PopupEntity(Loc.GetString("rmc-xeno-evolution-devolve", ("xeno", newXeno)), newXeno, newXeno, PopupType.LargeCaution);
     }

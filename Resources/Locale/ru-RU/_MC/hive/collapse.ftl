@@ -1,0 +1,2 @@
+mc-xeno-hive-collapse-silo-message = Сило-проводник уничтожен! Связь с центром цепи распадается! У вас [/font][/color][color=#e0102f][font size=22]5 минут[/font][/color][color=#850c1e][font size=16]. Если канал не восстановить — порядок умрёт, и Улей погрузится в хаос.[/font][/color] Время идёт… и оно не ждёт.
+mc-xeno-hive-collapse-silo-message-wrap = [bold][color=#e0102f][font size=24]Директива ИЗНАЧАЛЬНОГО РАЗУМА УЛЬЯ[/font][/color][/bold][color=#850c1e][font size=16][bold]{$message}[/bold][/font][/color]

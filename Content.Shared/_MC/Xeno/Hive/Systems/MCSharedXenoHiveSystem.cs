@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Xeno.Hive.Components;
+﻿using Content.Shared._MC.Xeno.Constructions.Silo;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Mobs.Components;
@@ -85,6 +86,25 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         }
 
         return total;
+    }
+
+    public bool HasSilo(Entity<MCXenoHiveComponent> hive)
+    {
+        var query = EntityQueryEnumerator<MCXenoSiloComponent>();
+        while (query.MoveNext(out var uid, out var comp))
+        {
+            if (!IsMember(uid, hive))
+                continue;
+
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool IsMember(Entity<HiveMemberComponent?> entity, EntityUid hiveUid)
+    {
+        return _rmcHive.IsMember(entity, hiveUid);
     }
 
     public void SetSameHive(Entity<HiveMemberComponent?> src, Entity<HiveMemberComponent?> dest)

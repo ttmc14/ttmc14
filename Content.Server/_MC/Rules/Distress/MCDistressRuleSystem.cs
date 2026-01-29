@@ -5,9 +5,11 @@ using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
-using Content.Server.Shuttles.Systems;
+using Content.Server.RoundEnd;
+using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Rules;
 using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Events;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Evolution;
@@ -27,16 +29,15 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
 {
     [Dependency] private readonly IBanManager _bans = null!;
     [Dependency] private readonly IPlayerManager _player = null!;
-    [Dependency] private readonly IPrototypeManager _prototype = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IServerPreferencesManager _preferences = null!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = null!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = null!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
     [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
 
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = null!;
-    [Dependency] private readonly ShuttleSystem _shuttle = null!;
     [Dependency] private readonly MindSystem _mind = null!;
 
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
@@ -48,6 +49,9 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
 
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
+
+        SubscribeLocalEvent<MCNukeExplodedEvent>(OnNukeExploded);
+        SubscribeLocalEvent<MCXenoHiveCollapsed>(OnHiveCollapsed);
     }
 
     protected override void OnStartAttempt(Entity<MCDistressSignalRuleComponent, GameRuleComponent> gameRule, RoundStartAttemptEvent ev)
@@ -136,6 +140,9 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
                 };
 
                 _mcXenoHive.SetConfiguration(defaultHive, configuration);
+
+                _mcXenoHive.AddPsypoints(defaultHive, "Strategic", 1600);
+                _mcXenoHive.AddPsypoints(defaultHive, "Tactical", 400);
             }
 
             StartBioscan();
@@ -307,6 +314,28 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
                 _rmcHive.SetHive(xenoEnt, _mcXenoHive.DefaultHive);
                 return xenoEnt;
             }
+        }
+    }
+
+    private void OnNukeExploded(MCNukeExplodedEvent ev)
+    {
+        foreach (var gameRule in GameTicker.GetActiveGameRules())
+        {
+            if (!TryComp<MCDistressSignalRuleComponent>(gameRule, out var component))
+                continue;
+
+            EndRound((gameRule, component), MCDisstressRuleResult.MajorMarineVictory);
+        }
+    }
+
+    private void OnHiveCollapsed(ref MCXenoHiveCollapsed ev)
+    {
+        foreach (var gameRule in GameTicker.GetActiveGameRules())
+        {
+            if (!TryComp<MCDistressSignalRuleComponent>(gameRule, out var component))
+                continue;
+
+            EndRound((gameRule, component), MCDisstressRuleResult.MajorMarineVictory);
         }
     }
 }

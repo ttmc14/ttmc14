@@ -1,13 +1,9 @@
-﻿using Content.Shared._MC.Xeno.Evolution.Components;
-using Content.Shared._MC.Xeno.Hive.Components;
+﻿using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Systems;
-using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Climbing.Systems;
-using Content.Shared.Mobs.Components;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
 using Robust.Shared.Network;
@@ -28,7 +24,6 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
     [Dependency] private readonly ClimbSystem _climb = null!;
     [Dependency] private readonly EntityLookupSystem _entityLookup = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly MobStateSystem _mobState = null!;
 
     [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
 
@@ -37,17 +32,13 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
     private readonly HashSet<EntityUid> _climbableTemp = new();
     private readonly HashSet<EntityUid> _intersectingTemp = new();
 
-    private EntityQuery<MCXenoEvolutionAffectGainComponent> _evolutionAffectGainQuery;
     private EntityQuery<HiveMemberComponent> _hiveMemberQuery;
-    private EntityQuery<MobStateComponent> _mobStateQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        _evolutionAffectGainQuery = GetEntityQuery<MCXenoEvolutionAffectGainComponent>();
         _hiveMemberQuery = GetEntityQuery<HiveMemberComponent>();
-        _mobStateQuery = GetEntityQuery<MobStateComponent>();
     }
 
     public override void Update(float frameTime)
@@ -85,14 +76,32 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         return true;
     }
 
+    public bool CanDevolve(Entity<XenoDevolveComponent> xeno, bool doPopup)
+    {
+        if (MetaData(xeno).EntityPrototype is not { } target)
+            return false;
+
+        if (!_prototype.TryIndex(target, out var targetPrototype))
+            return false;
+
+        if (!TryGetHive(xeno, out var hive, doPopup))
+            return false;
+
+        // Ha-ha funny wraith bug moment
+        if (!CheckBlockedRequirement(xeno, hive, target, targetPrototype, doPopup))
+            return false;
+
+        return true;
+    }
+
     private bool TryGetHive(
-        Entity<XenoEvolutionComponent> xeno,
+        EntityUid xeno,
         out Entity<MCXenoHiveComponent> hive,
         bool doPopup)
     {
         hive = default;
 
-        if (_mcXenoHive.GetHive(xeno.Owner) is not { } foundHive)
+        if (_mcXenoHive.GetHive(xeno) is not { } foundHive)
         {
             if (doPopup)
                 _popup.PopupEntity(Loc.GetString("mc-xeno-evolution-failed-no-hive"), xeno, xeno, PopupType.MediumCaution);
@@ -106,7 +115,7 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
 
 
     private bool CheckLeaderRequirement(
-        Entity<XenoEvolutionComponent> xeno,
+        EntityUid xeno,
         Entity<MCXenoHiveComponent> hive,
         EntityPrototype targetPrototype,
         bool doPopup)
@@ -131,7 +140,7 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
     }
 
     private bool CheckLivingRequirement(
-        Entity<XenoEvolutionComponent> xeno,
+        EntityUid xeno,
         Entity<MCXenoHiveComponent> hive,
         EntProtoId target,
         EntityPrototype targetPrototype,
@@ -151,7 +160,7 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
     }
 
     private bool CheckBlockedRequirement(
-        Entity<XenoEvolutionComponent> xeno,
+        EntityUid xeno,
         Entity<MCXenoHiveComponent> hive,
         EntProtoId target,
         EntityPrototype targetPrototype,
@@ -167,7 +176,7 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
     }
 
     private bool CheckEvolutionSlot(
-        Entity<XenoEvolutionComponent> xeno,
+        EntityUid xeno,
         Entity<MCXenoHiveComponent> hive,
         EntityPrototype targetPrototype,
         bool doPopup)

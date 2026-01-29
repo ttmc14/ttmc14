@@ -3,6 +3,7 @@ using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Rules;
@@ -42,14 +43,16 @@ public sealed partial class MCDistressSignalRuleComponent : Component, IRulePlan
     [DataField, AutoNetworkedField]
     public TimeSpan MarineRespawnTime = TimeSpan.FromMinutes(15);
 
-    // Xenos
+    [DataField]
+    public MCDisstressRuleResult Result = MCDisstressRuleResult.None;
+}
 
-    [DataField, AutoNetworkedField]
-    public List<EntProtoId> XenoRestrictedCastes = new();
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan XenoRespawnTime = TimeSpan.FromMinutes(3);
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan XenoSwapTimer = TimeSpan.FromMinutes(5);
+[Serializable, NetSerializable]
+public enum MCDisstressRuleResult
+{
+    None,
+    MajorMarineVictory,
+    MinorMarineVictory,
+    MajorXenoVictory,
+    MinorXenoVictory,
 }

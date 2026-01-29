@@ -78,9 +78,6 @@
   - type: CollisionWake
     enabled: false
   - type: XenoStructureMapTracked
-  - type: MCXenoStructureSpawner
-    mobsPerPlayer: 0.075
-    respawnMultiplier: 2
   - type: TacticalMapTracked
   - type: XenoWeedsSpreading
   - type: XenoWeeds
@@ -91,6 +88,10 @@
         MCBrute: -7.5
         MCBurn: -7.5
   # Pheromones
+  - type: MCXenoSilo
+  - type: MCXenoStructureSpawner
+    mobsPerPlayer: 0.075
+    respawnMultiplier: 2
   - type: MCXenoPheromonesPassive
     entries:
     - pheromones: Recovery
