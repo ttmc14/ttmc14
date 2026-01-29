@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Xeno.Biomass;
+using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -18,21 +19,22 @@ namespace Content.Shared._MC.Xeno.Abilities.General.Psydrain;
 
 public sealed class MCXenoPsydrainSystem : EntitySystem
 {
-    [Dependency] private readonly ISharedAdminLogManager _adminLogger = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
-    [Dependency] private readonly SharedRMCFlammableSystem _flammable = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedJitteringSystem _jittering = default!;
+    [Dependency] private readonly ISharedAdminLogManager _adminLogger = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly SharedActionsSystem _actions = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly DamageableSystem _damageable = null!;
+    [Dependency] private readonly SharedRMCFlammableSystem _flammable = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly SharedJitteringSystem _jittering = null!;
 
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = default!;
+    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
 
-    [Dependency] private readonly MCStatusSystem _mcStatus = default!;
-    [Dependency] private readonly MCXenoBiomassSystem _mcXenoBiomass = default!;
+    [Dependency] private readonly MCStatusSystem _mcStatus = null!;
+    [Dependency] private readonly MCXenoBiomassSystem _mcXenoBiomass = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private EntityQuery<MCXenoPsydrainableComponent> _psydrainableQuery;
 
@@ -177,15 +179,15 @@ public sealed class MCXenoPsydrainSystem : EntitySystem
         _mcXenoBiomass.Add(entity.Owner, entity.Comp.BiomassGain);
 
         // Hive reward
-        _rmcXenoHive.AddLarvaPointsOwner(entity, entity.Comp.LarvaPointsGain);
+        _mcXenoHive.MemberAddLarva(entity, entity.Comp.LarvaPointsGain);
 
         var psypointReward = int.Clamp(
             entity.Comp.PsypointRewardMin + (MCStatusSystem.HighPlayerPop - _mcStatus.ActivePlayerCount) / MCStatusSystem.HighPlayerPop * (entity.Comp.PsypointRewardMax - entity.Comp.PsypointRewardMin),
             entity.Comp.PsypointRewardMin,
             entity.Comp.PsypointRewardMax);
 
-        _rmcXenoHive.AddPsypointsFromOwner(entity, "Strategic", psypointReward);
-        _rmcXenoHive.AddPsypointsFromOwner(entity, "Tactical", psypointReward / 4);
+        _mcXenoHive.MemberAddPsypoints(entity, "Strategic", psypointReward);
+        _mcXenoHive.MemberAddPsypoints(entity, "Tactical", psypointReward / 4);
 
         _adminLogger.Add(LogType.Action,
             LogImpact.Medium,

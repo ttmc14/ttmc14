@@ -202,7 +202,7 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
 
     private float GetRulerHealthMultiplier(EntityUid uid)
     {
-        return _mcXenoHive.HiveMemberHasRuler(uid) ? 1 : 0.5f;
+        return _mcXenoHive.MemberHasRuler(uid) ? 1 : 0.5f;
     }
 
     private float GetWeedsHealthMultiplier(Entity<AffectableByWeedsComponent?> entity)

@@ -2,16 +2,16 @@
 using Content.Server._MC.Xeno.Spawn;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Maps;
 using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
+using Content.Server.Preferences.Managers;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Rules;
-using Content.Shared._MC.Rules.Crash;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
@@ -19,14 +19,15 @@ using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
-namespace Content.Server._MC.Rules;
+namespace Content.Server._MC.Rules.Distress;
 
-public sealed class MCDistressSignalRuleSystem : MCRuleSystem<MCDistressSignalRuleComponent>
+public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignalRuleComponent>
 {
     [Dependency] private readonly IBanManager _bans = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IServerPreferencesManager _preferences = null!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = default!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
@@ -44,6 +45,48 @@ public sealed class MCDistressSignalRuleSystem : MCRuleSystem<MCDistressSignalRu
 
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
+    }
+
+    protected override void OnStartAttempt(Entity<MCDistressSignalRuleComponent, GameRuleComponent> gameRule, RoundStartAttemptEvent ev)
+    {
+        if (ev.Forced || ev.Cancelled)
+            return;
+
+        var query = QueryAllRules();
+        while (query.MoveNext(out _, out var ruleComponent, out _))
+        {
+            var xenoCandidates = 0;
+            foreach (var player in ev.Players)
+            {
+                if (!_preferences.TryGetCachedPreferences(player.UserId, out var preferences))
+                    continue;
+
+                var profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
+                if (profile.JobPriorities.TryGetValue(ruleComponent.XenoSelectableJob, out var xenoPriority) && xenoPriority > JobPriority.Never ||
+                    profile.JobPriorities.TryGetValue(ruleComponent.ShrikeJob, out var shrikePriority) && shrikePriority > JobPriority.Never)
+                    xenoCandidates++;
+            }
+
+            if (ev.Players.Length <= 2)
+            {
+                Announce($"Невозможно запустить крушение. Требуется как минимум 2 игрока, но у нас есть {ev.Players.Length}.");
+                ev.Cancel();
+            }
+
+            if (xenoCandidates >= 1)
+                continue;
+
+            Announce($"Невозможно запустить крушение. Требуется как минимум 1 ксено-игрок, но у нас есть {xenoCandidates}.");
+            ev.Cancel();
+        }
+
+        return;
+
+        void Announce(string msg)
+        {
+            ChatManager.SendAdminAnnouncement(msg);
+            ChatManager.DispatchServerAnnouncement(msg);
+        }
     }
 
     private void OnMapLoading(LoadingMapsEvent ev)
@@ -236,8 +279,4 @@ public sealed class MCDistressSignalRuleSystem : MCRuleSystem<MCDistressSignalRu
         }
     }
 
-    private void CheckRoundShouldEnd()
-    {
-
-    }
 }

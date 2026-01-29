@@ -1,4 +1,5 @@
-﻿using Content.Client._RMC14.Xenonids.Hive;
+﻿using Content.Client._MC.Xeno.Hive;
+using Content.Client._RMC14.Xenonids.Hive;
 using Content.Shared._MC.Xeno.Blessings;
 using Content.Shared._MC.Xeno.Blessings.Prototypes;
 using Content.Shared._MC.Xeno.Construction.Blessings.UI;
@@ -14,12 +15,12 @@ namespace Content.Client._MC.Xeno.Construction.Blessings.UI;
 [UsedImplicitly]
 public sealed class MCXenoBlessingsBui : BoundUserInterface
 {
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
+    [Dependency] private readonly IPrototypeManager _prototype = null!;
 
     private readonly Dictionary<ProtoId<MCXenoBlessingsGroupPrototype>, int> _groupMapping = new();
     private int _groupId;
 
-    private readonly XenoHiveSystem _hiveSystem;
+    private readonly MCXenoHiveSystem _mcHiveSystem;
     private readonly SpriteSystem _sprite;
 
     [ViewVariables]
@@ -27,7 +28,7 @@ public sealed class MCXenoBlessingsBui : BoundUserInterface
 
     public MCXenoBlessingsBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
-        _hiveSystem = EntMan.System<XenoHiveSystem>();
+        _mcHiveSystem = EntMan.System<MCXenoHiveSystem>();
         _sprite = EntMan.System<SpriteSystem>();
     }
 
@@ -95,7 +96,7 @@ public sealed class MCXenoBlessingsBui : BoundUserInterface
         var name = $"{Loc.GetString(prototype.Name)} ({prototype.Cost} {Loc.GetString(costTypePrototype.Name)})";
         var texture = _sprite.Frame0(prototype.Icon);
 
-        choose.Set(name, texture, !_hiveSystem.HasPsypointsFromOwner(Owner, prototype.CostType, prototype.Cost));
+        choose.Set(name, texture, !_mcHiveSystem.MemberHasPsypoints(Owner, prototype.CostType, prototype.Cost));
         choose.Button.OnPressed += _ => SendMessage(new MCXenoBlessingsChooseBuiMsg(id));
 
         root.AddChild(choose);
@@ -106,8 +107,8 @@ public sealed class MCXenoBlessingsBui : BoundUserInterface
         if (_window is null)
             return;
 
-        var tactical = _hiveSystem.GetPsypointsFromOwner(ownerUid, "Tactical");
-        var strategic = _hiveSystem.GetPsypointsFromOwner(ownerUid, "Strategic");
+        var tactical = _mcHiveSystem.MemberGetPsypoints(ownerUid, "Tactical");
+        var strategic = _mcHiveSystem.MemberGetPsypoints(ownerUid, "Strategic");
 
         _window.PsyLabel.Text = $"Tactical points: {tactical} | Strategic points: {strategic}";
     }

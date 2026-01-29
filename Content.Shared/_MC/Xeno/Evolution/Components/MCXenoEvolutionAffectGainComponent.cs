@@ -1,7 +1,7 @@
 ﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._MC.Xeno.Evolution;
+namespace Content.Shared._MC.Xeno.Evolution.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCXenoEvolutionAffectGainComponent : Component

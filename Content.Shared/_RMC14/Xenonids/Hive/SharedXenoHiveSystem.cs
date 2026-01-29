@@ -1,4 +1,5 @@
 using Content.Shared._MC.Xeno.Constructions.Spawner;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.NightVision;
 using Content.Shared._RMC14.Xenonids.Announce;
@@ -96,6 +97,8 @@ public abstract partial class SharedXenoHiveSystem : EntitySystem
 
     private void OnMapInit(Entity<HiveComponent> ent, ref MapInitEvent args)
     {
+        EnsureComp<MCXenoHiveComponent>(ent);
+
         ent.Comp.AnnouncedUnlocks.Clear();
         ent.Comp.Unlocks.Clear();
         ent.Comp.AnnouncementsLeft.Clear();

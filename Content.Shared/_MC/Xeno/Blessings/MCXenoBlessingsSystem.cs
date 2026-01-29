@@ -1,6 +1,8 @@
 ﻿using Content.Shared._MC.Xeno.Construction;
 using Content.Shared._MC.Xeno.Construction.Blessings.Events;
 using Content.Shared._MC.Xeno.Construction.Blessings.UI;
+using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;
@@ -11,13 +13,15 @@ namespace Content.Shared._MC.Xeno.Blessings;
 
 public sealed class MCXenoBlessingsSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
-    [Dependency] private readonly MCXenoConstructionSystem _mcXenoConstruction = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+    [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly IPrototypeManager _prototype = null!;
+
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
+    [Dependency] private readonly MCXenoConstructionSystem _mcXenoConstruction = null!;
 
     public override void Initialize()
     {
@@ -42,7 +46,7 @@ public sealed class MCXenoBlessingsSystem : EntitySystem
         if (!_prototype.TryIndex(args.Id, out var entry))
             return;
 
-        if (!_xenoHive.HasPsypointsFromOwner(entity, entry.CostType, entry.Cost))
+        if (!_mcXenoHive.MemberHasPsypoints(entity, entry.CostType, entry.Cost))
             return;
 
         if (!_mcXenoConstruction.CanPlace(entity, Transform(entity).Coordinates, out var popupType))
@@ -75,7 +79,7 @@ public sealed class MCXenoBlessingsSystem : EntitySystem
         if (!_prototype.TryIndex(args.Id, out var entry))
             return;
 
-        if (!_xenoHive.HasPsypointsFromOwner(entity, entry.CostType, entry.Cost))
+        if (!_mcXenoHive.MemberHasPsypoints(entity, entry.CostType, entry.Cost))
             return;
 
         if (!_mcXenoConstruction.CanPlace(entity, Transform(entity).Coordinates, out var popupType))
@@ -84,12 +88,12 @@ public sealed class MCXenoBlessingsSystem : EntitySystem
             return;
         }
 
-        _xenoHive.AddPsypointsFromOwner(entity, entry.CostType, -entry.Cost);
+        _mcXenoHive.MemberAddPsypoints(entity, entry.CostType, -entry.Cost);
 
         if (!_net.IsServer)
             return;
 
         var structure = Spawn(entry.Entity, GetCoordinates(args.Coordinates));
-        _xenoHive.SetSameHive(entity.Owner, structure);
+        _mcXenoHive.SetSameHive(entity.Owner, structure);
     }
 }

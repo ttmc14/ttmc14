@@ -152,15 +152,15 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
 
         if (ration >= 1)
         {
-            _mcXenoHive.AddBurrowedLarva(hive, 1);
+            // _mcXenoHive.AddBurrowedLarvaSlots(hive, 1);
             return;
         }
 
-        var totalXenos = _mcXenoHive.GetLiving(hive, 0) + _mcXenoHive.GetBurrowedLarvaCount(hive);
-        if (totalXenos >= 2)
-            return;
+        // var totalXenos = _mcXenoHive.GetLiving(hive, 0) + _mcXenoHive.GetBurrowedLarvaSlots(hive);
+        // if (totalXenos >= 2)
+        //    return;
 
-        _mcXenoHive.AddBurrowedLarva(hive, 1);
+        // _mcXenoHive.AddBurrowedLarvaSlots(hive, 1);
     }
 
     private float GetJobPointDifference()
@@ -168,16 +168,17 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
         if (_mcXenoHive.DefaultHive is not {} hive)
             return 0;
 
-        var burrowed = _mcXenoHive.GetBurrowedLarvaCount(hive);
+        // var burrowed = _mcXenoHive.GetBurrowedLarvaSlots(hive);
         var xenos = _mcXenoHive.GetLiving(hive, 0);
         var marines = GetLiving<MarineComponent>();
         var marinePoints = marines * 3.55f;
 
 #if !FULL_RELEASE
-        Log.Info($"Burrowed: {burrowed}, Xenos {xenos}, Marines {marines}, Marines points {marinePoints}");
+        // Log.Info($"Burrowed: {burrowed}, Xenos {xenos}, Marines {marines}, Marines points {marinePoints}");
 #endif
 
-        return marinePoints - (xenos + burrowed) * 10f;
+        // return marinePoints - (xenos + burrowed) * 10f;
+        return 0;
     }
 
     private void OnRoundEndMessage(RoundEndMessageEvent ev)
@@ -225,9 +226,9 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
             // Hive settings
             if (_mcXenoHive.DefaultHive is not null)
             {
-                _mcXenoHive.SetCanEvolveWithoutLeader(_mcXenoHive.DefaultHive.Value, true);
-                _mcXenoHive.SetCanCollapse(_mcXenoHive.DefaultHive.Value, false);
-                _mcXenoHive.SetCanLarvaPoints(_mcXenoHive.DefaultHive.Value, false);
+                // _mcXenoHive.SetConfiguration(_mcXenoHive.DefaultHive.Value, true);
+                // _mcXenoHive.SetCanCollapse(_mcXenoHive.DefaultHive.Value, false);
+                // _mcXenoHive.SetCanLarvaPoints(_mcXenoHive.DefaultHive.Value, false);
             }
 
             StartBioscan();

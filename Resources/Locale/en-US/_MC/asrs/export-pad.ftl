@@ -7,8 +7,7 @@ export-pad-human-not-interesting = {$pad} гудит: высшее команд�
 export-pad-human-alive = {$pad} гудит: цель жива и не может быть продана.
 
 export-pad-sold =
-    {$pad} гудит: груз продан за
-    { $points ->
+    {$pad} гудит: груз продан за { $points ->
         [0] отсутствие очков
         [one] {$points} очко
        *[other] {$points} очков
