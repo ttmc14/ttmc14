@@ -85,8 +85,8 @@
 
 - type: entity
   parent: MCPouchMedkit
-  id: MCPouchMedkitCorpsmanFill
-  suffix: Corpsman, Fill
+  id: MCPouchMedkitSquadBaseFill
+  suffix: Standart, Fill
   components:
   - type: StorageFill
     contents:

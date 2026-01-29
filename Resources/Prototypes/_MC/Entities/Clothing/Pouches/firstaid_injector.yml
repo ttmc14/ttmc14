@@ -46,7 +46,7 @@
 - type: entity
   parent: MCPouchMedicalInjector
   id: MCPouchMedicalInjectorBaseFull
-  suffix: Corpsman, Full
+  suffix: Standart, Full
   components:
   - type: StorageFill
     contents:
