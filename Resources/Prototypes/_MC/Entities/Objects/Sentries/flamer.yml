@@ -96,7 +96,7 @@
       types:
         MCBurn: 50
   - type: SpawnOnTerminate
-    spawn: MCFireFlamethrower
+    spawn: MCFireSentryFlamer
   - type: IgnoreArc
   - type: Fixtures
     fixtures:
@@ -120,7 +120,7 @@
 
 - type: entity
   parent: MCFire
-  id: MCFireFlamethrower
+  id: MCFireSentryFlamer
   components:
   - type: DamageOnCollide
     damageDead: false
@@ -136,6 +136,6 @@
       types:
         MCBurn: 0.1
   - type: TileFire
-    id: MCFireFlamethrower
+    id: MCFireSentryFlamer
     duration: 15
     extinguishInstantly: false
