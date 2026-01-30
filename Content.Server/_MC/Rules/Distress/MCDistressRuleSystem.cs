@@ -36,10 +36,11 @@ namespace Content.Server._MC.Rules.Distress;
 
 public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignalRuleComponent>
 {
+    [Dependency] private readonly MCRuleStartValidationSystem _mcRuleStartValidation = null!;
+
     [Dependency] private readonly IBanManager _bans = null!;
     [Dependency] private readonly IPlayerManager _player = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
-    [Dependency] private readonly IServerPreferencesManager _preferences = null!;
     [Dependency] private readonly IConfigurationManager _config = null!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = null!;
@@ -75,46 +76,26 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
         SubscribeLocalEvent<DropshipHijackLandedEvent>(OnDropshipHijackLanded);
     }
 
-    protected override void OnStartAttempt(Entity<MCDistressSignalRuleComponent, GameRuleComponent> gameRule, RoundStartAttemptEvent ev)
+    protected override void OnStartAttempt(
+        Entity<MCDistressSignalRuleComponent, GameRuleComponent> gameRule,
+        RoundStartAttemptEvent ev)
     {
         if (ev.Forced || ev.Cancelled)
             return;
 
-        var query = QueryAllRules();
-        while (query.MoveNext(out _, out var ruleComponent, out _))
-        {
-            var xenoCandidates = 0;
-            foreach (var player in ev.Players)
-            {
-                if (!_preferences.TryGetCachedPreferences(player.UserId, out var preferences))
-                    continue;
+        var rule = gameRule.Comp1;
+        if (_mcRuleStartValidation.TryValidateXenoRequirements(
+                ev.Players,
+                rule.XenoSelectableJob,
+                rule.ShrikeJob,
+                minPlayers: 2,
+                minXenoCandidates: 1,
+                out _,
+                out var failReason))
+            return;
 
-                var profile = (HumanoidCharacterProfile) preferences.GetProfile(preferences.SelectedCharacterIndex);
-                if (profile.JobPriorities.TryGetValue(ruleComponent.XenoSelectableJob, out var xenoPriority) && xenoPriority > JobPriority.Never ||
-                    profile.JobPriorities.TryGetValue(ruleComponent.ShrikeJob, out var shrikePriority) && shrikePriority > JobPriority.Never)
-                    xenoCandidates++;
-            }
-
-            if (ev.Players.Length <= 2)
-            {
-                Announce($"Невозможно запустить крушение. Требуется как минимум 2 игрока, но у нас есть {ev.Players.Length}.");
-                ev.Cancel();
-            }
-
-            if (xenoCandidates >= 1)
-                continue;
-
-            Announce($"Невозможно запустить крушение. Требуется как минимум 1 ксено-игрок, но у нас есть {xenoCandidates}.");
-            ev.Cancel();
-        }
-
-        return;
-
-        void Announce(string msg)
-        {
-            ChatManager.SendAdminAnnouncement(msg);
-            ChatManager.DispatchServerAnnouncement(msg);
-        }
+        _mcRuleStartValidation.AnnounceFail(failReason);
+        ev.Cancel();
     }
 
     private void OnMapLoading(LoadingMapsEvent ev)
