@@ -16,7 +16,7 @@ public sealed class MCOperationSystem : MCEntitySystemSingleton<MCOperationSyste
         Dirty(Inst);
 
         var ev = new MCOperationStartEvent();
-        RaiseLocalEvent(ev);
+        RaiseLocalEvent(ref ev);
     }
 }
 

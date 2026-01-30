@@ -161,8 +161,6 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: Almayer
-    - type: SpreaderGrid
-      updateAccumulator: 0.834126
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
@@ -172,29 +170,9 @@ entities:
     - type: GasTileOverlay
     - type: BecomesStation
       id: PillarOfSpring
-    - type: RadiationGridResistance
     - type: FootstepModifier
       footstepSoundCollection: !type:SoundCollectionSpecifier
         collection: FootstepFloor
-    - type: MapAtmosphere
-      space: False
-      mixture:
-        volume: 2500
-        immutable: True
-        temperature: 290
-        moles:
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
-        - 0
     - type: MapGrid
       chunks:
         0,0:

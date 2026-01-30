@@ -1,5 +1,6 @@
 ﻿using Content.Server._MC.Xeno.Hive;
 using Content.Server._MC.Xeno.Spawn;
+using Content.Server._RMC14.Marines;
 using Content.Server.Administration.Managers;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
@@ -7,6 +8,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.RoundEnd;
 using Content.Shared._MC.Nuke.Bomb.Events;
+using Content.Shared._MC.Operation;
 using Content.Shared._MC.Rules;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
@@ -19,9 +21,11 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
+using Robust.Shared.Audio;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
+using Robust.Shared.Timing;
 
 namespace Content.Server._MC.Rules.Distress;
 
@@ -36,12 +40,14 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
     [Dependency] private readonly XenoSystem _rmcXeno = null!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
     [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
+    [Dependency] private readonly MarineAnnounceSystem _rmcMarineAnnounce = null!;
 
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = null!;
     [Dependency] private readonly MindSystem _mind = null!;
 
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = null!;
+    [Dependency] private readonly MCOperationSystem _mcOperation = null!;
 
     public override void Initialize()
     {
@@ -144,6 +150,17 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
                 _mcXenoHive.AddPsypoints(defaultHive, "Strategic", 1600);
                 _mcXenoHive.AddPsypoints(defaultHive, "Tactical", 400);
             }
+
+#if !FULL_RELEASE
+            var duartion = TimeSpan.FromSeconds(30);
+#else
+            var duartion = TimeSpan.FromMinutes(10);
+#endif
+
+            Timer.Spawn(duartion, () => {
+                _mcOperation.Start();
+                _rmcMarineAnnounce.AnnounceARESStaging(null, "Операция началась.", new SoundPathSpecifier("/Audio/_RMC14/Announcements/ARES/ares_online.ogg"),"rmc-announcement-ares-online");
+            });
 
             StartBioscan();
 
