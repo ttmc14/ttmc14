@@ -23,7 +23,7 @@ using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
-using Robust.Client.Audio;
+using Robust.Server.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
 using Robust.Shared.Configuration;

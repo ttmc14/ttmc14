@@ -5,7 +5,6 @@ using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
-using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Rules;
@@ -48,7 +47,8 @@ public sealed partial class MCDistressSignalRuleComponent : Component, IRulePlan
 
     [DataField]
     public TimeSpan? ForceEndAt;
-    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+
+    [DataField]
     public TimeSpan? NextCheck;
 
     [DataField]

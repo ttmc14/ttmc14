@@ -107,10 +107,15 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         return _rmcHive.IsMember(entity, hiveUid);
     }
 
+    public void SetHive(Entity<HiveMemberComponent?> entity, EntityUid? hive)
+    {
+        _rmcHive.SetHive(entity, hive);
+    }
+
     public void SetSameHive(Entity<HiveMemberComponent?> src, Entity<HiveMemberComponent?> dest)
     {
         if (GetHive(src) is {} hive)
-            _rmcHive.SetHive(dest, hive);
+            SetHive(dest, hive);
     }
 }
 
