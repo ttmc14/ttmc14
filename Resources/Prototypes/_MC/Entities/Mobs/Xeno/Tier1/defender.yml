@@ -28,6 +28,10 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: defender
+  # Evolution
+  - type: XenoEvolution
+    strains:
+    - MCXenoDefenderSteelCrest
   # Actions
   - type: Xeno
     tier: 1
@@ -89,6 +93,63 @@
     hitDamage:
       types:
         MCBrute: 11
+
+- type: entity
+  parent:
+  # MC
+  - MCXenoDefender
+  id: MCXenoDefenderSteelCrest
+  name: steel crest defender
+  description: An alien with an armored crest.
+  components:
+  - type: XenoHidden
+  # Name
+  - type: FixedIdentity
+    name: mc-job-name-xeno-defender-steelcrest
+  - type: GhostRole
+    name: mc-job-name-xeno-defender-steelcrest
+  - type: RMCActionOrder
+    id: MCXenoDefenderSteelCrest
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/defender_steelcrest.rsi
+    offset: 0, 0.2
+    # Actions
+  - type: Xeno
+    tier: 1
+    role: MCXenoDefender
+    actionIds:
+    - MCActionXenoRest
+    - MCActionXenoPsydrain
+    - MCActionXenoDevolve
+    # Main
+    - MCActionXenoCrestDefense
+    - MCActionXenoFortify
+    - ActionXenoHeadbutt # - TODO: Make MC component
+    # Utilities
+    - ActionXenoSoak # - TODO: Make MC component
+  # Evolution
+  - type: XenoEvolution
+    strains: []
+    # Statistics
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 2.3528
+    baseSprintSpeed: 3.3328
+    # Abilities
+  - type: XenoFortify # TODO: Make MC component
+    armor: 25 # - TODO: Make MC armor
+    frontalArmor: 0
+    changeExplosionWeakness: false
+    canHeadbuttFortified: true
+    canMoveFortified: true
+    damageAddedFortified:
+      groups:
+        MCBrute: -10
+  - type: XenoHeadbutt # - TODO: Make MC component
+    damage:
+      types:
+        MCBrute: 37.5
+  - type: XenoSoak # - TODO: Make MC component / IDK how this is work, but it work
 
 # Components (Separated for ease of editing/reading)
 - type: entity

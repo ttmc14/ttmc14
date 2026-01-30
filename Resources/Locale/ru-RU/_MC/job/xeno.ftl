@@ -6,6 +6,7 @@ mc-job-name-xeno-scorpion = Скорпион
 mc-job-name-selectable-xenonid = Ксеноморф
 mc-job-name-xeno-rafik = Рафик
 mc-job-name-xeno-defender = Защитник
+mc-job-name-xeno-defender-steelcrest = Стальной Защитник
 mc-job-name-xeno-drone = Дрон
 mc-job-name-xeno-runner = Бегун
 mc-job-name-xeno-runner-melter = Мелтер

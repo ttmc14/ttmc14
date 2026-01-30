@@ -1,2 +1,4 @@
 ent-MCXenoDefender = защитник
-    .desc = An alien with an armored crest.
+    .desc = Ксеноморф имеющий бронированный крест
+ent-MCXenoDefenderSteelCrest = стальной защитник
+    .desc = Ксеноморф имеющий стальной крест
