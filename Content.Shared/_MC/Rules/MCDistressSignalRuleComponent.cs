@@ -10,7 +10,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Rules;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
 public sealed partial class MCDistressSignalRuleComponent : Component, IRulePlanet
 {
     [DataField, AutoNetworkedField]
@@ -48,6 +48,7 @@ public sealed partial class MCDistressSignalRuleComponent : Component, IRulePlan
 
     [DataField]
     public TimeSpan? ForceEndAt;
+
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
     public TimeSpan? NextCheck;
 

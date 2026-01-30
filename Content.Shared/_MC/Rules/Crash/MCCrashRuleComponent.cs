@@ -58,12 +58,6 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
 
     [AutoNetworkedField]
     public bool PowerRecalculated { get; set; }
-
-    // TODO: starting_squad
-    // TODO: evo_requirements
-    // /datum/xeno_caste/king = 14
-    // /datum/xeno_caste/queen = 10
-    // /datum/xeno_caste/hivelord = 5
 }
 
 public interface IRuleRecalculatePower

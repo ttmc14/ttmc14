@@ -7,14 +7,23 @@ namespace Content.Shared._MC;
 public sealed class MCConfigVars : CVars
 {
     /**
-     * Round
+     * Balance
      */
 
-    public static readonly CVarDef<int> ForceEndHijackTimeMinutes =
-        CVarDef.Create("mc.round.hijack_end_time_minutes", 25, CVar.REPLICATED | CVar.SERVER);
+    /// <summary>
+    /// Marines per xenos
+    /// </summary>
+    public static readonly CVarDef<float> BalanceXenoRatio =
+        CVarDef.Create("mc.balance.xeno_ratio", 3f, CVar.SERVER | CVar.SERVERONLY);
 
+    /**
+     * Round
+     */
     public static readonly CVarDef<bool> RoundCanEnd =
         CVarDef.Create("mc.round.can_end", true, CVar.REPLICATED | CVar.SERVER);
+
+    public static readonly CVarDef<int> RoundForceEndHijackTimeMinutes =
+        CVarDef.Create("mc.round.hijack_end_time_minutes", 25, CVar.REPLICATED | CVar.SERVER);
 
     /**
      * ASRS

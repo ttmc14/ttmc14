@@ -155,6 +155,8 @@ entities:
     - type: Broadphase
     - type: OccluderTree
     - type: Almayer
+    - type: SpreaderGrid
+      updateAccumulator: 0.48885292
     - type: MapGrid
       chunks:
         0,0:

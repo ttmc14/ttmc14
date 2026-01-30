@@ -1,0 +1,9 @@
+- type: gameMap
+  id: MCEmpty
+  mapName: Empty
+  mapPath: /Maps/_MC/empty.yml
+  minPlayers: 0
+  maxRandomOffset: 0
+  randomRotation: false
+  fallback: true
+  stations: {}

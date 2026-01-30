@@ -1,5 +1,7 @@
 ﻿using Content.Server.GameTicking;
+using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Rules;
+using Content.Shared._MC.Xeno.Hive.Events;
 using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Rules;
@@ -21,6 +23,27 @@ public sealed partial class MCDistressRuleSystem
         args.AddLine($"{Loc.GetString($"mc-distress-{component.Result.ToString().ToLower()}")}");
     }
 
+    private void OnNukeExploded(MCNukeExplodedEvent ev)
+    {
+        foreach (var gameRule in GameTicker.GetActiveGameRules())
+        {
+            if (!TryComp<MCDistressSignalRuleComponent>(gameRule, out var component))
+                continue;
+
+            EndRound((gameRule, component), MCDisstressRuleResult.MajorMarineVictory);
+        }
+    }
+
+    private void OnHiveCollapsed(ref MCXenoHiveCollapsed ev)
+    {
+        foreach (var gameRule in GameTicker.GetActiveGameRules())
+        {
+            if (!TryComp<MCDistressSignalRuleComponent>(gameRule, out var component))
+                continue;
+
+            EndRound((gameRule, component), MCDisstressRuleResult.MajorMarineVictory);
+        }
+    }
     protected override void ActiveTick(EntityUid uid, MCDistressSignalRuleComponent component, GameRuleComponent gameRule, float frameTime)
     {
         base.ActiveTick(uid, component, gameRule, frameTime);

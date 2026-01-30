@@ -154,25 +154,21 @@ entities:
     components:
     - type: MetaData
       name: TGV Pillar of Spring
+    - type: Almayer
+    - type: BecomesStation
+      id: PillarOfSpring
     - type: Transform
     - type: Map
       mapPaused: True
     - type: GridTree
-    - type: Broadphase
     - type: OccluderTree
-    - type: Almayer
     - type: GridPathfinding
     - type: Gravity
       gravityShakeSound: !type:SoundPathSpecifier
         path: /Audio/Effects/alert.ogg
       inherent: True
       enabled: True
-    - type: GasTileOverlay
-    - type: BecomesStation
-      id: PillarOfSpring
-    - type: FootstepModifier
-      footstepSoundCollection: !type:SoundCollectionSpecifier
-        collection: FootstepFloor
+    - type: Broadphase
     - type: MapGrid
       chunks:
         0,0:
