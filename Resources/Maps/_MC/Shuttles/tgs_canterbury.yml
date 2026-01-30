@@ -96,6 +96,7 @@ entities:
     - type: Transform
       parent: invalid
     - type: Almayer
+    - type: MCOperationStartOnLand
     - type: MapGrid
       chunks:
         0,0:

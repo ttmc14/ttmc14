@@ -10,35 +10,38 @@ public sealed class MCConfigVars : CVars
      * Round
      */
 
-    public static readonly CVarDef<bool> MCRoundCanEnd =
-        CVarDef.Create("mc.round_can_end", true, CVar.REPLICATED | CVar.SERVER);
+    public static readonly CVarDef<int> RoundForceEndHijackTimeMinutes =
+        CVarDef.Create("mc.round.hijack_end_time_minutes", 25, CVar.REPLICATED | CVar.SERVER);
+
+    public static readonly CVarDef<bool> RoundCanEnd =
+        CVarDef.Create("mc.round.can_end", true, CVar.REPLICATED | CVar.SERVER);
 
     /**
      * ASRS
      */
 
-    public static readonly CVarDef<int> MCAsrsStartingBalance =
+    public static readonly CVarDef<int> AsrsStartingBalance =
         CVarDef.Create("mc.asrs_starting_balance", 500, CVar.REPLICATED | CVar.SERVER);
 
     /**
      * Respawn
      */
 
-    public static readonly CVarDef<float> MCRespawnMarinesActionCooldownMinutes =
+    public static readonly CVarDef<float> RespawnMarinesActionCooldownMinutes =
         CVarDef.Create("mc.respawn_marines_action_delay_minutes", 10f, CVar.SERVER | CVar.REPLICATED);
 
     /**
      * Fire
      */
 
-    public static readonly CVarDef<bool> MCFireResistOnDeath =
+    public static readonly CVarDef<bool> FireResistOnDeath =
         CVarDef.Create("mc.fire_resist_on_death", true, CVar.SERVER | CVar.REPLICATED);
 
     /**
      * Stamina
      */
 
-    public static readonly CVarDef<bool> MCStaminaDamageOnRun =
+    public static readonly CVarDef<bool> StaminaDamageOnRun =
         CVarDef.Create("mc.stamina_damage_on_run", false, CVar.SERVER | CVar.REPLICATED);
 
     /**

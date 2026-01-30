@@ -24,7 +24,7 @@ public sealed class MCASRSSystem : MCEntitySystemSingleton<MCASRSSingletonCompon
     {
         base.OnInstanceCreated(entity);
 
-        entity.Comp.Balance = _configuration.GetCVar(MCConfigVars.MCAsrsStartingBalance);
+        entity.Comp.Balance = _configuration.GetCVar(MCConfigVars.AsrsStartingBalance);
     }
 
     #region Operations

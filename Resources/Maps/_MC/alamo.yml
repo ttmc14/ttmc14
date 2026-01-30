@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Grid
-  engineVersion: 264.0.0
+  engineVersion: 264.0.2
   forkId: ""
   forkVersion: ""
-  time: 09/26/2025 00:07:24
-  entityCount: 171
+  time: 01/30/2026 10:34:32
+  entityCount: 167
 maps: []
 grids:
 - 1
@@ -110,31 +110,26 @@ entities:
         chunkSize: 4
     - type: GasTileOverlay
     - type: ImplicitRoof
-- proto: CMAlamoDoor
+- proto: CMAlamoDoorAft
+  entities:
+  - uid: 69
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 0.5,-7.5
+      parent: 1
+- proto: CMAlamoDoorPort
   entities:
   - uid: 14
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 4.5,1.5
-      parent: 1
-  - uid: 89
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: 3.141592653589793 rad
       pos: -3.5,1.5
       parent: 1
-  - uid: 100
+  - uid: 68
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
       pos: 4.5,0.5
-      parent: 1
-  - uid: 102
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -3.5,0.5
       parent: 1
 - proto: CMAlamoWall1
   entities:
@@ -185,27 +180,6 @@ entities:
     components:
     - type: Transform
       pos: 2.5,10.5
-      parent: 1
-- proto: CMAlamoWall11
-  entities:
-  - uid: 68
-    components:
-    - type: Transform
-      pos: -0.5,-7.5
-      parent: 1
-- proto: CMAlamoWall12
-  entities:
-  - uid: 69
-    components:
-    - type: Transform
-      pos: 0.5,-7.5
-      parent: 1
-- proto: CMAlamoWall13
-  entities:
-  - uid: 70
-    components:
-    - type: Transform
-      pos: 1.5,-7.5
       parent: 1
 - proto: CMAlamoWall16
   entities:
@@ -1109,7 +1083,6 @@ entities:
   - uid: 128
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -0.75,4.5
       parent: 1
 - proto: MCSeatVehicleBravo
@@ -1117,7 +1090,6 @@ entities:
   - uid: 129
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: -0.25,4.5
       parent: 1
 - proto: MCSeatVehicleCharlie
@@ -1125,7 +1097,6 @@ entities:
   - uid: 125
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 1.25,4.5
       parent: 1
 - proto: MCSeatVehicleDelta
@@ -1133,7 +1104,6 @@ entities:
   - uid: 127
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 1.75,4.5
       parent: 1
 - proto: MCSeatVehicleFC
@@ -1141,7 +1111,6 @@ entities:
   - uid: 126
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
       pos: 0.5,4.5
       parent: 1
 - proto: MCSingleDoorShuttleAlamoCockpit

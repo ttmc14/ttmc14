@@ -1,3 +1,4 @@
 ﻿namespace Content.Shared._MC.Operation.Events;
 
-public sealed class MCOperationStartEvent : EntityEventArgs;
+[ByRefEvent]
+public readonly record struct MCOperationStartEvent;

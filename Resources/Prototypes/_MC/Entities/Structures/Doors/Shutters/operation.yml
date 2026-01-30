@@ -1,0 +1,8 @@
+- type: entity
+  parent: RMCPodDoorIndestructible
+  id: MCPodlockOperation
+  suffix: Operation
+  components:
+  - type: RMCPodDoor
+    id: mc_operation
+  - type: MCOperationPodlock
