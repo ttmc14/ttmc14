@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/27/2026 09:49:27
-  entityCount: 4442
+  time: 01/28/2026 18:54:25
+  entityCount: 4436
 maps:
 - 1
 grids:
@@ -26363,42 +26363,6 @@ entities:
     components:
     - type: Transform
       pos: -0.48317277,18
-      parent: 1
-- proto: MCSpawnPointCaptain
-  entities:
-  - uid: 4413
-    components:
-    - type: Transform
-      pos: -11.5,-5.5
-      parent: 1
-- proto: MCSpawnPointFC
-  entities:
-  - uid: 4418
-    components:
-    - type: Transform
-      pos: -1.5,13.5
-      parent: 1
-- proto: MCSpawnPointSO
-  entities:
-  - uid: 4414
-    components:
-    - type: Transform
-      pos: 31.5,16.5
-      parent: 1
-  - uid: 4415
-    components:
-    - type: Transform
-      pos: 37.5,16.5
-      parent: 1
-  - uid: 4416
-    components:
-    - type: Transform
-      pos: 37.5,20.5
-      parent: 1
-  - uid: 4417
-    components:
-    - type: Transform
-      pos: 31.5,20.5
       parent: 1
 - proto: MCSpeedLoaderR44
   entities:

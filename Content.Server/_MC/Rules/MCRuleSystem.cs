@@ -81,7 +81,7 @@ public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : ICom
     {
         base.Initialize();
 
-        Subs.CVar(_config, MCConfigVars.MCRoundCanEnd, v => RoundCheckEnding = v, true);
+        Subs.CVar(_config, MCConfigVars.RoundCanEnd, v => RoundCheckEnding = v, true);
 
         Subs.CVar(_config, RMCCVars.CMMarinesPerXeno, v => MarinesPerXeno = v, true);
         Subs.CVar(_config, RMCCVars.RMCMarinesPerSurvivor, v => MarinesPerSurvivor = v, true);

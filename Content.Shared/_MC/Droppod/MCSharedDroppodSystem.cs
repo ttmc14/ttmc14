@@ -47,7 +47,7 @@ public abstract class MCSharedDroppodSystem : EntitySystem
         SubscribeLocalEvent<MCDroppodUserComponent, MCDroppodTargetActionEvent>(RelayEvent);
     }
 
-    private void OnOperationStart(MCOperationStartEvent ev)
+    private void OnOperationStart(ref MCOperationStartEvent ev)
     {
         var query = EntityQueryEnumerator<MCDroppodComponent>();
         while (query.MoveNext(out var uid, out var component))
