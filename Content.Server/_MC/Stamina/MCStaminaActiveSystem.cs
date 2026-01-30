@@ -20,7 +20,7 @@ public sealed class MCStaminaActiveSystem : EntitySystem
 
     public override void Initialize()
     {
-        _configuration.OnValueChanged(MCConfigVars.MCStaminaDamageOnRun, value => _enabled = value, invokeImmediately: true);
+        _configuration.OnValueChanged(MCConfigVars.StaminaDamageOnRun, value => _enabled = value, invokeImmediately: true);
 
         SubscribeLocalEvent<MCStaminaActiveComponent, RefreshMovementSpeedModifiersEvent>(OnRefresh);
     }

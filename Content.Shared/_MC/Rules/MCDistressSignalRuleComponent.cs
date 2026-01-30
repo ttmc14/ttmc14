@@ -1,9 +1,11 @@
 ﻿using Content.Shared._MC.Rules.Base;
 using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Roles;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
+using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Rules;
@@ -38,6 +40,19 @@ public sealed partial class MCDistressSignalRuleComponent : Component, IRulePlan
     [DataField, AutoNetworkedField]
     public EntityUid? XenoMap { get; set; }
 
+    [DataField]
+    public SoundSpecifier HijackSong = new SoundCollectionSpecifier("RMCHijack", AudioParams.Default.WithVolume(-8));
+
+    [DataField]
+    public bool HijackSongPlayed;
+
+    [DataField]
+    public TimeSpan? ForceEndAt;
+    [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoPausedField]
+    public TimeSpan? NextCheck;
+
+    [DataField]
+    public TimeSpan CheckEvery = TimeSpan.FromSeconds(5);
     // Marine
 
     [DataField, AutoNetworkedField]

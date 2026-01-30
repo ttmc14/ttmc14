@@ -7,21 +7,26 @@ using Content.Server.Mind;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Preferences.Managers;
 using Content.Server.RoundEnd;
+using Content.Shared._MC;
 using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Operation;
 using Content.Shared._MC.Rules;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
+using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.Spawners;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Mobs.Systems;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
+using Robust.Client.Audio;
 using Robust.Server.Player;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -35,29 +40,39 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
     [Dependency] private readonly IPlayerManager _player = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IServerPreferencesManager _preferences = null!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = null!;
+    [Dependency] private readonly IConfigurationManager _config = null!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = null!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
     [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
     [Dependency] private readonly MarineAnnounceSystem _rmcMarineAnnounce = null!;
 
+    [Dependency] private readonly AudioSystem _audio = null!;
     [Dependency] private readonly PlayTimeTrackingSystem _playTime = null!;
     [Dependency] private readonly MindSystem _mind = null!;
+    [Dependency] private readonly RoundEndSystem _roundEnd = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
 
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = null!;
     [Dependency] private readonly MCOperationSystem _mcOperation = null!;
 
+    private TimeSpan _forceEndHijackTime;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        Subs.CVar(_config, MCConfigVars.ForceEndHijackTimeMinutes, v => _forceEndHijackTime = TimeSpan.FromMinutes(v), true);
 
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
 
         SubscribeLocalEvent<MCNukeExplodedEvent>(OnNukeExploded);
         SubscribeLocalEvent<MCXenoHiveCollapsed>(OnHiveCollapsed);
+
+        SubscribeLocalEvent<DropshipHijackStartEvent>(OnDropshipHijackStart);
+        SubscribeLocalEvent<DropshipHijackLandedEvent>(OnDropshipHijackLanded);
     }
 
     protected override void OnStartAttempt(Entity<MCDistressSignalRuleComponent, GameRuleComponent> gameRule, RoundStartAttemptEvent ev)

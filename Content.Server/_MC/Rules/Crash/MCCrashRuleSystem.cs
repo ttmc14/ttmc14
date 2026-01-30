@@ -226,38 +226,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
                 continue;
 
             // Hive settings
-            if (_mcXenoHive.DefaultHive is { } defaultHive)
-            {
-                var configuration = new MCXenoHiveConfiguration
-                {
-                    General = new MCXenoHiveConfigGeneral
-                    {
-                        AllowCollapse = false,
-                        AllowHarvestLarvaPoints = false,
-                        AllowGenerateLarvaPoint = false,
-                        AdditionalSlots =
-                        {
-                          { 3, 0 }, // Why -1, whyyyy?
-                        },
-                    },
-                    Evolution = new MCXenoHiveConfigEvolution
-                    {
-                        WithoutRuler = true,
-                        BlockedCastes =
-                        {
-                            "MCXenoWraith",
-                        },
-                        RequiredCasteCount =
-                        {
-                            { "MCXenoQueen", 6 },
-                            { "MCXenoKing", 12 },
-                        },
-                    },
-                };
-
-                _mcXenoHive.SetConfiguration(defaultHive, configuration);
-            }
-
+            SetupHive(comp);
             StartBioscan();
 
             SpawnAdminAreas(comp.Thunderdome);

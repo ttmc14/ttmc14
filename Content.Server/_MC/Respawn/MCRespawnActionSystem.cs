@@ -45,7 +45,7 @@ public sealed partial class MCRespawnActionSystem : EntitySystem
                 return;
 
             var timeSinceDeath = _timing.CurTime - deathTime.Value;
-            var minutes = _cfg.GetCVar(MCConfigVars.MCRespawnMarinesActionCooldownMinutes);
+            var minutes = _cfg.GetCVar(MCConfigVars.RespawnMarinesActionCooldownMinutes);
             var required = TimeSpan.FromMinutes(minutes);
             if (timeSinceDeath < required)
             {

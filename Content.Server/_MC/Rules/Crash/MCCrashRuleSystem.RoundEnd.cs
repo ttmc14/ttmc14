@@ -17,7 +17,6 @@ public sealed partial class MCCrashRuleSystem
         ref RoundEndTextAppendEvent args)
     {
         base.AppendRoundEndText(uid, component, gameRule, ref args);
-
         args.AddLine($"{Loc.GetString($"mc-crash-{component.Result.ToString().ToLower()}")}");
     }
 

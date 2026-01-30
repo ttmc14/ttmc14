@@ -18,7 +18,7 @@ public sealed class MCFireSystem : EntitySystem
 
         SubscribeLocalEvent<FlammableComponent, MobStateChangedEvent>(OnMobStateChanged);
 
-        _configuration.OnValueChanged(MCConfigVars.MCFireResistOnDeath, value => _enabled = value, invokeImmediately: true);
+        _configuration.OnValueChanged(MCConfigVars.FireResistOnDeath, value => _enabled = value, invokeImmediately: true);
     }
 
     private void OnMobStateChanged(Entity<FlammableComponent> entity, ref MobStateChangedEvent args)
