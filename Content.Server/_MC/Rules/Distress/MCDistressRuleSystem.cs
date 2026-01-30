@@ -1,62 +1,34 @@
-﻿using Content.Server._MC.Xeno.Hive;
+﻿using Content.Server._MC.Xeno;
+using Content.Server._MC.Xeno.Hive;
 using Content.Server._MC.Xeno.Spawn;
-using Content.Server._RMC14.Marines;
-using Content.Server.Administration.Managers;
 using Content.Server.GameTicking;
-using Content.Server.Mind;
-using Content.Server.Players.PlayTimeTracking;
-using Content.Server.Preferences.Managers;
 using Content.Server.RoundEnd;
 using Content.Shared._MC;
 using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Operation;
 using Content.Shared._MC.Rules;
-using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
 using Content.Shared._RMC14.Dropship;
-using Content.Shared._RMC14.Spawners;
-using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Evolution;
-using Content.Shared._RMC14.Xenonids.Hive;
-using Content.Shared.Coordinates;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Preferences;
-using Content.Shared.Roles;
 using Robust.Server.Audio;
-using Robust.Server.Player;
-using Robust.Shared.Audio;
 using Robust.Shared.Configuration;
-using Robust.Shared.Network;
-using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
-using Robust.Shared.Timing;
 
 namespace Content.Server._MC.Rules.Distress;
 
 public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignalRuleComponent>
 {
-    [Dependency] private readonly MCRuleStartValidationSystem _mcRuleStartValidation = null!;
-
-    [Dependency] private readonly IBanManager _bans = null!;
-    [Dependency] private readonly IPlayerManager _player = null!;
-    [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly IConfigurationManager _config = null!;
 
-    [Dependency] private readonly XenoSystem _rmcXeno = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
-    [Dependency] private readonly XenoEvolutionSystem _rmcEvolution = null!;
-    [Dependency] private readonly MarineAnnounceSystem _rmcMarineAnnounce = null!;
-
     [Dependency] private readonly AudioSystem _audio = null!;
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = null!;
-    [Dependency] private readonly MindSystem _mind = null!;
     [Dependency] private readonly RoundEndSystem _roundEnd = null!;
     [Dependency] private readonly MobStateSystem _mobState = null!;
 
+    [Dependency] private readonly MCRuleStartValidationSystem _mcRuleStartValidation = null!;
+    [Dependency] private readonly MCOperationStartSystem _mcOperationStart = null!;
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCXenoSpawnSystem _mcXenoSpawn = null!;
-    [Dependency] private readonly MCOperationSystem _mcOperation = null!;
+    [Dependency] private readonly MCXenoSpawnFlowSystem _mcXenoSpawnFlow = null!;
 
     private TimeSpan _forceEndHijackTime;
 
@@ -64,7 +36,7 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
     {
         base.Initialize();
 
-        Subs.CVar(_config, MCConfigVars.ForceEndHijackTimeMinutes, v => _forceEndHijackTime = TimeSpan.FromMinutes(v), true);
+        Subs.CVar(_config, MCConfigVars.RoundForceEndHijackTimeMinutes, v => _forceEndHijackTime = TimeSpan.FromMinutes(v), true);
 
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
@@ -90,7 +62,7 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
                 rule.ShrikeJob,
                 minPlayers: 2,
                 minXenoCandidates: 1,
-                out _,
+                out var xenoCandidates,
                 out var failReason))
             return;
 
@@ -104,48 +76,23 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
             return;
 
         _mcXenoSpawn.SelectRandomPlanet();
+
         GameTicker.UpdateInfoText();
     }
 
     private void OnRulePlayerSpawning(RulePlayerSpawningEvent ev)
     {
         var query = QueryActiveRules();
-        while (query.MoveNext(out var uid, out _, out var comp, out var gameRule))
+        while (query.MoveNext(out var uid, out _, out var component, out var gameRule))
         {
             if (!GameTicker.IsGameRuleAdded(uid, gameRule))
                 continue;
 
-            OperationName = GetRandomOperationName();
-            if (!_mcXenoSpawn.SpawnXenoMap<MCDistressSignalRuleComponent>((uid, comp)))
+            if (!_mcXenoSpawn.SpawnXenoMap<MCDistressSignalRuleComponent>((uid, component)))
                 continue;
 
-            // Hive settings
-            if (_mcXenoHive.DefaultHive is { } defaultHive)
-            {
-                var configuration = new MCXenoHiveConfiguration
-                {
-                    General = new MCXenoHiveConfigGeneral
-                    {
-                        AllowCollapse = true,
-                        AllowHarvestLarvaPoints = true,
-                        AllowGenerateLarvaPoint = true,
-                    },
-                    Evolution = new MCXenoHiveConfigEvolution
-                    {
-                        WithoutRuler = false,
-                        RequiredCasteCount =
-                        {
-                            { "MCXenoQueen", 6 },
-                            { "MCXenoKing", 12 },
-                        },
-                    },
-                };
-
-                _mcXenoHive.SetConfiguration(defaultHive, configuration);
-
-                _mcXenoHive.AddPsypoints(defaultHive, "Strategic", 1600);
-                _mcXenoHive.AddPsypoints(defaultHive, "Tactical", 400);
-            }
+            // Apply default hive settings
+            SetupHive(component);
 
 #if !FULL_RELEASE
             var duartion = TimeSpan.FromSeconds(30);
@@ -153,202 +100,21 @@ public sealed partial class MCDistressRuleSystem : MCRuleSystem<MCDistressSignal
             var duartion = TimeSpan.FromMinutes(10);
 #endif
 
-            Timer.Spawn(duartion, () => {
-                _mcOperation.Start();
-                _rmcMarineAnnounce.AnnounceARESStaging(null, "Операция началась.", new SoundPathSpecifier("/Audio/_RMC14/Announcements/ARES/ares_online.ogg"),"rmc-announcement-ares-online");
-            });
+            _mcOperationStart.StartWithDelay(duartion);
 
             StartBioscan();
+            SpawnAdminAreas(component.Thunderdome);
 
-            SpawnAdminAreas(comp.Thunderdome);
-            // SpawnNukeDiskGenerators();
-
-            RefreshIFF(comp.MarineFaction);
+            RefreshIFF(component.MarineFaction);
             RefreshFaxes();
 
-          var xenoSpawnPoints = GetEntities<XenoSpawnPointComponent>();
-
-            var xenos = GetXenos(ev.PlayerPool.Count);
-            // var survivors = GetSurvivors(ev.PlayerPool.Count);
-            // var marines = GetMarines(ev.PlayerPool.Count);
-
-            var priorities = Enum.GetValues<JobPriority>().Length;
-            var xenoCandidates = new List<NetUserId>[priorities];
-            for (var i = 0; i < xenoCandidates.Length; i++)
-            {
-                xenoCandidates[i] = [];
-            }
-
-            foreach (var (id, profile) in ev.Profiles)
-            {
-                if (!IsAllowed(id, comp.QueenJob))
-                    continue;
-
-                if (profile.JobPriorities.TryGetValue(comp.QueenJob, out var priority) && priority > JobPriority.Never)
-                    xenoCandidates[(int) priority].Add(id);
-            }
-
-            NetUserId? queenSelected = null;
-            NetUserId? shrikeSelected = null;
-
-            if (xenos > 8)
-            {
-                for (var i = xenoCandidates.Length - 1; i >= 0; i--)
-                {
-                    var list = xenoCandidates[i];
-                    while (list.Count > 0)
-                    {
-                        queenSelected = SpawnXeno(list, comp.QueenEnt);
-
-                        if (queenSelected is not null)
-                            break;
-                    }
-
-                    if (queenSelected is null)
-                        continue;
-
-                    xenos--;
-                    break;
-                }
-            }
-
-            foreach (var list in xenoCandidates)
-            {
-                list.Clear();
-            }
-
-            foreach (var (id, profile) in ev.Profiles)
-            {
-                if (id == queenSelected)
-                    continue;
-
-                if (!IsAllowed(id, comp.ShrikeJob))
-                    continue;
-
-                if (profile.JobPriorities.TryGetValue(comp.ShrikeJob, out var priority) && priority > JobPriority.Never)
-                {
-                    xenoCandidates[(int) priority].Add(id);
-                }
-            }
-
-            for (var i = xenoCandidates.Length - 1; i >= 0; i--)
-            {
-                var list = xenoCandidates[i];
-                while (list.Count > 0)
-                {
-                    shrikeSelected = SpawnXeno(list, comp.ShrikeEnt);
-                    if (shrikeSelected is not null)
-                        break;
-                }
-
-                if (shrikeSelected is null)
-                    continue;
-
-                xenos--;
-                break;
-            }
-
-            foreach (var list in xenoCandidates)
-            {
-                list.Clear();
-            }
-
-            foreach (var (id, profile) in ev.Profiles)
-            {
-                if (id == queenSelected || id == shrikeSelected)
-                    continue;
-
-                if (!IsAllowed(id, comp.XenoSelectableJob))
-                    continue;
-
-                if (profile.JobPriorities.TryGetValue(comp.XenoSelectableJob, out var priority) && priority > JobPriority.Never)
-                    xenoCandidates[(int) priority].Add(id);
-            }
-
-            var selectedXenos = 0;
-            for (var i = xenoCandidates.Length - 1; i >= 0; i--)
-            {
-                var list = xenoCandidates[i];
-                while (list.Count > 0 && selectedXenos < xenos)
-                {
-                    if (SpawnXeno(list, comp.LarvaEnt) != null)
-                        selectedXenos++;
-                }
-            }
-
-            // Any unfilled xeno slots become larva
-            var unfilled = xenos - selectedXenos;
-            if (unfilled > 0)
-                _rmcHive.IncreaseBurrowedLarva(unfilled);
-
-            continue;
-
-            bool IsAllowed(NetUserId id, ProtoId<JobPrototype> role)
-            {
-                if (!_player.TryGetSessionById(id, out var player))
-                    return false;
-
-                var jobBans = _bans.GetJobBans(player.UserId);
-                if (jobBans is null || jobBans.Contains(role))
-                    return false;
-
-                return _playTime.IsAllowed(player, role);
-            }
-
-            NetUserId? SpawnXeno(List<NetUserId> list, EntProtoId ent)
-            {
-                var playerId = _random.PickAndTake(list);
-                if (!_player.TryGetSessionById(playerId, out var player))
-                {
-                    Log.Error($"Failed to find player with id {playerId} during xeno selection.");
-                    return null;
-                }
-
-                ev.PlayerPool.Remove(player);
-                GameTicker.PlayerJoinGame(player);
-                var xenoEnt = SpawnXenoEnt(ent);
-
-                if (TryComp<XenoEvolutionComponent>(xenoEnt, out var xenoEvolution))
-                    _rmcEvolution.SetPoints((xenoEnt, xenoEvolution), 100);
-
-                if (!_mind.TryGetMind(playerId, out var mind))
-                    mind = _mind.CreateMind(playerId);
-
-                _mind.TransferTo(mind.Value, xenoEnt);
-                return playerId;
-            }
-
-            EntityUid SpawnXenoEnt(EntProtoId ent)
-            {
-                var point = _random.Pick(xenoSpawnPoints);
-                var xenoEnt = SpawnAtPosition(ent, point.ToCoordinates());
-
-                _rmcXeno.MakeXeno(xenoEnt);
-                _rmcHive.SetHive(xenoEnt, _mcXenoHive.DefaultHive);
-                return xenoEnt;
-            }
-        }
-    }
-
-    private void OnNukeExploded(MCNukeExplodedEvent ev)
-    {
-        foreach (var gameRule in GameTicker.GetActiveGameRules())
-        {
-            if (!TryComp<MCDistressSignalRuleComponent>(gameRule, out var component))
-                continue;
-
-            EndRound((gameRule, component), MCDisstressRuleResult.MajorMarineVictory);
-        }
-    }
-
-    private void OnHiveCollapsed(ref MCXenoHiveCollapsed ev)
-    {
-        foreach (var gameRule in GameTicker.GetActiveGameRules())
-        {
-            if (!TryComp<MCDistressSignalRuleComponent>(gameRule, out var component))
-                continue;
-
-            EndRound((gameRule, component), MCDisstressRuleResult.MajorMarineVictory);
+            _mcXenoSpawnFlow.Spawn(
+                ev,
+                component.ShrikeJob,
+                component.ShrikeEnt,
+                component.XenoSelectableJob,
+                component.LarvaEnt,
+                GetXenos(ev.PlayerPool.Count));
         }
     }
 }

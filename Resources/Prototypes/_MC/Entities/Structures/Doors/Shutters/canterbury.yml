@@ -11,24 +11,21 @@
   id: MCPodlockShipCanterburyOuterDoorLeft
   suffix: Canterbury, Left
   components:
-  - type: RMCPodDoor
-    id: mc_ship_canterbury_outer_door_left
+  - type: MCOperationPodlock
 
 - type: entity
   parent: MCPodlockShipCanterbury
   id: MCPodlockShipCanterburyOuterDoorRight
   suffix: Canterbury, Right
   components:
-  - type: RMCPodDoor
-    id: mc_ship_canterbury_outer_door_right
+  - type: MCOperationPodlock
 
 - type: entity
   parent: MCPodlockShipCanterbury
   id: MCPodlockShipCanterburyOuterDoorDown
   suffix: Canterbury, Down
   components:
-  - type: RMCPodDoor
-    id: mc_ship_canterbury_outer_door_down
+  - type: MCOperationPodlock
 
 # shutters
 - type: entity
