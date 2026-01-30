@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/28/2026 18:54:25
-  entityCount: 4436
+  time: 01/30/2026 19:31:17
+  entityCount: 4437
 maps:
 - 1
 grids:
@@ -1036,6 +1036,16 @@ entities:
             1584: -37,24
             1585: -36,24
             1605: -35,21
+            2296: -23,20
+            2297: -24,20
+            2298: -25,20
+            2299: -25,20
+            2300: -26,20
+            2301: -27,20
+            2302: -28,20
+            2303: -28,20
+            2304: -29,20
+            2305: -30,20
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -1207,6 +1217,15 @@ entities:
             1606: -35,23
             1685: -21,24
             1689: -19,24
+            2287: -30,24
+            2288: -29,24
+            2289: -28,24
+            2290: -28,24
+            2291: -27,24
+            2292: -26,24
+            2293: -25,24
+            2294: -24,24
+            2295: -23,24
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -1571,6 +1590,7 @@ entities:
             1678: -21,20
             1686: -21,24
             1687: -21,22
+            2306: -30,22
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -1756,6 +1776,7 @@ entities:
             1604: -35,20
             1608: -34,23
             1688: -21,24
+            2307: -30,21
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -1803,6 +1824,7 @@ entities:
             1587: -43,24
             1603: -35,24
             1607: -34,21
+            2308: -30,23
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -24139,6 +24161,14 @@ entities:
     - type: Transform
       pos: -10.47634,-3.5056944
       parent: 1
+- proto: MCCommunicationsConsole
+  entities:
+  - uid: 4413
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -37.5,22.5
+      parent: 1
 - proto: MCEmployeeOfTheMonth
   entities:
   - uid: 4420
@@ -25689,6 +25719,40 @@ entities:
     - type: Transform
       pos: -24.589474,26.371723
       parent: 1
+- proto: MCOverwatchConsole
+  entities:
+  - uid: 2997
+    components:
+    - type: Transform
+      pos: -35.5,27.5
+      parent: 1
+  - uid: 2998
+    components:
+    - type: Transform
+      pos: -31.5,27.5
+      parent: 1
+  - uid: 2999
+    components:
+    - type: Transform
+      pos: -31.5,17.5
+      parent: 1
+  - uid: 3000
+    components:
+    - type: Transform
+      pos: -35.5,17.5
+      parent: 1
+  - uid: 3015
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -46.5,22.5
+      parent: 1
+  - uid: 3016
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -43.5,22.5
+      parent: 1
 - proto: MCPodlockShipMechShutter
   entities:
   - uid: 2657
@@ -26213,40 +26277,6 @@ entities:
     components:
     - type: Transform
       pos: -45.5,18.5
-      parent: 1
-- proto: MCPropOverwatch
-  entities:
-  - uid: 2997
-    components:
-    - type: Transform
-      pos: -35.5,27.5
-      parent: 1
-  - uid: 2998
-    components:
-    - type: Transform
-      pos: -31.5,27.5
-      parent: 1
-  - uid: 2999
-    components:
-    - type: Transform
-      pos: -31.5,17.5
-      parent: 1
-  - uid: 3000
-    components:
-    - type: Transform
-      pos: -35.5,17.5
-      parent: 1
-  - uid: 3015
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -46.5,22.5
-      parent: 1
-  - uid: 3016
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -43.5,22.5
       parent: 1
 - proto: MCRailing
   entities:

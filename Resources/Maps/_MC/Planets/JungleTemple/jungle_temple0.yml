@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 264.0.2
+  engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 09:06:30
+  time: 01/30/2026 19:35:59
   entityCount: 9195
 maps:
 - 1
@@ -46826,7 +46826,7 @@ entities:
   - uid: 2447
     components:
     - type: Transform
-      pos: 64.5,38.5
+      pos: 20.5,16.5
       parent: 1
   - uid: 3905
     components:
@@ -46841,7 +46841,7 @@ entities:
   - uid: 6837
     components:
     - type: Transform
-      pos: 0.5,57.5
+      pos: 44.5,74.5
       parent: 1
 - proto: MCMechPowerLoaderWreckage
   entities:
