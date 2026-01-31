@@ -31,8 +31,9 @@
   - type: XenoInhands
     prefix: shrike
   # Actions
+  - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
-    tier: 0 # 4
+    tier: 4
     role: MCXenoShrike
     actionIds:
     - MCActionXenoRest

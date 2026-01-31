@@ -33,6 +33,7 @@
     strains:
     - MCXenoDefenderSteelCrest
   # Actions
+  - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoDefender
@@ -114,7 +115,7 @@
   - type: Sprite
     sprite: _MC/Mobs/Xenos/defender_steelcrest.rsi
     offset: 0, 0.2
-    # Actions
+  # Actions
   - type: Xeno
     tier: 1
     role: MCXenoDefender
