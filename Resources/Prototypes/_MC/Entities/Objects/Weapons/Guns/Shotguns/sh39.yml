@@ -9,10 +9,6 @@
     - sprite: _MC/Objects/Weapons/Guns/Shotguns/sh39.rsi
       state: icon
       map: [ "enum.GunVisualLayers.Base" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: sh39
-      offset: -0.6, 0.03125
-      map: [ "barrel" ]
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Shotguns/sh39.rsi
   - type: Gun
@@ -22,7 +18,7 @@
     recoilWielded: 2
     recoilUnwielded: 4
     scatterWielded: 3
-    scatterUnwielded: 12
+    scatterUnwielded: 6
     baseFireRate: 0.714 # 1 / 1.4 seconds
     burstScatterMult: 5
   - type: BallisticAmmoProvider
@@ -34,7 +30,7 @@
     baseDelay: 1
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.05
-    accuracyMultiplierUnwielded: 0.65
+    accuracyMultiplierUnwielded: 0.85
   - type: RMCExtraProjectilesDamageMods
     damageMultiplier: 0.7
   - type: AttachableHolder
@@ -43,7 +39,7 @@
         whitelist:
           tags:
           - MCAttachmentMuzzleCharger
-#          - MCAttachmentRecoilCompensator TODO: Make compensator not making shotgun a sniper rifle
+          - MCAttachmentRecoilCompensator
           - MCAttachmentExtendedMuzzle
           - MCAttachmentBayonet
       rmc-aslot-rail:
@@ -59,9 +55,14 @@
           - MCAttachmentGyroscopicStabilizer
           - MCAttachmentAngledGrip
           - MCAttachmentVerticalGrip
+      rmc-aslot-stock:
+        startingAttachable: MCAttachmentStockSH39
+        whitelist:
+          tags:
+          - MCAttachmentStockSH39
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.80, 0.055
-      rmc-aslot-rail: -0.05, 0.125
-      rmc-aslot-underbarrel: 0.1, 0
-      rmc-aslot-stock: -0.65625, -0.5625
+      rmc-aslot-barrel: 0.5, 0.1
+      rmc-aslot-rail: -0.05, 0.15
+      rmc-aslot-underbarrel: 0.1, -0.05
+      rmc-aslot-stock: -0.6, 0.03125

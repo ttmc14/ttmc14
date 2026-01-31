@@ -126,6 +126,9 @@
     amount: 10
   - type: MCXenoSunderDamageOnHit
     amount: 3
+  - type: MCStunOnHit
+    knockback: 1
+    slowdownTime: 0
 
 - type: Tag
   id: MCSpeedLoaderR44
