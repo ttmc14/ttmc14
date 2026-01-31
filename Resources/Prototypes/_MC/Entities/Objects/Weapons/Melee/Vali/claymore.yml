@@ -18,7 +18,7 @@
   - type: Clothing
     sprite: _MC/Objects/Weapons/Melee/Vali/claymore.rsi
   - type: MCWeaponVali
-    reagentCapacity: 60
+    reagentCapacity: 75
   - type: MeleeWeapon
     attackRate: 0.4
     damage:

@@ -17,14 +17,16 @@
   - type: Clothing
     quickEquip: false
     slots:
-    - suitStorage
-    - Back
+    - belt
+    - back
+    - suitstorage
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: -135
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: MCWeaponVali
+    reagentCapacity: 45
     allowedReagents:
     - MCBicaridine
     - MCKelotane

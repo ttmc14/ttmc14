@@ -27,6 +27,11 @@
         recommended: true
       - id: MCWebbingBrown
       - id: MCWebbingHolster
+    - name: Belt
+      choices:
+        MCBelt: 1
+      entries:
+      - id: MCClothingBeltUtility
     - name: Pouches
       choices:
         MCPouch: 2

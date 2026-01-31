@@ -74,6 +74,7 @@
     shoes: MCBootsBlackFilled
     jumpsuit: MCJumpsuitMarineFieldCommander
     back: MCSatchelMarineStandard
+    belt: MCHolsterOfficerValiRapierFull
     ears: MCHeadsetCommand
 
 - type: entity

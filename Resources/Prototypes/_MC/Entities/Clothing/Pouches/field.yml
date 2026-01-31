@@ -11,14 +11,4 @@
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,9,1 # 3 slots
-    whitelist:
-      tags:
-      - Binoculars
-      - Flashlight
-      - RMCDetector
-      - Paper
-      components:
-      - Whistle
-      - HandLabeler
-  - type: FixedItemSizeStorage
+    - 0,0,5,1 # 3 slots

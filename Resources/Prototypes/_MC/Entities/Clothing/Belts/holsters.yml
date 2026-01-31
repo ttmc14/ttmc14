@@ -1,0 +1,79 @@
+- type: entity
+  parent: [ Clothing, ClothingSlotBase ]
+  id: MCHolster
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Icon
+    sprite: _MC/Clothing/Belt/rapier_holster.rsi
+    state: icon
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/rapier_holster.rsi
+    state: icon
+  - type: Item
+    size: Large
+  - type: Tag
+    tags:
+    - MCHolster
+  - type: Appearance
+  - type: UsableWhileDevoured
+  - type: CMHolster
+  - type: CMItemSlots
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+
+- type: Tag
+  id: MCHolster
+
+- type: entity
+  parent: MCHolster
+  id: MCHolsterOfficerValiRapier
+  name: HP-C vali rapier sheath
+  description: An exquisite ceremonial sheath for an even more expensive rapier.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/rapier_holster.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/rapier_holster.rsi
+    quickEquip: false
+    slots:
+    - back
+    - belt
+    - suitstorage
+  - type: ItemSlots
+    slots:
+      item:
+        name: Rapier
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCMeleeWeaponValiRapier
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        whitelist:
+          tags:
+          - MCMeleeWeaponValiRapier
+  - type: Tag
+    tags:
+    - MCHolster
+    - MCHolsterOfficerValiRapier
+
+- type: Tag
+  id: MCHolsterOfficerValiRapier
+
+- type: entity
+  parent: MCHolsterOfficerValiRapier
+  id: MCHolsterOfficerValiRapierFull
+  suffix: Full
+  components:
+  - type: ContainerFill
+    containers:
+      item:
+      - MCMeleeWeaponValiRapier

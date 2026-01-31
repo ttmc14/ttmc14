@@ -37,7 +37,8 @@
         recommended: true
       # Knives belt
       # Pistol belt
-      # G8 general utility pouch
+      - id: MCClothingBeltUtility
+        recommended: true
       # Belt harness
     - name: Pouches
       choices:

@@ -73,6 +73,7 @@
     id: MCIdCardCaptain
     shoes: MCBootsBlackFilled
     jumpsuit: MCJumpsuitMarineCaptain
+    belt: MCHolsterOfficerValiRapierFull
     ears: MCHeadsetCommand
 
 - type: entity
