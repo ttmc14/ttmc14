@@ -3,11 +3,11 @@
   name: Ice Colony
   components:
   - type: RMCPlanetMapPrototype
-    map: /Maps/_MC/ice_colony.yml
+    map: /Maps/_MC/Planets/IceColony/ice_colony0.yml
     camouflage: Classic
     announcement: ""
   - type: MCPlanetMapPrototype
     mapsBelow:
-    - /Maps/_MC/ice_colony_level_-1.yml
+    - /Maps/_MC/Planets/IceColony/ice_colony-1.yml
     mapsAbove:
-    - /Maps/_MC/ice_colony_level_1.yml
+    - /Maps/_MC/Planets/IceColony/ice_colony1.yml
