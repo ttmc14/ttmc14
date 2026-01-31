@@ -36,7 +36,7 @@
         whitelist:
           tags:
           - MCAttachmentMuzzleCharger
-#          - MCAttachmentRecoilCompensator TODO: Make compensator not making shotgun a sniper rifle
+          #          - MCAttachmentRecoilCompensator TODO: Make compensator not making shotgun a sniper rifle
           - MCAttachmentExtendedMuzzle
           - MCAttachmentBayonet
       rmc-aslot-rail:
@@ -53,6 +53,7 @@
           - MCAttachmentAngledGrip
           - MCAttachmentVerticalGrip
       rmc-aslot-stock:
+        locked: true
         startingAttachable: MCAttachmentStockSH35
         whitelist:
           tags:

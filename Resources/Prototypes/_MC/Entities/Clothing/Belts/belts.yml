@@ -1,6 +1,28 @@
+- type: entity
+  parent: ClothingBeltBase
+  id: MCClothingBelt
+  abstract: true
+  components:
+  - type: Storage
+    maxItemSize: Normal
+    defaultStorageOrientation: Vertical
+    grid:
+    - 0,0,7,1
+  - type: Item
+    size: Ginormous
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: RMCStorageEjectHand
+
 # ammo
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBelt
   id: MCClothingBeltMarine
   name: M276 pattern ammo load rig
   description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is the standard variant designed for bulk ammunition-carrying operations.
@@ -60,7 +82,7 @@
 
 # shotgun
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBelt
   id: MCClothingBeltShotgun
   name: shotgun shell load rig
   description: An ammunition belt designed to hold shotgun shells or individual bullets.
@@ -102,7 +124,7 @@
 
 # grenade
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBelt
   id: MCClothingBeltGrenade
   name: M276 pattern M40 HEDP rig
   description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed to carry bulk quantities of M40 HEDP Grenades.
@@ -142,7 +164,7 @@
 
 # tool
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBelt
   id: MCClothingBeltTools
   name: M276 pattern toolbelt rig
   description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version lacks any combat functionality, and is commonly used by engineers to transport important tools.
@@ -191,7 +213,7 @@
 
 # med
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBelt
   id: MCBeltMedical
   name: M276 pattern medical storage rig
   description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is a less common configuration, designed to transport medical supplies and heavier medical tools.
@@ -267,7 +289,7 @@
     - id: MCHealthAnalyzer
 
 - type: entity
-  parent: ClothingBeltStorageBase
+  parent: MCClothingBelt
   id: MCBeltMedicalHypospray
   name: M276 pattern hypospray belt
   description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is a less common configuration, designed to transport hyposprays and reagent containers. You could probably fit a syringe case too.
@@ -322,3 +344,19 @@
     - id: MCHyposprayBigFillQuickClot
     - id: MCHyposprayFillHypervene
     - id: MCHealthAnalyzer
+
+# spare pouch
+- type: entity
+  parent: MCClothingBelt
+  id: MCClothingBeltUtility
+  name: G8 general utility pouch
+  description: A small, lightweight pouch that can be clipped onto Armat Systems M3 Pattern armor or your belt to provide additional storage for miscellaneous gear or box and drum magazines.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/sparepouch.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/sparepouch.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,1 # 9 slots

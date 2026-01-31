@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Xeno.Hive.Components;
+﻿using Content.Shared._MC.Xeno.Evolution.Components;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Evolution;
@@ -118,6 +119,9 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         bool doPopup)
     {
         if (hive.Comp.Configuration.Evolution.WithoutRuler)
+            return true;
+
+        if (targetPrototype.HasComponent<MCXenoEvolutionIgnoreRulerRequirementComponent>())
             return true;
 
         var hiveHasLeader = _mcXenoHive.HasRuler((hive, hive.Comp));

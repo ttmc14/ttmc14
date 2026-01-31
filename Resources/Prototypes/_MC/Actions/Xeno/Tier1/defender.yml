@@ -11,7 +11,7 @@
       state: crest_defense
     useDelay: 1
   - type: InstantAction
-    event: !type:XenoToggleCrestActionEvent
+    event: !type:MCXenoToggleCrestActionEvent
 
 - type: entity
   parent: ActionXenoBase
@@ -26,7 +26,7 @@
       state: fortify
     useDelay: 1
   - type: InstantAction
-    event: !type:XenoFortifyActionEvent
+    event: !type:MCXenoFortifyActionEvent
 
 - type: entity
   parent: ActionXenoBase

@@ -64,18 +64,20 @@
           tags:
           - MCAttachmentBipod
       mc-aslot-rail:
+        locked: true
         startingAttachable: MCAttachmentRailScopeSR127
         whitelist:
           tags:
           - MCAttachmentRailScopeSR127
       mc-aslot-stock:
+        locked: true
         startingAttachable: MCAttachmentStockSR127
         whitelist:
           tags:
           - MCAttachmentStockSR127
   - type: AttachableHolderVisuals
     offsets:
-      mc-aslot-barrel: 0.3125, 0.09375
+      mc-aslot-barrel: 0.28125, 0.09375
       mc-aslot-rail: -0.625, 0.1875
       mc-aslot-underbarrel: -0.09375, 0
       mc-aslot-stock: -1.25, -0.03125

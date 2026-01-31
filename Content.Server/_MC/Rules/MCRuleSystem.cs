@@ -37,28 +37,13 @@ namespace Content.Server._MC.Rules;
 public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : IComponent
 {
     [Dependency] protected readonly XenoHiveSystem Hive = default!;
-
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly RMCPlanetSystem _rmcPlanet = default!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
     [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly MapInsertSystem _mapInsert = default!;
-    [Dependency] private readonly RMCAmbientLightSystem _rmcAmbientLight = default!;
     [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly XenoTunnelSystem _xenoTunnel = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly IPrototypeManager _prototype = default!;
-    [Dependency] private readonly IComponentFactory _compFactory = default!;
-    [Dependency] private readonly StationSpawningSystem _stationSpawning = default!;
-    [Dependency] private readonly SharedXenoParasiteSystem _parasite = default!;
-    [Dependency] private readonly XenoSystem _xeno = default!;
-    [Dependency] private readonly IAdminLogManager _adminLog = default!;
     [Dependency] private readonly FaxSystem _fax = default!;
     [Dependency] private readonly GunIFFSystem _gunIFF = default!;
-    [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly PlayTimeTrackingSystem _playTime = default!;
-    [Dependency] private readonly IBanManager _bans = default!;
-    [Dependency] private readonly MindSystem _mind = default!;
 
     [ViewVariables] public string? OperationName { get; protected set; }
 

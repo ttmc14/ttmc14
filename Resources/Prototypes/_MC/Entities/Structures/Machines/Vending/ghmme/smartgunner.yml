@@ -27,6 +27,11 @@
         recommended: true
       - id: MCWebbingBrown
       - id: MCWebbingHolster
+    - name: Belt
+      choices:
+        MCBelt: 1
+      entries:
+      - id: MCClothingBeltUtility
     - name: Pouches
       choices:
         MCPouch: 2
@@ -40,3 +45,7 @@
       - id: MCPouchConstructionFill
         name: Construction pouch (materials included)
       - id: MCPouchPistolMagazineLarge
+      - id: MCPouchMedkitSquadBaseFill
+        name: Medical pouch (chems included)
+      - id: MCPouchMedicalInjectorBaseFull
+        name: Auto-injector's medical pouch (chems included)

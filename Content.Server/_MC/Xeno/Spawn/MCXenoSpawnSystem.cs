@@ -57,6 +57,7 @@ public sealed class MCXenoSpawnSystem : EntitySystem
     public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IRulePlanet
     {
         var planet = SelectRandomPlanet();
+
         _lastPlanetMaps.Enqueue(planet.Proto.ID);
         while (_lastPlanetMaps.Count > 0 && _lastPlanetMaps.Count > _mapVoteExcludeLast)
         {

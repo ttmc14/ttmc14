@@ -112,9 +112,9 @@
           - MCAttachmentBipod
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.3125, -0.46875
+      mc-slot-muzzle: 0.8125, 0.03125
       mc-slot-underbarrel: -0.25, -0.5625
-      mc-slot-stock: -0.625, -0.59375
+      mc-slot-stock: -0.625, 0
 
 # Attachments
 - type: entity

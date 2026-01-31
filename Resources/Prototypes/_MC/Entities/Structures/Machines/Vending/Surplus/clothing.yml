@@ -30,6 +30,9 @@
       - id: MCClothingBeltMarine
       - id: MCClothingBeltShotgun
       - id: MCClothingBeltGrenade
+      - id: MCBeltMedical
+      - id: MCBeltMedicalHypospray
+      - id: MCClothingBeltUtility
       - id: MCClothingBeltToolsFill
     - name: Pouches
       entries:

@@ -37,7 +37,8 @@
         recommended: true
       # Knives belt
       # Pistol belt
-      # G8 general utility pouch
+      - id: MCClothingBeltUtility
+        recommended: true
       # Belt harness
     - name: Pouches
       choices:
@@ -58,3 +59,7 @@
       - id: MCPouchPistolMagazineLarge
       # Sidearm pouch
       - id: MCPouchExplosive
+      - id: MCPouchMedkitSquadBaseFill
+        name: Medical pouch (chems included)
+      - id: MCPouchMedicalInjectorBaseFull
+        name: Auto-injector's medical pouch (chems included)

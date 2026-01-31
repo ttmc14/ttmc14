@@ -82,3 +82,18 @@
     - id: MCHyposprayFillMeraderm
     - id: MCHyposprayFillQuickClotPlus
     - id: MCHyposprayFillBKTT
+
+- type: entity
+  parent: MCPouchMedkit
+  id: MCPouchMedkitSquadBaseFill
+  suffix: Standart, Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterDylovene
+    - id: MCGauze
+    - id: MCOintment
