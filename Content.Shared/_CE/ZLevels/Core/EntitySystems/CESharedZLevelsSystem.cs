@@ -6,24 +6,31 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._MC;
 using Content.Shared.ActionBlocker;
+using Content.Shared.CCVar;
 using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Configuration;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 
 public abstract partial class CESharedZLevelsSystem : EntitySystem
 {
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly ActionBlockerSystem _blocker = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly SharedMapSystem _map = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
+    [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly IConfigurationManager _config = null!;
+
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly ActionBlockerSystem _blocker = null!;
+    [Dependency] private readonly EntityLookupSystem _lookup = null!;
+    [Dependency] private readonly SharedMapSystem _map = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
 
     private EntityQuery<MapComponent> _mapQuery;
     private EntityQuery<CEZLevelMapComponent> _zMapQuery;
@@ -31,9 +38,13 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
 
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 
+    private bool _clientSimultaion;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsClientSimulation, i => _clientSimultaion = i, true);
 
         _mapQuery = GetEntityQuery<MapComponent>();
         _zMapQuery = GetEntityQuery<CEZLevelMapComponent>();
