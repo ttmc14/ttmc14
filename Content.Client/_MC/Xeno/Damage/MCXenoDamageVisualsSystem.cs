@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Xeno.Visuals.Damage;
+﻿using Content.Shared._MC.Xeno.Visuals;
+using Content.Shared._MC.Xeno.Visuals.Damage;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Damage;
 using Robust.Client.GameObjects;
@@ -9,6 +10,7 @@ public sealed class MCXenoDamageVisualsSystem : VisualizerSystem<MCXenoDamageVis
 {
     private const string BaseState = "wounded";
     private const string CritState = $"{BaseState}_crit";
+    private const string CrestState = $"{BaseState}_crest";
     private const string FortifyState = $"{BaseState}_fortify";
     private const string RestringState = $"{BaseState}_resting";
 
@@ -36,13 +38,20 @@ public sealed class MCXenoDamageVisualsSystem : VisualizerSystem<MCXenoDamageVis
         SpriteSystem.LayerSetVisible(entity, layer, true);
 
         var state = component.States - level + 1;
+
         if (AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Downed, out bool downed) && downed)
         {
             SpriteSystem.LayerSetRsiState(entity, layer, $"{CritState}_{state}");
             return;
         }
 
-        if (AppearanceSystem.TryGetData(uid, RMCXenoStateVisuals.Fortified, out bool fortified) && fortified)
+        if (AppearanceSystem.TryGetData(uid, MCXenoVisualLayers.Crest, out bool crest) && crest)
+        {
+            SpriteSystem.LayerSetRsiState(entity, layer, $"{CrestState}_{state}");
+            return;
+        }
+
+        if (AppearanceSystem.TryGetData(uid, MCXenoVisualLayers.Fortified, out bool fortified) && fortified)
         {
             SpriteSystem.LayerSetRsiState(entity, layer, $"{FortifyState}_{state}");
             return;

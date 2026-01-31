@@ -33,6 +33,7 @@
     strains:
     - MCXenoSentinelRetrograde
   # Actions
+  - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoSentinel

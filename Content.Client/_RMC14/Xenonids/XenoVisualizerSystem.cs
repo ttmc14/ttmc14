@@ -129,23 +129,20 @@ public sealed class XenoVisualizerSystem : VisualizerSystem<XenoComponent>
 
                 if (AppearanceSystem.TryGetData(entity, MCXenoVisualLayers.Agility, out bool agility, appearance) && agility && rsi.TryGetState("alive_agility", out _))
                 {
-                    sprite.LayerSetState(layer, "alive_agility");
+                    SpriteSystem.LayerSetRsiState(entity, layer, "alive_agility");
                     break;
                 }
 
-                if (AppearanceSystem.TryGetData(entity, XenoVisualLayers.Fortify, out bool fortify, appearance) &&
-                    fortify &&
-                    rsi.TryGetState("fortify", out _))
+
+                if (AppearanceSystem.TryGetData(entity, MCXenoVisualLayers.Crest, out bool crest, appearance) && crest && rsi.TryGetState("crest", out _))
                 {
-                    sprite.LayerSetState(layer, "fortify");
+                    SpriteSystem.LayerSetRsiState(entity, layer, "crest");
                     break;
                 }
 
-                if (AppearanceSystem.TryGetData(entity, XenoVisualLayers.Crest, out bool crest, appearance) &&
-                    crest &&
-                    rsi.TryGetState("crest", out _))
+                if (AppearanceSystem.TryGetData(entity, MCXenoVisualLayers.Fortified, out bool fortify, appearance) && fortify && rsi.TryGetState("fortify", out _))
                 {
-                    sprite.LayerSetState(layer, "crest");
+                    SpriteSystem.LayerSetRsiState(entity, layer, "fortify");
                     break;
                 }
 

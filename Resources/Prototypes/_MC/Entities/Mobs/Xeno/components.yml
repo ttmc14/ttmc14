@@ -33,18 +33,18 @@
     - LarvaSilo
     - EvolutionTower
     - PsychicRelay
-    - PheromoneTower
+    # - PheromoneTower
     - Spawner
-    - AcidPool
-    - AcidJaws
-    - AcidMaw
-    - AcidTurret
-    - StickyResinTurret
-    - Gargoyle
-    - PrimordialTierOne
-    - PrimordialTierTwo
-    - PrimordialTierThree
-    - PrimordialTierFour
+    # - AcidPool
+    # - AcidJaws
+    # - AcidMaw
+    # - AcidTurret
+    # - StickyResinTurret
+    # - Gargoyle
+    # - PrimordialTierOne
+    # - PrimordialTierTwo
+    # - PrimordialTierThree
+    # - PrimordialTierFour
 
 - type: entity
   id: MCXenoComponentPickup
@@ -204,7 +204,7 @@
     - MCXenoBull
     - MCXenoSpitter
     - MCXenoForger
-    - MCXenoPanther
+    # - MCXenoPanther
   - type: XenoDevolve
     devolvesTo:
     - MCXenoRafik

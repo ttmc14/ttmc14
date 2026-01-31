@@ -78,7 +78,7 @@
     - type: Storage
       maxItemSize: Small
       grid:
-      - 0,0,11,1 # 6 slots
+      - 0,0,17,1 # 9 slots
       whitelist:
         tags:
         - MCGrenade
@@ -86,7 +86,7 @@
   - type: Storage
     maxItemSize: Small
     grid:
-    - 0,0,11,1 # 6 slots
+    - 0,0,17,1 # 9 slots
     whitelist:
       tags:
       - MCGrenade

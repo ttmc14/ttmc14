@@ -33,6 +33,7 @@
   - type: XenoInhands
     prefix: drone
   # Actions
+  - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoDrone

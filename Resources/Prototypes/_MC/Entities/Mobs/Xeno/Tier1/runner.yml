@@ -34,6 +34,7 @@
     strains:
     - MCXenoRunnerMelter
   # Actions
+  - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoRunner

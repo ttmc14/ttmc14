@@ -8,6 +8,14 @@
   },
   "states": [
     {
+      "name": "equipped-BACKPACK",
+      "directions": 4
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+      "directions": 4
+    },
+    {
       "name": "icon"
     },
     {
@@ -29,5 +37,6 @@
       "name": "inhand-right-loaded",
       "directions": 4
     }
+
   ]
 }

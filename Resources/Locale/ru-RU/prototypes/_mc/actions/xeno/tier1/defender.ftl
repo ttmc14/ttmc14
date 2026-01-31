@@ -1,11 +1,11 @@
-ent-MCActionXenoCrestDefense = Crest Defense
-    .desc = Raises your armor values while sacrificing 20% movement speed. See the armor values table above.
-ent-MCActionXenoFortify = Fortify
-    .desc = Increases your armor greatly, but you're unable to move while in this state. You can still slash at objects and players AND you can forward charge from fortify!
-ent-MCActionXenoTailSweep = Tail Sweep (35)
-    .desc = Attacks all humanoids in around the user in a radius. Deals melee and stamina damage to those hit, knocking them over. Can be used while in a defensive stance, but uses double the plasma.
-ent-MCActionXenoForwardCharge = Forward Charge (80)
-    .desc = Charge up to 4 tiles in the direction you click in, knocking over sentries, tables, and humanoids. People are stunned for about 4 seconds. Can be used while in a defensive stance or fortify, taking you out of one.
-ent-MCActionXenoRegenerateSkin = Regenerate Skin (160)
-    .desc = Restores 25 brute and 25 burn, and resets sunder. Can't be used while on fire, but it can be used while in a defensive stance.
+ent-MCActionXenoCrestDefense = Гребневая защита
+    .desc = Увелчиьте ваши показатели защиты в тоже время жертвую 20% вашей скорости передвижения. Смотреть значения броня в табличке сверху.
+ent-MCActionXenoFortify = Укрепление
+    .desc = Увеличивает твою сильно защиту, но ты не можешь двигаться в этом состоянии. Ты всё ещё можешь бить объекты и игроков И ты ещё можешь совершить бросок вперёд из состояния укрепления!
+ent-MCActionXenoTailSweep = Взмах хвостом (35)
+    .desc = Ударь всех гуманоидов вокруг тебя в радиусе. Наносит ближний урон и урон по выносливости всех кого ударило, оглушая их. Может быть использовано в защитном состоянии, но увеличивая расход плазмы в два раза
+ent-MCActionXenoForwardCharge = Бросок вперёд (80)
+    .desc = Сделай бросок до 4 тайлов в стороне твоего клика мышью, сбивая на пол туррели, столы, гуманоидов. Люди будут оглушены на около 4 секунд. Может быть использовано пока в защитном состоянии или укреплении, вытаскивания из оного состояния
+ent-MCActionXenoRegenerateSkin = Кожная регенерация (160)
+    .desc = Восполняет 25 Ближнего урона и 25 ожогов, сбрасывая урон по броне. Не может быть использовано пока ты в огне, но может быть использовано в защитном состоянии.
 
