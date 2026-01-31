@@ -1,10 +1,10 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 264.0.2
+  engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 09:06:31
+  time: 01/30/2026 19:35:59
   entityCount: 2282
 maps:
 - 1

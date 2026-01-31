@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/28/2026 18:54:22
-  entityCount: 8813
+  time: 01/30/2026 19:31:14
+  entityCount: 8806
 maps:
 - 1
 grids:
@@ -184,11 +184,11 @@ entities:
   - uid: 1
     components:
     - type: MetaData
-      name: UPP Talos
+      name: Mapping UPP Talos
+    - type: Transform
     - type: Almayer
     - type: BecomesStation
       id: Talos
-    - type: Transform
     - type: Map
       mapPaused: True
     - type: GridTree
@@ -2609,27 +2609,51 @@ entities:
             id: FlowersBRThree
           decals:
             1008: -45,14
+            4813: -27,5
+            4821: -42,-22
+            4822: -38,-18
+        - node:
+            color: '#FFFFFFFF'
+            id: FlowersBRTwo
+          decals:
+            4816: -36,-5
+            4817: -42,-16
         - node:
             color: '#FFFFFFFF'
             id: Flowersbr3
           decals:
             1009: -44,14
+            4823: -38,-22
         - node:
             color: '#FFFFFFFF'
             id: Flowerspv1
           decals:
             1015: -39,18
+            4812: -36,5
+            4815: -27,-5
+            4818: -38,-21
+            4827: 12,33
         - node:
             color: '#FFFFFFFF'
             id: Flowerspv2
           decals:
             1007: -44,20
             1016: -39,20
+            4819: -38,-18
+            4820: -43,-22
+            4825: -43,14
+            4826: 12,26
+        - node:
+            color: '#FFFFFFFF'
+            id: Flowersy3
+          decals:
+            4824: -45,20
         - node:
             color: '#FFFFFFFF'
             id: Grassc1
           decals:
             975: 12,26
+            4810: -36,-5
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -2644,6 +2668,11 @@ entities:
           decals:
             553: 3,-15
             554: 2,-15
+        - node:
+            color: '#FFFFFFFF'
+            id: Grassc2
+          decals:
+            4811: -27,-5
         - node:
             angle: 3.141592653589793 rad
             color: '#FFFFFFFF'
@@ -2709,6 +2738,7 @@ entities:
             1010: -43,14
             1011: -39,18
             1012: -39,20
+            4814: -27,5
         - node:
             cleanable: True
             color: '#FFFFFFFF'
@@ -2745,6 +2775,7 @@ entities:
             971: 12,33
             972: 12,26
             1013: -39,18
+            4809: -27,-5
         - node:
             angle: 3.141592653589793 rad
             color: '#FFFFFFFF'
@@ -42651,6 +42682,24 @@ entities:
       parent: 1
 - proto: MCApcAlmayer
   entities:
+  - uid: 3398
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,-0.5
+      parent: 1
+  - uid: 3584
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -44.5,1.5
+      parent: 1
+  - uid: 4115
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -41.5,4.5
+      parent: 1
   - uid: 8610
     components:
     - type: Transform
@@ -48146,6 +48195,13 @@ entities:
     - type: Transform
       pos: 6.550331,18.220821
       parent: 1
+- proto: MCOverwatchConsole
+  entities:
+  - uid: 1387
+    components:
+    - type: Transform
+      pos: 12.5,32.5
+      parent: 1
 - proto: MCPillCanisterDexalin
   entities:
   - uid: 2682
@@ -48710,11 +48766,6 @@ entities:
     - type: Transform
       pos: -47.5,-8.5
       parent: 1
-  - uid: 3584
-    components:
-    - type: Transform
-      pos: 12.5,32.5
-      parent: 1
 - proto: MCPropRecycler
   entities:
   - uid: 4960
@@ -48892,13 +48943,6 @@ entities:
     components:
     - type: Transform
       pos: -20.37338,-30.576254
-      parent: 1
-- proto: MCSpawnGridAlamo
-  entities:
-  - uid: 3398
-    components:
-    - type: Transform
-      pos: -13.5,-0.5
       parent: 1
 - proto: MCSpawnPointAssaultCrewman
   entities:
@@ -65811,59 +65855,6 @@ entities:
     components:
     - type: Transform
       pos: 10.5,33.5
-      parent: 1
-- proto: VendingMachineCoffee
-  entities:
-  - uid: 4119
-    components:
-    - type: Transform
-      pos: 16.5,6.5
-      parent: 1
-  - uid: 4414
-    components:
-    - type: Transform
-      pos: 59.5,29.5
-      parent: 1
-- proto: VendingMachineCola
-  entities:
-  - uid: 4189
-    components:
-    - type: Transform
-      pos: 15.5,7.5
-      parent: 1
-  - uid: 5211
-    components:
-    - type: Transform
-      pos: 38.5,-16.5
-      parent: 1
-  - uid: 5212
-    components:
-    - type: Transform
-      pos: 41.5,-30.5
-      parent: 1
-  - uid: 6938
-    components:
-    - type: Transform
-      pos: 37.5,18.5
-      parent: 1
-  - uid: 7776
-    components:
-    - type: Transform
-      pos: 41.5,32.5
-      parent: 1
-- proto: VendingMachineColaBlack
-  entities:
-  - uid: 1387
-    components:
-    - type: Transform
-      pos: 12.5,-13.5
-      parent: 1
-- proto: VendingMachineSoda
-  entities:
-  - uid: 4115
-    components:
-    - type: Transform
-      pos: 16.5,-4.5
       parent: 1
 - proto: WaterCooler
   entities:

@@ -31,6 +31,7 @@
   - MCAccessMarineSquadBravo
   - MCAccessMarineSquadCharlie
   - MCAccessMarineSquadDelta
+  - RMCAccessCommand
   # TODO: 103, 101, 102, 100
 
 - type: accessGroup
@@ -66,6 +67,7 @@
   - MCAccessMarineSquadBravo
   - MCAccessMarineSquadCharlie
   - MCAccessMarineSquadDelta
+  - RMCAccessCommand
   # TODO: 103, 101, 102, 100
 
 - type: accessGroup
@@ -80,3 +82,4 @@
   - MCAccessMarineSquadBravo
   - MCAccessMarineSquadCharlie
   - MCAccessMarineSquadDelta
+  - RMCAccessCommand

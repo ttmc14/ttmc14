@@ -5,6 +5,7 @@
   - MCAccessBridge
   - MCAccessDropship
   - MCAccessPilot
+  - RMCAccessCommand
 
 - type: accessGroup
   id: MCAssaultCrewman
@@ -12,6 +13,7 @@
   - MCAccessPreparation
   - MCAccessArmored
   - MCAccessWO
+  - RMCAccessCommand
   # TODO: 100
 
 - type: accessGroup
@@ -21,3 +23,4 @@
   - MCAccessPilot
   - MCAccessDropship
   - MCAccessTadpole
+  - RMCAccessCommand
