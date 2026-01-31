@@ -6,4 +6,6 @@ namespace Content.Shared._MC.Xeno.Visuals;
 public enum MCXenoVisualLayers : byte
 {
     Agility,
+    Crest,
+    Fortified,
 }

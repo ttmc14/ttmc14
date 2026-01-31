@@ -67,6 +67,18 @@
       "name": "wounded_crit_3"
     },
     {
+      "name": "wounded_fortify_3",
+      "directions": 4
+    },
+    {
+      "name": "wounded_fortify_2",
+      "directions": 4
+    },
+    {
+      "name": "wounded_fortify_1",
+      "directions": 4
+    },
+    {
       "name": "wounded_3",
       "directions": 4
     },

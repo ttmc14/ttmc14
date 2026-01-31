@@ -16,7 +16,7 @@
     role: MCXenoMinionBeetle
     actionIds:
     - MCActionXenoRest
-  # Abilities
+    # Abilities
     - MCActionXenoForwardCharge
     - MCActionXenoCrestDefense
     hudOffset: -0.2,0.3

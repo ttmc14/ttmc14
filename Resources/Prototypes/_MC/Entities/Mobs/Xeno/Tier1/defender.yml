@@ -76,8 +76,8 @@
     baseWalkSpeed: 2.941
     baseSprintSpeed: 4.166
   # Abilities
-  - type: XenoCrest # TODO: Make MC component
-  - type: XenoFortify # TODO: Make MC component
+  - type: MCXenoCrest
+  - type: MCXenoFortify
   - type: XenoTailSweep # TODO: Make MC component
     damage:
       types:
@@ -131,20 +131,13 @@
   # Evolution
   - type: XenoEvolution
     strains: []
-    # Statistics
+  # Statistics
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.3528
     baseSprintSpeed: 3.3328
-    # Abilities
-  - type: XenoFortify # TODO: Make MC component
-    armor: 25 # - TODO: Make MC armor
-    frontalArmor: 0
-    changeExplosionWeakness: false
-    canHeadbuttFortified: true
+  # Abilities
+  - type: MCXenoFortify
     canMoveFortified: true
-    damageAddedFortified:
-      groups:
-        MCBrute: -10
   - type: XenoHeadbutt # - TODO: Make MC component
     damage:
       types:
