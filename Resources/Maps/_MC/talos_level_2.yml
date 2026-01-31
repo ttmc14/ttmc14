@@ -23684,13 +23684,6 @@ entities:
     - type: Transform
       pos: -26.5,13.5
       parent: 1
-- proto: MachineCentrifuge
-  entities:
-  - uid: 1637
-    components:
-    - type: Transform
-      pos: 9.5,11.5
-      parent: 1
 - proto: MCAidKitAntiTox
   entities:
   - uid: 3098
@@ -32894,35 +32887,6 @@ entities:
           - Forward
         - - Middle
           - Off
-- proto: VendingMachineCoffee
-  entities:
-  - uid: 1545
-    components:
-    - type: Transform
-      pos: 27.5,17.5
-      parent: 1
-  - uid: 2105
-    components:
-    - type: Transform
-      pos: 6.5,-8.5
-      parent: 1
-  - uid: 3131
-    components:
-    - type: Transform
-      pos: -15.5,26.5
-      parent: 1
-- proto: VendingMachineSnack
-  entities:
-  - uid: 2110
-    components:
-    - type: Transform
-      pos: 12.5,-8.5
-      parent: 1
-  - uid: 3132
-    components:
-    - type: Transform
-      pos: -16.5,26.5
-      parent: 1
 - proto: WardrobeBlue
   entities:
   - uid: 2371
