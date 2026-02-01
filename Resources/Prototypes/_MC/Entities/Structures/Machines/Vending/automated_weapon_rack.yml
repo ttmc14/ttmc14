@@ -113,6 +113,8 @@
         amount: 50
       - id: MCGrenadeHsdp
         amount: 25
+      - id: MCGrenadePGas
+        amount: 10
       # M40-2 SCDP smoke grenade
       # M40-AG smoke grenade
       # M45 Cloaker grenade
