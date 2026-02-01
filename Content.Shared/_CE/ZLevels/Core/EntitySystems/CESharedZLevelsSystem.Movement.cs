@@ -102,6 +102,9 @@ public abstract partial class CESharedZLevelsSystem
     {
         base.Update(frameTime);
 
+        if (_net.IsClient && !_clientSimultaion)
+            return;
+
         var query = EntityQueryEnumerator<CEZPhysicsComponent, CEActiveZPhysicsComponent, TransformComponent, PhysicsComponent>();
         while (query.MoveNext(out var uid, out var zPhys, out _, out var xform, out var physics))
         {

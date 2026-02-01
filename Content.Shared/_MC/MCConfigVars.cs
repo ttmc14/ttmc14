@@ -7,6 +7,13 @@ namespace Content.Shared._MC;
 public sealed class MCConfigVars : CVars
 {
     /**
+     * Z-Levels
+     */
+
+    public static readonly CVarDef<bool> ZLevelsPhysicsClientSimulation =
+        CVarDef.Create("mc.z_levels.physics.client_simulation", true, CVar.ARCHIVE | CVar.CLIENT);
+
+    /**
      * Round
      */
 

@@ -1,0 +1,16 @@
+- type: entity
+  parent: MCSmoke
+  id: MCSmokeTanglefoot
+  components:
+  - type: Sprite
+    color: "#7916973C"
+  - type: MCEdgeSpreader
+    delay: 0.05
+    range: 7
+  - type: MCSmokePlasma
+    multiplier: 0.2
+  - type: TimedDespawn
+    lifetime: 9
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.2
+    lifetime: 9
