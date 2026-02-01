@@ -1,3 +1,4 @@
+using Content.Client.Movement.Systems;
 using Content.Shared._RMC14.NightVision;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Burrow;
@@ -17,6 +18,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
+    [Dependency] private readonly ContentEyeSystem  _contentEye = default!;
 
     private EntityQuery<XenoComponent> _xenoQuery;
     private EntityQuery<NightVisionComponent> _nvQuery;
@@ -89,6 +91,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _light.DrawHardFov = true;
         _light.DrawLighting = true;
 
+        _eye.SetDrawFov(ent, true);
+
         SetMesons(false);
         SetMesonSprites(false);
     }
@@ -106,6 +110,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = true;
 
+        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
+
         SetMesons(ent.Comp.Mesons);
     }
 
@@ -119,6 +125,8 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = false;
+
+        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
 
         SetMesons(ent.Comp.Mesons);
     }

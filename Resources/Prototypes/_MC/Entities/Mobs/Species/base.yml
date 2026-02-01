@@ -9,7 +9,7 @@
   - type: MCZLevelFallDamage
     damage:
       types:
-        MCBrute: 10
+        MCBrute: 2.5
   # [solution]
   - type: MCSolutionTicker
   - type: MCSolutionEventProvider
