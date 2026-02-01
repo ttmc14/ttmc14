@@ -46,6 +46,33 @@
         - MCASRSExportPad
     - name: mc-asrs-category-weapons
       entries:
+      - name: mc-asrs-entry-br8-Scout-Rifle
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponRifleBR8
+      - name: mc-asrs-entry-br8-Scout-Rifle-magazine
+        sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+        state: base
+        cost: 20
+        entities:
+        - MCMagazineRifleBR8
+      - name: mc-asrs-entry-br8-Scout-Rifle-impact-magazine
+        icon: 
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineRifleBR8Impact
+      - name: mc-asrs-entry-br8-Scout-Rifle-incendiary-magazine
+        icon: 
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineRifleBR8Incendiary
       - name: mc-asrs-entry-pb12-pepperball
         icon:
           sprite: _MC/Objects/Weapons/Guns/Special/pepperball.rsi
