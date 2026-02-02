@@ -5,14 +5,14 @@
   description: The Kauser-KT SR-26 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 8.6x70mm caseless with specialized pressures for IFF fire.
   components:
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Snipers/SR26.rsi
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr26.rsi
     layers:
     - state: base
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Snipers/SR26.rsi
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr26.rsi
   - type: Gun
     selectedMode: FullAuto
     availableModes:

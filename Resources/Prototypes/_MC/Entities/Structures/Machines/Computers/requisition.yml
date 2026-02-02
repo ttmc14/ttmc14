@@ -90,27 +90,27 @@
         - MCMagazineSR81
       - name: mc-asrs-entry-br8-Scout-Rifle
         icon:
-          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          sprite: _MC/Objects/Weapons/Guns/Rifles/br8.rsi
           state: base
         cost: 400
         entities:
         - MCWeaponRifleBR8
       - name: mc-asrs-entry-br8-Scout-Rifle-magazine
-        icon: 
+        icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
           state: base
         cost: 20
         entities:
         - MCMagazineRifleBR8
       - name: mc-asrs-entry-br8-Scout-Rifle-impact-magazine
-        icon: 
+        icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
           state: base
         cost: 40
         entities:
         - MCMagazineRifleBR8Impact
       - name: mc-asrs-entry-br8-Scout-Rifle-incendiary-magazine
-        icon: 
+        icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
           state: base
         cost: 40
