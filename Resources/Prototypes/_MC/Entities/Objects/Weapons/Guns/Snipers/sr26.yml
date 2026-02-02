@@ -1,0 +1,359 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponSniperSR26
+  name: SR-26 Kauser-KT automatic sniper rifle
+  description: The Kauser-KT SR-26 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 8.6x70mm caseless with specialized pressures for IFF fire.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Snipers/SR26.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Snipers/SR26.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/sniper.ogg
+  - type: GunIFF
+    enabled: true
+  - type: AimedShot
+    aimDuration: 1.5
+    aimedShotCooldown: 1.5
+  - type: TargetingLaser
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilUnwielded: 4
+    recoilWielded: 0
+    scatterWielded: -5
+    scatterUnwielded: 20
+    baseFireRate: 0.4
+    burstScatterMult: 2
+    modifiers:
+      FullAuto:
+        maxScatterModifier: 10
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 7
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.7
+  - type: GunRequiresWield
+  - type: MagazineAmmoProvider
+    autoEject: false
+    soundAutoEject: null
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSR26
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/sniper_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/sniper_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSR26
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 1.7
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+          - MCAttachmentRecoilCompensator
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentBipod
+      mc-aslot-rail:
+        locked: true
+        startingAttachable: MCAttachmentRailScopeSR26
+        whitelist:
+          tags:
+          - MCAttachmentRailScopeSR26
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.900, 0.0475
+      mc-aslot-rail: 0.0675, 0.1875
+      mc-aslot-underbarrel: 0.4200, -0.100
+
+# Attachments
+
+- type: Tag
+  id: MCAttachmentBarrelSR26
+
+- type: entity
+  parent: MCAttachmentBaseScope
+  id: MCAttachmentRailScopeSR26
+  name: antimaterial rifle scope
+  description: A rail mounted zoom sight scope specialized for the SR-26 sniper rifle. Allows zoom by activating the attachment.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentRail
+    - MCAttachmentRailScopeSR26
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+    state: antimat
+  - type: AttachableVisuals
+    suffix: ""
+  - type: AttachableToggleable
+    actionName: Toggle SR-26 rail scope
+    actionDesc: Allows zoom by activating the attachment.
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+      state: antimat_a
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.3
+      offset: 16
+      allowMovement: true
+      doAfter: 0
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      walk: -0.1
+      sprint: -0.1
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: -0.05
+
+- type: Tag
+  id: MCAttachmentRailScopeSR26
+
+#  Magazines
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineSR26
+  name: SR-26 magazine (10x128mm)
+  description: A box magazine filled with high preasure 10x128mm biggest rifle rounds for the SR-26.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineSR26
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSR26
+    proto: MCCartridgeSR26
+    capacity: 15
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+
+- type: entity
+  parent: MCMagazineSR26
+  id: MCMagazineSR26Flak
+  name: SR-26 flak magazine (10x128mm)
+  description: A box magazine filled with high preasure 10x128mm biggest rifle rounds for the SR-26.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineSR26Flak
+    - MCMagazineSR26
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeSR26Flak
+    proto: MCCartridgeSR26Flak
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - state: mag-band
+      color: "#0052CC"
+
+- type: entity
+  parent: MCMagazineSR26
+  id: MCMagazineSR26Incendiary
+  name: SR-26 incendiary magazine (10x128mm)
+  description: A box magazine filled with low pressure 100x28mm incendiary rifle rounds for the SR-26.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineSR26
+    - MCMagazineSR26Incendiary
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeSR26Incendiary
+    proto: MCCartridgeSR26Incendiary
+  - type: Sprite
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - state: mag-band
+      color: "#9C2219"
+
+- type: Tag
+  id: MCMagazineSR26
+
+- type: Tag
+  id: MCMagazineSR26Incendiary
+
+- type: Tag
+  id: MCMagazineSR26Flak
+
+# Cartridges
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeSR26
+  name: cartridge (10x28mm)
+  components:
+  - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
+    layers:
+    - state: base
+      map: ["enum.AmmoVisualLayers.Base"]
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR26
+  - type: CartridgeAmmo
+    proto: MCBulletSR26
+
+- type: entity
+  parent: MCCartridgeSR26
+  id: MCCartridgeSR26Incendiary
+  name: cartridge (10x128mm)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR26
+    - MCCartridgeSR26Incendiary
+  - type: CartridgeAmmo
+    proto: MCBulletSR26Incendiary
+
+- type: entity
+  parent: MCCartridgeSR26
+  id: MCCartridgeSR26Flak
+  name: cartridge (10x128mm)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR26
+    - MCCartridgeSR26Flak
+  - type: CartridgeAmmo
+    proto: MCBulletSR26Flak
+
+- type: Tag
+  id: MCCartridgeSR26
+
+- type: Tag
+  id: MCCartridgeSR26Flak
+
+- type: Tag
+  id: MCCartridgeSR26Incendiary
+
+# Bullets
+- type: entity
+  parent: MCBullet
+  id: MCBulletSR26
+  name: low velocity high caliber rifle bullet
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 90
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 45
+      falloff: 9999
+  - type: CMArmorPiercing
+    amount: 50
+  - type: MCXenoSunderDamageOnHit
+    amount: 15
+  - type: MCStunOnHit
+    maxDistance: 12
+    paralyzeTime: 1
+    staggerTime: 1
+    knockback: 2
+    slowdownTime: 0.5
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSR26Incendiary
+  name: low velocity high caliber incendiary rifle bullet
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 70
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 20
+      falloff: 999
+  - type: CMArmorPiercing
+    amount: 30
+  - type: MCXenoSunderDamageOnHit
+    amount: 5
+  - type: IgniteOnProjectileHit
+    intensity: 15
+    duration: 3
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletSR26Flak
+  name: low velocity high caliber rifle flak bullet
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 90
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 20
+      falloff: 999
+  - type: CMArmorPiercing
+    amount: 0
+  - type: MCXenoSunderDamageOnHit
+    amount: 15

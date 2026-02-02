@@ -1,6 +1,16 @@
 mc-asrs-entry-supply-beacon = Грузовой маяк
 mc-asrs-entry-orbital-beacon = Орбитальный маяк
 
+mc-asrs-entry-sniper-SR26-kit = антиматериальная винтовка SR-26
+mc-asrs-entry-sniper-SR26-magazine = Магазин SR-26 
+mc-asrs-entry-sniper-SR26-magazine-flak = Магазин SR-26 (осколочный)
+mc-asrs-entry-sniper-SR26-magazine-incendiary = Магазин SR-26 (зажигательный)
+mc-asrs-entry-sniper-SR81-kit = снайперская IFF винтовка SR-81
+mc-asrs-entry-sniper-SR81-magazine = магазин SR-81 
+mc-asrs-entry-br8-Scout-Rifle = скаутская винтовка BR-8
+mc-asrs-entry-br8-Scout-Rifle-magazine = высокоскоростной магазин BR-8 
+mc-asrs-entry-br8-Scout-Rifle-impact-magazine = высокоскоростной магазин BR-8 (ударный)
+mc-asrs-entry-br8-Scout-Rifle-incendiary-magazine = высокоскоростной магазин BR-8 (зажигательный)
 mc-asrs-entry-pb12-pepperball = Пейнтбольный пистолет PB-12
 mc-asrs-entry-fl84-flamethrower = Огнемёт FL-84
 mc-asrs-entry-fl84-gfuel-tank = Бак G-топлива FL-84

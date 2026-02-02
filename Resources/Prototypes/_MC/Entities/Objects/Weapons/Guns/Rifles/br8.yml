@@ -1,0 +1,338 @@
+- type: entity
+  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  id: MCWeaponRifleBR8
+  name: BR-8 scout rifle
+  description: The BR-8 is a light specialized scout rifle, mostly used by light infantry and scouts. It's designed to be useable at all ranges by being very adaptable to different situations due to the ability to use different ammo types. Has IFF.  Takes specialized overpressured 10x28mm rounds.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Rifles/br8.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Rifle/br8.rsi
+  - type: GunIFF
+    enabled: true
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_br64.ogg
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    scatterWielded: 0
+    scatterUnwielded: 20
+    recoilWielded: 0
+    recoilUnwielded: 0
+    modifiers:
+      FullAuto:
+        maxScatterModifier: 10
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 7
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+    accuracyMultiplierUnwielded: 1
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 0.7
+  - type: GunRequiresWield
+  - type: WieldableSpeedModifiers
+    base: 0.875
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineRifleBR8
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/m4ra_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/m4ra_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleBR8
+          - MCMagazineRifleBR8AP
+          - MCMagazineRifleBR8Incendiary
+          - MCMagazineRifleBR8Impact
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentExtendedMuzzle
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+          - MCAttachmentRecoilCompensator
+          # - TODO: M22
+          # - TODO: Heavy Barrel
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentRedDotSight
+          # - TODO: BuildSentryKit
+          # - TODO: MotionDetector
+          # - TODO: ShoulderGun
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentUnderbarrelFlashlight
+          - MCAttachmentGrenadeLauncher
+          - MCAttachmentMiniFlamethrower
+          - MCAttachmentLaserSight
+          - MCAttachmentGyroscopicStabilizer
+          - MCAttachmentBipod
+          - MCAttachmentVerticalGrip
+          - MCAttachmentAngledGrip
+          - MCAttachmentBurstFireAssembly
+          # - TODO: Attached TX-7
+          # - TODO: PepperBall mini
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.4375, 0.03125
+      rmc-aslot-rail: -0.28125, 0.25
+      rmc-aslot-underbarrel: -0.09375, -0.125
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleBR8
+  name: high velocity magazine (10x28mm)
+  description: A magazine of overpressured high velocity rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineRifleBR8
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleBR8
+    proto: MCCartridgeRifleBR8AP
+    capacity: 25
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Appearance
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleBR8Incendiary
+  name: high velocity incendiary magazine (10x28mm)
+  description: A magazine of gverpressured high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineRifleBR8Incendiary
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleBR8Incendiary
+    proto: MCCartridgeRifleBR8Incendiary
+    capacity: 25
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - state: mag-band
+      color: "#9C2219"
+  - type: Appearance
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleBR8Impact
+  name: high velocity impact magazine (10x28mm)
+  description: A magazine of overpressured high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineRifleBR8Impact
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeRifleBR8AP
+    proto: MCCartridgeRifleImpact
+    capacity: 25
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+    - state: mag-band
+      color: "#0052CC"
+  - type: RMCStunOnHit
+    stuns:
+    - whitelist:
+        minMobSize: VerySmallXeno
+      maxRange: 32
+      losesEffectWithRange: true
+      stunTime: 1
+      superSlowTime: 4
+      slowTime: 10
+  - type: Appearance
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleBR8AP
+  name: cartridge (10x28 AP)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleBR8AP
+  - type: CartridgeAmmo
+    proto: MCBulletRifleBR8AP
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleBR8Incendiary
+  name: cartridge (10x28 Incendiary)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleBR8Incendiary
+  - type: CartridgeAmmo
+    proto: MCBulletRifleBR8Incendiary
+
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeRifleImpact
+  name: cartridge (10x28 Impact)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeRifleBR8Impact
+  - type: CartridgeAmmo
+    proto: MCBulletRifleBR8Impact
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleBR8AP
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 35
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleBR8Incendiary
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 30
+  - type: CMArmorPiercing
+    amount: 15
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+  - type: IgniteOnProjectileHit
+    intensity: 15
+    duration: 3
+
+- type: entity
+  parent: RMCBaseBullet
+  id: MCBulletRifleBR8Impact
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 30
+  - type: CMArmorPiercing
+    amount: 45
+  - type: MCXenoSunderDamageOnHit
+    amount: 3.5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 24
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 105
+    thresholds:
+    - range: 16
+      falloff: 10
+  - type: MCStunOnHit
+    maxDistance: 12
+    paralyzeTime: 0.5
+    staggerTime: 1
+    knockback: 2
+    slowdownTime: 0.5
+
+
+- type: Tag
+  id: MCMagazineRifleBR8
+
+- type: Tag
+  id: MCCartridgeRifleBR8
+
+- type: Tag
+  id: MCMagazineRifleBR8AP
+
+- type: Tag
+  id: MCMagazineRifleBR8Incendiary
+
+- type: Tag
+  id: MCMagazineRifleBR8Impact
+
+- type: Tag
+  id: MCCartridgeRifleBR8AP
+
+- type: Tag
+  id: MCCartridgeRifleBR8Incendiary
+
+- type: Tag
+  id: MCCartridgeRifleBR8Impact

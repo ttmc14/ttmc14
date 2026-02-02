@@ -1,0 +1,217 @@
+- type: entity
+  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  id: MCWeaponSniperSR81
+  name: SR-81 Kauser-KT automatic sniper rifle
+  description: The Kauser-KT SR-81 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 8.6x70mm caseless with specialized pressures for IFF fire.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr81.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr81.rsi
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/sniper.ogg
+  - type: GunIFF
+    enabled: true
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilUnwielded: 4
+    recoilWielded: 0
+    scatterWielded: -5
+    scatterUnwielded: 20
+    baseFireRate: 0.55
+    burstScatterMult: 2
+    modifiers:
+      FullAuto:
+        maxScatterModifier: 10
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 7
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.7
+  - type: MagazineAmmoProvider
+    autoEject: false
+    soundAutoEject: null
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineSR81
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/m41a_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/m41a_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineSR81
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  - type: WieldDelay
+    baseDelay: 1.5
+  - type: AttachableHolder
+    slots:
+      mc-aslot-barrel:
+        locked: true
+        startingAttachable: MCAttachmentBarrelSR81
+        whitelist:
+          tags:
+          - MCAttachmentBarrelSR81
+      mc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentBipod
+      mc-aslot-rail:
+        locked: true
+        startingAttachable: MCAttachmentRailScopeSR81
+        whitelist:
+          tags:
+          - MCAttachmentRailScopeSR81
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-barrel: 0.900, 0.0475
+      mc-aslot-rail: 0.0675, 0.1875
+      mc-aslot-underbarrel: 0.4200, -0.100
+      mc-aslot-stock: 0 , 0
+
+# Attachments
+- type: entity
+  parent: MCAttachmentBaseStock
+  id: MCAttachmentBarrelSR81
+  name: SR-81 barrel
+  description: A irremovable SR-81 sniper rifle barrel.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentStock
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+    state: t81barrel_a
+  - type: AttachableVisuals
+    suffix: ""
+
+- type: Tag
+  id: MCAttachmentBarrelSR81
+
+- type: entity
+  parent: MCAttachmentBaseScope
+  id: MCAttachmentRailScopeSR81
+  name: nightvision rail scope
+  description: A rail mounted nightvision zoom sight scope specialized for the SR81 sniper rifle. Allows zoom by activating the attachment.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentRail
+    - MCAttachmentRailScopeSR81
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+    state: nv
+  - type: AttachableVisuals
+    suffix: ""
+  - type: AttachableToggleable
+    actionName: Toggle SR-81 rail scope
+    actionDesc: Allows zoom by activating the attachment.
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+      state: nv_a
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    zoomLevels:
+    - zoom: 1.3
+      offset: 16
+      allowMovement: true
+      doAfter: 0
+# TODO: 
+#   - NightvisionScope
+#      active: True
+  - type: AttachableSpeedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      walk: -0.1
+      sprint: -0.1
+  - type: AttachableWieldDelayMods
+    modifiers:
+    - delay: 0.4
+  - type: AttachableWeaponRangedMods
+    modifiers:
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: -0.05
+
+- type: Tag
+  id: MCAttachmentRailScopeSR81
+
+#  Magazines
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineSR81
+  name: SR-81 automatic sniper rifle magazine
+  description: A box magazine filled with low pressure 8.6x70mm rifle rounds for the SR-81.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineSR81
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSR81
+    proto: MCCartridgeSR81
+    capacity: 20
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr81.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+
+- type: Tag
+  id: MCMagazineSR81
+
+# Cartridges
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeSR81
+  name: cartridge (8.6x70mm)
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR81
+  - type: CartridgeAmmo
+    proto: MCBulletSR81
+
+- type: Tag
+  id: MCCartridgeSR81
+
+# Bullets
+- type: entity
+  parent: MCBullet
+  id: MCBulletSR81
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 50
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 25
+      falloff: 999
+  - type: CMArmorPiercing
+    amount: 30
+  - type: MCXenoSunderDamageOnHit
+    amount: 2
