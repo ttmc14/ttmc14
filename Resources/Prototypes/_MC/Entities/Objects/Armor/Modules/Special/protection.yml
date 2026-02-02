@@ -14,3 +14,4 @@
     visuals:
       sprite: _MC/Clothing/modular.rsi
       state: mod_eshield_a
+  - type: MCModuleShield

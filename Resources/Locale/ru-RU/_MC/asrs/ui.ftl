@@ -24,7 +24,6 @@ asrs-ui-submit-request = Отправить запрос
 asrs-ui-clear-cart = Очистить корзину
 asrs-ui-reason-label = Причина:
 asrs-ui-reason-placeholder = Причина
-asrs-ui-pending-order = Ожидающий заказ
 
 asrs-ui-search-placeholder = Поиск...
 
@@ -33,7 +32,6 @@ asrs-ui-delivery = Доставка
 asrs-ui-approve = Одобрить
 asrs-ui-deny = Отклонить
 asrs-ui-requested-by = Запросил:
-asrs-ui-reason-label = Причина:
 asrs-ui-total-cost = Общая стоимость:
 asrs-ui-contents = Содержимое:
 

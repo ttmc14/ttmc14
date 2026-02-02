@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared._MC.Armor.Modules.Components;
 using Content.Shared.Verbs;
+using Robust.Shared.Map.Components;
 
 namespace Content.Shared._MC.Armor.Modules;
 
@@ -14,17 +15,28 @@ public partial class MCArmorModuleSystem
 
     private void OnGetVerbs(Entity<MCArmorModularClothingComponent> entity, ref GetVerbsEvent<EquipmentVerb> args)
     {
-        AddRemoveModuleVerb(entity, args.User, args.Verbs, true, (text, act, iconEntity) => new EquipmentVerb { Text = text, Act = act, IconEntity = iconEntity });
+        EntityUid? user = Transform(entity).ParentUid;
+        if (HasComp<MapGridComponent>(user))
+            user = null;
+
+        AddRemoveModuleVerb(entity, user, args.Verbs, true, (text, act, iconEntity) => new EquipmentVerb { Text = text, Act = act, IconEntity = iconEntity });
     }
 
     private void OnGetVerbsInteraction(Entity<MCArmorModularClothingComponent> entity, ref GetVerbsEvent<InteractionVerb> args)
     {
-        AddRemoveModuleVerb(entity, args.User, args.Verbs, false, (text, act, iconEntity) => new InteractionVerb { Text = text, Act = act, IconEntity = iconEntity });
+        EntityUid? user = Transform(entity).ParentUid;
+        if (HasComp<MapGridComponent>(user))
+            user = null;
+
+        AddRemoveModuleVerb(entity, user, args.Verbs, false, (text, act, iconEntity) => new InteractionVerb { Text = text, Act = act, IconEntity = iconEntity });
     }
 
-    private void AddRemoveModuleVerb<T>(Entity<MCArmorModularClothingComponent> entity, EntityUid user, SortedSet<T> verbs, bool wearerRestricted, Func<string, Action, NetEntity?, T> fabrica) where T : Verb
+    private void AddRemoveModuleVerb<T>(Entity<MCArmorModularClothingComponent> entity, EntityUid? user, SortedSet<T> verbs, bool wearerRestricted, Func<string, Action, NetEntity?, T> fabrica) where T : Verb
     {
-        if (!CanInteractWithArmor(entity, user))
+        if (user is null)
+            return;
+
+        if (!CanInteractWithArmor(entity, user.Value))
             return;
 
         var modules = EnumerateModules(entity).ToList();
@@ -32,7 +44,6 @@ public partial class MCArmorModuleSystem
             return;
 
         var wearer = Transform(entity).ParentUid;
-
         if (wearerRestricted)
         {
             if (user == wearer || !_mobState.IsDead(wearer))
@@ -48,7 +59,7 @@ public partial class MCArmorModuleSystem
 
             continue;
 
-            void Act() => TryDetachSpecificModule(entity, module, user);
+            void Act() => TryDetachSpecificModule(entity, module, user.Value);
         }
     }
 

@@ -2,19 +2,29 @@
 using Content.Shared._MC.Armor.Modules.Components;
 using Content.Shared._MC.Armor.Modules.Events;
 using Content.Shared.Clothing;
+using Content.Shared.Damage;
+using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
+using Content.Shared.Verbs;
 
 namespace Content.Shared._MC.Armor.Modules.Systems;
 
 public sealed class MCArmorModuleRelaySystem : EntitySystem
 {
+    [Dependency] private readonly InventorySystem _inventory = null!;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(_inventory.RelayEvent);
+
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<MCArmorGetEvent>>(RelayEvent);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(RelayEvent);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<DamageModifyEvent>>(RelayEvent, after: new[] { typeof(MCArmorSystem) });
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<ExaminedEvent>>(RelayEvent);
 
         SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);
         SubscribeLocalEvent<ClothingSpeedModifierComponent, MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModuleMovementSpeedModifier);

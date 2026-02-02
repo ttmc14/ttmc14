@@ -5,6 +5,7 @@ using Content.Shared._RMC14.Xenonids.Watch;
 using Content.Shared.Eye.Blinding.Components;
 using Content.Shared.Ghost;
 using Content.Shared.Interaction;
+using Content.Shared.Inventory;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using JetBrains.Annotations;
@@ -117,7 +118,7 @@ namespace Content.Shared.Examine
             if (!examinerComp.CheckInRangeUnOccluded)
                 return true;
 
-            if (Comp<TransformComponent>(examiner).MapID != target.MapId) 
+            if (Comp<TransformComponent>(examiner).MapID != target.MapId)
             {
                 if (!HasComp<OverwatchWatchingComponent>(examiner) && !HasComp<XenoWatchingComponent>(examiner))
                     return false;
@@ -141,7 +142,7 @@ namespace Content.Shared.Examine
                         GetExaminerRange(overwatched),
                         predicate: predicate,
                         ignoreInsideBlocker: true);
-                } 
+                }
                 else if (TryComp<XenoWatchingComponent>(examiner, out var watcher) && watcher.Watching is { } watched)
                 {
                     return InRangeUnOccluded(
@@ -328,8 +329,10 @@ namespace Content.Shared.Examine
     ///     If you're pushing multiple messages that should be grouped together (or ordered in some way),
     ///     call <see cref="PushGroup"/> before pushing and <see cref="PopGroup"/> when finished.
     /// </summary>
-    public sealed class ExaminedEvent : EntityEventArgs
+    public sealed class ExaminedEvent : EntityEventArgs, IInventoryRelayEvent // mc-changes
     {
+        public SlotFlags TargetSlots => SlotFlags.All;
+
         /// <summary>
         ///     The message that will be displayed as the examine text.
         ///     You should use <see cref="PushMarkup"/> and similar instead to modify this,
@@ -366,6 +369,7 @@ namespace Content.Shared.Examine
         private bool _hasDescription;
 
         private ExamineMessagePart? _currentGroupPart;
+
 
         public ExaminedEvent(FormattedMessage message, EntityUid examined, EntityUid examiner, bool isInDetailsRange, bool hasDescription)
         {

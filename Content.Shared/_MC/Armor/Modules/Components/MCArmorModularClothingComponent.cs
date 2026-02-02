@@ -11,6 +11,9 @@ public sealed partial class MCArmorModularClothingComponent : Component
 
     [DataField]
     public List<MCArmorModuleSlot> Slots = new();
+
+    [ViewVariables, AutoNetworkedField]
+    public EntityUid? CurrentUser;
 }
 
 [DataDefinition, Serializable]
