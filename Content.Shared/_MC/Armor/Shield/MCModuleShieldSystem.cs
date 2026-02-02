@@ -75,6 +75,9 @@ public sealed class MCModuleShieldSystem : EntitySystem
 
     private void OnDamage(Entity<MCModuleShieldComponent> entity, ref MCArmorModuleRelayedEvent<DamageModifyEvent> args)
     {
+        if (args.Args.Tool is null)
+            return;
+
         var total = args.Args.Damage.GetTotal().Float();
         var left = ApplyShieldDamage(entity, total);
         args.Args.Damage *= left / total;
@@ -166,7 +169,7 @@ public sealed class MCModuleShieldSystem : EntitySystem
         entity.Comp.Recharging = false;
     }
 
-    private Color GetShieldColor(MCModuleShieldComponent comp)
+    private static Color GetShieldColor(MCModuleShieldComponent comp)
     {
         var ratio = comp.Health / comp.HealthMax;
         return ratio switch

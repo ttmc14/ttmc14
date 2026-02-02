@@ -23,7 +23,7 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<MCArmorGetEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(RelayEvent);
-        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<DamageModifyEvent>>(RelayEvent, after: new[] { typeof(MCArmorSystem) });
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<DamageModifyEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<ExaminedEvent>>(RelayEvent);
 
         SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);
