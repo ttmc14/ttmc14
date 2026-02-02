@@ -46,6 +46,20 @@
         - MCASRSExportPad
     - name: mc-asrs-category-weapons
       entries:
+      - name: mc-asrs-entry-sniper-SR81-kit
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr81.rsi
+          state: base
+        cost: 500
+        entities:
+        - MCWeaponSniperSR81
+      - name: mc-asrs-entry-sniper-SR81-magazine
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr81.rsi
+          state: base
+        cost: 30
+        entities:
+        - MCMagazineSR81
       - name: mc-asrs-entry-br8-Scout-Rifle
         icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
