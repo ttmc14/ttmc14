@@ -115,7 +115,7 @@
     mayTransfer: True
     whitelist:
       tags:
-      - MCCartridgeRifleBR8
+      - MCCartridgeRifleBR8AP
     proto: MCCartridgeRifleBR8AP
     capacity: 25
   - type: Sprite
@@ -169,7 +169,7 @@
     mayTransfer: True
     whitelist:
       tags:
-      - MCCartridgeRifleBR8AP
+      - MCCartridgeRifleImpact
     proto: MCCartridgeRifleImpact
     capacity: 25
   - type: Sprite
@@ -181,15 +181,6 @@
       map: [ "enum.GunVisualLayers.Mag" ]
     - state: mag-band
       color: "#0052CC"
-  - type: RMCStunOnHit
-    stuns:
-    - whitelist:
-        minMobSize: VerySmallXeno
-      maxRange: 32
-      losesEffectWithRange: true
-      stunTime: 1
-      superSlowTime: 4
-      slowTime: 10
   - type: Appearance
 
 - type: entity
@@ -239,7 +230,7 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 35
+        MCBrute: 45
   - type: CMArmorPiercing
     amount: 20
   - type: MCXenoSunderDamageOnHit
@@ -263,7 +254,7 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 30
+        MCBrute: 40
   - type: CMArmorPiercing
     amount: 15
   - type: MCXenoSunderDamageOnHit
@@ -290,7 +281,7 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 30
+        MCBrute: 40
   - type: CMArmorPiercing
     amount: 45
   - type: MCXenoSunderDamageOnHit
