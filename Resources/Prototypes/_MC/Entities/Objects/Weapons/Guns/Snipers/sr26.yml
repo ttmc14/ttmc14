@@ -21,6 +21,7 @@
       path: /Audio/_MC/Weapons/Guns/Gunshots/sniper.ogg
   - type: GunIFF
     enabled: true
+  - type: RMCFocusedShooting
   - type: AimedShot
     aimDuration: 1.5
     aimedShotCooldown: 1.5
@@ -137,6 +138,11 @@
     - conditions:
         wieldedOnly: true
       accuracyAddMult: -0.05
+  - type: WieldableSpeedModifiers
+    base: 0.5
+    light: 1
+    medium: 1
+    heavy: 1
 
 - type: Tag
   id: MCAttachmentRailScopeSR26

@@ -307,10 +307,10 @@
       falloff: 10
   - type: MCStunOnHit
     maxDistance: 12
-    paralyzeTime: 0.5
+    paralyzeTime: 1.2
     staggerTime: 1
     knockback: 2
-    slowdownTime: 0.5
+    slowdownTime: 1
 
 
 - type: Tag
