@@ -67,7 +67,6 @@
           tags:
           - MCAttachmentBarrelSR81
       mc-aslot-underbarrel:
-        startingAttachable: MCAttachmentVerticalGrip
         whitelist:
           tags:
           - MCAttachmentLaserSight
@@ -203,7 +202,6 @@
 - type: entity
   parent: MCBullet
   id: MCBulletSR81
-  name: low velocity high caliber rifle bullet
   components:
   - type: Projectile
     damage:
@@ -217,9 +215,3 @@
     amount: 30
   - type: MCXenoSunderDamageOnHit
     amount: 2
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - falloff: 0.25
-  - type: MCStunOnHit
-    slowdownTime: 1
-    maxDistance: 17
