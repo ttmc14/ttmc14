@@ -15,3 +15,13 @@
       sprite: _MC/Clothing/modular.rsi
       state: mod_eshield_a
   - type: MCModuleShield
+  - type: MCArmor
+    soft:
+      melee: -5
+      bullet: -5
+      laser: -5
+      energy: -5
+      bomb: -5
+      bio: -5
+      fire: -5
+      acid: -5
