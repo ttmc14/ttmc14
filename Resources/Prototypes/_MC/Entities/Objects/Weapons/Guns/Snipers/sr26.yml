@@ -90,9 +90,10 @@
       mc-aslot-barrel: 0.900, 0.0475
       mc-aslot-rail: 0.0675, 0.1875
       mc-aslot-underbarrel: 0.4200, -0.100
+  - type: RMCGunChamber
+    enabled: false
 
 # Attachments
-
 - type: Tag
   id: MCAttachmentBarrelSR26
 
