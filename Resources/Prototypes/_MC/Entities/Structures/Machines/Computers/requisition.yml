@@ -59,21 +59,21 @@
           state: base
         cost: 30
         entities:
-        - MCMagazineSR26Flak
+        - MCMagazineSR26
       - name: mc-asrs-entry-sniper-SR26-magazine-flak
         icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
           state: base
         cost: 50
         entities:
-        - MCMagazineSR26Incendiary
+        - MCMagazineSR26Flak
       - name: mc-asrs-entry-sniper-SR26-magazine-incendiary
         icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
           state: base
         cost: 40
         entities:
-        - MCMagazineSR81
+        - MCMagazineSR26Incendiary
       - name: mc-asrs-entry-sniper-SR81-kit
         icon:
           sprite: _MC/Objects/Weapons/Guns/Snipers/sr81.rsi
