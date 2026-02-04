@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Armor.Events;
 using Content.Shared._MC.Armor.Modules.Components;
 using Content.Shared._MC.Armor.Modules.Events;
+using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
@@ -26,6 +27,8 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<DamageModifyEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<ExaminedEvent>>(RelayEvent);
 
+        SubscribeLocalEvent<MCArmorModularClothingComponent, GetItemActionsEvent>(RelayEvent);
+
         SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);
         SubscribeLocalEvent<ClothingSpeedModifierComponent, MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModuleMovementSpeedModifier);
     }
@@ -39,6 +42,20 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
     private static void OnModuleMovementSpeedModifier(Entity<ClothingSpeedModifierComponent> entity, ref MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         args.Args.ModifySpeed(entity.Comp.WalkModifier, entity.Comp.SprintModifier);
+    }
+
+    public void RelayEvent<T>(Entity<MCArmorModularClothingComponent> entity, ref T args)
+    {
+        var ev = new MCArmorModuleRelayedEvent<T>(args);
+        foreach (var slot in entity.Comp.Slots)
+        {
+            if (slot.Module is null)
+                continue;
+
+            RaiseLocalEvent(slot.Module.Value, ev);
+        }
+
+        args = ev.Args;
     }
 
     public void RelayEvent<T>(Entity<MCArmorModularClothingComponent> entity, ref InventoryRelayedEvent<T> args)

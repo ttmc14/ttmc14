@@ -1,0 +1,16 @@
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleToggleWelding
+  name: Toggle the welding visor
+  description: Change the positions of the welding visor on your forehead.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _MC/Clothing/modular.rsi
+      state: welding_head
+    backgroundOn:
+      sprite: _MC/Actions/actions.rsi
+      state: selected_frame
+  - type: InstantAction
+    event: !type:MCModuleEyeProtectionActionEvent

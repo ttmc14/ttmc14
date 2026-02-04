@@ -116,3 +116,4 @@
     visuals:
       sprite: _MC/Clothing/modular.rsi
       state: welding_head_a
+  - type: MCModuleEyeProtection
