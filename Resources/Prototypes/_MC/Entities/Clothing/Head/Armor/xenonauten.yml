@@ -21,18 +21,17 @@
     - HeadTop
     - HeadSide
     - Snout
-  - type: CycleableVisor
-    offIcon:
-      sprite: _RMC14/Objects/Clothing/helmet_visors.rsi
-      state: sight_up
-    containers:
-    - rmc_visor_one
-    - rmc_visor_two
   - type: IntegratedVisors
     visorsToAdd:
     - RMCVisorSquadIntegrated
   - type: RMCBulkyArmor
   - type: OverwatchCamera
+  - type: MCArmorModularClothing
+    slots:
+    - id: main_helmet
+      whitelist:
+        tags:
+        - MCArmorModuleHead
 
 - type: entity
   parent: MCArmorHelmetModularXenonauten

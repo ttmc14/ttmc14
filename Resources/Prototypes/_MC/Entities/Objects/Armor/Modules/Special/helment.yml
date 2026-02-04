@@ -65,6 +65,7 @@
     visuals:
       sprite: _MC/Clothing/modular.rsi
       state: binocular_head_a
+  - type: MCModuleBinocular
 
 - type: entity
   parent: MCArmorModule

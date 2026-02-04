@@ -13,14 +13,13 @@ namespace Content.Shared._MC.Armor.Modules.Systems;
 
 public sealed class MCArmorModuleRelaySystem : EntitySystem
 {
-    [Dependency] private readonly InventorySystem _inventory = null!;
-
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(_inventory.RelayEvent);
+        SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(InventoryRelayEvent);
 
+        // Other relay shit
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<MCArmorGetEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(RelayEvent);
@@ -28,7 +27,6 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<ExaminedEvent>>(RelayEvent);
 
         SubscribeLocalEvent<MCArmorModularClothingComponent, GetItemActionsEvent>(RelayEvent);
-
         SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);
         SubscribeLocalEvent<ClothingSpeedModifierComponent, MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnModuleMovementSpeedModifier);
     }
@@ -42,6 +40,18 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
     private static void OnModuleMovementSpeedModifier(Entity<ClothingSpeedModifierComponent> entity, ref MCArmorModuleRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
         args.Args.ModifySpeed(entity.Comp.WalkModifier, entity.Comp.SprintModifier);
+    }
+
+    public void InventoryRelayEvent<T>(Entity<InventoryComponent> inventory, ref T args)
+    {
+        var ev = new InventoryRelayedEvent<T>(args);
+        var enumerator = new InventorySystem.InventorySlotEnumerator(inventory);
+        while (enumerator.NextItem(out var item))
+        {
+            RaiseLocalEvent(item, ev);
+        }
+
+        args = ev.Args;
     }
 
     public void RelayEvent<T>(Entity<MCArmorModularClothingComponent> entity, ref T args)

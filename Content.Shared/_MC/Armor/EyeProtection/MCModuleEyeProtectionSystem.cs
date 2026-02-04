@@ -19,6 +19,7 @@ public sealed class MCModuleEyeProtectionSystem : EntitySystem
 
         SubscribeLocalEvent<MCModuleEyeProtectionComponent, MCArmorModuleRelayedEvent<GetItemActionsEvent>>(OnGetAction);
         SubscribeLocalEvent<MCModuleEyeProtectionComponent, MCArmorModuleRelayedEvent<MCModuleEyeProtectionActionEvent>>(OnAction);
+        SubscribeLocalEvent<MCModuleEyeProtectionComponent, MCArmorModuleDetachedEvent>(OnDeattached);
     }
 
     private void OnGetAction(Entity<MCModuleEyeProtectionComponent> entity, ref MCArmorModuleRelayedEvent<GetItemActionsEvent> args)
@@ -47,5 +48,10 @@ public sealed class MCModuleEyeProtectionSystem : EntitySystem
         }
 
         RemComp<EyeProtectionComponent>(owner);
+    }
+
+    private void OnDeattached(Entity<MCModuleEyeProtectionComponent> entity, ref MCArmorModuleDetachedEvent args)
+    {
+        RemComp<EyeProtectionComponent>(args.Armor);
     }
 }

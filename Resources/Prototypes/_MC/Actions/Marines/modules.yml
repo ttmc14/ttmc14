@@ -14,3 +14,21 @@
       state: selected_frame
   - type: InstantAction
     event: !type:MCModuleEyeProtectionActionEvent
+
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleToggleBinocular
+  name: Toggle the binocular visor
+  description: Change the positions of the binocular visor on your forehead.
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _MC/Clothing/modular.rsi
+      state: binocular_head
+    backgroundOn:
+      sprite: _MC/Actions/actions.rsi
+      state: selected_frame
+  - type: InstantAction
+    event: !type:MCModuleBinocularActionEvent
+
