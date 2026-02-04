@@ -37,7 +37,7 @@ public sealed class MCModuleEyeProtectionSystem : EntitySystem
         entity.Comp.Enabled = !entity.Comp.Enabled;
         Dirty(entity);
 
-        `_actions.SetToggled((args.Args.Action, args.Args.Action.Comp), entity.Comp.Enabled);
+        _actions.SetToggled((args.Args.Action, args.Args.Action.Comp), entity.Comp.Enabled);
 
         var owner = Transform(entity).ParentUid;
         if (entity.Comp.Enabled)
