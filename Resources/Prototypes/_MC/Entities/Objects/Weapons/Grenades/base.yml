@@ -1,8 +1,3 @@
-# tags
-- type: Tag
-  id: MCGrenade
-
-# entities
 - type: entity
   parent: MCItem
   id: MCGrenade
@@ -26,10 +21,6 @@
   - type: IgnorePredictionHide
   - type: Item
     size: Small
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitStorage
   - type: ChangeItemSizeOnTimerTrigger
   - type: CancelUseWithCloak
   - type: Sprite
@@ -48,3 +39,25 @@
   - type: Tag
     tags:
     - MCGrenade
+
+- type: Tag
+  id: MCGrenade
+
+- type: entity
+  parent: MCGrenade
+  id: MCGrenadeTraining
+  name: M15 training grenade
+  description: A harmless reusable version of the M15 HEFA, used for training. Capable of being loaded into a grenade launcher, or thrown by hand.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/tranining.rsi
+  - type: SoundOnTrigger
+    sound: /Audio/Effects/snap.ogg
+  - type: Tag
+    tags:
+    - MCGrenade
+    - MCGrenadeTraining
+  - type: Ammo
+
+- type: Tag
+  id: MCGrenadeTraining

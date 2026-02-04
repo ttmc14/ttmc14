@@ -1,0 +1,175 @@
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeAcid
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/acid.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeAg
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/ag.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeAgas
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/agas.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeAgls
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/agls.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeAglsCloak
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/agls_cloak.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeAglsPgas
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/agls_pgas.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeBase
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/base.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeEx
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/ex.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeFire
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/fire.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeImpact
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/impact.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeMolotov
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/molotov.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeNerve
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/nerve.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeNeuro
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/neuro.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadePhos
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/phos.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadePmc
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/pmc.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeRad
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/rad.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeSom
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/som.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeSomFire
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/som_fire.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeSomSmoke
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/som_smoke.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeStick
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/stick.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeUpp
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/upp.rsi
+
+- type: entity
+  parent: MCGrenadeTraining
+  id: MCGrenadeUppWp
+  name: working in progress
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/upp_wp.rsi
