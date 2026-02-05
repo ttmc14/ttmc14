@@ -408,7 +408,7 @@ namespace Content.Server.Atmos.EntitySystems
                 return;
 
             // Check if its' taken any heat damage, and give the value
-            if (args.DamageDelta.DamageDict.TryGetValue("MCHeat", out FixedPoint2 value)) // mc-changes
+            if (args.DamageDelta.DamageDict.TryGetValue("MCBurn", out FixedPoint2 value)) // mc-changes
             {
                 // Make sure the value is greater than the threshold
                 if (value <= component.Threshold)
