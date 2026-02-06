@@ -1,0 +1,158 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from RU-TerraGov-Marine-Corps at https://github.com/Cosmic-Overlord/RU-TerraGov-Marine-Corps/blob/2a9488f015a3fcc0c4628bc89f44c51ab46fbe18/modular_RUtgmc/icons/obj/smooth_objects/ship_gray_window.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "ship_gray_window-invincible"
+    },
+    {
+      "name": "ship_gray_window-reinforced"
+    },
+    {
+      "name": "ship_gray_window-0"
+    },
+    {
+      "name": "ship_gray_window-1"
+    },
+    {
+      "name": "ship_gray_window-2"
+    },
+    {
+      "name": "ship_gray_window-3"
+    },
+    {
+      "name": "ship_gray_window-4"
+    },
+    {
+      "name": "ship_gray_window-5"
+    },
+    {
+      "name": "ship_gray_window-6"
+    },
+    {
+      "name": "ship_gray_window-7"
+    },
+    {
+      "name": "ship_gray_window-8"
+    },
+    {
+      "name": "ship_gray_window-9"
+    },
+    {
+      "name": "ship_gray_window-10"
+    },
+    {
+      "name": "ship_gray_window-11"
+    },
+    {
+      "name": "ship_gray_window-12"
+    },
+    {
+      "name": "ship_gray_window-13"
+    },
+    {
+      "name": "ship_gray_window-14"
+    },
+    {
+      "name": "ship_gray_window-15"
+    },
+    {
+      "name": "ship_gray_window-21"
+    },
+    {
+      "name": "ship_gray_window-23"
+    },
+    {
+      "name": "ship_gray_window-29"
+    },
+    {
+      "name": "ship_gray_window-31"
+    },
+    {
+      "name": "ship_gray_window-38"
+    },
+    {
+      "name": "ship_gray_window-39"
+    },
+    {
+      "name": "ship_gray_window-46"
+    },
+    {
+      "name": "ship_gray_window-47"
+    },
+    {
+      "name": "ship_gray_window-55"
+    },
+    {
+      "name": "ship_gray_window-63"
+    },
+    {
+      "name": "ship_gray_window-74"
+    },
+    {
+      "name": "ship_gray_window-75"
+    },
+    {
+      "name": "ship_gray_window-78"
+    },
+    {
+      "name": "ship_gray_window-79"
+    },
+    {
+      "name": "ship_gray_window-95"
+    },
+    {
+      "name": "ship_gray_window-110"
+    },
+    {
+      "name": "ship_gray_window-111"
+    },
+    {
+      "name": "ship_gray_window-127"
+    },
+    {
+      "name": "ship_gray_window-137"
+    },
+    {
+      "name": "ship_gray_window-139"
+    },
+    {
+      "name": "ship_gray_window-141"
+    },
+    {
+      "name": "ship_gray_window-143"
+    },
+    {
+      "name": "ship_gray_window-157"
+    },
+    {
+      "name": "ship_gray_window-159"
+    },
+    {
+      "name": "ship_gray_window-175"
+    },
+    {
+      "name": "ship_gray_window-191"
+    },
+    {
+      "name": "ship_gray_window-203"
+    },
+    {
+      "name": "ship_gray_window-207"
+    },
+    {
+      "name": "ship_gray_window-223"
+    },
+    {
+      "name": "ship_gray_window-239"
+    },
+    {
+      "name": "ship_gray_window-255"
+    }
+  ]
+}

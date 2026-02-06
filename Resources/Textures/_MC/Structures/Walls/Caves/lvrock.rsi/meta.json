@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from UngaMarines-13 at https://github.com/UngaCo/UngaMarines-13/blob/6b0be1ccffe1fdfc99e833909a3f20204ec3219e/icons/turf/walls/lvwall.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "wall-invincible"
+    },
+    {
+      "name": "lvwall-0"
+    },
+    {
+      "name": "lvwall-1"
+    },
+    {
+      "name": "lvwall-2"
+    },
+    {
+      "name": "lvwall-3"
+    },
+    {
+      "name": "lvwall-4"
+    },
+    {
+      "name": "lvwall-5"
+    },
+    {
+      "name": "lvwall-6"
+    },
+    {
+      "name": "lvwall-7"
+    },
+    {
+      "name": "lvwall-8"
+    },
+    {
+      "name": "lvwall-9"
+    },
+    {
+      "name": "lvwall-10"
+    },
+    {
+      "name": "lvwall-11"
+    },
+    {
+      "name": "lvwall-12"
+    },
+    {
+      "name": "lvwall-13"
+    },
+    {
+      "name": "lvwall-14"
+    },
+    {
+      "name": "lvwall-15"
+    },
+    {
+      "name": "lvwall-21"
+    },
+    {
+      "name": "lvwall-23"
+    },
+    {
+      "name": "lvwall-29"
+    },
+    {
+      "name": "lvwall-31"
+    },
+    {
+      "name": "lvwall-38"
+    },
+    {
+      "name": "lvwall-39"
+    },
+    {
+      "name": "lvwall-46"
+    },
+    {
+      "name": "lvwall-47"
+    },
+    {
+      "name": "lvwall-55"
+    },
+    {
+      "name": "lvwall-63"
+    },
+    {
+      "name": "lvwall-74"
+    },
+    {
+      "name": "lvwall-75"
+    },
+    {
+      "name": "lvwall-78"
+    },
+    {
+      "name": "lvwall-79"
+    },
+    {
+      "name": "lvwall-95"
+    },
+    {
+      "name": "lvwall-110"
+    },
+    {
+      "name": "lvwall-111"
+    },
+    {
+      "name": "lvwall-127"
+    },
+    {
+      "name": "lvwall-137"
+    },
+    {
+      "name": "lvwall-139"
+    },
+    {
+      "name": "lvwall-141"
+    },
+    {
+      "name": "lvwall-143"
+    },
+    {
+      "name": "lvwall-157"
+    },
+    {
+      "name": "lvwall-159"
+    },
+    {
+      "name": "lvwall-175"
+    },
+    {
+      "name": "lvwall-191"
+    },
+    {
+      "name": "lvwall-203"
+    },
+    {
+      "name": "lvwall-207"
+    },
+    {
+      "name": "lvwall-223"
+    },
+    {
+      "name": "lvwall-239"
+    },
+    {
+      "name": "lvwall-255"
+    }
+  ]
+}

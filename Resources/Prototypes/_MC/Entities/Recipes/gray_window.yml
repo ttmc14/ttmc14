@@ -1,0 +1,101 @@
+- type: constructionGraph
+  parent: MC
+  id: MCWindowGray
+  start: start
+  graph:
+  - node: start
+
+  - node: windowFrameGray
+    entity: MCWindowFrameGray
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: CMSheetMetal1
+        amount: 2
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+
+    - to: windowGray
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: CMGlass
+        amount: 2
+        doAfter: 2
+
+  - node: windowGray
+    entity: MCWindowGray
+    edges:
+    - to: windowFrameGray
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: CMSheetGlass1
+        amount: 2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+      - tool: Prying
+      - tool: Screwing
+
+- type: constructionGraph
+  parent: MC
+  id: MCWindowGrayReinforced
+  start: start
+  graph:
+  - node: start
+
+  - node: MCwindowFrameGrayReinforced
+    entity: MCWindowGrayReinforced
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: CMSheetMetal1
+        amount: 2
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+
+    - to: MCwindowGrayReinforced
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: CMGlassReinforced
+        amount: 2
+        doAfter: 2
+
+  - node: MCwindowGrayReinforced
+    entity: MCWindowGrayReinforced
+    edges:
+    - to: MCwindowFrameGrayReinforced
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: CMSheetGlassReinforced1
+        amount: 2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+      - tool: Prying
+      - tool: Screwing

@@ -1,0 +1,52 @@
+- type: entity
+  parent: MCWall
+  id: MCWallGrayWall
+  name: gray wall
+  abstract: true
+  description: A huge chunk of gray wall metal used to seperate rooms.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/gwall.rsi
+    state: gwall-0
+  - type: Icon
+    sprite: _MC/Structures/Walls/gwall.rsi
+    state: gwall-invincible
+  - type: IconSmooth
+    key: mcWalls
+    base: gwall-
+    mode: MCCardinalFlagsExtended
+  - type: Construction
+    graph: CMGirder
+    node: wall
+
+- type: entity
+  parent: MCWallGrayWall
+  id: MCWallgraywall
+  suffix: reinforced
+  components:
+  - type: ReceiverXenoClaws
+    maxHealth: 3000
+    minimumClawStrength: VerySharp
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 3000
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MCWallGrayWall
+  id: MCWallGrayRegular
+  suffix: regular
+  components:
+  - type: ReceiverXenoClaws
+    maxHealth: 1500
+    minimumClawStrength: VerySharp
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 1500
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]

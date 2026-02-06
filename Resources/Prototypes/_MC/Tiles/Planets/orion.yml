@@ -1,0 +1,19 @@
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetOrionSand
+  name: dirty sand
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/dirt.png
+
+- type: tile
+  parent: MCPlanetOrionSand
+  id: MCPlanetOrionYellowGrass
+  name: yellow grass
+  sprite: /Textures/_MC/Tiles/Planet/y_grass.png
+
+- type: tile
+  parent: MCPlanetOrionSand
+  id: MCPlanetOrionYellowGrass2
+  name: yellow grass
+  sprite: /Textures/_MC/Tiles/Planet/y_grass2.png
