@@ -31,3 +31,14 @@
     visuals:
       sprite: _MC/Clothing/modular.rsi
       state: mod_chemsystem_a
+  - type: MCModuleVali
+  - type: MCModuleHealthScan
+  # Health scanner shit
+  - type: HealthScanner
+    force: true
+  - type: UserInterface
+    interfaces:
+      enum.HealthScannerUIKey.Key:
+        type: MCHealthScannerBui
+        interactionRange: 0
+        requireInputValidation: false

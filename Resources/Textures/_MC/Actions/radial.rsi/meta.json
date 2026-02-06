@@ -1,0 +1,577 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "laser_disabler"
+    },
+    {
+      "name": "radial_slice"
+    },
+    {
+      "name": "radial_slice_focus"
+    },
+    {
+      "name": "radial_center"
+    },
+    {
+      "name": "radial_center_focus"
+    },
+    {
+      "name": "radial_down"
+    },
+    {
+      "name": "radial_up"
+    },
+    {
+      "name": "radial_right"
+    },
+    {
+      "name": "radial_left"
+    },
+    {
+      "name": "radial_highlight"
+    },
+    {
+      "name": "radial_pull"
+    },
+    {
+      "name": "radial_pickup"
+    },
+    {
+      "name": "radial_examine"
+    },
+    {
+      "name": "radial_examine2"
+    },
+    {
+      "name": "radial_lookat"
+    },
+    {
+      "name": "radial_use"
+    },
+    {
+      "name": "radial_point"
+    },
+    {
+      "name": "radial_eject"
+    },
+    {
+      "name": "radial_next_noicon"
+    },
+    {
+      "name": "radial_next"
+    },
+    {
+      "name": "radial_grind"
+    },
+    {
+      "name": "radial_juice"
+    },
+    {
+      "name": "radial_mix"
+    },
+    {
+      "name": "wallfloor"
+    },
+    {
+      "name": "grillewindow"
+    },
+    {
+      "name": "airlock"
+    },
+    {
+      "name": "delete"
+    },
+    {
+      "name": "access"
+    },
+    {
+      "name": "airlocktype"
+    },
+    {
+      "name": "windowtype"
+    },
+    {
+      "name": "machine"
+    },
+    {
+      "name": "computer_dir"
+    },
+    {
+      "name": "cnorth"
+    },
+    {
+      "name": "ceast"
+    },
+    {
+      "name": "csouth"
+    },
+    {
+      "name": "cwest"
+    },
+    {
+      "name": "cable_0-1"
+    },
+    {
+      "name": "cable_0-2"
+    },
+    {
+      "name": "cable_0-4"
+    },
+    {
+      "name": "cable_0-5"
+    },
+    {
+      "name": "cable_0-6"
+    },
+    {
+      "name": "cable_0-8"
+    },
+    {
+      "name": "cable_0-9"
+    },
+    {
+      "name": "cable_0-10"
+    },
+    {
+      "name": "cable_invalid"
+    },
+    {
+      "name": "cable_1-2"
+    },
+    {
+      "name": "cable_1-4"
+    },
+    {
+      "name": "cable_1-5"
+    },
+    {
+      "name": "cable_1-6"
+    },
+    {
+      "name": "cable_1-8"
+    },
+    {
+      "name": "cable_1-9"
+    },
+    {
+      "name": "cable_1-10"
+    },
+    {
+      "name": "cable_2-4"
+    },
+    {
+      "name": "cable_2-5"
+    },
+    {
+      "name": "cable_2-6"
+    },
+    {
+      "name": "cable_2-8"
+    },
+    {
+      "name": "cable_2-9"
+    },
+    {
+      "name": "cable_2-10"
+    },
+    {
+      "name": "cable_4-5"
+    },
+    {
+      "name": "cable_4-6"
+    },
+    {
+      "name": "cable_4-8"
+    },
+    {
+      "name": "cable_4-9"
+    },
+    {
+      "name": "cable_4-10"
+    },
+    {
+      "name": "cable_5-6"
+    },
+    {
+      "name": "cable_5-8"
+    },
+    {
+      "name": "cable_5-9"
+    },
+    {
+      "name": "cable_5-10"
+    },
+    {
+      "name": "cable_6-8"
+    },
+    {
+      "name": "cable_6-9"
+    },
+    {
+      "name": "cable_6-10"
+    },
+    {
+      "name": "cable_8-9"
+    },
+    {
+      "name": "cable_8-10"
+    },
+    {
+      "name": "cable_9-10"
+    },
+    {
+      "name": "radial_head_un"
+    },
+    {
+      "name": "radial_head_surgery"
+    },
+    {
+      "name": "radial_head_brute"
+    },
+    {
+      "name": "radial_head_burn"
+    },
+    {
+      "name": "radial_head_both"
+    },
+    {
+      "name": "radial_chest_un"
+    },
+    {
+      "name": "radial_chest_surgery"
+    },
+    {
+      "name": "radial_chest_burn"
+    },
+    {
+      "name": "radial_chest_brute"
+    },
+    {
+      "name": "radial_chest_both"
+    },
+    {
+      "name": "radial_groin_un"
+    },
+    {
+      "name": "radial_groin_surgery"
+    },
+    {
+      "name": "radial_groin_burn"
+    },
+    {
+      "name": "radial_groin_brute"
+    },
+    {
+      "name": "radial_groin_both"
+    },
+    {
+      "name": "radial_l_arm_un"
+    },
+    {
+      "name": "radial_l_arm_surgery"
+    },
+    {
+      "name": "radial_l_arm_burn"
+    },
+    {
+      "name": "radial_l_arm_brute"
+    },
+    {
+      "name": "radial_l_arm_both"
+    },
+    {
+      "name": "radial_l_hand_un"
+    },
+    {
+      "name": "radial_l_hand_surgery"
+    },
+    {
+      "name": "radial_l_hand_burn"
+    },
+    {
+      "name": "radial_l_hand_brute"
+    },
+    {
+      "name": "radial_l_hand_both"
+    },
+    {
+      "name": "radial_r_arm_un"
+    },
+    {
+      "name": "radial_r_arm_surgery"
+    },
+    {
+      "name": "radial_r_arm_burn"
+    },
+    {
+      "name": "radial_r_arm_brute"
+    },
+    {
+      "name": "radial_r_arm_both"
+    },
+    {
+      "name": "radial_r_hand_un"
+    },
+    {
+      "name": "radial_r_hand_surgery"
+    },
+    {
+      "name": "radial_r_hand_burn"
+    },
+    {
+      "name": "radial_r_hand_brute"
+    },
+    {
+      "name": "radial_r_hand_both"
+    },
+    {
+      "name": "radial_l_leg_un"
+    },
+    {
+      "name": "radial_l_leg_surgery"
+    },
+    {
+      "name": "radial_l_leg_burn"
+    },
+    {
+      "name": "radial_l_leg_brute"
+    },
+    {
+      "name": "radial_l_leg_both"
+    },
+    {
+      "name": "radial_l_foot_un"
+    },
+    {
+      "name": "radial_l_foot_surgery"
+    },
+    {
+      "name": "radial_l_foot_burn"
+    },
+    {
+      "name": "radial_l_foot_brute"
+    },
+    {
+      "name": "radial_l_foot_both"
+    },
+    {
+      "name": "radial_r_leg_un"
+    },
+    {
+      "name": "radial_r_leg_surgery"
+    },
+    {
+      "name": "radial_r_leg_burn"
+    },
+    {
+      "name": "radial_r_leg_brute"
+    },
+    {
+      "name": "radial_r_leg_both"
+    },
+    {
+      "name": "radial_r_foot_un"
+    },
+    {
+      "name": "radial_r_foot_surgery"
+    },
+    {
+      "name": "radial_r_foot_burn"
+    },
+    {
+      "name": "radial_r_foot_brute"
+    },
+    {
+      "name": "radial_r_foot_both"
+    },
+    {
+      "name": "cboost_t2"
+    },
+    {
+      "name": "cboost_t1"
+    },
+    {
+      "name": "cboost_extract"
+    },
+    {
+      "name": "cboost_load"
+    },
+    {
+      "name": "laser"
+    },
+    {
+      "name": "laser_overcharge"
+    },
+    {
+      "name": "laser_spread"
+    },
+    {
+      "name": "laser_sniper"
+    },
+    {
+      "name": "laser_heat"
+    },
+    {
+      "name": "laser_sniper_overcharge"
+    },
+    {
+      "name": "cboost_info"
+    },
+    {
+      "name": "cic_asl"
+    },
+    {
+      "name": "cic_message_single"
+    },
+    {
+      "name": "cic_message_near"
+    },
+    {
+      "name": "cic_squad_box"
+    },
+    {
+      "name": "cic_squad_actions"
+    },
+    {
+      "name": "cic_switch_squad"
+    },
+    {
+      "name": "cic_switch_squad_near"
+    },
+    {
+      "name": "cic_orbital_spotlight"
+    },
+    {
+      "name": "cic_fire_ob",
+      "delays": [
+        [
+          0.08,
+          0.08,
+          0.08,
+          0.08
+        ]
+      ]
+    },
+    {
+      "name": "cic_mark_ob"
+    },
+    {
+      "name": "laser_ricochet"
+    },
+    {
+      "name": "laser_charge"
+    },
+    {
+      "name": "laser_impact"
+    },
+    {
+      "name": "laser_microwave"
+    },
+    {
+      "name": "plasma_strong"
+    },
+    {
+      "name": "plasma_multi"
+    },
+    {
+      "name": "plasma_weak"
+    },
+    {
+      "name": "plasma_cannon"
+    },
+    {
+      "name": "plasma_bouncy"
+    },
+    {
+      "name": "plasma_fire"
+    },
+    {
+      "name": "cas_laser"
+    },
+    {
+      "name": "gau"
+    },
+    {
+      "name": "volkite"
+    },
+    {
+      "name": "rockets"
+    },
+    {
+      "name": "incendiary_rockets"
+    },
+    {
+      "name": "cruise"
+    },
+    {
+      "name": "sentry_pod"
+    },
+    {
+      "name": "supply_pod"
+    },
+    {
+      "name": "he_mortar"
+    },
+    {
+      "name": "incendiary_mortar"
+    },
+    {
+      "name": "smoke_mortar"
+    },
+    {
+      "name": "acid_smoke_mortar"
+    },
+    {
+      "name": "satrapine_mortar"
+    },
+    {
+      "name": "rad_missile"
+    },
+    {
+      "name": "mech"
+    },
+    {
+      "name": "tele"
+    },
+    {
+      "name": "death"
+    },
+    {
+      "name": "laser_swarm"
+    },
+    {
+      "name": "predator_stun_spheres"
+    },
+    {
+      "name": "predator_plasma_weak"
+    },
+    {
+      "name": "predator_plasma_strong"
+    },
+    {
+      "name": "pred_mode_lethal"
+    },
+    {
+      "name": "pred_mode_stun"
+    },
+    {
+      "name": "sniper_icon"
+    },
+    {
+      "name": "mini_icon"
+    },
+    {
+      "name": "shotgun_icon"
+    },
+    {
+      "name": "flamer_icon"
+    }
+  ]
+}

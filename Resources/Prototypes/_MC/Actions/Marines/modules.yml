@@ -32,3 +32,68 @@
   - type: InstantAction
     event: !type:MCModuleBinocularActionEvent
 
+# Pluto & Vali
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleMedicalScan
+  name: User Medical Scan
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: suit_scan
+    backgroundOn:
+      sprite: _MC/Actions/actions.rsi
+      state: active
+  - type: InstantAction
+    event: !type:MCModuleHealthScanActionEvent
+
+# Vali
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleValiSettings
+  name: Configure Vali Chemical Enhancement
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: cboost_configure
+    backgroundOn:
+      sprite: _MC/Actions/actions.rsi
+      state: active
+  - type: InstantAction
+    event: !type:MCModuleBinocularActionEvent
+
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleValiConnect
+  name: Connect Weapon
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: vali_weapon_connect
+    backgroundOn:
+      sprite: _MC/Actions/actions.rsi
+      state: active
+  - type: InstantAction
+    event: !type:MCModuleValiConnectActionEvent
+
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleValiBoost
+  name: Power Vali Chemical Enhancement
+  components:
+  - type: Action
+    itemIconStyle: BigAction
+    iconOn:
+      sprite: _MC/Actions/actions.rsi
+      state: cboost_on
+    icon:
+      sprite: _MC/Actions/actions.rsi
+      state: cboost_off
+  - type: InstantAction
+    event: !type:MCModuleValiBoostActionEvent

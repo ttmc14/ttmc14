@@ -3,6 +3,7 @@ using Content.Shared._MC.Damage;
 using Content.Shared._MC.Flammable;
 using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Stun;
+using Content.Shared._MC.Weapon.Vali.Events;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._MC.Xeno.Sunder;
 using Content.Shared.Chemistry.Reagent;
@@ -33,6 +34,9 @@ public sealed partial class MCWeaponValiSystem
 
     private void OnMeleeHit(Entity<MCWeaponValiComponent> entity, ref MeleeHitEvent args)
     {
+        var ev = new MCWeaponValiMeleeHitEvent(args.HitEntities);
+        RaiseLocalEvent(args.User, ref ev);
+
         if (!args.HitEntities.Any(HasComp<MobStateComponent>))
             return;
 

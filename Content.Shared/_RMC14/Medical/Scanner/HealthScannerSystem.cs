@@ -167,7 +167,7 @@ public sealed partial class HealthScannerSystem : EntitySystem
         return true;
     }
 
-    public void UpdateUI(Entity<HealthScannerComponent> scanner)
+    public void UpdateUI(Entity<HealthScannerComponent> scanner, bool force = false)
     {
         if (scanner.Comp.Target is not { } target)
             return;
@@ -182,18 +182,21 @@ public sealed partial class HealthScannerSystem : EntitySystem
             return;
         }
 
-        if (TryComp(scanner, out MCHealthGlovesComponent? _))
+        if (!force && !scanner.Comp.Force)
         {
-            if (!_inventory.TryGetContainingSlot(scanner.Owner, out var slot) || slot == null || slot.Name != "gloves")
-                return;
-        }
-        else
-        {
-            var isHeld = _rmcHands.TryGetHolder(scanner, out _);
-            if (!isHeld)
+            if (TryComp(scanner, out MCHealthGlovesComponent? _))
             {
                 if (!_inventory.TryGetContainingSlot(scanner.Owner, out var slot) || slot == null || slot.Name != "gloves")
                     return;
+            }
+            else
+            {
+                var isHeld = _rmcHands.TryGetHolder(scanner, out _);
+                if (!isHeld)
+                {
+                    if (!_inventory.TryGetContainingSlot(scanner.Owner, out var slot) || slot == null || slot.Name != "gloves")
+                        return;
+                }
             }
         }
 

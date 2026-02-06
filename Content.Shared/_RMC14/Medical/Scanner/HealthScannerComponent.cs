@@ -7,6 +7,9 @@ namespace Content.Shared._RMC14.Medical.Scanner;
 public sealed partial class HealthScannerComponent : Component
 {
     [DataField, AutoNetworkedField]
+    public bool Force;
+
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound;
 
     [DataField, AutoNetworkedField]

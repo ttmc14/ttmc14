@@ -195,6 +195,11 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
         }
     }
 
+    public EntityUid? GetUser(EntityUid uid)
+    {
+        return !TryComp<MCArmorModularClothingComponent>(Transform(uid).ParentUid, out var containerComponent) ? null : containerComponent.CurrentUser;
+    }
+
     private bool TryGetArmorContainer(Entity<MCArmorModularClothingComponent> entity, [NotNullWhen(true)] out Container? container)
     {
         container = null;

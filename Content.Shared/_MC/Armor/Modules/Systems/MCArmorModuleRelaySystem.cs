@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Armor.Events;
 using Content.Shared._MC.Armor.Modules.Components;
 using Content.Shared._MC.Armor.Modules.Events;
+using Content.Shared._MC.Weapon.Vali.Events;
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
@@ -8,6 +9,7 @@ using Content.Shared.Examine;
 using Content.Shared.Inventory;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Verbs;
+using Content.Shared.Weapons.Melee.Events;
 
 namespace Content.Shared._MC.Armor.Modules.Systems;
 
@@ -18,6 +20,7 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
         base.Initialize();
 
         SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(InventoryRelayEvent);
+        SubscribeLocalEvent<InventoryComponent, MCWeaponValiMeleeHitEvent>(InventoryRelayEvent);
 
         // Other relay shit
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(RelayEvent);
@@ -25,6 +28,8 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<GetVerbsEvent<ExamineVerb>>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<DamageModifyEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<ExaminedEvent>>(RelayEvent);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<AttackedEvent>>(RelayEvent);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<MCWeaponValiMeleeHitEvent>>(RelayEvent);
 
         SubscribeLocalEvent<MCArmorModularClothingComponent, GetItemActionsEvent>(RelayEvent);
         SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);

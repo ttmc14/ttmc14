@@ -296,7 +296,6 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
     layers:
     - state: red
-      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -325,7 +324,6 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
     layers:
     - state: red
-      shader: unshaded
   - type: Projectile
     damage:
       types:
@@ -351,7 +349,6 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
     layers:
     - state: red
-      shader: unshaded
   - type: Projectile
     damage:
       types:

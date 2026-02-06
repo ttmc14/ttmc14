@@ -139,3 +139,25 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Eod/drab.rsi
+
+# Debug/Admin
+- type: entity
+  parent: MCArmorModularJaegerScout
+  id: MCArmorModularJaegerExt
+  name: Jaeger EXT light exoskeleton
+  description: A EOD-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: MCArmorModularClothing
+    slots:
+    - id: main
+      whitelist:
+        tags:
+        - MCArmorModuleBody
+    - id: main_secondary
+      whitelist:
+        tags:
+        - MCArmorModuleBody
+    - id: storage
+      whitelist:
+        tags:
+        - MCArmorModuleBodyStorage

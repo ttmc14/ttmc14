@@ -35,4 +35,8 @@ public sealed partial class MCWeaponValiComponent : Component
 
     [DataField, AutoNetworkedField]
     public FixedPoint2 ReagentUsage = 5;
+
+    // For vali module, not for self
+    [DataField, AutoNetworkedField]
+    public float HarvestAmount = 20;
 }
