@@ -81,7 +81,10 @@ public sealed partial class MCModuleValiSystem
         entity.Comp.NecrosisStage = 0;
         Dirty(entity);
 
-        ActionSetToggled<MCModuleValiBoostActionEvent>(entity, true);
+        if (_mcArmorModule.GetUser(entity) is not { } userUid)
+            return;
+
+        ActionSetToggled<MCModuleValiBoostActionEvent>(userUid, true);
     }
 
     private void BoostOff(Entity<MCModuleValiComponent> entity)
