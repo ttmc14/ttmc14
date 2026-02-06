@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 19:31:16
+  time: 02/06/2026 19:43:42
   entityCount: 5712
 maps:
 - 1
@@ -33601,6 +33601,8 @@ entities:
     - type: Transform
       pos: -2.5,8.5
       parent: 1
+    - type: Ladder
+      id: goidauvi1231
     - type: Fixtures
       fixtures: {}
   - uid: 175

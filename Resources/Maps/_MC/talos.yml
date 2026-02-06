@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/30/2026 19:31:14
-  entityCount: 8806
+  time: 02/06/2026 19:43:41
+  entityCount: 8808
 maps:
 - 1
 grids:
@@ -43531,6 +43531,20 @@ entities:
     components:
     - type: Transform
       pos: -30.5,7.5
+      parent: 1
+- proto: MCChemStorageMedbay
+  entities:
+  - uid: 4189
+    components:
+    - type: Transform
+      pos: -62.5,6.5
+      parent: 1
+- proto: MCChemStorageResearch
+  entities:
+  - uid: 4119
+    components:
+    - type: Transform
+      pos: -60.5,6.5
       parent: 1
 - proto: MCClothingBeltToolsFill
   entities:
