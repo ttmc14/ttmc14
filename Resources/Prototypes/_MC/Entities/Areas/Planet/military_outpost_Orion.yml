@@ -1,0 +1,427 @@
+# --- base ---
+
+- type: entity
+  parent: MCArea
+  id: MCAreaOutpostOrion
+  abstract: true
+  suffix: ORION
+  components:
+  - type: Sprite
+    sprite: _MC/Areas/planet.rsi
+    state: bar
+  - type: Area
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: true
+    lasing: true
+    medevac: true
+    OB: false
+    supplyDrop: false
+    powerNet: almayer
+    hijackEvacuationArea: false
+    hijackEvacuationWeight: 0
+    hijackEvacuationType: None
+  - type: IntelRescueSurvivorArea
+
+- type: entity
+  parent: MCAreaOutpostOrion
+  id: MCAreaOutpostOrionGround
+  abstract: true
+  components:
+  - type: Area
+    CAS: true
+    fulton: true
+    lasing: true
+    mortarPlacement: true
+    mortarFire: true
+    medevac: true
+    OB: true
+    supplyDrop: true
+
+- type: entity
+  parent: MCAreaOutpostOrion
+  id: MCAreaOutpostOrionUnderground
+  abstract: true
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: true
+    mortarPlacement: false
+    mortarFire: false
+    medevac: false
+    OB: true
+    supplyDrop: false
+
+- type: entity
+  parent: MCAreaOutpostOrion
+  id: MCAreaOutpostOrionCaves
+  abstract: true
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: true
+    mortarPlacement: false
+    mortarFire: false
+    medevac: true
+    OB: false
+    supplyDrop: false
+
+- type: entity
+  parent: MCAreaOutpostOrion
+  id: MCAreaOutpostOrionBuilding
+  abstract: true
+  components:
+  - type: Area
+    CAS: true
+    fulton: false
+    lasing: true
+    mortarPlacement: true
+    mortarFire: true
+    medevac: false
+    OB: true
+    supplyDrop: false
+
+# --- ubeyte menya ---
+
+- type: entity
+  parent: MCAreaOutpostOrionCaves
+  id: MCAreaOutpostOrionCavesSouth
+  name: южные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#6f4d2f"
+
+- type: entity
+  parent: MCAreaOutpostOrionCaves
+  id: MCAreaOutpostOrionCavesEast
+  name: восточные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#6f4d2f"
+
+- type: entity
+  parent: MCAreaOutpostOrionCaves
+  id: MCAreaOutpostOrionCavesNorth
+  name: северные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#6f4d2f"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundNorth
+  name: север колонии
+  components:
+  - type: Sprite
+    state: north
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundNorthWest
+  name: северо-запад колонии
+  components:
+  - type: Sprite
+    state: northwest
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundNorthEast
+  name: северо-восток колонии
+  components:
+  - type: Sprite
+    state: northeast
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundCentral
+  name: центр колонии
+  components:
+  - type: Sprite
+    state: central
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundWest
+  name: запад колонии
+  components:
+  - type: Sprite
+    state: west
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundEast
+  name: восток колонии
+  components:
+  - type: Sprite
+    state: east
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundSouth
+  name: юг колонии
+  components:
+  - type: Sprite
+    state: south
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundSouthWest
+  name: юго-запад колонии
+  components:
+  - type: Sprite
+    state: southwest
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundSouthEast
+  name: юго-восток колонии
+  components:
+  - type: Sprite
+    state: southeast
+  - type: Area
+    minimapColor: "#aa5f44cc"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundLZ1
+  name: зона посадки 1
+  components:
+  - type: Sprite
+    state: landing_pad_ext
+  - type: Area
+    minimapColor: "#236a96"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundLZ2
+  name: зона посадки 2
+  components:
+  - type: Sprite
+    state: landing_pad_ext
+  - type: Area
+    minimapColor: "#236a96"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionGroundRiver
+  name: река
+  components:
+  - type: Sprite
+    state: southeast
+  - type: Area
+    minimapColor: "#469fd2"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionPreparition
+  name: пункт вооружения и боевой подготовки
+  components:
+  - type: Sprite
+    state: green
+  - type: Area
+    minimapColor: "#215c07a2"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionEngineer
+  name: инженерный корпус
+  components:
+  - type: Sprite
+    state: substation
+  - type: Area
+    minimapColor: "#b69c41"
+
+- type: entity
+  parent: MCAreaOutpostOrionGround
+  id: MCAreaOutpostOrionTADDrom
+  name: ТАДо-дром
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#5d467c"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionCommand
+  name: центр командования
+  components:
+  - type: Sprite
+    state: bluenew
+  - type: Area
+    minimapColor: "#087bc2"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionTrafficControl
+  name: здание контроля дорожного трафика
+  components:
+  - type: Sprite
+    state: bluenew
+  - type: Area
+    minimapColor: "#087bc2"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionTrafficAdministration
+  name: администрация
+  components:
+  - type: Sprite
+    state: bluenew
+  - type: Area
+    minimapColor: "#087bc2"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionDormitories
+  name: дормитории
+  components:
+  - type: Sprite
+    state: crew_quarters
+  - type: Area
+    minimapColor: "#d1d5d7"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionBarracks
+  name: бараки
+  components:
+  - type: Sprite
+    state: crew_quarters
+  - type: Area
+    minimapColor: "#d1d5d7"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionCanteen
+  name: столовая
+  components:
+  - type: Sprite
+    state: crew_quarters
+  - type: Area
+    minimapColor: "#c1c743"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionCargoStorage
+  name: карго склад
+  components:
+  - type: Sprite
+    state: dark
+  - type: Area
+    minimapColor: "#b18606"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionNorthBuilding
+  name: северная пристройка
+  components:
+  - type: Sprite
+    state: dark
+  - type: Area
+    minimapColor: "#b18606"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionVehicleGarage
+  name: гараж техники
+  components:
+  - type: Sprite
+    state: dark
+  - type: Area
+    minimapColor: "#194670"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionHighriskStorage
+  name: склады взрывчатых материалов
+  components:
+  - type: Sprite
+    state: dark
+  - type: Area
+    minimapColor: "#194670"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionBreakRoom
+  name: комната отдыха
+  components:
+  - type: Sprite
+    state: dark
+  - type: Area
+    minimapColor: "#194670"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionBunkers
+  name: бункеры
+  components:
+  - type: Sprite
+    state: dark
+  - type: Area
+    minimapColor: "#0c1c2b"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionBrig
+  name: гаупвахта
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#9e3d2a"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionMonitoringStation
+  name: пункт наблюдения
+  components:
+  - type: Sprite
+    state: red
+  - type: Area
+    minimapColor: "#9e3d2a"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionBrigArmory
+  name: оружейная
+  components:
+  - type: Sprite
+    state: armory
+  - type: Area
+    minimapColor: "#823323"
+
+- type: entity
+  parent: MCAreaOutpostOrionBuilding
+  id: MCAreaOutpostOrionMedbay
+  name: госпиталь
+  components:
+  - type: Sprite
+    state: medbay
+  - type: Area
+    minimapColor: "#07a727"

@@ -1,11 +1,11 @@
 meta:
   format: 7
   category: Map
-  engineVersion: 264.0.2
+  engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 01/31/2026 12:29:33
-  entityCount: 28272
+  time: 02/06/2026 19:55:47
+  entityCount: 28302
 maps:
 - 1
 grids:
@@ -54956,6 +54956,13 @@ entities:
     components:
     - type: Transform
       pos: 100.5,-104.5
+      parent: 1
+- proto: MCChemStorageMedbay
+  entities:
+  - uid: 28274
+    components:
+    - type: Transform
+      pos: 102.5,-88.5
       parent: 1
 - proto: MCClothingHandsMarineCombatBlack
   entities:
@@ -162436,6 +162443,13 @@ entities:
     - type: Transform
       pos: 102.335205,-96.36683
       parent: 1
+- proto: RMCFuelPump
+  entities:
+  - uid: 28275
+    components:
+    - type: Transform
+      pos: 108.5,-88.5
+      parent: 1
 - proto: RMCGasPipeBend
   entities:
   - uid: 19517
@@ -177573,6 +177587,268 @@ entities:
     - type: Transform
       pos: 107.491035,-202.39742
       parent: 1
+- proto: RMCMarkerAreaLabel
+  entities:
+  - uid: 28273
+    components:
+    - type: MetaData
+      name: зона посадки 2
+    - type: Transform
+      pos: 20.5,-12.5
+      parent: 1
+    - type: NavMapBeacon
+      text: зона посадки 2
+  - uid: 28277
+    components:
+    - type: MetaData
+      name: спортцентр
+    - type: Transform
+      pos: 80.5,-163.5
+      parent: 1
+    - type: NavMapBeacon
+      text: спортцентр
+  - uid: 28278
+    components:
+    - type: MetaData
+      name: купол "Омикрон"
+    - type: Transform
+      pos: 47.5,-103.5
+      parent: 1
+    - type: NavMapBeacon
+      text: купол "Омикрон"
+  - uid: 28279
+    components:
+    - type: MetaData
+      name: отдел поставок
+    - type: Transform
+      pos: 29.5,-133.5
+      parent: 1
+    - type: NavMapBeacon
+      text: отдел поставок
+  - uid: 28283
+    components:
+    - type: MetaData
+      name: администрация
+    - type: Transform
+      pos: 148.5,-42.5
+      parent: 1
+    - type: NavMapBeacon
+      text: администрация
+  - uid: 28284
+    components:
+    - type: MetaData
+      name: СТО
+    - type: Transform
+      pos: 138.5,-66.5
+      parent: 1
+    - type: NavMapBeacon
+      text: СТО
+  - uid: 28285
+    components:
+    - type: MetaData
+      name: бараки
+    - type: Transform
+      pos: 114.5,-134.5
+      parent: 1
+  - uid: 28286
+    components:
+    - type: MetaData
+      name: зона посадки 1
+    - type: Transform
+      pos: 182.5,-119.5
+      parent: 1
+    - type: NavMapBeacon
+      text: зона посадки 1
+  - uid: 28287
+    components:
+    - type: MetaData
+      name: аэропорт
+    - type: Transform
+      pos: 148.5,-101.5
+      parent: 1
+    - type: NavMapBeacon
+      text: аэропорт
+  - uid: 28288
+    components:
+    - type: MetaData
+      name: бар
+    - type: Transform
+      pos: 111.5,-98.5
+      parent: 1
+    - type: NavMapBeacon
+      text: бар
+  - uid: 28290
+    components:
+    - type: MetaData
+      name: дормитории
+    - type: Transform
+      pos: 94.5,-42.5
+      parent: 1
+    - type: NavMapBeacon
+      text: дормитории
+  - uid: 28293
+    components:
+    - type: MetaData
+      name: ангар сил быстрого реагирования
+    - type: Transform
+      pos: 190.5,-83.5
+      parent: 1
+    - type: NavMapBeacon
+      text: ангар сил быстрого реагирования
+  - uid: 28294
+    components:
+    - type: MetaData
+      name: шахтёрский аванпост
+    - type: Transform
+      pos: 190.5,-29.5
+      parent: 1
+    - type: NavMapBeacon
+      text: шахтёрский аванпост
+  - uid: 28300
+    components:
+    - type: MetaData
+      name: западные раскопки
+    - type: Transform
+      pos: 16.5,-161.5
+      parent: 1
+    - type: NavMapBeacon
+      text: западные раскопки
+  - uid: 28301
+    components:
+    - type: MetaData
+      name: западные пещеры
+    - type: Transform
+      pos: 17.5,-78.5
+      parent: 1
+    - type: NavMapBeacon
+      text: западные пещеры
+  - uid: 28302
+    components:
+    - type: MetaData
+      name: церковь
+    - type: Transform
+      pos: 45.5,-149.5
+      parent: 1
+    - type: NavMapBeacon
+      text: церковь
+- proto: RMCMarkerAreaLabelBlue
+  entities:
+  - uid: 28281
+    components:
+    - type: MetaData
+      name: подземная администрация
+    - type: Transform
+      pos: 58.5,-181.5
+      parent: 1
+    - type: NavMapBeacon
+      text: подземная администрация
+- proto: RMCMarkerAreaLabelCyan
+  entities:
+  - uid: 28289
+    components:
+    - type: MetaData
+      name: клиника "Аврора"
+    - type: Transform
+      pos: 95.5,-74.5
+      parent: 1
+    - type: NavMapBeacon
+      text: клиника "Аврора"
+  - uid: 28292
+    components:
+    - type: MetaData
+      name: северо-западные ледяные пещеры
+    - type: Transform
+      pos: 46.5,-5.5
+      parent: 1
+    - type: NavMapBeacon
+      text: северо-западные ледяные пещеры
+  - uid: 28295
+    components:
+    - type: MetaData
+      name: юго-восточные ледяные пещеры
+    - type: Transform
+      pos: 143.5,-142.5
+      parent: 1
+    - type: NavMapBeacon
+      text: юго-восточные ледяные пещеры
+- proto: RMCMarkerAreaLabelGreen
+  entities:
+  - uid: 28291
+    components:
+    - type: MetaData
+      name: ботаника
+    - type: Transform
+      pos: 54.5,-52.5
+      parent: 1
+    - type: NavMapBeacon
+      text: ботаника
+- proto: RMCMarkerAreaLabelOrange
+  entities:
+  - uid: 28282
+    components:
+    - type: MetaData
+      name: инженерия
+    - type: Transform
+      pos: 145.5,-12.5
+      parent: 1
+    - type: NavMapBeacon
+      text: инженерия
+  - uid: 28296
+    components:
+    - type: MetaData
+      name: восточные раскопки
+    - type: Transform
+      pos: 154.5,-189.5
+      parent: 1
+    - type: NavMapBeacon
+      text: восточные раскопки
+  - uid: 28297
+    components:
+    - type: MetaData
+      name: комната отдыха
+    - type: Transform
+      pos: 83.5,-199.5
+      parent: 1
+    - type: NavMapBeacon
+      text: комната отдыха
+  - uid: 28298
+    components:
+    - type: MetaData
+      name: подземные дормитории
+    - type: Transform
+      pos: 82.5,-186.5
+      parent: 1
+    - type: NavMapBeacon
+      text: подземные дормитории
+  - uid: 28299
+    components:
+    - type: MetaData
+      name: прачечная
+    - type: Transform
+      pos: 55.5,-201.5
+      parent: 1
+    - type: NavMapBeacon
+      text: прачечная
+- proto: RMCMarkerAreaLabelPurple
+  entities:
+  - uid: 28276
+    components:
+    - type: MetaData
+      name: подземная лаборатория
+    - type: Transform
+      pos: 49.5,-166.5
+      parent: 1
+- proto: RMCMarkerAreaLabelRed
+  entities:
+  - uid: 28280
+    components:
+    - type: MetaData
+      name: отдел службы охраны
+    - type: Transform
+      pos: 108.5,-192.5
+      parent: 1
+    - type: NavMapBeacon
+      text: отдел службы охраны
 - proto: RMCMaskBalaclava
   entities:
   - uid: 23072

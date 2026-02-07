@@ -1,0 +1,14 @@
+- type: entity
+  id: MCPlanetMilitaryOutpostOrion
+  name: Военный аванпост "Орион"
+  components:
+  - type: RMCPlanetMapPrototype
+    map: /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion.yml
+    camouflage: Classic
+    announcement: "На военном форпосте Орион на луне Тривонус IV сработал автоматический аварийный маяк, вероятно нашествие ксеноморфов. Товарищи, приготовиться к бою!"
+  - type: MCPlanetMapPrototype
+    mapsBelow:
+    - /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion_-1.yml
+    mapsAbove:
+    - /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion_1.yml
+    - /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion_2.yml

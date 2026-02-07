@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from UngaMarines-13 at https://github.com/UngaCo/UngaMarines-13/blob/7b534b55b766342b94ba547c010c9e56c2c979cd/icons/turf/walls/gwall.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "gwall-invincible"
+    },
+    {
+      "name": "gwall-0"
+    },
+    {
+      "name": "gwall-1"
+    },
+    {
+      "name": "gwall-2"
+    },
+    {
+      "name": "gwall-3"
+    },
+    {
+      "name": "gwall-4"
+    },
+    {
+      "name": "gwall-5"
+    },
+    {
+      "name": "gwall-6"
+    },
+    {
+      "name": "gwall-7"
+    },
+    {
+      "name": "gwall-8"
+    },
+    {
+      "name": "gwall-9"
+    },
+    {
+      "name": "gwall-10"
+    },
+    {
+      "name": "gwall-11"
+    },
+    {
+      "name": "gwall-12"
+    },
+    {
+      "name": "gwall-13"
+    },
+    {
+      "name": "gwall-14"
+    },
+    {
+      "name": "gwall-15"
+    },
+    {
+      "name": "gwall-21"
+    },
+    {
+      "name": "gwall-23"
+    },
+    {
+      "name": "gwall-29"
+    },
+    {
+      "name": "gwall-31"
+    },
+    {
+      "name": "gwall-38"
+    },
+    {
+      "name": "gwall-39"
+    },
+    {
+      "name": "gwall-46"
+    },
+    {
+      "name": "gwall-47"
+    },
+    {
+      "name": "gwall-55"
+    },
+    {
+      "name": "gwall-63"
+    },
+    {
+      "name": "gwall-74"
+    },
+    {
+      "name": "gwall-75"
+    },
+    {
+      "name": "gwall-78"
+    },
+    {
+      "name": "gwall-79"
+    },
+    {
+      "name": "gwall-95"
+    },
+    {
+      "name": "gwall-110"
+    },
+    {
+      "name": "gwall-111"
+    },
+    {
+      "name": "gwall-127"
+    },
+    {
+      "name": "gwall-137"
+    },
+    {
+      "name": "gwall-139"
+    },
+    {
+      "name": "gwall-141"
+    },
+    {
+      "name": "gwall-143"
+    },
+    {
+      "name": "gwall-157"
+    },
+    {
+      "name": "gwall-159"
+    },
+    {
+      "name": "gwall-175"
+    },
+    {
+      "name": "gwall-191"
+    },
+    {
+      "name": "gwall-203"
+    },
+    {
+      "name": "gwall-207"
+    },
+    {
+      "name": "gwall-223"
+    },
+    {
+      "name": "gwall-239"
+    },
+    {
+      "name": "gwall-255"
+    }
+  ]
+}

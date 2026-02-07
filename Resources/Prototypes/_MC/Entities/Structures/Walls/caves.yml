@@ -86,3 +86,15 @@
     sprite: _MC/Structures/Walls/Caves/red.rsi
   - type: IconSmooth
     base: red_wall-
+
+- type: entity
+  parent: MCWallCaveInvincible
+  id: MCWallLvRock
+  name: rock
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Walls/Caves/lvrock.rsi
+  - type: Icon
+    sprite: _MC/Structures/Walls/Caves/lvrock.rsi
+  - type: IconSmooth
+    base: lvwall-
