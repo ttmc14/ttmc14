@@ -3,16 +3,16 @@
   id: MCWindowFrameGray
   components:
   - type: Sprite
-    sprite: _RMC14/Structures/Windows/Frames/hybrisa_frame.rsi
-    state: strata_frame0
+    sprite: _RMC14/Structures/Windows/Frames/almayer_frame.rsi
+    state: alm_frame0
   - type: Icon
-    sprite: _RMC14/Structures/Windows/Frames/hybrisa_frame.rsi
-    state: strata_frame0
+    sprite: _RMC14/Structures/Windows/Frames/almayer_frame.rsi
+    state: alm_frame0
   - type: IconSmooth
     key: windows
     additionalKeys:
     - doors
-    base: strata_frame
+    base: alm_frame
     mode: CardinalFlags
   - type: Construction
     graph: MCWindowGray
@@ -34,6 +34,7 @@
     key: windows
     additionalKeys:
     - doors
+    - Walls
     base: ship_gray_window-
     mode: CardinalFlags
   - type: Repairable
@@ -61,7 +62,7 @@
                 min: 1
                 max: 1
           - !type:ChangeConstructionNodeBehavior
-            node: MCWindowGrayReinforced
+            node: windowFrameGray
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: DestroyOnXenoPierceScissor
@@ -69,8 +70,8 @@
     sound:
       collection: WindowShatter
   - type: Construction
-    graph: MCWindowGrayReinforced
-    node: MCwindowFrameGrayReinforced
+    graph: MCWindowGray
+    node: windowFrameGray
 
 - type: entity
   parent: MCWindowGray
@@ -88,7 +89,7 @@
     key: windows
     additionalKeys:
     - doors
-    - mcWalls
+    - MCWalls
     base: ship_gray_window-
     mode: CardinalFlags
   - type: Repairable
@@ -119,31 +120,35 @@
                 min: 1
                 max: 1
           - !type:ChangeConstructionNodeBehavior
-            node: MCWindowFrameGrayReinforced
+            node: windowFrameGrayReinforced
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: DestroyOnXenoPierceScissor
-    spawnPrototype: MCWindowFrameGray
+    spawnPrototype: MCWindowFrameGrayReinforced
     sound:
       collection: WindowShatter
-
+  - type: Construction
+    graph: MCWindowGrayReinforced
+    node: windowGrayReinforced
 
 - type: entity
   parent: RMCBaseWindowFrame
   id: MCWindowFrameGrayReinforced
   components:
   - type: Sprite
-    sprite: _RMC14/Structures/Windows/Frames/hybrisa_frame.rsi
-    state: strata_frame0
+    sprite: _RMC14/Structures/Windows/Frames/almayer_frame.rsi
+    state: alm_frame0
   - type: Icon
-    sprite: _RMC14/Structures/Windows/Frames/hybrisa_frame.rsi
-    state: strata_frame0
+    sprite: _RMC14/Structures/Windows/Frames/almayer_frame.rsi
+    state: alm_frame0
   - type: IconSmooth
     key: windows
     additionalKeys:
+    - windows
     - doors
-    base: strata_frame
+    - MCWalls
+    base: alm_frame
     mode: CardinalFlags
   - type: Construction
     graph: MCWindowGrayReinforced
-    node: MCwindowFrameGrayReinforced
+    node: windowFrameGrayReinforced

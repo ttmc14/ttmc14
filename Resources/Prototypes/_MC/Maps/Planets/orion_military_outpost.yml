@@ -5,7 +5,7 @@
   - type: RMCPlanetMapPrototype
     map: /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion.yml
     camouflage: Classic
-    announcement: ""
+    announcement: "На военном форпосте Орион на луне Тривонус IV сработал автоматический аварийный маяк, вероятно нашествие ксеноморфов. Товарищи, приготовиться к бою!"
   - type: MCPlanetMapPrototype
     mapsBelow:
     - /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion_-1.yml

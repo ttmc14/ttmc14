@@ -13,6 +13,9 @@
     state: gwall-invincible
   - type: IconSmooth
     key: mcWalls
+    additionalKeys:
+    - windows
+    - doors
     base: gwall-
     mode: MCCardinalFlagsExtended
   - type: Construction

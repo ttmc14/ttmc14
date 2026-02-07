@@ -1,14 +1,12 @@
-# base gray window / frame
-
 - type: constructionGraph
   parent: MC
-  id: MCWindowGray
+  id: MCWindowGrayReinforced
   start: start
   graph:
   - node: start # not currently buildable
 
-  - node: windowFrameGray
-    entity: MCWindowFrameGray
+  - node: windowFrameGrayReinforced
+    entity: MCWindowFrameGrayReinforced
     edges:
     - to: start
       completed:
@@ -23,26 +21,26 @@
         doAfter: 2
         duplicateConditions: All
 
-    - to: windowGray
+    - to: windowGrayReinforced
       completed:
       - !type:SnapToGrid
         southRotation: true
       conditions:
       - !type:EntityAnchored {}
       steps:
-      - material: CMGlass
+      - material: CMGlassReinforced
         amount: 2
         doAfter: 2
 
-  - node: windowGray
-    entity: MCWindowGray
+  - node: windowGrayReinforced
+    entity: MCWindowGrayReinforced
     edges:
-    - to: windowFrameGray
+    - to: windowFrameGrayReinforced
       completed:
       - !type:SnapToGrid
         southRotation: true
       - !type:SpawnPrototype
-        prototype: CMSheetGlass1
+        prototype: CMSheetGlassReinforced1
         amount: 2
       conditions:
       - !type:EntityAnchored {}
