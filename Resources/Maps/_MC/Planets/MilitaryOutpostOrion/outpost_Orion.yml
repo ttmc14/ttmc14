@@ -83126,6 +83126,8 @@ entities:
   entities:
   - uid: 13535
     components:
+    - type: MetaData
+      name: КПП военной полиции
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 49.5,-75.5
