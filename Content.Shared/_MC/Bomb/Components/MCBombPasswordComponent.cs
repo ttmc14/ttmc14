@@ -6,7 +6,7 @@ namespace Content.Shared._MC.Bomb.Components;
 /// Component for storing and managing password on bombs.
 /// </summary>
 [RegisterComponent, NetworkedComponent]
-public sealed partial class BombPasswordComponent : Component
+public sealed partial class MCBombPasswordComponent : Component
 {
     /// <summary>
     /// The actual password (4 digits, stored as string for easier comparison).
@@ -39,4 +39,3 @@ public sealed partial class BombPasswordComponent : Component
     [DataField("maxLength")]
     public int MaxLength = 7;
 }
-

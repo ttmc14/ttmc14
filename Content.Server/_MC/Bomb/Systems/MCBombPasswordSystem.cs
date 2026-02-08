@@ -1,5 +1,6 @@
+using Content.Server._MC.Bomb.Components;
 using Content.Server.Defusable.Components;
-using Content.Server.Defusable.Systems;
+using Content.Server._MC.Bomb.Systems;
 using Content.Server.Popups;
 using Content.Shared._MC.Bomb.Components;
 using Content.Shared._MC.Bomb.UI;
@@ -11,38 +12,38 @@ using System.Linq;
 
 namespace Content.Server._MC.Bomb.Systems;
 
-public sealed class BombPasswordSystem : EntitySystem
+public sealed class MCBombPasswordSystem : EntitySystem
 {
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
     [Dependency] private readonly PopupSystem _popup = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly DefusableSystem _defusable = default!;
+    [Dependency] private readonly MCDefusableSystem _defusable = default!;
 
     public override void Initialize()
     {
         base.Initialize();
 
-        SubscribeLocalEvent<BombPasswordComponent, BombPasswordDigitBuiMessage>(OnDigitMessage);
-        SubscribeLocalEvent<BombPasswordComponent, BombPasswordClearBuiMessage>(OnClearMessage);
-        SubscribeLocalEvent<BombPasswordComponent, BombPasswordSetBuiMessage>(OnSetMessage);
-        SubscribeLocalEvent<BombPasswordComponent, BombPasswordResetBuiMessage>(OnResetMessage);
-        SubscribeLocalEvent<BombPasswordComponent, BombPasswordRandomBuiMessage>(OnRandomMessage);
-        SubscribeLocalEvent<BombPasswordComponent, ComponentInit>(OnComponentInit);
-        SubscribeLocalEvent<BombPasswordComponent, AttemptEntityStickEvent>(OnAttemptStick);
-        SubscribeLocalEvent<BombPasswordComponent, BombDefusedEvent>(OnBombDefused);
+        SubscribeLocalEvent<MCBombPasswordComponent, MCBombPasswordDigitBuiMessage>(OnDigitMessage);
+        SubscribeLocalEvent<MCBombPasswordComponent, MCBombPasswordClearBuiMessage>(OnClearMessage);
+        SubscribeLocalEvent<MCBombPasswordComponent, MCBombPasswordSetBuiMessage>(OnSetMessage);
+        SubscribeLocalEvent<MCBombPasswordComponent, MCBombPasswordResetBuiMessage>(OnResetMessage);
+        SubscribeLocalEvent<MCBombPasswordComponent, MCBombPasswordRandomBuiMessage>(OnRandomMessage);
+        SubscribeLocalEvent<MCBombPasswordComponent, ComponentInit>(OnComponentInit);
+        SubscribeLocalEvent<MCBombPasswordComponent, AttemptEntityStickEvent>(OnAttemptStick);
+        SubscribeLocalEvent<MCBombPasswordComponent, BombDefusedEvent>(OnBombDefused);
     }
 
-    private void OnComponentInit(Entity<BombPasswordComponent> ent, ref ComponentInit args)
+    private void OnComponentInit(Entity<MCBombPasswordComponent> ent, ref ComponentInit args)
     {
         UpdateUi(ent);
     }
 
-    private void OnDigitMessage(Entity<BombPasswordComponent> ent, ref BombPasswordDigitBuiMessage args)
+    private void OnDigitMessage(Entity<MCBombPasswordComponent> ent, ref MCBombPasswordDigitBuiMessage args)
     {
         var comp = ent.Comp;
 
         // Check if bomb is activated - if not, allow input for setting new password
-        var isActivated = TryComp<DefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated;
+        var isActivated = TryComp<MCDefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated;
 
         // Don't allow input if password is set, unlocked, and bomb is activated
         if (comp.PasswordSet && comp.Unlocked && isActivated)
@@ -57,12 +58,12 @@ public sealed class BombPasswordSystem : EntitySystem
         UpdateUi(ent);
     }
 
-    private void OnClearMessage(Entity<BombPasswordComponent> ent, ref BombPasswordClearBuiMessage args)
+    private void OnClearMessage(Entity<MCBombPasswordComponent> ent, ref MCBombPasswordClearBuiMessage args)
     {
         var comp = ent.Comp;
 
         // Check if bomb is activated
-        var isActivated = TryComp<DefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated;
+        var isActivated = TryComp<MCDefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated;
 
         // Don't allow clearing if password is set, unlocked, and bomb is activated
         if (comp.PasswordSet && comp.Unlocked && isActivated)
@@ -76,7 +77,7 @@ public sealed class BombPasswordSystem : EntitySystem
         }
     }
 
-    private void OnSetMessage(Entity<BombPasswordComponent> ent, ref BombPasswordSetBuiMessage args)
+    private void OnSetMessage(Entity<MCBombPasswordComponent> ent, ref MCBombPasswordSetBuiMessage args)
     {
         var comp = ent.Comp;
 
@@ -85,7 +86,7 @@ public sealed class BombPasswordSystem : EntitySystem
         // password without having to press Reset first.
         if (comp.PasswordSet && comp.Unlocked)
         {
-            var isActivatedReplace = TryComp<DefusableComponent>(ent.Owner, out var defusableReplace) && defusableReplace.Activated;
+            var isActivatedReplace = TryComp<MCDefusableComponent>(ent.Owner, out var defusableReplace) && defusableReplace.Activated;
 
             // Do not allow replacing while activated
             if (isActivatedReplace)
@@ -119,7 +120,7 @@ public sealed class BombPasswordSystem : EntitySystem
                 UpdateUi(ent);
 
                 // If bomb is activated, defuse it automatically
-                if (TryComp<DefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated)
+                if (TryComp<MCDefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated)
                 {
                     _defusable.TryDefuseBomb(ent.Owner, defusableComp);
                     // Password state will be reset in OnBombDefused
@@ -151,12 +152,12 @@ public sealed class BombPasswordSystem : EntitySystem
         }
     }
 
-    private void OnResetMessage(Entity<BombPasswordComponent> ent, ref BombPasswordResetBuiMessage args)
+    private void OnResetMessage(Entity<MCBombPasswordComponent> ent, ref MCBombPasswordResetBuiMessage args)
     {
         var comp = ent.Comp;
 
         // Can reset password if bomb is not activated (either never activated or defused)
-        var isActivated = TryComp<DefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated;
+        var isActivated = TryComp<MCDefusableComponent>(ent.Owner, out var defusableComp) && defusableComp.Activated;
 
         if (isActivated)
         {
@@ -172,7 +173,7 @@ public sealed class BombPasswordSystem : EntitySystem
         UpdateUi(ent);
     }
 
-    private void OnRandomMessage(Entity<BombPasswordComponent> ent, ref BombPasswordRandomBuiMessage args)
+    private void OnRandomMessage(Entity<MCBombPasswordComponent> ent, ref MCBombPasswordRandomBuiMessage args)
     {
         var comp = ent.Comp;
 
@@ -189,7 +190,7 @@ public sealed class BombPasswordSystem : EntitySystem
         UpdateUi(ent);
     }
 
-    private void UpdateUi(Entity<BombPasswordComponent> ent)
+    private void UpdateUi(Entity<MCBombPasswordComponent> ent)
     {
         var comp = ent.Comp;
         string displayInput;
@@ -244,14 +245,14 @@ public sealed class BombPasswordSystem : EntitySystem
             }
         }
 
-        _userInterface.SetUiState(ent.Owner, BombPasswordUi.Key,
-            new BombPasswordBuiState(displayInput, comp.PasswordSet, comp.Unlocked));
+        _userInterface.SetUiState(ent.Owner, MCBombPasswordUi.Key,
+            new MCBombPasswordBuiState(displayInput, comp.PasswordSet, comp.Unlocked));
     }
 
     /// <summary>
     /// Check if the bomb can be activated (password must be set).
     /// </summary>
-    public bool CanActivate(Entity<BombPasswordComponent> ent)
+    public bool CanActivate(Entity<MCBombPasswordComponent> ent)
     {
         // Only allow activation if a password is set and it is currently locked.
         // If the password has been unlocked (comp.Unlocked == true), the bomb
@@ -262,12 +263,12 @@ public sealed class BombPasswordSystem : EntitySystem
     /// <summary>
     /// Check if the bomb can be defused (password must be unlocked).
     /// </summary>
-    public bool CanDefuse(Entity<BombPasswordComponent> ent)
+    public bool CanDefuse(Entity<MCBombPasswordComponent> ent)
     {
         return ent.Comp.Unlocked;
     }
 
-    private void OnAttemptStick(Entity<BombPasswordComponent> ent, ref AttemptEntityStickEvent args)
+    private void OnAttemptStick(Entity<MCBombPasswordComponent> ent, ref AttemptEntityStickEvent args)
     {
         var comp = ent.Comp;
 
@@ -279,7 +280,7 @@ public sealed class BombPasswordSystem : EntitySystem
         }
     }
 
-    private void OnBombDefused(Entity<BombPasswordComponent> ent, ref BombDefusedEvent args)
+    private void OnBombDefused(Entity<MCBombPasswordComponent> ent, ref BombDefusedEvent args)
     {
         var comp = ent.Comp;
 
@@ -291,4 +292,3 @@ public sealed class BombPasswordSystem : EntitySystem
         UpdateUi(ent);
     }
 }
-

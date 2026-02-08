@@ -6,9 +6,9 @@ using Robust.Client.UserInterface.XAML;
 namespace Content.Client._MC.Bomb.UI;
 
 [GenerateTypedNameReferences]
-public sealed partial class BombPasswordWindow : DefaultWindow
+public sealed partial class MCBombPasswordWindow : DefaultWindow
 {
-    public BombPasswordWindow()
+    public MCBombPasswordWindow()
     {
         RobustXamlLoader.Load(this);
     }
@@ -18,4 +18,3 @@ public sealed partial class BombPasswordWindow : DefaultWindow
         DisplayLabel.Text = text;
     }
 }
-

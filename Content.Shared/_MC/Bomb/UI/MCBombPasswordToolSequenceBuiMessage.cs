@@ -7,11 +7,11 @@ namespace Content.Shared._MC.Bomb.UI;
 /// Contains the digit that was clicked.
 /// </summary>
 [Serializable, NetSerializable]
-public sealed class BombPasswordToolSequenceBuiMessage : BoundUserInterfaceMessage
+public sealed class MCBombPasswordToolSequenceBuiMessage : BoundUserInterfaceMessage
 {
     public readonly int Digit;
 
-    public BombPasswordToolSequenceBuiMessage(int digit)
+    public MCBombPasswordToolSequenceBuiMessage(int digit)
     {
         Digit = digit;
     }

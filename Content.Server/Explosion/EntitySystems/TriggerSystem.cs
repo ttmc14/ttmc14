@@ -91,6 +91,7 @@ namespace Content.Server.Explosion.EntitySystems
 
             InitializeProximity();
             InitializeOnUse();
+            InitializeOnUseMC(); // TTMC14 - changes
             InitializeSignal();
             InitializeTimedCollide();
             InitializeVoice();

@@ -1,4 +1,7 @@
+using Content.Server._MC.Bomb.Components;
+using Content.Server._MC.Bomb.Systems;
 using Content.Server.Explosion.Components;
+using Content.Shared._MC.Bomb.Components;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Interaction.Events;
@@ -8,9 +11,11 @@ using Content.Shared.Verbs;
 
 namespace Content.Server.Explosion.EntitySystems;
 
-public sealed partial class TriggerSystem
+public sealed partial class MCTriggerSystem
 {
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
+    [Dependency] private readonly MCBombPasswordSystem _bombPassword = default!;
+    [Dependency] private readonly MCDefusableSystem _defusable = default!;
 
     private void InitializeOnUse()
     {
@@ -117,8 +122,6 @@ public sealed partial class TriggerSystem
         if (component.DelayOptions == null || component.DelayOptions.Count == 1)
             return;
 
-        // This is somewhat inefficient, but its good enough. This is run rarely, and the lists should be short.
-
         component.DelayOptions.Sort();
 
         if (component.DelayOptions[^1] <= component.Delay)
@@ -158,6 +161,27 @@ public sealed partial class TriggerSystem
         if (args.Handled || HasComp<AutomatedTimerComponent>(uid) || component.UseVerbInstead)
             return;
 
+        // Check if password is required and set
+        if (TryComp<MCBombPasswordComponent>(uid, out var passwordComp))
+        {
+            if (!_bombPassword.CanActivate((uid, passwordComp)))
+            {
+                _popupSystem.PopupEntity(Loc.GetString("bomb-password-not-set"), uid, args.User, PopupType.MediumCaution);
+                args.Handled = true;
+                return;
+            }
+        }
+
+        // If this is a defusable bomb, use the proper defusable system to start countdown
+        // This ensures proper anchoring, bolting, and warnings
+        if (TryComp<MCDefusableComponent>(uid, out var defusableComp))
+        {
+            _defusable.TryStartCountdown(uid, args.User, defusableComp);
+            args.Handled = true;
+            return;
+        }
+
+        // For non-defusable items, use the standard timer activation
         if (component.DoPopup)
             _popupSystem.PopupEntity(Loc.GetString("trigger-activated", ("device", uid)), args.User, args.User);
 
