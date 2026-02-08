@@ -10,6 +10,7 @@ end = "24:00"
 active_input_mover_enabled = false
 hide_player_identities = false
 corrosive_acid_damage_type = "MCBurn"
+planet_map_vote = false
 
 [accessibility]
 screen_shake_intensity = 1

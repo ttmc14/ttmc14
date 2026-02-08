@@ -53,7 +53,7 @@ public sealed class MCForcePlanetMapCommand : LocalizedCommands
         }
 
         var planetSys = _entity.System<MCXenoSpawnSystem>();
-        // planetSys.CancelPlanetVote();
+        planetSys.CancelPlanetVote();
         planetSys.SetPlanet(first.Value);
 
         shell.WriteLine($"The next round's planet has been set to {first.Value}");

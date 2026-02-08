@@ -28,8 +28,9 @@ public sealed class ForcePlanetMapCommand : ToolshedCommand
         }
 
         var planetSys = Sys<MCXenoSpawnSystem>();
-        // planetSys.CancelPlanetVote();
+        planetSys.CancelPlanetVote();
         planetSys.SetPlanet(first.Value);
+
         ctx.WriteLine($"The next round's planet has been set to {first.Value}");
     }
 }

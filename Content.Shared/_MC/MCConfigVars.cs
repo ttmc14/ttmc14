@@ -14,6 +14,19 @@ public sealed class MCConfigVars : CVars
         CVarDef.Create("mc.z_levels.physics.client_simulation", true, CVar.ARCHIVE | CVar.CLIENT);
 
     /**
+     * Vote
+     */
+
+    public static readonly CVarDef<bool> VoteEnabled =
+        CVarDef.Create("mc.vote.enabled", true, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<int> VoteExcludeLast =
+        CVarDef.Create("mc.vote.exclude_last", 2, CVar.SERVER | CVar.SERVERONLY);
+
+    public static readonly CVarDef<bool> VoteCarryover =
+        CVarDef.Create("mc.vote.carryover", true, CVar.SERVER | CVar.SERVERONLY);
+
+    /**
      * Round
      */
 
