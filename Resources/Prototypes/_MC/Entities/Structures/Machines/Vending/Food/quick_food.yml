@@ -1,6 +1,6 @@
-- type: entity
+mo- type: entity
   parent: MCMachineVending
-  id: ц
+  id: MCMachineVendingQuickFood
   name: Quick-Food vendor
   description: An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment. Mutually exclusive with the GHMME.
   components:
