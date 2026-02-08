@@ -93,9 +93,9 @@
     - name: Grenades
       entries:
       - id: MCWeaponLauncherGl81
-        amount: 2
-      - id: MCWeaponLauncherGl70
         amount: 4
+      - id: MCWeaponLauncherGl70
+        amount: 2
       - id: MCGrenadeHedp
         amount: 50
       - id: MCGrenadeHefaM15
