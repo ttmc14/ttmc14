@@ -1,0 +1,4 @@
+- type: entity
+  parent: MCMachineVendingWeapon
+  id: MCMachineVendingWeaponCrash
+  suffix: Crash

@@ -51,6 +51,14 @@
     network: MCChemStorageMedbay
 
 - type: entity
+  parent: MCChemStorageMedbay
+  id: MCChemStorageMedbayInvisible
+  suffix: Medbay, Invisible
+  components:
+  - type: Sprite
+    visible: false
+
+- type: entity
   parent: MCChemicalStorage
   id: MCChemStorageResearch
   suffix: Research
