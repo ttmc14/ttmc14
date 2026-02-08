@@ -8,6 +8,7 @@
     state: base
   - type: Area
     zLevel: 4
+  - type: MCAreaXenoBlinkBlock
 
 - type: entity
   parent: MCAreaShipCanterbury

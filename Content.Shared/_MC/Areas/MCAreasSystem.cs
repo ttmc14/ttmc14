@@ -1,4 +1,5 @@
 ﻿using Content.Shared._RMC14.Areas;
+using Robust.Shared.Map;
 
 namespace Content.Shared._MC.Areas;
 
@@ -20,5 +21,15 @@ public sealed class MCAreasSystem : EntitySystem
         var x = (int) position.X;
         var y = (int) position.Y;
         return $"{GetAreaName(coordinates)} (X: {x}, Y: {y})";
+    }
+
+    public bool AreaHas<T>(EntityCoordinates coordinates) where T : IComponent
+    {
+        return _rmcArea.TryGetArea(coordinates, out var area, out _) && HasComp<T>(area.Value);
+    }
+
+    public bool AreaHas<T>(MapCoordinates coordinates) where T : IComponent
+    {
+        return _rmcArea.TryGetArea(coordinates, out var area, out _) && HasComp<T>(area.Value);
     }
 }
