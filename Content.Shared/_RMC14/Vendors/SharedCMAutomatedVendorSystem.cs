@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._MC.Vending.Events;
 using Content.Shared._RMC14.Animations;
 using Content.Shared._RMC14.Holiday;
 using Content.Shared._RMC14.Inventory;
@@ -618,7 +619,6 @@ public abstract class SharedCMAutomatedVendorSystem : EntitySystem
 
             Dirty(actor, user);
         }
-
         if (entry.Amount != null)
         {
             if (entry.Box is { } box)
@@ -631,9 +631,21 @@ public abstract class SharedCMAutomatedVendorSystem : EntitySystem
                         if (vendorEntry.Id != box)
                             continue;
 
-                        vendorEntry.Amount -= GetBoxRemoveAmount(entry);
+                        var removed = GetBoxRemoveAmount(entry);
+                        vendorEntry.Amount -= removed;
                         Dirty(vendor);
                         AmountUpdated(vendor, vendorEntry);
+
+                        // mc-changes-start
+                        var ev = new MCVendorItemVendedEvent(
+                            vendor.Owner,
+                            actor,
+                            vendorEntry.Id,
+                            removed,
+                            isInfinite: false);
+                        RaiseLocalEvent(ref ev);
+                        // mc-changes-end
+
                         foundEntry = true;
                         break;
                     }
@@ -647,6 +659,16 @@ public abstract class SharedCMAutomatedVendorSystem : EntitySystem
                 entry.Amount--;
                 Dirty(vendor);
                 AmountUpdated(vendor, entry);
+
+                // mc-changes-start
+                var ev = new MCVendorItemVendedEvent(
+                    vendor.Owner,
+                    actor,
+                    entry.Id,
+                    1,
+                    isInfinite: false);
+                RaiseLocalEvent(ref ev);
+                // mc-changes-end
             }
         }
 

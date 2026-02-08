@@ -2,3 +2,6 @@
   parent: MCMachineVendingWeapon
   id: MCMachineVendingWeaponCrash
   suffix: Crash
+  components:
+  - type: MCVendorNetwork
+    networkId: weapon-crash
