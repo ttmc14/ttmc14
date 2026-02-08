@@ -1,4 +1,4 @@
-mo- type: entity
+- type: entity
   parent: MCMachineVending
   id: MCMachineVendingQuickFood
   name: Quick-Food vendor
