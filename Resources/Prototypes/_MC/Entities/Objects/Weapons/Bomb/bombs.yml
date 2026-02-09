@@ -16,7 +16,7 @@
     - type: Wires
       layoutId: Defusable
       alwaysRandomize: true
-    - type: Defusable
+    - type: MCDefusable
     - type: Rotatable
     - type: Explosive
       explosionType: MC
@@ -90,7 +90,7 @@
   suffix: DEBUG
   description: A block of C-4 plastic explosive, commonly used by military and special forces for demolition purposes. Highly stable and safe to handle, it requires a detonator to explode.
   components:
-    - type: Defusable
+    - type: MCDefusable
       disposable: true
     - type: MCOnUseTimerTrigger
       delay: 10

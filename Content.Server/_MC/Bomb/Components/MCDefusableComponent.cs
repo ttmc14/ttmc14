@@ -1,4 +1,5 @@
 using Content.Server._MC.Bomb.Systems;
+using Content.Server._MC.Explosion.EntitySystems;
 using Content.Server.Explosion.Components;
 using Robust.Shared.Audio;
 

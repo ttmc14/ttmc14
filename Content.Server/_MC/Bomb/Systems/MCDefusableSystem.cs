@@ -1,6 +1,7 @@
+using Content.Server._MC.Bomb.Systems;
 using Content.Server._MC.Bomb.Components;
-using Content.Server.Explosion.Components;
 using Content.Server.Explosion.EntitySystems;
+using Content.Server.Explosion.Components;
 using Content.Server.Popups;
 using Content.Server.Wires;
 using Content.Shared._MC.Bomb.Components;
