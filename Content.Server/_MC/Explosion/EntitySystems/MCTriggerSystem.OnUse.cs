@@ -3,6 +3,7 @@ using Content.Server._MC.Bomb.Systems;
 using Content.Server.Explosion.Components;
 using Content.Server.Popups;
 using Content.Shared._MC.Bomb.Components;
+using Content.Shared._MC.Explosion.Components;
 using Content.Shared.Examine;
 using Content.Shared.Explosion.Components;
 using Content.Shared.Interaction.Events;
@@ -18,14 +19,13 @@ public sealed partial class MCTriggerSystem
 {
     private void InitializeOnUse()
     {
-        SubscribeLocalEvent<OnUseTimerTriggerComponent, UseInHandEvent>(OnTimerUse);
-        SubscribeLocalEvent<OnUseTimerTriggerComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<OnUseTimerTriggerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
-        SubscribeLocalEvent<OnUseTimerTriggerComponent, EntityStuckEvent>(OnStuck);
-        SubscribeLocalEvent<RandomTimerTriggerComponent, MapInitEvent>(OnRandomTimerTriggerMapInit);
+        SubscribeLocalEvent<MCOnUseTimerTriggerComponent, UseInHandEvent>(OnTimerUse);
+        SubscribeLocalEvent<MCOnUseTimerTriggerComponent, ExaminedEvent>(OnExamined);
+        SubscribeLocalEvent<MCOnUseTimerTriggerComponent, GetVerbsEvent<AlternativeVerb>>(OnGetAltVerbs);
+        SubscribeLocalEvent<MCOnUseTimerTriggerComponent, EntityStuckEvent>(OnStuck);
     }
 
-    private void OnStuck(EntityUid uid, OnUseTimerTriggerComponent component, ref EntityStuckEvent args)
+    private void OnStuck(EntityUid uid, MCOnUseTimerTriggerComponent component, ref EntityStuckEvent args)
     {
         if (!component.StartOnStick)
             return;
@@ -33,14 +33,13 @@ public sealed partial class MCTriggerSystem
         StartTimer((uid, component), args.User);
     }
 
-    private void OnExamined(EntityUid uid, OnUseTimerTriggerComponent component, ExaminedEvent args)
+    private void OnExamined(EntityUid uid, MCOnUseTimerTriggerComponent component, ExaminedEvent args)
     {
         if (args.IsInDetailsRange && component.Examinable)
             args.PushText(Loc.GetString("examine-trigger-timer", ("time", component.Delay)));
     }
 
-
-    private void OnGetAltVerbs(EntityUid uid, OnUseTimerTriggerComponent component, GetVerbsEvent<AlternativeVerb> args)
+    private void OnGetAltVerbs(EntityUid uid, MCOnUseTimerTriggerComponent component, GetVerbsEvent<AlternativeVerb> args)
     {
         if (!args.CanInteract || !args.CanAccess || args.Hands == null)
             return;
@@ -104,17 +103,7 @@ public sealed partial class MCTriggerSystem
         }
     }
 
-    private void OnRandomTimerTriggerMapInit(Entity<RandomTimerTriggerComponent> ent, ref MapInitEvent args)
-    {
-        var (_, comp) = ent;
-
-        if (!TryComp<OnUseTimerTriggerComponent>(ent, out var timerTriggerComp))
-            return;
-
-        timerTriggerComp.Delay = _random.NextFloat(comp.Min, comp.Max);
-    }
-
-    private void CycleDelay(OnUseTimerTriggerComponent component, EntityUid user)
+    private void CycleDelay(MCOnUseTimerTriggerComponent component, EntityUid user)
     {
         if (component.DelayOptions == null || component.DelayOptions.Count == 1)
             return;
@@ -139,7 +128,7 @@ public sealed partial class MCTriggerSystem
         }
     }
 
-    private void ToggleStartOnStick(EntityUid grenade, EntityUid user, OnUseTimerTriggerComponent comp)
+    private void ToggleStartOnStick(EntityUid grenade, EntityUid user, MCOnUseTimerTriggerComponent comp)
     {
         if (comp.StartOnStick)
         {
@@ -153,7 +142,7 @@ public sealed partial class MCTriggerSystem
         }
     }
 
-    private void OnTimerUse(EntityUid uid, OnUseTimerTriggerComponent component, UseInHandEvent args)
+    private void OnTimerUse(EntityUid uid, MCOnUseTimerTriggerComponent component, UseInHandEvent args)
     {
         if (args.Handled || HasComp<AutomatedTimerComponent>(uid) || component.UseVerbInstead)
             return;
@@ -184,8 +173,14 @@ public sealed partial class MCTriggerSystem
     }
 
     public static VerbCategory TimerOptions = new("verb-categories-timer", "/Textures/Interface/VerbIcons/clock.svg.192dpi.png");
-    private void StartTimer(Entity<OnUseTimerTriggerComponent?> ent, EntityUid? user)
+
+
+    private void StartTimer(Entity<MCOnUseTimerTriggerComponent?> ent, EntityUid? user)
     {
-        _triggerSystem.StartTimer(ent, user);
+        if (!Resolve(ent, ref ent.Comp, false))
+            return;
+
+        var comp = ent.Comp!;
+        _triggerSystem.HandleTimerTrigger(ent.Owner, user, comp.Delay, comp.BeepInterval, comp.InitialBeepDelay, comp.BeepSound);
     }
 }

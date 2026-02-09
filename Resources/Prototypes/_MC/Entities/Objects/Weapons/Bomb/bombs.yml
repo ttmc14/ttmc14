@@ -1,5 +1,4 @@
 - type: entity
-  abstract: true
   parent: BaseItem
   id: MCBaseHardBomb
   description: Just keep talking and nobody will explode.
@@ -12,15 +11,15 @@
       interfaces:
         enum.WiresUiKey.Key:
           type: WiresBoundUserInterface
-        enum.BombPasswordUi.Key:
+        enum.MCBombPasswordUi.Key:
           type: MCBombPasswordBui
     - type: Wires
       layoutId: Defusable
       alwaysRandomize: true
-    - type: MCDefusable
+    - type: Defusable
     - type: Rotatable
     - type: Explosive
-      explosionType: Default
+      explosionType: MC
       totalIntensity: 20.0
       intensitySlope: 5
       maxIntensity: 4
@@ -28,7 +27,7 @@
 #      stickDelay: 5
 #      unstickDelay: 5
     - type: ExplodeOnTrigger
-    - type: OnUseTimerTrigger
+    - type: MCOnUseTimerTrigger
       delay: 240
       delayOptions: [40, 120, 240, 300, 600]
 #      startOnStick: true
@@ -37,7 +36,7 @@
     - type: Anchorable
       delay: 5
     - type: WiresPanel
-    - type: BombPassword
+    - type: MCBombPassword
 
 - type: entity
   parent: MCBaseHardBomb
@@ -74,7 +73,7 @@
     - type: FlashOnTrigger
       range: 50
     - type: Explosive
-      explosionType: HardBomb
+      explosionType: MCHardBomb
       totalIntensity: 15000.0
       intensitySlope: 5
       maxIntensity: 400
@@ -91,9 +90,9 @@
   suffix: DEBUG
   description: A block of C-4 plastic explosive, commonly used by military and special forces for demolition purposes. Highly stable and safe to handle, it requires a detonator to explode.
   components:
-    - type: MCDefusable
+    - type: Defusable
       disposable: true
-    - type: OnUseTimerTrigger
+    - type: MCOnUseTimerTrigger
       delay: 10
       delayOptions: [10, 20, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300]
 
@@ -121,7 +120,7 @@
     blacklist:
       components:
       - Item
-  - type: OnUseTimerTrigger
+  - type: MCOnUseTimerTrigger
     delay: 10
     delayOptions: [1, 5, 10, 15]
     initialBeepDelay: 5
@@ -133,7 +132,7 @@
     ports:
     - Timer
   - type: Explosive
-    explosionType: RMC
+    explosionType: MC
     totalIntensity: 150
     intensitySlope: 5
     maxIntensity: 50
