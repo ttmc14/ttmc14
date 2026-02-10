@@ -1,12 +1,12 @@
-ent-BarbedWireBase = barbed wire
+ent-BarbedWireBase = хуевая колючая проволока
     .desc = A type of metal fencing wire constructed with sharp edges or points arranged at intervals along the strands. In short, it hurts to touch it. A lot. Place on barricades to prevent unwants from breaking through painlessly.
-    .suffix = Filled
+    .suffix = НЕ МАПИТЬ
 ent-BarbedWire10 = { ent-BarbedWireBase }
-    .suffix = 10
+    .suffix = НЕ МАПИТЬ
     .desc = { ent-BarbedWireBase.desc }
 ent-BarbedWire15 = { ent-BarbedWireBase }
-    .suffix = 15
+    .suffix = НЕ МАПИТЬ
     .desc = { ent-BarbedWireBase.desc }
 ent-BarbedWire1 = { ent-BarbedWireBase }
-    .suffix = Single
+    .suffix = НЕ МАПИТЬ
     .desc = { ent-BarbedWireBase.desc }

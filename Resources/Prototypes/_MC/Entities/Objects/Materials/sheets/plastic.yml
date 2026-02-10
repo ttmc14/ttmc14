@@ -1,0 +1,80 @@
+# Plastic
+
+- type: material
+  id: MCPlastic
+  stackEntity: MCSheetPlastic
+  icon: { sprite: _RMC14/Objects/Materials/Sheets/plastic.rsi, state: plastic }
+  price: 0.2
+
+- type: stack
+  id: MCPlastic
+  icon: { sprite: _RMC14/Objects/Materials/Sheets/plastic.rsi, state: plastic }
+  spawn: MCSheetPlastic
+  maxCount: 50
+
+- type: entity
+  parent: SheetOtherBase
+  id: MCSheetPlastic
+  name: MC-materials-plastic
+  description: Plastic is a synthetic polymer, manufactured from organic and inorganic components into a malleable and light fabric. It can be used for a wide range of objects.
+  suffix: MC
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Materials/Sheets/plastic.rsi
+    layers:
+    - state: plastic_4
+      map: ["base"]
+  - type: Item
+    size: Normal
+  - type: RMCConstructionItem
+    buildable:
+      - RMCCratePlasticBuild
+      - RMCAshtrayBuild
+      - RMCDividerConstruction
+      - RMCForkPlasticBuild
+      - RMCSpoonPlasticBuild
+      - RMCKitchenKnifePlasticBuild
+  - type: Material
+  - type: PhysicalComposition
+    materialComposition:
+      MCPlastic: 100
+  - type: Stack
+    stackType: MCPlastic
+    count: 50
+    baseLayer: base
+    layerStates:
+    - plastic
+    - plastic_2
+    - plastic_3
+    - plastic_4
+  - type: Appearance
+  - type: Tag
+    tags:
+    - Sheet
+    - Plastic
+  - type: UserInterface
+    interfaces:
+      enum.RMCConstructionUiKey.Key:
+        type: MCConstructionBui
+
+- type: entity
+  parent: MCSheetPlastic
+  id: MCSheetPlastic10
+  suffix: 10
+  components:
+  - type: Sprite
+    state: plastic_2
+  - type: Stack
+    stackType: MCPlastic
+    count: 10
+
+- type: entity
+  parent: MCSheetPlastic
+  id: MCSheetPlastic1
+  suffix: Single
+  components:
+  - type: Sprite
+    state: plastic
+  - type: Stack
+    stackType: MCPlastic
+    count: 1
