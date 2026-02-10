@@ -25,10 +25,6 @@ public sealed partial class MCCrashRuleSystem
             Evolution = new MCXenoHiveConfigEvolution
             {
                 WithoutRuler = true,
-                BlockedCastes =
-                {
-                    "MCXenoWraith",
-                },
                 RequiredCasteCount =
                 {
                     { "MCXenoQueen", 6 },

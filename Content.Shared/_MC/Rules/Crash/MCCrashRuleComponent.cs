@@ -38,18 +38,10 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
     [DataField, AutoNetworkedField]
     public EntityUid? XenoMap { get; set; }
 
-    // Global
-
-#if !FULL_RELEASE
-    [DataField, AutoNetworkedField]
-    public TimeSpan ShuttleCrushTime = TimeSpan.FromSeconds(30);
-#else
     [DataField, AutoNetworkedField]
     public TimeSpan ShuttleCrushTime = TimeSpan.FromMinutes(10);
-#endif
 
     // Marine
-
     [DataField, AutoNetworkedField]
     public TimeSpan MarineRespawnTime = TimeSpan.FromMinutes(15);
 
@@ -58,12 +50,6 @@ public sealed partial class MCCrashRuleComponent : Component, IRulePlanet, IRule
 
     [AutoNetworkedField]
     public bool PowerRecalculated { get; set; }
-
-    // TODO: starting_squad
-    // TODO: evo_requirements
-    // /datum/xeno_caste/king = 14
-    // /datum/xeno_caste/queen = 10
-    // /datum/xeno_caste/hivelord = 5
 }
 
 public interface IRuleRecalculatePower

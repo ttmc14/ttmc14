@@ -1,4 +1,6 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Areas;
+using Content.Shared._MC.Areas.Components;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Xenonids;
@@ -14,18 +16,19 @@ using Robust.Shared.Map;
 
 namespace Content.Shared._MC.Xeno.Abilities.Wraith.Blink;
 
-public sealed class MCXenoBlinkSystem : EntitySystem
+public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
 {
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly EntityLookupSystem _lookup = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly PullingSystem _pulling = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly RMCSlowSystem _rmcSlow = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly ExamineSystemShared _examine = null!;
+    [Dependency] private readonly EntityLookupSystem _lookup = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly PullingSystem _pulling = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+
+    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+    [Dependency] private readonly RMCSlowSystem _rmcSlow = null!;
+
+    [Dependency] private readonly MCAreasSystem _mcArea = null!;
 
     public override void Initialize()
     {
@@ -47,14 +50,16 @@ public sealed class MCXenoBlinkSystem : EntitySystem
             return;
 
         var length = direction.Length();
-        var distance = Math.Clamp(length, 0, entity.Comp.Range);
+        var distance = float.Clamp(length, 0, entity.Comp.Range);
 
-        var target =  new MapCoordinates(origin.Position + direction.Normalized() * distance, _transform.GetMapId(args.Target));
-
+        var target = new MapCoordinates(origin.Position + direction.Normalized() * distance, _transform.GetMapId(args.Target));
         if (!_examine.InRangeUnOccluded(origin, target, entity.Comp.Range, null))
             return;
 
-        if (!_rmcActions.CanUseActionPopup(entity, args.Action, entity))
+        if (_mcArea.AreaHas<MCAreaXenoBlinkBlockComponent>(_transform.ToCoordinates(args.Target.EntityId, target)))
+            return;
+
+        if (!RMCActions.CanUseActionPopup(entity, args.Action, entity))
             return;
 
         if (TryComp<PullableComponent>(entity, out var pullable) && pullable.BeingPulled)
@@ -64,7 +69,7 @@ public sealed class MCXenoBlinkSystem : EntitySystem
 
         if (CompOrNull<PullerComponent>(entity)?.Pulling is not { } targetUid)
         {
-            if (!_rmcActions.TryUseAction(entity, args.Action, entity))
+            if (!RMCActions.TryUseAction(entity, args.Action, entity))
                 return;
 
             DebuffAoe(entity, origin);
@@ -77,9 +82,9 @@ public sealed class MCXenoBlinkSystem : EntitySystem
         }
 
         // Fo friendly targets
-        if (_xenoHive.FromSameHive(entity.Owner, targetUid))
+        if (_rmcXenoHive.FromSameHive(entity.Owner, targetUid))
         {
-            if (!_rmcActions.TryUseAction(entity, args.Action, entity))
+            if (!RMCActions.TryUseAction(entity, args.Action, entity))
                 return;
 
             _transform.SetMapCoordinates(targetUid, target);
@@ -111,7 +116,7 @@ public sealed class MCXenoBlinkSystem : EntitySystem
         if (args.Handled || args.Cancelled || args.Target is not { } targetUid)
             return;
 
-        if (!_rmcActions.TryUseAction(entity, GetEntity(args.Action), entity))
+        if (!RMCActions.TryUseAction(entity, GetEntity(args.Action), entity))
             return;
 
         args.Handled = true;
@@ -129,12 +134,12 @@ public sealed class MCXenoBlinkSystem : EntitySystem
 
     private void IncreaseCooldown(Entity<MCXenoBlinkComponent> entity, float modifier)
     {
-        foreach (var action in _rmcActions.GetActionsWithEvent<MCXenoBlinkActionEvent>(entity))
+        foreach (var action in RMCActions.GetActionsWithEvent<MCXenoBlinkActionEvent>(entity))
         {
             if (action.Comp.Cooldown is null)
                 continue;
 
-            _actions.SetCooldown((action, action), action.Comp.Cooldown.Value.Start, action.Comp.Cooldown.Value.End + (action.Comp.UseDelay ?? TimeSpan.Zero) * modifier);
+            Actions.SetCooldown((action, action), action.Comp.Cooldown.Value.Start, action.Comp.Cooldown.Value.End + (action.Comp.UseDelay ?? TimeSpan.Zero) * modifier);
         }
     }
 
@@ -145,7 +150,7 @@ public sealed class MCXenoBlinkSystem : EntitySystem
             if (_mobState.IsDead(taget, taget.Comp))
                 continue;
 
-            if (HasComp<XenoComponent>(taget) && _xenoHive.FromSameHive(entity.Owner, taget.Owner))
+            if (HasComp<XenoComponent>(taget) && _rmcXenoHive.FromSameHive(entity.Owner, taget.Owner))
                 continue;
 
             // TODO: Stagger

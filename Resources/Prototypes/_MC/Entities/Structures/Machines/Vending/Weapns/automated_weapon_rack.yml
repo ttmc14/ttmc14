@@ -1,8 +1,9 @@
 - type: entity
   parent: MCMachineVending
-  id: MCMachineVendingWeapon
+  id: MCMachineVendingWeaponBase
   name: automated weapon rack
   description: An automated weapon rack hooked up to a colossal storage of standard-issue weapons.
+  abstract: true
   components:
   - type: Sprite
     sprite: _MC/Structures/Machines/vending.rsi
@@ -11,6 +12,11 @@
       map: [ "enum.VendingMachineVisualLayers.Base" ]
     - state: marinearmory
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+
+- type: entity
+  parent: MCMachineVendingWeaponBase
+  id: MCMachineVendingWeapon
+  components:
   - type: CMAutomatedVendor
     sections:
     - name: Rifles
@@ -52,7 +58,6 @@
       - id: MCMagazineBR64
       - id: MCWeaponSniperSR127
       - id: MCMagazineSR127
-      # - id: MCMagazineSR127Flak
       - id: MCWeaponShotgunMosin
       - id: MCCartridgeMosin
       - id: MCWeaponShotgunMartini

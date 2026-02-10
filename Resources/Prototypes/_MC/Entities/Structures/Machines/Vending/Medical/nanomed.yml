@@ -38,6 +38,12 @@
         amount: 1
       - id: MCAutoInjectorDermaline
         amount: 1
+    - name: Kits
+      entries:
+      - id: MCAidKitOxygenFilled
+        amount: 1
+      - id: MCAidKitFirstFilled
+        amount: 1
     - name: Heal Pack
       entries:
       - id: MCGauze
@@ -49,4 +55,6 @@
     - name: Misc
       entries:
       - id: MCHealthAnalyzer
+        amount: 1
+      - id: MCDefibrillator
         amount: 1

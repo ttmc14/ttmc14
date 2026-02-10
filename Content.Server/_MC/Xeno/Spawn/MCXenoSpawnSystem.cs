@@ -17,20 +17,20 @@ using Robust.Shared.Random;
 
 namespace Content.Server._MC.Xeno.Spawn;
 
-public sealed class MCXenoSpawnSystem : EntitySystem
+public sealed partial class MCXenoSpawnSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
+    [Dependency] private readonly IConfigurationManager _config = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
 
-    [Dependency] private readonly MapSystem _map = default!;
-    [Dependency] private readonly MapInsertSystem _mapInsert = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
+    [Dependency] private readonly MapSystem _map = null!;
+    [Dependency] private readonly MapInsertSystem _mapInsert = null!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
 
-    [Dependency] private readonly RMCAmbientLightSystem _rmcAmbientLight = default!;
-    [Dependency] private readonly RMCPlanetSystem _rmcPlanet = default!;
-    [Dependency] private readonly XenoHiveSystem _rmcXenoHive = default!;
+    [Dependency] private readonly RMCAmbientLightSystem _rmcAmbientLight = null!;
+    [Dependency] private readonly RMCPlanetSystem _rmcPlanet = null!;
+    [Dependency] private readonly XenoHiveSystem _rmcXenoHive = null!;
 
-    [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = default!;
+    [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
 
     [ViewVariables]
     private readonly Queue<EntProtoId<RMCPlanetMapPrototypeComponent>> _lastPlanetMaps = new();
@@ -43,7 +43,6 @@ public sealed class MCXenoSpawnSystem : EntitySystem
 
     private TimeSpan _sunsetDuration;
     private TimeSpan _sunriseDuration;
-    private int _mapVoteExcludeLast;
 
     public override void Initialize()
     {
@@ -51,7 +50,6 @@ public sealed class MCXenoSpawnSystem : EntitySystem
 
         Subs.CVar(_config, RMCCVars.RMCSunsetDuration, v => _sunsetDuration = TimeSpan.FromSeconds(v), true);
         Subs.CVar(_config, RMCCVars.RMCSunriseDuration, v => _sunriseDuration = TimeSpan.FromSeconds(v), true);
-        Subs.CVar(_config, RMCCVars.RMCPlanetMapVoteExcludeLast, v => _mapVoteExcludeLast = v, true);
     }
 
     public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IRulePlanet
@@ -59,7 +57,7 @@ public sealed class MCXenoSpawnSystem : EntitySystem
         var planet = SelectRandomPlanet();
 
         _lastPlanetMaps.Enqueue(planet.Proto.ID);
-        while (_lastPlanetMaps.Count > 0 && _lastPlanetMaps.Count > _mapVoteExcludeLast)
+        while (_lastPlanetMaps.Count > 0 && _lastPlanetMaps.Count > _voteExcludeLast)
         {
             _lastPlanetMaps.Dequeue();
         }

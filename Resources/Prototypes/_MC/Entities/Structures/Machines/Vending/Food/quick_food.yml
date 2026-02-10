@@ -1,0 +1,70 @@
+- type: entity
+  parent: MCMachineVending
+  id: MCMachineVendingQuickFood
+  name: Quick-Food vendor
+  description: An advanced vendor to instantly arm soldiers with specific sets of equipment, allowing for immediate combat deployment. Mutually exclusive with the GHMME.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: sustenance-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: sustenance
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    sections:
+    - name: Snacks
+      entries:
+      - id: RMCFoodSnackCheeseburgerPackaged
+      - id: RMCFoodSnackBurritoPackaged
+      - id: RMCFoodSnackHotdogPackaged
+      - id: RMCFoodSnackKeplarCrisps
+      - id: RMCFoodSnackKeplarFlamehotCrisps
+      - id: RMCFoodSnackChipsPepper
+      - id: RMCFoodSnackEATBar
+      - id: RMCFoodSnackBoonie
+      - id: RMCFoodSnackCHUNK
+      - id: RMCFoodSnackBarcaridine
+    - name: Cola
+      entries:
+      # BASIC
+      - id: CMDrinkCanBobdaClassic
+      - id: CMDrinkCanBobdaCherry
+      - id: CMDrinkCanBobdaLime
+      - id: CMDrinkCanBobdaGrape
+      - id: CMDrinkCanBobdaBlue
+      - id: CMDrinkCanBobdaPeach
+      - id: CMDrinkCanBobdaCranberry
+      - id: CMDrinkCanBobdaVanilla
+      - id: CMDrinkCanBobdaPineapple
+      # DIET
+      - id: CMDrinkCanBobdaClassicDiet
+      - id: CMDrinkCanBobdaCherryDiet
+      - id: CMDrinkCanBobdaLimeDiet
+      - id: CMDrinkCanBobdaGrapeDiet
+      - id: CMDrinkCanBobdaBlueDiet
+      - id: CMDrinkCanBobdaPeachDiet
+      - id: CMDrinkCanBobdaCranberryDiet
+      - id: CMDrinkCanBobdaVanillaDiet
+      - id: CMDrinkCanBobdaPineappleDiet
+      # NON BOBDA
+      - id: CMDrinkCanCola
+    - name: Sigares
+      entries:
+      - id: RMCCigarettePackElectroGolds
+      - id: RMCCigarettePackLuckySloths
+      - id: RMCCigarettePackLadyFingers
+      - id: RMCCigarettePackWeYaGold
+      - id: RMCCigarettePackEmeraldGreens
+      - id: RMCCigarettePackArcturianAce
+      - id: RMCCigarettePackExecutiveSelect
+      - id: RMCCigarCase
+      - id: RMCTarbackTube
+      - id: RMCTarbackCase
+      - id: CMExecutiveSelectMatchbook
+      - id: CMExecutiveWEYAMatchbook
+      - id: CMElectroMatchbook
+      - id: CMBrownMatchBook
+      - id: RMCMatchboxFull
+      - id: RMCLighter
+      - id: RMCZippo

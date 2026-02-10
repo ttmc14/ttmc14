@@ -1,0 +1,157 @@
+- type: entity
+  parent: MCMachineVendingWeaponBase
+  id: MCMachineVendingWeaponCrash
+  suffix: Crash
+  components:
+  - type: MCVendorNetwork
+    networkId: weapon-crash
+  - type: CMAutomatedVendor
+    sections:
+    - name: Rifles
+      entries:
+      - id: MCWeaponRifleAR12
+      - id: MCMagazineRifleAR12
+      - id: MCWeaponRifleAR18
+      - id: MCMagazineRifleAR18
+      - id: MCWeaponRifleAR21
+      - id: MCMagazineRifleAR21
+      - id: MCWeaponRifleAR11
+      - id: MCMagazineRifleAR11
+      - id: MCWeaponShotgunLeicesterRepeater
+      - id: MCBoxGovernmentRounds
+    - name: Energy Weapons
+      entries:
+      - id: MCMagazineBatteryTerra
+      - id: MCWeaponEnergyRifle
+      - id: MCWeaponEnergySniper
+      - id: MCWeaponEnergyCarbine
+      - id: MCWeaponEnergyPistol
+      - id: MCWeaponEnergyMachineGun
+    - name: SMGs
+      entries:
+      - id: MCWeaponSMG90
+      - id: MCMagazineSMG90
+      - id: MCWeaponMP19
+      - id: MCMagazineMP19
+      - id: MCWeaponSMG45
+      - id: MCMagazineSMG45
+      - id: MCMagazineSMG45SH
+    - name: Marksman
+      entries:
+      - id: MCWeaponSniperDMR37
+      - id: MCMagazineDMR37
+      - id: MCWeaponSniperBR64
+      - id: MCMagazineBR64
+      - id: MCWeaponSniperSR127
+      - id: MCMagazineSR127
+      - id: MCWeaponShotgunMosin
+      - id: MCCartridgeMosin
+      - id: MCWeaponShotgunMartini
+      - id: MCCartridgeMartini
+    - name: Shotgun
+      entries:
+      - id: MCWeaponShotgunSH35
+      - id: MCWeaponShotgunSH39
+      - id: MCWeaponShotgunSH34
+      - id: MCBoxShotgunSlugs
+      - id: MCBoxShotgunBuckshot
+      - id: MCBoxShotgunFlechette
+      - id: MCWeaponShotgunSH15
+      - id: MCMagazineShotgunSH15Flechette
+      - id: MCMagazineShotgunSH15Slug
+    - name: Machinegun
+      entries:
+      - id: MCWeaponMachineGunMG42
+      - id: MCMagazineMG42
+      - id: MCWeaponMachineGunMG60
+      - id: MCMagazineMG60
+    - name: Melee
+      entries:
+      - id: MCKnifeCombat
+      - id: MCKnifeBayonet
+      - id: MCScabbardMacheteFilled
+      - id: MCSpear
+    - name: Vali
+      entries:
+      - id: MCScabbardMachete
+      - id: MCMeleeWeaponValiClaymore
+      - id: MCMeleeWeaponValiKnife
+      - id: MCMeleeWeaponValiSpear
+      - id: MCMeleeWeaponValiSword
+    - name: Sidearm
+      entries:
+      - id: MCWeaponP14
+      - id: MCMagazinePistolP14
+      - id: MCWeaponP23
+      - id: MCMagazinePistolP23
+      - id: MCWeaponRevolverR44
+      - id: MCSpeedLoaderR44
+      - id: MCWeaponP17
+      - id: MCMagazinePistolP17
+      - id: MCWeaponMK88
+      - id: MCMagazinePistolMK88
+    - name: Grenades
+      entries:
+      - id: MCWeaponLauncherGl81
+        amount: 4
+      - id: MCWeaponLauncherGl70
+        amount: 2
+      - id: MCGrenadeHedp
+        amount: 50
+      - id: MCGrenadeHefaM15
+        amount: 10
+      - id: MCGrenadeHidp
+        amount: 50
+      - id: MCGrenadeHsdp
+        amount: 25
+      - id: MCGrenadePGas
+        amount: 10
+      - id: CMPackFlare
+        amount: 200
+      - id: RMCPackFlareCAS
+        amount: 30
+    - name: Specialized
+      entries:
+      - id: MCWeaponPepperball
+        amount: 4
+      - id: MCMagazinePepperball
+      - id: MCWeaponFlamerUnloadedNoMag
+        amount: 4
+      - id: MCTankFlamer
+        amount: 30
+      - id: MCTankFlamerGreen
+        amount: 15
+      - id: MCBackpackFlamer
+        amount: 4
+      - id: MCAttachmentUnderslungHydrocannon
+    - name: Attachments
+      entries:
+      - id: MCAttachmentBayonet
+      - id: MCAttachmentRecoilCompensator
+      - id: MCAttachmentExtendedMuzzle
+      - id: MCAttachmentSuppressor
+      - id: MCAttachmentMuzzleCharger
+      - id: MCAttachmentRailFlashlight
+      - id: MCAttachmentUnderbarrelFlashlight
+      - id: MCAttachmentMagneticHarness
+      - id: MCAttachmentRedDotSight
+      - id: MCAttachmentT47RailScope
+      - id: MCAttachmentMiniScope
+      - id: MCAttachmentAngledGrip
+      - id: MCAttachmentVerticalGrip
+      - id: MCAttachmentBipod
+      - id: MCAttachmentGyroscopicStabilizer
+      - id: MCAttachmentLaserSight
+      - id: MCAttachmentBurstFireAssembly
+      - id: MCAttachmentUnderbarrelShotgun
+      - id: MCAttachmentGrenadeLauncher
+      - id: MCAttachmentMiniFlamethrower
+      - id: MCMiniTankFlamer
+    - name: Utility
+      entries:
+      - id: RMCFlashlight
+      - id: CMEntrenchingTool
+      - id: CMFireExtinguisher
+      - id: CMFireExtinguisherPortable
+      - id: RMCBinocularsCiv
+      - id: CMHandLabeler

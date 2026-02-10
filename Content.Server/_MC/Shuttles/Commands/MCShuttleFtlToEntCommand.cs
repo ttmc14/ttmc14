@@ -8,19 +8,19 @@ using Robust.Shared.Console;
 namespace Content.Server._MC.Shuttles.Commands;
 
 [AdminCommand(AdminFlags.Debug)]
-public sealed class MCShuttleFtlToCommand : LocalizedCommands
+public sealed class MCShuttleFtlToEntCommand : LocalizedCommands
 {
     [Dependency] private readonly IEntitySystemManager _entitySystem = null!;
     [Dependency] private readonly IEntityManager _entManager = null!;
 
-    public override string Command => "mc_shuttle_ftl_to";
-    public override string Description => "mc_shuttle_ftl_to shuttleUid> <targetUid> [angleDeg]";
+    public override string Command => "mc_shuttle_ftl_to_ent";
+    public override string Help => "mc_shuttle_ftl_to_ent <shuttleUid> <targetUid> [angleDeg]";
 
     public override void Execute(IConsoleShell shell, string argStr, string[] args)
     {
         if (args.Length < 2)
         {
-            shell.WriteError($"Usage: {Description}");
+            shell.WriteError($"Usage: {Help}");
             return;
         }
 

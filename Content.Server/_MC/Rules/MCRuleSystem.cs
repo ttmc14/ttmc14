@@ -59,7 +59,6 @@ public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : ICom
     protected float MaximumSurvivors;
 
     private bool _usingCustomOperationName;
-    private int _mapVoteExcludeLast;
     private string _adminFaxAreaMap = string.Empty;
 
     public override void Initialize()

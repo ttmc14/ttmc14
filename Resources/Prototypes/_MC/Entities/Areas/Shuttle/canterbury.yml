@@ -4,26 +4,48 @@
   name: Canterbury
   components:
   - type: Sprite
-    state: ai
+    sprite: _MC/Areas/canterbury.rsi
+    state: base
   - type: Area
-    zLevel: 2
+    zLevel: 4
+  - type: MCAreaXenoBlinkBlock
 
 - type: entity
-  parent: MCAreaShip
+  parent: MCAreaShipCanterbury
+  id: MCAreaShipCanterburyPreparation
+  name: Canterbury Preparation
+  components:
+  - type: Sprite
+    state: preparation
+  - type: Area
+    zLevel: 4
+
+- type: entity
+  parent: MCAreaShipCanterbury
+  id: MCAreaShipCanterburyReactor
+  name: Canterbury Reactor
+  components:
+  - type: Sprite
+    state: reactor
+  - type: Area
+    zLevel: 4
+
+- type: entity
+  parent: MCAreaShipCanterbury
   id: MCAreaShipCanterburyMedical
-  name: Medical
+  name: Canterbury Medical
   components:
   - type: Sprite
-    state: ai
+    state: med
   - type: Area
-    zLevel: 2
+    zLevel: 4
 
 - type: entity
-  parent: MCAreaShip
+  parent: MCAreaShipCanterbury
   id: MCAreaShipCanterburyCIC
-  name: Combat Information Center
+  name: Canterbury Combat Information Center
   components:
   - type: Sprite
-    state: ai
+    state: cic
   - type: Area
-    zLevel: 2
+    zLevel: 4
