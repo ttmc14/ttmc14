@@ -1,2 +1,1 @@
-ent-RMCSheetMetalBase = хуёвый металл
-    .suffix = НЕ МАПИТЬ
+materials-metal = metal
