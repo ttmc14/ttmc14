@@ -82,11 +82,8 @@
   - type: HealthExaminable
     locPrefix: sentry
     examinableTypes:
-    - Blunt
-    - Slash
-    - Piercing
-    - Heat
-    - Shock
+    - MCBrute
+    - MCBurn
   - type: ShortExamine
   - type: InteractedBlacklist
     blacklist:
