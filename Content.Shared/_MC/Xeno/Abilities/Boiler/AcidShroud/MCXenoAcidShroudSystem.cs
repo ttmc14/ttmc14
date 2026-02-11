@@ -48,7 +48,6 @@ public sealed class MCXenoAcidShroudSystem : MCXenoAbilitySystem
 
         var spreader = EnsureComp<MCEdgeSpreaderComponent>(smokeUid);
         spreader.Range = int.Max(_glob.GetGlobCount(entity.Owner), entity.Comp.MinRange);
-
         Dirty(smokeUid, spreader);
 
         _glob.SetGlobCount(entity.Owner, 0, popup: true);

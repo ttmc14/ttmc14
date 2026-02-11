@@ -12,8 +12,7 @@ namespace Content.Shared._CE.ZLevels.Core.Components;
 /// <summary>
 /// Allows an entity to move up and down the z-levels by gravity or jumping
 /// </summary>
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true),
- Access(typeof(CESharedZLevelsSystem))]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class CEZPhysicsComponent : Component
 {
     /// <summary>
@@ -31,7 +30,6 @@ public sealed partial class CEZPhysicsComponent : Component
     public float LocalPosition;
 
     /// Optimization Caches
-
     /// <summary>
     /// Cached value of the current z-level map height
     /// </summary>
@@ -51,14 +49,17 @@ public sealed partial class CEZPhysicsComponent : Component
     public bool CurrentStickyGround;
 
     // Physics
-
     [DataField, AutoNetworkedField]
     public float Bounciness = 0.3f;
 
     [DataField, AutoNetworkedField]
     public float GravityMultiplier = 1f;
 
+    [DataField, AutoNetworkedField]
+    public bool Fallable = true;
+
     // Visuals
+
 
     /// <summary>
     /// Used only by the client.

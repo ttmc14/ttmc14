@@ -136,7 +136,7 @@ public abstract partial class CESharedZLevelsSystem
             if (zPhys.CurrentStickyGround)
                 zPhys.LocalPosition -= distanceToGround; //Sticky move down
 
-            if (zPhys.Velocity < 0) //Falling down
+            if (zPhys is { Velocity: < 0, Fallable: true }) //Falling down
             {
                 if (distanceToGround <= 0.05f) //There`s a ground
                 {
@@ -157,7 +157,7 @@ public abstract partial class CESharedZLevelsSystem
                 {
                     zPhys.LocalPosition += 1;
 
-                    if (!zPhys.CurrentStickyGround)
+                    if (zPhys is { CurrentStickyGround: false, Fallable: true })
                     {
                         var fallEv = new CEZLevelFallMapEvent();
                         RaiseLocalEvent(uid, fallEv);
@@ -423,8 +423,10 @@ public abstract partial class CESharedZLevelsSystem
         if (!_mapQuery.TryComp(targetMap, out var targetMapComp))
             return false;
 
+        var worldRot = _transform.GetWorldRotation(ent);
 
         _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), targetMapComp.MapId));
+        _transform.SetWorldRotation(ent, worldRot);
 
         var ev = new CEZLevelMapMoveEvent(offset, targetMap.Value.Comp.Depth);
         RaiseLocalEvent(ent, ev);

@@ -4,6 +4,7 @@
   abstract: true
   categories: [ MCContent ]
   components:
+  - type: MCWeaponZLevelsShoot
   - type: UsableWhileDevoured
     canUnequip: true
   - type: GunIFF

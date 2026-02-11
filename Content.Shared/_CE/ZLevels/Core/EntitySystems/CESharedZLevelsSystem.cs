@@ -13,6 +13,7 @@ using Content.Shared.Popups;
 using JetBrains.Annotations;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
+using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Timing;
@@ -54,6 +55,29 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
         InitMovement();
         InitView();
         InitializeActivation();
+    }
+
+    public bool IsVoidAtCoordinates(EntityCoordinates coords, [NotNullWhen(true)] out Entity<CEZLevelMapComponent>? belowMap)
+    {
+        belowMap = null;
+
+        var mapUid = _transform.GetMapId(coords);
+        if (mapUid == MapId.Nullspace)
+            return false;
+
+        var mapEntity = _map.GetMap(mapUid);
+        if (!_zMapQuery.TryComp(mapEntity, out var zMapComp))
+            return false;
+
+        if (!TryMapDown((mapEntity, zMapComp), out belowMap))
+            return false;
+
+        if (!TryComp<MapGridComponent>(mapEntity, out var mapGridComponent))
+            return true;
+
+        var tileIndices = _map.LocalToTile(mapEntity, mapGridComponent, coords);
+        var tile = _map.GetTileRef(mapEntity, mapGridComponent, tileIndices);
+        return tile.Tile.IsEmpty;
     }
 
     /// <summary>

@@ -4,7 +4,6 @@
   name: projectile
   categories: [ HideSpawnMenu ]
   components:
-  - type: CEZPhysics # [z-levels]
   - type: Tag
     tags: [ MCDamageAcid ]
   - type: Clickable

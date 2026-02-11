@@ -1,4 +1,7 @@
-﻿using Content.Shared._MC.Popup;
+﻿using System.Linq;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._MC.Popup;
+using Content.Shared._MC.Weapon;
 using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Components;
 using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.Actions;
 using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.DoAfter;
@@ -17,6 +20,9 @@ public sealed partial class MCXenoBombardSystem : MCXenoAbilitySystem
     [Dependency] private readonly MCSharedXenoSpitSystem _spit = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
+
+    [Dependency] private readonly CESharedZLevelsSystem _mcZLevels = null!;
+    [Dependency] private readonly MCZLevelShootHelperSystem _mcZHelper = null!;
 
     public override void Initialize()
     {
@@ -103,15 +109,20 @@ public sealed partial class MCXenoBombardSystem : MCXenoAbilitySystem
         if (!_glob.TryGetGlobId(entity.Owner, out var projectile))
             return;
 
-        _spit.Shoot(
+        var target = GetCoordinates(args.TargetCoordinates);
+        var entities = _spit.Shoot(
             entity,
-            GetCoordinates(args.TargetCoordinates),
+            target,
             projectile,
             1,
             Angle.Zero,
             entity.Comp.ProjectileSpeed,
             target: GetEntity(args.TargetUid)
         );
+
+        if (_mcZLevels.IsVoidAtCoordinates(target, out _))
+            _mcZHelper.ApplyZPhysics(entity, entities.ToList(), target, entity.Comp.ProjectileSpeed);
+
     }
 
     private void ApplyCooldownReduction(Entity<MCXenoBombardComponent> entity, EntityUid actionUid)
