@@ -1,0 +1,29 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base_tail"
+    },
+    {
+      "name": "base_body"
+    },
+    {
+      "name": "base_head"
+    },
+    {
+      "name": "lance_tail"
+    },
+    {
+      "name": "lance_body"
+    },
+    {
+      "name": "lance_head"
+    }
+  ]
+}

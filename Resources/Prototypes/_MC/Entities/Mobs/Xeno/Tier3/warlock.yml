@@ -37,6 +37,8 @@
     - MCActionXenoDevolve
     # Main
     - MCActionXenoTransferPlasma
+    - MCActionXenoPsychicBlast
+    - MCActionXenoPsychicCrush
     hudOffset: -0.1,0.1
   # Statistics
   - type: MobThresholds
@@ -70,3 +72,5 @@
     amount: 400
     delay: 0.5
     range: 7
+  - type: MCXenoBlast
+  - type: MCXenoPsyCrush

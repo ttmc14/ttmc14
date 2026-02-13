@@ -3,10 +3,10 @@
   id: MCEffectTransferPlasma
   categories: [ HideSpawnMenu ]
   components:
-  - type: TimedDespawn
-    lifetime: 2
   - type: Sprite
     sprite: _MC/Effects/Xeno/transfer_plasma.rsi
-    drawdepth: Effects
     state: base
+    drawdepth: Effects
     noRot: true
+  - type: TimedDespawn
+    lifetime: 2

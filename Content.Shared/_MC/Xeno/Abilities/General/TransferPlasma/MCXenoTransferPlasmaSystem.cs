@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Xeno.Plasma.Systems;
+﻿using Content.Shared._MC.Line;
+using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
@@ -16,6 +17,7 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
     [Dependency] private readonly MCXenoPlasmaSystem _mcXenoPlasma = null!;
+    [Dependency] private readonly MCLineSystem _mcLine = null!;
 
     public override void Initialize()
     {
@@ -53,6 +55,7 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
             SpawnAttachedTo(entity.Comp.EffectId, args.Target.ToCoordinates());
         }
 
+        _mcLine.SpawnEffect(entity.Comp.RayEffectId, entity.Owner.ToCoordinates(), args.Target.ToCoordinates());
         _audio.PlayPredicted(entity.Comp.Sound, entity, entity);
     }
 

@@ -1,0 +1,46 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPsychicBlast
+  name: Psychic Blast (230)
+  description: Launch a blast of psychic energy that deals light damage and knocks back enemies in its AOE. Must remain stationary for a few seconds to use.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/warlock.rsi
+      state: blast_base
+    useDelay: 6
+  - type: TargetAction
+    targetingIndicator: true
+    checkCanAccess: false
+    repeat: true
+    range: 100
+  - type: XenoActionPlasma
+    cost: 230
+  - type: EntityTargetAction
+  - type: WorldTargetAction
+    event: !type:MCXenoBlastActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPsychicCrush
+  name: Psychic Crush (40)
+  description: Channel an expanding AOE crush effect, activating it again pre-maturely crushes enemies over an area. The longer it is channeled, the larger area it will affect, but will consume more plasma.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/warlock.rsi
+      state: crush
+    useDelay: 12
+  - type: TargetAction
+    targetingIndicator: true
+    checkCanAccess: false
+    repeat: true
+    range: 100
+  - type: EntityTargetAction
+  - type: WorldTargetAction
+    event: !type:MCXenoPsyCrushActionEvent
+  - type: ActionBlockIfResting
+

@@ -117,6 +117,11 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         if (GetHive(src) is {} hive)
             SetHive(dest, hive);
     }
+
+    public bool FromSameHive(Entity<HiveMemberComponent?> a, Entity<HiveMemberComponent?> b)
+    {
+        return GetHive(a) is {} aHive && IsMember(b, aHive);
+    }
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

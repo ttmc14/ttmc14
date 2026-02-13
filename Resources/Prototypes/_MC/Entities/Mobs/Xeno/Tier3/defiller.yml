@@ -59,9 +59,10 @@
       400: Critical
       500: Dead
   - type: XenoPlasma
-    plasma: 575
-    maxPlasma: 575
-    plasmaRegenOnWeeds: 35
+    plasma: 750
+    plasmaRegenLimit: 750
+    maxPlasma: 1000
+    plasmaRegenOnWeeds: 45
   - type: MCArmor
     soft:
       melee: 50
@@ -77,11 +78,11 @@
       types:
         MCBrute: 27
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.333
+    baseWalkSpeed: 3.5
     baseSprintSpeed: 5
   # Abilities
   - type: XenoPheromones
-    pheromonesMultiplier: 2.6
+    pheromonesMultiplier: 3
     pheroSuffix: hivelord
   - type: MCXenoReagentSlash
   - type: MCXenoEmitNeurogas

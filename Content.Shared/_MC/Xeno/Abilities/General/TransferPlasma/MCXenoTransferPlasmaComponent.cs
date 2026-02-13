@@ -20,5 +20,8 @@ public sealed partial class MCXenoTransferPlasmaComponent : Component
     public EntProtoId EffectId = "MCEffectTransferPlasma";
 
     [DataField, AutoNetworkedField]
+    public EntProtoId RayEffectId = "MCEffectTransferPlasmaRay";
+
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? Sound = new SoundPathSpecifier("/Audio/_MC/Voice/drool1.ogg", new AudioParams { Volume = 5 });
 }

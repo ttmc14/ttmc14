@@ -10,6 +10,7 @@
   placement:
     mode: SnapgridCenter
   components:
+  - type: CEZLevelHighGround
   - type: Appearance
   - type: Damageable
     damageContainer: StructuralXeno

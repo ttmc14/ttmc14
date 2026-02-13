@@ -1,0 +1,54 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectPsychicBlast
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: RMCXenoScreechShockWave
+    waveSpeed: 35
+    waveStrength: 0.2
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectPsychicBlastRay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    sprite: _MC/Effects/Beams/warlock.rsi
+    state: base_body
+    drawdepth: Effects
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_tail
+    body:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_body
+    head:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_head
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectTransferPlasmaRay
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: Sprite
+    sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+    state: base
+    drawdepth: Effects
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+      state: base
+    body:
+      sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+      state: base
+    head:
+      sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+      state: base
