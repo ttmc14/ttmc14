@@ -16,6 +16,8 @@
   components:
   - type: TimedDespawn
     lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.25
   - type: Sprite
     sprite: _MC/Effects/Beams/warlock.rsi
     state: base_body
@@ -37,6 +39,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: TimedDespawn
+    lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
     lifetime: 0.25
   - type: Sprite
     sprite: _MC/Effects/Xeno/transfer_plasma.rsi

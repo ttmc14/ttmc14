@@ -10,3 +10,5 @@
     noRot: true
   - type: TimedDespawn
     lifetime: 2
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 2

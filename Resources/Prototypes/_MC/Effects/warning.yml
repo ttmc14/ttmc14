@@ -18,6 +18,8 @@
           Charging: { state: charge }
           CrushHard: { state: hard }
           CrushSmooth: { state: smooth }
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.4
 
 - type: entity
   parent: MCEffect
