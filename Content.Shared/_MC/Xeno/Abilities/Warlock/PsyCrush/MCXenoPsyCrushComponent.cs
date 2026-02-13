@@ -1,50 +1,39 @@
 ﻿using Content.Shared.Damage;
-using Content.Shared.FixedPoint;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Xeno.Abilities.Warlock.PsyCrush;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCXenoPsyCrushComponent : Component
 {
-    [ViewVariables, AutoNetworkedField]
-    public EntityCoordinates? TargetCoords;
-
-    [ViewVariables, AutoNetworkedField]
-    public int CurrentIterations;
-
-    [ViewVariables, AutoNetworkedField]
-    public bool IsChanneling;
+    [DataField, AutoNetworkedField]
+    public float PlasmaCostPerStep = 40f;
 
     [DataField, AutoNetworkedField]
-    public float Range = 9f;
+    public int MaxExpansions = 5;
 
     [DataField, AutoNetworkedField]
-    public int MaxIterations = 5;
+    public TimeSpan ExpansionDelay = TimeSpan.FromSeconds(0.4);
 
-    [DataField, AutoNetworkedField]
-    public float BasePlasmaCost = 40f;
-
-    [DataField, AutoNetworkedField]
-    public TimeSpan ExpansionDelay = TimeSpan.FromSeconds(0.6f);
+    public TimeSpan Delay = TimeSpan.FromSeconds(0.8);
 
     [DataField, AutoNetworkedField]
     public DamageSpecifier Damage = new()
     {
-        DamageDict = new Dictionary<string, FixedPoint2>
+        DamageDict =
         {
             { "MCBurn", 50 },
         },
     };
 
     [DataField, AutoNetworkedField]
-    public float StaminaDamage = 50f;
+    public float StaminaDamage = 40f;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan SlowdownDuration = TimeSpan.FromSeconds(6);
+    public float Range = 7;
 
     [DataField, AutoNetworkedField]
     public EntProtoId OrbEffectId = "MCEffectXenoPsyCrushOrb";
@@ -53,5 +42,27 @@ public sealed partial class MCXenoPsyCrushComponent : Component
     public EntProtoId WarningEffectId = "MCEffectXenoPsyCrushWarning";
 
     [DataField, AutoNetworkedField]
-    public SoundSpecifier? EffectSound = new SoundPathSpecifier("/Audio/_MC/Effects/emp_pulse.ogg");
+    public SoundSpecifier? EffectSoundAction =
+        new SoundPathSpecifier("/Audio/_MC/Effects/emp_pulse.ogg");
+
+    [DataField, AutoNetworkedField]
+    public SoundSpecifier? EffectSoundExpand =
+        new SoundPathSpecifier("/Audio/_MC/Effects/woosh_swoosh.ogg");
 }
+
+[Serializable, NetSerializable]
+public enum MCXenoPsyCrushOrbVisuals : byte
+{
+    Layer,
+    State,
+}
+
+[Serializable, NetSerializable]
+public enum MCXenoPsyCrushOrbState : byte
+{
+    Idle,
+    Charging,
+    CrushHard,
+    CrushSmooth,
+}
+

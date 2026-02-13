@@ -17,9 +17,8 @@
     range: 100
   - type: XenoActionPlasma
     cost: 230
-  - type: EntityTargetAction
   - type: WorldTargetAction
-    event: !type:MCXenoBlastActionEvent
+    event: !type:MCXenoBlastActionEvent ""
   - type: ActionBlockIfResting
 
 - type: entity
@@ -39,8 +38,6 @@
     checkCanAccess: false
     repeat: true
     range: 100
-  - type: EntityTargetAction
   - type: WorldTargetAction
-    event: !type:MCXenoPsyCrushActionEvent
+    event: !type:MCXenoPsyCrushActionEvent ""
   - type: ActionBlockIfResting
-

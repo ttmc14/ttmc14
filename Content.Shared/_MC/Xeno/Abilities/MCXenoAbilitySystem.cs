@@ -15,6 +15,7 @@ using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 // ReSharper disable UseCollectionExpression
 namespace Content.Shared._MC.Xeno.Abilities;
@@ -180,6 +181,38 @@ public abstract class MCXenoAbilitySystem : EntitySystem
             Actions.SetToggled((action, action), toggled);
             break;
         }
+    }
+
+    protected void ActionSetState<T>(EntityUid uid, string state) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            if (action.Comp.Icon is not SpriteSpecifier.Rsi rsi)
+                continue;
+
+            Actions.SetIcon((action, action), new SpriteSpecifier.Rsi(rsi.RsiPath, state));
+            break;
+        }
+    }
+
+
+    protected void ActionSetIcon<T>(EntityUid uid, SpriteSpecifier? icon) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.SetIcon((action, action), icon);
+            break;
+        }
+    }
+
+    protected SpriteSpecifier? ActionGetIcon<T>(EntityUid uid) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            return action.Comp.Icon;
+        }
+
+        return null;
     }
 
     #endregion
