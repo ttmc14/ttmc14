@@ -1,6 +1,6 @@
 ﻿using Robust.Shared.Serialization;
 
-namespace Content.Shared._MC.Weapon.Vali;
+namespace Content.Shared._MC.Weapon.Vali.Visual;
 
 [Serializable, NetSerializable]
 public enum MCWeaponValiVisualLayers

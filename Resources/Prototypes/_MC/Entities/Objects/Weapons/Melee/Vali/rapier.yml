@@ -15,6 +15,8 @@
     sprite: _MC/Objects/Weapons/Melee/Vali/rapier.rsi
   - type: Item
     sprite: _MC/Objects/Weapons/Melee/Vali/rapier.rsi
+  - type: MCWeaponVali
+    harvestAmount: 10
   - type: MeleeWeapon
     attackRate: 2
     damage:

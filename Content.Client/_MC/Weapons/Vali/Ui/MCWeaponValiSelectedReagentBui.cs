@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 using Content.Client.UserInterface.Controls;
-using Content.Shared._MC.Weapon.Vali;
+using Content.Shared._MC.Weapon.Vali.Components;
 using Content.Shared._MC.Weapon.Vali.Ui;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
@@ -45,14 +45,14 @@ public sealed partial class MCWeaponValiSelectedReagentBui : BoundUserInterface
 
         if (EntMan.TryGetComponent<MCWeaponValiComponent>(Owner, out var component))
         {
-            AddButton(parent, component.ReagentEmptyIcon, () => SendSelectedReagent());
-            foreach (var reagentId in component.AllowedReagents)
+            AddButton(parent, component.ReagentDefaultIcon, () => SendSelectedReagent());
+            foreach (var (reagentId, _) in component.ReagentData)
             {
                 var disabled = !component.Reagents.TryGetValue(reagentId, out var reagent) || reagent == FixedPoint2.Zero;
                 if (disabled)
                     continue;
 
-                AddButton(parent, component.ReagentIcons[reagentId], () => SendSelectedReagent(reagentId));
+                AddButton(parent, component.ReagentData[reagentId].Icon, () => SendSelectedReagent(reagentId));
             }
         }
 

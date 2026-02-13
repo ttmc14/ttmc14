@@ -1,6 +1,6 @@
-﻿using Content.Shared._MC.Weapon.Vali;
+﻿using Content.Shared._MC.Weapon.Vali.Components;
+using Content.Shared._MC.Weapon.Vali.Visual;
 using Content.Shared._RMC14.Chemistry.Reagent;
-using Content.Shared.Wieldable.Components;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._MC.Weapons.Vali;

@@ -27,31 +27,61 @@
       path: /Audio/Weapons/bladeslice.ogg
   - type: MCWeaponVali
     reagentCapacity: 45
-    allowedReagents:
-    - MCBicaridine
-    - MCKelotane
-    - MCTricordrazine
-    - MCTramadol
-    - MCDexalin
-    reagentEmptyIcon:
+    reagentDefaultIcon:
       sprite: _MC/Interface/Actions/vali.rsi
       state: empty_backgrounded
-    reagentIcons:
+    reagentData:
+      # Bicaridine
       MCBicaridine:
-        sprite: _MC/Interface/Actions/vali.rsi
-        state: bicaridine_backgrounded
+        icon:
+          sprite: _MC/Interface/Actions/vali.rsi
+          state: bicaridine_backgrounded
+        effects:
+        - !type:MCWeaponReagentDamageMultipliedEffect
+          multiplier: 0.6
+        - !type:MCWeaponReagentAdjustBruteLossUserEffect
+          amount: -10
+      # Kelotane
       MCKelotane:
-        sprite: _MC/Interface/Actions/vali.rsi
-        state: kelotane_backgrounded
+        icon:
+          sprite: _MC/Interface/Actions/vali.rsi
+          state: kelotane_backgrounded
+        effects:
+        - !type:MCWeaponReagentDamageMultipliedEffect
+          multiplier: 0.6
+        - !type:MCWeaponReagentFireEffect
+          stacks: 10
+      # Tricordrazine
       MCTricordrazine:
-        sprite: _MC/Interface/Actions/vali.rsi
-        state: tricordrazine_backgrounded
+        icon:
+          sprite: _MC/Interface/Actions/vali.rsi
+          state: tricordrazine_backgrounded
+        effects:
+        - !type:MCWeaponReagentDamageMultipliedEffect
+          multiplier: 0.6
+        - !type:MCWeaponReagentSunderEffect
+          amount: -6.5
+      # Tramadol
       MCTramadol:
-        sprite: _MC/Interface/Actions/vali.rsi
-        state: tramadol_backgrounded
+        icon:
+          sprite: _MC/Interface/Actions/vali.rsi
+          state: tramadol_backgrounded
+        effects:
+        - !type:MCWeaponReagentDamageMultipliedEffect
+          multiplier: 0.6
+        - !type:MCWeaponReagentSlowdownEffect
+          slowdownDuration: 1.5
+      # Dexalin
       MCDexalin:
-        sprite: _MC/Interface/Actions/vali.rsi
-        state: dexalin_backgrounded
+        icon:
+          sprite: _MC/Interface/Actions/vali.rsi
+          state: dexalin_backgrounded
+        effects:
+        - !type:MCWeaponReagentDamageMultipliedEffect
+          multiplier: 0.6
+        - !type:MCWeaponReagentPlasmaEffect
+          amount: 25
+          multiplier: 0.2
   - type: UserInterface
     interfaces:
       enum.MCWeaponValiSelectReagentUi.Key:
