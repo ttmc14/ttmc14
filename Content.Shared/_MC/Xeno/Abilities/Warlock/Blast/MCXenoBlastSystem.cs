@@ -112,6 +112,8 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
             var victimPos = _transform.GetMapCoordinates(targetUid);
             var direction = victimPos.Position - targetCoords.Position;
             _mcKnockback.Knockback(targetUid, direction, entity.Comp.KnockbackEntry);
+
+            RaiseEffect(entity, targetUid);
         }
     }
 }
