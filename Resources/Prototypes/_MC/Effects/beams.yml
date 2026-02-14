@@ -17,7 +17,7 @@
   - type: TimedDespawn
     lifetime: 0.25
   - type: MCTimedDespawnDisappearanceVisuals
-    lifetime: 0.25
+    lifetime: 0.1
   - type: Sprite
     sprite: _MC/Effects/Beams/warlock.rsi
     state: base_body

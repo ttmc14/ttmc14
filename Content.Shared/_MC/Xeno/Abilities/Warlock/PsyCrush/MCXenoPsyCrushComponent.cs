@@ -16,7 +16,7 @@ public sealed partial class MCXenoPsyCrushComponent : Component
     public int MaxExpansions = 5;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan ExpansionDelay = TimeSpan.FromSeconds(0.4);
+    public TimeSpan ExpansionDelay = TimeSpan.FromSeconds(0.2);
 
     public TimeSpan Delay = TimeSpan.FromSeconds(0.8);
 
@@ -33,7 +33,7 @@ public sealed partial class MCXenoPsyCrushComponent : Component
     public float StaminaDamage = 40f;
 
     [DataField, AutoNetworkedField]
-    public float Range = 7;
+    public float Range = 9;
 
     [DataField, AutoNetworkedField]
     public EntProtoId OrbEffectId = "MCEffectXenoPsyCrushOrb";

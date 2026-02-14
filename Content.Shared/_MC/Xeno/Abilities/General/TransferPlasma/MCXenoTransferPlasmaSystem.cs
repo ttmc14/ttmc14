@@ -55,7 +55,6 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
             SpawnAttachedTo(entity.Comp.EffectId, args.Target.ToCoordinates());
         }
 
-        _mcLine.SpawnEffect(entity.Comp.RayEffectId, entity.Owner.ToCoordinates(), args.Target.ToCoordinates());
         _audio.PlayPredicted(entity.Comp.Sound, entity, entity);
     }
 
@@ -63,6 +62,8 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
     {
         if (args.Handled || args.Cancelled || args.Target is not {} targetUid)
             return;
+
+        _mcLine.SpawnEffect(entity.Comp.RayEffectId, entity.Owner.ToCoordinates(), targetUid.ToCoordinates());
 
         if (!_mcXenoPlasma.TryTransferPlasma(entity, targetUid, entity.Comp.Amount))
             return;

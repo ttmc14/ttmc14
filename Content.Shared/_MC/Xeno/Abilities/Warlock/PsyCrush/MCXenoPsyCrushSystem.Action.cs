@@ -58,7 +58,7 @@ public sealed partial class MCXenoPsyCrushSystem
         activeComponent.TargetCoords = centered;
         activeComponent.GridUid = gridUid;
         activeComponent.CenterTile = _map.LocalToTile(gridUid, grid, centered);
-        activeComponent.NextExpansion = _timing.CurTime + entity.Comp.ExpansionDelay;
+        activeComponent.NextExpansion = TimeSpan.Zero;
 
         var orbUid = ServerSpawn(entity.Comp.OrbEffectId, centered);
         if (orbUid.Valid)

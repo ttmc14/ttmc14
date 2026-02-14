@@ -26,7 +26,9 @@ public sealed partial class MCXenoPsyCrushSystem
 
         foreach (var effectUid in entity.Comp.SpawnedEffects)
         {
-            QueueDel(effectUid);
+            var warningDespawnComponent = EnsureComp<TimedDespawnComponent>(effectUid);
+            warningDespawnComponent.Lifetime = 0.1f;
+            Dirty(effectUid, warningDespawnComponent);
         }
 
         if (entity.Comp.AffectedTiles.Count == 0)

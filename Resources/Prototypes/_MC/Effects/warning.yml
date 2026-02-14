@@ -31,3 +31,7 @@
   - type: Sprite
     sprite: _MC/Effects/warning.rsi
     state: crush
+  - type: TimedDespawn
+    lifetime: 10
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.4

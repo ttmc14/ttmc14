@@ -67,7 +67,7 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
             _transform.GetMapId(entity.Owner),
             ray,
             distance,
-            ent => ent == entity.Owner || IsDead(entity),
+            ent => ent == entity.Owner || IsDead(ent),
             false
         );
 
