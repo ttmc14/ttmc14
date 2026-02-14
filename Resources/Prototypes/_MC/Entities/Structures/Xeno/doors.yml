@@ -6,7 +6,6 @@
   placement:
     mode: SnapgridCenter
   components:
-  - type: CEZLevelHighGround
   - type: InteractionOutline
   - type: Sprite
     sprite: _MC/Structures/Xeno/doors.rsi
