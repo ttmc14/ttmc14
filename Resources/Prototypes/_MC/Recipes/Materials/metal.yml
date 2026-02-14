@@ -1,4 +1,20 @@
 - type: rmcConstruction
+  id: MCBarbedWireBuild
+  name: barbed wire
+  prototype: MCBarbedWire1
+  doAfterTime: 0
+  doAfterTimeMin: 0
+  skill: RMCSkillConstruction
+  requiredSkillLevel: 0
+  materialCost: 1
+  ignoreBuildRestrictions: true
+  restrictedCollisionGroup: null
+  stackAmounts:
+  - 5
+  - 10
+  - 20
+
+- type: rmcConstruction
   id: MCMetalBarricadeBuild
   name: metal barricade
   prototype: MCBarricadeMetal
