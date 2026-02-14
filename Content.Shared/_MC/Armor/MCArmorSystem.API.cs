@@ -26,7 +26,7 @@ public sealed partial class MCArmorSystem
         soft = default;
         hard = default;
 
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return false;
 
         var ev = new MCArmorGetEvent(slotFlags);

@@ -12,6 +12,7 @@ using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee;
 using Robust.Shared.Map;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -74,6 +75,16 @@ public abstract class MCXenoAbilitySystem : EntitySystem
             return false;
 
         return !RMCXenoHive.FromSameHive(uid, targetUid.Value);
+    }
+
+    protected bool IsOnMap(EntityUid uid)
+    {
+        return HasComp<MapGridComponent>(Transform(uid).ParentUid);
+    }
+
+    protected bool IsDamageable(EntityUid uid)
+    {
+        return HasComp<DamageableComponent>(uid);
     }
 
     #region Effects
