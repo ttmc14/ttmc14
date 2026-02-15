@@ -7,6 +7,7 @@
   - type: Appearance
   - type: Sprite
     sprite: _MC/Effects/orb.rsi
+    drawdepth: Effects
     layers:
     - state: charge
       map: [ "base" ]
@@ -30,6 +31,7 @@
   - type: Appearance
   - type: Sprite
     sprite: _MC/Effects/warning.rsi
+    drawdepth: FloorObjects
     state: crush
   - type: TimedDespawn
     lifetime: 10

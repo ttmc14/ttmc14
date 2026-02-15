@@ -44,10 +44,24 @@ public sealed partial class MCXenoPsyCrushSystem
 
         foreach (var targetUid in GetPotentialVictims(entity, config))
         {
-            if (_mobState.IsDead(targetUid))
+            // Always ignore self
+            if (entity.Owner == targetUid)
                 continue;
 
+            // Ignore same hive
             if (_mcXenoHive.FromSameHive(entity.Owner, targetUid))
+                continue;
+
+            // Ignore dead entities
+            if (IsMob(targetUid) && IsDead(targetUid))
+                continue;
+
+            // Ignore entities in storages etc.
+            if (!IsOnMap(targetUid))
+                continue;
+
+            // Ignore god-mod entities
+            if (!IsDamageable(targetUid))
                 continue;
 
             var tile = _map.LocalToTile(entity.Comp.GridUid, grid, Transform(targetUid).Coordinates);

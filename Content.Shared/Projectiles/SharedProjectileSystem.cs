@@ -91,7 +91,9 @@ public abstract partial class SharedProjectileSystem : EntitySystem
             return;
         }
 
-        var ev = new ProjectileHitEvent(component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
+        // mc-changes-start
+        var ev = new ProjectileHitEvent(uid, component.Damage * _damageableSystem.UniversalProjectileDamageModifier, target, component.Shooter);
+        // mc-changes-end
         RaiseLocalEvent(uid, ref ev);
         if (ev.Handled)
             return;
@@ -435,4 +437,4 @@ public record struct ProjectileReflectAttemptEvent(EntityUid ProjUid, Projectile
 /// Raised when a projectile hits an entity
 /// </summary>
 [ByRefEvent]
-public record struct ProjectileHitEvent(DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, bool Handled = false);
+public record struct ProjectileHitEvent(EntityUid Projectile, DamageSpecifier Damage, EntityUid Target, EntityUid? Shooter = null, bool Handled = false); // mc-changes

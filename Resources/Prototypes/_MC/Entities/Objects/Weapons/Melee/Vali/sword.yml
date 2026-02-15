@@ -17,7 +17,7 @@
     sprite: _MC/Objects/Weapons/Melee/Vali/sword.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -90
-    attackRate: 0.85
+    attackRate: 0.8
     damage:
       types:
         MCBrute: 60

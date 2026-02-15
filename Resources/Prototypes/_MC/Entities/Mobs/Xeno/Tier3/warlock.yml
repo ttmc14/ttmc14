@@ -39,6 +39,7 @@
     - MCActionXenoTransferPlasma
     - MCActionXenoPsychicBlast
     - MCActionXenoPsychicCrush
+    - MCActionXenoPsychicShield
     hudOffset: -0.1,0.1
   # Statistics
   - type: MobThresholds
@@ -74,3 +75,4 @@
     range: 7
   - type: MCXenoBlast
   - type: MCXenoPsyCrush
+  - type: MCXenoShield

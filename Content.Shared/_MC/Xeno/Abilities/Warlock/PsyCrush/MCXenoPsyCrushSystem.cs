@@ -82,6 +82,9 @@ public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
             return;
         }
 
+        if (entity.Comp.CurrentRadius == 1)
+            _appearance.SetData(entity.Comp.OrbUid, MCXenoPsyCrushOrbVisuals.State, MCXenoPsyCrushOrbState.Idle);
+
         ExpandStep(entity, config);
         entity.Comp.CurrentRadius++;
     }
