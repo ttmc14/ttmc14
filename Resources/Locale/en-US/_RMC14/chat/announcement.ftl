@@ -16,7 +16,7 @@ rmc-announcement-message-raw = [font size=16][bold][color=#CECECE]{$author}[/col
 
     {$message}
 
-rmc-announcement-ares-message = [color=#CECECE][font size=16][bold]ARES v3.2 Operation Staging Order[/bold][/font][/color][color=red][font size=16][bold]
+rmc-announcement-ares-message = [color=#CECECE][font size=16][bold]ARES v6.3 Operation Staging Order[/bold][/font][/color][color=red][font size=16][bold]
 
     {$message}[/bold][/font][/color]
 
@@ -51,7 +51,7 @@ rmc-announcement-dropship-hijack = Unscheduled dropship departure detected from 
 
 rmc-announcement-dropship-hijack-hive = The Queen has commanded the metal bird to depart for the metal hive in the sky! Rejoice!
 
-rmc-announcement-ares-command = [color=#CECECE][font size=16][bold]ARES v3.2[/bold][/font][/color][color=red][font size=16]
+rmc-announcement-ares-command = [color=#CECECE][font size=16][bold]ARES v6.3[/bold][/font][/color][color=red][font size=16]
 
     {$message}[/font][/color]
 
