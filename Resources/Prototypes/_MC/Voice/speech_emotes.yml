@@ -1,0 +1,159 @@
+- type: soundCollection
+  id: FemaleWarcry
+  files:
+    - /Audio/_MC/Voice/Human/Female/warcry_1.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_2.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_3.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_4.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_5.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_6.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_7.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_8.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_9.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_10.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_12.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_13.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_14.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_15.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_16.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_17.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_18.ogg
+    - /Audio/_MC/Voice/Human/Female/warcry_19.ogg
+
+- type: soundCollection
+  id: MaleWarcry
+  files:
+    - /Audio/_MC/Voice/Human/Male/warcry_1.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_2.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_3.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_4.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_5.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_6.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_7.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_8.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_9.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_10.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_11.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_12.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_13.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_14.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_15.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_16.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_17.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_18.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_19.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_20.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_21.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_22.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_23.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_24.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_25.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_26.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_27.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_28.ogg
+    - /Audio/_MC/Voice/Human/Male/warcry_29.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_01.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_02.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_03.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_04.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_05.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_06.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_07.ogg 
+    - /Audio/_MC/Voice/Human/Male/soldier_08.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_09.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_10.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_11.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_12.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_13.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_14.ogg 
+    - /Audio/_MC/Voice/Human/Male/soldier_15.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_16.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_17.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_18.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_19.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_20.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_21.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_22.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_23.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_24.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_25.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_26.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_27.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_28.ogg
+    - /Audio/_MC/Voice/Human/Male/soldier_29.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_01.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_02.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_03.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_04.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_05.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_06.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_07.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_08.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_09.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_10.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_12.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_13.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_14.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_15.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_16.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_17.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_18.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_19.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_20.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_21.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_22.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_23.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_24.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_25.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_26.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_27.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_28.ogg
+    - /Audio/_MC/Voice/Human/Male/heavy_29.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_01.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_02.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_03.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_04.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_05.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_06.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_07.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_08.ogg
+    - /Audio/_MC/Voice/Human/Male/sniper_09.ogg
+    - /Audio/_MC/Voice/Human/Male/demo_01.ogg
+    - /Audio/_MC/Voice/Human/Male/demo_02.ogg
+    - /Audio/_MC/Voice/Human/Male/demo_03.ogg
+    - /Audio/_MC/Voice/Human/Male/demo_04.ogg
+
+# vocal emotes
+- type: emote
+  id: Warcry
+  name: chat-emote-name-warcry
+  category: Vocal
+  icon: Interface/Emotes/vocal.png
+  whitelist:
+    components:
+    - Vocal
+  chatMessages: ["издаёт боевой клич!"]
+  chatTriggers:
+    - warcry
+
+- type: emoteSounds
+  parent: RMCBaseMaleSounds
+  id: MCMaleHuman
+  sounds:
+    Scream:
+      collection: CMMaleScreams
+    Laugh:
+      collection: MaleLaugh
+    Warcry:
+      collection: MaleWarcry
+
+- type: emoteSounds
+  parent: RMCBaseFemaleSounds
+  id: MCFemaleHuman
+  sounds:
+    Scream:
+      collection: CMFemaleScreams
+    Laugh:
+      collection: FemaleLaugh
+    Warcry:
+      collection: FemaleWarcry
