@@ -89,7 +89,7 @@
   - type: RMCCameraComputer
     protoIds:
     - MCMortarKit
-    title: rmc-mortar-camera-title
+    title: mc-mortar-camera-title
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -226,6 +226,20 @@
   - type: MortarShell
   - type: SpawnOnTerminate
     spawn: MCSmokeMortar
+    projectileAdjust: false
+
+- type: entity
+  parent: MCMortarShellBase
+  id: MCMortarShellTanglefoot
+  name: 80mm tangle mortar shell
+  description: An 80mm mortar shell, loaded with plasma-draining Tanglefoot gas. Can be fired at marines more-or-less safely.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+    state: mortar_fsh
+  - type: MortarShell
+  - type: SpawnOnTerminate
+    spawn: MCSmokeTanglefoot
     projectileAdjust: false
 
 - type: entity

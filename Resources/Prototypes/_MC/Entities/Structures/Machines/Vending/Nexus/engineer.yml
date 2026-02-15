@@ -106,7 +106,8 @@
         points: 2
       - id: MCMortarShellIncendiary
         points: 2
-      # Tanglefoot Mortar shell
+      - id: MCMortarShellTanglefoot
+        points: 3
       - id: MCMortarShellSmoke
         points: 1
       - id: MCMortarShellFlare
