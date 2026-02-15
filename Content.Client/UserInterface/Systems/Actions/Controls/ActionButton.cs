@@ -1,3 +1,4 @@
+using System.Globalization;
 using System.Numerics;
 using Content.Client.Actions;
 using Content.Client.Actions.UI;
@@ -22,6 +23,10 @@ namespace Content.Client.UserInterface.Systems.Actions.Controls;
 
 public sealed class ActionButton : Control, IEntityControl
 {
+    // MC Changes:
+    [Dependency] private readonly IGameTiming _timing = null!;
+    // MC Changes
+
     private IEntityManager _entities;
     private SpriteSystem? _spriteSys;
     private ActionUIController? _controller;
@@ -49,6 +54,9 @@ public sealed class ActionButton : Control, IEntityControl
     private readonly TextureRect _bigActionIcon;
     private readonly TextureRect _smallActionIcon;
     public readonly Label Label;
+    // MC Changes:
+    public readonly Label MCLabelRemainingTime;
+    // MC Changes
     public readonly CooldownGraphic Cooldown;
     private readonly SpriteView _smallItemSpriteView;
     private readonly SpriteView _bigItemSpriteView;
@@ -65,6 +73,10 @@ public sealed class ActionButton : Control, IEntityControl
     public ActionButton(IEntityManager entities, SpriteSystem? spriteSys = null, ActionUIController? controller = null)
     {
         // TODO why is this constructor so slooooow. The rest of the code is fine
+
+        // MC Changes:
+        IoCManager.InjectDependencies(this);
+        // MC Changes
 
         _entities = entities;
         _spriteSys = spriteSys;
@@ -104,6 +116,15 @@ public sealed class ActionButton : Control, IEntityControl
             VerticalAlignment = VAlignment.Top,
             Margin = new Thickness(5, 0, 0, 0)
         };
+        // MC Changes:
+        MCLabelRemainingTime = new Label
+        {
+            Name = "MCLabelRemainingTime",
+            HorizontalAlignment = HAlignment.Right,
+            VerticalAlignment = VAlignment.Bottom,
+            Margin = new Thickness(0, 0, 5, 0)
+        };
+        // MC Changes
         _bigItemSpriteView = new SpriteView
         {
             Name = "Big Sprite",
@@ -149,6 +170,7 @@ public sealed class ActionButton : Control, IEntityControl
         AddChild(_bigItemSpriteView);
         AddChild(HighlightRect);
         AddChild(Label);
+        AddChild(MCLabelRemainingTime);
         AddChild(Cooldown);
         AddChild(paddingBoxItemIcon);
 
@@ -360,12 +382,23 @@ public sealed class ActionButton : Control, IEntityControl
 
         UpdateBackground();
 
+        // MC Changes:
+        MCLabelRemainingTime.Visible = Action?.Comp.Cooldown != null;
+        // MC Changes
         Cooldown.Visible = Action?.Comp.Cooldown != null;
         if (Action?.Comp is not {} action)
             return;
 
-        if (action.Cooldown is {} cooldown)
+        // MC Changes:
+        if (action.Cooldown is { } cooldown)
+        {
             Cooldown.FromTime(cooldown.Start, cooldown.End);
+
+            var mcRemainingTime = (cooldown.End - _timing.CurTime).TotalSeconds;
+            MCLabelRemainingTime.Text = mcRemainingTime.ToString("F1", CultureInfo.InvariantCulture);
+            MCLabelRemainingTime.Visible = mcRemainingTime > 0;
+        }
+        // MC Changes
 
         if (_toggled != action.Toggled)
             _toggled = action.Toggled;
