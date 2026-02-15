@@ -2,7 +2,7 @@
   id: Human
   name: species-name-human
   roundStart: true
-  prototype: CMMobHuman # Load the rmc14 human instead of ss14
+  prototype: MCMobHuman # TGMC update
   sprites: MobHumanSprites
   markingLimits: MobHumanMarkingLimits
   dollPrototype: MobHumanDummy
