@@ -32,7 +32,7 @@ public partial class ChatBox : UIWidget
 
     // RMC14
     public readonly Queue<RepeatedMessage> RepeatQueue = new();
-    private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic"];
+    private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic", "mcsprite"];
 
     public ChatBox()
     {
@@ -118,7 +118,9 @@ public partial class ChatBox : UIWidget
 
     public void AddLine(string message, Color color, NetEntity sender, string unwrapped, ChatChannel channel, bool repeatCheckSender)
     {
-        var formatted = new FormattedMessage(3);
+        // MC Changes:
+        var formatted = new FormattedMessage(10);
+        // MC Changes
         formatted.PushColor(color);
         formatted.AddMarkupOrThrow(message);
         formatted.Pop();
