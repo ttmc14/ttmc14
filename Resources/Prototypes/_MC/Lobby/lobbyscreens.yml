@@ -1,4 +1,23 @@
-﻿# America, FUCK FURRIES YEAH! Coming again, to save the mother fucking day, yeah
+﻿- type: lobbyBackground
+  id: MCOld5
+  background: /Textures/_MC/Lobby/old_5_upscaled.png
+
 - type: lobbyBackground
-  id: TGMC
-  background: /Textures/_MC/Lobby/TGMC.png
+  id: MCOld13
+  background: /Textures/_MC/Lobby/old_13_upscaled.png
+
+- type: lobbyBackground
+  id: MCOld17
+  background: /Textures/_MC/Lobby/old_17_upscaled.png
+
+- type: lobbyBackground
+  id: MCOld28
+  background: /Textures/_MC/Lobby/old_28_upscaled.png
+
+- type: lobbyBackground
+  id: MCOld40
+  background: /Textures/_MC/Lobby/old_40_upscaled.png
+
+- type: lobbyBackground
+  id: MCOld45
+  background: /Textures/_MC/Lobby/old_45_upscaled.png

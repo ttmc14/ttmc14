@@ -31,7 +31,7 @@ public sealed partial class MCXenoBlastComponent : Component
     };
 
     [DataField, AutoNetworkedField]
-    public EntProtoId EffectId = "MCEffectPsychicBlast";
+    public EntProtoId EffectId = "MCEffectShockWavePsychicBlast";
 
     [DataField, AutoNetworkedField]
     public EntProtoId RayEffectId = "MCEffectPsychicBlastRay";

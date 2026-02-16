@@ -11,6 +11,9 @@ public sealed partial class MCXenoShieldComponent : Component
     public EntProtoId ShieldEntProtoId = "MCXenoShield";
 
     [DataField, AutoNetworkedField]
+    public EntProtoId ShockWaveEntProtoId = "MCEffectShockWavePsychicShield";
+
+    [DataField, AutoNetworkedField]
     public SoundSpecifier? EffectSoundAction = new SoundPathSpecifier("/Audio/_MC/Effects/magic.ogg");
 
     [DataField, AutoNetworkedField]

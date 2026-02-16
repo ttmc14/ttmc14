@@ -1,5 +1,7 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
+﻿using Content.Shared._MC.Knockback;
+using Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
 using Content.Shared.ActionBlocker;
+using Content.Shared.Coordinates;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -14,6 +16,7 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly MCKnockbackSystem _mcKnockback = null!;
 
     public override void Initialize()
     {
@@ -65,8 +68,12 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
     {
         _audio.PlayPredicted(config.EffectSoundAction, entity, entity);
 
+        // _transform.SetLocalRotation(entity, );
+
         entity.Comp.LocalRotation = Transform(entity).LocalRotation;
         DirtyField(entity, entity.Comp, nameof(MCXenoShieldActiveComponent.LocalRotation));
+
+        _transform.AnchorEntity(entity);
 
         CreateShield(entity, config);
 
@@ -87,6 +94,9 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
     private void EndAbility(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config)
     {
         _audio.PlayPredicted(config.EffectSoundEnd, entity, entity);
+        ServerSpawn(config.ShockWaveEntProtoId, entity.Owner.ToCoordinates());
+
+        _transform.Unanchor(entity);
 
         RemoveShield(entity, -1f);
 

@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCBaseEffect
+  parent: MCEffect
   id: MCEffectXenoDrainSting
   categories: [ HideSpawnMenu ]
   components:

@@ -5,6 +5,7 @@ using Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
 using Content.Shared.Coordinates;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Spawners;
@@ -93,7 +94,10 @@ public sealed partial class MCXenoShieldSystem
         _transform.SetParent(shieldUid, Transform(entity).ParentUid);
 
         var shieldTimedDespawn = EnsureComp<TimedDespawnComponent>(shieldUid);
-        shieldTimedDespawn.Lifetime = 1f;
+        shieldTimedDespawn.Lifetime = 0.25f;
+
+        _physics.SetBodyType(shieldUid, BodyType.Dynamic);
+        _mcKnockback.Knockback(shieldUid, (Transform(shieldUid).LocalRotation - double.Pi / 2).ToVec(), 5f, 30f);
 
         Dirty(entity, shieldTimedDespawn);
     }
@@ -108,7 +112,7 @@ public sealed partial class MCXenoShieldSystem
         );
 
         entity.Comp.Payloads.Add(payload);
-        DirtyField(entity, entity.Comp, nameof(MCXenoShieldInstanceComponent.Payloads));
+        // DirtyField(entity, entity.Comp, nameof(MCXenoShieldInstanceComponent.Payloads));
 
         // Stop projectile
         _physics.SetAngularVelocity(target, 0f);
