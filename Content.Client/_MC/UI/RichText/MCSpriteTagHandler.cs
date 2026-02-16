@@ -35,7 +35,7 @@ public sealed class MCSpriteTagHandler : IMarkupTagHandler
             Stretch = TextureRect.StretchMode.KeepAspectCentered,
             HorizontalAlignment = Control.HAlignment.Left,
             VerticalAlignment = Control.VAlignment.Center,
-            Margin = new Thickness(0, 0, 0, 6),
+            Margin = new Thickness(0, 0, 0, 8),
             Texture = spriteSystem.GetFrame(new SpriteSpecifier.Texture(new ResPath(path)), _timing.CurTime),
         };
 
