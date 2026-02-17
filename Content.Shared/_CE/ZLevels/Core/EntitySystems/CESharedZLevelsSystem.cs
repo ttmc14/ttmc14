@@ -41,12 +41,14 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
 
     private bool _clientSimulation;
+    private TimeSpan _fixedTimestep;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsClientSimulation, i => _clientSimulation = i, true);
+        _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsTickRate, i => _fixedTimestep = TimeSpan.FromSeconds(1d / i), true);
 
         _mapQuery = GetEntityQuery<MapComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
