@@ -19,6 +19,10 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialEngineer
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 25
     - name: Materials
       entries:
       - id: MCSheetMetal10

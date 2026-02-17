@@ -1,3 +1,14 @@
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXeno
+  name: Ксеноморфы
+  priority: 3
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXeno.xml"
+  children:
+  - MCGuideXenoStructures
+  - MCGuideXenoCastes
+
 - type: guideEntry
   parent: MC
   id: MCGuideXenoStructures

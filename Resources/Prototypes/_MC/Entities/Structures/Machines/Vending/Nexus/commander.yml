@@ -19,6 +19,10 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialFieldCommander
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 15
     - name: Materials
       entries:
       - id: MCSheetMetal10

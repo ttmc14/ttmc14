@@ -19,6 +19,10 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialSquadLeader
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 15
     - name: RL-160
       entries:
       - id: MCBackpackMarineRL160Full

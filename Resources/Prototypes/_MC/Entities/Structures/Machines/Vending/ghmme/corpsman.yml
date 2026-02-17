@@ -41,7 +41,7 @@
       choices:
         MCPouch: 2
       entries:
-      - id: MCPouchMedicalInjectorCorpsmanFull
+      - id: MCPouchMedicalInjectorBaseFull
       - id: MCPouchMedkitCorpsmanFill
         name: Medkit pouch
         recommended: true

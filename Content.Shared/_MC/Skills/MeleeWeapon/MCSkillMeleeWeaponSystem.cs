@@ -28,7 +28,7 @@ public sealed class MCSkillMeleeWeaponSystem : EntitySystem
         ev.Damage += ev.Damage * SkillMeleeWeaponBuff * skill;
     }
 
-    private void OnGetMeleeAttackRate(GetMeleeAttackRateEvent ev)
+    private void OnGetMeleeAttackRate(ref GetMeleeAttackRateEvent ev)
     {
         var skill = _rmcSkills.GetSkill(ev.User, SkillCqc);
         ev.Rate += SkillCqcBuff * skill;

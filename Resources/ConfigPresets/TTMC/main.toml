@@ -110,7 +110,7 @@ auto_record_name = "done/{year}_{month}_{day}-{hour}_{minute}-round_{round}.zip"
 
 [server]
 rules_file = "MCRules"
-default_guide = "RMC14"
+default_guide = "MCMain"
 
 [shuttle]
 arrivals_planet = false

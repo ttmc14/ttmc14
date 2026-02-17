@@ -1,0 +1,41 @@
+- type: entity
+  parent: MCItem
+  id: MCImplantSkill
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Misc/pamphlets.rsi
+    state: pamphlet_written
+  - type: Item
+    size: Tiny
+  - type: SkillPamphlet
+    whitelists:
+    - popup: rmc-pamphlets-cant-use
+      restrictions:
+        components:
+        - Marine
+  - type: EmitSoundOnPickup
+    sound:
+      path: /Audio/_RMC14/Handling/paper_pickup.ogg
+      params:
+        volume: -4
+  - type: EmitSoundOnDrop
+    sound:
+      path: /Audio/_RMC14/Handling/paper_drop.ogg
+      params:
+        volume: -5
+  - type: EmitSoundOnLand
+    sound:
+      path: /Audio/_RMC14/Handling/paper_drop.ogg
+      params:
+        volume: -5
+
+- type: entity
+  parent: MCImplantSkill
+  id: MCImplantSkillMelee
+  name: CQC skill implanter
+  description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your CQC skills.
+  components:
+  - type: SkillPamphlet
+    addSkills:
+      MCSkillMeleeWeapons: 1

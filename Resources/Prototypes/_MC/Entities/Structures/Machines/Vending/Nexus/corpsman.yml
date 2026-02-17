@@ -19,6 +19,10 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialCorpsman
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 25
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne
