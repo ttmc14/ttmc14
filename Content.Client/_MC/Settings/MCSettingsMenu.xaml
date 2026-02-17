@@ -1,0 +1,9 @@
+﻿<DefaultWindow xmlns="https://spacestation14.io"
+               xmlns:tabs="clr-namespace:Content.Client._MC.Settings.Tabs"
+               Title="{Loc 'ui-options-title'}"
+               MinSize="800 450">
+    <TabContainer Name="Tabs" Access="Public">
+        <tabs:MCChatTab Name="MCChat" />
+        <tabs:MCZLevelsTab Name="MCZLevels" />
+    </TabContainer>
+</DefaultWindow>

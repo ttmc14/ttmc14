@@ -1,5 +1,7 @@
+using System.Linq;
 using Content.Client._RMC14.Chat;
 using Content.Client.UserInterface.Systems.Chat.Controls;
+using Content.Shared._MC;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
@@ -9,6 +11,7 @@ using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
 using Robust.Shared.Audio;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Player;
 using Robust.Shared.Utility;
@@ -23,6 +26,10 @@ public partial class ChatBox : UIWidget
     [Dependency] private readonly IEntityManager _entManager = default!;
     [Dependency] private readonly ILogManager _log = default!;
 
+    // MC Changes:
+    [Dependency] private readonly IConfigurationManager _configurationManager = null!;
+    // MC Changes
+
     private readonly ISawmill _sawmill;
     private readonly ChatUIController _controller;
 
@@ -32,7 +39,11 @@ public partial class ChatBox : UIWidget
 
     // RMC14
     public readonly Queue<RepeatedMessage> RepeatQueue = new();
-    private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic", "mcsprite"];
+    private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic"];
+
+    // MCChanges:
+    private bool _emojiAvaible = false;
+    // MCChanges
 
     public ChatBox()
     {
@@ -51,6 +62,23 @@ public partial class ChatBox : UIWidget
         _controller.MessageAdded += OnMessageAdded;
         _controller.HighlightsUpdated += OnHighlightsUpdated;
         _controller.RegisterChat(this);
+
+        // MCChanges:
+        _configurationManager.OnValueChanged(MCConfigVars.ChatEmoji, value =>
+        {
+            _emojiAvaible = value;
+
+            if (value)
+                return;
+
+            var toRemove = Contents.Children.Where(child => !(!child.Name?.Contains("__mcsprite_") ?? false)).ToList();
+            foreach (var child in toRemove)
+            {
+                Contents.Children.Remove(child);
+            }
+
+        }, true);
+        // MCChanges
     }
 
     private void OnTextEntered(LineEditEventArgs args)
@@ -140,8 +168,22 @@ public partial class ChatBox : UIWidget
         var output = new FormattedMessage(message.Count);
         foreach (var tag in message)
         {
-            if (tag.Name is not { } name || _whitelist.Contains(name))
+            // MC Changes:
+            if (tag.Name is not { } name)
+            {
                 output.PushTag(tag);
+                continue;
+            }
+
+            if (_emojiAvaible && name == "mcsprite")
+            {
+                output.PushTag(tag);
+                continue;
+            }
+
+            if (_whitelist.Contains(name))
+                output.PushTag(tag);
+
         }
         return output;
     }

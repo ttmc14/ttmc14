@@ -35,7 +35,7 @@ public sealed class MCZLevelShootHelperSystem : EntitySystem
             zPhys.GravityMultiplier = 0;
             zPhys.Bounciness = 0;
             zPhys.Fallable = false;
-            zPhys.CurrentStickyGround = true;
+            zPhys.CachedStickyGround = true;
             zPhys.LocalPosition = 0.25f;
         }
     }

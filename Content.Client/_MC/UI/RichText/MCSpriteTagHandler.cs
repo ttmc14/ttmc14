@@ -16,6 +16,8 @@ public sealed class MCSpriteTagHandler : IMarkupTagHandler
     [Dependency] private readonly IEntityManager _entityManager = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
 
+    private static int _id;
+
     public string Name => "mcsprite";
 
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
@@ -31,6 +33,7 @@ public sealed class MCSpriteTagHandler : IMarkupTagHandler
         var spriteSystem = _entityManager.System<SpriteSystem>();
         control = new TextureRect
         {
+            Name = $"__mcsprite_{_id++}",
             SetSize = size,
             Stretch = TextureRect.StretchMode.KeepAspectCentered,
             HorizontalAlignment = Control.HAlignment.Left,

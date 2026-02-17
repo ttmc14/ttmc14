@@ -25,7 +25,7 @@ public sealed class MCMappingZNetworkCommand : LocalizedEntityCommands
     [Dependency] private readonly MapSystem _map = null!;
     [Dependency] private readonly IComponentFactory _componentFactory = null!;
 
-    public override string Command => "mc-planet-znetwork-mapping";
+    public override string Command => "mc_planet_znetwork_mapping";
     public override string Description => "Load existed planet map prototype as ZNetwork for mapping";
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

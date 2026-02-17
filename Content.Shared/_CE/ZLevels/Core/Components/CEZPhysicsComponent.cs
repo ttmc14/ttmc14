@@ -1,10 +1,11 @@
 /*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
+ * Copyright (c) 2026 TornadgoTechnology
+ * Copyright (c) 2026 CrystallEdge (https://github.com/crystallpunk-14/crystall-edge)
+ *
+ * SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0 AND MIT
  */
 
 using System.Numerics;
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._CE.ZLevels.Core.Components;
@@ -35,18 +36,6 @@ public sealed partial class CEZPhysicsComponent : Component
     /// </summary>
     [DataField, AutoNetworkedField]
     public int CurrentZLevel;
-
-    /// <summary>
-    /// Cached value of the current distance to the ground in the current z-level. Updates only on MoveEvent and when tiles below change.
-    /// </summary>
-    [DataField]
-    public float CurrentGroundHeight;
-
-    /// <summary>
-    /// Cached value of whether the entity is currently on sticky ground (ladders).
-    /// </summary>
-    [DataField]
-    public bool CurrentStickyGround;
 
     // Physics
     [DataField, AutoNetworkedField]
@@ -86,4 +75,33 @@ public sealed partial class CEZPhysicsComponent : Component
     /// </summary>
     [DataField]
     public bool AutoStep = true;
+
+    #region Gravity
+
+    [DataField]
+    public bool VelocityGravity = true;
+
+    [DataField]
+    public bool VelocityRaiseEvent;
+
+    #endregion
+
+    #region Cache
+
+    [ViewVariables]
+    public Vector2i? CachedTile;
+
+    /// <summary>
+    /// Cached value of the current distance to the ground in the current z-level. Updates only on MoveEvent and when tiles below change.
+    /// </summary>
+    [ViewVariables]
+    public float CachedGroundHeight;
+
+    /// <summary>
+    /// Cached value of whether the entity is currently on sticky ground (ladders).
+    /// </summary>
+    [ViewVariables]
+    public bool CachedStickyGround;
+
+    #endregion
 }
