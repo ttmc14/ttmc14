@@ -38,6 +38,7 @@
       skills:
         # MC
         MCSkillEngineer: 3
+        MCSkillCqc: 1
         # RMC
         RMCSkillMedical: 3
         RMCSkillSurgery: 1
@@ -47,9 +48,7 @@
         RMCSkillPowerLoader: 4
         RMCSkillLeadership: 4
         RMCSkillJtac: 2
-        RMCSkillCqc: 1
         RMCSkillSmartGun: 0
-        # RMCSkillMelee: 0
         RMCSkillFirearms: 2
         RMCSkillFireman: 1
     - type: CMVendorUser

@@ -6,8 +6,25 @@
   - type: SkillDefinition
 
 - type: entity
+  parent: MCSkill
   id: MCSkillEngineer
+  name: Engineer
   categories: [ HideSpawnMenu ]
   components:
   - type: SkillDefinition
 
+- type: entity
+  parent: MCSkill
+  id: MCSkillCqc
+  name: CQC
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SkillDefinition
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillMeleeWeapons
+  name: Melee weapons
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SkillDefinition
