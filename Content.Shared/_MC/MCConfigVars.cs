@@ -65,13 +65,6 @@ public sealed class MCConfigVars : CVars
         CVarDef.Create("mc.fire_resist_on_death", true, CVar.SERVER | CVar.REPLICATED);
 
     /**
-     * Stamina
-     */
-
-    public static readonly CVarDef<bool> StaminaDamageOnRun =
-        CVarDef.Create("mc.stamina_damage_on_run", false, CVar.SERVER | CVar.REPLICATED);
-
-    /**
      * Round schedule
      */
 

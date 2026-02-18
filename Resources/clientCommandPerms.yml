@@ -38,6 +38,9 @@
     - replay_load
     - saveconfig
     - chatwindow
+    # MC Content:
+    - mc_options
+    # MC Content
 
 - Flags: DEBUG
   Commands:

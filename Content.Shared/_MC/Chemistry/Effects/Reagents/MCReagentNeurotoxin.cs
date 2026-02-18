@@ -1,5 +1,5 @@
 ﻿using Content.Shared._MC.Damage;
-using Content.Shared._MC.Stamina;
+using Content.Shared._MC.Mob.Stamina;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;
@@ -41,10 +41,10 @@ public sealed partial class MCReagentNeurotoxin : MCReagentEffect
         ProcessCycle(args.EntityManager, target, tick, ref power);
 
         var staminaLossLimit = 100;
-        var appliedDamage = float.Clamp(power, 0, staminaLossLimit - stamina.GetDamage(target));
+        var appliedDamage = float.Clamp(power, 0, staminaLossLimit - stamina.GetLoss(target));
         var damageOverflow = power - appliedDamage;
 
-        stamina.Damage(target, appliedDamage, belowZero: false, visual: false);
+        stamina.ApplyDamage(target, appliedDamage);
 
         if (damageOverflow > 0)
         {

@@ -1,5 +1,5 @@
 ﻿using Content.Shared._MC.Damage;
-using Content.Shared._MC.Stamina;
+using Content.Shared._MC.Mob.Stamina;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;

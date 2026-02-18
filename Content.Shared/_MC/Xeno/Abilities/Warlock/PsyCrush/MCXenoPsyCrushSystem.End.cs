@@ -72,7 +72,7 @@ public sealed partial class MCXenoPsyCrushSystem
                 continue;
 
             _damageable.TryChangeDamage(targetUid, config.Damage, origin: entity);
-            _stamina.Damage(targetUid, config.StaminaDamage);
+            _stamina.ApplyDamage(targetUid, config.StaminaDamage);
 
             RaiseEffect(entity, targetUid);
         }

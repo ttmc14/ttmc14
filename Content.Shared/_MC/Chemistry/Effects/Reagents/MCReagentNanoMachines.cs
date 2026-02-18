@@ -57,7 +57,7 @@ public sealed partial class MCReagentNanoMachines : MCReagentEffect
             case < 75:
             {
                 MCDamageable.AdjustOxyLoss(tagetUid, 1);
-                MCStamina.Damage(tagetUid, 1.5f, belowZero: false);
+                MCStamina.ApplyDamage(tagetUid, 1.5f);
 
                 RegenerateSelf(0.4f);
 

@@ -1,5 +1,5 @@
 ﻿using System.Numerics;
-using Content.Shared._MC.Stamina;
+using Content.Shared._MC.Mob.Stamina;
 using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared.Damage;

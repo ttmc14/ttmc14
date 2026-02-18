@@ -26,7 +26,7 @@ public sealed partial class MCReagentSanguinal : MCReagentEffect
     protected override void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
     {
         if (HasReagent(solution, "MCHemodile"))
-            MCStamina.Damage(args.TargetEntity, Damage);
+            MCStamina.ApplyDamage(args.TargetEntity, Damage);
 
         if (HasReagent(solution, "MCNeurotoxin"))
             MCDamageable.AdjustToxLoss(args.TargetEntity, Damage);

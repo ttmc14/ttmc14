@@ -10,6 +10,8 @@
             <PanelContainer Name="NameBackground" HorizontalExpand="True" VerticalExpand="False">
                 <RichTextLabel Name="ReagentName" HorizontalAlignment="Center"/>
             </PanelContainer>
+            <RichTextLabel Name="MCOverdoseLabel" Visible="False" HorizontalExpand="True" />
+            <RichTextLabel Name="MCOverdoseCriticalLabel" Visible="False" HorizontalExpand="True" />
             <BoxContainer Name="RecipesContainer" HorizontalExpand="True">
                 <Collapsible HorizontalExpand="True">
                     <CollapsibleHeading Title="{Loc 'guidebook-reagent-recipes-header'}"/>

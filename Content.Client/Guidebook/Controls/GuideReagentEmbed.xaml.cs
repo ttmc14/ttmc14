@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.Linq;
 using Content.Client.Chemistry.EntitySystems;
 using Content.Client.Guidebook.Richtext;
@@ -106,6 +107,33 @@ public sealed partial class GuideReagentEmbed : BoxContainer, IDocumentTag, ISea
 
         ReagentName.SetMarkup(Loc.GetString("guidebook-reagent-name",
             ("color", textColor), ("name", reagent.LocalizedName)));
+
+        // MC
+        #region Overdose
+
+        if (reagent.Overdose is not null)
+        {
+            MCOverdoseLabel.Visible = true;
+
+            var message = new FormattedMessage();
+            message.PushColor(Color.White);
+            message.AddMarkupOrThrow(Loc.GetString("mc-guidebook-reagent-overdose", ("value", reagent.Overdose.Value.Float().ToString("0.##", CultureInfo.InvariantCulture))));
+
+            MCOverdoseLabel.SetMessage(message);
+        }
+
+        if (reagent.CriticalOverdose is not null)
+        {
+            MCOverdoseCriticalLabel.Visible = true;
+
+            var message = new FormattedMessage();
+            message.PushColor(Color.White);
+            message.AddMarkupOrThrow(Loc.GetString("mc-guidebook-reagent-overdose-critical", ("value", reagent.CriticalOverdose.Value.Float().ToString("0.##", CultureInfo.InvariantCulture))));
+
+            MCOverdoseCriticalLabel.SetMessage(message);
+        }
+
+        #endregion
 
         #region Recipe
         var reactions = _prototype.EnumeratePrototypes<ReactionPrototype>()

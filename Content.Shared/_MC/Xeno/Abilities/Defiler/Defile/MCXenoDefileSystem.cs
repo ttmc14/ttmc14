@@ -1,6 +1,6 @@
 ﻿using Content.Shared._MC.Damage;
+using Content.Shared._MC.Mob.Stamina;
 using Content.Shared._MC.Spreader;
-using Content.Shared._MC.Stamina;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.DoAfter;
@@ -53,7 +53,7 @@ public sealed class MCXenoDefileSystem : MCXenoAbilitySystem
             return;
         }
 
-        _mcStamina.Damage(target, 50, false);
+        _mcStamina.ApplyDamage(target, 50);
         _mcDamageable.AdjustBruteLoss(target, 5);
 
         AnimateHit(entity, target);

@@ -1,5 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using Content.Shared._MC.Mob.Movement;
 using Content.Shared.ActionBlocker;
 using Content.Shared.CCVar;
 using Content.Shared.Friction;
@@ -294,6 +295,14 @@ public abstract partial class SharedMoverController : VirtualController
             Accelerate(ref velocity, in wishDir, accel, frameTime);
 
         SetWishDir((uid, mover), wishDir);
+
+        // MC Changes:
+        if (wishDir != Vector2.Zero && (touching || !weightless))
+        {
+            var stepEv = new MCMobStepEvent(frameTime, mover.Sprinting);
+            RaiseLocalEvent(uid, ref stepEv);
+        }
+        // MC Changes
 
         /*
          * SNAKING!!! >-( 0 ================>
