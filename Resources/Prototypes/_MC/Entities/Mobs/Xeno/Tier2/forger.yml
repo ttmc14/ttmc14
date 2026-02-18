@@ -103,3 +103,21 @@
   - type: RMCImmuneToFireTileDamage
   - type: PointLight
     color: "#069420"
+
+# brainrot cowger
+
+- type: entity
+  parent:
+  - MCXenoForger
+  id: MCXenoCowger
+  name: cowger
+  description: A skittish cowalien, it burns with fury.
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/cowger.rsi
+    offset: 0, 0.35
+    layers:
+    - map: [ "enum.DamageStateVisualLayers.Base" ]
+      state: alive
+  - type: PointLight
+    color: "#137055"
