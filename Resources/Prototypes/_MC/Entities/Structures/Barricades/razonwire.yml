@@ -1,0 +1,59 @@
+- type: entity
+  parent: MCbarbedwireobstacle
+  id: MCRazorwireObstacle
+  name: RazorwireObstacle
+  description: A bundle of barbed wire supported by metal rods...
+  components:
+  - type: MCArmor
+    soft:
+      melee: 40
+      bullet: 0
+      laser: 0
+      energy: 0
+      bomb: 0
+      bio: 50
+      fire: 80
+      acid: 80
+  - type: Sprite
+    sprite: _MC/structures/barricades/barbedwire.rsi
+    layers:
+    -state: barbedwire_x
+    -map: [ "acided" ]
+    drawdepth: WallTops
+  - type: InteractionPopup
+    interactSuccessString: fence-rattle-success
+    messagePerceivedByOthers: fence-rattle-success
+    interactSuccessSound:
+      collection: FenceRattle
+  - type: RMCRepairable
+    heal: 60
+    skill: RMCSkillConstruction
+    delay: 10
+    fuelUsed: 2
+    repairableDamageLimit: 340
+ # - type: NailgunRepairable
+ #   # cm13 max_health%: 0.3, 0.45
+ #   repairMetal: 135
+ #   repairPlasteel: 200
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMSheetMetal1:
+            min: 2
+            max: 2
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: Barbed
+    thornsDamage:
+      types:
+        MCBrute: 10
+  - type: Construction
+    graph: BarricadeMetalGraph
+    node: nodeMetal

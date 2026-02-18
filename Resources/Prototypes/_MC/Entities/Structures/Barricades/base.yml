@@ -86,3 +86,40 @@
       MCBrute:
         path:
           "/Audio/_RMC14/Structures/metalhit.ogg"
+
+- type: entity
+  parent: CMBaseStructureCorrodible
+  id: MCbarbedwireobstacle
+  abstract: true
+  categories: [ MCContent ]
+  components:
+  - type: Corrodible
+    structure: false
+  - type: Rotatable
+  - type: Appearance
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 100
+        mask:
+        - FullTileMask
+        layer:
+        - TableLayer
+        - BarricadeImpassable
+        # - BulletImpassable
+  - type: RotationDrawDepth
+    southDrawDepth: OverMobs
+  - type: Barricade
+  - type: Damageable
+    damageContainer: Inorganic
+    damageModifierSet: null
+  - type: DirectionalAttackBlocker
+  - type: RMCLeapProtection
+    inherentStunDuration: 3
+    fullProtection: true
+  - type: RMCLungeProtection
+  - type: InteractionOutline
+  - type: RMCDropshipBlocked
