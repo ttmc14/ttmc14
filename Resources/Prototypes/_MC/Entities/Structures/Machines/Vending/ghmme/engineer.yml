@@ -7,12 +7,39 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadEngineer ]
     sections:
+    # Headset
     - name: Standard Equipment
       choices:
         MCStandardEquipment: 1
       entries:
-      - id: MCVendorBundleStandardKitEngineer
-      - id: MCVendorBundleEssentialJaegerKitEngineer
+      - id: MCVendorHeadsetSquadEngineerKit
+    # Paint
+    - name: Paint
+      choices:
+        MCPaint: 1
+      entries:
+      - id: MCCustomizationPaint
+    # Jumpsuit
+    - name: Jumpsuit
+      choices:
+        MCJumpsuit: 1
+      entries:
+      - id: MCJumpsuitMarineJaeger
+      - id: MCJumpsuitMarineSquadEngineer
+    # Boots
+    - name: Boots
+      choices:
+        MCBoots: 1
+      entries:
+      - id: MCBootsBlackFilled
+      - id: MCBootsBrownFilled
+    # Gloves
+    - name: Gloves
+      choices:
+        MCGloves: 1
+      entries:
+      - id: MCHandsMarineInsulated
+    # Other ...
     - name: Glasses
       choices:
         MCGlasses: 1
@@ -62,19 +89,3 @@
         name: Medical pouch (chems included)
       - id: MCPouchMedicalInjectorBaseFull
         name: Auto-injector's medical pouch (chems included)
-
-# Kits
-- type: entity
-  id: MCVendorBundleStandardKitEngineer
-  name: Standard Kit
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Shoes/Boots/black.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCVendorHeadsetSquadEngineer
-    - MCHandsMarineInsulated
-    - MCJumpsuitMarineSquadEngineer
-    - MCBootsBlackFilled

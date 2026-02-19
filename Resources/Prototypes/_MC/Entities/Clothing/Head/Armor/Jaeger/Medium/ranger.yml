@@ -1,0 +1,170 @@
+- type: entity
+  parent: MCArmorModularJaegerInfantry
+  id: MCArmorHelmetModularJaegerRanger
+  name: Jaeger Pattern Ranger Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Ranger markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/yellow.rsi
