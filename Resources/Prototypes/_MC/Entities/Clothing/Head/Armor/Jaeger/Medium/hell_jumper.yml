@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerInfantry
+  parent: MCArmorHelmetModularJaegerInfantry
   id: MCArmorHelmetModularJaegerHellJumper
   name: Jaeger Pattern Helljumper Helmet
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Helljumper markings.

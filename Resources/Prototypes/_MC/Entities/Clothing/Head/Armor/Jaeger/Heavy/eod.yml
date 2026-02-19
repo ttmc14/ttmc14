@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerGugnir
+  parent: MCArmorHelmetModularJaegerGugnir
   id: MCArmorHelmetModularJaegerEOD
   name: Jaeger Pattern EOD Helmet
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has EOD markings.

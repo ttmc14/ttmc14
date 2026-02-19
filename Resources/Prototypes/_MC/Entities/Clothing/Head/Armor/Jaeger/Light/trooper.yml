@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerScout
+  parent: MCArmorHelmetModularJaegerScout
   id: MCArmorHelmetModularJaegerTrooper
   name: Jaeger Pattern Trooper Helmet
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Trooper markings.

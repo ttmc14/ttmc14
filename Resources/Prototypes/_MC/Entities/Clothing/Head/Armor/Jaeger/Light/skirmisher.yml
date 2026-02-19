@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerScout
+  parent: MCArmorHelmetModularJaegerScout
   id: MCArmorHelmetModularJaegerSkirmisher
   name: Jaeger Pattern Skirmisher Helmet
   description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Skirmisher markings.
