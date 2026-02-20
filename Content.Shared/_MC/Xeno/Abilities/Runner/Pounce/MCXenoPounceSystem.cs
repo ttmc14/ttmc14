@@ -1,4 +1,8 @@
 ﻿using System.Numerics;
+using Content.Shared._CE.ZLevels.Core.Components;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._MC.Weapon;
+using Content.Shared._MC.ZLevels;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -34,6 +38,8 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
     [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
 
+    [Dependency] private readonly CESharedZLevelsSystem _zLevels = null!;
+
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
     public override void Initialize()
@@ -43,7 +49,9 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         SubscribeLocalEvent<MCXenoPounceComponent, MCXenoPounceActionEvent>(OnAction);
+
         SubscribeLocalEvent<MCXenoPouncingComponent, PreventCollideEvent>(OnHit);
+        SubscribeLocalEvent<MCXenoPouncingComponent, MCZLevelHitEvent>(OnZLevelHit);
     }
 
     public override void Update(float frameTime)
@@ -98,10 +106,21 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         _physics.ApplyLinearImpulse(entity, impulse, body: physicsComponent);
         _physics.SetBodyStatus(entity, physicsComponent, BodyStatus.InAir);
 
-        var duration = _timing.CurTime + TimeSpan.FromSeconds(direction.Length() / entity.Comp.Strength);
+        var time = direction.Length() / entity.Comp.Strength;
+        var duration = _timing.CurTime + TimeSpan.FromSeconds(time);
 
         pouncingComponent.End = duration;
         Dirty(entity, pouncingComponent);
+
+        var jumpVelocity = float.Sqrt(2f * CESharedZLevelsSystem.ZGravityForce * entity.Comp.ZVelocity);
+        if (_zLevels.IsAboveAtCoordinates(args.Target, out _) && _zLevels.LoockedUp(entity))
+        {
+            _zLevels.SetZVelocity(entity.Owner, jumpVelocity);
+            return;
+        }
+
+        if (_zLevels.IsBelowAtCoordinates(args.Target, out _))
+            _zLevels.SetZVelocity(entity.Owner, -jumpVelocity);
     }
 
     private void OnHit(Entity<MCXenoPouncingComponent> entity, ref PreventCollideEvent args)
@@ -124,6 +143,11 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         if (!IsMob(args.OtherEntity))
             return;
 
+        args.Cancelled = true;
+    }
+
+    private static void OnZLevelHit(Entity<MCXenoPouncingComponent> entity, ref MCZLevelHitEvent args)
+    {
         args.Cancelled = true;
     }
 

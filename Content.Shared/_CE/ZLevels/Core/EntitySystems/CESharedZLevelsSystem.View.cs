@@ -51,6 +51,11 @@ public abstract partial class CESharedZLevelsSystem
         DirtyField(ent, ent.Comp, nameof(CEZLevelViewerComponent.LookUp));
     }
 
+    public bool LoockedUp(EntityUid uid)
+    {
+        return TryComp<CEZLevelViewerComponent>(uid, out var comp) && comp.LookUp;
+    }
+
     public bool HasOpaqueAbove(EntityUid ent, Entity<CEZLevelMapComponent?>? currentMapUid = null)
     {
         currentMapUid ??= Transform(ent).MapUid;

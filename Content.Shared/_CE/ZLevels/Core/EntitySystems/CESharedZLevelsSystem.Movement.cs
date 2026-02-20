@@ -20,8 +20,8 @@ namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
 public abstract partial class CESharedZLevelsSystem
 {
     public const int MaxZLevelsBelowRendering = 3;
+    public const float ZGravityForce = 9.8f;
 
-    private const float ZGravityForce = 9.8f;
     private const float ZVelocityLimit = 20.0f;
     private const int MaxStepsPerFrame = 10;
 
@@ -134,21 +134,18 @@ public abstract partial class CESharedZLevelsSystem
             var oldVelocity = zPhysicsComponent.Velocity;
             var oldHeight = zPhysicsComponent.LocalPosition;
 
-            if (physics.BodyStatus == BodyStatus.OnGround)
+            if (zPhysicsComponent.VelocityGravity)
             {
-                if (zPhysicsComponent.VelocityGravity)
-                {
-                    zPhysicsComponent.Velocity -= ZGravityForce * zPhysicsComponent.GravityMultiplier * frameTime;
-                }
+                zPhysicsComponent.Velocity -= ZGravityForce * zPhysicsComponent.GravityMultiplier * frameTime;
+            }
 
-                // Custom velocity application
-                if (zPhysicsComponent.VelocityRaiseEvent)
-                {
-                    var velocityEvent = new CEGetZVelocityEvent((uid, zPhysicsComponent));
-                    RaiseLocalEvent(uid, ref velocityEvent);
+            // Custom velocity application
+            if (zPhysicsComponent.VelocityRaiseEvent)
+            {
+                var velocityEvent = new CEGetZVelocityEvent((uid, zPhysicsComponent));
+                RaiseLocalEvent(uid, ref velocityEvent);
 
-                    zPhysicsComponent.Velocity += velocityEvent.VelocityDelta * frameTime;
-                }
+                zPhysicsComponent.Velocity += velocityEvent.VelocityDelta * frameTime;
             }
 
             // Movement application

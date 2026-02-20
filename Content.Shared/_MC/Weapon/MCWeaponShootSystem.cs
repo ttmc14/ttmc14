@@ -22,7 +22,7 @@ public sealed class MCWeaponShootSystem : EntitySystem
         if (!TryComp<GunComponent>(entity, out var gun) || gun.ShootCoordinates is not { } target)
             return;
 
-        if (!_zLevels.IsVoidAtCoordinates(target, out _))
+        if (!_zLevels.IsBelowAtCoordinates(target, out _))
             return;
 
         _zHelper.ApplyZPhysics(entity, args.FiredProjectiles, target, gun.ProjectileSpeed);

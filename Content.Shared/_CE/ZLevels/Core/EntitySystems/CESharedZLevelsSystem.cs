@@ -64,7 +64,31 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
         InitializeView();
     }
 
-    public bool IsVoidAtCoordinates(EntityCoordinates coords, out Entity<CEZLevelMapComponent> belowMap)
+    public bool IsAboveAtCoordinates(EntityCoordinates coords, out Entity<CEZLevelMapComponent> aboveMap)
+    {
+        aboveMap = default;
+
+        var mapUid = _transform.GetMapId(coords);
+        if (mapUid == MapId.Nullspace)
+            return false;
+
+        var mapEntity = _map.GetMap(mapUid);
+        if (!_zMapQuery.TryComp(mapEntity, out var zMapComp))
+            return false;
+
+        if (!TryMapUp((mapEntity, zMapComp), out aboveMap))
+            return false;
+
+        if (!TryComp<MapGridComponent>(mapEntity, out var mapGridComponent))
+            return true;
+
+        var tileIndices = _map.LocalToTile(mapEntity, mapGridComponent, coords);
+        var tile = _map.GetTileRef(mapEntity, mapGridComponent, tileIndices);
+
+        return !tile.Tile.IsEmpty;
+    }
+
+    public bool IsBelowAtCoordinates(EntityCoordinates coords, out Entity<CEZLevelMapComponent> belowMap)
     {
         belowMap = default;
 

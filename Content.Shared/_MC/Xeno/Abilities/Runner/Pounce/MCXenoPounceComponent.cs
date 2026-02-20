@@ -14,6 +14,9 @@ public sealed partial class MCXenoPounceComponent : Component
     public int Strength = 45;
 
     [DataField, AutoNetworkedField]
+    public float ZVelocity = 1.05f;
+
+    [DataField, AutoNetworkedField]
     public DamageSpecifier? HitDamage;
 
     [DataField, AutoNetworkedField]

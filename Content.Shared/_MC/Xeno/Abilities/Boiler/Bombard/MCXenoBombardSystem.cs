@@ -120,7 +120,7 @@ public sealed partial class MCXenoBombardSystem : MCXenoAbilitySystem
             target: GetEntity(args.TargetUid)
         );
 
-        if (_mcZLevels.IsVoidAtCoordinates(target, out _))
+        if (_mcZLevels.IsBelowAtCoordinates(target, out _))
             _mcZHelper.ApplyZPhysics(entity, entities.ToList(), target, entity.Comp.ProjectileSpeed);
 
     }

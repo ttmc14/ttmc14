@@ -14,7 +14,7 @@ public sealed class MCZLevelShootHelperSystem : EntitySystem
         if (speed <= 0f)
             return;
 
-        if (!_zLevels.IsVoidAtCoordinates(targetCoords, out _))
+        if (!_zLevels.IsBelowAtCoordinates(targetCoords, out _))
             return;
 
         var shooterPos = _transform.GetMapCoordinates(shooter);

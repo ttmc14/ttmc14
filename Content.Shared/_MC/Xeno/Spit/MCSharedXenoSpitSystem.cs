@@ -156,7 +156,7 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
             result[i] = projectile;
         }
 
-        if (_mcZLevels.IsVoidAtCoordinates(targetCoords, out _))
+        if (_mcZLevels.IsBelowAtCoordinates(targetCoords, out _))
             _mcZHelper.ApplyZPhysics(xeno, ammoShotEvent.FiredProjectiles, targetCoords, speed);
 
         RaiseLocalEvent(xeno, ammoShotEvent);
