@@ -31,13 +31,13 @@ public sealed partial class MCReagentTransvitox : MCReagentEffect
         return
         $"""
         Наносит {ToxinDamagePerTick} [color=#759a27]токсины[/color] за тик.
-        При получении [color=#ea0e4d]физический[/color], наносит дополнительно -{TakeDamageMultiplier} [color=#759a27]токсины[/color] от полученого урона.
+        При получении [color=#ea0e4d]физический[/color], наносит дополнительно {TakeDamageMultiplier} [color=#759a27]токсины[/color] от полученого урона.
         Каждый яд токсин увеличивает урон на {ExtraToxPerMultiplier * 100}% (Включая данный)
         Конвертирует [color=#da841d]ожоги[/color] в [color=#759a27]токсины[/color] в соотношении {BurnConversionAmount}:{BurnConversionRate}
         """;
     }
 
-    protected override void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
+    protected override void OnEffect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent, int tick)
     {
         var multiplier = GetMultiplier(solution);
         MCDamageable.AdjustToxLoss(args.TargetEntity, ToxinDamagePerTick * (1 + ExtraToxPerMultiplier * multiplier));

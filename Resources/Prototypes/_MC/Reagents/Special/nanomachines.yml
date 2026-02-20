@@ -13,3 +13,19 @@
       metabolismRate: 0
       effects:
       - !type:MCReagentNanoMachines
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCSynaptizine
+  name: reagent-name-mc-synaptizine
+  desc: reagent-desc-mc-synaptizine
+  flavor: bitter
+  color: "#C8A5DC"
+  physicalDesc: reagent-physical-desc-opaque
+  overdose: 6
+  criticalOverdose: 10
+  metabolisms:
+    Medicine:
+      metabolismRate: 1
+      effects:
+      - !type:MCReagentSynaptizine

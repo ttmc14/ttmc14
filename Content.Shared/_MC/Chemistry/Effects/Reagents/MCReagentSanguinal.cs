@@ -23,7 +23,7 @@ public sealed partial class MCReagentSanguinal : MCReagentEffect
         """;
     }
 
-    protected override void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
+    protected override void OnEffect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent, int tick)
     {
         if (HasReagent(solution, "MCHemodile"))
             MCStamina.ApplyDamage(args.TargetEntity, Damage);

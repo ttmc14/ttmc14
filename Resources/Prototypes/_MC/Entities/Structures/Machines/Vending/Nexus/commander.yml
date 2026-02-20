@@ -64,6 +64,13 @@
       entries:
       - id: MCBoxBulletsSmartGunSG29
         points: 4
+    # Injectors
+    - name: Auto Injector
+      entries:
+      - id: MCAutoInjectorCombatAdv
+        points: 2
+      - id: MCAutoInjectorSynaptizine
+        points: 2
 
 - type: entity
   id: MCVendorBundleEssentialFieldCommander

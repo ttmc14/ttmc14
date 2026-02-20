@@ -31,3 +31,6 @@ mc-combat-advanced-container-label-text = Ca
 
 # Tier 3
 mc-quickclotplus-container-label-text = Qk+
+mc-russian-red-container-label-text = RR
+mc-synaptizine-container-label-text = Sy
+mc-synaptizine-expired-container-label-text = Sy-

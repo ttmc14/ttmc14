@@ -10,6 +10,8 @@ namespace Content.Shared._MC.Chemistry.Effects.Reagents;
 
 public sealed partial class MCReagentNeurotoxin : MCReagentEffect
 {
+    protected override bool TickProcess => true;
+
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         return
@@ -28,28 +30,23 @@ public sealed partial class MCReagentNeurotoxin : MCReagentEffect
         """;
     }
 
-    protected override void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
+    protected override void OnEffect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent, int tick)
     {
-        var solutionTicker = args.EntityManager.System<MCSolutionTickerSystem>();
-        var damageable = args.EntityManager.System<MCDamageableSystem>();
-        var stamina = args.EntityManager.System<MCStaminaSystem>();
-
         var target = args.TargetEntity;
-        var tick = solutionTicker.GetTick(target, solution, reagent);
 
         var power = 0f;
         ProcessCycle(args.EntityManager, target, tick, ref power);
 
         var staminaLossLimit = 100;
-        var appliedDamage = float.Clamp(power, 0, staminaLossLimit - stamina.GetLoss(target));
+        var appliedDamage = float.Clamp(power, 0, staminaLossLimit - MCStamina.GetLoss(target));
         var damageOverflow = power - appliedDamage;
 
-        stamina.ApplyDamage(target, appliedDamage);
+        MCStamina.ApplyDamage(target, appliedDamage);
 
         if (damageOverflow > 0)
         {
-            damageable.AdjustToxLoss(target, damageOverflow * 0.5f);
-            damageable.AdjustOxyLoss(target, damageOverflow * 0.5f);
+            MCDamageable.AdjustToxLoss(target, damageOverflow * 0.5f);
+            MCDamageable.AdjustOxyLoss(target, damageOverflow * 0.5f);
         }
 
         //  L.set_timed_status_effect(2 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)

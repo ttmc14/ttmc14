@@ -40,6 +40,13 @@
         points: 1
       - id: MCRocketShellTanglefoot
         points: 2
+    # Injectors
+    - name: Auto Injector
+      entries:
+      - id: MCAutoInjectorCombatAdv
+        points: 2
+      - id: MCAutoInjectorSynaptizine
+        points: 2
 
 - type: entity
   id: MCVendorBundleEssentialSquadLeader

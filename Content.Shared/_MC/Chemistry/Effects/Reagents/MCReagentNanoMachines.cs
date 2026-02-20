@@ -30,15 +30,16 @@ public sealed partial class MCReagentNanoMachines : MCReagentEffect
         // new ProtoId<ReagentPrototype>("MCIfosfamide"),
     };
 
+    protected override bool TickProcess => true;
+
     protected override string ReagentEffectGuidebookText(IPrototypeManager prototype, IEntitySystemManager entSys)
     {
         return Loc.GetString("reagent-effect-mc-nano-machines");
     }
 
-    protected override void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
+    protected override void OnEffect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent, int tick)
     {
         var tagetUid = args.TargetEntity;
-        var tick = MCSolutionTicker.GetTick(tagetUid, solution, reagent);
         var volume = solution.GetReagent(new ReagentId(reagent.ID, null)).Quantity;
 
         Purge(solution, PurgeReagents, 5f);

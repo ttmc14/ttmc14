@@ -5,9 +5,23 @@
       amount: 10
     MCLemoline:
       amount: 2
-# Broke guidebook
-#    MCNanoMachines:
-#      amount: 1
-#      catalyst: true
+  # Broke guidebook
+  #    MCNanoMachines:
+  #      amount: 1
+  #      catalyst: true
   products:
     MCNanoMachines: 10 # 9
+
+- type: reaction
+  id: MCSynaptizine
+  reactants:
+    MCSugar:
+      amount: 1
+    MCLithium:
+      amount: 1
+    MCWater:
+      amount: 1
+    MCLemoline:
+      amount: 1
+  products:
+    MCSynaptizine: 4

@@ -46,21 +46,40 @@
 - type: entity
   parent: MCPouchMedicalInjector
   id: MCPouchMedicalInjectorBaseFull
-  suffix: Standart, Full
+  suffix: First aid, Full
   components:
   - type: StorageFill
     contents:
     - id: MCAutoInjectorBicaridine
-      amount: 2
+      amount: 3
     - id: MCAutoInjectorKelotane
-      amount: 2
+      amount: 3
     - id: MCAutoInjectorTramadol
       amount: 2
     - id: MCAutoInjectorTricordrazine
       amount: 2
-    - id: MCAutoInjectorCombat
-      amount: 3
     - id: MCAutoInjectorDylovene
       amount: 1
-    - id: MCAutoInjectorSalineGlucose
+    - id: MCAutoInjectorInaprovaline
       amount: 1
+    - id: MCAutoInjectorSynaptizine
+      amount: 1
+    - id: MCAutoInjectorRussianRed
+      amount: 1
+
+- type: entity
+  parent: MCPouchMedicalInjector
+  id: MCPouchMedicalInjectorMedicFull
+  suffix: Medic, Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCAutoInjectorCombatAdv
+      amount: 8
+    - id: MCAutoInjectorDexalinPlus
+      amount: 2
+    - id: MCAutoInjectorQuickClot
+      amount: 2
+    # TODO: replace with peridaxon
+    - id: MCAutoInjectorSynaptizine
+      amount: 2

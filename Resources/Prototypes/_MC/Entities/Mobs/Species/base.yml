@@ -13,6 +13,7 @@
   # [solution]
   - type: MCSolutionTicker
   - type: MCSolutionEventProvider
+  - type: MCSolutionCooldownProvider
   # [armor]
   - type: MCArmor
     showExamine: false
