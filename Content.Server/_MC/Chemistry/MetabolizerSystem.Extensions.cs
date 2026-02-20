@@ -41,7 +41,7 @@ public partial class MetabolizerSystem
 
         foreach (var entry in entries)
         {
-            if (entry.Ticks != 0)
+            if (entry.Ticks > 0)
                 OnReagentFinished(uid, ent, solution, entry.Reagent);
 
             entry.Ticks = 0;
@@ -68,7 +68,7 @@ public partial class MetabolizerSystem
         {
             if (!solution.TryGetReagent(entry.Reagent, out _))
             {
-                if (entry.Ticks != 0)
+                if (entry.Ticks > 0)
                     OnReagentFinished(uid, ent, solution, entry.Reagent);
 
                 entry.Ticks = 0;
@@ -98,7 +98,10 @@ public partial class MetabolizerSystem
 
     private void OnReagentFinished(EntityUid uid, Entity<MetabolizerComponent, OrganComponent?, SolutionContainerManagerComponent?> ent, Solution solution, ReagentId reagentId)
     {
-        if (!_reagent.TryIndex(reagentId, out var prototype) || prototype.Metabolisms is not { } effectsEntry)
+        if (!_reagent.TryIndex(reagentId, out var prototype))
+            return;
+
+        if (prototype.Metabolisms is not { } effectsEntry)
             return;
 
         foreach (var (_, entry) in effectsEntry)

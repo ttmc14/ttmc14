@@ -66,7 +66,7 @@ public abstract partial class MCReagentEffect : EntityEffect
             if (TickProcess)
             {
                 tick = MCSolutionTicker.GetTick(reagentArgs.TargetEntity, solution, reagent);
-                if (tick == 0)
+                if (tick == 1)
                     OnEffectStarted(reagentArgs, solution, reagent);
             }
 
@@ -80,6 +80,7 @@ public abstract partial class MCReagentEffect : EntityEffect
 
     public void EffectFinished(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
     {
+        Initialize();
         OnEffectFinished(args, solution, reagent);
     }
 

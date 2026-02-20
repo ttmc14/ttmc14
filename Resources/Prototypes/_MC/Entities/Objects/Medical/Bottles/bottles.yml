@@ -339,8 +339,8 @@
           Quantity: 240
   - type: CMRefillableSolution
     reagents:
-      MCLemoline: 240
-
+      MCLemoline: 120
+      
 - type: entity
   parent: MCBottleFilled
   id: MCBottleLemolineDoctor
