@@ -13,7 +13,8 @@ public sealed partial class MCSettingsMenu : DefaultWindow
         IoCManager.InjectDependencies(this);
 
         Tabs.SetTabTitle(0, Loc.GetString("mc-ui-options-tab-chat"));
-        Tabs.SetTabTitle(1, Loc.GetString("mc-ui-options-tab-zlevels"));
+        Tabs.SetTabTitle(1, Loc.GetString("mc-ui-options-tab-qol"));
+        Tabs.SetTabTitle(2, Loc.GetString("mc-ui-options-tab-zlevels"));
 
         UpdateTabs();
     }
@@ -21,6 +22,7 @@ public sealed partial class MCSettingsMenu : DefaultWindow
     public void UpdateTabs()
     {
         MCChat.Control.ReloadValues();
+        MCQol.Control.ReloadValues();
         MCZLevels.Control.ReloadValues();
     }
 }

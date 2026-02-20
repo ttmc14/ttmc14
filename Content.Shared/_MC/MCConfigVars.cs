@@ -6,9 +6,11 @@ namespace Content.Shared._MC;
 [CVarDefs]
 public sealed class MCConfigVars : CVars
 {
+    public static readonly CVarDef<bool> QoLRunAlert =
+        CVarDef.Create("mc.qol.run_alert", true, CVar.ARCHIVE | CVar.CLIENT);
+
     public static readonly CVarDef<bool> ChatEmoji =
         CVarDef.Create("mc.chat.emoji", true, CVar.ARCHIVE | CVar.CLIENT);
-
 
     /**
      * Z-Levels

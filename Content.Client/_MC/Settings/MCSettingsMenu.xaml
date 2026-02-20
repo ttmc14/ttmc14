@@ -4,6 +4,7 @@
                MinSize="800 450">
     <TabContainer Name="Tabs" Access="Public">
         <tabs:MCChatTab Name="MCChat" />
+        <tabs:MCQoLTab Name="MCQol" />
         <tabs:MCZLevelsTab Name="MCZLevels" />
     </TabContainer>
 </DefaultWindow>
