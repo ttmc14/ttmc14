@@ -329,7 +329,6 @@
   id: MCBottleLemoline
   name: lemoline bottle
   description: A small bottle. Contains 240 units of lemoline, a reagent used in the creation of advanced medicine.
-  suffix: 240
   components:
   - type: SolutionContainerManager
     solutions:
@@ -338,13 +337,15 @@
         reagents:
         - ReagentId: MCLemoline
           Quantity: 240
+  - type: CMRefillableSolution
+    reagents:
+      MCLemoline: 240
 
 - type: entity
   parent: MCBottleFilled
   id: MCBottleLemolineDoctor
   name: lemoline bottle
   description: A small bottle. Contains 30 units of lemoline, a reagent used in the creation of advanced medicine.
-  suffix: 60
   components:
   - type: SolutionContainerManager
     solutions:
@@ -353,3 +354,6 @@
         reagents:
         - ReagentId: MCLemoline
           Quantity: 120
+  - type: CMRefillableSolution
+    reagents:
+      MCLemoline: 120
