@@ -214,3 +214,90 @@
 
 - type: Tag
   id: MCGrenadePGas
+
+- type: entity
+  parent: MCCase
+  id: MCCaseGrenade
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/case.rsi
+    layers:
+    - map: [ "full" ]
+      state: grenade_case
+    - map: [ "empty" ]
+      state: empty_case
+      visible: false
+  - type: Icon
+    sprite: _MC/Objects/Items/case.rsi
+    state: grenade_case
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,11,1
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeHedp
+  name: HEDP grenade case
+  description: A large case containing all you need to set up a supply of M40 HEDP grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHedp
+      amount: 25
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeHsdp
+  name: HSDP grenade case
+  description: A large case containing all you need to set up a supply of M40 HSDP grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHsdp
+      amount: 25
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeHefa
+  name: HEFA grenade case
+  description: A large case containing all you need to set up a supply of M40 HEFA grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHefa
+      amount: 25
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeHefaM15
+  name: HEFA M15 grenade case
+  description: A large case containing all you need to set up a supply of HEFA M15 grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHefaM15
+      amount: 15
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeHidp
+  name: HIDP grenade case
+  description: A large case containing all you need to set up a supply of M40 HIDP grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHidp
+      amount: 25
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeTGas
+  name: Tanglefoot grenade case
+  description: A large case containing all you need to set up a supply of M40-T Tanglefoot grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadePGas
+      amount: 25
