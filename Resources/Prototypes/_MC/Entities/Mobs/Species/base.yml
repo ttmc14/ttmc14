@@ -28,3 +28,11 @@
   # [cost]
   - type: MCASRSCost
     cost: 25
+  # [pull-damage]
+  - type: DamageOnPulledWhileCrit # TODO: Make _MC component
+    damage:
+      types:
+        Asphyxiation: 2.5 # _MC change : Slight more damage
+    pullerWhitelist:
+      components:
+      - Xeno # TODO RMC14 not allied xenos
