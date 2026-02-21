@@ -38,7 +38,7 @@ public abstract partial class MCSharedXenoHiveSystem
 
     public bool HasRuler(Entity<MCXenoHiveComponent?> entity)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_hiveQuery.Resolve(entity, ref entity.Comp, false))
             return false;
 
         return entity.Comp.Rulers.Count > 0;
