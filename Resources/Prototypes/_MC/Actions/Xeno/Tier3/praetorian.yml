@@ -133,7 +133,7 @@
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
-    max: 5
+    max: 8
   - type: MCXenoSpawnAcidSprayOnTerminating
     spawn: MCXenoAcidSpraySpit
   - type: MCXenoProjectileTargetingTurf
@@ -183,7 +183,7 @@
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
-    max: 7
+    max: 8
   - type: XenoSlowingSpitProjectile
     armorResistsKnockdown: false
     slow: 1.5
@@ -204,7 +204,7 @@
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
-    max: 7
+    max: 8
   - type: MCXenoSpawnAcidSprayOnTerminating
     spawn: MCXenoAcidHeavyScatterPraetorian
   - type: MCXenoProjectileTargetingTurf

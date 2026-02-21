@@ -7,7 +7,6 @@
     - state: xeno_acid_normal
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
         MCBurn: 20
@@ -22,26 +21,23 @@
 - type: entity
   parent: MCXenoProjectile
   id: MCXenoProjectileMedium
-  name: acid spatter
   components:
   - type: Sprite
     layers:
     - state: xeno_acid
       shader: unshaded
   - type: Projectile
-    impactEffect: null
     damage:
       types:
-        MCBurn: 35
+        MCBurn: 30
   - type: XenoProjectile
-    deleteOnFriendlyXeno: true
+    deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
     max: 8
 
 - type: entity
   parent: MCXenoProjectile
   id: MCXenoProjectileStickyResin
-  name: sticky resin spit
   components:
   - type: Sprite
     layers:
@@ -67,7 +63,6 @@
 - type: entity
   parent: MCXenoProjectile
   id: MCXenoProjectileFireball
-  name: fireball
   components:
   - type: Sprite
     layers:
@@ -98,7 +93,6 @@
 - type: entity
   parent: MCXenoProjectile
   id: MCXenoProjectileWhirlwind
-  name: plasma Whirlwind
   components:
   - type: Sprite
     sprite: _MC/Objects/Xeno/whirlwind.rsi

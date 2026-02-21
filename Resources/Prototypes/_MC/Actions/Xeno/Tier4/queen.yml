@@ -1,5 +1,20 @@
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoScreech
+  name: Screech (250)
+  description: A large area knockdown that causes pain and screen-shake.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/queen.rsi
+      state: screech
+    useDelay: 90
+  - type: InstantAction
+    event: !type:MCXenoScreechActionEvent
+
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoToggleChargingQueen
   name: Toggle Charging
   description: Toggles the movement-based charge on and off.
@@ -12,3 +27,40 @@
     useDelay: 0.1
   - type: InstantAction
     event: !type:MCXenoChargeActionEvent
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoToggleXenoSpitQueen
+  name: acid splash
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_xeno_acid
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoProjectileQueen
+      plasmaCost: 70
+      delay: 1.1
+      speed: 40
+
+# projectiles
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileQueen
+  components:
+  - type: Sprite
+    layers:
+    - state: xeno_acid_strong
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 30
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 8
+

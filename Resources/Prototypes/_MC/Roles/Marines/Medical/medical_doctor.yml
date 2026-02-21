@@ -51,6 +51,8 @@
       icon:
         sprite: /Textures/_MC/Interface/job_icons.rsi
         state: medical
+    - type: MCASRSCost
+      cost: 150
 
 - type: playTimeTracker
   id: MCDoctor

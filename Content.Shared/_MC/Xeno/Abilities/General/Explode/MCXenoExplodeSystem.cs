@@ -20,7 +20,7 @@ public sealed class MCXenoExplodeSystem : MCXenoAbilitySystem
         if (args.Handled || !RMCActions.TryUseAction(entity, args.Action, entity))
             return;
 
-        _mcDamageable.AdjustBruteLoss(entity, _mcXenoHeal.GetMaxHealth(entity));
+        _mcDamageable.AdjustBruteLoss(entity, _mcXenoHeal.GetMaxHealth(entity) * 100f);
         args.Handled = true;
     }
 }

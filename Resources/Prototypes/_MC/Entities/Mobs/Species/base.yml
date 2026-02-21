@@ -25,3 +25,6 @@
   - type: MCStaminaActive
   # [hud]
   - type: MCXenoHudToxins
+  # [cost]
+  - type: MCASRSCost
+    cost: 25

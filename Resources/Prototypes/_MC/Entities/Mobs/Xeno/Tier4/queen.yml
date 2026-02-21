@@ -51,14 +51,17 @@
     - MCActionXenoPlantWeeds
     # Main
     - MCActionXenoZoom
-    - MCActionXenoAcidicSalve # TODO: remove
+    - MCActionXenoPsychicCure
     - MCActionXenoPheromones
-    - MCActionXenoToggleXenoSpitStickyResin
     - MCActionXenoAcidStrong
+    - MCActionXenoScreech
+    # Spits
+    - MCActionXenoToggleXenoSpitStickyResin
+    - MCActionXenoToggleXenoSpitQueen
     # Utilities
     - MCActionXenoOzelomelynSting
     # Primo
-    - MCActionXenoToggleChargingQueen
+    # - MCActionXenoToggleChargingQueen
     hudOffset: -0.1,0.1
   - type: XenoEvolutionCapped
     id: MCXenoQueen
@@ -109,3 +112,5 @@
     reagents:
     - ReagentId: MCOzelomelyn
       Quantity: 5
+  - type: MCXenoPsychicCure
+  - type: MCXenoScreech
