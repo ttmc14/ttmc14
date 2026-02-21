@@ -36,11 +36,14 @@
       points: 45
     - type: Skills
       skills:
+        # MC
+        MCSkillCqc: -1
+        MCSkillMeleeWeapons: -1
+        # RMC
         RMCSkillMedical: 4
         RMCSkillSurgery: 4
         RMCSkillCqc: 1
         RMCSkillSmartGun: -4
-        # RMCSkillMelee: -1
         RMCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-doctor

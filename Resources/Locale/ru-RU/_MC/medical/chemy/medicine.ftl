@@ -62,6 +62,7 @@ reagent-desc-mc-timeroll = Странное вещество изменяюще�
 reagent-name-mc-quickclotplus = Гемостатик Плюс
 reagent-desc-mc-quickclotplus = Химическое вещество, предназначенное для быстрого и болезненного устранения внутреннего кровотечения путем стимулирования свертывания крови. Не следует применять самостоятельно.
 reagent-name-mc-russian-red = Красный русский
+reagent-name-mc-synaptizine = Синаптизин
 
 # Mixes
 

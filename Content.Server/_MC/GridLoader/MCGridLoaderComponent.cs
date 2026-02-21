@@ -7,4 +7,7 @@ public sealed partial class MCGridLoaderComponent : Component
 {
     [DataField]
     public ResPath Map;
+
+    [DataField]
+    public string? ForceFtlKey;
 }

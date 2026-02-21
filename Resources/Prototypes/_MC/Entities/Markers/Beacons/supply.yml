@@ -3,7 +3,6 @@
   id: MCMarkerTgsCanterbury
   name: marker tgs canterbury
   components:
-  - type: MCCrashPoint
   - type: Sprite
     layers:
     - sprite: Markers/cross.rsi

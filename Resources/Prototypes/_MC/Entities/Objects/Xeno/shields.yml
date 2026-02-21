@@ -1,0 +1,24 @@
+
+- type: entity
+  id: MCXenoShield
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Effects/shield.rsi
+    state: base
+    drawdepth: Effects
+  - type: Transform
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-1.5, -0.5, 1.5, 0.5"
+        hard: false
+        mask:
+        - FullTileMask
+        layer:
+        - BulletImpassable
+  - type: IgnorePredictionHit
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.25

@@ -115,7 +115,7 @@
     damage: {}
     soundHit: null
   - type: MCStaminaDamageOnCollide
-    damage: 70
+    damage: 5 # 70 ha-ha not funny
   - type: MCXenoPlasmaDamageOnHit
     amount: 25
     multiplier: 0.05

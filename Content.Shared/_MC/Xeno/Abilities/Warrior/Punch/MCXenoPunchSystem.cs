@@ -1,5 +1,5 @@
 ﻿using Content.Shared._MC.Knockback;
-using Content.Shared._MC.Stamina;
+using Content.Shared._MC.Mob.Stamina;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Abilities.Warrior.Agility;
 using Content.Shared._RMC14.CameraShake;
@@ -84,7 +84,7 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
         // TODO: blur
 
         _damageable.TryChangeDamage(args.Target, damage * damageMultiplier * empowerMultiplier * structureDamageMultiplier, origin: entity, tool: entity);
-        _mcStamina.Damage(args.Target, damageTotal * damageMultiplier * empowerMultiplier * structureDamageMultiplier);
+        _mcStamina.ApplyDamage(args.Target, damageTotal * damageMultiplier * empowerMultiplier * structureDamageMultiplier);
         _mcKnockback.KnockbackFrom(args.Target, entity, entity.Comp.KnockbackDistance, entity.Comp.KnockbackSpeed);
 
         // Effects

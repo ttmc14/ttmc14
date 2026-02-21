@@ -19,13 +19,17 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialEngineer
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 25
     - name: Materials
       entries:
-      - id: CMSheetMetal10
+      - id: MCSheetMetal10
         name: Metal x10
         points: 2
         recommended: true
-      - id: CMSheetPlasteel10
+      - id: MCSheetPlasteel10
         name: Plasteel x10
         points: 4
         recommended: true
@@ -106,7 +110,8 @@
         points: 2
       - id: MCMortarShellIncendiary
         points: 2
-      # Tanglefoot Mortar shell
+      - id: MCMortarShellTanglefoot
+        points: 3
       - id: MCMortarShellSmoke
         points: 1
       - id: MCMortarShellFlare

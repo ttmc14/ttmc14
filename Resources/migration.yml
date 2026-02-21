@@ -1488,3 +1488,36 @@ CMWallSuperReinforced: CMWallReinforced
 # 2025-12-02
 RMCTankFlamerImprovised: RMCTankFlamerColony
 RMCWeaponFlamerImprovised: RMCWeaponFlamerColony
+
+# 2026-08-02 TTMC changes
+CMSheetMetal: MCSheetMetal
+CMSheetMetal10: MCSheetMetal10
+CMSheetMetal20: MCSheetMetal20
+CMSheetMetal30: MCSheetMetal30
+CMSheetMetal40: MCSheetMetal40
+CMSheetMetal50: MCSheetMetal50
+CMSheetMetal1: MCSheetMetal1
+CMSheetMetal2: MCSheetMetal2
+CMSheetPlasteel: MCSheetPlasteel
+CMSheetPlasteel10: MCSheetPlasteel10
+CMSheetPlasteel15: MCSheetPlasteel15
+CMSheetPlasteel20: MCSheetPlasteel20
+CMSheetPlasteel30: MCSheetPlasteel30
+CMSheetPlasteel40: MCSheetPlasteel40
+CMSheetPlasteel50: MCSheetPlastee50
+CMSheetPlasteel1: MCSheetPlasteel1
+CMSheetGlass: MCSheetGlass
+CMSheetGlass10: MCSheetGlass10
+CMSheetGlass25: MCSheetGlass25
+CMSheetGlass30: MCSheetGlass
+CMSheetGlass1: MCSheetGlass1
+RMCPlankWood: MCPlankWood
+RMCPlankWood10: MCPlankWood10
+RMCPlankWood25: MCPlankWood25
+RMCPlankWood50: MCPlankWood50
+RMCPlankWood1: MCPlankWood1
+RMCPlankWood2: MCPlankWood2
+RMCBarricadePlasteel: MCBarricadePlasteel
+CMBarricadePlasteelDoor: MCBarricadePlasteelFolding
+CMBarricadeMetalDoor: MCBarricadeMetalFolding
+CMBarricadeMetal: MCBarricadeMetal

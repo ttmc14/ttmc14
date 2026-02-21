@@ -7,12 +7,42 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadCorpsman ]
     sections:
+    # Headset
     - name: Standard Equipment
       choices:
         MCStandardEquipment: 1
       entries:
-      - id: MCVendorBundleStandardKitCorpsman
-      - id: MCVendorBundleEssentialJaegerKitCorpsman
+      - id: MCVendorHeadsetSquadMedicKit
+    # Paint
+    - name: Paint
+      choices:
+        MCPaint: 1
+      entries:
+      - id: MCCustomizationPaint
+    # Jumpsuit
+    - name: Jumpsuit
+      choices:
+        MCJumpsuit: 1
+      entries:
+      - id: MCJumpsuitMarineJaeger
+      - id: MCJumpsuitMarineSquadMedic
+    # Boots
+    - name: Boots
+      choices:
+        MCBoots: 1
+      entries:
+      - id: MCBootsBlackFilled
+      - id: MCBootsBrownFilled
+    # Gloves
+    - name: Gloves
+      choices:
+        MCGloves: 1
+      entries:
+      - id: MCClothingHandsMarineCombat
+      - id: MCClothingHandsMarineCombatBlack
+      - id: MCClothingHandsMarineCombatFingerless
+      - id: MCClothingHandsLatex
+    # Other ...
     - name: Backpack
       choices:
         MCBackpack: 1
@@ -41,10 +71,9 @@
       choices:
         MCPouch: 2
       entries:
-      - id: MCPouchMedicalInjectorCorpsmanFull
+      - id: MCPouchMedicalInjectorMedicFull
       - id: MCPouchMedkitCorpsmanFill
         name: Medkit pouch
         recommended: true
       - id: MCPouchConstructionFill
         name: Construction pouch (materials included)
-        recommended: true

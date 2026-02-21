@@ -1,0 +1,15 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectXenoPsyCrushWarning
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Effects/warning.rsi
+    drawdepth: FloorObjects
+    state: crush
+  - type: TimedDespawn
+    lifetime: 10
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.4

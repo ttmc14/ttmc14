@@ -1,0 +1,170 @@
+- type: entity
+  parent: MCArmorModularJaegerGugnir
+  id: MCArmorModularJaegerAssault
+  name: Jaeger Assault heavy exoskeleton
+  description: A Assault-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/yellow.rsi

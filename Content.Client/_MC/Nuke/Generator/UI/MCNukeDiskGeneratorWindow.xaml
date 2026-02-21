@@ -1,5 +1,5 @@
-﻿<ui1:MCNukeDiskGeneratorWindow xmlns="https://spacestation14.io"
-                               xmlns:ui1="clr-namespace:Content.Client._MC.Nuke.Generator.UI"
+﻿<ui:MCNukeDiskGeneratorWindow xmlns="https://spacestation14.io"
+                              xmlns:ui="clr-namespace:Content.Client._MC.Nuke.Generator.UI"
                               MinSize="400 120"
                               MaxSize="400 120"
                               Title="Nuke Disk Generator">
@@ -18,4 +18,4 @@
         </BoxContainer>
         <Button Name="RunButton" Text="Run Program" Access="Public" />
     </BoxContainer>
-</ui1:MCNukeDiskGeneratorWindow>
+</ui:MCNukeDiskGeneratorWindow>

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Shared._MC.Armor.Events;
+using Content.Shared._MC.Xeno.Abilities.Defender.Fortify;
 using Content.Shared._MC.Xeno.Visuals;
 using Content.Shared._RMC14.Stun;
 using Content.Shared.Movement.Systems;
@@ -15,6 +16,8 @@ public sealed class MCXenoCrestSystem : MCXenoAbilitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MCXenoCrestComponent, MCXenoToggleCrestActionEvent>(OnAction);
+        SubscribeLocalEvent<MCXenoCrestComponent, MCXenoFortifyAttemptEvent>(OnToggleFortifyAttempt);
+
         SubscribeLocalEvent<MCXenoCrestComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeed);
         SubscribeLocalEvent<MCXenoCrestComponent, MCArmorGetEvent>(OnGetArmor);
 
@@ -53,6 +56,14 @@ public sealed class MCXenoCrestSystem : MCXenoAbilitySystem
         _appearance.SetData(entity, MCXenoVisualLayers.Crest, entity.Comp.Lowered);
 
         ActionSetToggled<MCXenoToggleCrestActionEvent>(entity, entity.Comp.Lowered);
+    }
+
+    private void OnToggleFortifyAttempt(Entity<MCXenoCrestComponent> entity, ref MCXenoFortifyAttemptEvent args)
+    {
+        if (!entity.Comp.Lowered)
+            return;
+
+        args.Cancelled = true;
     }
 
     private void OnRefreshMovementSpeed(Entity<MCXenoCrestComponent> entity, ref RefreshMovementSpeedModifiersEvent args)

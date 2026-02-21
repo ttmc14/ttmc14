@@ -1,0 +1,28 @@
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXeno
+  name: Ксеноморфы
+  priority: 3
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXeno.xml"
+  children:
+  - MCGuideXenoStructures
+  - MCGuideXenoCastes
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoStructures
+  priority: 1
+  name: Строительство
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXenoStructures.xml"
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideXenoCastes
+  priority: 2
+  name: Касты
+  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXenoCastes.xml"
+  children:
+  - MCGuideXenoCastesTier1
+  - MCGuideXenoCastesTier2
+  - MCGuideXenoCastesTier3

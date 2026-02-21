@@ -141,11 +141,11 @@ namespace Content.Server.Body.Systems
 
             if (solution.Contents.Count == 0)
             {
-                ClearTickMetabolize(solutionEntityUid.Value, solution);
+                ClearTickMetabolize(solutionEntityUid.Value, solution, ent);
                 return;
             }
 
-            BeforeMetabolize(solutionEntityUid.Value, solution); // mc-changes
+            BeforeMetabolize(solutionEntityUid.Value, solution, ent); // mc-changes
 
             // randomize the reagent list so we don't have any weird quirks
             // like alphabetical order or insertion order mattering for processing

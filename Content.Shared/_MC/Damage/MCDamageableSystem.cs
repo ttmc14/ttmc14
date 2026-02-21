@@ -1,4 +1,5 @@
-﻿using Content.Shared.Damage;
+﻿using Content.Shared._MC.Armor;
+using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
 using Robust.Shared.Prototypes;
@@ -22,6 +23,7 @@ public sealed class MCDamageableSystem : EntitySystem
 
     [Dependency] private readonly IPrototypeManager _prototype = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
+    [Dependency] private readonly MCArmorSystem _armor = null!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -36,6 +38,14 @@ public sealed class MCDamageableSystem : EntitySystem
         _damageToxin = _prototype.Index(DamageToxinId);
         _damageOxygen = _prototype.Index(DamageOxygenId);
         _damageClone = _prototype.Index(DamageCloneId);
+    }
+
+    public DamageSpecifier? DealBombDamage(EntityUid uid, int penetration, DamageSpecifier damageSpecifier, EntityUid? origin = null, EntityUid? tool = null)
+    {
+        if (_armor.TryGetArmor(uid, out var soft, out _))
+            damageSpecifier *= MCArmorSystem.ArmorToValue(soft.Bomb, penetration: penetration);
+
+        return _damageable.TryChangeDamage(uid, damageSpecifier, ignoreResistances: true, origin: origin, tool: tool);
     }
 
     public void AdjustBruteLoss(EntityUid uid, float damage)

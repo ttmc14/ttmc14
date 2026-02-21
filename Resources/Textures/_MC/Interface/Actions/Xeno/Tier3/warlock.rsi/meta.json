@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fly"
+    },
+    {
+      "name": "blast_base"
+    },
+    {
+      "name": "blast_lance"
+    },
+    {
+      "name": "crush"
+    },
+    {
+      "name": "crush_activate"
+    },
+    {
+      "name": "shield_reflect"
+    },
+    {
+      "name": "shield"
+    }
+  ]
+}

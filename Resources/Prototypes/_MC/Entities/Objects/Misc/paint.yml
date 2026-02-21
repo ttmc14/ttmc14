@@ -1,0 +1,17 @@
+- type: entity
+  parent: MCItem
+  id: MCCustomizationPaint
+  name: armor paint
+  description: A set of paint tones for Marine's armor.
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Accessory/PVE/Marine/paint/medic.rsi
+    state: icon
+  - type: MCCustomizationPaint
+  - type: UserInterface
+    interfaces:
+      enum.MCCustomizationUi.Key:
+        type: MCCustomizationSelectBui
+  - type: ActivatableUI
+    key: enum.MCCustomizationUi.Key
+    inHandsOnly: false

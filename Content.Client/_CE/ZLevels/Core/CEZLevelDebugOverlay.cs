@@ -40,9 +40,9 @@ public sealed class CEZLevelDebugOverlay : Overlay
             var screenPos = args.ViewportControl?.WorldToScreen(worldPos) ?? Vector2.Zero;
 
             var localPos = MathF.Round(zPhys.LocalPosition, 2);
-            var groundDis = MathF.Round(zPhys.LocalPosition - zPhys.CurrentGroundHeight, 2);
+            var groundDis = MathF.Round(zPhys.LocalPosition - zPhys.CachedGroundHeight, 2);
             var velocity = MathF.Round(zPhys.Velocity, 2);
-            var sticky = zPhys.CurrentStickyGround;
+            var sticky = zPhys.CachedStickyGround;
 
             var depthText = $"ZLocalHeight: {localPos}\nDistance to ground: {groundDis}\nVelocity: {velocity}\nSticky: {sticky}";
 

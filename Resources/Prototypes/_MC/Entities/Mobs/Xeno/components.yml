@@ -221,7 +221,7 @@
     - MCXenoCrusher
     - MCXenoDefiler
     # - MCXenoGorger
-    # - MCXenoWarlock
+    - MCXenoWarlock
     - MCXenoPraetorian
     - MCXenoBoiler
     - MCXenoRavager

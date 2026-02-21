@@ -3,6 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Threading;
+using Content.Server._MC;
 using Content.Server._RMC14.Admin;
 using Content.Server._RMC14.Discord;
 using Content.Server._RMC14.LinkAccount;
@@ -300,8 +301,12 @@ internal sealed partial class ChatManager : IChatManager
             return;
         }
 
+        // MC Changes:
+        var formattedMessage = MCFormatMessage.ApplyEmoji(FormattedMessage.EscapeText(message));
+        // MC Changes
+
         Color? colorOverride = null;
-        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", FormattedMessage.EscapeText(message)));
+        var wrappedMessage = Loc.GetString("chat-manager-send-ooc-wrap-message", ("playerName",player.Name), ("message", formattedMessage));
         if (_adminManager.HasAdminFlag(player, AdminFlags.NameColor))
         {
             var prefs = _preferencesManager.GetPreferences(player.UserId);
@@ -311,7 +316,7 @@ internal sealed partial class ChatManager : IChatManager
             _linkAccount.GetConnectedPatron(player)?.Tier != null)
         {
             var color = _linkAccount.GetPatronOOCHexColor(player.Channel.UserId);
-            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", $"{color}"),("playerName", player.Name), ("message", FormattedMessage.EscapeText(message)));
+            wrappedMessage = Loc.GetString("chat-manager-send-ooc-patron-wrap-message", ("patronColor", $"{color}"),("playerName", player.Name), ("message", formattedMessage));
         }
 
         //TODO: player.Name color, this will need to change the structure of the MsgChatMessage

@@ -6,7 +6,7 @@
   text: "/ServerInfo/Guidebook/_MC/MC.xml"
   children:
   - MCRules
-  - MCMedicine
+  - MCGuideMarine
   - MCGuideXeno
 
 - type: guideEntry
@@ -15,25 +15,3 @@
   name: guide-entry-rules
   priority: 1
   text: "/ServerInfo/Guidebook/_MC/Rules/MCDefault.xml"
-
-- type: guideEntry
-  parent: MC
-  id: MCMedicine
-  name: Медицина и Химия
-  priority: 2
-  text: "/ServerInfo/Guidebook/_MC/Medicine/Medicine.xml"
-  children:
-  - MCMedicineChemicalsAll
-  - MCMedicineChemicalsBase
-  - MCMedicineChemicalsSpecial
-  - MCMedicineChemicalsToxinsXeno
-
-- type: guideEntry
-  parent: MC
-  id: MCGuideXeno
-  name: Ксеноморфы
-  priority: 3
-  text: "/ServerInfo/Guidebook/_MC/Guides/Xeno/MCGuideXeno.xml"
-  children:
-  - MCGuideXenoStructures
-  - MCGuideXenoCastes

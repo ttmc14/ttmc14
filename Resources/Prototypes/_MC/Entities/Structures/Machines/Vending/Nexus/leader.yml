@@ -19,6 +19,10 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialSquadLeader
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 15
     - name: RL-160
       entries:
       - id: MCBackpackMarineRL160Full
@@ -35,6 +39,13 @@
       - id: MCRocketShellCloak
         points: 1
       - id: MCRocketShellTanglefoot
+        points: 2
+    # Injectors
+    - name: Auto Injector
+      entries:
+      - id: MCAutoInjectorCombatAdv
+        points: 2
+      - id: MCAutoInjectorSynaptizine
         points: 2
 
 - type: entity

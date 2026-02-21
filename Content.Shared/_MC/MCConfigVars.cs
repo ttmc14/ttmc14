@@ -6,9 +6,18 @@ namespace Content.Shared._MC;
 [CVarDefs]
 public sealed class MCConfigVars : CVars
 {
+    public static readonly CVarDef<bool> QoLRunAlert =
+        CVarDef.Create("mc.qol.run_alert", true, CVar.ARCHIVE | CVar.CLIENT);
+
+    public static readonly CVarDef<bool> ChatEmoji =
+        CVarDef.Create("mc.chat.emoji", true, CVar.ARCHIVE | CVar.CLIENT);
+
     /**
      * Z-Levels
      */
+
+    public static readonly CVarDef<int> ZLevelsPhysicsTickRate =
+        CVarDef.Create("mc.z_levels.physics.tick_rate", 60, CVar.ARCHIVE);
 
     public static readonly CVarDef<bool> ZLevelsPhysicsClientSimulation =
         CVarDef.Create("mc.z_levels.physics.client_simulation", true, CVar.ARCHIVE | CVar.CLIENT);
@@ -56,13 +65,6 @@ public sealed class MCConfigVars : CVars
 
     public static readonly CVarDef<bool> FireResistOnDeath =
         CVarDef.Create("mc.fire_resist_on_death", true, CVar.SERVER | CVar.REPLICATED);
-
-    /**
-     * Stamina
-     */
-
-    public static readonly CVarDef<bool> StaminaDamageOnRun =
-        CVarDef.Create("mc.stamina_damage_on_run", false, CVar.SERVER | CVar.REPLICATED);
 
     /**
      * Round schedule

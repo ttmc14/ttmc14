@@ -1,0 +1,15 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectXenoDrainSting
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags: [ HideContextMenu ]
+  - type: EffectVisuals
+  - type: Sprite
+    drawdepth: Effects
+    sprite: _MC/Effects/Xeno/drain_sting.rsi
+    state: drain_sting_crit
+    noRot: true
+  - type: TimedDespawn
+    lifetime: 0.35

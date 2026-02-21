@@ -2,3 +2,5 @@
   parent: CMBaseWeaponRifle
   id: MCWeaponRifle
   abstract: true
+  components:
+  - type: MCWeaponZLevelsShoot

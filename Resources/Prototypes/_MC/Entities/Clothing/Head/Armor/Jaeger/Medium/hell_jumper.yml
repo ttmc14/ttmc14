@@ -1,0 +1,170 @@
+- type: entity
+  parent: MCArmorHelmetModularJaegerInfantry
+  id: MCArmorHelmetModularJaegerHellJumper
+  name: Jaeger Pattern Helljumper Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Helljumper markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/yellow.rsi

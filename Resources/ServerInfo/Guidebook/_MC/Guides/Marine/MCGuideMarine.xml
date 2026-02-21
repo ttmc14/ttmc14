@@ -1,0 +1,204 @@
+<Document>
+  # Получение снаряжения
+
+  Итак, вы наполнили свой желудок и готовы к бою, но вот незадача - у вас нет одежды, брони и оружия.
+
+  ## Получение снаряжения: или возьми готовое, или собери себя сам
+
+  <GuideEntityEmbed Entity="MCMachineVendingGhmmeMarine"/>
+
+  Для начальной экипировки пройдите к GHMME Automated Closet и откройте его интерфейс (кликните по нему).
+  В удобном меню вы получите базовое снаряжение. Каждая категория обычно позволяет взять одну опцию, после чего отключается.
+  Не переживайте, если ошиблись - большую часть можно взять в других вендорах (см. ниже).
+
+  ### Что делать, если кликнули не туда?
+
+  Погуляйте вокруг и найдите:
+
+  <Box>
+    <GuideEntityEmbed Entity="MCMachineVendingSurplusArmor"/>
+    <GuideEntityEmbed Entity="MCMachineVendingSurplusClothing"/>
+  </Box>
+
+  ### Ваше оружие
+
+  [bold]Важно:[/bold]
+  Выбирайте любое понравившееся оружие и экспериментируйте с обвесами!
+  [bold]Экспериментируйте и получайте удовольствие от игры.[/bold]
+  Вы никогда не будете обузой для команды, даже если другие игроки пытаются вас убедить в обратном.
+
+  <GuideEntityEmbed Entity="MCMachineVendingWeapon"/>
+
+  Рядом с вендором снаряжения стоит Automated Weapons Rack - там куча вариантов!
+  Новичкам рекомендуем две винтовки из семейства AR:
+
+  ### AR-12
+
+  <GuideEntityEmbed Entity="MCWeaponRifleAR12"/>
+
+  Самая сбалансированная и непритязательная винтовка.
+  Поддерживает разные патроны (просите у СЛа) и почти любой обвес.
+
+  ### AR-21
+
+  <GuideEntityEmbed Entity="MCWeaponRifleAR21"/>
+
+  Капризнее AR-12, но с фишкой - [bold]режим прицеливания[/bold].
+
+  <GuideEntityEmbed Entity="MCGuidebookActionToggleAimedShoot"/>
+
+  [bold]Выключив режим[/bold]
+  - Потеряете скорость и темп стрельбы.
+  - Перестанете попадать по своим.
+
+  Включили случайно? Вырубите и кормите ФК свинцом.
+
+  ### Обвесы
+  Экспериментируйте: рельсы, прицелы, лазеры, глушители - смейство AR потдерживает множество обвесов!
+  [bold]Не забудьте магазины и патроны![/bold].
+
+  ### Прочее снаряжение
+  Берите гранаты, флаера, огнетушители и прочие утилитарные предметы - спасут задницу не раз.
+  Всё есть в GHMME и Surplus-вендорах.
+
+  # Медицина
+  [italic]Спасение умирающих - дело рук самих умирающих (c) СМО[/italic]
+
+  В раунде творится адский суп существ, врачи и санитара могут забить на вас и сдохнуть в канаве.
+  [bold]Решение?[/bold] Носите свою медицину! У вас есть все навыки, чтобы лечить себя и комрадов.
+
+  ## Хранилища для химии "Васерман гейминг"
+  Получайте здесь.
+
+  [italic]GHMME предоставляет уже готовые наборы.[/italic]
+
+  <GuideEntityEmbed Entity="MCMachineVendingGhmmeMarine"/>
+  <Box>
+    <GuideEntityEmbed Entity="MCMachineVendingSurplusClothing"/>
+    <GuideEntityEmbed Entity="MCMachineVendingSurplusArmor"/>
+  </Box>
+
+  ### Подсумки
+  <GuideEntityEmbed Entity="MCPouchMedicalInjector"/>
+  [italic]Универсал:[/italic] мало слотов, но влезают гипоспреи, таблетки, инъекторы, мази...
+
+  <GuideEntityEmbed Entity="MCPouchMedkit"/>
+  [italic]Спам-уколы:[/italic] только инъекторы, но дофига (и передоз для всех живых).
+
+  ### Модули хранения
+  [italic]Аналогичны подсумкам.[/italic]
+
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageMedical"/>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageInjector"/>
+  </Box>
+
+  ### Разгрузки
+  [italic]Белая (медицинская) имеет больше слотов, но вмещает только медпредметы.[/italic]
+
+  <Box>
+    <GuideEntityEmbed Entity="MCWebbingWhiteVest"/>
+    <GuideEntityEmbed Entity="MCWebbingBlackVest"/>
+  </Box>
+
+  ### Шлем
+  Засуньте пару инъекторов - всегда под рукой.
+
+  ## Где взять медицину?
+
+  Ищите вендоры. Доктора не помеха, медицина - наша!
+
+  <Box>
+    <GuideEntityEmbed Entity="MCMachineVendingMarineMed"/>
+    <GuideEntityEmbed Entity="MCMachineVendingNanotrasenMed"/>
+  </Box>
+
+  [bold]Всё доступно морпехам![/bold]
+
+  Берите смело.
+
+  ## Основная медицина
+
+  ### Боевой микс (БКТТ) [Брут + Берн + Токс + Окс]
+
+  <Box>
+    <GuideEntityEmbed Entity="MCPillCanisterCombatMix"/>
+    <GuideEntityEmbed Entity="MCAutoInjectorCombat"/>
+  </Box>
+
+  Лечит всё!
+  Передоз: >3 шприцев (>9 доз). Состав:
+  - Бикаридин \[Брут\]
+  - Келотан \[Берн\]
+  - Трикодразин \[Брут + Берн + Токс + Окс\]
+  - Трамадол \[Обезбол\]
+
+  ### Диловен [Токс + Стам]
+
+  <Box>
+    <GuideEntityEmbed Entity="MCPillCanisterDylovene"/>
+    <GuideEntityEmbed Entity="MCAutoInjectorDylovene"/>
+  </Box>
+
+  ### Дексалин / Дексалин+ [Окс]
+
+  <Box>
+    <GuideEntityEmbed Entity="MCAutoInjectorDexalin"/>
+    <GuideEntityEmbed Entity="MCAutoInjectorDexalinPlus"/>
+  </Box>
+
+  ### Радость доктора [Брут + Берн + Токс + Окс]
+  <GuideEntityEmbed Entity="MCPillCanisterDoctorDelight"/>
+  Нет ОД - жри сколько влезет.
+
+  Пассивное лечение на бегу.
+
+  ### Чё со мной не так?
+
+  <GuideEntityEmbed Entity="MCHealthAnalyzer"/>
+
+  Кликайте по себе/комраду - увидите все болячки.
+
+  ### Бинты и мази
+
+  <GuideEntityEmbed Entity="MCGauze"/>
+  Раны, кровотёк, перевязка + лёгкое лечение \[Брут\].
+
+  <GuideEntityEmbed Entity="MCOintment"/>
+  Ожоги, то же для \[Берн\].
+
+  ### Дефиб для мертвецов
+  Комрад сдох, врачей нет? Снимайте броню, активируйте дефибрилятор и бейте по груди.
+
+  <GuideEntityEmbed Entity="MCDefibrillator"/>
+
+  [bold]Навык есть![/bold] Вернёте в строй быстрее, чем санитара выебет руня.
+
+  # Что, чёрт возьми, здесь происходит?
+
+  Задачи зависят от режима игры - читайте, чтобы понимать динамику раунда.
+
+  ## Обязанности морпеха
+
+  ### > Не стреляй по своим!
+
+  ### > Следуй за СЛ/ФК (стрелка указывает на командира)
+  Исполняй приказы: \n
+  [bold]За мной! - иди за ним.[/bold] \n
+  [bold]Отступаем! - отступай быстро![/bold] \n
+  [bold]Не выходить за ФОБ - [bold]НЕ ВЫХОДИ![/bold][/bold] \n
+  Неисполнение = смерть + оскорбления в OOC.
+
+  ### > Не отставай от отряда.
+  [mclink="Один - уже мёртв" link="https://www.youtube.com/watch?v=dNQs_Bef_V8"]. \n
+  На краю - утащат первым. \n
+  Бежишь последним - тормозишь всех (медленный отряд = мёртвый).
+
+  ### > Читай чат и смотри карту - поможет выше.
+
+  ### > Прикрывай спецов
+  Инженер чинит АПЦ? Санитара тащит труп? - [bold]Ты полезнее 90% морпехов![/bold]
+
+  ### > Выживи
+  Не трать время санитара на свой труп.
+</Document>

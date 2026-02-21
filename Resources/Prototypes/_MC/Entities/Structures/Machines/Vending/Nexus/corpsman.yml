@@ -19,6 +19,10 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialCorpsman
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 25
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne
@@ -47,23 +51,21 @@
       - id: MCHyposprayBigFillRussianRed
         name: hypospray (120u Russian Red)
         points: 14
+    # Injectors
     - name: Auto Injector
       entries:
       - id: MCAutoInjectorMeralyne
-        name: Injector (30u Meralyne)
         points: 3
       - id: MCAutoInjectorDermaline
-        name: Injector (30u Dermaline)
         points: 3
       - id: MCAutoInjectorMeraderm
-        name: Injector (30u Meraderm)
         points: 3
+      - id: MCAutoInjectorQuickClot
+        points: 2
       - id: MCAutoInjectorCombatAdv
-        name: Injector (30u Combat advanced)
-        points: 4
-      - id: MCAutoInjectorQuickClotPlus
-        name: Injector (15u QuickclotPlus)
-        points: 1
+        points: 3
+      - id: MCAutoInjectorSynaptizine
+        points: 2
     - name: Syringe Cases
       entries:
       - id: MCCaseSyringeFillMeralyne

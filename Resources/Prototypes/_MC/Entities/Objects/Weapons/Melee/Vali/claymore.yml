@@ -19,6 +19,7 @@
     sprite: _MC/Objects/Weapons/Melee/Vali/claymore.rsi
   - type: MCWeaponVali
     reagentCapacity: 75
+    harvestAmount: 50
   - type: MeleeWeapon
     attackRate: 0.4
     damage:

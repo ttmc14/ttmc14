@@ -19,12 +19,16 @@
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialFieldCommander
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 15
     - name: Materials
       entries:
-      - id: CMSheetMetal10
+      - id: MCSheetMetal10
         name: Metal x10
         points: 2
-      - id: CMSheetPlasteel10
+      - id: MCSheetPlasteel10
         name: Plasteel x10
         points: 4
       - id: CMSandbagEmpty25
@@ -60,6 +64,13 @@
       entries:
       - id: MCBoxBulletsSmartGunSG29
         points: 4
+    # Injectors
+    - name: Auto Injector
+      entries:
+      - id: MCAutoInjectorCombatAdv
+        points: 2
+      - id: MCAutoInjectorSynaptizine
+        points: 2
 
 - type: entity
   id: MCVendorBundleEssentialFieldCommander

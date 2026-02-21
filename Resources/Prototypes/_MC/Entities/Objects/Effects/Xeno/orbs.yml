@@ -1,0 +1,24 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectXenoPsyCrushOrb
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Effects/orb.rsi
+    drawdepth: Effects
+    layers:
+    - state: charge
+      map: [ "base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.MCXenoPsyCrushOrbVisuals.State:
+        enum.MCXenoPsyCrushOrbVisuals.Layer:
+          Idle: { state: base }
+          Charging: { state: charge }
+          CrushHard: { state: hard }
+          CrushSmooth: { state: smooth }
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.4
+

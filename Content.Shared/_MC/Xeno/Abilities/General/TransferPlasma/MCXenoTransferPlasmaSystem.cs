@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Xeno.Plasma.Systems;
+﻿using Content.Shared._MC.Line;
+using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
@@ -16,6 +17,7 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
     [Dependency] private readonly MCXenoPlasmaSystem _mcXenoPlasma = null!;
+    [Dependency] private readonly MCLineSystem _mcLine = null!;
 
     public override void Initialize()
     {
@@ -60,6 +62,8 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
     {
         if (args.Handled || args.Cancelled || args.Target is not {} targetUid)
             return;
+
+        _mcLine.SpawnEffect(entity.Comp.RayEffectId, entity.Owner.ToCoordinates(), targetUid.ToCoordinates());
 
         if (!_mcXenoPlasma.TryTransferPlasma(entity, targetUid, entity.Comp.Amount))
             return;

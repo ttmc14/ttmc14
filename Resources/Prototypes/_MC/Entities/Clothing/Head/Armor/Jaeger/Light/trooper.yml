@@ -1,0 +1,170 @@
+- type: entity
+  parent: MCArmorHelmetModularJaegerScout
+  id: MCArmorHelmetModularJaegerTrooper
+  name: Jaeger Pattern Trooper Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Trooper markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/yellow.rsi

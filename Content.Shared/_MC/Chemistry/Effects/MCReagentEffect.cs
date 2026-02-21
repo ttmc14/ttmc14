@@ -1,5 +1,5 @@
 ﻿using Content.Shared._MC.Damage;
-using Content.Shared._MC.Stamina;
+using Content.Shared._MC.Mob.Stamina;
 using Content.Shared.Body.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
@@ -7,6 +7,7 @@ using Content.Shared.Damage;
 using Content.Shared.EntityEffects;
 using Content.Shared.FixedPoint;
 using Content.Shared.Popups;
+using Content.Shared.StatusEffectNew;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -20,7 +21,9 @@ public abstract partial class MCReagentEffect : EntityEffect
 
     protected SharedPopupSystem Popup;
     protected SharedBloodstreamSystem Bloodstream;
+    protected SharedStatusEffectsSystem StatusEffects;
 
+    protected MCSolutionCooldownProviderSystem MCSolutionCooldown;
     protected MCSolutionTickerSystem MCSolutionTicker;
     protected MCDamageableSystem MCDamageable;
     protected MCStaminaSystem MCStamina;
@@ -28,11 +31,15 @@ public abstract partial class MCReagentEffect : EntityEffect
     protected bool EffectProcessed;
     protected bool DamagedProcessed;
 
+    protected virtual bool TickProcess => false;
+
     #endregion
 
     private bool _initialized;
 
-    protected abstract void Effect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent);
+    protected abstract void OnEffect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent, int tick);
+    protected virtual void OnEffectStarted(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent) { }
+    protected virtual void OnEffectFinished(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent) { }
 
     protected virtual void GetDamage(EntityUid uid, Solution solution, ReagentPrototype reagent, DamageSpecifier damage)
     {
@@ -55,12 +62,26 @@ public abstract partial class MCReagentEffect : EntityEffect
             if (reagentArgs.Reagent is not { } reagent)
                 return;
 
-            Effect(reagentArgs, solution, reagent);
+            var tick = 0;
+            if (TickProcess)
+            {
+                tick = MCSolutionTicker.GetTick(reagentArgs.TargetEntity, solution, reagent);
+                if (tick == 1)
+                    OnEffectStarted(reagentArgs, solution, reagent);
+            }
+
+            OnEffect(reagentArgs, solution, reagent, tick);
         }
         finally
         {
             EffectProcessed = false;
         }
+    }
+
+    public void EffectFinished(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent)
+    {
+        Initialize();
+        OnEffectFinished(args, solution, reagent);
     }
 
     public void ProcessDamaged(EntityUid uid, Solution solution, ReagentPrototype reagent, DamageSpecifier damage)
@@ -83,9 +104,13 @@ public abstract partial class MCReagentEffect : EntityEffect
 
         // ReSharper disable NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
         RobustRandom ??= IoCManager.Resolve<IRobustRandom>();
+
         Popup ??= entityManager.System<SharedPopupSystem>();
         Bloodstream ??= entityManager.System<SharedBloodstreamSystem>();
+        StatusEffects ??= entityManager.System<SharedStatusEffectsSystem>();
+
         MCSolutionTicker ??= entityManager.System<MCSolutionTickerSystem>();
+        MCSolutionCooldown ??= entityManager.System<MCSolutionCooldownProviderSystem>();
         MCDamageable ??= entityManager.System<MCDamageableSystem>();
         MCStamina ??= entityManager.System<MCStaminaSystem>();
         // ReSharper restore NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract

@@ -4,7 +4,7 @@ using Content.Shared._MC.Armor.Modules.Events;
 using Content.Shared._MC.Armor.Modules.Systems;
 using Content.Shared._MC.Armor.Vali.Events;
 using Content.Shared._MC.Damage;
-using Content.Shared._MC.Weapon.Vali;
+using Content.Shared._MC.Weapon.Vali.Components;
 using Content.Shared._MC.Weapon.Vali.Events;
 using Content.Shared._RMC14.Actions;
 using Content.Shared.Actions;

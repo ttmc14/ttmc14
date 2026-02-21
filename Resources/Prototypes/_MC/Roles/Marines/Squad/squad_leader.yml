@@ -39,6 +39,7 @@
       skills:
         # MC
         MCSkillEngineer: 2
+        MCSkillCqc: 1
         # RMC
         RMCSkillLeadership: 3
         RMCSkillEngineer: 2

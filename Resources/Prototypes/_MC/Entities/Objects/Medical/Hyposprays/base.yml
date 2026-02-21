@@ -20,7 +20,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
   - type: RefillableSolution
     solution: hypospray
   - type: ExaminableSolution
@@ -60,7 +60,7 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
   - type: StaticPrice
     price: 5
   - type: Tag
@@ -71,8 +71,6 @@
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillMeralyne
-  name: meralyne hypospray
-  description: A hypospray loaded with meralyne. An advanced chemical that heal cuts and bruises rapidly.
   suffix: Fill
   components:
   - type: IconLabel
@@ -80,16 +78,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCMeralyne
-          Quantity: 60
+          Quantity: 120
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillDermaline
-  name: dermaline hypospray
-  description: A hypospray loaded with dermaline. An advanced chemical that heal burns rapdily.
   suffix: Fill
   components:
   - type: IconLabel
@@ -97,16 +93,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCDermaline
-          Quantity: 60
+          Quantity: 120
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillMeraderm
-  name: meraderm hypospray
-  description: A hypospray loaded with meralyne and dermaline.
   suffix: Fill
   components:
   - type: IconLabel
@@ -114,18 +108,16 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCMeralyne
-          Quantity: 30
+          Quantity: 60
         - ReagentId: MCDermaline
-          Quantity: 30
+          Quantity: 60
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillNanoblood
-  name: nanoblood hypospray
-  description: A hypospray loaded with nanoblood. A chemical which rapidly restores blood at the cost of minor toxic damage.
   suffix: Fill
   components:
   - type: IconLabel
@@ -133,16 +125,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCNanoblood
-          Quantity: 60
+          Quantity: 120
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillOxycodone
-  name: oxycodone hypospray
-  description: A hypospray loaded with oxycodone. An advanced but highly addictive chemical which almost entirely negates pain and shock.
   suffix: Fill
   components:
   - type: IconLabel
@@ -150,16 +140,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCOxycodone
-          Quantity: 60
+          Quantity: 120
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillHypervene
-  name: hypervene hypospray
-  description: A hypospray loaded with hypervene. A chemical that rapdidly flushes the body of all chemicals and toxins.
   suffix: Fill
   components:
   - type: Hypospray
@@ -169,16 +157,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCHypervene
-          Quantity: 60
+          Quantity: 120
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillQuickClotPlus
-  name: quick-clot plus hypospray
-  description: A hypospray loaded with quick-clot plus, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!
   suffix: Fill
   components:
   - type: Hypospray
@@ -188,16 +174,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCQuickClotPlus
-          Quantity: 60
+          Quantity: 120
 
 - type: entity
   parent: MCHypospray
   id: MCHyposprayFillBKTT
-  name: combat mix hypospray
-  description: A hypospray loaded with combat mix.
   suffix: Fill
   components:
   - type: IconLabel
@@ -205,22 +189,20 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 60
+        maxVol: 120
         reagents:
         - ReagentId: MCBicaridine
-          Quantity: 20
+          Quantity: 40
         - ReagentId: MCKelotane
-          Quantity: 20
+          Quantity: 40
         - ReagentId: MCTramadol
-          Quantity: 10
+          Quantity: 20
         - ReagentId: MCTricordrazine
-          Quantity: 10
+          Quantity: 20
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillBicaridine
-  name: big bicaridine hypospray
-  description: A hypospray loaded with bicaridine. A chemical that heal cuts and bruises.
   suffix: Fill
   components:
   - type: IconLabel
@@ -228,16 +210,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCBicaridine
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillKelotane
-  name: big kelotane hypospray
-  description: A hypospray loaded with kelotane. A chemical that heal burns.
   suffix: Fill
   components:
   - type: IconLabel
@@ -245,16 +225,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCKelotane
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillTricordrazine
-  name: big tricordrazine hypospray
-  description: A hypospray loaded with kelotane. A chemical that heal burns.
   suffix: Fill
   components:
   - type: IconLabel
@@ -262,16 +240,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCTricordrazine
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillDylovene
-  name: big dylovene hypospray
-  description: A hypospray loaded with dylovene. A chemical that heal toxicity whilst purging toxins, hindering stamina in the process.
   suffix: Fill
   components:
   - type: IconLabel
@@ -279,16 +255,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCDylovene
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillInaprovaline
-  name: big inaprovaline hypospray
-  description: A hypospray loaded with inaprovaline. An emergency chemical used to stabilize and heal critical patients.
   suffix: Fill
   components:
   - type: IconLabel
@@ -296,16 +270,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCInaprovaline
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillIsotonic
-  name: big isotonic hypospray
-  description: A hypospray loaded with isotonic. A chemical that aids in replenishing blood.
   suffix: Fill
   components:
   - type: IconLabel
@@ -313,16 +285,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCSalineGlucose
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillQuickClot
-  name: big quick-clot hypospray
-  description: A hypospray loaded with quick-clot. A chemical that halts internal bleeding and restores blood.
   suffix: Fill
   components:
   - type: IconLabel
@@ -330,16 +300,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCQuickClot
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillQuickClotPlus
-  name: big quick-clot plus hypospray
-  description: A hypospray loaded with quick-clot plus, a chemical designed to remove internal bleeding. Use with antitoxin. !DO NOT USE IN ACTIVE COMBAT!
   suffix: Fill
   components:
   - type: Hypospray
@@ -349,16 +317,14 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCQuickClotPlus
-          Quantity: 120
+          Quantity: 240
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillBKTT
-  name: big combat mix hypospray
-  description: A hypospray loaded with combat mix.
   suffix: Fill
   components:
   - type: IconLabel
@@ -366,22 +332,20 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCBicaridine
-          Quantity: 40
+          Quantity: 80
         - ReagentId: MCKelotane
-          Quantity: 40
+          Quantity: 80
         - ReagentId: MCTramadol
-          Quantity: 20
+          Quantity: 40
         - ReagentId: MCTricordrazine
-          Quantity: 20
+          Quantity: 40
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillCombatAdv
-  name: big advanced combat mix hypospray
-  description: A hypospray containing doses of advanced therapeutic and analgesic chemicals. Intended for use in active combat operations.
   suffix: Fill
   components:
   - type: IconLabel
@@ -389,24 +353,22 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCMeralyne
-          Quantity: 30
+          Quantity: 60
         - ReagentId: MCDermaline
-          Quantity: 30
+          Quantity: 60
         - ReagentId: MCOxycodone
-          Quantity: 30
+          Quantity: 60
         - ReagentId: MCRyetalyn
-          Quantity: 15
+          Quantity: 30
         - ReagentId: MCHyronalin
-          Quantity: 15
+          Quantity: 30
 
 - type: entity
   parent: MCHyposprayBig
   id: MCHyposprayBigFillNanoblood
-  name: big advanced nanoblood hypospray
-  description: A hypospray containing doses of advanced therapeutic and analgesic chemicals. Intended for use in active combat operations.
   suffix: Fill
   components:
   - type: IconLabel
@@ -414,10 +376,10 @@
   - type: SolutionContainerManager
     solutions:
       hypospray:
-        maxVol: 120
+        maxVol: 240
         reagents:
         - ReagentId: MCNanoblood
-          Quantity: 120
+          Quantity: 240
 
 # tags
 - type: Tag

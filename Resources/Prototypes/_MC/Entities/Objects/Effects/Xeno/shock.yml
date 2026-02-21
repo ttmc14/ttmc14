@@ -1,0 +1,21 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectShockWavePsychicBlast
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: RMCXenoScreechShockWave
+    waveSpeed: 35
+    waveStrength: 0.2
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectShockWavePsychicShield
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: TimedDespawn
+    lifetime: 0.75
+  - type: RMCXenoScreechShockWave
+    waveSpeed: 35
+    waveStrength: 0.5

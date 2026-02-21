@@ -34,6 +34,8 @@
     components:
     - type: Skills
       skills:
+        # MC
+        # RMC
         RMCSkillFirearms: 1
         RMCSkillSmartGun: -4
         RMCSkillFireman: 1

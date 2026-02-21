@@ -1,0 +1,170 @@
+- type: entity
+  parent: MCArmorHelmetModularJaegerGugnir
+  id: MCArmorHelmetModularJaegerEOD
+  name: Jaeger Pattern EOD Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has EOD markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/yellow.rsi

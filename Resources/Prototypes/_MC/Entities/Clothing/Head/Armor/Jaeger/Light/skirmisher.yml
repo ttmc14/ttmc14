@@ -1,0 +1,170 @@
+- type: entity
+  parent: MCArmorHelmetModularJaegerScout
+  id: MCArmorHelmetModularJaegerSkirmisher
+  name: Jaeger Pattern Skirmisher Helmet
+  description: Usually paired with the Jaeger Combat Exoskeleton. Can mount utility functions on the helmet hard points. Has Skirmisher markings.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/yellow.rsi

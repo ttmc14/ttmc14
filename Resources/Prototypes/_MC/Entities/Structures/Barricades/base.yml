@@ -76,7 +76,7 @@
     maximumFireStacks: 0.5
     damage:
       types:
-        Heat: 3.75
+        MCBurn: 3.75
   - type: ExaminableDamage
     messages: RMCBarricadeMessages
   - type: Climbable

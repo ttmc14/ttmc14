@@ -30,6 +30,13 @@
         cost: 100
         entities:
         - MCBeaconSupply
+      - name: mc-asrs-entry-rangefinder
+        icon:
+          sprite: _MC/Objects/Items/rangefinder.rsi
+          state: rangefinder
+        cost: 25
+        entities:
+        - MCRangefinder
       - name: mc-asrs-entry-orbital-beacon
         icon:
           sprite: _MC/Objects/Items/beacon.rsi
@@ -298,6 +305,54 @@
         entities:
         - MCMagazineSentryFlamer
     - name: mc-asrs-category-explosives
+      entries:
+      - name: mc-asrs-entry-T50S mortar crate
+        icon:
+          sprite: _MC/Structures/Machines/mortar.rsi
+          state: mortar_deployed
+        cost: 250
+        entities:
+        - MCMortarKit
+      - name: mc-asrs-entry-T50S mortar HE shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_he
+        cost: 10
+        entities:
+        - MCMortarShellHE
+        - MCMortarShellHE
+      - name: mc-asrs-entry-T50S mortar incendiary shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_inc
+        cost: 10
+        entities:
+        - MCMortarShellIncendiary
+        - MCMortarShellIncendiary
+      - name: mc-asrs-entry-T50S mortar flare shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_flr
+        cost: 5
+        entities:
+        - MCMortarShellFlare
+        - MCMortarShellFlare
+      - name: mc-asrs-entry-T50S mortar smoke shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_smk
+        cost: 5
+        entities:
+        - MCMortarShellSmoke
+        - MCMortarShellSmoke
+      - name: mc-asrs-entry-T50S mortar tanglefoot shell (x2)
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Shells/mortar.rsi
+          state: mortar_fsh
+        cost: 15
+        entities:
+        - MCMortarShellTanglefoot
+        - MCMortarShellTanglefoot
     - name: mc-asrs-category-armor
       entries:
       - name: mc-asrs-entry-scout-cloak
@@ -550,19 +605,19 @@
         - MCMagazineSmartGunSG153Incendiary
     - name: mc-asrs-category-medical
       entries:
-      - name: Emergency medical supplies
+      - name: mc-asrs-entry-emergency-medkit
         icon:
           sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
           state: base
         cost: 80
         entities:
-        - MCPouchMedicalInjectorCorpsmanFull
-        - MCPouchMedicalInjectorCorpsmanFull
-        - MCPouchMedicalInjectorCorpsmanFull
-        - MCPouchMedicalInjectorCorpsmanFull
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
         # /obj/item/reagent_containers/hypospray/autoinjector/neuraline,
         # /obj/item/stack/nanopaste
-      - name: MEDEVAC system
+      - name: mc-asrs-entry-medevac-stretcher
         icon:
           sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
           state: stretcher_down

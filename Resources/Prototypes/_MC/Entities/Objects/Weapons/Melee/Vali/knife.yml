@@ -17,9 +17,9 @@
     sprite: _MC/Objects/Weapons/Melee/Vali/knife.rsi
     size: Small
   - type: MCWeaponVali
-    reagentCapacity: 5
+    reagentCapacity: 15
   - type: MeleeWeapon
-    attackRate: 1.25
+    attackRate: 2
     damage:
       types:
         MCBrute: 25

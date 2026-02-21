@@ -1,0 +1,146 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "default_1"
+    },
+    {
+      "name": "default_2"
+    },
+    {
+      "name": "default_3"
+    },
+    {
+      "name": "default_4"
+    },
+    {
+      "name": "default_5"
+    },
+    {
+      "name": "default_6"
+    },
+    {
+      "name": "default_7"
+    },
+    {
+      "name": "default_8"
+    },
+    {
+      "name": "default_9"
+    },
+    {
+      "name": "default_10"
+    },
+    {
+      "name": "default_12"
+    },
+    {
+      "name": "x_1"
+    },
+    {
+      "name": "x_2"
+    },
+    {
+      "name": "x_3"
+    },
+    {
+      "name": "x_4"
+    },
+    {
+      "name": "x_5"
+    },
+    {
+      "name": "x_6"
+    },
+    {
+      "name": "x_7"
+    },
+    {
+      "name": "x_8"
+    },
+    {
+      "name": "x_9"
+    },
+    {
+      "name": "x_10"
+    },
+    {
+      "name": "x_12"
+    },
+    {
+      "name": "clonefix0"
+    },
+    {
+      "name": "lilac"
+    },
+    {
+      "name": "mystery"
+    },
+    {
+      "name": "toxic"
+    },
+    {
+      "name": "redwood"
+    },
+    {
+      "name": "devilpower"
+    },
+    {
+      "name": "angel_light"
+    },
+    {
+      "name": "vampirekiss"
+    },
+    {
+      "name": "red_white"
+    },
+    {
+      "name": "evangelion"
+    },
+    {
+      "name": "lilac_x"
+    },
+    {
+      "name": "mystery_x"
+    },
+    {
+      "name": "toxic_x"
+    },
+    {
+      "name": "redwood_x"
+    },
+    {
+      "name": "devilpower_x"
+    },
+    {
+      "name": "angel_light_x"
+    },
+    {
+      "name": "vampirekiss_x"
+    },
+    {
+      "name": "red_white_x"
+    },
+    {
+      "name": "evangelion_x"
+    },
+    {
+      "name": "vio_white"
+    },
+    {
+      "name": "vio_white_x"
+    },
+    {
+      "name": "red_green"
+    },
+    {
+      "name": "red_green_x"
+    }
+  ]
+}

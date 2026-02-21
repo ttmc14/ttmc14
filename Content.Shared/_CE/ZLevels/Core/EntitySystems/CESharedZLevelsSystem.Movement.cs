@@ -1,6 +1,8 @@
 /*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
+ * Copyright (c) 2026 TornadgoTechnology
+ * Copyright (c) 2026 CrystallEdge (https://github.com/crystallpunk-14/crystall-edge)
+ *
+ * SPDX-License-Identifier: PolyForm-Noncommercial-1.0.0 AND MIT
  */
 
 using System.Numerics;
@@ -21,6 +23,7 @@ public abstract partial class CESharedZLevelsSystem
 
     private const float ZGravityForce = 9.8f;
     private const float ZVelocityLimit = 20.0f;
+    private const int MaxStepsPerFrame = 10;
 
     /// <summary>
     /// The minimum speed required to trigger LandEvent events.
@@ -29,11 +32,12 @@ public abstract partial class CESharedZLevelsSystem
 
     private EntityQuery<CEZLevelHighGroundComponent> _highgroundQuery;
 
-    private void InitMovement()
+    private TimeSpan _accumulatedTime = TimeSpan.Zero;
+
+    private void InitializeMovement()
     {
         _highgroundQuery = GetEntityQuery<CEZLevelHighGroundComponent>();
 
-        SubscribeLocalEvent<CEZPhysicsComponent, CEGetZVelocityEvent>(OnGetVelocity);
         SubscribeLocalEvent<CEZPhysicsComponent, CEZLevelMapMoveEvent>(OnZLevelMapMove);
         SubscribeLocalEvent<CEActiveZPhysicsComponent, ComponentInit>(OnActiveInit);
 
@@ -45,7 +49,8 @@ public abstract partial class CESharedZLevelsSystem
     {
         if (!ZPhyzQuery.TryComp(ent, out var zComp))
             return;
-        CacheMovement((ent, zComp));
+
+        RequestCacheMovement((ent, zComp));
     }
 
     private void OnTileChanged(Entity<CEZLevelMapComponent> ent, ref TileChangedEvent args)
@@ -63,26 +68,33 @@ public abstract partial class CESharedZLevelsSystem
             var max = mapCoords.Position + half;
             var aabb = new Box2(min, max);
 
-            var ents = _lookup.GetEntitiesIntersecting(mapCoords.MapId, aabb);
-            foreach (var uid in ents)
+            var entities = _lookup.GetEntitiesIntersecting(mapCoords.MapId, aabb);
+            foreach (var uid in entities)
             {
                 if (!ZPhyzQuery.TryComp(uid, out var zComp))
                     continue;
 
-                CacheMovement((uid, zComp));
+                RequestCacheMovement((uid, zComp));
             }
         }
     }
 
-    private void CacheMovement(Entity<CEZPhysicsComponent> ent)
+    private void RequestCacheMovement(Entity<CEZPhysicsComponent> entity, bool force = true)
     {
-        ent.Comp.CurrentGroundHeight = ComputeGroundHeightInternal((ent, ent), out var sticky);
-        ent.Comp.CurrentStickyGround = sticky;
+        var tile = _transform.GetGridOrMapTilePosition(entity);
+
+        // If we stay at same tile we don't need to recalculate a lot of fucking math
+        if (tile == entity.Comp.CachedTile && !force)
+            return;
+
+        entity.Comp.CachedTile = _transform.GetGridOrMapTilePosition(entity);
+        entity.Comp.CachedGroundHeight = ComputeGroundHeightInternal((entity, entity), out var sticky);
+        entity.Comp.CachedStickyGround = sticky;
     }
 
     private void OnMoveEvent(Entity<CEZPhysicsComponent> ent, ref MoveEvent args)
     {
-        CacheMovement(ent);
+        RequestCacheMovement(ent);
     }
 
     private void OnZLevelMapMove(Entity<CEZPhysicsComponent> ent, ref CEZLevelMapMoveEvent args)
@@ -90,110 +102,130 @@ public abstract partial class CESharedZLevelsSystem
         ent.Comp.CurrentZLevel = args.CurrentZLevel;
         DirtyField(ent, ent.Comp, nameof(CEZPhysicsComponent.CurrentZLevel));
         // Update cached ground height when entity moves between Z-level maps
-        CacheMovement(ent);
-    }
-
-    private void OnGetVelocity(Entity<CEZPhysicsComponent> ent, ref CEGetZVelocityEvent args)
-    {
-        args.VelocityDelta -= ZGravityForce * ent.Comp.GravityMultiplier;
+        RequestCacheMovement(ent);
     }
 
     public override void Update(float frameTime)
     {
         base.Update(frameTime);
 
-        if (_net.IsClient && !_clientSimultaion)
+        if (_net.IsClient && !_clientSimulation)
             return;
+        _accumulatedTime += TimeSpan.FromSeconds(frameTime);
 
+        var steps = 0;
+        while (_accumulatedTime >= _fixedTimestep && steps < MaxStepsPerFrame)
+        {
+            UpdateZPhysics((float) _fixedTimestep.TotalSeconds);
+
+            _accumulatedTime -= _fixedTimestep;
+            steps++;
+        }
+    }
+
+    private void UpdateZPhysics(float frameTime)
+    {
         var query = EntityQueryEnumerator<CEZPhysicsComponent, CEActiveZPhysicsComponent, TransformComponent, PhysicsComponent>();
-        while (query.MoveNext(out var uid, out var zPhys, out _, out var xform, out var physics))
+        while (query.MoveNext(out var uid, out var zPhysicsComponent, out _, out var xform, out var physics))
         {
             if (!_zMapQuery.HasComp(xform.MapUid))
                 continue;
 
-            var oldVelocity = zPhys.Velocity;
-            var oldHeight = zPhys.LocalPosition;
+            var oldVelocity = zPhysicsComponent.Velocity;
+            var oldHeight = zPhysicsComponent.LocalPosition;
 
             if (physics.BodyStatus == BodyStatus.OnGround)
             {
-                //Velocity application
-                var velocityEv = new CEGetZVelocityEvent((uid, zPhys));
-                RaiseLocalEvent(uid, velocityEv);
+                if (zPhysicsComponent.VelocityGravity)
+                {
+                    zPhysicsComponent.Velocity -= ZGravityForce * zPhysicsComponent.GravityMultiplier * frameTime;
+                }
 
-                zPhys.Velocity += velocityEv.VelocityDelta * frameTime;
+                // Custom velocity application
+                if (zPhysicsComponent.VelocityRaiseEvent)
+                {
+                    var velocityEvent = new CEGetZVelocityEvent((uid, zPhysicsComponent));
+                    RaiseLocalEvent(uid, ref velocityEvent);
+
+                    zPhysicsComponent.Velocity += velocityEvent.VelocityDelta * frameTime;
+                }
             }
 
-            //Movement application
-            zPhys.LocalPosition += zPhys.Velocity * frameTime;
+            // Movement application
+            zPhysicsComponent.LocalPosition += zPhysicsComponent.Velocity * frameTime;
 
-            var distanceToGround = zPhys.LocalPosition - zPhys.CurrentGroundHeight;
+            var distanceToGround = zPhysicsComponent.LocalPosition - zPhysicsComponent.CachedGroundHeight;
 
             // AutoStep: lift entity up if floor is higher
-            if (zPhys.AutoStep && distanceToGround < 0)
-                zPhys.LocalPosition -= distanceToGround; //Lift up
+            if (zPhysicsComponent.AutoStep && distanceToGround < 0)
+                zPhysicsComponent.LocalPosition -= distanceToGround; //Lift up
 
             // Sticky ground: only pull down when slowly falling on sticky surfaces (ladders)
-            if (zPhys.CurrentStickyGround)
-                zPhys.LocalPosition -= distanceToGround; //Sticky move down
+            if (zPhysicsComponent.CachedStickyGround)
+                zPhysicsComponent.LocalPosition -= distanceToGround; //Sticky move down
 
-            if (zPhys.Velocity < 0) //Falling down
+            if (zPhysicsComponent is { Velocity: < 0, Fallable: true }) //Falling down
             {
                 if (distanceToGround <= 0.05f) //There`s a ground
                 {
-                    if (MathF.Abs(zPhys.Velocity) >= ImpactVelocityLimit)
+                    if (float.Abs(zPhysicsComponent.Velocity) >= ImpactVelocityLimit)
                     {
-                        RaiseLocalEvent(uid, new CEZLevelHitEvent(-zPhys.Velocity));
+                        var hitEv = new CEZLevelHitEvent(-zPhysicsComponent.Velocity);
+                        RaiseLocalEvent(uid, ref hitEv);
+
                         var land = new LandEvent(null, true);
                         RaiseLocalEvent(uid, ref land);
                     }
 
-                    zPhys.Velocity = -zPhys.Velocity * zPhys.Bounciness;
+                    zPhysicsComponent.Velocity = -zPhysicsComponent.Velocity * zPhysicsComponent.Bounciness;
                 }
             }
 
-            if (zPhys.LocalPosition < 0) //Need teleport to ZLevel down
+            if (zPhysicsComponent.LocalPosition < 0) //Need teleport to ZLevel down
             {
                 if (TryMoveDownOrChasm(uid))
                 {
-                    zPhys.LocalPosition += 1;
+                    zPhysicsComponent.LocalPosition += 1;
 
-                    if (!zPhys.CurrentStickyGround)
+                    if (zPhysicsComponent is { CachedStickyGround: false, Fallable: true })
                     {
                         var fallEv = new CEZLevelFallMapEvent();
-                        RaiseLocalEvent(uid, fallEv);
+                        RaiseLocalEvent(uid, ref fallEv);
                     }
                 }
             }
 
-            if (zPhys.LocalPosition >= 1) //Need teleport to ZLevel up
+            if (zPhysicsComponent.LocalPosition >= 1) //Need teleport to ZLevel up
             {
                 if (HasTileAbove(uid)) //Hit roof
                 {
-                    if (MathF.Abs(zPhys.Velocity) >= ImpactVelocityLimit)
+                    if (float.Abs(zPhysicsComponent.Velocity) >= ImpactVelocityLimit)
                     {
-                        RaiseLocalEvent(uid, new CEZLevelHitEvent(zPhys.Velocity));
+                        var hitEv = new CEZLevelHitEvent(zPhysicsComponent.Velocity);
+                        RaiseLocalEvent(uid, ref hitEv);
+
                         var land = new LandEvent(null, true);
                         RaiseLocalEvent(uid, ref land);
                     }
 
-                    zPhys.LocalPosition = 1;
-                    zPhys.Velocity = -zPhys.Velocity * zPhys.Bounciness;
+                    zPhysicsComponent.LocalPosition = 1;
+                    zPhysicsComponent.Velocity = -zPhysicsComponent.Velocity * zPhysicsComponent.Bounciness;
                 }
-                else //Move up
+                else
                 {
                     if (TryMoveUp(uid))
-                        zPhys.LocalPosition -= 1;
+                        zPhysicsComponent.LocalPosition -= 1;
                 }
             }
 
-            if (Math.Abs(zPhys.Velocity) > ZVelocityLimit)
-                zPhys.Velocity = MathF.Sign(zPhys.Velocity) * ZVelocityLimit;
+            if (float.Abs(zPhysicsComponent.Velocity) > ZVelocityLimit)
+                zPhysicsComponent.Velocity = float.Sign(zPhysicsComponent.Velocity) * ZVelocityLimit;
 
-            if (Math.Abs(oldVelocity - zPhys.Velocity) > 0.01f)
-                DirtyField(uid, zPhys, nameof(CEZPhysicsComponent.Velocity));
+            if (float.Abs(oldVelocity - zPhysicsComponent.Velocity) > 0.01f)
+                DirtyField(uid, zPhysicsComponent, nameof(CEZPhysicsComponent.Velocity));
 
-            if (Math.Abs(oldHeight - zPhys.LocalPosition) > 0.01f)
-                DirtyField(uid, zPhys, nameof(CEZPhysicsComponent.LocalPosition));
+            if (float.Abs(oldHeight - zPhysicsComponent.LocalPosition) > 0.01f)
+                DirtyField(uid, zPhysicsComponent, nameof(CEZPhysicsComponent.LocalPosition));
         }
     }
 
@@ -207,7 +239,7 @@ public abstract partial class CESharedZLevelsSystem
         if (!Resolve(target, ref target.Comp, false))
             return 0;
 
-        return target.Comp.LocalPosition - target.Comp.CurrentGroundHeight;
+        return target.Comp.LocalPosition - target.Comp.CachedGroundHeight;
     }
 
     /// <summary>
@@ -218,12 +250,14 @@ public abstract partial class CESharedZLevelsSystem
     private float ComputeGroundHeightInternal(Entity<CEZPhysicsComponent?> target, out bool stickyGround, int maxFloors = 1)
     {
         stickyGround = false;
+
         if (!Resolve(target, ref target.Comp, false))
             return 0;
 
         var xform = Transform(target);
         if (!_zMapQuery.TryComp(xform.MapUid, out var zMapComp))
             return 0;
+
         if (!_gridQuery.TryComp(xform.MapUid, out var mapGrid))
             return 0;
 
@@ -243,7 +277,7 @@ public abstract partial class CESharedZLevelsSystem
                 if (!_gridQuery.TryComp(tempCheckingMap, out var tempCheckingGrid))
                     continue;
 
-                checkingMap = tempCheckingMap.Value;
+                checkingMap = tempCheckingMap;
                 checkingGrid = tempCheckingGrid;
             }
 
@@ -267,7 +301,7 @@ public abstract partial class CESharedZLevelsSystem
                     _ => 0.5f,
                 };
 
-                t = Math.Clamp(t, 0f, 1f);
+                t = float.Clamp(t, 0f, 1f);
 
                 var curve = heightComp.HeightCurve;
                 if (curve.Count == 0)
@@ -319,10 +353,10 @@ public abstract partial class CESharedZLevelsSystem
         if (!TryMapUp(currentMapUid.Value, out var mapAboveUid))
             return false;
 
-        if (!_gridQuery.TryComp(mapAboveUid.Value, out var mapAboveGrid))
+        if (!_gridQuery.TryComp(mapAboveUid, out var mapAboveGrid))
             return false;
 
-        if (_map.TryGetTileRef(mapAboveUid.Value, mapAboveGrid, _transform.GetWorldPosition(ent), out var tileRef) &&
+        if (_map.TryGetTileRef(mapAboveUid, mapAboveGrid, _transform.GetWorldPosition(ent), out var tileRef) &&
             !tileRef.Tile.IsEmpty)
             return true;
 
@@ -342,10 +376,10 @@ public abstract partial class CESharedZLevelsSystem
         if (!TryMapUp(map, out var mapAboveUid))
             return false;
 
-        if (!_gridQuery.TryComp(mapAboveUid.Value, out var mapAboveGrid))
+        if (!_gridQuery.TryComp(mapAboveUid, out var mapAboveGrid))
             return false;
 
-        if (_map.TryGetTileRef(mapAboveUid.Value, mapAboveGrid, indices, out var tileRef) &&
+        if (_map.TryGetTileRef(mapAboveUid, mapAboveGrid, indices, out var tileRef) &&
             !tileRef.Tile.IsEmpty)
             return true;
 
@@ -369,7 +403,7 @@ public abstract partial class CESharedZLevelsSystem
             return;
 
         var ev = new CECheckGravityEvent();
-        RaiseLocalEvent(ent.Owner, ev);
+        RaiseLocalEvent(ent.Owner, ref ev);
 
         SetZGravity(ent, ev.Gravity);
     }
@@ -423,11 +457,13 @@ public abstract partial class CESharedZLevelsSystem
         if (!_mapQuery.TryComp(targetMap, out var targetMapComp))
             return false;
 
+        var worldRot = _transform.GetWorldRotation(ent);
 
         _transform.SetMapCoordinates(ent, new MapCoordinates(_transform.GetWorldPosition(ent), targetMapComp.MapId));
+        _transform.SetWorldRotation(ent, worldRot);
 
-        var ev = new CEZLevelMapMoveEvent(offset, targetMap.Value.Comp.Depth);
-        RaiseLocalEvent(ent, ev);
+        var ev = new CEZLevelMapMoveEvent(offset, targetMap.Comp.Depth);
+        RaiseLocalEvent(ent, ref ev);
 
         return true;
     }
@@ -468,7 +504,8 @@ public abstract partial class CESharedZLevelsSystem
 /// Is called on an entity when it moves between z-levels.
 /// </summary>
 /// <param name="offset">How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.</param>
-public sealed class CEZLevelMapMoveEvent(int offset, int level) : EntityEventArgs
+[ByRefEvent]
+public struct CEZLevelMapMoveEvent(int offset, int level)
 {
     /// <summary>
     /// How many levels were crossed. If negative, it means there was a downward movement. If positive, it means an upward movement.
@@ -481,13 +518,15 @@ public sealed class CEZLevelMapMoveEvent(int offset, int level) : EntityEventArg
 /// <summary>
 /// Is triggered when an entity falls to the lower z-levels under the force of gravity
 /// </summary>
-public sealed class CEZLevelFallMapEvent : EntityEventArgs;
+[ByRefEvent]
+public struct CEZLevelFallMapEvent;
 
 /// <summary>
 /// It is called on an entity when it hits the floor or ceiling with force.
 /// </summary>
 /// <param name="impactPower">The speed at the moment of impact. Always positive</param>
-public sealed class CEZLevelHitEvent(float impactPower) : EntityEventArgs
+[ByRefEvent]
+public struct CEZLevelHitEvent(float impactPower)
 {
     /// <summary>
     /// The speed at the moment of impact. Always positive
@@ -498,7 +537,8 @@ public sealed class CEZLevelHitEvent(float impactPower) : EntityEventArgs
 /// <summary>
 /// Is called every frame to calculate the current vertical velocity of the object with CEActiveZPhysicsComponent.
 /// </summary>
-public sealed class CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target) : EntityEventArgs
+[ByRefEvent]
+public struct CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target)
 {
     public Entity<CEZPhysicsComponent> Target = target;
     public float VelocityDelta = 0;
@@ -507,7 +547,8 @@ public sealed class CEGetZVelocityEvent(Entity<CEZPhysicsComponent> target) : En
 /// <summary>
 /// Called when UpdateGravityState is used to update the current strength of the active z-level gravity. Various systems can subscribe to this to disable gravity.
 /// </summary>
-public sealed class CECheckGravityEvent : EntityEventArgs
+[ByRefEvent]
+public struct CECheckGravityEvent()
 {
     public float Gravity = 1f;
 }

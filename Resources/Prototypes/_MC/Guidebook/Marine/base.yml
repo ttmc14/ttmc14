@@ -1,0 +1,29 @@
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideMarine
+  name: Морпехи
+  priority: 2
+  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/MCGuideMarine.xml"
+  children:
+  - MCGuideMarineSkills
+  - MCGuideMarineMedicine
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideMarineSkills
+  name: Навыки
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/MCGuideSkills.xml"
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideMarineMedicine
+  name: Медицина и Химия
+  priority: 2
+  text: "/ServerInfo/Guidebook/_MC/Medicine/Medicine.xml"
+  children:
+  - MCMedicineChemicalsAll
+  - MCMedicineChemicalsBase
+  - MCMedicineChemicalsSpecial
+  - MCMedicineChemicalsToxinsXeno

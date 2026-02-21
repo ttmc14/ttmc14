@@ -33,3 +33,48 @@
           Quantity: 30
   - type: IconLabel
     labelTextLocId: mc-russian-red-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorSynaptizine
+  name: synaptizine auto-injector
+  description: An auto-injector freshly loaded with a safe-to-use synaptizine mix.
+  components:
+  # - type: Sprite
+  #   sprite: _MC/Objects/Medical/Syringe/autoinjector.rsi
+  #   layers:
+  #   - state: mystery
+  #   - state: mystery_x
+  - type: Hypospray
+    transferAmount: 6
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 18
+        reagents:
+        - ReagentId: MCSynaptizine
+          Quantity: 6
+        - ReagentId: MCHyronalin
+          Quantity: 12
+  - type: IconLabel
+    labelTextLocId: mc-synaptizine-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorSynaptizineExpired
+  name: expired synaptizine auto-injector
+  description: An auto-injector said to be loaded with a safe-to-use synaptizine mix, 3 months past it's expiration date.
+  components:
+  - type: Hypospray
+    transferAmount: 2
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 6
+        reagents:
+        - ReagentId: MCSynaptizine
+          Quantity: 3
+        - ReagentId: MCHyronalin
+          Quantity: 3
+  - type: IconLabel
+    labelTextLocId: mc-synaptizine-expired-container-label-text

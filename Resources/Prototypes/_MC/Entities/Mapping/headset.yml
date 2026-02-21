@@ -1,19 +1,7 @@
-﻿- type: entity
-  id: MCVendorHeadsetSquad
-  categories:
-  - HideSpawnMenu
-  components:
-  - type: CMVendorMapToSquad
-    map:
-      SquadAlpha: MCHeadsetAlpha
-      SquadBravo: MCHeadsetBravo
-      SquadCharlie: MCHeadsetCharlie
-      SquadDelta: MCHeadsetDelta
-
+﻿# Leader
 - type: entity
   id: MCVendorHeadsetSquadLeader
-  categories:
-  - HideSpawnMenu
+  categories: [ HideSpawnMenu ]
   components:
   - type: CMVendorMapToSquad
     map:
@@ -23,9 +11,21 @@
       SquadDelta: MCHeadsetDeltaLeader
 
 - type: entity
+  id: MCVendorHeadsetSquadLeaderKit
+  name: headset
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: marine_generic
+  - type: CMVendorBundle
+    bundle:
+    - MCVendorHeadsetSquadLeader
+
+# Engineer
+- type: entity
   id: MCVendorHeadsetSquadEngineer
-  categories:
-  - HideSpawnMenu
+  categories: [ HideSpawnMenu ]
   components:
   - type: CMVendorMapToSquad
     map:
@@ -35,9 +35,21 @@
       SquadDelta: MCHeadsetDeltaEngineer
 
 - type: entity
+  id: MCVendorHeadsetSquadEngineerKit
+  name: headset
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: marine_generic
+  - type: CMVendorBundle
+    bundle:
+    - MCVendorHeadsetSquadEngineer
+
+# Medic
+- type: entity
   id: MCVendorHeadsetSquadMedic
-  categories:
-  - HideSpawnMenu
+  categories: [ HideSpawnMenu ]
   components:
   - type: CMVendorMapToSquad
     map:
@@ -45,3 +57,39 @@
       SquadBravo: MCHeadsetBravoMedic
       SquadCharlie: MCHeadsetCharlieMedic
       SquadDelta: MCHeadsetDeltaMedic
+
+- type: entity
+  id: MCVendorHeadsetSquadMedicKit
+  name: headset
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: marine_generic
+  - type: CMVendorBundle
+    bundle:
+    - MCVendorHeadsetSquadMedic
+
+# General
+- type: entity
+  id: MCVendorHeadsetSquad
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: CMVendorMapToSquad
+    map:
+      SquadAlpha: MCHeadsetAlpha
+      SquadBravo: MCHeadsetBravo
+      SquadCharlie: MCHeadsetCharlie
+      SquadDelta: MCHeadsetDelta
+
+- type: entity
+  id: MCVendorHeadsetSquadKit
+  name: headset
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/radio.rsi
+    state: marine_generic
+  - type: CMVendorBundle
+    bundle:
+    - MCVendorHeadsetSquad

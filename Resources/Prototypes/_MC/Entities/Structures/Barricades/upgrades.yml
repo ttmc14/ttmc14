@@ -44,3 +44,40 @@
   - type: Sprite
     state: brute
 
+#plasteel
+
+- type: entity
+  parent: MCBarricadeUpgrade
+  id: MCPlasteelExplosiveUpgrade
+  name: composite upgrade (++Explosive, ++Projectile, ++Fire)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCConstructionUpgrade
+    upgradedPopup: rmc-construction-upgrade-explosive
+    upgradedEntity: MCBarricadeExplosive
+  - type: Sprite
+    state: explosive
+
+- type: entity
+  parent: MCBarricadeUpgrade
+  id: MCPlasteelBiohazardUpgrade
+  name: biohazard upgrade (+Burn)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCConstructionUpgrade
+    upgradedPopup: rmc-construction-upgrade-burn
+    upgradedEntity: MCBarricadeBurn
+  - type: Sprite
+    state: burn
+
+- type: entity
+  parent: MCBarricadeUpgrade
+  id: MCPlasteelBruteUpgrade
+  name: reinforced upgrade (+Brute)
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: RMCConstructionUpgrade
+    upgradedPopup: rmc-construction-upgrade-brute
+    upgradedEntity: MCBarricadeBrute
+  - type: Sprite
+    state: brute

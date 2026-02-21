@@ -1,0 +1,183 @@
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerGugnir
+  name: Jaeger Gugnir heavy exoskeleton
+  description: A Gugnir-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 70
+      laser: 70
+      energy: 60
+      bomb: 55
+      bio: 55
+      fire: 55
+      acid: 60
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/steel.rsi
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/brown.rsi
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/charlie.rsi
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/copper.rsi
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/desert.rsi
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/earth.rsi
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/fall.rsi
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/forest.rsi
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/ginger.rsi
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/grape.rsi
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/green.rsi
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/grey.rsi
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/hazrd.rsi
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/iris.rsi
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/kelly_green.rsi
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/leaf.rsi
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/light_blue.rsi
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/light_red.rsi
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/lilac.rsi
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/lime.rsi
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/magenta.rsi
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/mint.rsi
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/mountbatten.rsi
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/navy.rsi
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/night_slate.rsi
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/nightshade.rsi
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/olive.rsi
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/orange.rsi
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/pearl_pink.rsi
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/rifle_green.rsi
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/sea_blue.rsi
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/silver.rsi
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/snow.rsi
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/space_cadet.rsi
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/steel.rsi
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/stone_blue.rsi
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/storm.rsi
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/teal.rsi
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/violet.rsi
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/wood.rsi
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/yellow.rsi

@@ -1,4 +1,6 @@
 ﻿using System.Numerics;
+using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._MC.Weapon;
 using Content.Shared._MC.Xeno.Projectiles;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared._RMC14.Xenonids;
@@ -40,6 +42,9 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
     [Dependency] private readonly XenoSystem _rmcXeno = null!;
     [Dependency] private readonly XenoPlasmaSystem _rmcXenoPlasma = null!;
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+
+    [Dependency] private readonly CESharedZLevelsSystem _mcZLevels = null!;
+    [Dependency] private readonly MCZLevelShootHelperSystem _mcZHelper = null!;
 
     protected EntityQuery<MCXenoSpitComponent> XenoSpitQuery;
 
@@ -150,6 +155,9 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
 
             result[i] = projectile;
         }
+
+        if (_mcZLevels.IsVoidAtCoordinates(targetCoords, out _))
+            _mcZHelper.ApplyZPhysics(xeno, ammoShotEvent.FiredProjectiles, targetCoords, speed);
 
         RaiseLocalEvent(xeno, ammoShotEvent);
         return result;

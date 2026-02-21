@@ -1,0 +1,9 @@
+- type: entity
+  parent: MCGuidebookActionMarine
+  id: MCGuidebookActionToggleAimedShoot
+  name: Toggle Aimed Shoot
+  description: Switch the ammo type fired by this gun.
+  components:
+  - type: Sprite
+    sprite: _MC/Actions/actions.rsi
+    state: aim_mode

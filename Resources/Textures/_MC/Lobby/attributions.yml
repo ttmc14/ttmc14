@@ -1,4 +1,60 @@
-- files: ["TGMC.png"]
-  license: "CC-BY-SA-4.0"
-  copyright: "By psycrow6773 (discord)"
-  source: "https://discord.com/channels/1389812944405008536/1392438854383829042/1402352464723972116"
+- files: [ "old_5.png" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_5_upscaled" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13 (Upscaled by TornadoTechnology)
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_13.png" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_13_upscaled" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13 (Upscaled by TornadoTechnology)
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_17.png" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_17_upscaled" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13 (Upscaled by TornadoTechnology)
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_28.png" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_28_upscaled" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13 (Upscaled by TornadoTechnology)
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_40.png" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_40_upscaled" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13 (Upscaled by TornadoTechnology)
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_45.png" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+
+- files: [ "old_45_upscaled" ]
+  license: "CC-BY-NC-4.0"
+  copyright: "By UngaMarines 13 (Upscaled by TornadoTechnology)
+  source: "https://github.com/UngaCo/UngaMarines-13/commit/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c"
+`

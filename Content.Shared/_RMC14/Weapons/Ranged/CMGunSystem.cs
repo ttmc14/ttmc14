@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._MC.Xeno.Abilities.Evasion;
 using Content.Shared._RMC14.Attachable.Components;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Evasion;
@@ -435,8 +436,8 @@ public sealed class CMGunSystem : EntitySystem
         var targetFactionEvent = new GetIFFFactionEvent(null, SlotFlags.IDCARD);
         RaiseLocalEvent(gunComp.Target.Value, ref targetFactionEvent);
 
-        if (shooterFactionEvent.Faction != null && 
-            targetFactionEvent.Faction != null && 
+        if (shooterFactionEvent.Faction != null &&
+            targetFactionEvent.Faction != null &&
             shooterFactionEvent.Faction == targetFactionEvent.Faction &&
             HasComp<EntityActiveInvisibleComponent>(gunComp.Target))
         {
@@ -471,6 +472,10 @@ public sealed class CMGunSystem : EntitySystem
             {
                 continue;
             }
+
+            // TODO: MC Shit here
+            if (HasComp<MCXenoEvaderComponent>(gunComp.Target.Value))
+                continue;
 
             if (_standing.IsDown(gunComp.Target.Value))
             {

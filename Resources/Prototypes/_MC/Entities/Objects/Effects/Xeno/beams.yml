@@ -1,0 +1,46 @@
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectPsychicBlastRay
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.1
+  - type: Sprite
+    sprite: _MC/Effects/Beams/warlock.rsi
+    state: base_body
+    drawdepth: Effects
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_tail
+    body:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_body
+    head:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_head
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectTransferPlasmaRay
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.25
+  - type: Sprite
+    sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+    state: base
+    drawdepth: Effects
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+      state: base
+    body:
+      sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+      state: base
+    head:
+      sprite: _MC/Effects/Xeno/transfer_plasma.rsi
+      state: base

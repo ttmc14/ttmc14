@@ -48,6 +48,8 @@ public sealed partial class MCXenoSpawnSystem : EntitySystem
     {
         base.Initialize();
 
+        InitializeVote();
+
         Subs.CVar(_config, RMCCVars.RMCSunsetDuration, v => _sunsetDuration = TimeSpan.FromSeconds(v), true);
         Subs.CVar(_config, RMCCVars.RMCSunriseDuration, v => _sunriseDuration = TimeSpan.FromSeconds(v), true);
     }
