@@ -18,6 +18,6 @@ public sealed class MCXenoHiveSystem : MCSharedXenoHiveSystem
     private void OnRoundStart(RoundStartingEvent ev)
     {
         Inst.Comp.DefaultHive = _rmcHive.CreateHive(Inst.Comp.DefaultHiveName, Inst.Comp.DefaultHiveId);
-        Dirty(Inst);
+        Dirty();
     }
 }
