@@ -29,6 +29,10 @@
       path: /Audio/_RMC14/Handling/paper_drop.ogg
       params:
         volume: -5
+  - type: GuideHelp
+    guides:
+    - MCGuideMarineSkills
+
 
 - type: entity
   parent: MCImplantSkill

@@ -82,23 +82,23 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
         _actionBlocker.UpdateCanMove(entity);
     }
 
-    private void EndAbility(Entity<MCXenoShieldInstanceComponent> entity)
+    private void EndAbility(Entity<MCXenoShieldInstanceComponent> entity, bool forced = false)
     {
         if (!TryComp<MCXenoShieldActiveComponent>(entity.Comp.OwnerUid, out var activeComponent) ||
             !TryComp<MCXenoShieldComponent>(entity.Comp.OwnerUid, out var configComponent))
             return;
 
-        EndAbility((entity.Comp.OwnerUid, activeComponent), configComponent);
+        EndAbility((entity.Comp.OwnerUid, activeComponent), configComponent, forced);
     }
 
-    private void EndAbility(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config)
+    private void EndAbility(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config, bool forced = false)
     {
         _audio.PlayPredicted(config.EffectSoundEnd, entity, entity);
         ServerSpawn(config.ShockWaveEntProtoId, entity.Owner.ToCoordinates());
 
         _transform.Unanchor(entity);
 
-        RemoveShield(entity, -1f);
+        RemoveShield(entity, forced ? 1f : -1f);
 
         ActionStartUseDelay<MCXenoShieldActionEvent>(entity);
         ActionSetState<MCXenoShieldActionEvent>(entity, "shield");

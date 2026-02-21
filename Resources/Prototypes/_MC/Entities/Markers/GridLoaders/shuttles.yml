@@ -11,6 +11,18 @@
 
 - type: entity
   parent: MCMarker
+  id: MCSpawnGridAlamoAutoFtl
+  name: alamo spawner (auto FTL)
+  components:
+  - type: MCGridLoader
+    map: /Maps/_MC/alamo.yml
+    forceFtlKey: mc-dropship
+  - type: Sprite
+    sprite: Markers/cross.rsi
+    state: pink
+
+- type: entity
+  parent: MCMarker
   id: MCSpawnGridDebugAlamo
   name: debug alamo spawner
   components:

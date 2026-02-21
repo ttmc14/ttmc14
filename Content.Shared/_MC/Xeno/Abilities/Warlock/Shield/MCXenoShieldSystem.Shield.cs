@@ -33,11 +33,11 @@ public sealed partial class MCXenoShieldSystem
             DirtyField(entity, entity.Comp, nameof(MCXenoShieldInstanceComponent.Integrity));
 
             var percent = entity.Comp.Integrity / entity.Comp.IntegrityMax * 100f;
-            _popup.PopupEntServer($"Shield durability: {percent.ToString("F", CultureInfo.InvariantCulture)}%", entity.Comp.OwnerUid, PopupType.MediumCaution);
+            _popup.PopupEntServer($"Shield durability: {percent.ToString("0.#", CultureInfo.InvariantCulture)}%", entity.Comp.OwnerUid, PopupType.MediumCaution);
 
             if (entity.Comp.Integrity <= 0)
             {
-                EndAbility(entity);
+                EndAbility(entity, forced: true);
                 return;
             }
         }
@@ -89,7 +89,7 @@ public sealed partial class MCXenoShieldSystem
         }
 
         shieldInstanceComponent.Payloads.Clear();
-        DirtyField(entity, shieldInstanceComponent, nameof(MCXenoShieldInstanceComponent.Payloads));
+        // DirtyField(entity, shieldInstanceComponent, nameof(MCXenoShieldInstanceComponent.Payloads));
 
         _transform.SetParent(shieldUid, Transform(entity).ParentUid);
 
@@ -97,7 +97,7 @@ public sealed partial class MCXenoShieldSystem
         shieldTimedDespawn.Lifetime = 0.25f;
 
         _physics.SetBodyType(shieldUid, BodyType.Dynamic);
-        _mcKnockback.Knockback(shieldUid, (Transform(shieldUid).LocalRotation - double.Pi / 2).ToVec(), 5f, 30f);
+        _mcKnockback.Knockback(shieldUid, (Transform(shieldUid).LocalRotation - double.Pi / 2).ToVec() * -force, 5f, 30f);
 
         Dirty(entity, shieldTimedDespawn);
     }
