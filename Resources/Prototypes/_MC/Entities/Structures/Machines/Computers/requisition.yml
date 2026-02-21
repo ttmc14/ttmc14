@@ -32,8 +32,8 @@
         - MCBeaconSupply
       - name: mc-asrs-entry-rangefinder
         icon:
-          sprite: _MC/Objects/Items/rangefinder.rsi
-          state: rangefinder
+          sprite: _MC/Objects/Devices/binoculars.rsi
+          state: range_finders
         cost: 25
         entities:
         - MCRangefinder
@@ -306,6 +306,55 @@
         - MCMagazineSentryFlamer
     - name: mc-asrs-category-explosives
       entries:
+      - name: mc-asrs-entry-HEDP grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hedp.rsi
+          state: icon
+        cost: 310
+        entities:
+        - MCCaseGrenadeHedp
+      - name: mc-asrs-entry-HEFA grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hefa.rsi
+          state: icon
+        cost: 550
+        entities:
+        - MCCaseGrenadeHefa
+      - name: mc-asrs-entry-HEFA M15 grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hefa_m15.rsi
+          state: icon
+        cost: 350
+        entities:
+        - MCCaseGrenadeHefaM15
+      - name: mc-asrs-entry-HIDP grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hidp.rsi
+          state: icon
+        cost: 350
+        entities:
+        - MCCaseGrenadeHidp
+      - name: mc-asrs-entry-HSDP grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/hsdp.rsi
+          state: icon
+        cost: 310
+        entities:
+        - MCCaseGrenadeHsdp
+      - name: mc-asrs-entry-TGas grenade case
+        icon:
+          sprite: _MC/Objects/Weapons/Grenades/pgas.rsi
+          state: icon
+        cost: 700
+        entities:
+        - MCCaseGrenadeTGas
+      - name: mc-asrs-entry-C4 plastic explosive
+        icon:
+          sprite: _RMC/Objects/Weapons/Explosives/plastic_explosives.rsi
+          state: icon
+        cost: 30
+        entities:
+        - RMCExplosivePlastic
       - name: mc-asrs-entry-T50S mortar crate
         icon:
           sprite: _MC/Structures/Machines/mortar.rsi
