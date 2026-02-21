@@ -114,3 +114,6 @@
       Quantity: 5
   - type: MCXenoPsychicCure
   - type: MCXenoScreech
+  # Passive
+  - type: MCXenoSunder
+    multiplier: 0.7
