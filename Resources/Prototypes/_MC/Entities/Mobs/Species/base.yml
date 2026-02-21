@@ -22,7 +22,7 @@
   - type: MCXenoPsydrainable
   # [stamina]
   - type: MCStamina
-  - type: MCStaminaActive
+  # - type: MCStaminaActive
   # [hud]
   - type: MCXenoHudToxins
   # [cost]
