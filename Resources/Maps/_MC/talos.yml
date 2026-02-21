@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 02/06/2026 19:43:41
-  entityCount: 8808
+  time: 02/21/2026 06:26:34
+  entityCount: 8810
 maps:
 - 1
 grids:
@@ -16606,11 +16606,16 @@ entities:
       parent: 1
 - proto: CMAirlockMedical
   entities:
-  - uid: 2512
+  - uid: 4706
     components:
     - type: Transform
-      rot: 1.5707963267948966 rad
+      rot: -1.5707963267948966 rad
       pos: -58.5,-1.5
+      parent: 1
+  - uid: 4855
+    components:
+    - type: Transform
+      pos: -56.5,4.5
       parent: 1
 - proto: CMAirlockOrdnanceLocked
   entities:
@@ -16620,109 +16625,113 @@ entities:
       rot: -1.5707963267948966 rad
       pos: -29.5,-26.5
       parent: 1
-- proto: CMAirlockPrepAlphaLocked
+- proto: CMAirlockPrepAlpha
   entities:
-  - uid: 6114
+  - uid: 331
     components:
     - type: Transform
-      pos: 26.5,28.5
+      rot: 1.5707963267948966 rad
+      pos: 40.5,29.5
       parent: 1
-  - uid: 6116
+  - uid: 1495
     components:
     - type: Transform
-      pos: 24.5,28.5
-      parent: 1
-  - uid: 6118
-    components:
-    - type: Transform
+      rot: 3.141592653589793 rad
       pos: 35.5,28.5
       parent: 1
-  - uid: 6119
+  - uid: 2512
     components:
     - type: Transform
-      pos: 37.5,28.5
+      rot: 3.141592653589793 rad
+      pos: 26.5,28.5
       parent: 1
-  - uid: 6121
+  - uid: 5728
     components:
     - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 40.5,29.5
+      rot: 3.141592653589793 rad
+      pos: 24.5,28.5
+      parent: 1
+  - uid: 5733
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 37.5,28.5
       parent: 1
 - proto: CMAirlockPrepBravo
   entities:
+  - uid: 2515
+    components:
+    - type: Transform
+      pos: 27.5,19.5
+      parent: 1
+  - uid: 2516
+    components:
+    - type: Transform
+      pos: 25.5,19.5
+      parent: 1
+  - uid: 2518
+    components:
+    - type: Transform
+      pos: 21.5,19.5
+      parent: 1
   - uid: 6107
     components:
     - type: Transform
       pos: 19.5,19.5
       parent: 1
-  - uid: 6108
-    components:
-    - type: Transform
-      pos: 21.5,19.5
-      parent: 1
-  - uid: 6110
-    components:
-    - type: Transform
-      pos: 25.5,19.5
-      parent: 1
-  - uid: 6111
-    components:
-    - type: Transform
-      pos: 27.5,19.5
-      parent: 1
 - proto: CMAirlockPrepCharlie
   entities:
-  - uid: 72
+  - uid: 2523
     components:
     - type: Transform
       pos: 24.5,-26.5
       parent: 1
-  - uid: 4706
+  - uid: 2524
+    components:
+    - type: Transform
+      pos: 26.5,-26.5
+      parent: 1
+  - uid: 2692
+    components:
+    - type: Transform
+      pos: 35.5,-26.5
+      parent: 1
+  - uid: 2946
+    components:
+    - type: Transform
+      pos: 37.5,-26.5
+      parent: 1
+  - uid: 6116
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 40.5,-28.5
       parent: 1
-  - uid: 4851
-    components:
-    - type: Transform
-      pos: 35.5,-26.5
-      parent: 1
-  - uid: 4853
-    components:
-    - type: Transform
-      pos: 37.5,-26.5
-      parent: 1
-  - uid: 4855
-    components:
-    - type: Transform
-      pos: 26.5,-26.5
-      parent: 1
 - proto: CMAirlockPrepDelta
   entities:
-  - uid: 4852
+  - uid: 2521
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 19.5,-17.5
+      pos: 27.5,-17.5
       parent: 1
-  - uid: 4858
+  - uid: 2689
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 21.5,-17.5
       parent: 1
-  - uid: 4859
+  - uid: 2690
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 25.5,-17.5
       parent: 1
-  - uid: 4860
+  - uid: 6114
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: 27.5,-17.5
+      pos: 19.5,-17.5
       parent: 1
 - proto: CMAirlockRequisitionsLocked
   entities:
@@ -19448,6 +19457,8 @@ entities:
   entities:
   - uid: 3397
     components:
+    - type: MetaData
+      name: Talos LZ
     - type: Transform
       pos: -13.5,-0.5
       parent: 1
@@ -26409,12 +26420,6 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 40.5,26.5
       parent: 1
-  - uid: 331
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 38.5,28.5
-      parent: 1
   - uid: 332
     components:
     - type: Transform
@@ -31238,6 +31243,12 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 12.5,-14.5
+      parent: 1
+  - uid: 6119
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 38.5,28.5
       parent: 1
 - proto: CMWallReinforcedAlmayerWhite
   entities:
@@ -48958,6 +48969,13 @@ entities:
     - type: Transform
       pos: -20.37338,-30.576254
       parent: 1
+- proto: MCSpawnGridAlamo
+  entities:
+  - uid: 6118
+    components:
+    - type: Transform
+      pos: -13.5,-0.5
+      parent: 1
 - proto: MCSpawnPointAssaultCrewman
   entities:
   - uid: 8642
@@ -53320,6 +53338,18 @@ entities:
       parent: 1
 - proto: RMCDoubleDoorAlmayerGlass
   entities:
+  - uid: 3374
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,29.5
+      parent: 1
+  - uid: 3546
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 13.5,21.5
+      parent: 1
   - uid: 4362
     components:
     - type: Transform
@@ -53361,18 +53391,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 38.5,38.5
       parent: 1
-- proto: RMCDoubleDoorAlmayerGlassCommand
-  entities:
-  - uid: 3546
-    components:
-    - type: Transform
-      pos: 13.5,20.5
-      parent: 1
-  - uid: 3547
-    components:
-    - type: Transform
-      pos: 13.5,28.5
-      parent: 1
 - proto: RMCDoubleDoorAlmayerGlassRequisitions
   entities:
   - uid: 3141
@@ -53387,133 +53405,126 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 29.5,-9.5
       parent: 1
-- proto: RMCDoubleDoorGenericGlass
+- proto: RMCDoubleDoorMedicalGlass
   entities:
-  - uid: 2519
+  - uid: 72
     components:
     - type: Transform
-      pos: -36.5,1.5
+      pos: -45.5,10.5
       parent: 1
-  - uid: 2521
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: -25.5,-2.5
-      parent: 1
-  - uid: 2524
-    components:
-    - type: Transform
-      pos: -25.5,3.5
-      parent: 1
-  - uid: 3374
+  - uid: 3547
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -36.5,-0.5
       parent: 1
-- proto: RMCDoubleDoorMedicalGlassResearch
-  entities:
-  - uid: 1495
+  - uid: 4339
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -40.5,2.5
+      pos: -25.5,-2.5
       parent: 1
-  - uid: 2514
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -49.5,-4.5
-      parent: 1
-  - uid: 2516
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -39.5,-11.5
-      parent: 1
-  - uid: 2518
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -38.5,-4.5
-      parent: 1
-  - uid: 2523
+  - uid: 4341
     components:
     - type: Transform
       rot: 3.141592653589793 rad
-      pos: -40.5,-0.5
+      pos: -25.5,4.5
       parent: 1
-  - uid: 2689
+  - uid: 4414
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -36.5,2.5
+      parent: 1
+  - uid: 4851
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
-      pos: -37.5,5.5
+      pos: -38.5,-11.5
       parent: 1
-  - uid: 2690
-    components:
-    - type: Transform
-      pos: -40.5,6.5
-      parent: 1
-  - uid: 2692
-    components:
-    - type: Transform
-      pos: -45.5,10.5
-      parent: 1
-  - uid: 2946
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: -31.5,6.5
-      parent: 1
-  - uid: 2947
+  - uid: 4852
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -36.5,-8.5
       parent: 1
-- proto: RMCDoubleDoorMedicalSolidMedical
-  entities:
-  - uid: 2513
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: -56.5,-7.5
-      parent: 1
-  - uid: 2515
-    components:
-    - type: Transform
-      pos: -53.5,-6.5
-      parent: 1
-  - uid: 2688
+  - uid: 4853
     components:
     - type: Transform
       pos: -53.5,10.5
       parent: 1
-- proto: RMCDoubleDoorPreparationsAlpha
-  entities:
-  - uid: 5728
+  - uid: 4858
     components:
     - type: Transform
-      pos: 17.5,30.5
+      rot: -1.5707963267948966 rad
+      pos: -38.5,-4.5
       parent: 1
-  - uid: 5733
+  - uid: 4859
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -32.5,6.5
+      parent: 1
+  - uid: 4860
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -40.5,2.5
+      parent: 1
+  - uid: 4862
+    components:
+    - type: Transform
+      pos: -40.5,6.5
+      parent: 1
+  - uid: 4863
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -49.5,-4.5
+      parent: 1
+  - uid: 5211
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: -55.5,-7.5
+      parent: 1
+  - uid: 5212
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: -38.5,5.5
+      parent: 1
+  - uid: 5727
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: -40.5,-0.5
+      parent: 1
+- proto: RMCDoubleDoorPreparationsAlpha
+  entities:
+  - uid: 1381
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 30.5,27.5
       parent: 1
-- proto: RMCDoubleDoorPreparationsBravo
-  entities:
-  - uid: 5727
+  - uid: 2947
     components:
     - type: Transform
-      pos: 17.5,21.5
+      pos: 17.5,30.5
       parent: 1
-  - uid: 5735
+- proto: RMCDoubleDoorPreparationsBravo
+  entities:
+  - uid: 2514
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 19.5,25.5
+      parent: 1
+  - uid: 5735
+    components:
+    - type: Transform
+      pos: 17.5,21.5
       parent: 1
   - uid: 5739
     components:
@@ -53523,35 +53534,37 @@ entities:
       parent: 1
 - proto: RMCDoubleDoorPreparationsCharlie
   entities:
-  - uid: 4339
-    components:
-    - type: Transform
-      pos: 17.5,-29.5
-      parent: 1
-  - uid: 4863
+  - uid: 2519
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 31.5,-25.5
       parent: 1
+  - uid: 6108
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,-28.5
+      parent: 1
 - proto: RMCDoubleDoorPreparationsDelta
   entities:
-  - uid: 1381
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 32.5,-17.5
-      parent: 1
-  - uid: 4341
-    components:
-    - type: Transform
-      pos: 17.5,-20.5
-      parent: 1
-  - uid: 4862
+  - uid: 2688
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 20.5,-23.5
+      parent: 1
+  - uid: 6110
+    components:
+    - type: Transform
+      rot: 1.5707963267948966 rad
+      pos: 33.5,-17.5
+      parent: 1
+  - uid: 6111
+    components:
+    - type: Transform
+      rot: 3.141592653589793 rad
+      pos: 17.5,-19.5
       parent: 1
 - proto: RMCDoubleDoorPreparationsReq
   entities:
@@ -54870,6 +54883,12 @@ entities:
     components:
     - type: Transform
       pos: -40.5,-16.5
+      parent: 1
+  - uid: 2513
+    components:
+    - type: Transform
+      rot: -1.5707963267948966 rad
+      pos: 40.5,29.5
       parent: 1
   - uid: 4713
     components:

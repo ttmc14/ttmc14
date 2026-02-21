@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.2-fix-physics
   forkId: ""
   forkVersion: ""
-  time: 02/06/2026 19:55:47
+  time: 02/21/2026 06:26:48
   entityCount: 28302
 maps:
 - 1
@@ -55337,12 +55337,16 @@ entities:
   entities:
   - uid: 22854
     components:
+    - type: MetaData
+      name: LZ2
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 18.5,-12.5
       parent: 1
   - uid: 22855
     components:
+    - type: MetaData
+      name: LZ1
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 182.5,-117.5
