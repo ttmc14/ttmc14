@@ -10,13 +10,13 @@ cm-iv-rip = The needle is ripped out of { $target }, doesn't that hurt?
 cm-iv-now-injecting = The IV drip is now injecting.
 cm-iv-now-taking = The IV drip is now taking blood.
 cm-iv-verb-toggle-inject = Toggle inject
-cm-iv-examine-injecting = { CAPITALIZE(THE($iv)) } is injecting.
+cm-iv-examine-injecting = { CAPITALIZE(THE($iv)) } может быть перелит.
 cm-iv-examine-drawing = { CAPITALIZE(THE($iv)) } is taking blood.
 cm-iv-examine-chemicals = Attached is { $attached } with { $units } units of liquid.
 cm-iv-examine-chemicals-none = No chemicals are attached.
 cm-iv-examine-attached = { $attached } is attached.
-cm-iv-examine-attached-none = No one is attached.
+cm-iv-examine-attached-none = Никто не подключен.
 cm-blood-pack-cannot-self = You cannot connect this to yourself.
 cm-blood-pack-poke-self = You poke { $target } with { $pack }.
 cm-blood-pack-poke-others = { $user } pokes { $target } with { $pack }.
-cm-blood-pack-contains = It contains: [color=#BB0000FF]{ $units } units[/color] of liquid.
+cm-blood-pack-contains = Он содержит: [color=#BB0000FF]{ $units } юнитов [/color] жидкости.
