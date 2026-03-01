@@ -1,5 +1,5 @@
-ent-RMCSyringeCase = syringe case
-    .desc = It's a medical case for storing syringes and bottles.
+ent-RMCSyringeCase = контейнер для шприцев
+    .desc = Это медицинский кейс для хранения шприцев и флаконов.
 ent-RMCSyringeCaseFilled = { ent-RMCSyringeCase }
     .suffix = Filled
     .desc = { ent-RMCSyringeCase.desc }

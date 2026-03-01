@@ -1,4 +1,4 @@
-ent-Hypospray = hypospray
+ent-Hypospray = гипоспрей
     .desc = A sterile injector for rapid administration of drugs to patients.
 ent-SyndiHypo = gorlex hypospray
     .desc = Using reverse engineered designs from NT, Cybersun produced these in limited quantities for Gorlex Marauder operatives.

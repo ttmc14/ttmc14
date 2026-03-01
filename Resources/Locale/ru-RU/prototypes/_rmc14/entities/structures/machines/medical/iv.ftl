@@ -1,9 +1,9 @@
 ent-CMIV = iv
     .desc = Allows you to inject blood into a patient or extract blood from them to do a blood transfusion.
     .suffix = IV, empty
-ent-CMBloodPack = blood pack
-    .desc = A blood pack. Contains fluids, typically used for transfusions.
-    .suffix = CM, empty
-ent-CMBloodPackFull = blood pack
-    .suffix = CM, Full
+ent-CMBloodPack = пакет с кровью
+    .desc = Пакет с кровью. Содержит жидкости, обычно используемые для переливания крови.
+    .suffix = CM, Пустой
+ent-CMBloodPackFull = пакет с кровью
+    .suffix = CM, Полный
     .desc = { ent-CMBloodPack.desc }
