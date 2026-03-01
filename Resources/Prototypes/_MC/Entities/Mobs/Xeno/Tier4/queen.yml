@@ -4,6 +4,7 @@
   - MCXenoBase
   - MCXenoComponentPickup
   - MCXenoComponentPlantingWeeds
+  - MCXenoComponentConstruction
   - MCXenoComponentCharge
   - MCXenoComponentSpiting
   - MCXenoComponentBlessings
