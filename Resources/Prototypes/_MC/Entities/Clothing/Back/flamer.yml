@@ -1,0 +1,59 @@
+- type: entity
+  parent: MCItem
+  id: MCBackpackFlamer
+  name: backpack fuel tank
+  description: A specialized fuel tank for use with the FL-84 flamethrower and FL-240 incinerator unit.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamethrower_tank.rsi
+    layers:
+    - state: flamethrower_tank
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamethrower_tank.rsi
+    slots: [ back ]
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 500
+  - type: RMCFlamerTank
+    solutionId: tank
+  - type: DetailedExaminableSolution
+    solution: tank
+  - type: SolutionTransfer
+    transferAmount: 500
+    maxTransferAmount: 500
+    minTransferAmount: 500
+  - type: DrawableSolution
+    solution: tank
+  - type: RMCRefillSolutionOnStore
+    solution: tank
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
+  - type: NoMixingReagents
+  - type: Tag
+    tags:
+    - MCBackpackFlamer
+  - type: MCBackpackTank
+
+- type: entity
+  parent: MCBackpackFlamer
+  id: MCBackpackFlamerX
+  name: backpack fuel tank (X)
+  description: A specialized fuel tank of ultra thick napthal type X for use with the FL-84 flamethrower and FL-240 incinerator unit.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/x_flamethrower_tank.rsi
+    layers:
+    - state: x_flamethrower_tank
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/x_flamethrower_tank.rsi
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 500
+        reagents:
+        - ReagentId: MCNapalmX
+          Quantity: 500

@@ -68,6 +68,8 @@
         whitelist:
           tags:
           - MCWeaponLauncherRl160
+  - type: CMHolster
+  - type: RMCMagneticItemReceiver
 
 - type: entity
   parent: MCBackpackMarineRL160
@@ -178,6 +180,8 @@
   - type: Tag
     tags:
     - MCBackpackFlamer
+  - type: CMHolster
+  - type: RMCMagneticItemReceiver
 
 - type: entity
   parent: MCBackFlamethrower

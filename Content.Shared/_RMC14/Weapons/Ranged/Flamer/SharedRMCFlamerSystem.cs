@@ -1,4 +1,5 @@
 using System.Diagnostics.CodeAnalysis;
+using Content.Shared._MC.Marine.Equipment.BackpackTank;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Chemistry.Reagent;
 using Content.Shared._RMC14.Fluids;
@@ -49,6 +50,10 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly RMCMapSystem _rmcMap = default!;
     [Dependency] private readonly RMCReagentSystem _reagent = default!;
+
+    // MC Changes:
+    [Dependency] private readonly MCBackpackTankSystem _mcBackpackTank = null!;
+    // MC Changes Ends
 
     public override void Initialize()
     {
@@ -433,6 +438,15 @@ public abstract class SharedRMCFlamerSystem : EntitySystem
                 break;
             }
         }
+
+        // MC Changes:
+        if (_mcBackpackTank.TryGetTankSolution(flamer, out var overrideSolution, out var overrideTank) && tankEnt is null && !display)
+        {
+            solutionEnt = overrideSolution;
+            tankEnt = overrideTank;
+            return true;
+        }
+        // MC Changes Ends
 
         if (tankEnt is not { } tankValue)
             return false;
