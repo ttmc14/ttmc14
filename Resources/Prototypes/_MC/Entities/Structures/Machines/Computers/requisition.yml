@@ -532,6 +532,7 @@
         entries:
         - RMCTankReagentWater
     - name: mc-asrs-category-smartguns
+      # SG-29
       entries:
       - name: mc-asrs-entry-sg29
         icon:
@@ -547,6 +548,7 @@
         cost: 50
         entities:
         - MCMagazineSmartGunSG29
+      # SG-25
       - name: mc-asrs-entry-sg25
         icon:
           sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
@@ -575,6 +577,29 @@
         cost: 400
         entities:
         - MCBoxBulletsSmartGunSG29
+      # SG-85
+      - name: SG-85 smart gatling gun
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponSmartGunSG85
+      - name: SG-85 Minigun Powerpack
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Powerpacks/sg85.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCPowerpackSG85
+      - name: SG-85 ammo bin
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
+        cost: 50
+        entities:
+        - MCBoxBulletsSmartGunSG85
+      # SG-26
       - name: mc-asrs-entry-sg62
         icon:
           sprite: _MC/Objects/Weapons/Guns/Smartguns/sg62.rsi

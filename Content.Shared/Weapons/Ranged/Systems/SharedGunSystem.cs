@@ -1,6 +1,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
+using Content.Shared._MC.Marine.Equipment.Weapon.Ranged;
 using Content.Shared._RMC14.Attachable.Systems;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Random;
@@ -93,6 +94,10 @@ public abstract partial class SharedGunSystem : EntitySystem
     // RMC14
     [Dependency] private readonly AttachableHolderSystem _attachableHolder = default!;
     [Dependency] private readonly SharedRMCFlamerSystem _flamer = default!;
+
+    // MC Changes:
+    [Dependency] private readonly MCBackpackAmmoProviderSystem _mcBackpackAmmo = null!;
+    // MC Changes End
 
     private const float InteractNextFire = 0.3f;
     private const double SafetyNextFire = 0.5;

@@ -1,0 +1,185 @@
+- type: entity
+  parent: MCWeaponSmartGun
+  id: MCWeaponSmartGunSG85
+  name: SG-85 smart handheld gatling gun
+  description: A true monster of providing supportive suppresing fire, the SG-85 is the TGMC's IFF-capable minigun for heavy fire support duty. Boasting a higher firerate than any other handheld weapon. It is chambered in 10x26 caseless.
+  components:
+  - type: Item
+    size: Huge
+  - type: AmmoCounter
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/inhands.rsi
+    layers:
+    - state: base
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/inhands.rsi
+    slots: [ suitStorage, back ]
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
+  - type: ItemSlots
+    slots: {}
+  - type: MCBackpackAmmoProvider
+  # Stats
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot: !type:SoundCollectionSpecifier
+      collection: MCWeaponSmartGunSG85Gunshot
+      params:
+        volume: -2
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Fire/m41a_empty.ogg
+  - type: GunIFF
+    enabled: true
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    baseFireRate: 10 # fire delay 0.1
+    scatterWielded: -5
+    scatterUnwielded: 40
+    recoilWielded: 0
+    recoilUnwielded: 4
+    modifiers:
+      FullAuto:
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.5
+  # Wield
+  - type: GunRequiresWield
+  - type: Wieldable
+  - type: WieldDelay
+    baseDelay: 1.7
+  # Skills
+  - type: MCGunSkilled
+    skill: RMCSkillSmartGun
+  # Crosshair
+  - type: WieldedCrosshair
+    rsi:
+      sprite: _RMC14/Interface/MousePointer/smartgun_mouse.rsi
+      state: all
+  # Attachments
+  - type: AttachableHolder
+    slots:
+      mc-slot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-slot-rail: 0, 0
+
+# Magazine
+- type: entity
+  parent: MCMagazineRifle
+  id: MCPowerpackSG85
+  name: SG-85 powerpack
+  description: A reinforced backpack heavy with the IFF altered ammunition, onboard micro generator, and extensive cooling system which enables the SG-85 gatling gun to operate. \nUse the SG-85 on the backpack itself to connect them.
+  components:
+  - type: Tag
+    tags: [ MCPowerpackSG85 ]
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Powerpacks/sg85.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Powerpacks/sg85.rsi
+    slots: [ back ]
+  - type: Item
+    size: Huge
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSmartGunSG85
+    proto: MCCartridgeSmartGunSG85
+    capacity: 1000
+  - type: MCBackpackAmmo
+  - type: RefillableByBulletBox
+    bulletType: MCBoxBulletsSmartGunSG85
+
+- type: Tag
+  id: MCPowerpackSG85
+
+# Cartridges
+- type: entity
+  parent: CMBaseCartridgeRifle
+  id: MCCartridgeSmartGunSG85
+  name: smartminigun cartridge
+  description: A handful of rounds to reload on the go.
+  components:
+  - type: Tag
+    tags: [ MCCartridgeSmartGunSG85 ]
+  - type: CartridgeAmmo
+    proto: MCBulletSmartGunSG85
+
+- type: Tag
+  id: MCCartridgeSmartGunSG85
+
+# Bullets
+- type: entity
+  parent: MCBullet
+  id: MCBulletSmartGunSG85
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Projectiles/bullet.rsi
+    layers:
+    - state: red
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 12
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 1
+      falloff: 0.1
+    - range: 12
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    minAccuracy: 100
+  # TODO: shatter_duration
+
+- type: soundCollection
+  id: MCWeaponSmartGunSG85Gunshot
+  files:
+  - /Audio/_MC/Weapons/Guns/Fire/smartgun1.ogg
+  - /Audio/_MC/Weapons/Guns/Fire/smartgun2.ogg
+  - /Audio/_MC/Weapons/Guns/Fire/smartgun3.ogg
+
+# Boxes SG-62
+- type: entity
+  parent: MCBoxBullets
+  id: MCBoxBulletsSmartGunSG85
+  name: SG-85 ammo bin
+  description: A hefty container stuffed to the absolute brim with 500 rounds for the SG-85 powerpack.
+  components:
+  - type: Sprite
+    layers:
+    - state: rifle_box
+      color: "#7b8246"
+    - state: rifle_box_marking
+      color: "#7c4c1b"
+    - state: rifle_ammo_full_rounds_base
+      map: [ "enum.BulletBoxLayers.Fill" ]
+    - state: rifle_ammo_full_rounds_color
+      map: [ "enum.BulletBoxLayers2.Fill" ]
+      color: "#ffc000"
+  - type: BulletBox
+    bulletType: MCBoxBulletsSmartGunSG85
+    amount: 500
+    max: 500

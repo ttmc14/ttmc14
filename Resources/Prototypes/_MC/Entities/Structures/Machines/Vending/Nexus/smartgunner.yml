@@ -33,6 +33,12 @@
         points: 2
       - id: MCMagazineSmartGunSG25Extended
         points: 4
+    - name: Minigun
+      entries:
+      - id: MCWeaponSmartGunSG85
+        points: 27
+      - id: MCPowerpackSG85
+        points: 10
     - name: Target Rifle
       entries:
       - id: MCWeaponSmartGunSG62
@@ -58,6 +64,8 @@
       - id: MCBoxBulletsSmartGunSG29
         points: 4
       - id: MCBoxBulletsSmartGunSG62
+        points: 4
+      - id: MCBoxBulletsSmartGunSG85
         points: 4
       - id: MCBoxBulletsSmartGunSG153
         points: 4
