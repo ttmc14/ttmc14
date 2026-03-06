@@ -138,6 +138,8 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         pouncingComponent.End = duration;
         Dirty(entity, pouncingComponent);
 
+        ActionStartUseDelay<MCXenoPounceActionEvent>(entity, actionUid);
+
         return true;
     }
 
