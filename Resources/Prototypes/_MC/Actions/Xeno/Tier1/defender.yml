@@ -12,6 +12,7 @@
     useDelay: 1
   - type: InstantAction
     event: !type:MCXenoToggleCrestActionEvent
+  - type: ActionBlockIfResting
 
 - type: entity
   parent: ActionXenoBase
@@ -27,6 +28,7 @@
     useDelay: 1
   - type: InstantAction
     event: !type:MCXenoFortifyActionEvent
+  - type: ActionBlockIfResting
 
 - type: entity
   parent: ActionXenoBase
@@ -42,6 +44,7 @@
     useDelay: 12
   - type: InstantAction
     event: !type:XenoTailSweepActionEvent
+  - type: ActionBlockIfResting
 
 - type: entity
   parent: ActionXenoBase
@@ -62,6 +65,14 @@
     event: !type:MCXenoPounceActionEvent
   - type: XenoActionPlasma
     cost: 80
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: MCActionXenoForwardCharge
+  id: MCActionXenoForwardChargeUnprecise
+  components:
+  - type: Action
+    useDelay: 30
 
 - type: entity
   parent: ActionXenoBase

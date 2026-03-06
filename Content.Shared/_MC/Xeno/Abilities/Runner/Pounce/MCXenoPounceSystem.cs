@@ -3,11 +3,13 @@ using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Map;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -23,6 +25,7 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
 
     [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly MobStateSystem _mobState = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
@@ -32,7 +35,6 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -43,6 +45,8 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
 
         SubscribeLocalEvent<MCXenoPounceComponent, MCXenoPounceActionEvent>(OnAction);
+        SubscribeLocalEvent<MCXenoPounceComponent, MCXenoPounceDoAfterEvent>(OnDoAfter);
+
         SubscribeLocalEvent<MCXenoPouncingComponent, PreventCollideEvent>(OnHit);
     }
 
@@ -65,23 +69,54 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         if (args.Handled)
             return;
 
-        if (!_rmcActions.TryUseAction(entity, args.Action, entity))
+        if (entity.Comp.Delay == TimeSpan.Zero)
+        {
+            if (UseAbility(entity, args.Action, args.Target))
+                args.Handled = true;
+
+            return;
+        }
+
+        if (!CanUseAction(entity, args.Action))
+            return;
+
+        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, new MCXenoPounceDoAfterEvent(args.Action, args.Target, EntityManager), entity)
+        {
+            BreakOnMove = true,
+            BreakOnRest = true,
+        });
+    }
+
+    private void OnDoAfter(Entity<MCXenoPounceComponent> entity, ref MCXenoPounceDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled)
             return;
 
         args.Handled = true;
 
+        var actionUid = GetEntity(args.ActionUid);
+        var targetCoordinates = GetCoordinates(args.Coordinates);
+
+        UseAbility(entity, actionUid, targetCoordinates);
+    }
+
+    private bool UseAbility(Entity<MCXenoPounceComponent> entity, EntityUid actionUid, EntityCoordinates targetCoordinates)
+    {
+        if (!TryUseAction(entity, actionUid))
+            return false;
+
         if (!_physicsQuery.TryGetComponent(entity, out var physicsComponent))
-            return;
+            return false;
 
         if (EnsureComp<MCXenoPouncingComponent>(entity, out var pouncingComponent))
-            return;
+            return false;
 
         var origin = _transform.GetMapCoordinates(entity);
-        var target = _transform.ToMapCoordinates(args.Target);
+        var target = _transform.ToMapCoordinates(targetCoordinates);
         var direction = target.Position - origin.Position;
 
         if (direction == Vector2.Zero)
-            return;
+            return false;
 
         var length = direction.Length();
         var distance = Math.Clamp(length, 0.1f, entity.Comp.MaxDistance);
@@ -102,6 +137,8 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 
         pouncingComponent.End = duration;
         Dirty(entity, pouncingComponent);
+
+        return true;
     }
 
     private void OnHit(Entity<MCXenoPouncingComponent> entity, ref PreventCollideEvent args)

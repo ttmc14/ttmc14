@@ -8,6 +8,9 @@ namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce;
 public sealed partial class MCXenoPounceComponent : Component
 {
     [DataField, AutoNetworkedField]
+    public TimeSpan Delay = TimeSpan.Zero;
+
+    [DataField, AutoNetworkedField]
     public float MaxDistance = 6;
 
     [DataField, AutoNetworkedField]

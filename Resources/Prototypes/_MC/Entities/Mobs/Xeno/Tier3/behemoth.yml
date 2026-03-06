@@ -59,7 +59,15 @@
       bio: 50
       fire: 20
       acid: 50
-  # hard_armor = list(MELEE = 0, BULLET = 12, LASER = 6, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
+    hard:
+      melee: 0
+      bullet: 12
+      laser: 6
+      energy: 10
+      bomb: 0
+      bio: 0
+      fire: 0
+      acid: 0
   - type: MeleeWeapon
     damage:
       types:

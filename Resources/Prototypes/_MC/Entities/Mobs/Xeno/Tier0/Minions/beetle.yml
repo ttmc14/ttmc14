@@ -17,7 +17,7 @@
     actionIds:
     - MCActionXenoRest
     # Abilities
-    - MCActionXenoForwardCharge
+    - MCActionXenoForwardChargeUnprecise
     - MCActionXenoCrestDefense
     hudOffset: -0.2,0.3
   - type: MobThresholds
@@ -47,10 +47,11 @@
   - type: XenoCrest # TODO: Make MC component
   # Pounce (Forward Charge)
   - type: MCXenoPounce
+    delay: 0.5
     maxDistance: 5
     strength: 50
     hitSelfParalyzeTime: 0
-    hitKnockdownTime: 4
+    hitKnockdownTime: 2.5
     stopOnHit: false
     hitDamage:
       types:

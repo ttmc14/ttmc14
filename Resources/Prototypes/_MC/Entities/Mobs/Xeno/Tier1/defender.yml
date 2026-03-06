@@ -69,6 +69,8 @@
       bio: 30
       fire: 40
       acid: 30
+    hard:
+      bullet: 10
   - type: MeleeWeapon
     damage:
       types:
@@ -86,6 +88,7 @@
   - type: MCXenoRegenerateSkin
   # Pounce (Forward Charge)
   - type: MCXenoPounce
+    delay: 0.5
     maxDistance: 5
     strength: 50
     hitSelfParalyzeTime: 0
