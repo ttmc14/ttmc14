@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 100,
+    "y": 52
+  },
+  "states": [
+    {
+      "name": "primary"
+    },
+    {
+      "name": "secondary"
+    },
+    {
+      "name": "som_tank_cell_1"
+    },
+    {
+      "name": "som_tank_cell_2"
+    },
+    {
+      "name": "som_tank_cell_3"
+    },
+    {
+      "name": "particle_lance_cell_1"
+    },
+    {
+      "name": "particle_lance_cell_2"
+    },
+    {
+      "name": "particle_lance_cell_3"
+    },
+    {
+      "name": "coilgun_1"
+    },
+    {
+      "name": "coilgun_2"
+    },
+    {
+      "name": "coilgun_3"
+    },
+    {
+      "name": "secondary_mlrs_1"
+    },
+    {
+      "name": "secondary_mlrs_2"
+    },
+    {
+      "name": "secondary_mlrs_3"
+    }
+  ]
+}

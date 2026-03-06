@@ -1,0 +1,135 @@
+- type: entity
+  parent: MCProp
+  id: MCPropVehicleSomTank
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Vehicles/som_tank.rsi
+
+- type: entity
+  parent: MCPropNoFixture
+  id: MCPropNoFixtureVehicleSomTank
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Vehicles/som_tank.rsi
+
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankInterior3
+  components:
+  - type: Sprite
+    state: interior_3
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior6
+  components:
+  - type: Sprite
+    state: interior_6
+
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankInterior7
+  components:
+  - type: Sprite
+    state: interior_7
+
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankInterior9
+  components:
+  - type: Sprite
+    state: interior_9
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior10
+  components:
+  - type: Sprite
+    state: interior_10
+
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankInterior11
+  components:
+  - type: Sprite
+    state: interior_11
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior12
+  components:
+  - type: Sprite
+    state: interior_12
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior13
+  components:
+  - type: Sprite
+    state: interior_13
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior14
+  components:
+  - type: Sprite
+    state: interior_14
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior15
+  components:
+  - type: Sprite
+    state: interior_15
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior19
+  components:
+  - type: Sprite
+    state: tank_interior_19
+
+- type: entity
+  parent: MCPropVehicleSomTank
+  id: MCPropVehicleSomTankInterior21
+  components:
+  - type: Sprite
+    state: tank_interior_21
+
+# Walls
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankWallSides
+  components:
+  - type: Sprite
+    state: tank_interior_17
+
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankWallTop
+  components:
+  - type: Sprite
+    state: tank_interior_18
+
+# Ammo
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankAmmoPrimary
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Vehicles/som_tank_ammo.rsi
+    state: primary
+    offset: 0, 0.75
+
+- type: entity
+  parent: MCPropNoFixtureVehicleSomTank
+  id: MCPropVehicleSomTankAmmoSecondary
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Vehicles/som_tank_ammo.rsi
+    state: secondary
+    offset: 0.5, 0.35
+
+# Exit

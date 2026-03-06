@@ -2,7 +2,6 @@
   id: MCWallInvincibleNoIcon
   description: A huge chunk of metal used to separate rooms.
   categories: [ MCContent ]
-  abstract: true
   placement:
     mode: SnapgridCenter
     snap:
@@ -22,8 +21,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         mask:
         - FullTileMask

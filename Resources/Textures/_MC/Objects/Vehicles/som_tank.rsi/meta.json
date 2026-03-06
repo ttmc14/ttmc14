@@ -1,0 +1,19 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 160,
+    "y": 160
+  },
+  "states": [
+    {
+      "name": "base",
+      "directions": 4
+    },
+    {
+      "name": "base_wreck",
+      "directions": 4
+    }
+  ]
+}

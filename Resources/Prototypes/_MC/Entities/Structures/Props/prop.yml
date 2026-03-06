@@ -1,5 +1,6 @@
 - type: entity
-  id: MCProp
+  id: MCPropNoFixture
+  categories: [ MCContent ]
   abstract: true
   placement:
     mode: SnapgridCenter
@@ -11,19 +12,23 @@
   - type: Physics
     bodyType: Static
     fixedRotation: false
-  - type: Fixtures
-    fixtures:
-      fix1:
-        shape:
-          !type:PhysShapeAabb
-          bounds: "-0.5,-0.5,0.5,0.5"
-        density: 190
-        layer:
-        - MobMask
   - type: Clickable
   - type: InteractionOutline
   - type: Corrodible
     isCorrodible: false
+
+- type: entity
+  parent: MCPropNoFixture
+  id: MCProp
+  components:
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        layer:
+        - MobMask
 
 - type: entity
   parent: MCProp

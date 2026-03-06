@@ -1,0 +1,64 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "interior_3"
+    },
+    {
+      "name": "interior_6"
+    },
+    {
+      "name": "interior_7"
+    },
+    {
+      "name": "interior_9"
+    },
+    {
+      "name": "interior_10"
+    },
+    {
+      "name": "interior_11"
+    },
+    {
+      "name": "interior_12"
+    },
+    {
+      "name": "interior_13"
+    },
+    {
+      "name": "interior_14"
+    },
+    {
+      "name": "interior_15"
+    },
+    {
+      "name": "tank_interior_17",
+      "directions": 4
+    },
+    {
+      "name": "tank_interior_18",
+      "directions": 4
+    },
+    {
+      "name": "tank_interior_21"
+    },
+    {
+      "name": "hatch"
+    },
+    {
+      "name": "exit"
+    },
+    {
+      "name": "tank_interior_19"
+    },
+    {
+      "name": "hatch_decal"
+    }
+  ]
+}

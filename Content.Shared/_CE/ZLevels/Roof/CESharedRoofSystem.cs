@@ -1,8 +1,3 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared.Light.Components;
@@ -19,10 +14,10 @@ namespace Content.Shared._CE.ZLevels.Roof;
 /// </summary>
 public abstract class CESharedRoofSystem : EntitySystem
 {
-    [Dependency] protected readonly CESharedZLevelsSystem ZLevel = default!;
-    [Dependency] protected readonly SharedRoofSystem Roof = default!;
-    [Dependency] protected readonly SharedMapSystem Map = default!;
-    [Dependency] protected readonly ITileDefinitionManager TilDefMan = default!;
+    [Dependency] protected readonly CESharedZLevelsSystem ZLevel = null!;
+    [Dependency] protected readonly SharedRoofSystem Roof = null!;
+    [Dependency] protected readonly SharedMapSystem Map = null!;
+    [Dependency] protected readonly ITileDefinitionManager TilDefMan = null!;
 
     protected EntityQuery<MapGridComponent> GridQuery;
     protected EntityQuery<RoofComponent> RoofQuery;

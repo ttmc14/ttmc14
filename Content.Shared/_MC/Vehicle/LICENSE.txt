@@ -1,0 +1,27 @@
+﻿Copyright (c) 2026 TornadoTechnology
+
+APPLICATION OF LICENSE
+This license applies to all files within this directory and all of its
+subdirectories, recursively, unless otherwise specified in a
+sub-directory or within an individual file.
+
+PolyForm Noncommercial License 1.0.0
+<https://polyformproject.org/licenses/noncommercial/1.0.0>
+
+Acceptance
+User accepts this license by making use of the software.
+
+Copyright Grant
+The licensor grants you a non-exclusive, royalty-free, worldwide, non-transferable license to do everything with the software that would otherwise infringe the licensor's copyright in it, provided that you do not use the software for commercial purposes.
+
+Patent Grant
+The licensor grants you a non-exclusive, royalty-free, worldwide, non-transferable patent license to make, have made, use, sell, offer for sale, import and otherwise transfer the software, where such license applies only to those patent claims that the licensor can license and that are infringed by the software alone, provided that you do not use the software for commercial purposes.
+
+Commercial Purposes
+Commercial purposes include any use for commercial advantage or monetary compensation.
+
+Redistribution
+You may redistribute the software, provided that you include this license with it.
+
+No Liability
+THE SOFTWARE IS PROVIDED "AS IS" AND THE LICENSOR DISCLAIMS ALL WARRANTIES AND LIABILITY.

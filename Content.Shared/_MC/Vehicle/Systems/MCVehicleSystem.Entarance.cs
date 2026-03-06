@@ -1,0 +1,87 @@
+﻿using System.Numerics;
+using Content.Shared._MC.Vehicle.Components;
+using Robust.Shared.Map;
+
+namespace Content.Shared._MC.Vehicle.Systems;
+
+public sealed partial class MCVehicleSystem
+{
+    #region Enter
+
+    private void TryEnter(Entity<MCVehicleComponent> entity, EntityUid user)
+    {
+        if (!CanEnter(entity, user))
+            return;
+
+        Enter(entity, user);
+    }
+
+    private bool CanEnter(Entity<MCVehicleComponent> entity, EntityUid user)
+    {
+        return true;
+    }
+
+    private void Enter(Entity<MCVehicleComponent> entity, EntityUid user)
+    {
+        if (!GetEnterPointCoordinates(entity, Direction.Invalid, out var coordinates))
+            return;
+
+        _transform.SetCoordinates(user, coordinates);
+    }
+
+    private bool GetEnterPointCoordinates(Entity<MCVehicleComponent> entity, Direction direction, out EntityCoordinates coordinates)
+    {
+        coordinates = default;
+
+        if (!GetEnterPoint(entity, direction, out var entryPointUid))
+            return false;
+
+        coordinates = Transform(entryPointUid).Coordinates;
+        return true;
+    }
+
+    private bool GetEnterPoint(Entity<MCVehicleComponent> entity, Direction direction, out EntityUid entryPointUid)
+    {
+        entryPointUid = default;
+
+        var query = EntityQueryEnumerator<MCVehicleGridEnterPointComponent, TransformComponent>();
+        while (query.MoveNext(out var uid, out var component, out var transformComponent))
+        {
+            if (entity.Comp.GridUid != transformComponent.GridUid)
+                continue;
+
+            if (component.Direction != direction)
+                continue;
+
+            entryPointUid = uid;
+            return true;
+        }
+
+        return false;
+    }
+
+    #endregion
+
+    #region Leave
+
+    private void TryLeave(Entity<MCVehicleComponent> entity, EntityUid user, Direction direction)
+    {
+        if (!CanLeave(entity, user, direction))
+            return;
+
+        Leave(entity, user, direction);
+    }
+
+    private bool CanLeave(Entity<MCVehicleComponent> entity, EntityUid user, Direction direction)
+    {
+        return true;
+    }
+
+    private void Leave(Entity<MCVehicleComponent> entity, EntityUid user, Direction direction)
+    {
+        var coordinates = Transform(entity).Coordinates.Offset(new Vector2(0, -2.5f));
+        _transform.SetCoordinates(user, coordinates);
+    }
+
+    #endregion
+}

@@ -1,0 +1,5 @@
+- type: tile
+  parent: CMTileBase
+  id: MCVehicle
+  abstract: true
+  canPlaceTunnel: false

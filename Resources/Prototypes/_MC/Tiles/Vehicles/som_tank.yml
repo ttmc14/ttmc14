@@ -1,0 +1,54 @@
+- type: tile
+  parent: MCVehicle
+  id: MCVehicleSomTank
+  abstract: true
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor1
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_1.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor2
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_2.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor3
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_3.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor4
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_4.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor5
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_5.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor6
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_6.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor7
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_7.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor8
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_8.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor9
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_9.png
+
+- type: tile
+  parent: MCVehicleSomTank
+  id: MCVehicleSomTankFloor10
+  sprite: /Textures/_MC/Tiles/Vehicles/SomTank/floor_10.png

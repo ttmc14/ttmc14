@@ -1,0 +1,25 @@
+- type: entity
+  parent: MCVehicle
+  id: MCVehicleTankSom
+  components:
+  - type: MCVehicle
+    path: /Maps/_MC/Vehicles/som_tank.yml
+  # [Sprite]
+  - type: Sprite
+    sprite: _MC/Objects/Vehicles/som_tank.rsi
+    drawdepth: Mobs
+    layers:
+    - map: [ base ]
+      state: base
+
+- type: entity
+  parent: MCVehicleLeave
+  id: MCVehicleLeaveSom
+  components:
+  - type: MCVehicleGridExitPoint
+    direction: South
+  # [Sprite]
+  - type: Sprite
+    sprite: _MC/Structures/Vehicles/som_tank.rsi
+    drawdepth: FloorObjects
+    state: hatch_decal

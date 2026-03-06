@@ -1,0 +1,68 @@
+- type: entity
+  id: MCVehicle
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCVehicle
+    path: /Maps/_MC/Vehicles/som_tank.yml
+  # [Interaction]
+  - type: Clickable
+  - type: InteractionOutline
+  # [Sprite]
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Vehicles/som_tank.rsi
+    drawdepth: Mobs
+    layers:
+    - map: [ base ]
+      state: base
+  # [Physics]
+  - type: InputMover
+  - type: Physics
+    bodyType: Dynamic
+  - type: Fixtures
+    fixtures:
+      world:
+        shape: !type:PhysShapeAabb
+          bounds: -1.425,-1.925,1.425,1.925
+        density: 1000
+        mask:
+        - Impassable
+        - HighImpassable
+        - LowImpassable
+        - LargeMobLayer
+        layer:
+        - LargeMobLayer
+      mob:
+        shape: !type:PhysShapeAabb
+          bounds: -1.425,-1.925,1.425,1.925
+        density: 1000
+        mask:
+        - MidImpassable
+        - BarricadeImpassable
+        - LargeMobLayer
+        layer:
+        - LargeMobLayer
+  # [Destruction]
+  - type: Corrodible
+    isCorrodible: false
+
+- type: entity
+  parent: MCMarker
+  id: MCMarkerVehicleEnter
+  name: vehicle enter
+  components:
+  - type: MCVehicleGridEnterPoint
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: pink
+    - sprite: _MC/Objects/Tools/pinpointer.rsi
+      state: close
+
+- type: entity
+  parent: MCMarkerVehicleEnter
+  id: MCMarkerVehicleEnterBottom
+  name: vehicle enter bottom
+  components:
+  - type: MCVehicleGridEnterPoint

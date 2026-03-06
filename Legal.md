@@ -16,11 +16,11 @@ Non-legalese summary of the terms of this agreement (This is not a replacement f
 
 # Licensing/Attribution:
 
-* Unless specified otherwise, all Source Code inside any **_MC** or **MC** folders falls under the terms specified in **LICENSE_TTMC14.txt** and the **TTMC14 CLA**. All assets/content within those folders are licensed under **CC-BY-SA 4.0**.
-* Any content from **SpaceWizards/SpaceStation14** without explicitly stated code licensing is licensed under **MIT** (LICENSE.TXT). Any Space Wizards content licensed under **CC-BY-SA** belongs to Space Wizards Federation & Contributors.
-* Any content from **RMC-14/RMC-14** without explicitly stated code licensing is licensed under **MIT** (LICENSE.TXT). Any Space Wizards content licensed under **CC-BY-SA** belongs to Space Wizards Federation & Contributors.
-* **We are in the process of removing or replacing content that is currently not under an approved license.**
-* **Some resources may have a different license.**
+- Unless specified otherwise, all Source Code inside any **_MC** or **MC** folders falls under the terms specified in **LICENSE_TTMC14.txt** and the **TTMC14 CLA**. All assets/content within those folders are licensed under **CC-BY-SA 4.0**.
+- Any content from **SpaceWizards/SpaceStation14** without explicitly stated code licensing is licensed under **MIT** (LICENSE.TXT). Any Space Wizards content licensed under **CC-BY-SA** belongs to Space Wizards Federation & Contributors.
+- Any content from **RMC-14/RMC-14** without explicitly stated code licensing is licensed under **MIT** (LICENSE.TXT). Any Space Wizards content licensed under **CC-BY-SA** belongs to Space Wizards Federation & Contributors.
+- **We are in the process of removing or replacing content that is currently not under an approved license.**
+- **Some resources may have a different license.**
   If a resource uses a different license, it **will be explicitly stated** inside the resource’s text file and/or placed in the same directory in a file named **meta.json** or **license.txt**, which will describe the license in detail and specify exactly what it applies to.
   **If such a file is located inside an _MC folder, the explicitly stated license overrides the default _MC licensing terms for that specific resource.**
 

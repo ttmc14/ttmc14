@@ -1,0 +1,15 @@
+- type: entity
+  id: MCVehicleLeave
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCVehicleGridExitPoint
+    direction: South
+  # [Interaction]
+  - type: Clickable
+  - type: InteractionOutline
+  # [Sprite]
+  - type: Sprite
+    sprite: _MC/Structures/Vehicles/som_tank.rsi
+    drawdepth: FloorObjects
+    state: hatch_decal
