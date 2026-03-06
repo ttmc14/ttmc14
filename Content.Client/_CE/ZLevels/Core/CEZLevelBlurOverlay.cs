@@ -1,8 +1,3 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using Content.Client.Viewport;
 using Robust.Client.Graphics;
 using Robust.Shared.Enums;

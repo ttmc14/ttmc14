@@ -1,8 +1,3 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using System.Numerics;
 using Content.Client.Damage.Systems;
 using Content.Shared._CE.ZLevels.Core.Components;

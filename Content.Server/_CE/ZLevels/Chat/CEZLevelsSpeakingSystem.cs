@@ -1,13 +1,7 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using System.Numerics;
 using Content.Server.Chat.Systems;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
-using Content.Shared.Chat;
 using Content.Shared.IdentityManagement;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;

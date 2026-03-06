@@ -1,8 +1,3 @@
-/*
- * This file is sublicensed under MIT License
- * https://github.com/space-wizards/space-station-14/blob/master/LICENSE.TXT
- */
-
 using System.Numerics;
 using Content.Client._CE.ZLevels.Core;
 using Content.Shared._CE.ZLevels.Core.Components;
@@ -14,6 +9,7 @@ using Robust.Shared.Graphics;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
+// ReSharper disable once CheckNamespace
 namespace Content.Client.Viewport;
 
 public sealed partial class ScalingViewport
