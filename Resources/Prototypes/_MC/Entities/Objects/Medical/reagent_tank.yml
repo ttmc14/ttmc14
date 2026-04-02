@@ -61,6 +61,55 @@
 
 - type: entity
   parent: MCTankReagentEmpty
+  id: MCTankReagentFuel
+  name: fuel tank
+  description: A fuel tank, normally used to hold welding fuel. It's painted red with explosive warning labels.
+  suffix: MCFuel
+  components:
+  - type: Sprite
+    layers:
+    - state: weldtank
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+  - type: Explosive
+    explosionType: RMC
+    totalIntensity: 60
+  - type: ReagentTank
+    tankType: Fuel
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 100
+      behaviors:
+      # 1. Взрыва и спавн огня
+      - !type:SolutionExplosionBehavior
+        solution: tank
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MCFire: { min: 15, max: 25 } # Минимум и максимум количества огней, которые могут появиться при взрыве
+        offset: 4.4 # 0.0 спавн ровно в центре
+      # 2. Уничтожаем сам объект
+      - !type:DoActsBehavior
+        acts: ["Destruction"]
+  - type: DamageOnToolInteract
+    tools: Welding
+    weldingDamage:
+      types:
+        Heat: 100
+  - type: Label
+    currentLabel: reagent-name-welding-fuel
+  - type: Tag
+    tags:
+    - MCTankFuel
+    - MCTankReagent
+
+- type: entity
+  parent: MCTankReagentEmpty
   id: MCTankReagentBicaridine
   suffix: Bicaridine
   components:

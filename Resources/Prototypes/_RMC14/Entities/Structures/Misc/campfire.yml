@@ -10,6 +10,15 @@
     layers:
       - state: brazier
       - state: burning
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 50
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: RMCMesonsNonviewable
   - type: PointLight
     radius: 10

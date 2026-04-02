@@ -92,7 +92,7 @@
           - MCAttachmentBipod
           - MCAttachmentVerticalGrip
           - MCAttachmentAngledGrip
-          - MCAttachmentBurstFireAssembly
+          # - MCAttachmentBurstFireAssembly TODO: Broken at BR8
           # - TODO: Attached TX-7
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals

@@ -82,6 +82,3 @@
       - RMCBeltMedical
   - type: RMCSmartFridgeInsertable
     category: Pills
-
-- type: Tag
-  id: MCPillCanister

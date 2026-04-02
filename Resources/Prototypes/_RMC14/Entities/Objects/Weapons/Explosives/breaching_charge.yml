@@ -41,9 +41,8 @@
   - type: Tag
     tags:
     - RMCExplosiveBreachingCharge
-  - type: RequiresSkill
-    skills:
-      RMCSkillEngineer: 1
+    - C4
+    - PlasticExplosives
 
 - type: entity
   parent: RMCExplosiveBreachingCharge

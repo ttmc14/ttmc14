@@ -89,6 +89,7 @@
           - MCAttachmentVerticalGrip
           - MCAttachmentAngledGrip
           - MCAttachmentBurstFireAssembly
+          - MCAttachmentUnderbarrelShotgun
           # - TODO: PP-7 Plasma Pistol
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
