@@ -14,5 +14,6 @@ public sealed partial class MCArmorSystem
     private static void OnInventoryGetRelayed(Entity<MCArmorComponent> entity, ref InventoryRelayedEvent<MCArmorGetEvent> args)
     {
         args.Args.SoftArmor += entity.Comp.Soft;
+        args.Args.HardArmor += entity.Comp.Soft;
     }
 }

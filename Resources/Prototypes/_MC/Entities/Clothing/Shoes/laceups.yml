@@ -1,14 +1,29 @@
 - type: entity
-  parent: RMCShoesLaceup
+  parent: MCClothingShoes
   id: MCLaceup
   name: laceup shoes
   description: The height of fashion, and they're pre-polished!
-  suffix: MC
   components:
   - type: Sprite
     sprite: _MC/Clothing/Shoes/laceup_old.rsi
   - type: Clothing
     sprite: _MC/Clothing/Shoes/laceup_old.rsi
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      item:
+        name: rmc-gun
+        insertSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+        whitelist:
+          tags:
+          - Holdout
+  - type: Matchbox
+  - type: CMHolster
+  - type: CMItemSlots
+  - type: UsableWhileDevoured
   - type: CMArmor
     melee: 25
     bullet: 15
@@ -24,7 +39,7 @@
   id: MCLaceupSpatialAgent
   name: spatial agent's shoes
   description: Shoes worn by a spatial agent.
-  suffix: MC, Admin
+  suffix: Admin
   components:
   - type: Unremoveable
   - type: Sprite
@@ -40,3 +55,14 @@
     bio: 20
     fire: 20
     acid: 25
+
+- type: entity
+  parent: MCLaceup
+  id: MCShoesWhite
+  name: white shoes
+  description: Comfortable-looking shoes.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Shoes/white_old.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Shoes/white_old.rsi

@@ -1,5 +1,14 @@
 - type: entity
+  parent: MCItem
   id: MCClothing
   abstract: true
   categories: [ MCContent ]
 
+- type: entity
+  id: MCClothingSlot
+  abstract: true
+  components:
+  - type: ItemSlots
+  - type: ContainerContainer
+    containers:
+      item: !type:ContainerSlot
