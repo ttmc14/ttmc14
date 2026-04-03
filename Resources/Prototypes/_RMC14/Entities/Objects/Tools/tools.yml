@@ -31,9 +31,6 @@
       path: /Audio/Items/screwdriver_drop.ogg
       params:
         volume: -4
-  - type: Tag
-    tags:
-    - Screwdriver
   - type: Clothing
     quickEquip: false
     slots:
@@ -74,9 +71,6 @@
       path: /Audio/Items/wirecutter_drop.ogg
       params:
         volume: -4
-  - type: Tag
-    tags:
-    - Wirecutter
   - type: Clothing
     quickEquip: false
     slots:
@@ -111,9 +105,6 @@
       path: /Audio/Items/wrench_drop.ogg
       params:
         volume: -4
-  - type: Tag
-    tags:
-    - Wrench
   - type: Clothing
     quickEquip: false
     slots:
@@ -150,9 +141,6 @@
       params:
         volume: -4
   - type: Multitool
-  - type: Tag
-    tags:
-    - Multitool
   - type: Clothing
     quickEquip: false
     slots:

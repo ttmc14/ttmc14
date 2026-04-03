@@ -20,7 +20,7 @@
       spray:
         maxVol: 50
         reagents:
-        - ReagentId: MCWater
+        - ReagentId: MCWater # MC changes shit
           Quantity: 50
   - type: Sprite
     sprite: _RMC14/Objects/fire_extinguisher.rsi
