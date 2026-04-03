@@ -61,7 +61,6 @@
           Open: { visible: false }
           Closed: { visible: true }
   - type: Appearance
-
   - type: IconLabel
     textColor: White
     storedOffset: 3, 12
@@ -71,8 +70,7 @@
         type: StorageBoundUserInterface
   - type: Clothing
     quickEquip: false
-    slots:
-    - suitstorage
+    slots: [ suitstorage ]
   - type: RMCStorageEjectHand
     state: Last
     canToggleStorage: false
@@ -82,3 +80,6 @@
       - RMCBeltMedical
   - type: RMCSmartFridgeInsertable
     category: Pills
+
+- type: Tag
+  id: MCPillCanister
