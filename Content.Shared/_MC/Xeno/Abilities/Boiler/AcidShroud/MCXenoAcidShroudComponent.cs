@@ -7,6 +7,9 @@ namespace Content.Shared._MC.Xeno.Abilities.Boiler.AcidShroud;
 public sealed partial class MCXenoAcidShroudComponent : Component
 {
     [DataField, AutoNetworkedField]
+    public TimeSpan AdjustDelay = TimeSpan.FromSeconds(30);
+
+    [DataField, AutoNetworkedField]
     public int MinRange = 2;
 
     [DataField, AutoNetworkedField]

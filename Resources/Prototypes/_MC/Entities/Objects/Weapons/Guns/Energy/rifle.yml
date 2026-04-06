@@ -154,8 +154,7 @@
     damage: 15 # parity 30
   - type: MCXenoPlasmaDamageOnHit
     amount: 25
-    # multiplier: 0.05
-    # Warning! MaxDistance not works with laser projectiles
+    multiplier: 0.05
   - type: MCStunOnHit
     slowdownTime: 1
     maxDistance: 6

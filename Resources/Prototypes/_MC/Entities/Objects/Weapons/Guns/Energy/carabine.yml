@@ -129,7 +129,7 @@
     amount: 10
   - type: MCXenoSunderDamageOnHit
     amount: 0
-    # Warning! MaxDistance not works with laser projectiles
   - type: MCStunOnHit
     knockback: 3
+    knockbackSpeed: 20
     maxDistance: 6

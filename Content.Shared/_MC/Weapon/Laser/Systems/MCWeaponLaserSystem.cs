@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared._MC.Line;
 using Content.Shared._MC.Power.Systems.Providing;
+using Content.Shared._MC.Stun;
 using Content.Shared._MC.Weapon.Laser.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -64,7 +65,7 @@ public sealed class MCWeaponLaserSystem : EntitySystem
                 Category = Modes,
                 Act = () =>
                 {
-                  SetMode(entity, key);
+                    SetMode(entity, key);
                 },
             });
         }
@@ -134,7 +135,7 @@ public sealed class MCWeaponLaserSystem : EntitySystem
         _mcLine.SpawnEffect(mode.EffectId, mode.ProjectileId, fromCoordinates, hitCoordinates);
 
         // FUNNY MOMENT HERE
-        var projectileUid = SpawnAtPosition(mode.ProjectileId, hitCoordinates);
+        var projectileUid = SpawnAtPosition(mode.ProjectileId, fromCoordinates);
         ShootProjectile(projectileUid, gunEntity, user, out var physicsComponent, out var projectileComponent);
 
         RaiseLocalEvent(entity, new AmmoShotEvent

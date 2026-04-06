@@ -1,0 +1,151 @@
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlob
+  abstract: true
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas
+      shader: unshaded
+  - type: CMArmorPiercing
+    amount: 40
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 30
+  - type: MCXenoProjectileTargetingTurf
+  - type: XenoSlowingSpitProjectile
+    paralyze: 1
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.1,-0.1,0.1,0.1"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+        - BarricadeImpassable
+        - XenoProjectileImpassable
+
+- type: entity
+  parent: MCXenoProjectileGlob
+  id: MCXenoProjectileGlobAcid
+  name: glob of acid
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 50
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoAcid
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlobNeurotoxin
+  name: glob of neurotoxin
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas2
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 50
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 30
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoNeurotoxinBoiler
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlobHemodile
+  name: glob of hemodile
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas2
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 50
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCHemodile
+      Quantity: 30
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoHemodileBoiler
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlobTransvitox
+  name: glob of transvitox
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas2
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 50
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCTransvitox
+      Quantity: 30
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoTransvitoxBoiler
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlobSanguinal
+  name: glob of sanguinal
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas2
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 50
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCSanguinal
+      Quantity: 30
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoSanguinalBoiler
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileGlobOzelomelyn
+  name: glob of ozelomelyn
+  components:
+  - type: Sprite
+    layers:
+    - state: boiler_gas2
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 50
+  - type: MCXenoProjectileInject
+    reagents:
+    - ReagentId: MCOzelomelyn
+      Quantity: 30
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoOzelomelynBoiler

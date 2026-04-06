@@ -30,13 +30,16 @@ public sealed class MCStunSystem : EntitySystem
 
     private void OnMapInit(Entity<MCStunOnHitComponent> entity, ref MapInitEvent args)
     {
+        if (entity.Comp.ShotFrom is not null)
+            return;
+
         entity.Comp.ShotFrom = _transform.GetWorldPosition(entity.Owner);
         Dirty(entity);
     }
 
     private void OnHit(Entity<MCStunOnHitComponent> entity, ref ProjectileHitEvent args)
     {
-        if (entity.Comp.ShotFrom is not {} shotFrom)
+        if (entity.Comp.ShotFrom is not { } shotFrom)
             return;
 
         var direction = _transform.GetWorldPosition(args.Target) - shotFrom;
@@ -54,17 +57,17 @@ public sealed class MCStunSystem : EntitySystem
             Stagger(args.Target, entity.Comp.StaggerTime);
         }
 
-        if (entity.Comp.Knockback == 0)
-            return;
-
         _slow.TrySlowdown(args.Target, entity.Comp.SlowdownTime);
 
-        _physics.SetLinearVelocity(args.Target, Vector2.Zero);
-        _physics.SetAngularVelocity(args.Target, 0f);
+        if (entity.Comp.Knockback != 0)
+        {
+            _physics.SetLinearVelocity(args.Target, Vector2.Zero);
+            _physics.SetAngularVelocity(args.Target, 0f);
 
-        _rmcPulling.TryStopPullsOn(args.Target);
+            _rmcPulling.TryStopPullsOn(args.Target);
 
-        _throwing.TryThrow(args.Target, direction.Normalized() * entity.Comp.Knockback, entity.Comp.KnockbackSpeed, animated: false, playSound: false, compensateFriction: true);
+            _throwing.TryThrow(args.Target, direction.Normalized() * entity.Comp.Knockback, entity.Comp.KnockbackSpeed, animated: false, playSound: false, compensateFriction: true);
+        }
     }
 
     public void Stun(EntityUid uid, TimeSpan duration)
