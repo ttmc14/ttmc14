@@ -1,7 +1,7 @@
 - type: entity
   parent:
   - MCWeaponEnergyBase
-  - RMCBaseWeaponMagazineVisuals
+  - MCWeaponMagazineVisuals
   id: MCWeaponEnergyCarbine
   name: Terra Experimental laser carbine (TE-C)
   description: "A TerraGov standard issue laser carbine, otherwise known as TE-C for short. It has an integrated charge selector for burst and scatter settings. Uses standard Terra Experimental (abbreviated as TE) power cells. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts. Has four firing modes: Auto Burst Standard, Spread, Impact, and Cripple."

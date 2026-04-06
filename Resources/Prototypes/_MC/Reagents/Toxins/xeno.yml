@@ -25,7 +25,8 @@
   metabolisms:
     Poison:
       metabolismRate: 0.4
-      effects: []
+      effects:
+      - !type:MCReagentHemodile
 
 - type: reagent
   parent: MCReagentToxins
