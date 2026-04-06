@@ -42,6 +42,14 @@
         - Sheet
         - RodMetal1
         - CableCoil
+        - Crowbar
+        - Wirecutter
+        - Screwdriver
+        - Wrench
+        - Multitool
+        - Welder
+        - MCPowerCell
+        - C4
         components:
         - BarbedWire
         - EntrenchingTool
@@ -56,6 +64,13 @@
       - Sheet
       - RodMetal1
       - CableCoil
+      - Crowbar
+      - Wirecutter
+      - Screwdriver
+      - Wrench
+      - Multitool
+      - Welder
+      - MCPowerCell
       components:
       - BarbedWire
       - EntrenchingTool

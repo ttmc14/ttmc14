@@ -114,6 +114,11 @@
   - type: IgnitionSource
     temperature: 700
   - type: Blowtorch
+  # MC Changes:
+  - type: Tag
+    tags:
+    - Welder
+  # MC Changes
   - type: Clothing
     quickEquip: false
     slots:

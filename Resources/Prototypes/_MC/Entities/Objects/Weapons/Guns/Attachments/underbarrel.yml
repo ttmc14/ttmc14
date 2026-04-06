@@ -151,8 +151,13 @@
     fireModeMods:
     - extraFireModes: Burst
     modifiers:
-    - burstScatterAddMult: 1
-    - shotsPerBurstFlat: 2
+    - shotsPerBurstFlat: 1
+    - conditions:
+        wieldedOnly: true
+      accuracyAddMult: -0.15
+    - conditions:
+        unwieldedOnly: true
+      accuracyAddMult: -0.20
 
 - type: entity
   parent: MCAttachmentBaseUnderbarrel

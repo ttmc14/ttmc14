@@ -91,6 +91,7 @@
           - MCAttachmentVerticalGrip
           - MCAttachmentAngledGrip
           - MCAttachmentBurstFireAssembly
+          - MCAttachmentUnderbarrelShotgun
           # - TODO: Attached TX-7
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
