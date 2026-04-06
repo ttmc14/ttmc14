@@ -34,6 +34,10 @@ public sealed partial class MCArmorSystem
         if (_tag.HasTag(tool, TagMelee) || HasComp<MeleeWeaponComponent>(tool))
             return (soft.Melee, hard.Melee);
 
+        // High priority than bullet
+        if (_tag.HasTag(tool, TagLaser))
+            return (soft.Laser, hard.Laser);
+
         if (_tag.HasTag(tool, TagBullet) || HasComp<RMCBulletComponent>(tool))
             return (soft.Bullet, hard.Bullet);
 
@@ -42,9 +46,6 @@ public sealed partial class MCArmorSystem
 
         if (_tag.HasTag(tool, TagFire))
             return (soft.Fire, hard.Fire);
-
-        if (_tag.HasTag(tool, TagLaser))
-            return (soft.Laser, hard.Laser);
 
         if (_tag.HasTag(tool, TagEnergy))
             return (soft.Energy, hard.Energy);

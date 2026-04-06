@@ -91,7 +91,7 @@ public sealed partial class GunSystem
 
     #region Controls
 
-    private sealed class DefaultStatusControl : Control
+    public sealed class DefaultStatusControl : Control
     {
         private readonly BulletRender _bulletRender;
 

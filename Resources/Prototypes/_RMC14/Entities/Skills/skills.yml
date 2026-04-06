@@ -47,7 +47,7 @@
 - type: entity
   parent: RMCSkillBase
   id: RMCSkillEngineer
-  name: Engineer
+  name: Engineer (Legacy)
   categories: [ HideSpawnMenu ]
   components:
   - type: SkillDefinition

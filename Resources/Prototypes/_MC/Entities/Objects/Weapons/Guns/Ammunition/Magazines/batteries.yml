@@ -24,9 +24,7 @@
   - type: Appearance
   - type: PowerCellVisuals
   - type: Riggable
-  - type: HitscanBatteryAmmoProvider
-    proto: MCProjectileBeamBase
-    fireCost: 10
+  - type: MCWeaponLaserAmmo
 
 - type: Tag
   id: MCBatteryTerra

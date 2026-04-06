@@ -154,8 +154,6 @@
       - MCPyroFlamerMini
       - MCBackpackFlamer
       - MCFlamerTankMini
-  - type: MCFlamerTankFireType
-    spawn: MCFireFlamethrower
   - type: RefillableSolution
     solution: rmc_flamer_tank
   - type: DetailedExaminableSolution

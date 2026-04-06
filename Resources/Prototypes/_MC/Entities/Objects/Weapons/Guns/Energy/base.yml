@@ -18,7 +18,6 @@
     - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
-  - type: MagazineAmmoProvider
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -33,3 +32,27 @@
     containers:
       gun_magazine: !type:ContainerSlot
   - type: Wieldable
+  - type: MCWeaponLaser
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectLaser
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.1
+  - type: Sprite
+    sprite: _MC/Effects/Beams/warlock.rsi
+    state: base_body
+    drawdepth: Effects
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_tail
+    body:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_body
+    head:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_head

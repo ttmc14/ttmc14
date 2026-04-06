@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/PMC-Unga-Marines/UngaMarines-13",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "impact_beam"
+    },
+    {
+      "name": "muzzle_beam"
+    },
+    {
+      "name": "beam"
+    }
+  ]
+}

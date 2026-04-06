@@ -2,6 +2,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Numerics;
 using Content.Shared._MC.Marine.Equipment.Weapon.Ranged;
+using Content.Shared._MC.Weapon.Laser.Components;
+using Content.Shared._MC.Weapon.Laser.Systems;
 using Content.Shared._RMC14.Attachable.Systems;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Random;
@@ -96,7 +98,7 @@ public abstract partial class SharedGunSystem : EntitySystem
     [Dependency] private readonly SharedRMCFlamerSystem _flamer = default!;
 
     // MC Changes:
-    [Dependency] private readonly MCBackpackAmmoProviderSystem _mcBackpackAmmo = null!;
+    [Dependency] private readonly MCWeaponLaserSystem _mcWeaponLaser = null!;
     // MC Changes End
 
     private const float InteractNextFire = 0.3f;
@@ -724,6 +726,10 @@ public abstract partial class SharedGunSystem : EntitySystem
                 case RMCSprayAmmoProviderComponent spray:
                     if (ent != null)
                         _flamer.ShootSpray((ent.Value, spray), (gunUid, gun), user, fromCoordinates, toCoordinates);
+                    break;
+                case MCWeaponLaserComponent mcLaser:
+                    if (ent != null)
+                        _mcWeaponLaser.Shoot((ent.Value, mcLaser), (gunUid, gun), user, fromCoordinates, toCoordinates);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
