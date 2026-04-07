@@ -29,4 +29,10 @@ public sealed partial class MCXenoPsyCrushActiveComponent : Component
 
     [ViewVariables, AutoNetworkedField]
     public HashSet<EntityUid> SpawnedEffects = new();
+
+    [ViewVariables]
+    public Queue<Vector2i> Frontier = new();
+
+    [ViewVariables]
+    public HashSet<Vector2i> Visited = new();
 }

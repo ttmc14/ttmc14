@@ -60,6 +60,8 @@ public sealed partial class MCXenoPsyCrushSystem
         activeComponent.CenterTile = _map.LocalToTile(gridUid, grid, centered);
         activeComponent.NextExpansion = TimeSpan.Zero;
 
+        activeComponent.Frontier.Enqueue(activeComponent.CenterTile);
+
         var orbUid = ServerSpawn(entity.Comp.OrbEffectId, centered);
         if (orbUid.Valid)
             activeComponent.OrbUid = orbUid;

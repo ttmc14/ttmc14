@@ -6,7 +6,7 @@ public sealed partial class MCStaminaSystem
 {
     public void ApplyDamage(Entity<MCStaminaComponent?> entity, float amount, bool updateTimer = true, bool forceTimer = false)
     {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, logMissing: false))
             return;
 
         var newStamina = entity.Comp.Stamina - amount;
