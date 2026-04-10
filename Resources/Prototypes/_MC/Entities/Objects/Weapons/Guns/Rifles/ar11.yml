@@ -24,20 +24,23 @@
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar11.ogg
   - type: RMCSelectiveFire
-    selectedMode: FullAuto
     baseFireModes:
     - FullAuto
     - Burst
-    recoilUnwielded: 4
-    scatterWielded: 6
-    scatterUnwielded: 20
     baseFireRate: 4
-    burstFireRateMultiplier: 6
-    burstScatterMult: -2
+    burstFireRateMultiplier: 2
+    # Scatter
+    scatterWielded: -1
+    scatterUnwielded: 15
+    # Modifiers
+    modifiers:
+      Burst:
+        fireDelay: 0.05
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MCMagazineRifleAR11
         insertSound: /Audio/_MC/Weapons/Guns/Reload/t42_reload.ogg
         ejectSound: /Audio/_MC/Weapons/Guns/Reload/t42_unload.ogg
         priority: 2
@@ -45,18 +48,18 @@
           tags:
           - MCMagazineRifleAR11
   - type: WieldableSpeedModifiers
-    base: 0.625
+    base: 0.95
   - type: WieldDelay
     baseDelay: 0.6
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
-    accuracyMultiplierUnwielded: 0.6
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 0.5
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentBayonet
@@ -74,9 +77,9 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.46875, 0.03125
-      mc-slot-rail: -0.3125, 0.125
-      mc-slot-underbarrel: 0.125, -0.125
+      mc-slot-muzzle: 0.656250, 0.093750
+      mc-slot-rail: -0.093750, 0.250000
+      mc-slot-underbarrel: 0.343750, -0.031250
 
 - type: entity
   parent: MCMagazineRifle

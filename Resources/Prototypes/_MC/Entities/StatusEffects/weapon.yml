@@ -1,0 +1,11 @@
+- type: entity
+  parent: MCStatusEffectMob
+  id: MCStatusEffectShatter
+  components:
+  - type: MCShatter
+
+- type: entity
+  parent: MCStatusEffectMob
+  id: MCStatusEffectMicrowaved
+  components:
+  - type: MCMicrowaved

@@ -24,20 +24,21 @@
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar18.ogg
   - type: RMCSelectiveFire
-    selectedMode: FullAuto
     baseFireModes:
     - FullAuto
     - Burst
-    recoilUnwielded: 4
-    scatterWielded: 6
-    scatterUnwielded: 20
     baseFireRate: 5
-    burstFireRateMultiplier: 8
-    burstScatterMult: 2
+    # Scatter
+    scatterWielded: 0
+    # Modifiers
+    modifiers:
+      Burst:
+        fireDelay: 0.1
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MCMagazineRifleAR18
         insertSound: /Audio/_MC/Weapons/Guns/Reload/t18_reload.ogg
         ejectSound: /Audio/_MC/Weapons/Guns/Reload/t18_unload.ogg
         priority: 2
@@ -45,21 +46,15 @@
           tags:
           - MCMagazineRifleAR18
   - type: WieldableSpeedModifiers
-    base: 0.725
-    light: 1
-    medium: 1
-    heavy: 1
-  - type: WieldDelay
-    baseDelay: 0.6
+    base: 0.95
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
-    accuracyMultiplierUnwielded: 0.6
+    accuracyMultiplier: 1.05
   - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
+    falloffMultiplier: 0.9
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -93,9 +88,9 @@
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.4375, 0
-      mc-slot-rail: -0.25, 0.09375
-      mc-slot-underbarrel: -0.03125, -0.09375
+      mc-slot-muzzle: 0.687500, 0.062500
+      mc-slot-underbarrel: 0.375000, -0.031250
+      mc-slot-rail: -0.156250, 0.156250
 
 - type: entity
   parent: MCMagazineRifle

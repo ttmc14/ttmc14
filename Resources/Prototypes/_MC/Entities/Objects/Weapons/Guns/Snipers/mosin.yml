@@ -44,7 +44,7 @@
       - MCCartridgeMosin
   - type: ShootUseDelay
   - type: WieldableSpeedModifiers
-    base: 0.8
+    base: 0.95
   - type: WieldDelay
     baseDelay: 1.4
   # Attachable

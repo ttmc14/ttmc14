@@ -4,6 +4,20 @@
   name: SG-29 Raummetall-KT smart machine gun
   description: The Raummetall-KT SG-29 is the TGMC's current standard IFF-capable medium machine gun. It's known for its ability to lay down heavy fire support very well. It is generally used when someone wants to hold a position or provide fire support. Requires special training and it cannot turn off IFF. It uses 10x26mm ammunition.
   components:
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29/inhands.rsi
+    layers:
+    - state: base
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29/icon.rsi
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29/icon.rsi
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29/inhands.rsi
+    slots: [ suitStorage, back ]
+  # Statistics
   - type: Item
     size: Huge
   - type: AmmoCounter
@@ -15,19 +29,6 @@
     steps: 1
     zeroVisible: true
   - type: Appearance
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29.rsi
-    layers:
-    - state: base
-      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29.rsi
-    - state: mag-0
-      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29.rsi
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29.rsi
-    slots:
-    - suitStorage
-    - Back
   - type: MeleeWeapon
     damage:
       types:
@@ -92,18 +93,6 @@
           - MCAttachmentMagneticHarness
           - MCAttachmentRedDotSight
           - MCAttachmentRailFlashlight
-      mc-slot-muzzle:
-        locked: true
-        startingAttachable: MCAttachmentMuzzleSG29
-        whitelist:
-          tags:
-          - MCAttachmentMuzzleSG29
-      mc-slot-stock:
-        locked: true
-        startingAttachable: MCAttachmentStockSG29
-        whitelist:
-          tags:
-          - MCAttachmentStockSG29
       mc-slot-underbarrel:
         whitelist:
           tags:
@@ -114,42 +103,6 @@
     offsets:
       mc-slot-muzzle: 0.8125, 0.03125
       mc-slot-underbarrel: -0.25, -0.5625
-      mc-slot-stock: -0.625, 0
-
-# Attachments
-- type: entity
-  parent: MCAttachmentBaseMuzzle
-  id: MCAttachmentMuzzleSG29
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: sg29barrel_a
-  - type: Tag
-    tags:
-    - MCAttachmentMuzzle
-    - MCAttachmentMuzzleSG29
-  - type: AttachableVisuals
-    suffix: ""
-
-- type: Tag
-  id: MCAttachmentMuzzleSG29
-
-- type: entity
-  parent: MCAttachmentBaseStock
-  id: MCAttachmentStockSG29
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: sg29_a
-  - type: Tag
-    tags:
-    - MCAttachmentStock
-    - MCAttachmentStockSG29
-  - type: AttachableVisuals
-    suffix: ""
-
-- type: Tag
-  id: MCAttachmentStockSG29
 
 # Boxes SG-62
 - type: entity

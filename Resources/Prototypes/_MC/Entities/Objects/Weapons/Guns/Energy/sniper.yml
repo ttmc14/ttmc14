@@ -129,8 +129,11 @@
   - type: CMArmorPiercing
     amount: 50
   - type: MCXenoSunderDamageOnHit
-    amount: 20
-  # TODO: Shatter effect
+    amount: 10
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 5
 
 - type: entity
   parent: MCLaser

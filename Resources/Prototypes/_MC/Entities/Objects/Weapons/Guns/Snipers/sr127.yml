@@ -1,22 +1,25 @@
 - type: entity
-  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponSniperSR127
   name: SR-127 Bauer bolt action rifle
   description: The Bauer SR-127 is the standard issue bolt action rifle used by the TGMC. Known for its long range accuracy and use by marksmen despite its age and lack of IFF, though careful aim allows fire support from behind. It has an irremoveable scope. Uses 8.6×70mm box magazines.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Snipers/sr127.rsi
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr127/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Snipers/sr127/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Snipers/sr127/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/sr127.rsi
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr127/inhands.rsi
+  # Statistics
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_dmr37.ogg
   - type: RMCSelectiveFire
@@ -31,13 +34,11 @@
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.15
     accuracyMultiplierUnwielded: 0.7
-  - type: MagazineAmmoProvider
-    autoEject: false
-    soundAutoEject: null
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MCMagazineSR127
         insertSound: /Audio/_MC/Weapons/Guns/Reload/m41a_reload.ogg
         ejectSound: /Audio/_MC/Weapons/Guns/Reload/m41a_unload.ogg
         priority: 2
@@ -52,60 +53,34 @@
     baseDelay: 1.5
   - type: AttachableHolder
     slots:
-      mc-aslot-barrel:
+      mc-slot-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
           - MCAttachmentSuppressor
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
-      mc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentBipod
-      mc-aslot-rail:
+      mc-slot-rail:
         locked: true
         startingAttachable: MCAttachmentRailScopeSR127
         whitelist:
           tags:
           - MCAttachmentRailScopeSR127
-      mc-aslot-stock:
-        locked: true
-        startingAttachable: MCAttachmentStockSR127
-        whitelist:
-          tags:
-          - MCAttachmentStockSR127
   - type: AttachableHolderVisuals
     offsets:
-      mc-aslot-barrel: 0.28125, 0.09375
-      mc-aslot-rail: -0.625, 0.1875
-      mc-aslot-underbarrel: -0.09375, 0
-      mc-aslot-stock: -1.25, -0.03125
+      mc-slot-barrel: 0.28125, 0.09375
+      mc-slot-rail: -0.625, 0.1875
+      mc-slot-underbarrel: -0.09375, 0
   - type: PumpAction
     sound:
       path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
   - type: MCAimedShoot
     aimSpeedModifier: 0.45
     aimFireModifier: 0.5
-
-# Attachments
-- type: entity
-  parent: MCAttachmentBaseStock
-  id: MCAttachmentStockSR127
-  name: SR-127 stock
-  description: A irremovable SR-127 sniper rifle stock.
-  components:
-  - type: Tag
-    tags:
-    - MCAttachmentStock
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-    state: tl127_a
-  - type: AttachableVisuals
-    suffix: ""
-
-- type: Tag
-  id: MCAttachmentStockSR127
 
 - type: entity
   parent: MCAttachmentBaseScope

@@ -41,9 +41,6 @@
         fireDelay: 0.1
         unwieldedScatterMultiplier: 1
         shotsToMaxScatter: null
-  # Why not? I return auto-eject
-  - type: MagazineAmmoProvider
-    autoEject: true
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -60,7 +57,7 @@
       types:
         MCBrute: 20
   - type: WieldableSpeedModifiers
-    base: 0.55
+    base: 0.95
   - type: WieldDelay
     baseDelay: 0.9
   - type: RMCWeaponAccuracy
@@ -71,7 +68,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -98,9 +95,9 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 1.2, 0.09
-      mc-slot-rail: 0.4, 0.25
-      mc-slot-underbarrel: 0.5, -0.28
+      mc-slot-muzzle: 0.750000, 0.062500
+      mc-slot-underbarrel: 0.218750, -0.125000
+      mc-slot-rail: 0.250000, 0.156250
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.5

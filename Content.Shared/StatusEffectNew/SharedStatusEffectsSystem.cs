@@ -96,6 +96,10 @@ public abstract partial class SharedStatusEffectsSystem : EntitySystem
         else
             effectComp.EndEffectTime = _timing.CurTime + duration;
 
+        // MC Changes
+        var ev = new StatusEffectTimeUpdatedEvent();
+        RaiseLocalEvent(effect, ref ev);
+
         Dirty(effect, effectComp);
 
         ShowAlertIfNeeded(effectComp);
@@ -238,3 +242,7 @@ public readonly record struct StatusEffectRemovedEvent(EntityUid Target);
 /// </summary>
 [ByRefEvent]
 public record struct BeforeStatusEffectAddedEvent(EntProtoId Effect, bool Cancelled = false);
+
+// MC Changes
+[ByRefEvent]
+public record struct StatusEffectTimeUpdatedEvent;

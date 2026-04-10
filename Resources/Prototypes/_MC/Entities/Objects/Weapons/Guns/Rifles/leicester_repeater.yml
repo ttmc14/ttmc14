@@ -42,7 +42,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentBayonet
@@ -55,10 +55,17 @@
           - MCAttachmentRedDotSight
           - MCAttachmentT47RailScope
           # - TODO: Tactical Sensor
+      mc-slot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentUnderbarrelFlashlight
+          - MCAttachmentVerticalGrip
+          - MCAttachmentAngledGrip
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.40625, 0.21875
-      mc-slot-rail: -0.34375, 0.21875
+      mc-slot-muzzle: 0.812500, 0.156250
+      mc-slot-underbarrel: 0.250000, -0.062500
+      mc-slot-rail: 0.468750, 0.187500
 
 - type: entity
   parent: MCBullet

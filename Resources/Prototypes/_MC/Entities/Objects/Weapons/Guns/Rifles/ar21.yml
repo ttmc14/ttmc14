@@ -20,24 +20,20 @@
     sprite: _MC/Objects/Weapons/Guns/Rifles/ar21/inhands.rsi
   # Statistics
   - type: Gun
+    shotsPerBurst: 1
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar21.ogg
   - type: RMCSelectiveFire
-    selectedMode: FullAuto
     baseFireModes:
     - FullAuto
-    recoilUnwielded: 4
-    scatterWielded: -2
-    scatterUnwielded: 12 # default value
     baseFireRate: 4
-    modifiers:
-      FullAuto:
-        useBurstScatterMult: false
-        unwieldedScatterMultiplier: 1
+    # Scatter
+    scatterWielded: -2
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MCMagazineRifleAR21
         insertSound: /Audio/_MC/Weapons/Guns/Reload/t21_reload.ogg
         ejectSound: /Audio/_MC/Weapons/Guns/Reload/t21_unload.ogg
         whitelist:
@@ -47,17 +43,18 @@
     damage:
       types:
         MCBrute: 20
+  - type: WieldableSpeedModifiers
+    base: 0.95
   - type: WieldDelay
     baseDelay: 0.8
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.2
-    accuracyMultiplierUnwielded: 0.6
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -89,9 +86,9 @@
           # - TODO: PP-7 Plasma Pistol
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.4375, 0
-      mc-slot-rail: -0.375, 0.09375
-      mc-slot-underbarrel: 0, -0.125
+      mc-slot-muzzle: 0.750000, 0.062500
+      mc-slot-underbarrel: 0.375000, -0.062500
+      mc-slot-rail: 0.093750, 0.156250
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.95

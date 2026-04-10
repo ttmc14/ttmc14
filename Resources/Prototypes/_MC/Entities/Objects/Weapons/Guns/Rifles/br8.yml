@@ -47,11 +47,11 @@
       types:
         MCBrute: 16
   - type: WieldableSpeedModifiers
-    base: 0.45
+    base: 0.95
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -86,9 +86,9 @@
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.4375, 0.03125
-      mc-slot-rail: -0.28125, 0.25
-      mc-slot-underbarrel: -0.09375, -0.125
+      mc-slot-muzzle: 0.718750, 0.125000
+      mc-slot-underbarrel: 0.375000, 0.000000
+      mc-slot-rail: 0.000000, 0.312500
 
 - type: entity
   parent: MCMagazineRifle

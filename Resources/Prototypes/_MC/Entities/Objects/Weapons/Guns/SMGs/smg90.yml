@@ -58,30 +58,29 @@
   - type: AttachableHolder
     randomAttachmentChance: 0.1
     slots:
-      rmc-aslot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
           - MCAttachmentSuppressor
           - MCAttachmentRecoilCompensator
           # - TODO: Heavy Barrel
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.46875, -0.03125
-      rmc-aslot-rail: 0.1875, 0.1875
-      rmc-aslot-underbarrel: 0.46875, -0.125
-      rmc-aslot-stock: -0.25, -0.6875
+      mc-slot-muzzle: 0.500000, -0.031250
+      mc-slot-underbarrel: 0.437500, -0.125000
+      mc-slot-rail: -0.187500, 0.093750
   - type: GunDamageModifier
     multiplier: 1
 

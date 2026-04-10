@@ -9,12 +9,12 @@
   - type: AmmoCounter
   - type: Appearance
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/inhands.rsi
     layers:
     - state: base
-      sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/icon.rsi
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/inhands.rsi
     slots: [ suitStorage, back ]
   - type: MeleeWeapon
     damage:

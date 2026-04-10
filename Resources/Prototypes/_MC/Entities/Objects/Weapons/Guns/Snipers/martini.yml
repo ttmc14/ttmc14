@@ -46,7 +46,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentBayonet
@@ -62,8 +62,9 @@
           # - TODO: Tactical sensor
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 1.2, 0.22
-      mc-slot-rail: 0.22, 0.2
+      mc-slot-muzzle: 0.937500, 0.125000
+      mc-slot-underbarrel: 0.343750, -0.031250
+      mc-slot-rail: 0.468750, 0.156250
   # Specials
   - type: PumpAction
     sound:

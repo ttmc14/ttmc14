@@ -33,9 +33,6 @@
     # Recoil
     recoilWielded: 0
     recoilUnwielded: 0
-  # Why not? I return auto-eject
-  - type: MagazineAmmoProvider
-    autoEject: true
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -52,7 +49,7 @@
       types:
         MCBrute: 20
   - type: WieldableSpeedModifiers
-    base: 0.75
+    base: 0.95
   - type: WieldDelay
     baseDelay: 1
   - type: RMCWeaponAccuracy
@@ -60,7 +57,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -89,9 +86,9 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 1.2, 0.1
-      mc-slot-rail: 0.25, 0.12
-      mc-slot-underbarrel: 0.6, -0.25
+      mc-slot-muzzle: 0.718750, 0.125000
+      mc-slot-underbarrel: 0.187500, -0.062500
+      mc-slot-rail: 0.093750, 0.187500
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.5

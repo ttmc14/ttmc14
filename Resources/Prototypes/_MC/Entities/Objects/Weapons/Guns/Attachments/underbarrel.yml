@@ -157,7 +157,7 @@
       accuracyAddMult: -0.15
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.20
+      accuracyAddMult: -0.2
 
 - type: entity
   parent: MCAttachmentBaseUnderbarrel
