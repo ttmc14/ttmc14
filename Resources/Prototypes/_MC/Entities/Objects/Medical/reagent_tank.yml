@@ -76,7 +76,7 @@
         - ReagentId: WeldingFuel
           Quantity: 1000
   - type: Explosive
-    explosionType: RMC
+    explosionType: MC
     totalIntensity: 60
   - type: ReagentTank
     tankType: Fuel
