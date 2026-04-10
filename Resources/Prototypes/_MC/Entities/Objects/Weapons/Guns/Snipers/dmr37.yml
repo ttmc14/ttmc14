@@ -1,43 +1,41 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponSniperDMR37
   name: DMR-37 SCA designated marksman rifle
   description: The San Cristo Arms DMR-37 is the TerraGov Marine Corps designated marksman rifle. It is rather well-known for it's very consistent target placement at longer than usual range, it however lacks a burst fire mode or an automatic mode. It is mostly used by people who prefer to do more careful shooting than most. Uses 10x27mm caseless caliber.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/dmr37.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/dmr37/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/dmr37/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/dmr37/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
-      state: dmr37_other
-      offset: 1, 0
-      map: [ "other" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/dmr37.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/dmr37/inhands.rsi
+  # Statistics
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
+    shotsPerBurst: 1
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_dmr37.ogg
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
-    recoilUnwielded: 2
-    recoilWielded: 1
-    scatterWielded: -8
-    scatterUnwielded: 26
     baseFireRate: 1.5
-    burstScatterMult: 2
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
-    accuracyMultiplierUnwielded: 0.6
+    # Scatter
+    scatterWielded: -4
+    scatterUnwielded: 26
+    # Recoil
+    recoilWielded: 0
+    recoilUnwielded: 0
+  # Why not? I return auto-eject
   - type: MagazineAmmoProvider
-    autoEject: false
-    soundAutoEject: null
+    autoEject: true
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -48,16 +46,21 @@
         priority: 2
         whitelist:
           tags:
-          - MCMagazineDMR37
-  - type: GunDamageModifier
-    multiplier: 1
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
+          - MCMagazineRifleDMR37
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
+  - type: WieldableSpeedModifiers
+    base: 0.75
   - type: WieldDelay
     baseDelay: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -65,14 +68,14 @@
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
           # - TODO: Heavy barrel
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentBurstFireAssembly
@@ -86,9 +89,10 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 1.2, 0.1
-      rmc-aslot-rail: 0.25, 0.12
-      rmc-aslot-underbarrel: 0.6, -0.25
+      mc-slot-barrel: 1.2, 0.1
+      mc-slot-rail: 0.25, 0.12
+      mc-slot-underbarrel: 0.6, -0.25
+  # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.5
     aimFireModifier: 0.7
@@ -97,63 +101,55 @@
   parent: MCMagazineRifle
   id: MCMagazineDMR37
   description: A 10mm DMR magazine.
-  name: "DMR-37 magazine (10x27mm)"
+  name: DMR-37 magazine (10x27mm)
   components:
   - type: Tag
     tags:
     - MCMagazineRifle
-    - MCMagazineDMR37
+    - MCMagazineRifleDMR37
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/dmr37.rsi
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeDMR37
     proto: MCCartridgeDMR37
     capacity: 20
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/dmr37.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Appearance
+
+- type: Tag
+  id: MCMagazineRifleDMR37
 
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridge
   id: MCCartridgeDMR37
-  name: Cartridge (10x27mm)
-  description: A 10x27mm rifle cartridge
   components:
   - type: Tag
     tags:
-    - Cartridge
+    - MCCartridge
     - MCCartridgeDMR37
   - type: CartridgeAmmo
     proto: MCBulletDMR37
 
+- type: Tag
+  id: MCCartridgeDMR37
+
 - type: entity
-  parent: BulletRifle10x24mm
+  parent: MCBullet
   id: MCBulletDMR37
   components:
   - type: Projectile
     damage:
       types:
-        MCBrute: 65
-  - type: RMCProjectileAccuracy
-    thresholds:
-    - range: 25
-      falloff: 10
+        MCBrute: 60
   - type: CMArmorPiercing
-    amount: 17
-  - type: MCXenoSunderDamageOnHit
-    amount: 2
+    amount: 25
+    # base 15
+    # xeno additional +10
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - falloff: 0.5
-
-- type: Tag
-  id: MCMagazineDMR37
-
-- type: Tag
-  id: MCCartridgeDMR37
+    - range: 1
+      falloff: 0.5
+    - range: 6
+      falloff: 0
+    - range: 25
+      falloff: 0.5

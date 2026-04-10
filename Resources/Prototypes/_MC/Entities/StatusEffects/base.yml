@@ -1,0 +1,20 @@
+- type: entity
+  id: MCStatusEffect
+  categories: [ HideSpawnMenu ]
+  abstract: true
+  components:
+  - type: Tag
+    tags: [ HideContextMenu ]
+  - type: StatusEffect
+  - type: Sprite
+    drawdepth: Effects
+
+- type: entity
+  parent: MCStatusEffect
+  id: MCStatusEffectMob
+  abstract: true
+  components:
+  - type: StatusEffect
+    whitelist:
+      components:
+      - MobState

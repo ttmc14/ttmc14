@@ -137,4 +137,20 @@ public partial struct MCArmorDefinition : IEquatable<MCArmorDefinition>
             Fall = left.Fall - right.Fall,
         };
     }
+
+    public static MCArmorDefinition operator *(MCArmorDefinition left, float right)
+    {
+        return new MCArmorDefinition
+        {
+            Melee = (int) (left.Melee * right),
+            Bullet = (int) (left.Bullet * right),
+            Laser = (int) (left.Laser * right),
+            Energy = (int) (left.Energy * right),
+            Bomb = (int) (left.Bomb * right),
+            Bio = (int) (left.Bio * right),
+            Fire = (int) (left.Fire * right),
+            Acid = (int) (left.Acid * right),
+            Fall = (int) (left.Fall * right),
+        };
+    }
 }

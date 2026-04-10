@@ -1,29 +1,29 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponRifleAR21
   name: AR-21 Kauser skirmish rifle
-  description: The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capablity compared to smaller peers.
+  description: The Kauser AR-21 is a versatile rifle is developed to bridge a gap between higher caliber weaponry and a normal rifle. It fires a strong 10x25mm round, which has decent stopping power. It however suffers in magazine size and movement capability compared to smaller peers.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar21.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar21/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/ar21/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/ar21/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: ar21_stock
-      offset: -0.5, 0
-      map: [ "stock" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar21.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar21/inhands.rsi
+  # Statistics
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar21.ogg
   - type: RMCSelectiveFire
+    selectedMode: FullAuto
     baseFireModes:
     - FullAuto
     recoilUnwielded: 4
@@ -34,21 +34,6 @@
       FullAuto:
         useBurstScatterMult: false
         unwieldedScatterMultiplier: 1
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.2
-    accuracyMultiplierUnwielded: 0.6
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
-  - type: WieldDelay
-    baseDelay: 0.8
-  - type: MCAimedShoot
-    aimSpeedModifier: 0.95
-    aimFireModifier: 0.625
-    delay: 0.15
-  - type: MeleeWeapon
-    damage:
-      types:
-        MCBrute: 20
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -58,16 +43,28 @@
         whitelist:
           tags:
           - MCMagazineRifleAR21
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
+  - type: WieldDelay
+    baseDelay: 0.8
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.2
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
           - MCAttachmentSuppressor
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -76,7 +73,7 @@
           - MCAttachmentRedDotSight
           - MCAttachmentT47RailScope
           # - TODO: Tactical Sensor
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentAngledGrip
@@ -92,9 +89,14 @@
           # - TODO: PP-7 Plasma Pistol
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.4375, 0
-      rmc-aslot-rail: -0.375, 0.09375
-      rmc-aslot-underbarrel: 0, -0.125
+      mc-slot-barrel: 0.4375, 0
+      mc-slot-rail: -0.375, 0.09375
+      mc-slot-underbarrel: 0, -0.125
+  # Specials
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.95
+    aimFireModifier: 0.625
+    delay: 0.15
 
 - type: entity
   parent: MCMagazineRifle
@@ -104,9 +106,10 @@
   components:
   - type: Tag
     tags:
-    - CMMagazineRifle
     - MCMagazineRifle
     - MCMagazineRifleAR21
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar21.rsi
   - type: BallisticAmmoProvider
     mayTransfer: True
     whitelist:
@@ -114,14 +117,9 @@
       - MCCartridgeRifleAR21
     proto: MCCartridgeRifleAR21
     capacity: 30
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar21.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-1
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Appearance
+
+- type: Tag
+  id: MCMagazineRifleAR21
 
 - type: entity
   parent: CMBaseCartridgeRifle
@@ -131,15 +129,16 @@
   components:
   - type: Tag
     tags:
-    - Cartridge
     - MCCartridgeRifleAR21
   - type: CartridgeAmmo
     proto: MCBulletRifleAR21
 
+- type: Tag
+  id: MCCartridgeRifleAR21
+
 - type: entity
-  parent: RMCBaseBullet
+  parent: MCBullet
   id: MCBulletRifleAR21
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
@@ -159,9 +158,3 @@
     thresholds:
     - range: 16
       falloff: 10
-
-- type: Tag
-  id: MCMagazineRifleAR21
-
-- type: Tag
-  id: MCCartridgeRifleAR21

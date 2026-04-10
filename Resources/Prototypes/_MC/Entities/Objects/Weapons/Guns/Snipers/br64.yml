@@ -1,49 +1,49 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponSniperBR64
   name: BR-64 SCA battle rifle
   description: The San Cristo Arms BR-64 is the TerraGov Marine Corps main battle rifle. It is known for its consistent ability to perform well at most ranges, and medium range stopping power with bursts. It is mostly used by people who prefer a bigger round than the average. Uses 10x26.5smm caseless caliber.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/br64.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/br64/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/br64/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/br64/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: br64_rifle
-      offset: -0.59, 0
-      map: [ "stock" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
-      state: br64_other
-      offset: 1, 0
-      map: [ "other" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/br64.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/br64/inhands.rsi
+  # Statistics
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    - Burst
+    shotsPerBurst: 3
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_br64.ogg
   - type: RMCSelectiveFire
     baseFireModes:
-    - FullAuto
+    # TODO: AutoBurst
     - Burst
-    recoilWielded: 1
-    recoilUnwielded: 3
+    - FullAuto
+    baseFireRate: 3.5
+    # Scatter
     scatterWielded: 0
     scatterUnwielded: 26
-    baseFireRate: 3.3
-    burstScatterMult: 2
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 0.9
-    accuracyMultiplierUnwielded: 0.6
+    # Recoil
+    recoilWielded: 0
+    recoilUnwielded: 0
+    # Modifiers
+    modifiers:
+      Burst:
+        fireDelay: 0.1
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
+  # Why not? I return auto-eject
   - type: MagazineAmmoProvider
-    autoEject: false
-    soundAutoEject: null
+    autoEject: true
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -54,16 +54,24 @@
         priority: 2
         whitelist:
           tags:
-          - MCMagazineBR64
-  - type: GunDamageModifier
-    multiplier: 1
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
+          - MCMagazineRifleBR64
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
+  - type: WieldableSpeedModifiers
+    base: 0.55
   - type: WieldDelay
     baseDelay: 0.9
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 0.9
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -71,7 +79,7 @@
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
           # - TODO: Heavy barrel
-      rmc-aslot-rail:
+      mc-slot-rail:
         startingAttachable: MCAttachmentMiniScope
         whitelist:
           tags:
@@ -80,7 +88,7 @@
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
           # - TODO: Tactical sensor
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentVerticalGrip
@@ -90,9 +98,10 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 1.2, 0.09
-      rmc-aslot-rail: 0.4, 0.25
-      rmc-aslot-underbarrel: 0.5, -0.28
+      mc-slot-barrel: 1.2, 0.09
+      mc-slot-rail: 0.4, 0.25
+      mc-slot-underbarrel: 0.5, -0.28
+  # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.5
     aimFireModifier: 0.6
@@ -100,56 +109,47 @@
 - type: entity
   parent: MCMagazineRifle
   id: MCMagazineBR64
-  name: "BR-64 magazine (10x26.5mm)"
+  name: BR-64 magazine (10x26.5mm)
   components:
   - type: Tag
     tags:
     - MCMagazineRifle
-    - MCMagazineBR64
+    - MCMagazineRifleBR64
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br64_rifle.rsi
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeBR64
     proto: MCCartridgeBR64
     capacity: 36
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br64_rifle.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
-  - type: Appearance
+
+- type: Tag
+  id: MCMagazineRifleBR64
 
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridge
   id: MCCartridgeBR64
-  name: Cartridge (10x26.5mm)
-  description: A 10x26.5mm rifle cartridge
   components:
   - type: Tag
     tags:
-    - Cartridge
+    - MCCartridge
     - MCCartridgeBR64
   - type: CartridgeAmmo
     proto: MCBulletBR64
 
+- type: Tag
+  id: MCCartridgeBR64
+
 - type: entity
-  parent: BulletRifle10x24mm
+  parent: MCBullet
   id: MCBulletBR64
   components:
   - type: Projectile
     damage:
       types:
-        MCBrute: 32.5
+        MCBrute: 30
   - type: CMArmorPiercing
-    amount: 15
-  - type: MCXenoSunderDamageOnHit
-    amount: 1.25
-
-- type: Tag
-  id: MCMagazineBR64
-
-- type: Tag
-  id: MCCartridgeBR64
+    amount: 25
+    # base 15
+    # xeno additional +10

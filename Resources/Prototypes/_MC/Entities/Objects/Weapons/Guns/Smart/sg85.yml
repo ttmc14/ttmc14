@@ -112,13 +112,13 @@
 
 # Cartridges
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridge
   id: MCCartridgeSmartGunSG85
-  name: smartminigun cartridge
-  description: A handful of rounds to reload on the go.
   components:
   - type: Tag
-    tags: [ MCCartridgeSmartGunSG85 ]
+    tags:
+    - MCCartridge
+    - MCCartridgeSmartGunSG85
   - type: CartridgeAmmo
     proto: MCBulletSmartGunSG85
 
@@ -141,18 +141,14 @@
         MCBrute: 12
   - type: CMArmorPiercing
     amount: 20
-  - type: MCXenoSunderDamageOnHit
-    amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 1
-      falloff: 0.1
     - range: 12
-      falloff: 9999
-      ignoreModifiers: true
-  - type: RMCProjectileAccuracy
-    minAccuracy: 100
-  # TODO: shatter_duration
+      falloff: 0.1
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 3
 
 - type: soundCollection
   id: MCWeaponSmartGunSG85Gunshot

@@ -44,7 +44,6 @@
 - type: entity
   parent: MCShootable
   id: MCBullet
-  categories: [ HideSpawnMenu ]
   abstract: true
   components:
   - type: Sprite
@@ -56,11 +55,11 @@
   - type: BulletholeGenerator
   - type: RMCBullet
   - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 9999
+      falloff: 9999
   - type: Projectile
-    impactEffect: BulletImpactEffect
-    damage:
-      types:
-        Piercing: 14
     soundHit:
       path: /Audio/_RMC14/Bullets/bullet_impact1.ogg
 

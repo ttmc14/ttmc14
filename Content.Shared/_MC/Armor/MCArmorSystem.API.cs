@@ -32,8 +32,11 @@ public sealed partial class MCArmorSystem
         var ev = new MCArmorGetEvent(slotFlags);
         RaiseLocalEvent(entity, ref ev);
 
-        soft = ev.SoftArmor;
-        hard = ev.HardArmor;
+        var evModify = new MCArmorModifyEvent(ev.SoftArmor, ev.HardArmor);
+        RaiseLocalEvent(entity, ref evModify);
+
+        soft = evModify.SoftArmor;
+        hard = evModify.HardArmor;
         return true;
     }
 }

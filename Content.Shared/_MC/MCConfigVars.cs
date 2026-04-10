@@ -13,6 +13,13 @@ public sealed class MCConfigVars : CVars
         CVarDef.Create("mc.chat.emoji", true, CVar.ARCHIVE | CVar.CLIENT);
 
     /**
+     * UI
+     */
+
+    public static readonly CVarDef<bool> UiSlotControlClipping =
+        CVarDef.Create("mc.ui.slot_control_clipping", true, CVar.ARCHIVE | CVar.CLIENT);
+
+    /**
      * Z-Levels
      */
 

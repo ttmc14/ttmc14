@@ -46,6 +46,7 @@
   categories: [ MCContent ]
   abstract: true
   components:
+  - type: Appearance
   - type: MagazineVisuals
     magState: mag
     steps: 1

@@ -1,6 +1,6 @@
 - type: entity
   parent:
-  - MCWeaponEnergyBase
+  - MCWeaponEnergy
   - MCWeaponMagazineVisuals
   id: MCWeaponEnergyCarbine
   name: Terra Experimental laser carbine (TE-C)

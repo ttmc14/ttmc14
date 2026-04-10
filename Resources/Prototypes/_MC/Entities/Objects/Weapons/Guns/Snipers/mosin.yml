@@ -4,45 +4,37 @@
   name: Mosin Nagant rifle
   description: A mosin nagant rifle, even just looking at it you can feel the cosmoline already. Commonly known by its slang, \"Moist Nugget\", by downbrained colonists and outlaws.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/mosin.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/mosin/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/mosin/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: mosin_a
-      offset: -0.5, 0
-      map: [ "stock" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
-      state: mosin_other
-      offset: 1, 0
-      map: [ "other" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/mosin.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/mosin/inhands.rsi
+  # Statistics
   - type: Gun
-    fireRate: 0.8
     shotsPerBurst: 1
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_mosin.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/sniper_empty.ogg
   - type: MeleeWeapon
-    attackRate: 0.8
     damage:
       types:
-        MCBrute: 30
-  - type: ShootUseDelay
+        MCBrute: 20
   - type: RMCSelectiveFire
+    selectedMode: SemiAuto
     baseFireModes:
     - SemiAuto
-    recoilWielded: 3
-    recoilUnwielded: 5
-    scatterWielded: 6
-    scatterUnwielded: 20
-    baseFireRate: 0.5
+    baseFireRate: 0.8
+    # Scatter
+    scatterWielded: -1
+    scatterUnwielded: 12
+    # Recoil
+    recoilWielded: 0
+    recoilUnwielded: 4
   - type: BallisticAmmoProvider
     capacity: 5
     soundInsert:
@@ -50,21 +42,19 @@
     whitelist:
       tags:
       - MCCartridgeMosin
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
-    accuracyMultiplierUnwielded: 0.7
+  - type: ShootUseDelay
+  - type: WieldableSpeedModifiers
+    base: 0.8
   - type: WieldDelay
     baseDelay: 1.4
-  - type: PumpAction
-    sound:
-      path: /Audio/_MC/Weapons/Guns/Pump/working_the_bolt.ogg
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentRailFlashlight
@@ -73,44 +63,28 @@
           - MCAttachmentT47RailScope
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 1.0, 0.03
-      rmc-aslot-rail: 0.1, 0.0
+      mc-slot-barrel: 1.0, 0.03
+      mc-slot-rail: 0.1, 0.0
+  # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.8
     aimFireModifier: 0.7
-
-- type: entity
-  parent: BulletRifle10x24mm
-  id: MCBulletMosin
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Projectile
-    damage:
-      types:
-        MCBrute: 75
-  - type: CMArmorPiercing
-    amount: 35
-  - type: MCXenoSunderDamageOnHit
-    amount: 15
-  - type: GunStacksProjectile
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - range: 22
-      falloff: 9999
-      ignoreModifiers: true
-  - type: RMCProjectileAccuracy
-    accuracy: 90
-    thresholds:
-    - range: 30
-      falloff: 10
+  - type: PumpAction
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Pump/working_the_bolt.ogg
 
 - type: entity
   parent: CMShellShotgunBase
   id: MCCartridgeMosin
   name: handful of heavy crude sniper bullet (7.62x54mmR)
   components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeMosin
+    - MCHandful
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/mosin.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
     layers:
     - state: base
       map: [ "base" ]
@@ -121,24 +95,40 @@
     stackType: MCCartridgeMosin
     baseLayer: base
     layerStates:
-    - GOV1
-    - GOV1
-    - GOV2
-    - GOV3
-    - GOV4
-    - GOV5
-  - type: Tag
-    tags:
-    - MCHandful
-    - Cartridge
-    - MCCartridgeMosin
+    - base-1
+    - base-1
+    - base-2
+    - base-3
+    - base-4
+    - base-5
+
+- type: Tag
+  id: MCCartridgeMosin
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletMosin
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 70
+  - type: CMArmorPiercing
+    amount: 50
+    # base 35
+    # xeno additional +15
+  - type: MCXenoSunderDamageOnHit
+    amount: 0
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 8
 
 - type: stack
   id: MCCartridgeMosin
   name: handful of heavy crude sniper bullet (7.62x54mmR)
-  icon: { sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/mosin.rsi, state: GOV1 }
+  icon:
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
+    state: base-1
   spawn: MCCartridgeMosin
   maxCount: 5
-
-- type: Tag
-  id: MCCartridgeMosin

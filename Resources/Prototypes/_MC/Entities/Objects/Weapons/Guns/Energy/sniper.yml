@@ -1,6 +1,6 @@
 - type: entity
   parent:
-  - MCWeaponEnergyBase
+  - MCWeaponEnergy
   - MCWeaponMagazineVisuals
   id: MCWeaponEnergySniper
   name: Terra Experimental laser sniper (TE-S)

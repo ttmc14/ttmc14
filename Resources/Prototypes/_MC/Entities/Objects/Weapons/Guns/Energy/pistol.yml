@@ -1,6 +1,6 @@
 - type: entity
   parent:
-  - MCWeaponEnergyBase
+  - MCWeaponEnergy
   - MCWeaponMagazineVisuals
   id: MCWeaponEnergyPistol
   name: Terra Experimental laser pistol (TE-P)

@@ -1,21 +1,21 @@
 - type: entity
-  parent: MCItem
-  id: MCWeaponEnergyBase
+  parent:
+  - MCItem
+  - MCWeaponGun
+  - MCAttachableHolder
+  id: MCWeaponEnergy
   abstract: true
   components:
   - type: Sprite
   - type: Clothing
     slots:
-    - Back
-    - SuitStorage
+    - back
+    - suitStorage
   - type: Item
     size: Huge
   - type: AmmoCounter
   - type: Gun
     fireRate: 2
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser.ogg
   - type: ItemSlots

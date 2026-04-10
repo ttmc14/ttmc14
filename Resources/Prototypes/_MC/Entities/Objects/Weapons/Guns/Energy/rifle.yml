@@ -1,11 +1,12 @@
 - type: entity
   parent:
-  - MCWeaponEnergyBase
+  - MCWeaponEnergy
   - MCWeaponMagazineVisuals
   id: MCWeaponEnergyRifle
   name: Terra Experimental laser rifle (TE-R)
   description: "A Terra Experimental laser rifle, abbreviated as the TE-R. It has an integrated charge selector for normal and high settings. Uses standard Terra Experimental (abbreviated as TE) power cells. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts. Has four firemodes: Standard, Overcharge, Weakening, and Microwave."
   components:
+  # Visuals
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Energy/rifle.rsi
     layers:
@@ -15,19 +16,20 @@
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Energy/rifle.rsi
+  # Statistics
   - type: Gun
-    shotsPerBurst: 1
-    selectedMode: FullAuto
-    availableModes: [ FullAuto ]
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Fire/Laser/rifle_standard.ogg
   - type: RMCSelectiveFire
-    baseFireModes: [ FullAuto ]
+    selectedMode: SemiAuto
+    baseFireModes:
+    - SemiAuto
     scatterWielded: 10
     scatterUnwielded: 0
     baseFireRate: 5
   - type: WieldDelay
     baseDelay: 0.7
+  # Attachable
   - type: AttachableHolder
     slots:
       rmc-aslot-barrel:
@@ -54,6 +56,7 @@
       rmc-aslot-barrel: 0.46875, 0.03125
       rmc-aslot-rail: -0.3125, 0.125
       rmc-aslot-underbarrel: 0.125, -0.125
+  # Specials
   - type: MCWeaponLaser
     modes:
       Standard:

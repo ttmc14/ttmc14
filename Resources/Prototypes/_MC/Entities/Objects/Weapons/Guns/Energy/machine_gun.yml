@@ -1,6 +1,6 @@
 - type: entity
   parent:
-  - MCWeaponEnergyBase
+  - MCWeaponEnergy
   - MCWeaponMagazineVisuals
   id: MCWeaponEnergyMachineGun
   name: Terra Experimental laser machine gun (TE-M)

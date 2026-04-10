@@ -1,31 +1,30 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponRifleAR18
   name: AR-18 Kauser carbine
-  descrption: The Keckler and Hoch AR-18 carbine is one of the standard rifles used by the TerraGov Marine Corps. It's commonly used by people who prefer greater mobility in combat, like scouts and other light infantry. Uses 10x24mm caseless ammunition.
+  description: The Keckler and Hoch AR-18 carbine is one of the standard rifles used by the TerraGov Marine Corps. It's commonly used by people who prefer greater mobility in combat, like scouts and other light infantry. Uses 10x24mm caseless ammunition.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar18.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar18/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/ar18/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/ar18/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: ar18_stock
-      offset: -0.9, 0
-      map: [ "stock" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar18.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar18/inhands.rsi
+  # Statistics
   - type: Gun
     shotsPerBurst: 4
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    - Burst
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar18.ogg
   - type: RMCSelectiveFire
+    selectedMode: FullAuto
     baseFireModes:
     - FullAuto
     - Burst
@@ -35,18 +34,6 @@
     baseFireRate: 5
     burstFireRateMultiplier: 8
     burstScatterMult: 2
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
-    accuracyMultiplierUnwielded: 0.6
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
-  - type: WieldDelay
-    baseDelay: 0.6
-  - type: WieldableSpeedModifiers
-    base: 0.725
-    light: 1
-    medium: 1
-    heavy: 1
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -57,10 +44,22 @@
         whitelist:
           tags:
           - MCMagazineRifleAR18
-          - MCMagazineRifleAR18AP
+  - type: WieldableSpeedModifiers
+    base: 0.725
+    light: 1
+    medium: 1
+    heavy: 1
+  - type: WieldDelay
+    baseDelay: 0.6
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.6
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -68,7 +67,7 @@
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
           - MCAttachmentMuzzleCharger
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -77,7 +76,7 @@
           - MCAttachmentRedDotSight
           - MCAttachmentT47RailScope
           # - TODO: Tactical Sensor
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentUnderbarrelFlashlight
@@ -94,9 +93,9 @@
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.4375, 0
-      rmc-aslot-rail: -0.25, 0.09375
-      rmc-aslot-underbarrel: -0.03125, -0.09375
+      mc-slot-barrel: 0.4375, 0
+      mc-slot-rail: -0.25, 0.09375
+      mc-slot-underbarrel: -0.03125, -0.09375
 
 - type: entity
   parent: MCMagazineRifle
@@ -106,54 +105,31 @@
   components:
   - type: Tag
     tags:
-    - CMMagazineRifle
     - MCMagazineRifle
     - MCMagazineRifleAR18
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar18.rsi
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeRifleAR12
     proto: MCCartridgeRifleAR12
     capacity: 36
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar18.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-1
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Appearance
+
+- type: Tag
+  id: MCMagazineRifleAR18
 
 - type: entity
-  parent: MCMagazineRifle
+  parent: MCMagazineRifleAR18
   id: MCMagazineRifleAR18AP
   name: AR-18 AP magazine (10x24mm)
   description: A 10mm assault carbine magazine, loaded with light armor piercing rounds.
   components:
-  - type: Tag
-    tags:
-    - CMMagazineRifle
-    - MCMagazineRifle
-    - MCMagazineRifleAR18AP
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar18_AP.rsi
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeRifleAR12AP
     proto: MCCartridgeRifleAR12AP
     capacity: 36
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar18_AP.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-1
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Appearance
-
-- type: Tag
-  id: MCMagazineRifleAR18
-
-- type: Tag
-  id: MCMagazineRifleAR18AP

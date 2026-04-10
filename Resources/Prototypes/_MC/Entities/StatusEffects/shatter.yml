@@ -1,0 +1,5 @@
+- type: entity
+  parent: MCStatusEffectMob
+  id: MCStatusEffectShatter
+  components:
+  - type: MCShatter
