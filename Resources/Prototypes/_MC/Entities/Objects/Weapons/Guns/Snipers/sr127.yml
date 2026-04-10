@@ -53,7 +53,7 @@
     baseDelay: 1.5
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -72,9 +72,9 @@
           - MCAttachmentRailScopeSR127
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.28125, 0.09375
-      mc-slot-rail: -0.625, 0.1875
-      mc-slot-underbarrel: -0.09375, 0
+      mc-slot-muzzle: 0.906250, 0.125000
+      mc-slot-underbarrel: 0.500000, 0.000000
+      mc-slot-rail: -0.093750, 0.187500
   - type: PumpAction
     sound:
       path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
