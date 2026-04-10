@@ -52,11 +52,6 @@
     tags:
     - RMCTankReagent
     - Structure
-  - type: XenoCrusherChargable
-    setDamage:
-      types:
-        Blunt: 0
-    throwRange: 2
   - type: RMCMesonsNonviewable
 
 - type: entity
@@ -82,18 +77,17 @@
     tankType: Fuel
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 100
       behaviors:
       - !type:SolutionExplosionBehavior
         solution: tank
       - !type:SpawnEntitiesBehavior
         spawn:
-          MCFire: { min: 15, max: 25 }
+          MCFire: { min: 100, max: 100 }
         offset: 4.4
       - !type:DoActsBehavior
-        acts: ["Destruction"]
+        acts: [ "Destruction" ]
   - type: DamageOnToolInteract
     tools: Welding
     weldingDamage:
@@ -181,4 +175,3 @@
           Quantity: 200
   - type: Label
     currentLabel: reagent-name-mc-combat-mix
-

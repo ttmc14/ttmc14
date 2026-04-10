@@ -1,5 +1,5 @@
 - type: entity
-  parent: Clothing
+  parent: MCClothing
   id: MCPouchBase
   abstract: true
   components:
