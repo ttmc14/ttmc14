@@ -1,0 +1,15 @@
+- type: alert
+  id: MCShatter
+  icons:
+  - sprite: /Textures/_MC/Interface/Alerts/status_effects.rsi
+    state: shatter
+  name: Shatter
+  description: ...
+
+- type: alert
+  id: MCMicrowaved
+  icons:
+  - sprite: /Textures/_MC/Interface/Alerts/status_effects.rsi
+    state: microwaved
+  name: Microwaved
+  description: ...

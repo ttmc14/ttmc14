@@ -2,10 +2,14 @@
   parent: MCStatusEffectMob
   id: MCStatusEffectShatter
   components:
+  - type: StatusEffect
+    alert: MCShatter
   - type: MCShatter
 
 - type: entity
   parent: MCStatusEffectMob
   id: MCStatusEffectMicrowaved
   components:
+  - type: StatusEffect
+    alert: MCMicrowaved
   - type: MCMicrowaved
