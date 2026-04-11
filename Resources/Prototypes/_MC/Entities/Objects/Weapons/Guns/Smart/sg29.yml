@@ -104,6 +104,8 @@
       mc-slot-muzzle: 0.8125, 0.03125
       mc-slot-underbarrel: -0.25, -0.5625
 
+
+
 # Boxes SG-62
 - type: entity
   parent: MCBoxBullets

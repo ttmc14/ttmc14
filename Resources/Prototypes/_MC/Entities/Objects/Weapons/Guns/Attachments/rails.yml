@@ -140,7 +140,7 @@
   description: A small rail mounted zoom sight scope. Allows zoom by activating the attachment.
   components:
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Attachments/rail.rsi
+    sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
     state: mini
   - type: Tag
     tags:
@@ -150,7 +150,7 @@
   - type: AttachableToggleable
     breakOnMove: false
     icon:
-      sprite: _MC/Objects/Weapons/Guns/Attachments/rail.rsi
+      sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
       state: mini_a
     actionName: Look through the Mini-Scope
     actionDesc: An telescoping eye piece. Fixed at a modest zoom to 5 tiles.

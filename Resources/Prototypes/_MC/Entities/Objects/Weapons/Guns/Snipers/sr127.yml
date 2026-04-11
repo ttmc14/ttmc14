@@ -25,15 +25,13 @@
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
-    recoilUnwielded: 4
-    recoilWielded: 0
+    baseFireRate: 0.8
+    # Scatter
     scatterWielded: -5
     scatterUnwielded: 20
-    baseFireRate: 0.8
-    burstScatterMult: 2
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
-    accuracyMultiplierUnwielded: 0.7
+    # Recoil
+    recoilWielded: 0
+    recoilUnwielded: 4
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -45,12 +43,14 @@
         whitelist:
           tags:
           - MCMagazineSR127
-  - type: GunDamageModifier
-    multiplier: 1
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
   - type: WieldDelay
     baseDelay: 1.5
+  - type: WieldableSpeedModifiers
+    base: 0.75
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 0.7
+  # Attachable
   - type: AttachableHolder
     slots:
       mc-slot-muzzle:
@@ -74,58 +74,14 @@
     offsets:
       mc-slot-muzzle: 0.906250, 0.125000
       mc-slot-underbarrel: 0.500000, 0.000000
-      mc-slot-rail: -0.093750, 0.187500
-  - type: PumpAction
-    sound:
-      path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
+      mc-slot-rail: 0.062500, 0.218750
+  # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.45
     aimFireModifier: 0.5
-
-- type: entity
-  parent: MCAttachmentBaseScope
-  id: MCAttachmentRailScopeSR127
-  name: T-47 rail scope
-  description: A rail mounted zoom sight scope specialized for the SR-127 sniper rifle. Allows zoom by activating the attachment.
-  components:
-  - type: Tag
-    tags:
-    - MCAttachmentRail
-    - MCAttachmentRailScopeSR127
-  - type: Sprite
-    state: tl127_a
-  - type: AttachableVisuals
-    suffix: ""
-  - type: AttachableToggleable
-    actionName: Toggle T-47 rail scope
-    actionDesc: Allows zoom by activating the attachment.
-    icon:
-      sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
-      state: tl127_a
-  - type: AttachableToggleableSimpleActivate
-  - type: Scope
-    zoomLevels:
-    - zoom: 1.3
-      offset: 16
-      allowMovement: true
-      doAfter: 0
-  - type: AttachableSpeedMods
-    modifiers:
-    - conditions:
-        wieldedOnly: true
-      walk: -0.1
-      sprint: -0.1
-  - type: AttachableWieldDelayMods
-    modifiers:
-    - delay: 0.4
-  - type: AttachableWeaponRangedMods
-    modifiers:
-    - conditions:
-        wieldedOnly: true
-      accuracyAddMult: -0.05
-
-- type: Tag
-  id: MCAttachmentRailScopeSR127
+  - type: PumpAction
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
 
 #  Magazines
 - type: entity
