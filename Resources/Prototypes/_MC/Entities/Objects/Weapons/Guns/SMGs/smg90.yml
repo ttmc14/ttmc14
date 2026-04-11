@@ -143,11 +143,11 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 8
+      falloff: 5
     - range: 22
       falloff: 9999
       ignoreModifiers: true
-    - range: 8
-      falloff: 5
 
 - type: Tag
   id: MCMagazineSMG90

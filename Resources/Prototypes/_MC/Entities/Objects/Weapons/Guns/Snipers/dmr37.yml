@@ -142,6 +142,8 @@
     amount: 25
     # base 15
     # xeno additional +10
+  - type: MCXenoSunderDamageOnHit
+    amount: 3.5
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 1

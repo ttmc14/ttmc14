@@ -25,9 +25,6 @@
   - type: MCBackpackAmmoProvider
   # Stats
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
     soundGunshot: !type:SoundCollectionSpecifier
       collection: MCWeaponSmartGunSG85Gunshot
       params:
@@ -47,6 +44,8 @@
     modifiers:
       FullAuto:
         shotsToMaxScatter: null
+  - type: WieldableSpeedModifiers
+    base: 0.35
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.1
     accuracyMultiplierUnwielded: 0.5
@@ -138,13 +137,15 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 10
+        MCBrute: 12
   - type: CMArmorPiercing
     amount: 15
+  - type: MCXenoSunderDamageOnHit
+    amount: 0.35
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 12
-      falloff: 0.2
+    - range: 3
+      falloff: 0.5
   - type: MCProjectileStatusEffectsOnHit
     statusEffects:
     - effectId: MCStatusEffectShatter

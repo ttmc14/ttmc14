@@ -35,6 +35,8 @@
     modifiers:
       Burst:
         fireDelay: 0.15
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
   - type: ItemSlots
     slots:
       gun_magazine:

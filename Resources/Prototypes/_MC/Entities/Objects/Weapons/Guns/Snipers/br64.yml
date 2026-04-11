@@ -150,3 +150,5 @@
     amount: 25
     # base 15
     # xeno additional +10
+  - type: MCXenoSunderDamageOnHit
+    amount: 2.5
