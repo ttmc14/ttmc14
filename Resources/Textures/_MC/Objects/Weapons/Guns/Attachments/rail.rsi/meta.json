@@ -8,12 +8,6 @@
   },
   "states": [
     {
-      "name": "mini"
-    },
-    {
-      "name": "mini_a"
-    },
-    {
       "name": "minidetector"
     },
     {
