@@ -5,6 +5,7 @@
   - type: StatusEffect
     alert: MCShatter
   - type: MCShatter
+    modifier: 0.45
 
 - type: entity
   parent: MCStatusEffectMob

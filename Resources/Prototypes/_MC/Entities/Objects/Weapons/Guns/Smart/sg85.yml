@@ -138,13 +138,13 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 12
+        MCBrute: 10
   - type: CMArmorPiercing
-    amount: 20
+    amount: 15
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 12
-      falloff: 0.1
+      falloff: 0.2
   - type: MCProjectileStatusEffectsOnHit
     statusEffects:
     - effectId: MCStatusEffectShatter

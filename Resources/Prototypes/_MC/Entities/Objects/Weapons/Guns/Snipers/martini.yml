@@ -23,7 +23,7 @@
   - type: RMCSelectiveFire
     baseFireModes:
     - SemiAuto
-    baseFireRate: 1
+    baseFireRate: 0.65
     # Scatter
     scatterWielded: -25
     scatterUnwielded: 20
