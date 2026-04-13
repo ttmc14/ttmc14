@@ -1,0 +1,89 @@
+- type: entity
+  parent: [ MCItem, RMCSmallFloodlight ]
+  id: MCCombatFloodlight_PrePreemade
+  abstract: true
+  components:
+    - type: Item
+      size: Normal
+    - type: Clickable
+    - type: InteractionOutline
+    - type: Actions
+    - type: Fixtures
+      fixtures:
+        fix1:
+          shape: !type:PhysShapeCircle
+            radius: 0.25
+          density: 20
+          mask:
+          - ItemMask
+          restitution: 0.3
+          friction: 0.2
+    - type: CollisionWake
+      enabled: false
+    - type: Sprite
+      sprite: _MC/Structures/Lighting/floodlight.rsi
+      drawdepth: Mobs
+      noRot: true
+      layers:
+      - state: floodlightcombat_deployed_off
+        shader: unshaded
+        map: ["enum.PowerDeviceVisualLayers.Powered"]
+      - state: floodlightcombat_deployed_on
+    - type: Icon
+      sprite: _MC/Structures/Lighting/floodlight.rsi
+      state: floodlightcombat
+    - type: Appearance
+    - type: GenericVisualizer
+      visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item:
+            state: floodlightcombat
+          Deployed:
+            state: floodlightcombat_deployed_off
+    - type: Destructible
+      thresholds:
+      - trigger:
+         !type:DamageTrigger
+          damage: 200
+        behaviors:
+        - !type:PlaySoundBehavior
+           sound: /Audio/_RMC14/Structures/metalhit.ogg
+        - !type:DoActsBehavior
+            acts: [ "Destruction" ]
+    - type: RMCRepairable
+    - type: MCDeploy
+      deployTime: 5
+
+- type: entity
+  parent: MCCombatFloodlight_PrePreemade
+  id: MCCombatFloodlight_Premade
+  name: Combat Floodlight
+  abstract: true
+  components:
+  - type: Tag
+    tags: [ MCCombatFloodlight ]
+  - type: MCDeploy
+  - type: PointLight
+    enabled: true
+    radius: 6
+    netsync: true
+    energy: 2
+    offset: "0, 0"
+    color: "#ECFFFF"
+    mask: /Textures/_RMC14/Effects/LightMasks/quad_cone.png
+
+- type: entity
+  parent: MCCombatFloodlight_Premade
+  id: MCCombatFloodlight
+  categories: [ MCContent ]
+  name: Combat Floodlight
+  description: A powerful light able to be transported and deployed easily for a very long lasting light.
+  components:
+  - type: Icon
+    sprite: _MC/Structures/Lighting/floodlight.rsi
+    state: floodlightcombat
+  - type: Sprite
+    sprite: _MC/Structures/Lighting/floodlight.rsi
+  - type: MCDeploy
+    deployTime: 5
