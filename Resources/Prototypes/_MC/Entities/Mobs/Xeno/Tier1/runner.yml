@@ -153,15 +153,15 @@
         MCBurn: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.25
-    baseSprintSpeed: 5.85
+    baseSprintSpeed: 5.9
   - type: AcidBloodSplash
     damage:
       types:
-        MCBurn: 10
+        MCBurn: 20
     minimalTriggerDamage: 5
     baseHitProbability: 100
     baseSplashTriggerProbability: 25
-    splashCooldown: 0.1
+    splashCooldown: 0.05
   # Abilities
   - type: MCXenoPounceEmote
     emote: XenoRoar
@@ -171,7 +171,7 @@
     stopOnHit: false
     hitDamage:
       types:
-        MCBurn: 5
+        MCBurn: 10
   - type: MCXenoPounceTrail
     trailId: MCXenoAcidSprayMelter
   - type: XenoHide # TODO: Make MC component

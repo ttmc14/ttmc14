@@ -7,7 +7,6 @@ namespace Content.Shared._MC.Line;
 
 public sealed class MCLineSystem : EntitySystem
 {
-    // TODO: Cvar
     private const float MaxBeamDistance = 500;
 
     [Dependency] private readonly IComponentFactory _componentFactory = null!;
@@ -18,15 +17,33 @@ public sealed class MCLineSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = null!;
 
     public void SpawnEffect(
-        EntProtoId effectId,
+        EntProtoId spawnId,
         EntityCoordinates start,
         EntityCoordinates end)
     {
-        SpawnEffect(effectId, _transform.ToMapCoordinates(start), _transform.ToMapCoordinates(end));
+        SpawnEffect(spawnId, spawnId, start, end);
     }
 
     public void SpawnEffect(
-        EntProtoId effectId,
+        EntProtoId spawnId,
+        EntProtoId dataId,
+        EntityCoordinates start,
+        EntityCoordinates end)
+    {
+        SpawnEffect(spawnId, dataId, _transform.ToMapCoordinates(start), _transform.ToMapCoordinates(end));
+    }
+
+    public void SpawnEffect(
+        EntProtoId spawnId,
+        MapCoordinates start,
+        MapCoordinates end)
+    {
+        SpawnEffect(spawnId, spawnId, start, end);
+    }
+
+    public void SpawnEffect(
+        EntProtoId spawnId,
+        EntProtoId dataId,
         MapCoordinates start,
         MapCoordinates end)
     {
@@ -36,7 +53,7 @@ public sealed class MCLineSystem : EntitySystem
         if (start.MapId != end.MapId)
             return;
 
-        if (!_prototype.TryIndex(effectId, out var entityPrototype))
+        if (!_prototype.TryIndex(dataId, out var entityPrototype))
             return;
 
         var lineComponentName = _componentFactory.GetComponentName<MCLineComponent>();
@@ -57,22 +74,45 @@ public sealed class MCLineSystem : EntitySystem
 
         var sprites = new List<MCLineSpriteData>();
 
-        if (component.Head is not null && distance >= 1f)
+        if (component.Head is not null)
         {
-            var coords = startCoords.Offset(direction / 2f);
-            sprites.Add(new MCLineSpriteData(GetNetCoordinates(coords), angle, component.Head, 1f, effectId));
+            var coords = startCoords.Offset(direction * 0.5f);
+            sprites.Add(new MCLineSpriteData(GetNetCoordinates(coords), angle, component.Head, 1f, spawnId));
         }
 
-        if (component.Body is not null && distance >= 1f)
+        if (component.Body is not null)
         {
-            var coords = startCoords.Offset(direction * (distance + 0.5f) / 2f);
-            sprites.Add(new MCLineSpriteData(GetNetCoordinates(coords), angle, component.Body, distance - 1.5f, effectId));
+            var tileSize = 1f;
+            var startOffset = component.Head is not null ? 1f : 0f;
+            var endOffset = component.Tail is not null ? distance - 1f : distance;
+            var bodyLength = endOffset - startOffset;
+
+            if (bodyLength > 0.01f)
+            {
+                var count = (int) float.Ceiling(bodyLength / tileSize);
+                var step = bodyLength / count;
+                var scale = step / tileSize;
+
+                for (var i = 0; i < count; i++)
+                {
+                    var offset = startOffset + (step * i) + (step * 0.5f);
+                    var coords = startCoords.Offset(direction * offset);
+
+                    sprites.Add(new MCLineSpriteData(
+                        GetNetCoordinates(coords),
+                        angle,
+                        component.Body,
+                        scale,
+                        spawnId));
+                }
+            }
         }
 
         if (component.Tail is not null)
         {
-            var coords = startCoords.Offset(direction * distance);
-            sprites.Add(new MCLineSpriteData(GetNetCoordinates(coords), angle.FlipPositive(), component.Tail, 1f, effectId));
+            var tailPos = float.Max(0.5f, distance - 0.5f);
+            var coords = startCoords.Offset(direction * tailPos);
+            sprites.Add(new MCLineSpriteData(GetNetCoordinates(coords), angle.FlipPositive(), component.Tail, 1f, spawnId));
         }
 
         if (sprites.Count == 0)

@@ -1,11 +1,20 @@
-# White Shoes
 - type: entity
-  parent: RMCShoesLaceup
-  id: MCShoesWhite
-  name: white shoes
-  description: Comfortable-looking shoes.
+  parent: MCBootsBlack
+  id: MCBootsBlackPsok
+  name: PSOK combat boots
+  description: Special combat boots featuring passive kinetic energy absorption technology. By redirecting the force of a fall, they help prevent concussions without causing injury.
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Shoes/white_old.rsi
+    sprite: _MC/Clothing/Shoes/Boots/black.rsi
   - type: Clothing
-    sprite: _MC/Clothing/Shoes/white_old.rsi
+    sprite: _MC/Clothing/Shoes/Boots/black.rsi
+  - type: MCZLevelFallStunModifier
+    modifier: 0
+  - type: MCArmor
+    soft:
+      fall: 5
+    hard:
+      fall: 5
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9

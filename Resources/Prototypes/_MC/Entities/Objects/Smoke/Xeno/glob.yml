@@ -1,0 +1,82 @@
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoAcidBoiler
+  components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
+  - type: Sprite
+    color: "#86B028"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 40
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoNeurotoxinBoiler
+  components:
+  - type: Sprite
+    color: "#ffbf58"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoHemodileBoiler
+  components:
+  - type: Sprite
+    color: "#0287A1"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCHemodile
+      Quantity: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoTransvitoxBoiler
+  components:
+  - type: Sprite
+    color: "#abf775"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCTransvitox
+      Quantity: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoSanguinalBoiler
+  components:
+  - type: Sprite
+    color: "#bb0a1e"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCSanguinal
+      Quantity: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoOzelomelynBoiler
+  components:
+  - type: Sprite
+    color: "#f1ddcf"
+  - type: MCSmokeReagent
+    reagents:
+    - ReagentId: MCOzelomelyn
+      Quantity: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    maxAlpha: 0.36

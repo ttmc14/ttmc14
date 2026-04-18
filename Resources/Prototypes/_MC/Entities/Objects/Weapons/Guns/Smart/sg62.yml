@@ -91,12 +91,6 @@
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentT47RailScope
-      mc-slot-stock:
-        locked: true
-        startingAttachable: MCAttachmentStockSG62
-        whitelist:
-          tags:
-          - MCAttachmentStockSG62
       mc-slot-underbarrel:
         locked: true
         startingAttachable: MCAttachmentUnderbarrelSG62
@@ -105,28 +99,8 @@
           - MCAttachmentUnderbarrelSG62
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: -0.625, -0.3125
-      mc-slot-rail: -0.53125, -0.3125
-      mc-slot-underbarrel: -0.125, -0.5
-      mc-slot-stock: -0.625, -0.5625
-
-# Attachments
-- type: entity
-  parent: MCAttachmentBaseStock
-  id: MCAttachmentStockSG62
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    state: sg62_a
-  - type: Tag
-    tags:
-    - MCAttachmentStock
-    - MCAttachmentStockSG62
-  - type: AttachableVisuals
-    suffix: ""
-
-- type: Tag
-  id: MCAttachmentStockSG62
+      mc-slot-underbarrel: 0.437500, 0.031250
+      mc-slot-rail: 0.093750, 0.218750
 
 - type: entity
   parent: [ MCAttachmentBaseUnderbarrel, RMCAttachableToggleableBase ]

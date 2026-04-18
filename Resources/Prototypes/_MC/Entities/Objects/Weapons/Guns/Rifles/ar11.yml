@@ -1,69 +1,69 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponRifleAR11
   name: AR-11 K&H combat rifle
   description: The Keckler and Hoch AR-11 is the former standard issue rifle of the TGMC. Most of them have been mothballed into storage long ago, but some still pop up in marine or mercenary hands. It is known for its large magazine size and great burst fire, but rather awkward to use, especially during combat. It uses 4.92×34mm caseless HV ammunition.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar11.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar11/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/ar11/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/ar11/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: ar11_stock
-      offset: -0.4, 0
-      map: [ "stock" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/ar11.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/ar11/inhands.rsi
+  # Statistics
   - type: Gun
     shotsPerBurst: 3
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
-    - Burst
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_ar11.ogg
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
     - Burst
-    recoilUnwielded: 4
-    scatterWielded: 6
-    scatterUnwielded: 20
     baseFireRate: 4
-    burstFireRateMultiplier: 6
-    burstScatterMult: -2
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
-    accuracyMultiplierUnwielded: 0.6
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
-  - type: WieldDelay
-    baseDelay: 0.6
-  - type: WieldableSpeedModifiers
-    base: 0.625
-    light: 1
-    medium: 1
-    heavy: 1
+    burstFireRateMultiplier: 2
+    # Scatter
+    scatterWielded: -1
+    scatterUnwielded: 15
+    # Modifiers
+    modifiers:
+      Burst:
+        fireDelay: 0.05
   - type: ItemSlots
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MCMagazineRifleAR11
         insertSound: /Audio/_MC/Weapons/Guns/Reload/t42_reload.ogg
         ejectSound: /Audio/_MC/Weapons/Guns/Reload/t42_unload.ogg
         priority: 2
         whitelist:
           tags:
           - MCMagazineRifleAR11
+  - type: WieldableSpeedModifiers
+    base: 0.95
+  - type: WieldDelay
+    baseDelay: 0.6
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 0.5
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 0.5
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -71,60 +71,55 @@
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
           # - TODO: Tactical Sensor
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.46875, 0.03125
-      rmc-aslot-rail: -0.3125, 0.125
-      rmc-aslot-underbarrel: 0.125, -0.125
+      mc-slot-muzzle: 0.656250, 0.093750
+      mc-slot-rail: -0.093750, 0.250000
+      mc-slot-underbarrel: 0.343750, -0.031250
 
 - type: entity
   parent: MCMagazineRifle
   id: MCMagazineRifleAR11
   name: AR-11 combat rifle magazine
-  description: A magazine filled with 4.92×34mm rifle rounds for the AR-11.
+  description: A magazine filled with 4.92x34mm rifle rounds for the AR-11.
   components:
   - type: Tag
     tags:
-    - CMMagazineRifle
     - MCMagazineRifle
     - MCMagazineRifleAR11
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar11.rsi
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeRifleAR11
     proto: MCCartridgeRifleAR11
     capacity: 70
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar11.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-1
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Appearance
+
+- type: Tag
+  id: MCMagazineRifleAR11
 
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridge
   id: MCCartridgeRifleAR11
-  name: патрон (4.92×34mm)
-  description: Винтовочный патрон 4.92×34mm
   components:
   - type: Tag
     tags:
-    - Cartridge
+    - MCCartridge
     - MCCartridgeRifleAR11
   - type: CartridgeAmmo
     proto: MCBulletRifleAR11
 
+- type: Tag
+  id: MCCartridgeRifleAR11
+
 - type: entity
-  parent: RMCBaseBullet
+  parent: MCBullet
   id: MCBulletRifleAR11
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
@@ -144,9 +139,3 @@
     thresholds:
     - range: 16
       falloff: 10
-
-- type: Tag
-  id: MCMagazineRifleAR11
-
-- type: Tag
-  id: MCCartridgeRifleAR11

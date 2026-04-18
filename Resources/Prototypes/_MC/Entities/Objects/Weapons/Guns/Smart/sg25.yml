@@ -92,7 +92,7 @@
           - MCAttachmentMagneticHarness
           - MCAttachmentRedDotSight
           - MCAttachmentRailFlashlight
-      mc-slot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -108,9 +108,9 @@
           - MCAttachmentBipod
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 0.3125, -0.46875
-      mc-slot-underbarrel: -0.25, -0.5625
-      mc-slot-stock: -0.625, -0.59375
+      mc-slot-muzzle: 0.531250, 0.062500
+      mc-slot-underbarrel: 0.031250, -0.093750
+      mc-slot-rail: -0.093750, 0.156250
 
 # Magazine
 - type: entity

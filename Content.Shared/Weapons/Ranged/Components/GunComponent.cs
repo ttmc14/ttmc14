@@ -1,4 +1,5 @@
 using System.Numerics;
+using Content.Shared._MC.Weapon.Laser.Systems;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
@@ -10,7 +11,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared.Weapons.Ranged.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true), AutoGenerateComponentPause]
-[Access(typeof(SharedGunSystem), typeof(RMCSelectiveFireSystem))]
+[Access(typeof(SharedGunSystem), typeof(RMCSelectiveFireSystem), typeof(MCWeaponLaserSystem))] // MC Changes
 public sealed partial class GunComponent : Component
 {
     #region Sound

@@ -1,0 +1,55 @@
+- type: entity
+  parent:
+  - MCItem
+  - MCWeaponGun
+  - MCAttachableHolder
+  id: MCWeaponEnergy
+  abstract: true
+  components:
+  - type: Clothing
+    slots:
+    - back
+    - suitStorage
+  - type: Item
+    size: Huge
+  - type: AmmoCounter
+  - type: Gun
+    soundGunshot:
+      path: /Audio/Weapons/Guns/Gunshots/laser.ogg
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
+        ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
+        whitelist:
+          tags:
+          - MCBatteryTerra
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: Wieldable
+  - type: MCWeaponLaser
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectLaser
+  components:
+  - type: TimedDespawn
+    lifetime: 0.25
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 0.1
+  - type: Sprite
+    sprite: _MC/Effects/Beams/warlock.rsi
+    state: base_body
+    drawdepth: Effects
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_tail
+    body:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_body
+    head:
+      sprite: _MC/Effects/Beams/warlock.rsi
+      state: base_head

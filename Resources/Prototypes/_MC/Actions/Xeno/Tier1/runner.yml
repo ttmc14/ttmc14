@@ -117,10 +117,10 @@
   - type: Sprite
     color: "#85b028"
   - type: MCEdgeSpreader
-    range: 2
+    range: 3
   - type: MCSmokeDamage
     damage:
       types:
-        MCBurn: 20
+        MCBurn: 25
   - type: MCTimedDespawnDisappearanceVisuals
     maxAlpha: 0.36

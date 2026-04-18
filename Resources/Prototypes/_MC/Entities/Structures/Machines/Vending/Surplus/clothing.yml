@@ -40,7 +40,7 @@
       - id: MCPouchMagazineLarge
       - id: MCPouchPistolMagazineLarge
       - id: MCPouchShotgunShell
-      # flare pouch
+      - id: MCPouchFlareFill
       - id: MCPouchGrenade
       - id: MCPouchExplosive
       - id: MCPouchMedkit

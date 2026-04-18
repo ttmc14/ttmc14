@@ -27,8 +27,11 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
     [Dependency] private readonly MobStateSystem _mobState = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _speedModifier = null!;
     [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
+    [Dependency] private readonly SharedStorageSystem _storage = null!;
 
     protected EntityQuery<MCArmorModuleComponent> ArmorModuleQuery;
+
+    private readonly List<(EntityUid, EntityUid)> _doTransfer = new();
 
     public override void Initialize()
     {
@@ -42,6 +45,25 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
         SubscribeLocalEvent<MCArmorModularClothingComponent, InteractUsingEvent>(OnInteract, before: [ typeof(SharedStorageSystem) ]);
         SubscribeLocalEvent<MCArmorModularClothingComponent, GotEquippedEvent>(OnArmorEquipped);
         SubscribeLocalEvent<MCArmorModularClothingComponent, GotUnequippedEvent>(OnArmorUnequipped);
+    }
+
+    public override void Update(float frameTime)
+    {
+        base.Update(frameTime);
+
+        if (_doTransfer.Count == 0)
+            return;
+
+        foreach (var (uid, moduleUid) in _doTransfer)
+        {
+            if (!TryComp<StorageComponent>(uid, out var storage))
+                continue;
+
+            foreach (var stored in storage.Container.ContainedEntities.ToArray())
+                _storage.Insert(moduleUid, stored, out _, playSound: false);
+        }
+
+        _doTransfer.Clear();
     }
 
     private void OnInteract(Entity<MCArmorModularClothingComponent> entity, ref InteractUsingEvent args)
@@ -103,9 +125,10 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
         slot.Module = module;
         ApplyModuleEffects(entity, module, user);
 
+        _doTransfer.Add((entity, module));
+
         var ev = new MCArmorModuleAttachedEvent(entity, module, user);
         RaiseLocalEvent(module, ref ev);
-
         return true;
     }
 
@@ -237,6 +260,12 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
         var ev = new MCArmorModuleDetachedEvent(entity, module, user);
         RaiseLocalEvent(module, ref ev);
 
+        if (TryComp<StorageComponent>(entity, out var storage))
+        {
+            foreach (var stored in storage.Container.ContainedEntities.ToArray())
+                _storage.Insert(module, stored, out _, playSound: false);
+        }
+
         RefreshUser(user);
         RemoveModuleEffects(entity, module, user);
         return true;
@@ -246,17 +275,13 @@ public abstract partial class MCArmorModuleSystem : EntitySystem
     {
         var ev = new MCArmorModuleUserChangedEvent(null, armor.Comp.CurrentUser);
         foreach (var (entityUid, _) in EnumerateModules(armor))
-        {
             RaiseLocalEvent(entityUid, ref ev);
-        }
     }
 
     private void RaiseUserChangedOnAllModules(Entity<MCArmorModularClothingComponent> armor, EntityUid? oldUser, EntityUid? newUser)
     {
         var ev = new MCArmorModuleUserChangedEvent(oldUser, newUser);
         foreach (var (entityUid, _) in EnumerateModules(armor))
-        {
             RaiseLocalEvent(entityUid, ref ev);
-        }
     }
 }

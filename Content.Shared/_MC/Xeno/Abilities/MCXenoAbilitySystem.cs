@@ -161,6 +161,15 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    protected void ActionSetCooldown<T>(EntityUid uid, TimeSpan cooldown) where T : BaseActionEvent
+    {
+        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
+        {
+            Actions.SetCooldown((action, action), cooldown);
+            break;
+        }
+    }
+
     protected void ActionSetCooldown<T>(EntityUid uid, EntityUid actionUid, TimeSpan cooldown) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))

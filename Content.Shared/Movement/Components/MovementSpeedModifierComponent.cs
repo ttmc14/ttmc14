@@ -8,7 +8,7 @@ namespace Content.Shared.Movement.Components
     /// If this is not present on the entity then they will use defaults for movement.
     /// </summary>
     [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-    [Access(typeof(MovementSpeedModifierSystem))]
+    // [Access(typeof(MovementSpeedModifierSystem))] // MC Changes
     public sealed partial class MovementSpeedModifierComponent : Component
     {
         #region defaults

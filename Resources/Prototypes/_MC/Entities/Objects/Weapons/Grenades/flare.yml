@@ -1,0 +1,69 @@
+- type: entity
+  parent: MCItem
+  id: MCFlare
+  name: flare
+  description: A red Marine issued flare. There are instructions on the side, it reads 'pull cord, make light'.
+  components:
+  - type: Tag
+    tags:
+    - MCFlare
+    - MCGrenade
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/fldp.rsi
+    layers:
+    - map: [ "enum.ExpendableLightVisualLayers.Glow" ]
+      state: active
+      visible: false
+    - map: [ "enum.ExpendableLightVisualLayers.Overlay" ]
+      state: icon
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Grenades/fldp.rsi
+    state: icon
+  - type: Item
+    sprite: _MC/Objects/Weapons/Grenades/fldp.rsi
+    size: Small
+    heldPrefix: unlit
+  - type: ExpendableLight
+    spentName: expendable-light-spent-flare-name
+    spentDesc: expendable-light-spent-flare-desc
+    glowDuration: 600
+    fadeOutDuration: 30
+    iconStateSpent: spent
+    iconStateLit: spent
+    turnOnBehaviourID: turn_on
+    fadeOutBehaviourID: fade_out
+    litSound:
+      path: /Audio/_RMC14/Machines/flare_activate_2.ogg
+      params:
+        variation: 0.08
+    loopedSound: /Audio/Items/Flare/flare_burn.ogg
+  - type: PointLight
+    enabled: false
+    color: "#FFCCCC"
+    radius: 1
+    energy: 5.0
+    netsync: false
+  - type: LightBehaviour
+    behaviours:
+    # faster then base flares
+    - !type:FadeBehaviour
+      id: turn_on
+      maxDuration: 5.0
+      startValue: 2.5
+      endValue: 7.0
+    # burns out slower
+    - !type:FadeBehaviour
+      id: fade_out
+      maxDuration: 570
+      startValue: 7.0
+      endValue: 1.0
+  - type: RMCNightVisionVisibleOnIgnite
+  - type: CartridgeAmmo
+    deleteOnSpawn: true
+    proto: RMCFlareBullet
+  - type: RMCAirProjectile
+    prototype: RMCAirFlare
+
+- type: Tag
+  id: MCFlare

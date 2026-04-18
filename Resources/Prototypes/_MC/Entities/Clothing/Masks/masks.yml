@@ -27,3 +27,309 @@
 
 - type: Tag
   id: MCSterileMask
+
+- type: entity
+  parent: MCBaseMask
+  id: MCRebreather
+  name: Rebreather
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/rebreather.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/rebreather.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+
+- type: Tag
+  id: MCRebreather
+
+- type: entity
+  parent: MCBaseMask
+  id: MCTacticalGasMaskAlt
+  name: Tactical Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/gas-alt-tactical.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/gas-alt-tactical.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+
+- type: Tag
+  id: MCTacticalGasMask
+# Fix later, somthing is wrong with the sprite, idk what exactly.
+#- type: entity
+#  parent: MCBaseMask
+#  id: MCGasMaskCoif
+#  name: Gas Mask with Coif
+#  description: The standard issue gasmask with Coif. Most uselless at desserts, but provides some protection against harmful gases.
+#  components:
+#  - type: Sprite
+#    sprite: _MC/Clothing/Mask/gascoif.rsi
+#    layers:
+#    - state: base
+#  - type: Clothing
+#    sprite: _MC/Clothing/Mask/gascoif.rsi
+#  - type: HideLayerClothing
+#    slots:
+#    - Hair
+#    - HeadTop
+#    - HeadSide
+#    - Snout
+#  - type: Item
+#    size: Small
+#  - type: Tag
+#    tags:
+#    - MCGasMaskCoif
+#    - MCGasmask
+
+#- type: Tag
+#  id: MCGasMaskCoif
+
+- type: entity
+  parent: MCBaseMask
+  id: MCGasmask
+  name: Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. The standard.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/gas-alt.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/gas-alt.rsi #TODO: i dont find the correct sprite for this, so im using the SWAT one for now
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+
+- type: Tag
+  id: MCGasmask
+#Sova's gas masks
+- type: entity
+  parent: MCBaseMask
+  id: MCSovaGasMaskAlpha
+  name: Alpha Sova Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. The Alpha variant of Sova gas mask, with red lenses.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/sova/sova-alpha.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/sova/sova-alpha.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCSovaGasMask
+
+- type: Tag
+  id: MCSovaGasMaskAlpha
+
+- type: entity
+  parent: MCBaseMask
+  id: MCSovaGasMaskDelta
+  name: Delta Sova Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. The Delta variant of Sova gas mask, with blue lenses.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/sova/sova-delta.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/sova/sova-delta.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCSovaGasMask
+
+- type: Tag
+  id: MCSovaGasMaskDelta
+
+- type: entity
+  parent: MCBaseMask
+  id: MCSovaGasMaskBravo
+  name: Bravo Sova Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. The Bravo variant of Sova gas mask, with yellow lenses.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/sova/sova-bravo.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/sova/sova-bravo.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCSovaGasMask
+
+- type: Tag
+  id: MCSovaGasMaskBravo
+
+- type: entity
+  parent: MCBaseMask
+  id: MCSovaGasMaskCharlie
+  name: Charlie Sova Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. The Charlie variant of Sova gas mask, with purple lenses.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/sova/sova-charlie.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/sova/sova-charlie.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCSovaGasMask
+
+- type: Tag
+  id: MCSovaGasMaskCharlie
+
+- type: entity
+  parent: MCBaseMask
+  id: MCSovaGasMaskEcho
+  name: Echo Sova Gas Mask
+  description: A face-covering mask that can be connected to an air supply. Filters harmful gases from the air. The Echo variant of Sova gas mask, with green lenses.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/sova/sova-echo.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/sova/sova-echo.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCSovaGasMask
+
+- type: Tag
+  id: MCSovaGasMaskEcho
+#Funny masks - Reslers masks
+- type: entity
+  parent: MCBaseMask
+  id: MCluchadormask
+  name: Luchador mask
+  description: OH GOD... A luchador mask. Why? Why would you want this? I dont know, but here it is.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/luchador.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/luchador.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCmask
+    - MCluchadormask
+    - MCReslerMask
+
+- type: Tag
+  id: MCluchadormask
+
+- type: entity
+  parent: MCBaseMask
+  id: MCluchagmask
+  name: Luchag Mask
+  description: Holy Slime! It is luchag mask! It's looks cool and stylish.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/luchag.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/luchag.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCmask
+    - MCluchagmask
+    - MCReslerMask
+
+- type: Tag
+  id: MCluchagmask
+
+- type: entity
+  parent: MCBaseMask
+  id: MClucharmask
+  name: Luchar Mask
+  description: The old enemy mask of the Luchador. Unfortunately, the old Era of rivalry between them is Long gone, but mask still looks very cool!
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Masks/luchar.rsi
+    layers:
+    - state: base
+  - type: Clothing
+    sprite: _MC/Clothing/Masks/luchar.rsi
+    slots:
+    - Mask
+    - Suitstorage
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCGasmask
+    - MCmask
+    - MClucharmask
+    - MCReslerMask
+
+- type: Tag
+  id: MClucharmask

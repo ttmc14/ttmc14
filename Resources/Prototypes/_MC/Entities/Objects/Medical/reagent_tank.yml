@@ -52,12 +52,53 @@
     tags:
     - RMCTankReagent
     - Structure
-  - type: XenoCrusherChargable
-    setDamage:
-      types:
-        Blunt: 0
-    throwRange: 2
   - type: RMCMesonsNonviewable
+
+- type: entity
+  parent: MCTankReagentEmpty
+  id: MCTankReagentFuel
+  name: fuel tank
+  description: A fuel tank, normally used to hold welding fuel. It's painted red with explosive warning labels.
+  suffix: MCFuel
+  components:
+  - type: Sprite
+    layers:
+    - state: weldtank
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 1000
+  - type: Explosive
+    explosionType: MC
+    totalIntensity: 60
+  - type: ReagentTank
+    tankType: Fuel
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:SolutionExplosionBehavior
+        solution: tank
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          MCFire: { min: 100, max: 100 }
+        offset: 4.4
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: DamageOnToolInteract
+    tools: Welding
+    weldingDamage:
+      types:
+        Heat: 100
+  - type: Label
+    currentLabel: reagent-name-welding-fuel
+  - type: Tag
+    tags:
+    - MCTankFuel
+    - MCTankReagent
 
 - type: entity
   parent: MCTankReagentEmpty
@@ -134,4 +175,3 @@
           Quantity: 200
   - type: Label
     currentLabel: reagent-name-mc-combat-mix
-

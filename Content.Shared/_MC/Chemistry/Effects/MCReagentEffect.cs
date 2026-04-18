@@ -37,6 +37,7 @@ public abstract partial class MCReagentEffect : EntityEffect
 
     private bool _initialized;
 
+    protected virtual void OnInitialize(IEntityManager entityManager) { }
     protected abstract void OnEffect(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent, int tick);
     protected virtual void OnEffectStarted(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent) { }
     protected virtual void OnEffectFinished(EntityEffectReagentArgs args, Solution solution, ReagentPrototype reagent) { }
@@ -114,6 +115,8 @@ public abstract partial class MCReagentEffect : EntityEffect
         MCDamageable ??= entityManager.System<MCDamageableSystem>();
         MCStamina ??= entityManager.System<MCStaminaSystem>();
         // ReSharper restore NullCoalescingConditionIsAlwaysNotNullAccordingToAPIContract
+
+        OnInitialize(entityManager);
 
         _initialized = true;
     }

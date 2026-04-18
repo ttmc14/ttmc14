@@ -18,10 +18,10 @@
   - type: MCWeaponVali
     harvestAmount: 10
   - type: MeleeWeapon
-    attackRate: 2
+    attackRate: 2.6
     damage:
       types:
-        MCBrute: 60
+        MCBrute: 40
 
 - type: Tag
   id: MCMeleeWeaponValiRapier

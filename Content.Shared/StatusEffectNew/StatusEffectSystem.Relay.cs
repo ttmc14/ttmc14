@@ -48,4 +48,8 @@ public abstract partial class SharedStatusEffectsSystem
 /// Event wrapper for relayed events.
 /// </summary>
 [ByRefEvent]
-public record struct StatusEffectRelayedEvent<TEvent>(TEvent Args);
+// MC Changes - fix readonly providing
+public struct StatusEffectRelayedEvent<TEvent>(TEvent args)
+{
+    public TEvent Args = args;
+}

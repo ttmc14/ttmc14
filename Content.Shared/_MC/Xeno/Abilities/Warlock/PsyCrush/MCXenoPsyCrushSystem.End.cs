@@ -71,8 +71,8 @@ public sealed partial class MCXenoPsyCrushSystem
             if (!_affected.Add(targetUid))
                 continue;
 
-            _damageable.TryChangeDamage(targetUid, config.Damage, origin: entity);
-            _stamina.ApplyDamage(targetUid, config.StaminaDamage);
+            _mcDamageable.DealBombDamage(targetUid, 0, config.Damage, origin: entity);
+            _mcStamina.ApplyDamage(targetUid, config.StaminaDamage);
 
             RaiseEffect(entity, targetUid);
         }

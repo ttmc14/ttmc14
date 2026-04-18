@@ -20,6 +20,8 @@
     name: mc-job-name-xeno-shrike
   - type: GhostRole
     name: mc-job-name-xeno-shrike
+  - type: RMCActionOrder
+    id: MCXenoShrike
   # Visuals
   - type: Sprite
     sprite: _MC/Mobs/Xenos/shrike.rsi

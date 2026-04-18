@@ -30,9 +30,6 @@
     - state: mag-1
       map: ["enum.GunVisualLayers.Mag"]
   - type: Appearance
-  - type: Clothing
-    slots:
-    - suitStorage
 
 - type: Tag
   id: MCMagazineRifle

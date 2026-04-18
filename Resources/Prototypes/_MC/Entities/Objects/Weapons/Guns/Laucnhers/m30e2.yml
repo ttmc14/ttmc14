@@ -44,16 +44,17 @@
     whitelist:
       tags:
       - Flare
+      - MCFlare
       - RMCFlare
       - RMCFlareCAS
     capacity: 1
-    proto: CMFlare
+    proto: MCFlare
     soundInsert:
       collection: CMShotgunLoad
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
-        ents: [ ]
+        ents: []
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.15
     accuracyMultiplierUnwielded: 0.95

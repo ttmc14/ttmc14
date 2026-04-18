@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Popup;
 using Content.Shared._MC.Spreader;
 using Content.Shared._MC.Xeno.Abilities.Boiler.AcidShroud.Events.Action;
+using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.Actions;
 using Content.Shared._MC.Xeno.Abilities.Boiler.CreateBomb;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Popups;
@@ -51,5 +52,8 @@ public sealed class MCXenoAcidShroudSystem : MCXenoAbilitySystem
         Dirty(smokeUid, spreader);
 
         _glob.SetGlobCount(entity.Owner, 0, popup: true);
+
+        ActionSetCooldown<MCXenoCreateGlobActionEvent>(entity, entity.Comp.AdjustDelay);
+        ActionSetCooldown<MCXenoBombardLaunchActionEvent>(entity, entity.Comp.AdjustDelay);
     }
 }

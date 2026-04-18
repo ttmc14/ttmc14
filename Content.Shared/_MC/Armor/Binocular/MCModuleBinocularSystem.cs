@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Armor.Modules.Components;
+﻿using System.Numerics;
+using Content.Shared._MC.Armor.Modules.Components;
 using Content.Shared._MC.Armor.Modules.Events;
 using Content.Shared._MC.Armor.Modules.Systems;
 using Content.Shared._RMC14.Actions;
@@ -81,6 +82,9 @@ public sealed class MCModuleBinocularSystem : EntitySystem
 
     private void OnActiveRemove(Entity<MCModuleBinocularActiveComponent> entity, ref ComponentRemove args)
     {
+        _contentEye.SetMaxZoom(entity, Vector2.One);
+        _contentEye.SetZoom(entity, Vector2.One);
+
         _contentEye.ResetZoom(entity);
 
         Refresh(entity);

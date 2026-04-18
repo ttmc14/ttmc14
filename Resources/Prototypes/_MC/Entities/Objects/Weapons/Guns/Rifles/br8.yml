@@ -1,51 +1,36 @@
 - type: entity
-  parent: [ MCWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponRifleBR8
   name: BR-8 scout rifle
   description: The BR-8 is a light specialized scout rifle, mostly used by light infantry and scouts. It's designed to be useable at all ranges by being very adaptable to different situations due to the ability to use different ammo types. Has IFF.  Takes specialized overpressured 10x28mm rounds.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/br8.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/br8/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/br8/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/br8/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifle/br8.rsi
-  - type: GunIFF
-    enabled: true
+    sprite: _MC/Objects/Weapons/Guns/Rifles/br8/inhands.rsi
+  # Statistics
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
+    shotsPerBurst: 1
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_br64.ogg
+  - type: GunIFF
+    enabled: true
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
-    scatterWielded: 0
-    scatterUnwielded: 20
-    recoilWielded: 0
-    recoilUnwielded: 0
-    modifiers:
-      FullAuto:
-        maxScatterModifier: 10
-        unwieldedScatterMultiplier: 2
-        shotsToMaxScatter: 7
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.2
-    accuracyMultiplierUnwielded: 1
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
-  - type: WieldDelay
-    baseDelay: 0.7
-  - type: GunRequiresWield
-  - type: WieldableSpeedModifiers
-    base: 0.875
-    light: 1
-    medium: 1
-    heavy: 1
+    baseFireRate: 2.5
+    # Scatter
+    scatterWielded: -3
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -57,12 +42,16 @@
         whitelist:
           tags:
           - MCMagazineRifleBR8
-          - MCMagazineRifleBR8AP
-          - MCMagazineRifleBR8Incendiary
-          - MCMagazineRifleBR8Impact
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 16
+  - type: WieldableSpeedModifiers
+    base: 0.95
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -71,7 +60,7 @@
           - MCAttachmentRecoilCompensator
           # - TODO: M22
           # - TODO: Heavy Barrel
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -81,7 +70,7 @@
           # - TODO: BuildSentryKit
           # - TODO: MotionDetector
           # - TODO: ShoulderGun
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentUnderbarrelFlashlight
@@ -97,9 +86,9 @@
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.4375, 0.03125
-      rmc-aslot-rail: -0.28125, 0.25
-      rmc-aslot-underbarrel: -0.09375, -0.125
+      mc-slot-muzzle: 0.718750, 0.125000
+      mc-slot-underbarrel: 0.375000, 0.000000
+      mc-slot-rail: 0.000000, 0.312500
 
 - type: entity
   parent: MCMagazineRifle
@@ -111,39 +100,24 @@
     tags:
     - MCMagazineRifle
     - MCMagazineRifleBR8
-  - type: BallisticAmmoProvider
-    mayTransfer: True
-    whitelist:
-      tags:
-      - MCCartridgeRifleBR8AP
-    proto: MCCartridgeRifleBR8AP
-    capacity: 25
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-1
-      map: [ "enum.GunVisualLayers.Mag" ]
-  - type: Appearance
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeRifleBR8
+    proto: MCCartridgeRifleBR8
+    capacity: 25
+
+- type: Tag
+  id: MCMagazineRifleBR8
 
 - type: entity
-  parent: MCMagazineRifle
+  parent: MCMagazineRifleBR8
   id: MCMagazineRifleBR8Incendiary
   name: high velocity incendiary magazine (10x28mm)
   description: A magazine of gverpressured high velocity incendiary rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds.
   components:
-  - type: Tag
-    tags:
-    - MCMagazineRifle
-    - MCMagazineRifleBR8Incendiary
-  - type: BallisticAmmoProvider
-    mayTransfer: True
-    whitelist:
-      tags:
-      - MCCartridgeRifleBR8Incendiary
-    proto: MCCartridgeRifleBR8Incendiary
-    capacity: 25
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
     layers:
@@ -153,25 +127,19 @@
       map: [ "enum.GunVisualLayers.Mag" ]
     - state: mag-band
       color: "#9C2219"
-  - type: Appearance
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeRifleBR8Incendiary
+    proto: MCCartridgeRifleBR8Incendiary
+    capacity: 25
 
 - type: entity
-  parent: MCMagazineRifle
+  parent: MCMagazineRifleBR8
   id: MCMagazineRifleBR8Impact
   name: high velocity impact magazine (10x28mm)
   description: A magazine of overpressured high velocity impact rounds for use in the BR-8 battle rifle. The BR-8 battle rifle is the only gun that can chamber these rounds.
   components:
-  - type: Tag
-    tags:
-    - MCMagazineRifle
-    - MCMagazineRifleBR8Impact
-  - type: BallisticAmmoProvider
-    mayTransfer: True
-    whitelist:
-      tags:
-      - MCCartridgeRifleImpact
-    proto: MCCartridgeRifleImpact
-    capacity: 25
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
     layers:
@@ -181,51 +149,58 @@
       map: [ "enum.GunVisualLayers.Mag" ]
     - state: mag-band
       color: "#0052CC"
-  - type: Appearance
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeRifleImpact
+    proto: MCCartridgeRifleImpact
+    capacity: 25
 
 - type: entity
-  parent: CMBaseCartridgeRifle
-  id: MCCartridgeRifleBR8AP
-  name: cartridge (10x28 AP)
-  categories: [ HideSpawnMenu ]
+  parent: MCCartridge
+  id: MCCartridgeRifleBR8
   components:
   - type: Tag
     tags:
-    - Cartridge
-    - MCCartridgeRifleBR8AP
+    - MCCartridge
+    - MCCartridgeRifleBR8
   - type: CartridgeAmmo
-    proto: MCBulletRifleBR8AP
+    proto: MCBulletRifleBR8
+
+- type: Tag
+  id: MCCartridgeRifleBR8
 
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridgeRifleBR8
   id: MCCartridgeRifleBR8Incendiary
-  name: cartridge (10x28 Incendiary)
-  categories: [ HideSpawnMenu ]
   components:
   - type: Tag
     tags:
-    - Cartridge
+    - MCCartridge
     - MCCartridgeRifleBR8Incendiary
   - type: CartridgeAmmo
     proto: MCBulletRifleBR8Incendiary
 
+- type: Tag
+  id: MCCartridgeRifleBR8Incendiary
+
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridgeRifleBR8
   id: MCCartridgeRifleImpact
-  name: cartridge (10x28 Impact)
-  categories: [ HideSpawnMenu ]
   components:
   - type: Tag
     tags:
-    - Cartridge
+    - MCCartridge
     - MCCartridgeRifleBR8Impact
   - type: CartridgeAmmo
     proto: MCBulletRifleBR8Impact
 
+- type: Tag
+  id: MCCartridgeRifleBR8Impact
+
 - type: entity
-  parent: RMCBaseBullet
-  id: MCBulletRifleBR8AP
-  categories: [ HideSpawnMenu ]
+  parent: MCBullet
+  id: MCBulletRifleBR8
   components:
   - type: Projectile
     damage:
@@ -247,9 +222,8 @@
       falloff: 10
 
 - type: entity
-  parent: RMCBaseBullet
+  parent: MCBullet
   id: MCBulletRifleBR8Incendiary
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
@@ -274,9 +248,8 @@
     duration: 3
 
 - type: entity
-  parent: RMCBaseBullet
+  parent: MCBullet
   id: MCBulletRifleBR8Impact
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
@@ -302,28 +275,3 @@
     staggerTime: 1
     knockback: 2
     slowdownTime: 1
-
-
-- type: Tag
-  id: MCMagazineRifleBR8
-
-- type: Tag
-  id: MCCartridgeRifleBR8
-
-- type: Tag
-  id: MCMagazineRifleBR8AP
-
-- type: Tag
-  id: MCMagazineRifleBR8Incendiary
-
-- type: Tag
-  id: MCMagazineRifleBR8Impact
-
-- type: Tag
-  id: MCCartridgeRifleBR8AP
-
-- type: Tag
-  id: MCCartridgeRifleBR8Incendiary
-
-- type: Tag
-  id: MCCartridgeRifleBR8Impact

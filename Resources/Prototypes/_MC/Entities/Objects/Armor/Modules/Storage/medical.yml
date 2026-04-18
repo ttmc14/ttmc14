@@ -15,11 +15,47 @@
       maxItemSize: Small
       grid:
       - 0,0,9,1 # 5 slots
+      whitelist:
+        tags:
+        - GlassBeaker
+        - MCSyringe
+        - MCSplint
+        - MCOintment
+        - MCGauze
+        - MCPillCanister
+        - MCHealthAnalyzer
+        - MCRollerBed
+        - MCBodyBag
+        - MCBottle
+        - MCHypospray
+        - MCBurnKit
+        - MCTraumaKit
+        - MCAutoInjector
+        components:
+        - EntrenchingTool
     - type: FixedItemSizeStorage
   - type: Storage
     maxItemSize: Small
     grid:
     - 0,0,9,1 # 5 slots
+    whitelist:
+        tags:
+        - GlassBeaker
+        - MCSyringe
+        - MCSplint
+        - MCOintment
+        - MCGauze
+        - MCPillCanister
+        - MCHealthAnalyzer
+        - MCRollerBed
+        - MCBodyBag
+        - MCBottle
+        - MCHypospray
+        - MCBurnKit
+        - MCTraumaKit
+        - MCAutoInjector
+        components:
+        - EntrenchingTool
   - type: FixedItemSizeStorage
 
 - type: entity

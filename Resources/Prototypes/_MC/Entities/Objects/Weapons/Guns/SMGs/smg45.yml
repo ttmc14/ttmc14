@@ -1,22 +1,22 @@
 - type: entity
   parent: MCWeaponSMG
-  name: SMG-45 heavy submachinegun
   id: MCWeaponSMG45
+  name: SMG-45 heavy submachinegun
   description: The SMG-45 is a heavier than usual subgun used by the TerraGov Marine Corps. Best known for carrying a punch within a small package. It's usually carried by troops who want a lightweight firearm to rush with while beating a mean punch, however it struggles at range. It uses .41 AE caseless rounds.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/SMGs/smg45.rsi
+    sprite: _MC/Objects/Weapons/Guns/SMGs/smg45/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/SMGs/smg45/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/SMGs/smg45/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: smg45
-      offset: -0.9, 0
-      map: [ "stock" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/SMGs/smg45.rsi
+    sprite: _MC/Objects/Weapons/Guns/SMGs/smg45/inhands.rsi
+  # Statistics
   - type: Gun
     shotsPerBurst: 3
     soundGunshot:
@@ -25,32 +25,15 @@
     baseFireModes:
     - Burst
     - FullAuto
-    recoilWielded: 0.1
-    recoilUnwielded: 1
-    scatterWielded: 12
-    scatterUnwielded: 16
     baseFireRate: 4
-    burstScatterMult: 3
+    # Scatter
+    scatterWielded: 2
+    scatterUnwielded: 11
     modifiers:
       Burst:
-        fireDelay: 0.0980
-        maxScatterModifier: 10
-        useBurstScatterMult: true
-        unwieldedScatterMultiplier: 2
-        shotsToMaxScatter: 6
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
-    accuracyMultiplierUnwielded: 0.85
-  - type: MagazineAmmoProvider
-    autoEject: true
-    soundAutoEject: null
-  - type: WieldableSpeedModifiers
-    base: 0.8
-    light: 1
-    medium: 1
-    heavy: 1
-  - type: WieldDelay
-    baseDelay: 0.6
+        fireDelay: 0.2
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -61,12 +44,23 @@
         priority: 2
         whitelist:
           tags:
-          - MCMagazineSMG45SH
           - MCMagazineSMG45
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 10
+  - type: WieldableSpeedModifiers
+    base: 0.95
+  - type: WieldDelay
+    baseDelay: 0.5
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.15
+    accuracyMultiplierUnwielded: 0.85
+  # Attachable
   - type: AttachableHolder
     randomAttachmentChance: 0.1
     slots:
-      rmc-aslot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
            - MCAttachmentExtendedMuzzle
@@ -74,14 +68,14 @@
            - MCAttachmentBayonet
            - MCAttachmentRecoilCompensator
           # - TODO: Heavy Barrel
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
-      rmc-aslot-underbarrel:
+      mc-slot-underbarrel:
         whitelist:
           tags:
           - RMCAttachmentLaserSight
@@ -93,24 +87,22 @@
           - MCAttachmentGrenadeLauncher
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.8, 0.05
-      rmc-aslot-rail: 0, 0.18
-      rmc-aslot-underbarrel: 0.35, -0.31
-  - type: GunDamageModifier
-    multiplier: 1
+      mc-slot-muzzle: 0.687500, 0.062500
+      mc-slot-underbarrel: 0.281250, -0.093750
+      mc-slot-stock: -0.531250, 0.031250
+      mc-slot-rail: 0.156250, 0.187500
 
 - type: entity
   parent: MCMagazineRifle
   id: MCMagazineSMG45
-  name: "SMG-45 magazine (.41 AE)"
-  description: "A .41 AE caseless submachinegun magazine."
+  name: SMG-45 magazine (.41 AE)
+  description: A .41 AE caseless submachinegun magazine.
   components:
   - type: Tag
     tags:
     - MCMagazineSmg
     - MCMagazineSMG45
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeSMG45
@@ -118,30 +110,22 @@
     capacity: 55
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/smg45.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: false
     zeroOnlyOnEmpty: true
-  - type: Appearance
+
+- type: Tag
+  id: MCMagazineSMG45
 
 - type: entity
-  parent: MCMagazineRifle
+  parent: MCMagazineSMG45
   id: MCMagazineSMG45SH
-  name: "SMG-45 squash-head magazine (.41 AE)"
-  description: "A .41 AE caseless submachinegun magazine that does a minituare explosion upon contact, will shred the armor off of basically anything."
+  name: SMG-45 squash-head magazine (.41 AE)
+  description: A .41 AE caseless submachinegun magazine that does a minituare explosion upon contact, will shred the armor off of basically anything.
   components:
-  - type: Tag
-    tags:
-    - MCMagazineSmg
-    - MCMagazineSMG45
   - type: BallisticAmmoProvider
-    mayTransfer: True
     whitelist:
       tags:
       - MCCartridgeSMG45SH
@@ -149,94 +133,74 @@
     capacity: 55
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/smg45_sh.rsi
-    layers:
-    - state: base
-      map: ["enum.GunVisualLayers.Base"]
-    - state: mag-1
-      map: ["enum.GunVisualLayers.Mag"]
   - type: MagazineVisuals
     magState: mag
     steps: 2
     zeroVisible: false
     zeroOnlyOnEmpty: true
-  - type: Appearance
 
 - type: entity
-  parent: CMCartridge10x20mm
+  parent: MCCartridge
   id: MCCartridgeSMG45
-  name: патрон (.41 AE)
-  description: Bullet .41 AE
   components:
   - type: Tag
     tags:
-    - Cartridge
+    - MCCartridge
     - MCCartridgeSMG45
   - type: CartridgeAmmo
     proto: MCBulletSMG45
 
+- type: Tag
+  id: MCCartridgeSMG45
+
 - type: entity
-  parent: Bullet10x20mm
+  parent: MCCartridgeSMG45
+  id: MCCartridgeSMG45SH
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeSMG45SH
+  - type: CartridgeAmmo
+    proto: MCBulletSMG45SH
+
+- type: Tag
+  id: MCCartridgeSMG45SH
+
+- type: entity
+  parent: MCBullet
   id: MCBulletSMG45
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
         MCBrute: 27.5
+  - type: CMArmorPiercing
+    amount: 10
   - type: MCXenoSunderDamageOnHit
     amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 22
-      falloff: 9999
-      ignoreModifiers: true
-    - range: 8
-      falloff: 5
-  - type: CMArmorPiercing
-    amount: 10
+    - range: 4
+      falloff: 1
 
 - type: entity
-  parent: CMCartridge10x20mm
-  id: MCCartridgeSMG45SH
-  name: патрон SH (.41 AE)
-  description: 10x20mm
-  components:
-  - type: Tag
-    tags:
-    - Cartridge
-    - MCCartridgeSMG45SH
-  - type: CartridgeAmmo
-    proto: MCBulletSMG45SH
-
-- type: entity
-  parent: Bullet10x20mm
+  parent: MCBullet
   id: MCBulletSMG45SH
-  categories: [ HideSpawnMenu ]
   components:
   - type: Projectile
     damage:
       types:
         MCBrute: 15
+  - type: CMArmorPiercing
+    amount: 15
   - type: MCXenoSunderDamageOnHit
-    amount: 4.5 # - TODO: Revert that to 1 sunder damage if Armor Shatter effect is made
+    amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 22
-      falloff: 9999
-      ignoreModifiers: true
-    - range: 8
-      falloff: 5
-  - type: CMArmorPiercing
-    amount: 0
-
-- type: Tag
-  id: MCMagazineSMG45
-
-- type: Tag
-  id: MCMagazineSMG45SH
-
-- type: Tag
-  id: MCCartridgeSMG45
-
-- type: Tag
-  id: MCCartridgeSMG45SH
+    - range: 5
+      falloff: 2
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 3

@@ -4,7 +4,9 @@ using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Stun;
 using Content.Shared._RMC14.Xenonids;
+using Content.Shared.Movement.Systems;
 using Content.Shared.Projectiles;
+using Content.Shared.StatusEffect;
 using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Systems;
@@ -13,12 +15,15 @@ namespace Content.Shared._MC.Stun;
 
 public sealed class MCStunSystem : EntitySystem
 {
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly RMCSlowSystem _slow = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
-    [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
-    [Dependency] private readonly ThrowingSystem _throwing = default!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedStunSystem _stun = null!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = null!;
+    [Dependency] private readonly ThrowingSystem _throwing = null!;
+    [Dependency] private readonly StatusEffectsSystem _statusEffects = null!;
+    [Dependency] private readonly MovementSpeedModifierSystem _movementSpeedModifier = null!;
+
+    [Dependency] private readonly RMCSlowSystem _slow = null!;
+    [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
 
     public override void Initialize()
     {
@@ -30,13 +35,16 @@ public sealed class MCStunSystem : EntitySystem
 
     private void OnMapInit(Entity<MCStunOnHitComponent> entity, ref MapInitEvent args)
     {
+        if (entity.Comp.ShotFrom is not null)
+            return;
+
         entity.Comp.ShotFrom = _transform.GetWorldPosition(entity.Owner);
         Dirty(entity);
     }
 
     private void OnHit(Entity<MCStunOnHitComponent> entity, ref ProjectileHitEvent args)
     {
-        if (entity.Comp.ShotFrom is not {} shotFrom)
+        if (entity.Comp.ShotFrom is not { } shotFrom)
             return;
 
         var direction = _transform.GetWorldPosition(args.Target) - shotFrom;
@@ -54,17 +62,17 @@ public sealed class MCStunSystem : EntitySystem
             Stagger(args.Target, entity.Comp.StaggerTime);
         }
 
-        if (entity.Comp.Knockback == 0)
-            return;
-
         _slow.TrySlowdown(args.Target, entity.Comp.SlowdownTime);
 
-        _physics.SetLinearVelocity(args.Target, Vector2.Zero);
-        _physics.SetAngularVelocity(args.Target, 0f);
+        if (entity.Comp.Knockback != 0)
+        {
+            _physics.SetLinearVelocity(args.Target, Vector2.Zero);
+            _physics.SetAngularVelocity(args.Target, 0f);
 
-        _rmcPulling.TryStopPullsOn(args.Target);
+            _rmcPulling.TryStopPullsOn(args.Target);
 
-        _throwing.TryThrow(args.Target, direction.Normalized() * entity.Comp.Knockback, entity.Comp.KnockbackSpeed, animated: false, playSound: false, compensateFriction: true);
+            _throwing.TryThrow(args.Target, direction.Normalized() * entity.Comp.Knockback, entity.Comp.KnockbackSpeed, animated: false, playSound: false, compensateFriction: true);
+        }
     }
 
     public void Stun(EntityUid uid, TimeSpan duration)
@@ -117,5 +125,22 @@ public sealed class MCStunSystem : EntitySystem
     public bool IsParalyzed(EntityUid uid)
     {
         return HasComp<StunnedComponent>(uid) || HasComp<KnockedDownComponent>(uid);
+    }
+
+    public bool TrySlowdown(Entity<StatusEffectsComponent?> entity, string key, TimeSpan time, float multiplier = 1f)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        if (!_statusEffects.TryAddStatusEffect<SlowedDownComponent>(entity, key, time, true, entity.Comp, force: true))
+            return false;
+
+        var slowed = Comp<SlowedDownComponent>(entity);
+        slowed.WalkSpeedModifier = multiplier;
+        slowed.SprintSpeedModifier = multiplier;
+
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(entity);
+        return true;
+
     }
 }

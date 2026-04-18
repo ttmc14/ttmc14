@@ -47,7 +47,8 @@
       - id: MCWeaponShotgunMosin
       - id: MCCartridgeMosin
       - id: MCWeaponShotgunMartini
-      - id: MCCartridgeMartini
+      - id: MCBoxMartiniRounds
+      - id: MCBoxMartiniRoundsWhite
     - name: Shotgun
       entries:
       - id: MCWeaponShotgunSH35

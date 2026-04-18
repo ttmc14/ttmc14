@@ -1,0 +1,72 @@
+- type: entity
+  parent: MCPouchStorage
+  id: MCPouchFlare
+  name: flare pouch
+  description: A pouch designed to hold flares and a single flaregun. Refillable with a M94 flare pack.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/flare.rsi
+    layers:
+    - state: base
+    - state: full
+      map: [ "enum.CMHolsterLayers.Fill" ]
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,13,7 # 28 slots
+    whitelist:
+      tags:
+      - MCFlare
+      - MCWeaponFlareGunM30E2
+  - type: LimitedStorage
+    limits:
+    - popup: rmc-storage-limit-one-gun
+      whitelist:
+        tags:
+        - MCWeaponFlareGunM30E2
+    - popup: rmc-storage-limit-max-loaders
+      count: 27
+      whitelist:
+        tags:
+        - MCFlare
+  - type: CMHolster
+    whitelist:
+      tags:
+      - MCWeaponFlareGunM30E2
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchFlare
+  id: MCPouchFlareFill
+  suffix: Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCWeaponFlareGunM30E2
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare
+    - id: MCFlare

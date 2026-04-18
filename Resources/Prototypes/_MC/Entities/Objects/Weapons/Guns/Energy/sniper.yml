@@ -1,7 +1,7 @@
 - type: entity
   parent:
-  - MCWeaponEnergyBase
-  - RMCBaseWeaponMagazineVisuals
+  - MCWeaponEnergy
+  - MCWeaponMagazineVisuals
   id: MCWeaponEnergySniper
   name: Terra Experimental laser sniper (TE-S)
   description: The T-ES, a Terra Experimental standard issue laser sniper rifle, it has an integrated charge selector for normal and heat settings. Uses standard Terra Experimental (abbreviated as TE) power cells. As with all TE Laser weapons, they use a lightweight alloy combined without the need for bullets any longer decreases their weight and aiming speed quite some vs their ballistic counterparts.
@@ -21,13 +21,13 @@
     availableModes:
     - SemiAuto
     soundGunshot:
-      path: /Audio/_MC/Weapons/Guns/Gunshots/Laser/sniper.ogg
+      path: /Audio/_MC/Weapons/Guns/Fire/Laser/sniper_standard.ogg
   - type: RMCSelectiveFire
     baseFireModes:
     - SemiAuto
     scatterWielded: 10
     scatterUnwielded: -4
-    baseFireRate: 1.25 # 1 / 0.8
+    baseFireRate: 1
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.2
     accuracyMultiplierUnwielded: 0.5
@@ -61,3 +61,102 @@
       rmc-aslot-barrel: 0.46875, 0.03125
       rmc-aslot-rail: -0.3125, 0.125
       rmc-aslot-underbarrel: 0.125, -0.125
+  - type: MCWeaponLaser
+    modes:
+      Standard:
+        shots: 20
+        fireRate: 1
+        projectileId: MCLaserSniperStandard
+        icon:
+          sprite: _MC/Effects/Beams/base.rsi
+          state: muzzle_beam
+      Shatter:
+        shots: 6
+        fireRate: 1
+        projectileId: MCLaserSniperShatter
+        icon:
+          sprite: _MC/Effects/Beams/microwave.rsi
+          state: muzzle_beam
+      Heat:
+        shots: 6
+        fireRate: 1
+        projectileId: MCLaserSniperHeat
+        icon:
+          sprite: _MC/Effects/Beams/heat.rsi
+          state: muzzle_beam
+
+- type: entity
+  parent: MCLaser
+  id: MCLaserSniperStandard
+  components:
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/base.rsi
+      state: impact_beam
+    body:
+      sprite: _MC/Effects/Beams/base.rsi
+      state: beam
+    head:
+      sprite: _MC/Effects/Beams/base.rsi
+      state: muzzle_beam
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 60
+  - type: CMArmorPiercing
+    amount: 30
+  - type: MCXenoSunderDamageOnHit
+    amount: 5
+
+- type: entity
+  parent: MCLaser
+  id: MCLaserSniperShatter
+  components:
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/microwave.rsi
+      state: impact_beam
+    body:
+      sprite: _MC/Effects/Beams/microwave.rsi
+      state: beam
+    head:
+      sprite: _MC/Effects/Beams/microwave.rsi
+      state: muzzle_beam
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 40
+  - type: CMArmorPiercing
+    amount: 50
+  - type: MCXenoSunderDamageOnHit
+    amount: 10
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 5
+
+- type: entity
+  parent: MCLaser
+  id: MCLaserSniperHeat
+  components:
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/heat.rsi
+      state: impact_beam
+    body:
+      sprite: _MC/Effects/Beams/heat.rsi
+      state: beam
+    head:
+      sprite: _MC/Effects/Beams/heat.rsi
+      state: muzzle_beam
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 40
+  - type: CMArmorPiercing
+    amount: 10
+  - type: MCXenoSunderDamageOnHit
+    amount: 1
+  - type: IgniteOnProjectileHit
+    intensity: 10
+    duration: 10

@@ -11,9 +11,6 @@
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
       map: [ "enum.GunVisualLayers.Mag" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: mg42
-      offset: -0.6, 0
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Machine/mg42.rsi
   - type: Tag

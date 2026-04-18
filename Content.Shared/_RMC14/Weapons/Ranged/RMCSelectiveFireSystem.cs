@@ -144,7 +144,8 @@ public sealed class RMCSelectiveFireSystem : EntitySystem
         bool wielded = TryComp(gun.Owner, out WieldableComponent? wieldableComponent) && wieldableComponent.Wielded;
 
         gunComponent.CameraRecoilScalar = wielded ? gun.Comp.RecoilWielded : gun.Comp.RecoilUnwielded;
-        gunComponent.MinAngle = wielded ? gun.Comp.ScatterWielded : gun.Comp.ScatterUnwielded;
+        // MC Changes - clamping
+        gunComponent.MinAngle = double.Clamp(wielded ? gun.Comp.ScatterWielded : gun.Comp.ScatterUnwielded, 0, 360);
         gunComponent.MaxAngle = gunComponent.MinAngle;
 
         RefreshBurstScatter((gun.Owner, gun.Comp));

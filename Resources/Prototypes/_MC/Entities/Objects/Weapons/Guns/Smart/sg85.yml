@@ -9,12 +9,12 @@
   - type: AmmoCounter
   - type: Appearance
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/inhands.rsi
     layers:
     - state: base
-      sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+      sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/icon.rsi
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/inhands.rsi
     slots: [ suitStorage, back ]
   - type: MeleeWeapon
     damage:
@@ -25,9 +25,6 @@
   - type: MCBackpackAmmoProvider
   # Stats
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
     soundGunshot: !type:SoundCollectionSpecifier
       collection: MCWeaponSmartGunSG85Gunshot
       params:
@@ -47,6 +44,8 @@
     modifiers:
       FullAuto:
         shotsToMaxScatter: null
+  - type: WieldableSpeedModifiers
+    base: 0.35
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.1
     accuracyMultiplierUnwielded: 0.5
@@ -112,13 +111,13 @@
 
 # Cartridges
 - type: entity
-  parent: CMBaseCartridgeRifle
+  parent: MCCartridge
   id: MCCartridgeSmartGunSG85
-  name: smartminigun cartridge
-  description: A handful of rounds to reload on the go.
   components:
   - type: Tag
-    tags: [ MCCartridgeSmartGunSG85 ]
+    tags:
+    - MCCartridge
+    - MCCartridgeSmartGunSG85
   - type: CartridgeAmmo
     proto: MCBulletSmartGunSG85
 
@@ -140,19 +139,17 @@
       types:
         MCBrute: 12
   - type: CMArmorPiercing
-    amount: 20
+    amount: 15
   - type: MCXenoSunderDamageOnHit
-    amount: 0.5
+    amount: 0.35
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 1
-      falloff: 0.1
-    - range: 12
-      falloff: 9999
-      ignoreModifiers: true
-  - type: RMCProjectileAccuracy
-    minAccuracy: 100
-  # TODO: shatter_duration
+    - range: 3
+      falloff: 0.5
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 3
 
 - type: soundCollection
   id: MCWeaponSmartGunSG85Gunshot

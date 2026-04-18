@@ -73,6 +73,11 @@ public sealed class MCDamageableSystem : EntitySystem
         _damageable.TryChangeDamage(uid, new DamageSpecifier(_damageClone, FixedPoint2.New(damage)), ignoreResistances: true);
     }
 
+    public void AdjustDamage(EntityUid uid, DamageSpecifier damage)
+    {
+        _damageable.TryChangeDamage(uid, damage, ignoreResistances: true);
+    }
+
     public float GetBruteLoss(EntityUid uid)
     {
         if (!_damageableQuery.TryComp(uid, out var component))

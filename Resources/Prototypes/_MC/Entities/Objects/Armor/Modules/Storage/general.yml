@@ -45,6 +45,14 @@
         - RazorwireX
         - MCGrenadeRazorburnLarge
         - MCGrenadeRazorburn
+        - Crowbar
+        - Wirecutter
+        - Screwdriver
+        - Wrench
+        - Multitool
+        - Welder
+        - MCPowerCell
+        - C4
         components:
         - BarbedWire
         - EntrenchingTool
@@ -62,6 +70,13 @@
       - RazorwireX
       - MCGrenadeRazorburnLarge
       - MCGrenadeRazorburn
+      - Crowbar
+      - Wirecutter
+      - Screwdriver
+      - Wrench
+      - Multitool
+      - Welder
+      - MCPowerCell
       components:
       - BarbedWire
       - EntrenchingTool

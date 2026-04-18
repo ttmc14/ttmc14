@@ -1,9 +1,11 @@
 using System.Numerics;
 using Content.Client.Cooldown;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
+using Content.Shared._MC;
 using Content.Shared._RMC14.IconLabel;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
+using Robust.Shared.Configuration;
 using Robust.Shared.Input;
 using Robust.Shared.Prototypes;
 
@@ -15,6 +17,9 @@ namespace Content.Client.UserInterface.Controls
         [Dependency] private readonly IEntityManager _entities = default!;
         [Dependency] private readonly IPrototypeManager _prototype = default!;
         [Dependency] private readonly ILocalizationManager _loc = default!;
+
+        // MC Changes - No clip & Centered
+        [Dependency] private readonly IConfigurationManager _configuration = null!;
 
         public static int DefaultButtonSize = 64;
 
@@ -150,7 +155,9 @@ namespace Content.Client.UserInterface.Controls
                 Scale = new Vector2(2, 2),
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
                 OverrideDirection = Direction.South,
-                RectClipContent = false,
+                // MC Changes - No clip & Centered
+                RectClipContent = _configuration.GetCVar(MCConfigVars.UiSlotControlClipping),
+                HorizontalAlignment = HAlignment.Center,
             });
 
             AddChild(HoverSpriteView = new SpriteView
@@ -158,8 +165,11 @@ namespace Content.Client.UserInterface.Controls
                 Scale = new Vector2(2, 2),
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
                 OverrideDirection = Direction.South,
-                RectClipContent = false,
+                // MC Changes - No clip & Centered
+                RectClipContent = _configuration.GetCVar(MCConfigVars.UiSlotControlClipping),
+                HorizontalAlignment = HAlignment.Center,
             });
+
             // RMC14 - Add icon label
             AddChild(IconLabel = new Label
             {

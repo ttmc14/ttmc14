@@ -83,29 +83,35 @@ public sealed class RMCProjectileSystem : EntitySystem
         Dirty(projectile);
     }
 
+    // MC Changes - falloff calculation
     private void OnFalloffProjectileHit(Entity<RMCProjectileDamageFalloffComponent> projectile, ref ProjectileHitEvent args)
     {
         if (projectile.Comp.ShotFrom == null || projectile.Comp.MinRemainingDamageMult < 0)
             return;
 
         var distance = (_transform.GetWorldPosition(args.Target) - projectile.Comp.ShotFrom.Value).Length();
-        var minDamage = args.Damage.GetTotal() * projectile.Comp.MinRemainingDamageMult;
+        var totalDamage = args.Damage.GetTotal();
+        var minDamage = totalDamage * projectile.Comp.MinRemainingDamageMult;
+
+        DamageFalloffThreshold? selected = null;
         foreach (var threshold in projectile.Comp.Thresholds)
         {
             var pastEffectiveRange = distance - threshold.Range;
 
             if (pastEffectiveRange <= 0)
-                continue;
-
-            var totalDamage = args.Damage.GetTotal();
-            if (totalDamage <= minDamage)
                 break;
 
-            var extraMult = threshold.IgnoreModifiers ? 1 : projectile.Comp.WeaponMult;
-            var minMult = FixedPoint2.Min(minDamage / totalDamage, 1);
-
-            args.Damage *= FixedPoint2.Clamp((totalDamage - pastEffectiveRange * threshold.Falloff * extraMult) / totalDamage, minMult, 1);
+            selected = threshold;
         }
+
+        if (selected == null || totalDamage <= minDamage)
+            return;
+
+        var pastRange = distance - selected.Value.Range;
+        var extraMult = selected.Value.IgnoreModifiers ? 1 : projectile.Comp.WeaponMult;
+        var minMult = FixedPoint2.Min(minDamage / totalDamage, 1);
+
+        args.Damage *= FixedPoint2.Clamp((totalDamage - pastRange * selected.Value.Falloff * extraMult) / totalDamage, minMult, 1);
     }
 
     public void SetProjectileFalloffWeaponMult(Entity<RMCProjectileDamageFalloffComponent> projectile, FixedPoint2 mult, float range)

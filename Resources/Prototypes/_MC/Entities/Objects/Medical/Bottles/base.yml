@@ -86,6 +86,9 @@
     damage: {}
   - type: RMCSmartFridgeInsertable
     category: Bottle
+  - type: Tag
+    tags:
+    - MCBottle
 
 - type: entity
   parent: MCBottleEmpty

@@ -4,35 +4,32 @@
   name: Martini Henry lever action rifle
   description: A lever action with room for a single round of .557/440 ball. Perfect for any kind of hunt, be it elephant or xeno with how quick to the draw it is.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/martini.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/martini/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/martini/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/other.rsi
-      state: martini_other
-      offset: 1, 0
-      map: [ "other" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/martini.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/martini/inhands.rsi
+  # Statistics
   - type: Gun
     shotsPerBurst: 1
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_martinihenry.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/sniper_empty.ogg
-  - type: ShootUseDelay
   - type: RMCSelectiveFire
     baseFireModes:
     - SemiAuto
-    recoilWielded: 3
-    recoilUnwielded: 5
-    scatterWielded: 6
+    baseFireRate: 0.8
+    # Scatter
+    scatterWielded: -25
     scatterUnwielded: 20
-    baseFireRate: 1
+    # Recoil
+    recoilWielded: 2
+    recoilUnwielded: 4
   - type: BallisticAmmoProvider
     capacity: 1
     soundInsert:
@@ -40,21 +37,20 @@
     whitelist:
       tags:
       - MCCartridgeMartini
-  - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
-    accuracyMultiplierUnwielded: 0.75
+  - type: ShootUseDelay
+  - type: WieldableSpeedModifiers
+    base: 1
+  - type: GunRequiresWield
   - type: WieldDelay
     baseDelay: 1.2
-  - type: PumpAction
-    sound:
-      path: /Audio/_MC/Weapons/Guns/Pump/martini_cocked.ogg
+  # Attachable
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-slot-muzzle:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      rmc-aslot-rail:
+      mc-slot-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -66,51 +62,76 @@
           # - TODO: Tactical sensor
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 1.2, 0.22
-      rmc-aslot-rail: 0.22, 0.2
-  - type: GunSkilledRecoil
-    skills:
-      RMCSkillFirearms: 90
-  - type: GunRequiresWield
+      mc-slot-muzzle: 0.937500, 0.125000
+      mc-slot-underbarrel: 0.343750, -0.031250
+      mc-slot-rail: 0.468750, 0.156250
+  # Specials
+  - type: PumpAction
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Pump/martini_cocked.ogg
 
 - type: entity
-  parent: BulletRifle10x24mm
-  id: MCBulletMartini
-  categories: [ HideSpawnMenu ]
+  parent: RMCBoxShotgunBase
+  id: MCBoxMartiniRounds
+  name: box of .557/440 rifle rounds
+  description: A box filled with rifle bullets.
   components:
-  - type: Projectile
-    damage:
-      types:
-        MCBrute: 120
-  - type: CMArmorPiercing
-    amount: 20
-  - type: MCXenoSunderDamageOnHit
-    amount: 15
-  - type: GunStacksProjectile
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - range: 22
-      falloff: 9999
-      ignoreModifiers: true
-  - type: RMCProjectileAccuracy
-    accuracy: 90
-    thresholds:
-    - range: 30
-      falloff: 10
-  - type: MCStunOnHit
-    maxDistance: 12
-    paralyzeTime: 0.5
-    staggerTime: 1
-    knockback: 2
-    slowdownTime: 0.5
+  - type: Tag
+    tags:
+    - MCBoxMartiniRounds
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/martini.rsi
+    layers:
+    - state: base-full
+      map: [ "base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        base:
+          True: { state: base-full }
+          False: { state: base-empty }
+  - type: Item
+    size: Small
+  - type: RMCStorageEjectHand
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - MCCartridgeMartini
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeMartini
+      amount: 4
+
+- type: entity
+  parent: MCBoxMartiniRounds
+  id: MCBoxMartiniRoundsWhite
+  name: box of .557/440 white rifle rounds
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/martini_white.rsi
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeMartiniWhite
+      amount: 4
+
+- type: Tag
+  id: MCBoxMartiniRounds
 
 - type: entity
   parent: CMShellShotgunBase
   id: MCCartridgeMartini
-  name: handful of crude heavy sniper bullet(.557/440)
+  name: handful of crude heavy sniper bullet (.557/440)
   components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeMartini
+    - MCHandful
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/martini.rsi
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini.rsi
     layers:
     - state: base
       map: [ "base" ]
@@ -121,24 +142,82 @@
     stackType: MCCartridgeMartini
     baseLayer: base
     layerStates:
-    - GOV1
-    - GOV1
-    - GOV2
-    - GOV3
-    - GOV4
-    - GOV5
-  - type: Tag
-    tags:
-    - MCHandful
-    - Cartridge
-    - MCCartridgeMartini
-
-- type: stack
-  id: MCCartridgeMartini
-  name: handful of crude heavy sniper bullet(.557/440)
-  icon: { sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/martini.rsi, state: GOV1 }
-  spawn: MCCartridgeMartini
-  maxCount: 5
+    - base-1
+    - base-1
+    - base-2
+    - base-3
+    - base-4
+    - base-5
 
 - type: Tag
   id: MCCartridgeMartini
+
+- type: entity
+  parent: MCCartridgeMartini
+  id: MCCartridgeMartiniWhite
+  name: handful of crude heavy sniper bullet white (.557/440)
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini_white.rsi
+  - type: CartridgeAmmo
+    proto: MCBulletMartiniWhite
+  - type: Stack
+    stackType: MCCartridgeMartiniWhite
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletMartini
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+  - type: CMArmorPiercing
+    amount: 50
+    # base 20
+    # xeno additional +30
+  - type: MCXenoSunderDamageOnHit
+    amount: 0
+  - type: MCStunOnHit
+    maxDistance: 12
+    paralyzeTime: 0.5
+    slowdownTime: 0.5
+    staggerTime: 1
+    knockback: 2
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletMartiniWhite
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+  - type: CMArmorPiercing
+    amount: 50
+    # base 20
+    # xeno additional +30
+  - type: MCXenoSunderDamageOnHit
+    amount: 0
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 8
+
+- type: stack
+  id: MCCartridgeMartini
+  name: handful of crude heavy sniper bullet (.557/440)
+  icon:
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini.rsi
+    state: base-1
+  spawn: MCCartridgeMartini
+  maxCount: 5
+
+- type: stack
+  id: MCCartridgeMartiniWhite
+  name: handful of crude heavy sniper bullet white (.557/440)
+  icon:
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini_white.rsi
+    state: base-1
+  spawn: MCCartridgeMartiniWhite
+  maxCount: 5

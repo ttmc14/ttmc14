@@ -61,7 +61,8 @@
       - id: MCWeaponShotgunMosin
       - id: MCCartridgeMosin
       - id: MCWeaponShotgunMartini
-      - id: MCCartridgeMartini
+      - id: MCBoxMartiniRounds
+      - id: MCBoxMartiniRoundsWhite
     - name: Shotgun
       entries:
       - id: MCWeaponShotgunSH35
@@ -175,8 +176,8 @@
       # mall pepperball canister (SAN balls)
       # T-76 magnum stock
       # standard flamer nozzle
-    #- name: Boxes
-    # entries: []
+      #- name: Boxes
+      # entries: []
     - name: Utility
       entries:
       - id: RMCFlashlight

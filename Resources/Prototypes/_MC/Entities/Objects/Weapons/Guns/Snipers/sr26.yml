@@ -1,22 +1,25 @@
 - type: entity
-  parent: [ MCWeaponRifle, MCWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponSniperSR26
   name: SR-26 Kauser-KT automatic sniper rifle
   description: The Kauser-KT SR-26 is the TerraGov Marine Corps's automatic sniper rifle usually married to it's iconic NVG/KTLD scope combo. It is notable for its high rate of fire for its class, and has decent performance in any range. Uses 10x128mm caseless with specialized pressures for IFF fire.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Snipers/sr26.rsi
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr26/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Snipers/sr26/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Snipers/sr26/icon.rsi
       map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Snipers/sr26.rsi
+    sprite: _MC/Objects/Weapons/Guns/Snipers/sr26/inhands.rsi
+  # Statistics
   - type: Gun
-    selectedMode: FullAuto
-    availableModes:
-    - FullAuto
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/sniper.ogg
   - type: GunIFF
@@ -44,9 +47,6 @@
     accuracyMultiplier: 1.1
     accuracyMultiplierUnwielded: 0.7
   - type: GunRequiresWield
-  - type: MagazineAmmoProvider
-    autoEject: false
-    soundAutoEject: null
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -243,7 +243,7 @@
     sprite: Objects/Weapons/Guns/Ammunition/Casings/large_casing.rsi
     layers:
     - state: base
-      map: ["enum.AmmoVisualLayers.Base"]
+      map: [ "enum.AmmoVisualLayers.Base" ]
   - type: Tag
     tags:
     - Cartridge

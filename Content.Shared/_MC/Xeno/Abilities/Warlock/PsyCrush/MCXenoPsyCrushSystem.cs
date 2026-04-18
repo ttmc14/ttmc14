@@ -1,12 +1,12 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Damage;
 using Content.Shared._MC.Mob.Stamina;
 using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._MC.Xeno.Plasma.Systems;
-using Content.Shared.Damage;
 using Content.Shared.Maps;
-using Content.Shared.Mobs.Systems;
 using Content.Shared.Physics;
 using Content.Shared.Popups;
+using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -18,22 +18,30 @@ namespace Content.Shared._MC.Xeno.Abilities.Warlock.PsyCrush;
 
 public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
 {
+    private static readonly Vector2i[] Directions =
+    {
+        Vector2i.Up,
+        Vector2i.Down,
+        Vector2i.Left,
+        Vector2i.Right
+    };
+
     [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly IMapManager _mapManager = null!;
     [Dependency] private readonly INetManager _net = null!;
 
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
-    [Dependency] private readonly IMapManager _mapManager = null!;
     [Dependency] private readonly TurfSystem _turf = null!;
     [Dependency] private readonly EntityLookupSystem _lookup = null!;
-    [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
-    [Dependency] private readonly MCXenoPlasmaSystem _plasma = null!;
-    [Dependency] private readonly MCStaminaSystem _stamina = null!;
-    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
-    [Dependency] private readonly MobStateSystem _mobState = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
+
+    [Dependency] private readonly MCXenoPlasmaSystem _plasma = null!;
+    [Dependency] private readonly MCStaminaSystem _mcStamina = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
+    [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
 
     private readonly HashSet<EntityUid> _affected = new();
 
@@ -50,7 +58,6 @@ public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
     public override void Update(float frameTime)
     {
         var query = EntityQueryEnumerator<MCXenoPsyCrushActiveComponent, MCXenoPsyCrushComponent>();
-
         while (query.MoveNext(out var uid, out var active, out var config))
         {
             Update((uid, active), config);
@@ -62,31 +69,21 @@ public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
         if (entity.Comp.NextExpansion > _timing.CurTime)
             return;
 
-        entity.Comp.NextExpansion = config.ExpansionDelay + _timing.CurTime;
+        entity.Comp.NextExpansion = _timing.CurTime + config.ExpansionDelay;
+
         if (!_plasma.TryRemovePlasma(entity, config.PlasmaCostPerStep))
         {
             StopAction(entity);
             return;
         }
 
-        if (!InRange((entity, config), entity.Comp.TargetCoords))
-        {
-            StopAction(entity);
-            return;
-        }
-
-        // Finished normally
         if (entity.Comp.CurrentRadius >= config.MaxExpansions)
         {
             StopAction(entity);
             return;
         }
 
-        if (entity.Comp.CurrentRadius == 1)
-            _appearance.SetData(entity.Comp.OrbUid, MCXenoPsyCrushOrbVisuals.State, MCXenoPsyCrushOrbState.Idle);
-
         ExpandStep(entity, config);
-        entity.Comp.CurrentRadius++;
     }
 
     private void ExpandStep(Entity<MCXenoPsyCrushActiveComponent> entity, MCXenoPsyCrushComponent config)
@@ -94,22 +91,36 @@ public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
         if (!TryComp<MapGridComponent>(entity.Comp.GridUid, out var grid))
             return;
 
-        // Expand diamond
-        var r = entity.Comp.CurrentRadius;
-        var center = entity.Comp.CenterTile;
+        var nextFrontier = new Queue<Vector2i>();
 
-        for (var dy = -r; dy <= r; dy++)
+        while (entity.Comp.Frontier.TryDequeue(out var tile))
         {
-            var dx = r - int.Abs(dy);
+            foreach (var direction in Directions)
+            {
+                var next = tile + direction;
 
-            TryApplyTile(entity, config, center + new Vector2i(dx, dy), grid);
+                if (!entity.Comp.Visited.Add(next))
+                    continue;
 
-            if (dx != 0)
-                TryApplyTile(entity, config, center + new Vector2i(-dx, dy), grid);
+                if (_turf.IsTileBlocked(entity.Comp.GridUid, next, CollisionGroup.Impassable | CollisionGroup.HighImpassable, grid))
+                    continue;
+
+                var coords = _map.GridTileToLocal(entity.Comp.GridUid, grid, next);
+                var effect = ServerSpawn(config.WarningEffectId, coords);
+
+                if (effect.Valid)
+                    entity.Comp.SpawnedEffects.Add(effect);
+
+                TryApplyTile(entity, config, tile, grid);
+
+                nextFrontier.Enqueue(next);
+            }
         }
 
-        if (config.EffectSoundExpand is not null && _net.IsServer)
-            _audio.PlayPvs(config.EffectSoundExpand, entity.Comp.TargetCoords);
+        entity.Comp.Frontier = nextFrontier;
+        entity.Comp.CurrentRadius++;
+
+        _audio.PlayPredicted(config.EffectSoundExpand, entity.Comp.TargetCoords, entity);
     }
 
     private void TryApplyTile(
@@ -118,9 +129,6 @@ public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
         Vector2i tile,
         MapGridComponent grid)
     {
-        if (_turf.IsTileBlocked(entity.Comp.GridUid, tile, CollisionGroup.Impassable | CollisionGroup.HighImpassable, grid))
-            return;
-
         if (!entity.Comp.AffectedTiles.Add(tile))
             return;
 

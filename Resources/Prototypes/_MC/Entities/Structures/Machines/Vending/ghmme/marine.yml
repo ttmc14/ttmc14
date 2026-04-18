@@ -60,7 +60,7 @@
       choices:
         MCBelt: 1
       entries:
-      # Utility belt
+      - id: MCClothingBeltUtility
       - id: MCClothingBeltMarine
         recommended: true
       - id: MCClothingBeltShotgun

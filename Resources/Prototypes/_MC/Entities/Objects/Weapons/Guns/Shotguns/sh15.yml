@@ -7,17 +7,19 @@
   name: zauer SH-15 automatic shotgun
   description: The Zauer SH-15 Automatic Assault Shotgun, this is a Terran Armories variant. Another iteration of the ZX series of firearms though it has been since regulated as part of the TGMC arsenal, hence the SH designation. It took over the various shotgun models as the semi-automatic shotgun provided to the TGMC. It is rifled, and loads primarily longer ranged munitions, being incompatible with buckshot shells. Takes 12-round 16 gauge magazines.
   components:
+  # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15.rsi
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15/inhands.rsi
     layers:
     - state: base
+      sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
-    - sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
-      state: sh15
-      offset: -0.12, -0.0
-      map: [ "barrel" ]
+    - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15/icon.rsi
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15.rsi
+    sprite: _MC/Objects/Weapons/Guns/Shotguns/sh15/inhands.rsi
+  # Statistics
   - type: ContainerContainer
     containers:
       gun_magazine: !type:ContainerSlot
@@ -25,9 +27,6 @@
   - type: GunRequiresWield
   - type: Gun
     shotsPerBurst: 1
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_shotgun_xm51.ogg
     soundEmpty:

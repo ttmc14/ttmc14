@@ -1,0 +1,31 @@
+- type: entity
+  parent: CMBaseWeaponRifle
+  id: MCWeaponRifle
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCWeaponZLevelsShoot
+  - type: RMCSelectiveFire
+    # Scatter
+    scatterWielded: 4
+    scatterUnwielded: 12
+    # scatterIncrease: 0
+    # scatterDecay: 0
+    # Recoil
+    recoilWielded: 0
+    recoilUnwielded: 0
+    # Burst
+    burstScatterMult: 1
+    burstFireRateMultiplier: 1
+    modifiers:
+      Burst:
+        fireDelay: 0
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
+      FullAuto:
+        fireDelay: 0
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 1
