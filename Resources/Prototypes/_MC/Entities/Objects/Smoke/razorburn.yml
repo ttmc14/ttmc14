@@ -1,0 +1,8 @@
+- type: entity
+  parent: MetalFoam
+  id: MCRazorburnMetalFoamEffect
+  name: metal foam
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: SpawnOnDespawn
+    prototype: MCRazorBurnX

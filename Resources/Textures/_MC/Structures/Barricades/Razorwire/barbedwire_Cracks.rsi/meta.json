@@ -1,0 +1,31 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "DamageOverlay_0",
+            "directions": 4
+        },
+        {
+            "name": "DamageOverlay_25",
+            "directions": 4
+        },
+        {
+            "name": "DamageOverlay_50",
+            "directions": 4
+        },
+        {
+            "name": "DamageOverlay_75",
+            "directions": 4
+        },
+        {
+            "name": "DamageOverlay_100",
+            "directions": 4
+        }
+    ]
+}

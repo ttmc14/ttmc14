@@ -19,6 +19,38 @@
     sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
   - type: Clothing
     sprite: _MC/Clothing/Back/Backpacks/Marines/standard.rsi
+  - type: ExaminableSolution
+    solution: tank
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 650 # TODO RMC14 260 when welders are fixed
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 650
+  - type: ReagentTank
+    tankType: Fuel
+  - type: DrainableSolution
+    solution: tank
+  - type: SolutionTransfer
+    transferAmount: 50
+    maxTransferAmount: 100
+    minTransferAmount: 10
+    canChangeTransferAmount: true
+  - type: RefillableSolution
+    solution: tank
+  - type: DrawableSolution
+    solution: tank
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-welding-tank
+    sourceWhitelist:
+      components:
+      - RMCFlamerTank
+      - Welder
+    targetWhitelist:
+      tags:
+      - RMCTankFuel
+      - MCTankFuel
 
 - type: entity
   parent: MCBackpack

@@ -42,6 +42,9 @@
         - Sheet
         - RodMetal1
         - CableCoil
+        - RazorwireX
+        - MCGrenadeRazorburnLarge
+        - MCGrenadeRazorburn
         components:
         - BarbedWire
         - EntrenchingTool
@@ -56,6 +59,9 @@
       - Sheet
       - RodMetal1
       - CableCoil
+      - RazorwireX
+      - MCGrenadeRazorburnLarge
+      - MCGrenadeRazorburn
       components:
       - BarbedWire
       - EntrenchingTool

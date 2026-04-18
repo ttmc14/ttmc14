@@ -1,0 +1,328 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "cas_plane_trim_one",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_trim_two",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_trim_one",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_engine_one",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_engine_two",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_misc",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_one",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_two",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_three",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_four",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_five",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_six",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_misc_two",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_misc_five",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_wing_engine_three",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_misc_three",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_misc_four",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_engine_backtrim",
+            "directions": 8
+        },
+        {
+            "name": "cockpit"
+        },
+        {
+            "name": "chair"
+        },
+        {
+            "name": "nose"
+        },
+        {
+            "name": "cas_plane_cockpit_piece_two",
+            "directions": 4
+        },
+        {
+            "name": "cas_plane_backpiece",
+            "directions": 4
+        },
+        {
+            "name": "1"
+        },
+        {
+            "name": "2"
+        },
+        {
+            "name": "3"
+        },
+        {
+            "name": "4"
+        },
+        {
+            "name": "5"
+        },
+        {
+            "name": "6"
+        },
+        {
+            "name": "7"
+        },
+        {
+            "name": "8"
+        },
+        {
+            "name": "9"
+        },
+        {
+            "name": "10"
+        },
+        {
+            "name": "11"
+        },
+        {
+            "name": "12"
+        },
+        {
+            "name": "13"
+        },
+        {
+            "name": "14"
+        },
+        {
+            "name": "15"
+        },
+        {
+            "name": "16"
+        },
+        {
+            "name": "17"
+        },
+        {
+            "name": "18"
+        },
+        {
+            "name": "20"
+        },
+        {
+            "name": "19"
+        },
+        {
+            "name": "21"
+        },
+        {
+            "name": "22"
+        },
+        {
+            "name": "23"
+        },
+        {
+            "name": "24"
+        },
+        {
+            "name": "25"
+        },
+        {
+            "name": "26"
+        },
+        {
+            "name": "27"
+        },
+        {
+            "name": "28"
+        },
+        {
+            "name": "29"
+        },
+        {
+            "name": "30"
+        },
+        {
+            "name": "31"
+        },
+        {
+            "name": "32"
+        },
+        {
+            "name": "33"
+        },
+        {
+            "name": "34"
+        },
+        {
+            "name": "35"
+        },
+        {
+            "name": "36"
+        },
+        {
+            "name": "37"
+        },
+        {
+            "name": "38"
+        },
+        {
+            "name": "39"
+        },
+        {
+            "name": "40"
+        },
+        {
+            "name": "41"
+        },
+        {
+            "name": "42"
+        },
+        {
+            "name": "43"
+        },
+        {
+            "name": "44"
+        },
+        {
+            "name": "45"
+        },
+        {
+            "name": "46"
+        },
+        {
+            "name": "47"
+        },
+        {
+            "name": "48"
+        },
+        {
+            "name": "49"
+        },
+        {
+            "name": "50"
+        },
+        {
+            "name": "51"
+        },
+        {
+            "name": "52"
+        },
+        {
+            "name": "53"
+        },
+        {
+            "name": "54"
+        },
+        {
+            "name": "55"
+        },
+        {
+            "name": "56"
+        },
+        {
+            "name": "57"
+        },
+        {
+            "name": "58"
+        },
+        {
+            "name": "59"
+        },
+        {
+            "name": "60"
+        },
+        {
+            "name": "61"
+        },
+        {
+            "name": "62"
+        },
+        {
+            "name": "63"
+        },
+        {
+            "name": "64"
+        },
+        {
+            "name": "65"
+        },
+        {
+            "name": "66"
+        },
+        {
+            "name": "67"
+        },
+        {
+            "name": "68"
+        },
+        {
+            "name": "69"
+        },
+        {
+            "name": "70"
+        },
+        {
+            "name": "71"
+        },
+        {
+            "name": "72"
+        },
+        {
+            "name": "73"
+        },
+        {
+            "name": "74"
+        },
+        {
+            "name": "75"
+        },
+        {
+            "name": "76"
+        }
+    ]
+}
