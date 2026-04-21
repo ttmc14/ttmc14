@@ -109,3 +109,10 @@
     reagents:
     - ReagentId: MCOzelomelyn
       Quantity: 5
+
+- type: entity
+  parent:
+  - MCXenoDrone
+  - MCAIXenoNymph
+  id: MCXenoDroneAI
+  suffix: AI

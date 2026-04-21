@@ -1,5 +1,7 @@
 - type: entity
-  parent: MCXenoMinion
+  parent:
+  - MCXenoMinion
+  - MCAIXenoBeetle
   id: MCXenoMinionBeetle
   name: beetle
   description: An alien.
@@ -43,7 +45,7 @@
       bio: 25
       fire: 25
       acid: 25
-# Abilities
+  # Abilities
   - type: XenoCrest # TODO: Make MC component
   # Pounce (Forward Charge)
   - type: MCXenoPounce

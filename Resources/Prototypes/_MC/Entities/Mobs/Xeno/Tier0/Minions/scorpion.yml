@@ -1,5 +1,7 @@
 - type: entity
-  parent: MCXenoMinion
+  parent:
+  - MCXenoMinion
+  - MCAIXenoMantis
   id: MCXenoMinionScorpion
   name: scorpion
   description: An alien.

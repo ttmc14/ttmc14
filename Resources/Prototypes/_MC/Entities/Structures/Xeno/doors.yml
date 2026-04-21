@@ -3,6 +3,7 @@
   id: MCDoorXenoResin
   name: resin door
   description: That's a resin door.
+  categories: [ MCContent ]
   placement:
     mode: SnapgridCenter
   components:
@@ -83,6 +84,7 @@
     damage:
       types:
         MCBurn: 4.8
+  - type: MCAIPathfindingIgnore # ALERT
 
 - type: entity
   parent: MCDoorXenoResin

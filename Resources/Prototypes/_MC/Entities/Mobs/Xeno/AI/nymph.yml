@@ -1,0 +1,170 @@
+- type: entity
+  id: MCAIXenoNymph
+  components:
+  - type: MCAIAgent
+    goals:
+
+    - desiredState:
+        Resting: false
+      preconditions:
+        Resting: true
+        HightPlasma: true
+      priority: 10
+
+    - desiredState:
+        WeaponAcidApplied: true
+      preconditions:
+        WeaponGun: true
+        WeaponGunHasAcid: false
+        LowPlasma: false
+      priority: 5
+
+    - desiredState:
+        EnemyDead: true
+      preconditions:
+        Enemy: true
+      priority: 4
+
+    - desiredState:
+        PlasmaFull: true
+      preconditions:
+        LowPlasma: true
+      priority: 3
+
+    - desiredState:
+        ExplorePlant: true
+      preconditions:
+        LowPlasma: false
+      priority: 1
+
+    sensors:
+    - !type:MCAISensorNearestHostile
+      conditionKey: Enemy
+      outputTargetKey: hostile
+
+    - !type:MCAISensorNearestGun
+      conditionKey: WeaponGun
+      outputTargetKey: weaponGun
+
+    - !type:MCAISensorRangeToTarget
+      conditionKey: EnemyInRange
+      targetKey: hostile
+      range: 1.5
+
+    - !type:MCAISensorRangeToTarget
+      conditionKey: WeaponGunInRange
+      targetKey: weaponGun
+      range: 1.5
+
+    - !type:MCAISensorAcidOnTarget
+      conditionKey: WeaponGunHasAcid
+      targetKey: weaponGun
+
+    - !type:MCAISensorCheckHealthLevel
+      conditionKey: LowHealth
+      threshold: 0.5
+
+    - !type:MCAISensorCheckPlasmaLevel
+      conditionKey: LowPlasma
+      threshold: 0.4
+      direction: Less
+
+    - !type:MCAISensorCheckPlasmaLevel
+      conditionKey: HightPlasma
+      threshold: 0.95
+      direction: Grater
+
+    - !type:MCAISensorCheckXenoResting
+      conditionKey: Resting
+
+    actions:
+
+    - !type:MCAIActionUse
+      preconditions:
+        IsPlanted: false
+      effects:
+        IsPlanted: true
+      actionPrototype: MCActionXenoPlantWeeds
+      cost: 0.5
+
+    - !type:MCAIActionUse
+      preconditions:
+        IsPlanted: true
+        Resting: false
+      effects:
+        Resting: true
+      actionPrototype: MCActionXenoRest
+      cost: 0.1
+
+    - !type:MCAIActionWaitForStateChange
+      preconditions:
+        Resting: true
+      effects:
+        PlasmaFull: true
+      targetStates:
+        HightPlasma: true
+
+    - !type:MCAIActionUse
+      preconditions:
+        Resting: true
+        HightPlasma: true
+      effects:
+        Resting: false
+      actionPrototype: MCActionXenoRest
+      cost: 0.1
+
+    - !type:MCAIActionMoveToTarget
+      targetKey: weaponGun
+      preconditions:
+        WeaponGun: true
+      effects:
+        WeaponGunInRange: true
+      cost: 0.35
+
+    - !type:MCAIActionUse
+      targetKey: weaponGun
+      preconditions:
+        WeaponGun: true
+        WeaponGunInRange: true
+      effects:
+        WeaponAcidApplied: true
+      actionPrototype: MCActionXenoAcidWeak
+      cost: 0.4
+
+    - !type:MCAIActionMoveToTarget
+      targetKey: hostile
+      preconditions:
+        Enemy: true
+      effects:
+        EnemyInRange: true
+      cost: 0.5
+
+    - !type:MCAIActionMeleeAttack
+      targetKey: hostile
+      preconditions:
+        EnemyInRange: true
+      effects:
+        EnemyDead: true
+      cost: 1.0
+
+    - !type:MCAIActionFindExplorePoint
+      outputTargetKey: ExplorePoint
+      effects:
+        FoundExplorePoint: true
+      cost: 0.3
+
+    - !type:MCAIActionMoveToTarget
+      targetKey: ExplorePoint
+      preconditions:
+        FoundExplorePoint: true
+      effects:
+        Explore: true
+      cost: 0.5
+
+    - !type:MCAIActionUse
+      preconditions:
+        Explore: true
+      effects:
+        ExplorePlant: true
+      actionPrototype: MCActionXenoPlantWeeds
+      cost: 0.5
