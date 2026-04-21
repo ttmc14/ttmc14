@@ -467,6 +467,11 @@ public sealed partial class PathfindingSystem
 
                         foreach (var ent in tileEntities)
                         {
+                            // MC Changes:
+                            if (_mcIgnoreQuery.HasComp(ent))
+                                continue;
+                            // MC End
+
                             if (!_fixturesQuery.TryGetComponent(ent, out var fixtures))
                                 continue;
 

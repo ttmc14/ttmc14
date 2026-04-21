@@ -183,6 +183,13 @@
   - type: MCXenoMelterShroud
     shroudId: MCSmokeXenoAcidMelter
 
+- type: entity
+  parent:
+  - MCXenoRunner
+  - MCAIXenoRunner
+  id: MCXenoRunnerAI
+  suffix: AI
+
 # Components (Separated for ease of editing/reading)
 - type: entity
   id: MCXenoComponentLayersRunner

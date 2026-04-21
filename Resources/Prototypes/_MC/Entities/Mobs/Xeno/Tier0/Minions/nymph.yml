@@ -2,6 +2,7 @@
   parent:
   - MCXenoMinion
   - MCXenoComponentPlantingWeeds
+  - MCAIXenoNymph
   id: MCXenoMinionNymph
   name: nymph
   description: An alien.
@@ -24,6 +25,8 @@
     # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
+    # Utilities
+    - MCActionXenoAcidWeak
     hudOffset: -0.2,0.3
   - type: MobThresholds
     thresholds:
@@ -64,5 +67,4 @@
     - MCWallXenoResinThickFireproof
     - MCWallXenoResinThickHardy
     - MCDoorXenoResinThick
-  - type: MCXenoPlantingWeeds
-    auto: true
+  - type: XenoAcid

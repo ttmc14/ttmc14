@@ -2,8 +2,10 @@
   parent: RMCFogWallPermanent
   id: MCXenoFog
   suffix: Xeno
+  categories: [ MCContent ]
   components:
   - type: Tag
     tags: [ Wall ]
   - type: XenoFriendly
   - type: MCXenoIgnoreFriendlyCollision
+  - type: MCAIPathfindingIgnore # ALERT

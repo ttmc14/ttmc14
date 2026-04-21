@@ -1,0 +1,69 @@
+- type: entity
+  id: MCAIXenoBaneling
+  components:
+  - type: MCAIAgent
+    # Goals
+    goals:
+    - desiredState:
+        EnemyDead: true
+      preconditions:
+        Enemy: true
+      priority: 10
+    - desiredState:
+        Explore: true
+      priority: 1
+    # Sensors
+    sensors:
+    - !type:MCAISensorNearestHostile
+      conditionKey: Enemy
+      outputTargetKey: hostile
+    - !type:MCAISensorRangeToTarget
+      conditionKey: EnemyInRange
+      targetKey: hostile
+      range: 1.5
+    - !type:MCAISensorRangeToTarget
+      conditionKey: EnemyInRangeClose
+      targetKey: hostile
+      range: 0.95
+    - !type:MCAISensorCheckHealthLevel
+      conditionKey: LowHealth
+      threshold: 0.5
+    - !type:MCAISensorCheckPlasmaLevel
+      conditionKey: LowPlasma
+      threshold: 0.25
+    - !type:MCAISensorCheckPlasmaLevel
+      conditionKey: HightPlasma
+      threshold: 0.95
+    # Actions
+    actions:
+    - !type:MCAIActionMoveToTarget
+      targetKey: hostile
+      preconditions:
+        Enemy: true
+      effects:
+        EnemyInRange: true
+    - !type:MCAIActionUse
+      preconditions:
+        Enemy: true
+        EnemyInRange: true
+        LowHealth: true
+      effects:
+        EnemyDead: true
+      cost: 0.5
+      actionPrototype: MCActionXenoBanelingExplode
+    - !type:MCAIActionMeleeAttack
+      targetKey: hostile
+      preconditions:
+        EnemyInRange: true
+      effects:
+        EnemyDead: true
+    - !type:MCAIActionFindExplorePoint
+      outputTargetKey: ExplorePoint
+      effects:
+        FoundExplorePoint: true
+    - !type:MCAIActionMoveToTarget
+      targetKey: ExplorePoint
+      preconditions:
+        FoundExplorePoint: true
+      effects:
+        Explore: true

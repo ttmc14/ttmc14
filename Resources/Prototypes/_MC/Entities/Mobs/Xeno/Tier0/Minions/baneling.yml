@@ -1,5 +1,7 @@
 - type: entity
-  parent: MCXenoMinion
+  parent:
+  - MCXenoMinion
+  - MCAIXenoBaneling
   id: MCXenoMinionBaneling
   name: baneling
   description: An alien.

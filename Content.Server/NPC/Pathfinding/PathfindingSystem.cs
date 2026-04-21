@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Content.Server.Administration.Managers;
 using Content.Server.Destructible;
 using Content.Server.NPC.Systems;
+using Content.Shared._MC.AI.Pathfinding;
 using Content.Shared.Access.Components;
 using Content.Shared.Administration;
 using Content.Shared.Climbing.Components;
@@ -76,6 +77,9 @@ namespace Content.Server.NPC.Pathfinding
         private EntityQuery<MapGridComponent> _gridQuery;
         private EntityQuery<TransformComponent> _xformQuery;
 
+        // MC Changes:
+        private EntityQuery<MCAIPathfindingIgnoreComponent> _mcIgnoreQuery;
+
         public override void Initialize()
         {
             base.Initialize();
@@ -87,6 +91,9 @@ namespace Content.Server.NPC.Pathfinding
             _fixturesQuery = GetEntityQuery<FixturesComponent>();
             _gridQuery = GetEntityQuery<MapGridComponent>();
             _xformQuery = GetEntityQuery<TransformComponent>();
+
+            // MC Changes:
+            _mcIgnoreQuery = GetEntityQuery<MCAIPathfindingIgnoreComponent>();
 
             _playerManager.PlayerStatusChanged += OnPlayerChange;
             InitializeGrid();
