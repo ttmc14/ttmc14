@@ -6,6 +6,12 @@
     goals:
 
     - desiredState:
+        BarricadeDestroyed: true
+      preconditions:
+        Barricade: true
+      priority: 11
+
+    - desiredState:
         EnemyDead: true
       preconditions:
         Enemy: true
@@ -20,6 +26,10 @@
     - !type:MCAISensorNearestHostile
       conditionKey: Enemy
       outputTargetKey: hostile
+
+    - !type:MCAISensorNearestBarricade
+      conditionKey: Barricade
+      outputTargetKey: barricade
 
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRange
@@ -36,6 +46,11 @@
       targetKey: hostile
       range: 4.75
 
+    - !type:MCAISensorRangeToTarget
+      conditionKey: BarricadeInRange
+      targetKey: barricade
+      range: 1.5
+
     - !type:MCAISensorCheckHealthLevel
       conditionKey: LowHealth
       threshold: 0.5
@@ -49,13 +64,6 @@
       threshold: 0.95
     # Actions
     actions:
-
-    - !type:MCAIActionMoveToTarget
-      targetKey: hostile
-      preconditions:
-        Enemy: true
-      effects:
-        EnemyInRange: true
 
     - !type:MCAIActionUse
       targetKey: hostile
@@ -77,6 +85,13 @@
       cost: 0.5
       actionPrototype: MCActionXenoForwardCharge
 
+    - !type:MCAIActionMoveToTarget
+      targetKey: hostile
+      preconditions:
+        Enemy: true
+      effects:
+        EnemyInRange: true
+
     - !type:MCAIActionMeleeAttack
       targetKey: hostile
       preconditions:
@@ -84,6 +99,21 @@
         EnemyInRange: true
       effects:
         EnemyDead: true
+
+    - !type:MCAIActionMoveToTarget
+      targetKey: barricade
+      preconditions:
+        Barricade: true
+      effects:
+        BarricadeInRange: true
+
+    - !type:MCAIActionMeleeAttack
+      targetKey: barricade
+      preconditions:
+        Barricade: true
+        BarricadeInRange: true
+      effects:
+        BarricadeDestroyed: true
 
     - !type:MCAIActionFindExplorePoint
       outputTargetKey: ExplorePoint
