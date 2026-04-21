@@ -71,11 +71,11 @@
       targetKey: hostile
       preconditions:
         Enemy: true
-        EnemyInRange: true
+        EnemyInRangeFar: true
       effects:
         EnemyDead: true
       cost: 0.5
-      actionPrototype: MCActionXenoTailSweep
+      actionPrototype: MCActionXenoForwardCharge
 
     - !type:MCAIActionMeleeAttack
       targetKey: hostile
