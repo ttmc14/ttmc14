@@ -80,6 +80,7 @@
     - !type:MCAIActionMeleeAttack
       targetKey: hostile
       preconditions:
+        Enemy: true
         EnemyInRange: true
       effects:
         EnemyDead: true

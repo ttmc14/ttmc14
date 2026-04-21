@@ -11,7 +11,7 @@ public sealed partial class MCAISystem
             return;
 
         EnsureComp<ActiveNPCComponent>(entity);
-        _activeAgents.Add(new Entity<MCAIAgentComponent>(entity, entity.Comp));
+        _activeAgents.Add(entity);
     }
 
     public void AgentSleep(Entity<MCAIAgentComponent?> entity)
@@ -20,6 +20,6 @@ public sealed partial class MCAISystem
             return;
 
         RemComp<ActiveNPCComponent>(entity);
-        _activeAgents.Remove(new Entity<MCAIAgentComponent>(entity, entity.Comp));
+        _activeAgents.Remove(entity);
     }
 }

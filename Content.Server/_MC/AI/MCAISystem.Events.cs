@@ -32,7 +32,7 @@ public sealed partial class MCAISystem
 
     private void OnAgentStateChanged(Entity<MCAIAgentComponent> entity, ref MobStateChangedEvent args)
     {
-        if (args.NewMobState == MobState.Dead)
+        if (args.NewMobState != MobState.Alive)
         {
             AgentSleep((entity, entity.Comp));
             return;

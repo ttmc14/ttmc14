@@ -109,6 +109,7 @@
   id: MCXenoStructureSpawner
   name: spawner
   description: A slimy, oozy resin bed filled with foul-looking egg-like ...things.
+  suffix: T0
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/spawner.rsi
@@ -141,3 +142,16 @@
     mobsPerPlayer: 0.15
     respawnMultiplier: 1
   - type: TacticalMapTracked
+
+- type: entity
+  parent: MCXenoStructureSpawner
+  id: MCXenoStructureSpawnerTier1
+  name: spawner
+  description: A slimy, oozy resin bed filled with foul-looking egg-like ...things.
+  suffix: T1
+  components:
+  - type: MCXenoStructureSpawner
+    entry:
+    - MCXenoDefenderAI
+    - MCXenoDroneAI
+    - MCXenoRunnerAI
