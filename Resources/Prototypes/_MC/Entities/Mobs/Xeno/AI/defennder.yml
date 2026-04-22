@@ -9,7 +9,7 @@
         BarricadeDestroyed: true
       preconditions:
         Barricade: true
-      priority: 11
+      priority: 9
 
     - desiredState:
         EnemyDead: true
