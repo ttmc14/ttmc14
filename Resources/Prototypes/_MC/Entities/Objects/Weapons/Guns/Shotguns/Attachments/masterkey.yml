@@ -1,0 +1,69 @@
+
+- type: entity
+  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
+  id: MCAttachmentUnderbarrelShotgun
+  name: masterkey shotgun
+  description: A weapon-mounted, three-shot shotgun. Reloadable with any normal 12 gauge shell. The short barrel reduces the ammo's effectiveness drastically in exchange for fitting as a attachment..
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/gun.rsi
+    state: masterkey
+  - type: Tag
+    tags:
+    - MCAttachmentUnderbarrel
+    - MCAttachmentUnderbarrelShotgun
+  - type: Wieldable
+  - type: Item
+    size: Large
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_shotgun_u7.ogg
+      params:
+        volume: -2
+  - type: RMCSelectiveFire
+    baseFireRate: 0.476
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: RMCExtraProjectilesDamageMods
+    damageMultiplier: 1
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container ""
+  - type: RMCAmmoEject
+    containerID: ballistic-ammo
+    ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+  - type: BallisticAmmoProvider
+    cycleable: false
+    whitelist:
+      tags:
+      - MCShellShotgun
+    capacity: 3
+    soundInsert:
+      path: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
+  - type: GunDamageMultipliers
+    multipliers:
+      Turf: 5
+      Breaching: 10.8
+  - type: UseDelay
+  - type: RMCWeaponAccuracy
+  - type: GunPointBlank
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    activateSound:
+      path: /Audio/_RMC14/Attachable/gun_u7_activate.ogg
+      params:
+        volume: -2
+    actionName: Switch to the masterkey shotgun
+    actionDesc: Switch to using the masterkey shotgun.
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/gun.rsi
+      state: masterkey
+    iconActive:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/gun.rsi
+      state: masterkey-on
+  - type: AttachableVisuals

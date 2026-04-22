@@ -31,6 +31,9 @@
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_shotgun_xm51.ogg
     soundEmpty:
       path: /Audio/Weapons/Guns/Empty/empty.ogg
+  - type: RMCFireGroup
+    group: MCShotgun
+    delay: 2.5
   - type: RMCSelectiveFire
     baseFireModes:
     - SemiAuto
