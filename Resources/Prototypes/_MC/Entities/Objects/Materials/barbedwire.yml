@@ -1,74 +1,130 @@
+- type: stack
+  id: MCBarbedWire
+  icon:
+    sprite: _RMC14/Objects/barbed_wire.rsi
+    state: barbed_wire
+  spawn: MCBarbedWire
+  maxCount: 50
+
 - type: entity
-  abstract: true
-  id: MCBarbedWireBase
-  parent: BaseItem
-  name: MC-barbed-wire
-  suffix: MC
-  description: A type of metal fencing wire constructed with sharp edges or points arranged at intervals along the strands. In short, it hurts to touch it. A lot. Place on barricades to prevent unwants from breaking through painlessly.
+  parent: MCItem
+  id: MCBarbedWire
+  name: barbed wire
+  description: A coil of sharp metal wire used to reinforce barricades.
+  suffix: Full (50)
   components:
   - type: Tag
     tags:
     - Metal
-  - type: Damageable
-    damageContainer: Inorganic
-  - type: Destructible
-    thresholds:
-    - trigger:
-        !type:DamageTrigger
-        damage: 100
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+  - type: Appearance
+  - type: Sprite
+    sprite: _RMC14/Objects/barbed_wire.rsi
+    layers:
+    - state: barbed_wire_3
+      map: [ "base" ]
+  - type: Item
+    size: Small
   - type: Stack
-    stackType: BarbedWire
+    count: 50
+    stackType: MCBarbedWire
     baseLayer: base
     layerStates:
     - barbed_wire
     - barbed_wire_2
     - barbed_wire_3
-  - type: Sprite
-    sprite: _RMC14/Objects/barbed_wire.rsi
-    state: barbed_wire_3
-    layers:
-    - state: barbed_wire_3
-      map: ["base"]
-  - type: Item
-    size: Small
-  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: BarbedWire
 
 - type: entity
-  parent: MCBarbedWireBase
-  id: MCBarbedWire10
-  suffix: "10"
-  components:
-  - type: Sprite
-    state: barbed_wire
-  - type: Stack
-    stackType: BarbedWire
-    count: 10
-
-- type: entity
-  parent: MCBarbedWireBase
-  id: MCBarbedWire15
-  suffix: "15"
-  components:
-  - type: Sprite
-    state: barbed_wire
-  - type: Stack
-    stackType: BarbedWire
-    count: 15
-
-- type: entity
-  parent: MCBarbedWireBase
+  parent: MCBarbedWire
   id: MCBarbedWire1
-  suffix: Single
+  suffix: 1
   components:
-  - type: Sprite
-    state: barbed_wire
   - type: Stack
-    stackType: BarbedWire
+    stackType: MCBarbedWire
     count: 1
   - type: Construction
     graph: BarbedWireGraph
     node: nodeBarbedWire
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire2
+  suffix: 2
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 2
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: barbed_wire
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 5
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire10
+  suffix: 10
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 10
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire15
+  suffix: 15
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 15
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire20
+  suffix: 20
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 20
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire30
+  suffix: 30
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 30
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire40
+  suffix: 40
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 40
+
+- type: entity
+  parent: MCBarbedWire
+  id: MCBarbedWire50
+  suffix: 50
+  components:
+  - type: Stack
+    stackType: MCBarbedWire
+    count: 50

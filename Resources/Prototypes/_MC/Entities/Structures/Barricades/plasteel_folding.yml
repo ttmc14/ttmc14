@@ -13,7 +13,7 @@
     drawdepth: WallTops
   - type: RMCRepairable
     heal: 200
-    skill: RMCSkillConstruction
+    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
     repairableDamageLimit: 600

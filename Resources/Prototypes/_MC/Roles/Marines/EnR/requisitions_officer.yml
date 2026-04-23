@@ -32,9 +32,8 @@
       skills:
         # MC
         MCSkillEngineer: 4
+        MCSkillConstruction: 4
         # RMC
-        RMCSkillEngineer: 4
-        RMCSkillConstruction: 4
         RMCSkillPolice: 2
         RMCSkillVehicles: 4
         RMCSkillLeadership: 3

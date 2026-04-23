@@ -38,9 +38,8 @@
       skills:
         # MC
         MCSkillEngineer: 3
+        MCSkillConstruction: 3
         # RMC
-        RMCSkillEngineer: 3
-        RMCSkillConstruction: 3
         RMCSkillPowerLoader: 1
         RMCSkillLeadership: 1
         RMCSkillSmartGun: -4

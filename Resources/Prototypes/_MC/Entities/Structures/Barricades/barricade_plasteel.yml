@@ -39,7 +39,7 @@
       collection: FenceRattle
   - type: RMCRepairable
     heal: 200
-    skill: RMCSkillConstruction
+    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
     repairableDamageLimit: 675
@@ -85,6 +85,7 @@
     graph: BarricadePlasteelGraph
     node: nodePlasteel
   - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
     upgrades:
     - MCPlasteelExplosiveUpgrade
     - MCPlasteelBiohazardUpgrade
@@ -125,6 +126,7 @@
       damageOverlay:
         sprite: _RMC14/Structures/Walls/Barricades/burn_barricade_cracks.rsi
     - type: RMCConstructionUpgradeTarget
+      skill: MCSkillConstruction
       upgrades: null
     - type: Flammable
       damage:
@@ -159,6 +161,7 @@
       damageOverlay:
         sprite: _RMC14/Structures/Walls/Barricades/brute_barricade_cracks.rsi
     - type: RMCConstructionUpgradeTarget
+      skill: MCSkillConstruction
       upgrades: null
 
 - type: entity
@@ -191,6 +194,7 @@
       damageOverlay:
         sprite: _RMC14/Structures/Walls/Barricades/explosive_barricade_cracks.rsi
     - type: RMCConstructionUpgradeTarget
+      skill: MCSkillConstruction
       upgrades: null
     - type: Flammable
       damage:

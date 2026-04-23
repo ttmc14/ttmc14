@@ -1,8 +1,25 @@
 - type: entity
-  parent: MetalFoam
-  id: MCRazorburnMetalFoamEffect
-  name: metal foam
-  categories: [ HideSpawnMenu ]
+  parent: MCSmokeTile
+  id: MCSmokeRazorburn
+  name: razorburn metal foam
   components:
+  - type: Sprite
+    color: "#ffffffcc"
+    sprite: Effects/foam.rsi
+    state: m_foam
+  - type: MCEdgeSpreader
+    delay: 1
+    range: 1
   - type: SpawnOnDespawn
-    prototype: MCRazorBurnX
+    prototype: MCRazorwireDeployed
+  - type: TimedDespawn
+    lifetime: 7.5
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 7.5
+
+- type: entity
+  parent: MCSmokeRazorburn
+  id: MCSmokeRazorburnLarge
+  components:
+  - type: MCEdgeSpreader
+    range: 3

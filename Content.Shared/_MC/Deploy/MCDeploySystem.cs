@@ -15,15 +15,15 @@ namespace Content.Shared._MC.Deploy;
 
 public sealed class MCDeploySystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly FixtureSystem _fixture = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
+    [Dependency] private readonly FixtureSystem _fixture = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = null!;
 
-    [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
+    [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = null!;
+    [Dependency] private readonly RMCMapSystem _rmcMap = null!;
 
     private readonly HashSet<EntityUid> _toUpdate = new();
 
@@ -40,6 +40,7 @@ public sealed class MCDeploySystem : EntitySystem
         SubscribeLocalEvent<MCDeployComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<MCDeployComponent, AttemptShootEvent>(OnAttemptShoot);
         SubscribeLocalEvent<MCDeployComponent, UseInHandEvent>(OnUseInHand);
+
         SubscribeLocalEvent<MCDeployComponent, MCDeployDoAfterEvent>(OnDeployDoAfter);
         SubscribeLocalEvent<MCDeployComponent, MCDisassembleDoAfterEvent>(OnDisassembleDoAfter);
     }
@@ -141,12 +142,11 @@ public sealed class MCDeploySystem : EntitySystem
         if (!CanDeployPopup(entity, args.User, coordinates))
             return;
 
-        SetState(entity, MCDeployState.Deployed);
 
         var xform = Transform(entity);
-
         _transform.SetCoordinates(entity, xform, coordinates, angle);
-        _transform.AnchorEntity(entity, xform);
+
+        SetState(entity, MCDeployState.Deployed);
     }
 
     private void OnDisassembleDoAfter(Entity<MCDeployComponent> entity, ref MCDisassembleDoAfterEvent args)
@@ -158,8 +158,6 @@ public sealed class MCDeploySystem : EntitySystem
         args.Handled = true;
 
         SetState(entity, MCDeployState.Item);
-
-        _transform.Unanchor(entity.Owner, Transform(entity));
 
         var selfMsg = Loc.GetString("rmc-sentry-disassemble-finish-self", ("sentry", entity));
         var othersMsg = Loc.GetString("rmc-sentry-disassemble-finish-others", ("user", user), ("sentry", entity));
@@ -209,6 +207,7 @@ public sealed class MCDeploySystem : EntitySystem
 
                 _rmcNpc.SleepNPC(entity);
                 _appearance.SetData(entity, MCDeployLayers.Layer, MCDeployState.Item);
+                _transform.Unanchor(entity);
                 break;
 
             case MCDeployState.Deployed:
@@ -217,6 +216,7 @@ public sealed class MCDeploySystem : EntitySystem
 
                 _rmcNpc.WakeNPC(entity);
                 _appearance.SetData(entity, MCDeployLayers.Layer, MCDeployState.Deployed);
+                _transform.AnchorEntity(entity);
                 break;
 
             default:

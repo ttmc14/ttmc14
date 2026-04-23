@@ -1,16 +1,16 @@
 - type: stack
-  id: MCGlass
+  id: MCGlassPhoron
   icon:
-    sprite: _RMC14/Objects/Materials/Sheets/glass.rsi
-    state: glass
-  spawn: MCSheetGlass
+    sprite: _RMC14/Objects/Materials/Sheets/phoron_glass.rsi
+    state: phoronglass
+  spawn: MCSheetGlassPhoron
   maxCount: 50
 
 - type: entity
   parent: MCItem
-  id: MCSheetGlass
-  name: glass
-  description: Sheets made out of glass. Fragile but useful for construction.
+  id: MCSheetGlassPhoron
+  name: phoron glass
+  description: Phoron-infused glass. Slightly pink, extremely durable and heat-resistant.
   suffix: Full (50)
   components:
   - type: Tag
@@ -19,33 +19,34 @@
     - RMCGlass
   - type: Appearance
   - type: Sprite
-    sprite: _RMC14/Objects/Materials/Sheets/glass.rsi
+    sprite: _RMC14/Objects/Materials/Sheets/phoron_glass.rsi
     layers:
-    - state: glass_4
+    - state: phoronglass_4
       map: [ "base" ]
   - type: Item
-    sprite: _RMC14/Objects/Materials/Sheets/glass.rsi
+    sprite: _RMC14/Objects/Materials/Sheets/phoron_glass.rsi
     size: Normal
+    heldPrefix: phoronglass
   - type: Stack
     count: 50
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     baseLayer: base
     layerStates:
-    - glass
-    - glass_2
-    - glass_3
-    - glass_4
+    - phoronglass
+    - phoronglass_2
+    - phoronglass_3
+    - phoronglass_4
   - type: Destructible
     thresholds:
     - trigger:
         !type:DamageTrigger
-        damage: 100
+        damage: 200
       behaviors:
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
     - trigger:
         !type:DamageTrigger
-        damage: 50
+        damage: 120
       behaviors:
       - !type:PlaySoundBehavior
         sound:
@@ -56,87 +57,80 @@
         spawn:
           ShardGlass:
             min: 1
-            max: 1
+            max: 2
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-  - type: RMCConstructionItem
-    buildable:
-    - RMCWindowDirectionalBuild
-  - type: UserInterface
-    interfaces:
-      enum.RMCConstructionUiKey.Key:
-        type: RMCConstructionBui
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass1
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron1
   suffix: 1
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 1
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass2
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron2
   suffix: 2
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 2
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass5
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron5
   suffix: 5
   components:
   - type: Sprite
-    state: glass
+    state: phoronglass
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 5
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass10
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron10
   suffix: 10
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 10
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass20
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron20
   suffix: 20
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 20
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass30
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron30
   suffix: 30
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 30
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass40
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron40
   suffix: 40
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 40
 
 - type: entity
-  parent: MCSheetGlass
-  id: MCSheetGlass50
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron50
   suffix: 50
   components:
   - type: Stack
-    stackType: MCGlass
+    stackType: MCGlassPhoron
     count: 50

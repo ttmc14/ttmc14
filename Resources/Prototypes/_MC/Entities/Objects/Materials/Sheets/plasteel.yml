@@ -1,0 +1,104 @@
+- type: stack
+  id: MCPlasteel
+  icon:
+    sprite: /Textures/_RMC14/Objects/Materials/Sheets/plasteel.rsi
+    state: plasteel
+  spawn: MCSheetPlasteel
+  maxCount: 50
+
+- type: entity
+  parent: MCSheetMetal
+  id: MCSheetPlasteel
+  name: plasteel sheet
+  description: Plasteel is an expensive, durable material made from combining platinum, steel, and advanced polymers to create a metal that is corrosion-resistant, highly durable, and lightweight. The only reason this isn't used more often is because of how damn costly it is."
+  suffix: Full (50)
+  components:
+  - type: RMCConstructionItem
+    buildable:
+    - MCPlasteelBarricadeFoldableBuild
+    - MCPlasteelBarricadeBuild
+  - type: Stack
+    count: 50
+    stackType: MCPlasteel
+    baseLayer: base
+    layerStates:
+    - plasteel
+    - plasteel_2
+    - plasteel_3
+    - plasteel_4
+  - type: Sprite
+    sprite: _RMC14/Objects/Materials/Sheets/plasteel.rsi
+    layers:
+    - state: plasteel_4
+      map: [ "base" ]
+  - type: Item
+    sprite: _RMC14/Objects/Materials/Sheets/plasteel.rsi
+    heldPrefix: plasteel
+  - type: UserInterface
+    interfaces:
+      enum.RMCConstructionUiKey.Key:
+        type: RMCConstructionBui
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel2
+  suffix: 2
+  components:
+  - type: Stack
+    count: 2
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel15
+  suffix: 15
+  components:
+  - type: Stack
+    count: 15
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel20
+  suffix: 20
+  components:
+  - type: Stack
+    count: 20
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel30
+  suffix: 30
+  components:
+  - type: Stack
+    count: 30
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel40
+  suffix: 40
+  components:
+  - type: Stack
+    count: 40
+
+- type: entity
+  parent: MCSheetPlasteel
+  id: MCSheetPlasteel50
+  suffix: 50
+  components:
+  - type: Stack
+    count: 50
