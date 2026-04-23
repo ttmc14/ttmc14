@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Deploy;
@@ -14,6 +15,13 @@ public sealed partial class MCDeployComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan DeployTime = TimeSpan.FromSeconds(10);
+
+    /// <summary>
+    /// Entity prototype to use when spawning from the stack.
+    /// If not specified, the current entity is used.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public EntProtoId? DeployedPrototype;
 }
 
 [Serializable, NetSerializable]

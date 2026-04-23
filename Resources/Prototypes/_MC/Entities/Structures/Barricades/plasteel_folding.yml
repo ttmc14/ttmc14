@@ -27,7 +27,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          CMSheetPlasteel1:
+          MCSheetPlasteel1:
             min: 4
             max: 4
       - !type:PlaySoundBehavior

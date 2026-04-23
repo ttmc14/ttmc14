@@ -5,22 +5,27 @@ using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Popups;
+using Content.Shared.Stacks;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Deploy;
 
 public sealed class MCDeploySystem : EntitySystem
 {
+    [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly FixtureSystem _fixture = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
+    [Dependency] private readonly SharedStackSystem _stack = null!;
 
     [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = null!;
     [Dependency] private readonly RMCMapSystem _rmcMap = null!;
@@ -142,11 +147,21 @@ public sealed class MCDeploySystem : EntitySystem
         if (!CanDeployPopup(entity, args.User, coordinates))
             return;
 
+        if (!_net.IsServer)
+            return;
 
-        var xform = Transform(entity);
-        _transform.SetCoordinates(entity, xform, coordinates, angle);
+        var targetEntity = entity;
+        if (_stack.Use(entity, 1))
+        {
+            if (string.IsNullOrEmpty(entity.Comp.DeployedPrototype))
+                return;
 
-        SetState(entity, MCDeployState.Deployed);
+            var deployedEntity = Spawn(entity.Comp.DeployedPrototype, coordinates);
+            targetEntity = new Entity<MCDeployComponent>(deployedEntity, Comp<MCDeployComponent>(deployedEntity));
+        }
+
+        _transform.SetCoordinates(targetEntity, Transform(targetEntity), coordinates, angle);
+        SetState(targetEntity, MCDeployState.Deployed);
     }
 
     private void OnDisassembleDoAfter(Entity<MCDeployComponent> entity, ref MCDisassembleDoAfterEvent args)

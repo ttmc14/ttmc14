@@ -40,7 +40,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          CMSheetMetal1:
+          MCSheetMetal1:
             min: 3
             max: 3
       - !type:PlaySoundBehavior

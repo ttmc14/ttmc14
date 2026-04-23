@@ -15,7 +15,7 @@
   - 20
 
 - type: rmcConstruction
-  id: MCBarbedWireBuild
+  id: MCRazorwireBuild
   name: razorwire
   prototype: MCRazorwire
   doAfterTime: 2

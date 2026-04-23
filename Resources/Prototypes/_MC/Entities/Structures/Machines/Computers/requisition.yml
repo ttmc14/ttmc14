@@ -504,28 +504,28 @@
           state: metal_4
         cost: 200
         entities:
-        - CMSheetMetal50
+        - MCSheetMetal50
       - name: mc-asrs-entry-plasteel-sheets-50
         icon:
           sprite: _RMC14/Objects/Materials/Sheets/plasteel.rsi
           state: plasteel_4
         cost: 400
         entities:
-        - CMSheetPlasteel50
+        - MCSheetPlasteel50
       - name: mc-asrs-entry-glass-sheets-50
         icon:
           sprite: _RMC14/Objects/Materials/Sheets/glass.rsi
           state: glass_4
         cost: 100
         entities:
-        - CMSheetGlass
+        - MCSheetGlass
       - name: 50 wood
         icon:
           sprite: _RMC14/Objects/Materials/Sheets/wood.rsi
           state: wood_4
         cost: 100
         entities:
-        - RMCPlankWood50
+        - MCPlankWood50
       - name: mc-asrs-entry-phoron-sheets-50
         icon:
           sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi

@@ -1,16 +1,31 @@
+- type: stack
+  id: MCRazorwire
+  icon:
+    sprite: _MC/Structures/Barricades/Razorwire/barbedwire.rsi
+    state: barbedwire_assembly
+  spawn: MCRazorwire
+  maxCount: 10
+
 # TODO: Xeno acid smoke x2 damage
 - type: entity
   parent: MCItem
   id: MCRazorwire
   name: razorwire obstacle
   description: A bundle of barbed wire supported by metal rods. Used to deny access to areas under (literal) pain of entanglement and injury. A classic fortification since the 1900s.
+  suffix: Full (10)
   components:
   # Visuals
+  - type: Tag
+    tags:
+    - Structure
   - type: Icon
     sprite: _MC/Structures/Barricades/Razorwire/barbedwire.rsi
     state: barbedwire_assembly
   - type: Sprite
     sprite: _MC/Structures/Barricades/Razorwire/barbedwire.rsi
+    layers:
+    - map: [ "base" ]
+      state: barbedwire_assembly
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -24,19 +39,14 @@
     thresholds: [ 25, 50, 75, 100 ]
     trackAllDamage: true
     damageOverlay:
-      sprite: _MC/Structures/Barricades/Razorwire/barbedwire_Cracks.rsi
-      states:
-        0: DamageOverlay_0
-        25: DamageOverlay_25
-        50: DamageOverlay_50
-        75: DamageOverlay_75
-        100: DamageOverlay_100
+      sprite: _MC/Structures/Barricades/Razorwire/barbedwire_cracks1.rsi
   # Deployment
   - type: Item
     size: Normal
   - type: MCDeploy
     deployTime: 2.5
     deployFixture: razorwire
+    deployedPrototype: MCRazorwire1
   # Physics
   - type: Fixtures
     fixtures:
@@ -111,9 +121,36 @@
       bio: 100
       fire: 80
       acid: 0
+  - type: Stack
+    count: 10
+    stackType: MCRazorwire
 
 - type: entity
   parent: MCRazorwire
+  id: MCRazorwire1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MCRazorwire
+  id: MCRazorwire5
+  suffix: 5
+  components:
+  - type: Stack
+    count: 5
+
+- type: entity
+  parent: MCRazorwire
+  id: MCRazorwire10
+  suffix: 10
+  components:
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MCRazorwire1
   id: MCRazorwireDeployed
   suffix: Deployed
   components:

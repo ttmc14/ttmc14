@@ -28,7 +28,10 @@
     size: Normal
   - type: RMCConstructionItem
     buildable:
+    # Materials
     - MCBarbedWireBuild
+    - MCRazorwireBuild
+    # Barricades
     - MCMetalBarricadeBuild
     - MCMetalBarricadeFoldingBuild
   - type: RMCConstructionUpgradeItem
@@ -55,7 +58,6 @@
   suffix: 1
   components:
   - type: Stack
-    stackType: MCSteel
     count: 1
 
 - type: entity
@@ -64,7 +66,6 @@
   suffix: 2
   components:
   - type: Stack
-    stackType: MCSteel
     count: 2
 
 - type: entity
@@ -72,10 +73,7 @@
   id: MCSheetMetal5
   suffix: 5
   components:
-  - type: Sprite
-    state: metal
   - type: Stack
-    stackType: MCSteel
     count: 5
 
 - type: entity
@@ -84,7 +82,6 @@
   suffix: 10
   components:
   - type: Stack
-    stackType: MCSteel
     count: 10
 
 - type: entity
@@ -93,7 +90,6 @@
   suffix: 20
   components:
   - type: Stack
-    stackType: MCSteel
     count: 20
 
 - type: entity
@@ -102,7 +98,6 @@
   suffix: 30
   components:
   - type: Stack
-    stackType: MCSteel
     count: 30
 
 - type: entity
@@ -111,7 +106,6 @@
   suffix: 40
   components:
   - type: Stack
-    stackType: MCSteel
     count: 40
 
 - type: entity
@@ -120,5 +114,4 @@
   suffix: 50
   components:
   - type: Stack
-    stackType: MCSteel
     count: 50
