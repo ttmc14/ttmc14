@@ -1,0 +1,20 @@
+- type: entity
+  id: MCTestEntityOne
+  name: Test Entity One
+  description: Это тестовая сущность для проверки работы скрипта
+  suffix: Test
+  components:
+  - type: TestComponent
+
+- type: entity
+  id: MCTestEntityTwo
+  name: Test Entity Two
+  description: Вторая тестовая сущность
+  components:
+  - type: AnotherComponent
+
+- type: entity
+  id: MCTestChildEntity
+  parent: MCTestEntityOne
+  name: Child Entity
+  description: Детский прототип с наследованием
