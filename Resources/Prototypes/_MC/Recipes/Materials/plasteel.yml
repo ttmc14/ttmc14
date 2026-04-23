@@ -5,7 +5,7 @@
   doAfterTime: 4
   doAfterTimeMin: 2
   materialCost: 8
-  skill: RMCSkillConstruction
+  skill: MCSkillConstruction
   requiredSkillLevel: 0
 
 - type: rmcConstruction
@@ -15,5 +15,5 @@
   doAfterTime: 8
   doAfterTimeMin: 2
   materialCost: 6
-  skill: RMCSkillConstruction
+  skill: MCSkillConstruction
   requiredSkillLevel: 0

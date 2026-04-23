@@ -215,6 +215,7 @@
 - type: Tag
   id: MCGrenadePGas
 
+# Case's
 - type: entity
   parent: MCCase
   id: MCCaseGrenade
@@ -240,7 +241,7 @@
   parent: MCCaseGrenade
   id: MCCaseGrenadeHedp
   name: HEDP grenade case
-  description: A large case containing all you need to set up a supply of M40 HEDP grenades.
+  description: A secure box holding 25 M40 HEDP grenades. High explosive, don't store near the flamer fuel.
   components:
   - type: StorageFill
     contents:
@@ -250,8 +251,8 @@
 - type: entity
   parent: MCCaseGrenade
   id: MCCaseGrenadeHsdp
-  name: HSDP grenade case
-  description: A large case containing all you need to set up a supply of M40 HSDP grenades.
+  name: HSDP grenade box
+  description: A secure box holding 25 M40 HSDP smoke grenades. Don't blindly shoot into the smoke.
   components:
   - type: StorageFill
     contents:
@@ -261,8 +262,8 @@
 - type: entity
   parent: MCCaseGrenade
   id: MCCaseGrenadeHefa
-  name: HEFA grenade case
-  description: A large case containing all you need to set up a supply of M40 HEFA grenades.
+  name: HEFA grenade box
+  description: A secured box containing all you need to set up a supply of M40 HEFA grenades.
   components:
   - type: StorageFill
     contents:
@@ -272,8 +273,8 @@
 - type: entity
   parent: MCCaseGrenade
   id: MCCaseGrenadeHefaM15
-  name: HEFA M15 grenade case
-  description: A large case containing all you need to set up a supply of HEFA M15 grenades.
+  name: HEFA M15 grenade box
+  description: A secure box holding 25 M15 fragmentation grenades.
   components:
   - type: StorageFill
     contents:
@@ -283,8 +284,8 @@
 - type: entity
   parent: MCCaseGrenade
   id: MCCaseGrenadeHidp
-  name: HIDP grenade case
-  description: A large case containing all you need to set up a supply of M40 HIDP grenades.
+  name: HIDP grenade box
+  description: A secure box holding 25 M40 HIDP incendiary grenades. Warning - highly flammable!!
   components:
   - type: StorageFill
     contents:
@@ -294,10 +295,32 @@
 - type: entity
   parent: MCCaseGrenade
   id: MCCaseGrenadeTGas
-  name: Tanglefoot grenade case
-  description: A large case containing all you need to set up a supply of M40-T Tanglefoot grenades.
+  name: Tanglefoot grenade box
+  description: A secure box holding 25 M40-T gas grenades. 100% safe to use around masked marines.
   components:
   - type: StorageFill
     contents:
     - id: MCGrenadePGas
       amount: 25
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeRazorburn
+  name: Razorburn grenade box
+  description: A secure box holding 15 razor burn grenades. Used for quick flank coverage.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCRazorburnGrenade
+      amount: 15
+
+- type: entity
+  parent: MCCaseGrenade
+  id: MCCaseGrenadeRazorburnLarge
+  name: Razorburn canister box
+  description: A secure box holding 10 razor burn canisters. Used for quick flank coverage.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCRazorburnGrenadeLarge
+      amount: 10

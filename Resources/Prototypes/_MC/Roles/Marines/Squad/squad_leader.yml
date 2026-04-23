@@ -39,11 +39,10 @@
       skills:
         # MC
         MCSkillEngineer: 2
+        MCSkillConstruction: 2
         MCSkillCqc: 1
         # RMC
         RMCSkillLeadership: 3
-        RMCSkillEngineer: 2
-        RMCSkillConstruction: 2
         RMCSkillMedical: 1
         RMCSkillSurgery: 1
         RMCSkillSmartGun: 0

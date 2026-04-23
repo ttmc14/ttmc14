@@ -24,7 +24,7 @@
     drawdepth: WallTops
   - type: RMCRepairable
     heal: 200
-    skill: RMCSkillConstruction
+    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
     repairableDamageLimit: 300
@@ -40,7 +40,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          CMSheetMetal1:
+          MCSheetMetal1:
             min: 3
             max: 3
       - !type:PlaySoundBehavior

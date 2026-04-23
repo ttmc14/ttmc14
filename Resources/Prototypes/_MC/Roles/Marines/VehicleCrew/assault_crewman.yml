@@ -36,9 +36,8 @@
       skills:
         # MC
         MCSkillEngineer: 2
+        MCSkillConstruction: 2
         # RMC
-        RMCSkillEngineer: 2
-        RMCSkillConstruction: 2
         RMCSkillPilot: 1
         RMCSkillJtac: 1
         RMCSkillPowerLoader: 3

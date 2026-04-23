@@ -1,12 +1,9 @@
+
 - type: entity
   parent: MCItem
-  id: MCGrenade
-  name: grenade
-  description: Duck and cover.
+  id: MCGrenadePremade
   abstract: true
   components:
-  - type: Explosive
-    explosionType: RMC
   - type: ExplosionResistance
     damageCoefficient: 0
   - type: OnUseTimerTrigger
@@ -40,11 +37,21 @@
     tags:
     - MCGrenade
 
+- type: entity
+  parent: MCGrenadePremade
+  id: MCGrenade
+  name: grenade
+  description: Duck and cover.
+  abstract: true
+  components:
+  - type: Explosive
+    explosionType: RMC
+
 - type: Tag
   id: MCGrenade
 
 - type: entity
-  parent: MCGrenade
+  parent: MCGrenadePremade
   id: MCGrenadeTraining
   name: M15 training grenade
   description: A harmless reusable version of the M15 HEFA, used for training. Capable of being loaded into a grenade launcher, or thrown by hand.

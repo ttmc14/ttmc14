@@ -37,15 +37,20 @@
         name: sandbags x25
         points: 5
         recommended: true
-      # TL-182 deployable shield
-      # Deployable floodlight
-      # Pack of Razorburn grenades
-      # Razorburn canister
-      # Razorburn grenade
+      # TL-182 deployable shield 3 points
+      # Deployable floodlight 2 points
+      # Pack of Razorburn grenades 11 points
+      - id: MCRazorburnGrenadeLarge
+        name: Razorburn Canister
+        points: 7
+      - id: MCRazorburnGrenade
+        name: Razorburn grenade
+        points: 3
     - name: Tools
       entries:
       # Plasma cutter
-      # High-capacity industrial blowtorch
+      - id: RMCWelderIndustrial
+        points: 5
       # Hand-held cell charger
       # Large recharger powercell
       # Recharger powercell
@@ -95,6 +100,9 @@
         points: 5
     - name: Mining
       entries: []
+      # Mining well overclock upgrade 5 points
+      # Mining well reinforcement upgrade 5 points
+      # Mining well automation upgrade 5 points
     - name: Vehicle
       entries: []
       # Iguana Unmanned Vehicle
@@ -104,14 +112,14 @@
       - id: MCCrateMortarKit
         points: 45
       - id: MCRangefinder
-        points: 10
+        points: 2
       # AI remote targeting module
       - id: MCMortarShellHE
-        points: 2
+        points: 1
       - id: MCMortarShellIncendiary
-        points: 2
+        points: 1
       - id: MCMortarShellTanglefoot
-        points: 3
+        points: 1
       - id: MCMortarShellSmoke
         points: 1
       - id: MCMortarShellFlare
@@ -130,7 +138,7 @@
     bundle:
     - MCBeaconSupply
     - RMCExplosivePlastic
-    - RMCPowerCellHigh
+    - MCPowerCellHigh
     - CMAPCElectronics
     - CMLightReplacer
-    # Razorburn grenade
+    - MCRazorburnGrenade

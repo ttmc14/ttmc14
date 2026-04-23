@@ -4,7 +4,7 @@
   prototype: MCBarbedWire1
   doAfterTime: 0
   doAfterTimeMin: 0
-  skill: RMCSkillConstruction
+  skill: MCSkillConstruction
   requiredSkillLevel: 0
   materialCost: 1
   ignoreBuildRestrictions: true
@@ -15,13 +15,29 @@
   - 20
 
 - type: rmcConstruction
+  id: MCRazorwireBuild
+  name: razorwire
+  prototype: MCRazorwire
+  doAfterTime: 2
+  doAfterTimeMin: 2
+  skill: MCSkillConstruction
+  requiredSkillLevel: 0
+  amount: 2
+  materialCost: 2
+  ignoreBuildRestrictions: true
+  restrictedCollisionGroup: null
+  stackAmounts:
+  - 6
+  - 10
+
+- type: rmcConstruction
   id: MCMetalBarricadeBuild
   name: metal barricade
   prototype: MCBarricadeMetal
   doAfterTime: 2
   doAfterTimeMin: 1
   materialCost: 4
-  skill: RMCSkillConstruction
+  skill: MCSkillConstruction
   requiredSkillLevel: 0
 
 - type: rmcConstruction
@@ -31,5 +47,5 @@
   doAfterTime: 3
   doAfterTimeMin: 1.5
   materialCost: 6
-  skill: RMCSkillConstruction
+  skill: MCSkillConstruction
   requiredSkillLevel: 0

@@ -1,0 +1,136 @@
+- type: stack
+  id: MCGlassPhoron
+  icon:
+    sprite: _RMC14/Objects/Materials/Sheets/phoron_glass.rsi
+    state: phoronglass
+  spawn: MCSheetGlassPhoron
+  maxCount: 50
+
+- type: entity
+  parent: MCItem
+  id: MCSheetGlassPhoron
+  name: phoron glass
+  description: Phoron-infused glass. Slightly pink, extremely durable and heat-resistant.
+  suffix: Full (50)
+  components:
+  - type: Tag
+    tags:
+    - Sheet
+    - RMCGlass
+  - type: Appearance
+  - type: Sprite
+    sprite: _RMC14/Objects/Materials/Sheets/phoron_glass.rsi
+    layers:
+    - state: phoronglass_4
+      map: [ "base" ]
+  - type: Item
+    sprite: _RMC14/Objects/Materials/Sheets/phoron_glass.rsi
+    size: Normal
+    heldPrefix: phoronglass
+  - type: Stack
+    count: 50
+    stackType: MCGlassPhoron
+    baseLayer: base
+    layerStates:
+    - phoronglass
+    - phoronglass_2
+    - phoronglass_3
+    - phoronglass_4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 120
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron1
+  suffix: 1
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 1
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron2
+  suffix: 2
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 2
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: phoronglass
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 5
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron10
+  suffix: 10
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 10
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron20
+  suffix: 20
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 20
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron30
+  suffix: 30
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 30
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron40
+  suffix: 40
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 40
+
+- type: entity
+  parent: MCSheetGlassPhoron
+  id: MCSheetGlassPhoron50
+  suffix: 50
+  components:
+  - type: Stack
+    stackType: MCGlassPhoron
+    count: 50

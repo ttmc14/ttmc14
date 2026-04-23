@@ -39,11 +39,10 @@
         # MC
         MCSkillEngineer: 3
         MCSkillCqc: 1
+        MCSkillConstruction: 3
         # RMC
         RMCSkillMedical: 3
         RMCSkillSurgery: 1
-        RMCSkillEngineer: 3
-        RMCSkillConstruction: 3
         RMCSkillPolice: 2
         RMCSkillPowerLoader: 4
         RMCSkillLeadership: 4

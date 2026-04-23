@@ -28,7 +28,7 @@
       collection: FenceRattle
   - type: RMCRepairable
     heal: 60
-    skill: RMCSkillConstruction
+    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
     repairableDamageLimit: 340
@@ -43,7 +43,7 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          CMSheetMetal1:
+          MCSheetMetal1:
             min: 2
             max: 2
       - !type:PlaySoundBehavior
@@ -53,7 +53,7 @@
         acts: [ "Destruction" ]
   - type: DamageVisuals
     thresholds: [ 4, 8, 12 ]
-    damageDivisor: 25
+    damageDivisor: 10
     trackAllDamage: true
     damageOverlay:
       sprite: _RMC14/Structures/Walls/Barricades/metal_barricade_cracks.rsi
@@ -65,6 +65,7 @@
     graph: BarricadeMetalGraph
     node: nodeMetal
   - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
     upgrades:
     - MCExplosiveUpgrade
     - MCBiohazardUpgrade
@@ -104,6 +105,7 @@
     damageOverlay:
       sprite: _RMC14/Structures/Walls/Barricades/burn_barricade_cracks.rsi
   - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
     upgrades: null
 
 - type: entity
@@ -132,6 +134,7 @@
     damageOverlay:
       sprite: _RMC14/Structures/Walls/Barricades/brute_barricade_cracks.rsi
   - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
     upgrades: null
 
 - type: entity
@@ -160,4 +163,5 @@
     damageOverlay:
       sprite: _RMC14/Structures/Walls/Barricades/explosive_barricade_cracks.rsi
   - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
     upgrades: null

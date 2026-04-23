@@ -40,11 +40,10 @@
       skills:
         # MC
         MCSkillEngineer: 3
+        MCSkillConstruction: 2
         # RMC
         RMCSkillMedical: 2
         RMCSkillSurgery: 1
-        RMCSkillEngineer: 3
-        RMCSkillConstruction: 2
         RMCSkillPolice: 2
         RMCSkillPowerLoader: 2
         RMCSkillLeadership: 4

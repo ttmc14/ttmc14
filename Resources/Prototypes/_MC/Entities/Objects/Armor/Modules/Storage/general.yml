@@ -42,6 +42,8 @@
         - Sheet
         - RodMetal1
         - CableCoil
+        - RazorwireX
+        - MCGrenadeRazorburn
         - Crowbar
         - Wirecutter
         - Screwdriver
@@ -64,6 +66,8 @@
       - Sheet
       - RodMetal1
       - CableCoil
+      - RazorwireX
+      - MCGrenadeRazorburn
       - Crowbar
       - Wirecutter
       - Screwdriver

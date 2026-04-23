@@ -5,25 +5,30 @@ using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Popups;
+using Content.Shared.Stacks;
 using Content.Shared.Verbs;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Deploy;
 
 public sealed class MCDeploySystem : EntitySystem
 {
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly FixtureSystem _fixture = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedPhysicsSystem _physics = default!;
+    [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
+    [Dependency] private readonly FixtureSystem _fixture = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedPhysicsSystem _physics = null!;
+    [Dependency] private readonly SharedStackSystem _stack = null!;
 
-    [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
+    [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = null!;
+    [Dependency] private readonly RMCMapSystem _rmcMap = null!;
 
     private readonly HashSet<EntityUid> _toUpdate = new();
 
@@ -40,6 +45,7 @@ public sealed class MCDeploySystem : EntitySystem
         SubscribeLocalEvent<MCDeployComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<MCDeployComponent, AttemptShootEvent>(OnAttemptShoot);
         SubscribeLocalEvent<MCDeployComponent, UseInHandEvent>(OnUseInHand);
+
         SubscribeLocalEvent<MCDeployComponent, MCDeployDoAfterEvent>(OnDeployDoAfter);
         SubscribeLocalEvent<MCDeployComponent, MCDisassembleDoAfterEvent>(OnDisassembleDoAfter);
     }
@@ -141,12 +147,21 @@ public sealed class MCDeploySystem : EntitySystem
         if (!CanDeployPopup(entity, args.User, coordinates))
             return;
 
-        SetState(entity, MCDeployState.Deployed);
+        if (!_net.IsServer)
+            return;
 
-        var xform = Transform(entity);
+        var targetEntity = entity;
+        if (_stack.Use(entity, 1))
+        {
+            if (string.IsNullOrEmpty(entity.Comp.DeployedPrototype))
+                return;
 
-        _transform.SetCoordinates(entity, xform, coordinates, angle);
-        _transform.AnchorEntity(entity, xform);
+            var deployedEntity = Spawn(entity.Comp.DeployedPrototype, coordinates);
+            targetEntity = new Entity<MCDeployComponent>(deployedEntity, Comp<MCDeployComponent>(deployedEntity));
+        }
+
+        _transform.SetCoordinates(targetEntity, Transform(targetEntity), coordinates, angle);
+        SetState(targetEntity, MCDeployState.Deployed);
     }
 
     private void OnDisassembleDoAfter(Entity<MCDeployComponent> entity, ref MCDisassembleDoAfterEvent args)
@@ -158,8 +173,6 @@ public sealed class MCDeploySystem : EntitySystem
         args.Handled = true;
 
         SetState(entity, MCDeployState.Item);
-
-        _transform.Unanchor(entity.Owner, Transform(entity));
 
         var selfMsg = Loc.GetString("rmc-sentry-disassemble-finish-self", ("sentry", entity));
         var othersMsg = Loc.GetString("rmc-sentry-disassemble-finish-others", ("user", user), ("sentry", entity));
@@ -209,6 +222,7 @@ public sealed class MCDeploySystem : EntitySystem
 
                 _rmcNpc.SleepNPC(entity);
                 _appearance.SetData(entity, MCDeployLayers.Layer, MCDeployState.Item);
+                _transform.Unanchor(entity);
                 break;
 
             case MCDeployState.Deployed:
@@ -217,6 +231,7 @@ public sealed class MCDeploySystem : EntitySystem
 
                 _rmcNpc.WakeNPC(entity);
                 _appearance.SetData(entity, MCDeployLayers.Layer, MCDeployState.Deployed);
+                _transform.AnchorEntity(entity);
                 break;
 
             default:

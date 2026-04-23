@@ -1,0 +1,145 @@
+- type: stack
+  id: MCGlassReinforced
+  icon:
+    sprite: _RMC14/Objects/Materials/Sheets/reinf_glass.rsi
+    state: rglass
+  spawn: MCSheetGlassReinforced
+  maxCount: 50
+
+- type: entity
+  parent: MCItem
+  id: MCSheetGlassReinforced
+  name: reinforced glass
+  description: Sheets of reinforced glass. Stronger and more durable than regular glass.
+  suffix: Full (50)
+  components:
+  - type: Tag
+    tags:
+    - Sheet
+    - RMCGlass
+  - type: Appearance
+  - type: Sprite
+    sprite: _RMC14/Objects/Materials/Sheets/reinf_glass.rsi
+    layers:
+    - state: rglass_4
+      map: [ "base" ]
+  - type: Item
+    sprite: _RMC14/Objects/Materials/Sheets/reinf_glass.rsi
+    size: Normal
+    heldPrefix: rglass
+  - type: Stack
+    count: 50
+    stackType: MCGlassReinforced
+    baseLayer: base
+    layerStates:
+    - rglass
+    - rglass_2
+    - rglass_3
+    - rglass_4
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger:
+        !type:DamageTrigger
+        damage: 75
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: GlassBreak
+          params:
+            volume: -4
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          ShardGlass:
+            min: 1
+            max: 2
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RMCConstructionItem
+    buildable:
+    - RMCWindowReinforcedDirectionalBuild
+    - RMCWindoorBuild
+
+  - type: UserInterface
+    interfaces:
+      enum.RMCConstructionUiKey.Key:
+        type: RMCConstructionBui
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced1
+  suffix: 1
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 1
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced2
+  suffix: 2
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 2
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced5
+  suffix: 5
+  components:
+  - type: Sprite
+    state: rglass
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 5
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced10
+  suffix: 10
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 10
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced20
+  suffix: 20
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 20
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced30
+  suffix: 30
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 30
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced40
+  suffix: 40
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 40
+
+- type: entity
+  parent: MCSheetGlassReinforced
+  id: MCSheetGlassReinforced50
+  suffix: 50
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 50
