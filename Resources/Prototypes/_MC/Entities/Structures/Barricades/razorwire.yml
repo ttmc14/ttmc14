@@ -39,7 +39,7 @@
     thresholds: [ 25, 50, 75, 100 ]
     trackAllDamage: true
     damageOverlay:
-      sprite: _MC/Structures/Barricades/Razorwire/barbedwire_cracks1.rsi
+      sprite: _MC/Structures/Barricades/Razorwire/barbedwire_cracks.rsi
   # Deployment
   - type: Item
     size: Normal
