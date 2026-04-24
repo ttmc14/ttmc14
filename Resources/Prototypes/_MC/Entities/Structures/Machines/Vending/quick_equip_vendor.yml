@@ -15,6 +15,14 @@
     vendors:
     # Other
     - MCMachineVendingQuickFood
+    # Nexus
+    # - MCMachineVendingNexusMarine
+    - MCMachineVendingNexusCorpsman
+    - MCMachineVendingNexusEngineer
+    - MCMachineVendingNexusSmartgunner
+    - MCMachineVendingNexusLeader
+    - MCMachineVendingNexusCommander
+    - MCMachineVendingNexusMedical
     # Ghmme
     - MCMachineVendingGhmmeMarine
     - MCMachineVendingGhmmeCorpsman
