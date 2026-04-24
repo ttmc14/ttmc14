@@ -16,7 +16,10 @@
 - type: entity
   parent: MCMachineVendingWeaponBase
   id: MCMachineVendingWeapon
+  suffix: Main
   components:
+  - type: MCVendorNetwork
+    networkId: weapon-main
   - type: CMAutomatedVendor
     sections:
     - name: Rifles

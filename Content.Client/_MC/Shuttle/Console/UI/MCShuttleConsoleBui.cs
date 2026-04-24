@@ -5,14 +5,10 @@ using Robust.Client.UserInterface;
 namespace Content.Client._MC.Shuttle.Console.UI;
 
 [UsedImplicitly]
-public sealed class MCShuttleConsoleBui : BoundUserInterface
+public sealed class MCShuttleConsoleBui(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
     [ViewVariables]
     private MCShuttleConsoleWindow? _window;
-
-    public MCShuttleConsoleBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
-    {
-    }
 
     protected override void Open()
     {

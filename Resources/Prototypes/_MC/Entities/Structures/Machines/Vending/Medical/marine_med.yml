@@ -4,6 +4,8 @@
   name: MarineMed
   description: Marine Medical drug dispenser - Provided by Nanotrasen Pharmaceuticals Division(TM).
   components:
+  - type: MCVendorNetwork
+    networkId: med-marine-main
   - type: Sprite
     sprite: _MC/Structures/Machines/vending.rsi
     layers:

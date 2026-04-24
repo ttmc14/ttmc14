@@ -1,11 +1,12 @@
-﻿using Content.Shared.Roles;
+﻿using Content.Shared._MC.Vending;
+using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._RMC14.Vendors;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-[Access(typeof(SharedCMAutomatedVendorSystem))]
+[Access(typeof(SharedCMAutomatedVendorSystem), typeof(MCVendingSystem))] // MC Changes
 public sealed partial class CMVendorUserComponent : Component
 {
     [DataField, AutoNetworkedField]

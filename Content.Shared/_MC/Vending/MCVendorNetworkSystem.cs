@@ -9,7 +9,7 @@ public sealed class MCVendorNetworkSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MCVendorNetworkComponent, MapInitEvent>(OnMapInit);
-        SubscribeLocalEvent<MCVendorItemVendedEvent>(OnItemVended);
+        SubscribeLocalEvent<MCVendorItemAmountEvent>(OnItemVended);
     }
 
     public void OnMapInit(Entity<MCVendorNetworkComponent> entity, ref MapInitEvent args)
@@ -37,7 +37,7 @@ public sealed class MCVendorNetworkSystem : EntitySystem
         Dirty(entity);
     }
 
-    private void OnItemVended(ref MCVendorItemVendedEvent ev)
+    private void OnItemVended(ref MCVendorItemAmountEvent ev)
     {
         if (ev.IsInfinite || !TryComp<MCVendorNetworkComponent>(ev.Vendor, out var netComponent))
             return;

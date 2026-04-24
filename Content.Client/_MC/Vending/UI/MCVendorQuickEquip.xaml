@@ -1,0 +1,9 @@
+﻿<ui1:MCVendorQuickEquip xmlns="https://spacestation14.io"
+                        xmlns:ui1="clr-namespace:Content.Client._MC.Vending.UI"
+                        MinSize="400 120"
+                        Title="Kwik-E-Quip">
+    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
+        <Button Text="Export" Name="ExportButton" Access="Public" />
+        <Button Text="Import" Name="ImportButton" Access="Public" />
+    </BoxContainer>
+</ui1:MCVendorQuickEquip>

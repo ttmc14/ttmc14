@@ -8,7 +8,36 @@
     sprite: _MC/Structures/Machines/vending.rsi
     layers:
     - state: specialist-off
-      map: ["enum.VendingMachineVisualLayers.Base"]
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
     - state: specialist
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
-  - type: CMAutomatedVendor
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: MCVendorQuickEquip
+    vendors:
+    # Other
+    - MCMachineVendingQuickFood
+    # Ghmme
+    - MCMachineVendingGhmmeMarine
+    - MCMachineVendingGhmmeCorpsman
+    - MCMachineVendingGhmmeEngineer
+    - MCMachineVendingGhmmeSmartgunner
+    - MCMachineVendingGhmmeLeader
+    - MCMachineVendingGhmmeCommander
+    # Surplus
+    - MCMachineVendingSurplusArmor
+    - MCMachineVendingSurplusClothing
+    # Weapons
+    - MCMachineVendingWeapon
+    - MCMachineVendingWeaponCrash
+    # Engineer
+    - MCMachineVendingEngi
+    - MCMachineVendingYouTool
+    # Medical
+    - MCMachineVendingNanotrasenMed
+    - MCMachineVendingMarineMed
+    - MCMachineVendingMarineMedBlood
+  - type: UserInterface
+    interfaces:
+      enum.MCVendorQuickEquipUI.Key:
+        type: MCVendorQuickEquipBui
+  - type: ActivatableUI
+    key: enum.MCVendorQuickEquipUI.Key

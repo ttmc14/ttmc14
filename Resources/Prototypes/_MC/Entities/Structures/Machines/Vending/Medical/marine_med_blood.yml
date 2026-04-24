@@ -4,6 +4,8 @@
   name: MM Blood Dispenser
   description: Marine Med brand Blood Pack dispensery.
   components:
+  - type: MCVendorNetwork
+    networkId: med-blood-main
   - type: Sprite
     sprite: _MC/Structures/Machines/vending.rsi
     layers:

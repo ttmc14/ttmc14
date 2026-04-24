@@ -4,6 +4,8 @@
   name: NanotrasenMed Plus
   description: Medical Pharmaceutical dispenser. Provided by Nanotrasen Pharmaceuticals Division(TM).
   components:
+  - type: MCVendorNetwork
+    networkId: med-nanotrasen-main
   - type: Sprite
     sprite: _MC/Structures/Machines/vending.rsi
     layers:

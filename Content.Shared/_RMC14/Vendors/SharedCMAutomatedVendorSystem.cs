@@ -637,7 +637,7 @@ public abstract class SharedCMAutomatedVendorSystem : EntitySystem
                         AmountUpdated(vendor, vendorEntry);
 
                         // mc-changes-start
-                        var ev = new MCVendorItemVendedEvent(
+                        var ev = new MCVendorItemAmountEvent(
                             vendor.Owner,
                             actor,
                             vendorEntry.Id,
@@ -661,7 +661,7 @@ public abstract class SharedCMAutomatedVendorSystem : EntitySystem
                 AmountUpdated(vendor, entry);
 
                 // mc-changes-start
-                var ev = new MCVendorItemVendedEvent(
+                var ev = new MCVendorItemAmountEvent(
                     vendor.Owner,
                     actor,
                     entry.Id,
@@ -754,6 +754,14 @@ public abstract class SharedCMAutomatedVendorSystem : EntitySystem
             var itemPlacementOffset = requisitionsChair.Comp.OffsetItem;
             var finalPlacementCoordinates = requisitionsChair.Owner.ToCoordinates().Offset(itemPlacementOffset);
             var spawn = SpawnAtPosition(toVend, finalPlacementCoordinates);
+
+            // mc-changes-start
+            var ev = new MCVendorItemVendedEvent(vendor, spawn);
+
+            RaiseLocalEvent(ref ev);
+            RaiseLocalEvent(spawn, ref ev);
+            RaiseLocalEvent(vendor, ref ev);
+            // mc-changes-end
 
             AfterVend(spawn, player, vendor, offset, true, replaceSlot);
         }
