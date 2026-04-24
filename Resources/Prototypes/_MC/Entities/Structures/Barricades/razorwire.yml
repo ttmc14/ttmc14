@@ -62,12 +62,12 @@
         shape: !type:PhysShapeCircle
           radius: 0.45
         density: 20
-        layer:
-        - MidImpassable
-        - BulletImpassable
         mask:
-        - MidImpassable
-        - BulletImpassable
+        - FullTileMask
+        layer:
+        - TableLayer
+        - BarricadeImpassable
+        # - BulletImpassable
         hard: false
   - type: CollisionWake
     enabled: false
