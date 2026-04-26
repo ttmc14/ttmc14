@@ -1,0 +1,38 @@
+- type: entity
+  parent:
+  - Incorporeal
+  - BaseMob
+  id: MCEyeHologram
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: NoFTL
+  - type: Tag
+    tags:
+    - GhostOnlyWarp
+  - type: WarpPoint
+    follow: true
+    blacklist:
+      tags:
+      - GhostOnlyWarp
+  - type: Eye
+    pvsScale: 1.5
+  - type: Visibility
+    layer: 2
+  - type: Sprite
+    sprite: _MC/Effects/markers.rsi
+    layers:
+    - state: ai
+      shader: unshaded
+      map: [ "base" ]
+
+- type: entity
+  parent: MCEyeHologram
+  id: MCEyeTad
+  name: tad
+  description: It seems to be a visual projection of someone.
+  components:
+  - type: Sprite
+    layers:
+    - state: tad
+  - type: Eye
+    drawFov: false
