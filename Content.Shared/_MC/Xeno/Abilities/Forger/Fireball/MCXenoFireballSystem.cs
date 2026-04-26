@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._MC.Xeno.Spit;
 using Content.Shared._RMC14.Projectiles;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -14,17 +15,10 @@ namespace Content.Shared._MC.Xeno.Abilities.Forger.Fireball;
 
 public sealed class MCXenoFireballSystem : MCXenoAbilitySystem
 {
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedGunSystem _gun = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly RMCProjectileSystem _rmcProjectile = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly MCSharedXenoSpitSystem _mcXenoSpit = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+
+    [Dependency] private readonly MCSharedXenoSpitSystem _mcXenoSpit = null!;
 
     public override void Initialize()
     {

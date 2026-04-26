@@ -4,8 +4,9 @@ using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
+using JetBrains.Annotations;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 public abstract partial class MCSharedXenoHiveSystem
 {
@@ -13,12 +14,100 @@ public abstract partial class MCSharedXenoHiveSystem
     /// Number of larva points generated per regular human.
     /// Used in calculating how many Xenos can spawn per active human.
     /// </summary>
+    [PublicAPI]
     public const float LarvaPointsRegular = 3.25f;
 
     /// <summary>
     /// Number of points required to spawn one Xeno job.
     /// </summary>
+    [PublicAPI]
     public const float XenoJobPointsNeeded = 10f;
+
+    /// <summary>
+    /// Base smoothing value for silo larva generation.
+    /// Prevents fully linear scaling from silo count.
+    /// </summary>
+    [PublicAPI]
+    public const float SiloOutputPonderation = 2f;
+
+    /// <summary>
+    /// Base larva point generation per active marine.
+    /// </summary>
+    [PublicAPI]
+    public const float SiloBaseOutputPerMarine = 1f;
+
+    /// <summary>
+    /// Additional larva generation multiplier when hijack is active.
+    /// </summary>
+    [PublicAPI]
+    public const float HijackMultiplier = 3f;
+
+    /// <summary>
+    /// Calculates larva generation for the hive based on:
+    /// resin silos, active marines, xeno population and round modifiers.
+    /// </summary>
+    /// <param name="siloCount">Amount of active resin silos.</param>
+    /// <param name="activeXenos">Current amount of living xenos.</param>
+    /// <param name="isHijacked">Whether hijack state is active.</param>
+    /// <param name="siloScaling">Current round larva scaling modifier.</param>
+    /// <returns>Larva points generated this tick.</returns>
+    public float CalculateLarvaSpawnRate(
+        int siloCount,
+        bool isHijacked,
+        float siloScaling)
+    {
+        if (DefaultHive is null)
+            return 0f;
+
+        var activeXenos = GetLivingXenos(DefaultHive.Value);
+        var activeHumans = GetLiving<MarineComponent>();
+
+        var spawnRate = CalculateBaseLarvaOutput(siloCount, activeHumans);
+
+        // Hijack bonus
+        spawnRate *= isHijacked ? HijackMultiplier : 1f;
+
+        // Round scaling factor
+        spawnRate *= siloScaling;
+
+        // Scale based on current marine-to-xeno ratio
+        spawnRate *= CalculatePopulationBalanceModifier(activeHumans, activeXenos);
+
+        return spawnRate;
+    }
+
+    /// <summary>
+    /// Calculates base larva output from silo count and active marine count.
+    /// Applies normalization so a single silo remains stable regardless
+    /// of ponderation changes.
+    /// </summary>
+    private static float CalculateBaseLarvaOutput(int siloCount, int activeHumans)
+    {
+        var spawnRate = siloCount > 0
+            ? SiloOutputPonderation + siloCount
+            : 0;
+
+        spawnRate *= SiloBaseOutputPerMarine * activeHumans;
+        spawnRate /= 1f + SiloOutputPonderation;
+
+        return spawnRate;
+    }
+
+    /// <summary>
+    /// Calculates a balance modifier based on the current marine-to-xeno ratio
+    /// compared to the optimal ratio.
+    /// Clamped to prevent excessive scaling.
+    /// </summary>
+    private static float CalculatePopulationBalanceModifier(int activeHumans, int activeXenos)
+    {
+        const float optimalRatio = XenoJobPointsNeeded / LarvaPointsRegular;
+
+        if (activeXenos <= 0)
+            return 1f;
+
+        var currentRatio = activeHumans / (float) activeXenos;
+        return float.Clamp(float.Round(currentRatio / optimalRatio, 2), 0.5f, 2f);
+    }
 
     /// <summary>
     /// Multipliers applied per tier when calculating slots.

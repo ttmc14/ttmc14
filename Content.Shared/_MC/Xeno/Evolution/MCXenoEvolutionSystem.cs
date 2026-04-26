@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Xeno.Evolution.Components;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Evolution;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -150,7 +151,7 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         if (!hive.Comp.Configuration.Evolution.RequiredCasteCount.TryGetValue(target, out var required))
             return true;
 
-        var living = _mcXenoHive.GetLiving(hive);
+        var living = _mcXenoHive.GetLivingXenos(hive);
         if (living >= required)
             return true;
 

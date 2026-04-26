@@ -3,14 +3,14 @@ using Content.Shared._MC.Xeno.Hive.Prototypes;
 using JetBrains.Annotations;
 using Robust.Shared.Prototypes;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 public abstract partial class MCSharedXenoHiveSystem
 {
     [PublicAPI]
     public void AddPsypoints(Entity<MCXenoHiveComponent?> entity, ProtoId<MCXenoHivePsypointTypePrototype> id, int value)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
         SetPsypoints(entity, id, GetPsypoints(entity, id) + value);
@@ -19,7 +19,7 @@ public abstract partial class MCSharedXenoHiveSystem
     [PublicAPI]
     public void SetPsypoints(Entity<MCXenoHiveComponent?> entity, ProtoId<MCXenoHivePsypointTypePrototype> id, int value)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
         if (entity.Comp.Psypoints.TryAdd(id, value))
@@ -32,7 +32,7 @@ public abstract partial class MCSharedXenoHiveSystem
     [PublicAPI]
     public int GetPsypoints(Entity<MCXenoHiveComponent?> entity, ProtoId<MCXenoHivePsypointTypePrototype> id)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return 0;
 
         return entity.Comp.Psypoints.GetValueOrDefault(id, 0);

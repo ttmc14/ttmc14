@@ -6,6 +6,7 @@ using Content.Shared._MC.Map;
 using Content.Shared._MC.Physics;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared.DoAfter;
 using Content.Shared.Physics;
 using Robust.Shared.Audio.Systems;

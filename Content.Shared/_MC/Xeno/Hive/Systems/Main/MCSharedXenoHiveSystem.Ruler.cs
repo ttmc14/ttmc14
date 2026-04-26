@@ -1,9 +1,9 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Events;
 using Content.Shared._RMC14.Xenonids.Announce;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Mobs;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 public abstract partial class MCSharedXenoHiveSystem
 {
@@ -11,12 +11,12 @@ public abstract partial class MCSharedXenoHiveSystem
 
     private void InitializeRuler()
     {
-        SubscribeLocalEvent<MCXenoHiveLeaderComponent, HiveChangedEvent>(OnRulerHiveChanged);
+        SubscribeLocalEvent<MCXenoHiveLeaderComponent, MCXenoHiveChangedEvent>(OnRulerHiveChanged);
         SubscribeLocalEvent<MCXenoHiveLeaderComponent, ComponentShutdown>(OnRulerShutdown);
         SubscribeLocalEvent<MCXenoHiveLeaderComponent, MobStateChangedEvent>(OnRulerMobStateChanged);
     }
 
-    private void OnRulerHiveChanged(Entity<MCXenoHiveLeaderComponent> entity, ref HiveChangedEvent args)
+    private void OnRulerHiveChanged(Entity<MCXenoHiveLeaderComponent> entity, ref MCXenoHiveChangedEvent args)
     {
         if (args.OldHive is not null)
             RemoveRuler(args.OldHive.Value, entity);

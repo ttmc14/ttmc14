@@ -8,7 +8,6 @@ public sealed class MCXenoMelterShroudSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -31,7 +30,8 @@ public sealed class MCXenoMelterShroudSystem : MCXenoAbilitySystem
         if (!smokeUid.Valid)
             return;
 
-        _rmcXenoHive.SetSameHive(entity.Owner, smokeUid);
+        MCXenoHive.SetSameHive(entity.Owner, smokeUid);
+
         _audio.PlayPvs(entity.Comp.EffectSound, Transform(smokeUid).Coordinates);
     }
 }

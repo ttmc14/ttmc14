@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -33,8 +34,9 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly TagSystem _tag = null!;
 
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
 
@@ -177,7 +179,7 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         if (_mobState.IsDead(target))
             return;
 
-        if (_rmcXenoHive.FromSameHive(entity.Owner, target))
+        if (_mcXenoHive.FromSameHive(entity.Owner, target))
         {
             Stop(entity);
             return;

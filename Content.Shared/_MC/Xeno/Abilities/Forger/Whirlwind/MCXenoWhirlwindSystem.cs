@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Chemistry;
 using Content.Shared._RMC14.Entrenching;
@@ -24,22 +25,20 @@ namespace Content.Shared._MC.Xeno.Abilities.Forger.Whirlwind;
 
 public sealed class MCXenoWhirlwindSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly INetManager _net = default!;
+
     [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly DamageableSystem _damageable = default!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
     [Dependency] private readonly LineSystem _line = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedOnCollideSystem _onCollide = default!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly RMCMapSystem _rmcMap = default!;
-    [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly MCSharedXenoSpitSystem _mcXenoSpit = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
+
+    [Dependency] private readonly MCSharedXenoSpitSystem _mcXenoSpit = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private EntityQuery<BarricadeComponent> _barricadeQuery;
     private EntityQuery<MCXenoWhirlwindComponent> _xenoSprayAcidQuery;
@@ -133,7 +132,7 @@ public sealed class MCXenoWhirlwindSystem : EntitySystem
 
                 var spawned = Spawn(active.Fire, acid.Coordinates);
                 var splatter = EnsureComp<MCXenoWhirlwindSprayingComponent>(spawned);
-                _hive.SetSameHive(uid, spawned);
+                _mcXenoHive.SetSameHive(uid, spawned);
                 //splatter.Xeno = uid;
                 Dirty(spawned, splatter);
 

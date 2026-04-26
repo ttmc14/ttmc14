@@ -1,9 +1,11 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
+using Content.Shared._MC.Xeno.Hive.Systems.Annonuce;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Bioscan;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Collapse;
 
 public sealed class MCXenoHiveCollapseSystem : EntitySystem
 {
@@ -12,7 +14,7 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
 
     [Dependency] private readonly MCSharedXenoHiveSystem _hive = null!;
-    [Dependency] private readonly MCXenoAnnounce _announce = null!;
+    [Dependency] private readonly MCXenoAnnounceSystem _announceSystem = null!;
 
     private TimeSpan _lastUpdate;
 
@@ -99,7 +101,7 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
 
     public bool CanCollapse(Entity<MCXenoHiveComponent> entity)
     {
-        return !entity.Comp.Collapsed && entity.Comp.Configuration.General.AllowCollapse;
+        return entity.Comp is { Collapsed: false, Configuration.General.AllowCollapse: true };
     }
 
     public void Collapse(Entity<MCXenoHiveComponent> entity, MCXenoHiveCollapseType type)
@@ -149,7 +151,7 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
             """;
 
         var sound = new BioscanComponent().XenoSound;
-        _announce.AnnounceToHive(entity, message, messageWraped, sound: sound);
+        _announceSystem.AnnounceToHive(entity, message, messageWraped, sound: sound);
     }
 
     private void AnnounceRulerColapse(Entity<MCXenoHiveComponent> entity)
@@ -170,7 +172,7 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
             """;
 
         var sound = new BioscanComponent().XenoSound;
-        _announce.AnnounceToHive(entity, message, messageWraped, sound: sound);
+        _announceSystem.AnnounceToHive(entity, message, messageWraped, sound: sound);
     }
 
     #endregion

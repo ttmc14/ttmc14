@@ -34,7 +34,7 @@ public sealed class MCXenoGrappleTossSystem : MCXenoAbilitySystem
 
         _mcXenoAgility.Disable(entity);
 
-        if (!RMCXenoHive.FromSameHive(entity.Owner, targetEntity))
+        if (!MCXenoHive.FromSameHive(entity.Owner, targetEntity))
         {
             _mcStun.Slowdown(targetEntity, entity.Comp.SlowdownDuration);
             _mcStun.Paralyze(targetEntity, entity.Comp.ParalyzeDuration);

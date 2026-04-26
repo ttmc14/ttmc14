@@ -25,7 +25,6 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
 
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
     [Dependency] private readonly RMCSlowSystem _rmcSlow = null!;
 
     [Dependency] private readonly MCAreasSystem _mcArea = null!;
@@ -82,7 +81,7 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
         }
 
         // Fo friendly targets
-        if (_rmcXenoHive.FromSameHive(entity.Owner, targetUid))
+        if (MCXenoHive.FromSameHive(entity.Owner, targetUid))
         {
             if (!RMCActions.TryUseAction(entity, args.Action, entity))
                 return;
@@ -150,7 +149,7 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
             if (_mobState.IsDead(taget, taget.Comp))
                 continue;
 
-            if (HasComp<XenoComponent>(taget) && _rmcXenoHive.FromSameHive(entity.Owner, taget.Owner))
+            if (HasComp<XenoComponent>(taget) && MCXenoHive.FromSameHive(entity.Owner, taget.Owner))
                 continue;
 
             // TODO: Stagger

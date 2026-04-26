@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Flammable;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Stun;
@@ -31,12 +32,12 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     /// </summary>
     [Dependency] protected readonly SharedRMCActionsSystem RMCActions = null!;
     [Dependency] protected readonly SharedRMCMeleeWeaponSystem RMCMelee = null!;
-    [Dependency] protected readonly SharedXenoHiveSystem RMCXenoHive = null!;
 
     [Dependency] protected readonly SharedActionsSystem Actions = null!;
     [Dependency] protected readonly SharedColorFlashEffectSystem ColorFlash = null!;
     [Dependency] protected readonly SharedMeleeWeaponSystem MeleeWeapon = null!;
 
+    [Dependency] protected readonly MCSharedXenoHiveSystem MCXenoHive = null!;
     [Dependency] protected readonly MCSharedFlammableSystem MCFlammable = null!;
 
     [Dependency] private readonly MobStateSystem _mobState = null!;
@@ -74,7 +75,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         if (_mobState.IsDead(targetUid.Value) && !affectOnDead)
             return false;
 
-        return !RMCXenoHive.FromSameHive(uid, targetUid.Value);
+        return !MCXenoHive.FromSameHive(uid, targetUid.Value);
     }
 
     protected bool IsOnMap(EntityUid uid)

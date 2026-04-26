@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Emote;
 using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.Pulling;
@@ -39,9 +40,10 @@ public sealed class MCXenoChargeSystem : EntitySystem
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = null!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
     [Dependency] private readonly MobStateSystem _mobState = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
     [Dependency] private readonly ThrowingSystem _throwing = null!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private EntityQuery<InputMoverComponent> _inputMoverQuery;
     private EntityQuery<MCXenoChargeComponent> _xenoToggleChargingQuery;
@@ -321,7 +323,7 @@ public sealed class MCXenoChargeSystem : EntitySystem
         var transform = Transform(entity);
         if (transform.Anchored)
         {
-            if (_xenoHive.FromSameHive(entity.Owner, args.Charger.Owner))
+            if (_mcXenoHive.FromSameHive(entity.Owner, args.Charger.Owner))
                 return;
 
             if (charger.StructureDamage is not null)
@@ -334,7 +336,7 @@ public sealed class MCXenoChargeSystem : EntitySystem
         {
             _throwing.TryThrow(entity, direction, 5f);
 
-            if (_xenoHive.FromSameHive(entity.Owner, args.Charger.Owner))
+            if (_mcXenoHive.FromSameHive(entity.Owner, args.Charger.Owner))
             {
                 IncrementStages(args.Charger, -1);
                 return;

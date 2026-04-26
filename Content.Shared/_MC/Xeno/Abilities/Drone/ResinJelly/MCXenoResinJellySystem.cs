@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Components;
 using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Events;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Aura;
@@ -26,7 +27,8 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmote = null!;
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -62,7 +64,7 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
             return;
 
         var instance = Spawn(entity.Comp.ProtoId);
-        _rmcXenoHive.SetSameHive(entity.Owner, instance);
+        _mcXenoHive.SetSameHive(entity.Owner, instance);
         _hands.TryPickup(entity, instance, handId, false, false);
     }
 
@@ -127,10 +129,10 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
         if (HasComp<MCXenoResinJellyFireproofComponent>(target))
             return false;
 
-        if (!_rmcXenoHive.FromSameHive(entity.Owner, user))
+        if (!_mcXenoHive.FromSameHive(entity.Owner, user))
             return false;
 
-        if (!_rmcXenoHive.FromSameHive(user, target))
+        if (!_mcXenoHive.FromSameHive(user, target))
             return false;
 
         var applyDuration = user == target ? entity.Comp.DelaySelf : entity.Comp.DelayOther;

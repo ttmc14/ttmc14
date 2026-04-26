@@ -1,6 +1,7 @@
 ﻿using Content.Server._RMC14.Xenonids.Hive;
 using Content.Server.GameTicking.Events;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 namespace Content.Server._MC.Xeno.Hive;
 

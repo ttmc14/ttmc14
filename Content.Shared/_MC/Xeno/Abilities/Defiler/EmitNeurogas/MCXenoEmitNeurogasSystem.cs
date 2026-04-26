@@ -2,6 +2,7 @@
 using Content.Shared._MC.Spreader;
 using Content.Shared._MC.Stun.Events;
 using Content.Shared._MC.Xeno.Abilities.Defiler.ReagentSelector;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs;
@@ -15,11 +16,13 @@ namespace Content.Shared._MC.Xeno.Abilities.Defiler.EmitNeurogas;
 public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
+
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
+
     [Dependency] private readonly MCXenoReagentSelectorSystem _mcXenoReagentSelector = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -54,7 +57,7 @@ public sealed class MCXenoEmitNeurogasSystem : MCXenoAbilitySystem
             if (!smokeUid.Valid)
                 continue;
 
-            _rmcXenoHive.SetSameHive(uid, smokeUid);
+            _mcXenoHive.SetSameHive(uid, smokeUid);
             _audio.PlayPvs(neurogasComponent.Sound, Transform(smokeUid).Coordinates);
 
             var spreader = EnsureComp<MCEdgeSpreaderComponent>(smokeUid);

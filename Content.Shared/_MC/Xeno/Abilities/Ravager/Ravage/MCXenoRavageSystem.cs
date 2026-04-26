@@ -1,6 +1,7 @@
 ﻿using System.Numerics;
 using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Stun;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.CameraShake;
 using Content.Shared._RMC14.Emote;
 using Content.Shared._RMC14.Entrenching;
@@ -21,11 +22,10 @@ public sealed class MCXenoRavageSystem : MCXenoAbilitySystem<MCXenoRavageCompone
     [Dependency] private readonly DamageableSystem _damageable = default!;
 
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmote = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
     [Dependency] private readonly RMCCameraShakeSystem _rmcCameraShake = default!;
 
-    [Dependency] private readonly MCKnockbackSystem _mcKnockback = default!;
-    [Dependency] private readonly MCStunSystem _mcStun = default!;
+    [Dependency] private readonly MCKnockbackSystem _mcKnockback = null!;
+    [Dependency] private readonly MCStunSystem _mcStun = null!;
 
     protected override void OnUse(Entity<MCXenoRavageComponent> entity, ref MCXenoRavageActionEvent args)
     {
@@ -50,7 +50,7 @@ public sealed class MCXenoRavageSystem : MCXenoAbilitySystem<MCXenoRavageCompone
             if (entity.Owner == uid)
                 continue;
 
-            if (_rmcHive.FromSameHive(entity.Owner, uid))
+            if (MCXenoHive.FromSameHive(entity.Owner, uid))
                 continue;
 
             if (_mobState.IsDead(uid))

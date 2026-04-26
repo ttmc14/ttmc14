@@ -28,8 +28,6 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
     [Dependency] private readonly RMCCameraShakeSystem _cameraShake = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
 
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
-
     [Dependency] private readonly MCStunSystem _mcStun = null!;
     [Dependency] private readonly MCStaminaSystem _mcStamina = null!;
     [Dependency] private readonly MCKnockbackSystem _mcKnockback = null!;
@@ -104,7 +102,7 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
             return false;
         }
 
-        if (_rmcXenoHive.FromSameHive(entity.Owner, args.Target))
+        if (MCXenoHive.FromSameHive(entity.Owner, args.Target))
         {
             PopupClient(LocIdCannotPunch);
             return false;

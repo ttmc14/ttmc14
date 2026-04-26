@@ -20,7 +20,6 @@ public sealed class MCXenoPsychicCureSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedInteractionSystem _interaction = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
     [Dependency] private readonly SharedRMCFlammableSystem _flammable = null!;
 
     [Dependency] private readonly MCXenoHealSystem _mcXenoHeal = null!;
@@ -48,7 +47,7 @@ public sealed class MCXenoPsychicCureSystem : MCXenoAbilitySystem
         if (_flammable.IsOnFire(args.Target))
             return;
 
-        if (!_xenoHive.FromSameHive(entity.Owner, args.Target))
+        if (!MCXenoHive.FromSameHive(entity.Owner, args.Target))
             return;
 
         if (!RMCActions.CanUseActionPopup(entity, args.Action, entity))

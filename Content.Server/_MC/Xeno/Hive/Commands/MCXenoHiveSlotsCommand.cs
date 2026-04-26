@@ -2,6 +2,7 @@
 using Content.Server.Administration;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared.Administration;
 using Robust.Shared.Console;
 

@@ -6,7 +6,7 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce.Trail;
 
-public sealed class MCXenoPounceTrailSystem : EntitySystem
+public sealed class MCXenoPounceTrailSystem : MCXenoAbilitySystem
 {
     private static readonly ProtoId<TagPrototype> AcidSprayTag = "MCAcidSpray";
 
@@ -15,8 +15,6 @@ public sealed class MCXenoPounceTrailSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
     [Dependency] private readonly TagSystem _tag = null!;
-
-    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = null!;
 
     public override void Initialize()
     {
@@ -52,6 +50,7 @@ public sealed class MCXenoPounceTrailSystem : EntitySystem
             return;
 
         var spawn = SpawnAtPosition(component.TrailId, coordinates);
-        _rmcHive.SetSameHive(entity.Owner, spawn);
+
+        MCXenoHive.SetSameHive(entity.Owner, spawn);
     }
 }

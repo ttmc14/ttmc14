@@ -1,12 +1,12 @@
-﻿using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.Xenonids.Hive;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Atmos;
 using Robust.Shared.Physics.Events;
 
 namespace Content.Shared._MC.Xeno.Collision;
 
 public sealed class MCXenoCollisionSystem : EntitySystem
 {
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -17,7 +17,7 @@ public sealed class MCXenoCollisionSystem : EntitySystem
 
     private void OnIgnoreFriendlyPreventCollide(Entity<MCXenoIgnoreFriendlyCollisionComponent> entity, ref PreventCollideEvent args)
     {
-        if (!_rmcXenoHive.FromSameHive(entity.Owner, args.OtherEntity) || args.Cancelled)
+        if (!_mcXenoHive.FromSameHive(entity.Owner, args.OtherEntity) || args.Cancelled)
             return;
 
         args.Cancelled = true;

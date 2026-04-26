@@ -1,11 +1,12 @@
-﻿using Content.Shared._RMC14.Xenonids.Announce;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Annonuce;
 
-public sealed class MCXenoAnnounce : EntitySystem
+public sealed class MCXenoAnnounceSystem : EntitySystem
 {
     [Dependency] private readonly SharedXenoAnnounceSystem _rmcXenoAnnounce = null!;
     [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;

@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Plasma;
@@ -30,9 +31,10 @@ public sealed class MCXenoPlantingWeedsSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SharedUserInterfaceSystem _ui = null!;
     [Dependency] private readonly SharedXenoWeedsSystem _xenoWeeds = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
     [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = null!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -171,7 +173,7 @@ public sealed class MCXenoPlantingWeedsSystem : EntitySystem
         Dirty(entity);
 
         _adminLogs.Add(LogType.RMCXenoPlantWeeds, $"Xeno {ToPrettyString(entity):xeno} planted weeds {ToPrettyString(weeds):weeds} at {coordinates}");
-        _xenoHive.SetSameHive(entity.Owner, weeds);
+        _mcXenoHive.SetSameHive(entity.Owner, weeds);
 
         _audio.PlayPvs(weedsData.PlaceSound, entity);
         return true;

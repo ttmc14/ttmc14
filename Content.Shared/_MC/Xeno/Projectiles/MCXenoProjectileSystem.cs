@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Sentry;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Sentry;
 using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Egg;
@@ -17,11 +18,13 @@ namespace Content.Shared._MC.Xeno.Projectiles;
 public sealed class MCXenoProjectileSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = default!;
+
     [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly TurfSystem _turf = default!;
     [Dependency] private readonly SharedMapSystem _mapSystem = default!;
     [Dependency] private readonly TagSystem _tag = default!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private static readonly ProtoId<TagPrototype> AirlockTag = "Airlock";
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
@@ -67,7 +70,7 @@ public sealed class MCXenoProjectileSystem : EntitySystem
         }
 
         var spawn = SpawnAtPosition(entity.Comp.Spawn, coordinates);
-        _hive.SetSameHive(entity.Owner, spawn);
+        _mcXenoHive.SetSameHive(entity.Owner, spawn);
     }
 
     private void OnSpawnConstructionOnTerminatingInit(Entity<MCXenoSpawnConstructionOnTerminatingComponent> entity, ref MapInitEvent args)
@@ -90,7 +93,7 @@ public sealed class MCXenoProjectileSystem : EntitySystem
             return;
 
         var spawn = SpawnAtPosition(entity.Comp.Spawn, coordinates);
-        _hive.SetSameHive(entity.Owner, spawn);
+        _mcXenoHive.SetSameHive(entity.Owner, spawn);
     }
 
     private EntityCoordinates GetAdjustedCoordinates(EntityUid projectile, EntityCoordinates? origin, bool adjust)

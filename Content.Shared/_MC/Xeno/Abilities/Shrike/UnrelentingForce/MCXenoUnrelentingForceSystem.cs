@@ -16,7 +16,7 @@ using Robust.Shared.Physics.Systems;
 
 namespace Content.Shared._MC.Xeno.Abilities.Shrike.UnrelentingForce;
 
-public sealed class MCXenoUnrelentingForceSystem : EntitySystem
+public sealed class MCXenoUnrelentingForceSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
@@ -26,7 +26,6 @@ public sealed class MCXenoUnrelentingForceSystem : EntitySystem
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly ThrowingSystem _throwing = default!;
     [Dependency] private readonly MCSharedFlammableSystem _mcFlammable = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly SharedPhysicsSystem _physics = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
 
@@ -107,7 +106,7 @@ public sealed class MCXenoUnrelentingForceSystem : EntitySystem
             if (_mobState.IsDead(uid))
                 return;
 
-            if (_xenoHive.FromSameHive(uid, entity.Owner))
+            if (MCXenoHive.FromSameHive(uid, entity.Owner))
                 return;
 
             _stun.TryParalyze(uid, TimeSpan.FromSeconds(2), true);

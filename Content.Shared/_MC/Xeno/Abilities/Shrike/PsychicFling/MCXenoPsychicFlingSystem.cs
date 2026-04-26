@@ -10,11 +10,10 @@ using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared._MC.Xeno.Abilities.Shrike.PsychicFling;
 
-public sealed class MCXenoPsychicFlingSystem : EntitySystem
+public sealed class MCXenoPsychicFlingSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
     [Dependency] private readonly RMCCameraShakeSystem _camera = default!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
@@ -33,7 +32,7 @@ public sealed class MCXenoPsychicFlingSystem : EntitySystem
         if (args.Handled)
             return;
 
-        if (_xenoHive.FromSameHive(entity.Owner, args.Target))
+        if (MCXenoHive.FromSameHive(entity.Owner, args.Target))
             return;
 
         if (!_rmcActions.TryUseAction(entity, args.Action, entity))

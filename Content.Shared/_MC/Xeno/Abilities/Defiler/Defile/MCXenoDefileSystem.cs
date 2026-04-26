@@ -87,7 +87,7 @@ public sealed class MCXenoDefileSystem : MCXenoAbilitySystem
 
         _audio.PlayPvs(entity.Comp.SmokeEffectSound, targetCoordinates);
 
-        RMCXenoHive.SetSameHive(entity.Owner, smokeUid);
+        MCXenoHive.SetSameHive(entity.Owner, smokeUid);
 
         var spreader = EnsureComp<MCEdgeSpreaderComponent>(smokeUid);
         // TODO: [MC] smoke strength

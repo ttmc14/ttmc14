@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Xeno.Heal;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.Xeno.Sunder;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -17,9 +18,9 @@ public sealed class MCXenoAcidicSlaveSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedInteractionSystem _interaction = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
     [Dependency] private readonly SharedRMCFlammableSystem _flammable = null!;
 
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCXenoHealSystem _mcXenoHeal = null!;
     [Dependency] private readonly MCXenoSunderSystem _mcXenoSunder = null!;
 
@@ -45,7 +46,7 @@ public sealed class MCXenoAcidicSlaveSystem : MCXenoAbilitySystem
         if (_flammable.IsOnFire(args.Target))
             return;
 
-        if (!_xenoHive.FromSameHive(entity.Owner, args.Target))
+        if (!_mcXenoHive.FromSameHive(entity.Owner, args.Target))
             return;
 
         if (!RMCActions.CanUseActionPopup(entity, args.Action, entity))

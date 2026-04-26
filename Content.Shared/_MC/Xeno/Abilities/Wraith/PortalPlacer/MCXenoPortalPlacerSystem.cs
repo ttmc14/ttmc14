@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Xeno.Abilities.Wraith.Portal;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Actions;
@@ -9,11 +10,13 @@ namespace Content.Shared._MC.Xeno.Abilities.Wraith.PortalPlacer;
 
 public sealed class MCXenoPortalPlacerSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly SharedActionsSystem _actions = default!;
-    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _ui = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
+    [Dependency] private readonly INetManager _net = null!;
+
+    [Dependency] private readonly SharedActionsSystem _actions = null!;
+    [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
+    [Dependency] private readonly SharedUserInterfaceSystem _ui = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -72,7 +75,7 @@ public sealed class MCXenoPortalPlacerSystem : EntitySystem
         else
             entity.Comp.PortalSecondEntityUid = instance;
 
-        _xenoHive.SetSameHive(entity.Owner,  instance);
+        _mcXenoHive.SetSameHive(entity.Owner,  instance);
 
         if (other is null)
             return;

@@ -3,6 +3,7 @@ using Content.Shared._MC.Spreader;
 using Content.Shared._MC.Xeno.Abilities.Boiler.AcidShroud.Events.Action;
 using Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.Actions;
 using Content.Shared._MC.Xeno.Abilities.Boiler.CreateBomb;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
@@ -15,7 +16,8 @@ public sealed class MCXenoAcidShroudSystem : MCXenoAbilitySystem
     [Dependency] private readonly MCXenoGlobSystem _glob = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -44,7 +46,7 @@ public sealed class MCXenoAcidShroudSystem : MCXenoAbilitySystem
         if (!smokeUid.Valid)
             return;
 
-        _rmcXenoHive.SetSameHive(entity.Owner, smokeUid);
+        _mcXenoHive.SetSameHive(entity.Owner, smokeUid);
         _audio.PlayPvs(entity.Comp.EffectSound, Transform(smokeUid).Coordinates);
 
         var spreader = EnsureComp<MCEdgeSpreaderComponent>(smokeUid);

@@ -3,6 +3,5 @@
   name: Main
   categories: [ HideSpawnMenu ]
   components:
-  - type: Hive
-    burrowedLarvaId: MCXenoRafik
-    lateJoinGainLarva: true
+  - type: Hive # Legacy support
+  - type: MCXenoHive

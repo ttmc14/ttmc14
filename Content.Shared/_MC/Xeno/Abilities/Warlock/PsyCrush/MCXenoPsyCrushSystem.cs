@@ -2,6 +2,7 @@
 using Content.Shared._MC.Damage;
 using Content.Shared._MC.Mob.Stamina;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;

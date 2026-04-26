@@ -2,10 +2,12 @@
 using Content.Shared._MC.Xeno.Hive.Events;
 using JetBrains.Annotations;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 public abstract partial class MCSharedXenoHiveSystem
 {
+    #region Burrowed larvas
+
     [PublicAPI]
     public void AddBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value)
     {
@@ -15,26 +17,27 @@ public abstract partial class MCSharedXenoHiveSystem
     [PublicAPI]
     public void SetBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp) || !_rmcHiveQuery.TryComp(entity, out var rmcComponent))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
-        rmcComponent.BurrowedLarva = value;
-        Dirty(entity, rmcComponent);
+        entity.Comp.BurrowedLarva = value;
+        Dirty(entity);
     }
 
     [PublicAPI]
     public int GetBurrowedLarva(Entity<MCXenoHiveComponent?> entity)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp) || !_rmcHiveQuery.TryComp(entity, out var rmcComponent))
-            return 0;
-
-        return rmcComponent.BurrowedLarva;
+        return !_mcHiveQuery.Resolve(entity, ref entity.Comp) ? 0 : entity.Comp.BurrowedLarva;
     }
+
+    #endregion
+
+    #region Larva points
 
     [PublicAPI]
     public void AddLarva(Entity<MCXenoHiveComponent?> entity, int value, bool bypassConfiguration = false)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
         SetLarva(entity, GetLarva(entity) + value, bypassConfiguration);
@@ -43,7 +46,7 @@ public abstract partial class MCSharedXenoHiveSystem
     [PublicAPI]
     public void SetLarva(Entity<MCXenoHiveComponent?> entity, int value, bool bypassConfiguration = false)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
         if (!entity.Comp.Configuration.General.AllowHarvestLarvaPoints && !bypassConfiguration)
@@ -61,11 +64,10 @@ public abstract partial class MCSharedXenoHiveSystem
     [PublicAPI]
     public int GetLarva(Entity<MCXenoHiveComponent?> entity)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
-            return 0;
-
-        return entity.Comp.LarvaPoints;
+        return !_mcHiveQuery.Resolve(entity, ref entity.Comp) ? 0 : entity.Comp.LarvaPoints;
     }
+
+    #endregion
 
     #region Member utilities
 

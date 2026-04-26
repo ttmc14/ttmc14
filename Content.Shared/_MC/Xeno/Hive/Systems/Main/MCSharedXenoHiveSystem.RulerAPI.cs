@@ -1,13 +1,13 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 public abstract partial class MCSharedXenoHiveSystem
 {
     public bool AddRuler(Entity<MCXenoHiveComponent?> entity, EntityUid rulerUid)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return false;
 
         if (entity.Comp.Rulers.Contains(rulerUid))
@@ -25,7 +25,7 @@ public abstract partial class MCSharedXenoHiveSystem
 
     public bool RemoveRuler(Entity<MCXenoHiveComponent?> entity, EntityUid rulerUid)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return false;
 
         var result = entity.Comp.Rulers.Remove(rulerUid);
@@ -38,7 +38,7 @@ public abstract partial class MCSharedXenoHiveSystem
 
     public bool HasRuler(Entity<MCXenoHiveComponent?> entity)
     {
-        if (!_hiveQuery.Resolve(entity, ref entity.Comp, false))
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp, false))
             return false;
 
         return entity.Comp.Rulers.Count > 0;

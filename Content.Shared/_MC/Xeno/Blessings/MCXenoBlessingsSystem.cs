@@ -3,6 +3,7 @@ using Content.Shared._MC.Xeno.Construction.Blessings.Events;
 using Content.Shared._MC.Xeno.Construction.Blessings.UI;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.DoAfter;
 using Content.Shared.Popups;

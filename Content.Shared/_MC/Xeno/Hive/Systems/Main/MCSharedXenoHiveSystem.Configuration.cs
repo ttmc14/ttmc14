@@ -1,6 +1,6 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems;
+namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 public abstract partial class MCSharedXenoHiveSystem
 {

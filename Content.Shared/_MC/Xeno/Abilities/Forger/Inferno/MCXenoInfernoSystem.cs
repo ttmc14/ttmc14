@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared.DoAfter;
@@ -34,7 +35,8 @@ public sealed class MCXenoInfernoSystem : MCXenoAbilitySystem
     [Dependency] private readonly XenoSystem _xeno = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedInteractionSystem _interaction = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private readonly HashSet<Entity<MobStateComponent>> _receivers = new();
 
@@ -103,7 +105,7 @@ public sealed class MCXenoInfernoSystem : MCXenoAbilitySystem
                     continue;
 
                 var fire = Spawn(entity.Comp.Spawn, offsetPosition);
-                _xenoHive.SetSameHive(entity.Owner, fire);
+                _mcXenoHive.SetSameHive(entity.Owner, fire);
             }
         }
 

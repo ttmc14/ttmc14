@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Xeno.Biomass;
 using Content.Shared._MC.Xeno.Hive.Systems;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -30,7 +31,6 @@ public sealed class MCXenoPsydrainSystem : EntitySystem
     [Dependency] private readonly SharedJitteringSystem _jittering = null!;
 
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
 
     [Dependency] private readonly MCStatusSystem _mcStatus = null!;
     [Dependency] private readonly MCXenoBiomassSystem _mcXenoBiomass = null!;
@@ -89,7 +89,7 @@ public sealed class MCXenoPsydrainSystem : EntitySystem
             return;
         }
 
-        if (!_rmcXenoHive.HasHive(entity.Owner))
+        if (!_mcXenoHive.HasHive(entity.Owner))
         {
             _popup.PopupClient(Loc.GetString("psydrain-dont-have-hive"), entity, entity, PopupType.MediumXeno);
             return;

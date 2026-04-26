@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Xenonids.Hive;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.Mobs;
 using Robust.Shared.Network;
@@ -12,9 +13,10 @@ public sealed class MCXenoStructureSpawnerSystem : EntitySystem
     [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly MCStatusSystem _mcStatus = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _rmcHive = default!;
     [Dependency] private readonly IRobustRandom _random = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -76,7 +78,7 @@ public sealed class MCXenoStructureSpawnerSystem : EntitySystem
     {
         var instance = Spawn(_random.Pick(entity.Comp.Entry), _transform.GetMapCoordinates(entity));
 
-        _rmcHive.SetSameHive(entity.Owner, instance);
+        _mcXenoHive.SetSameHive(entity.Owner, instance);
 
         var taget = EnsureComp<MCXenoStructureSpawnerTargetComponent>(instance);
 

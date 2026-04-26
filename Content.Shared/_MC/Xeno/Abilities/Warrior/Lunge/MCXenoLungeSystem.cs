@@ -20,11 +20,11 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities.Warrior.Lunge;
 
-public sealed class MCXenoLungeSystem : EntitySystem
+public sealed class MCXenoLungeSystem : MCXenoAbilitySystem
 {
+    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly SharedInteractionSystem _interaction = default!;
     [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly INetManager _net = default!;
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly ThrownItemSystem _thrownItem = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
@@ -32,11 +32,11 @@ public sealed class MCXenoLungeSystem : EntitySystem
     [Dependency] private readonly PullingSystem _pulling = default!;
     [Dependency] private readonly StatusEffectsSystem _statusEffects = default!;
     [Dependency] private readonly SharedStunSystem _stun = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly XenoSystem _xeno = default!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = default!;
     [Dependency] private readonly RMCObstacleSlammingSystem _rmcObstacleSlamming = default!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = default!;
+
     [Dependency] private readonly MCKnockbackSystem _mcKnockback = default!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
@@ -157,7 +157,7 @@ public sealed class MCXenoLungeSystem : EntitySystem
         if (_timing.IsFirstTimePredicted && entity.Comp.Charge is not null)
             entity.Comp.Charge = null;
 
-        if (_net.IsServer && !_hive.FromSameHive(entity.Owner, uid))
+        if (_net.IsServer && !MCXenoHive.FromSameHive(entity.Owner, uid))
         {
             var stunTime = _xeno.TryApplyXenoDebuffMultiplier(uid, entity.Comp.StunTime);
             _stun.TryParalyze(uid, stunTime, true);

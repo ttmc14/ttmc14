@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Stun.Events;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Emote;
 using Content.Shared._RMC14.Weapons.Melee;
@@ -38,8 +39,9 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly SharedMapSystem _map = default!;
     [Dependency] private readonly TagSystem _tag = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _hive = default!;
     [Dependency] private readonly INetManager _net = default!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     protected override bool AutoUse => false;
 
@@ -85,7 +87,7 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
         if (!HasComp<MobStateComponent>(args.OtherEntity) || _mobState.IsDead(args.OtherEntity))
             return;
 
-        if (_hive.FromSameHive(entity.Owner, args.OtherEntity))
+        if (_mcXenoHive.FromSameHive(entity.Owner, args.OtherEntity))
             return;
 
         if (entity.Comp.DamageMultiplier != 0)
@@ -140,7 +142,7 @@ public sealed class MCXenoHeadbuttChargeSystem : MCXenoAbilitySystem<MCXenoHeadb
             return;
 
         var spawn = SpawnAtPosition(spawnEntityId, coordinates);
-        _hive.SetSameHive(entity.Owner, spawn);
+        _mcXenoHive.SetSameHive(entity.Owner, spawn);
     }
 
     private void OnActiveStagger(Entity<MCXenoHeadbuttChargeActiveComponent> ent, ref MCStaggerEvent args)

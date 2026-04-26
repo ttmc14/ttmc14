@@ -51,7 +51,7 @@ public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXen
 
     private int GetTotalXenos(EntityUid hive)
     {
-        return _hive.GetLiving(hive, Inst.Comp.XenoMinTier) + _hive.GetBurrowedLarva(hive);
+        return _hive.GetLivingXenos(hive, Inst.Comp.XenoMinTier) + _hive.GetBurrowedLarva(hive);
     }
 }
 

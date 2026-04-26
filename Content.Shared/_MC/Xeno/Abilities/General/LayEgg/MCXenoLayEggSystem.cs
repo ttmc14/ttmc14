@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
 using Content.Shared._RMC14.Xenonids.Egg;
@@ -31,8 +32,9 @@ public sealed class LayEggSystem : EntitySystem
     [Dependency] private readonly SharedActionsSystem _actions = default!;
     [Dependency] private readonly XenoEggSystem _xenoEgg = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedXenoHiveSystem _xenoHive = default!;
     [Dependency] private readonly SharedXenoWeedsSystem _weeds = default!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private static readonly ProtoId<TagPrototype> AirlockTag = "Airlock";
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
@@ -90,7 +92,7 @@ public sealed class LayEggSystem : EntitySystem
             return;
 
         var instance = Spawn(entity.Comp.ProtoId, Transform(entity).Coordinates);
-        _xenoHive.SetSameHive(instance, entity.Owner);
+        _mcXenoHive.SetSameHive(instance, entity.Owner);
         _transform.SetLocalRotation(instance, 0);
         _xenoEgg.SetEggState((instance, Comp<XenoEggComponent>(instance)), XenoEggState.Growing);
         _transform.AnchorEntity(instance, Transform(instance));

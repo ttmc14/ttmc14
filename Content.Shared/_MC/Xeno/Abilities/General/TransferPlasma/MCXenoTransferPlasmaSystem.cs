@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Line;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
@@ -15,7 +16,7 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
 
-    [Dependency] private readonly SharedXenoHiveSystem _rmcXenoHive = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCXenoPlasmaSystem _mcXenoPlasma = null!;
     [Dependency] private readonly MCLineSystem _mcLine = null!;
 
@@ -32,7 +33,7 @@ public sealed class MCXenoTransferPlasmaSystem : MCXenoAbilitySystem
         if (args.Handled)
             return;
 
-        if (!_rmcXenoHive.FromSameHive(entity.Owner, args.Target))
+        if (!_mcXenoHive.FromSameHive(entity.Owner, args.Target))
             return;
 
         if (!_mcXenoPlasma.CanTransferPlasma(entity, args.Target, entity.Comp.Amount))
