@@ -1,9 +1,13 @@
 ﻿using Content.Shared._MC.Fire;
 using Content.Shared._MC.Smoke.Systems;
+using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids;
+using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared.Damage;
+using Content.Shared.DoAfter;
 using Content.Shared.Examine;
+using Content.Shared.Interaction;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -16,17 +20,21 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedPointLightSystem _pointLight = null!;
 
     [Dependency] private readonly MCFireSystem _mcFire = null!;
     [Dependency] private readonly MCSmokeSystem _mcSmoke = null!;
+    [Dependency] private readonly MCXenoPlasmaSystem _mcXenoPlasma = null!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MCXenoAcidWellComponent, InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<MCXenoAcidWellComponent, MCXenoAcidWellFillDoAfter>(OnInteractDoAfter);
         SubscribeLocalEvent<MCXenoAcidWellComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MCXenoAcidWellComponent, ComponentRemove>(OnShutdown);
+        SubscribeLocalEvent<MCXenoAcidWellComponent, EntityTerminatingEvent>(OnShutdown);
         SubscribeLocalEvent<MCXenoAcidWellComponent, StartCollideEvent>(OnCollideStart);
         SubscribeLocalEvent<MCXenoAcidWellComponent, ExaminedEvent>(OnExamined);
 
@@ -54,12 +62,50 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         }
     }
 
+    private void OnInteractHand(Entity<MCXenoAcidWellComponent> entity, ref InteractHandEvent args)
+    {
+        if (!HasComp<XenoConstructionComponent>(args.User))
+            return;
+
+        if (!_mcXenoPlasma.HasPlasma(args.User, entity.Comp.FillCost))
+            return;
+
+        if (entity.Comp.Charges >= entity.Comp.ChargesMax)
+            return;
+
+        var ev = new MCXenoAcidWellFillDoAfter();
+        var doAfter = new DoAfterArgs(EntityManager, args.User, entity.Comp.FillDelay, ev, entity, target: entity)
+        {
+            BreakOnMove = true,
+            RequireCanInteract = true,
+        };
+
+        _doAfter.TryStartDoAfter(doAfter);
+    }
+
+    private void OnInteractDoAfter(Entity<MCXenoAcidWellComponent> entity, ref MCXenoAcidWellFillDoAfter args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        if (!_mcXenoPlasma.HasPlasma(args.User, entity.Comp.FillCost))
+            return;
+
+        if (entity.Comp.Charges >= entity.Comp.ChargesMax)
+            return;
+
+        _mcXenoPlasma.RemovePlasma(args.User, entity.Comp.FillCost);
+        entity.Comp.Charges++;
+
+        ChargeUpdate(entity);
+    }
+
     private void OnStartup(Entity<MCXenoAcidWellComponent> entity, ref ComponentStartup args)
     {
         entity.Comp.TimeAutoChargeNext = entity.Comp.TimeAutoChargeDelay + _timing.CurTime;
     }
 
-    private void OnShutdown(Entity<MCXenoAcidWellComponent> entity, ref ComponentRemove args)
+    private void OnShutdown(Entity<MCXenoAcidWellComponent> entity, ref EntityTerminatingEvent args)
     {
         var transform = Transform(entity);
         _mcSmoke.Setup(transform.Coordinates, int.Clamp((int) float.Ceiling(entity.Comp.Charges / 2f), 0, 3), entity.Comp.SmokeProtoId, origin: entity);
@@ -81,7 +127,7 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         // TODO: Add creator to string
 
         var message = new FormattedMessage();
-        message.AddText($"An acid well. It currently has [bold]{entity.Comp.Charges}/{entity.Comp.ChargesMax} charges[/bold]");
+        message.AddMarkupOrThrow($"An acid well. It currently has [bold]{entity.Comp.Charges}/{entity.Comp.ChargesMax} charges[/bold]");
 
         args.AddMessage(message);
     }

@@ -10,6 +10,12 @@ namespace Content.Shared._MC.Xeno.Constructions.AcidWell;
 public sealed partial class MCXenoAcidWellComponent : Component
 {
     [DataField, AutoNetworkedField]
+    public float FillCost = 150;
+
+    [DataField, AutoNetworkedField]
+    public TimeSpan FillDelay = TimeSpan.FromSeconds(2);
+
+    [DataField, AutoNetworkedField]
     public TimeSpan TimeAutoChargeNext = TimeSpan.Zero;
 
     [DataField, AutoNetworkedField]
