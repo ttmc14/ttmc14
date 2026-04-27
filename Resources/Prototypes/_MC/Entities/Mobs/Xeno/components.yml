@@ -23,6 +23,7 @@
     - MCWallXenoResinThickFireproof
     - MCWallXenoResinThickHardy
     - MCDoorXenoResinThick
+    - MCXenoStickyResin
 
 - type: entity
   id: MCXenoComponentBlessings

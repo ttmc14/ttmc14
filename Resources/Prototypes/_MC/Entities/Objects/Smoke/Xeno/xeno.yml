@@ -123,15 +123,28 @@
   - type: Occluder
 
 - type: entity
-  parent: MCSmokeXenoAcid
+  parent: MCSmokeXeno
   id: MCSmokeXenoAcidLight
   name: smoke xeno acid light
   components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
   - type: Sprite
     color: "#85b0285e"
   - type: MCSmokeDamage
     damage:
       types:
         MCBurn: 25
+  - type: TimedDespawn
+    lifetime: 1
   - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 1
     maxAlpha: 0.36
+
+- type: entity
+  parent: MCSmokeXenoAcidLight
+  id: MCSmokeXenoAcidExtuingishing
+  name: smoke xeno acid extuingishing

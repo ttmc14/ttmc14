@@ -1,18 +1,23 @@
 ﻿using Content.Shared._MC.Smoke.Components;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Map;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Smoke.Systems;
 
-public sealed class MCSmokeSystem : EntitySystem
+public sealed partial class MCSmokeSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly INetManager _net = null!;
+
     [Dependency] private readonly RMCMapSystem _rmcMap = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     [ViewVariables] private readonly Dictionary<EntityUid, TimeSpan> _immunity = new();
     [ViewVariables] private readonly List<EntityUid> _immunityToRemove = new();
-
     [ViewVariables] private readonly List<EntityUid> _toRemove = new();
 
     public override void Initialize()

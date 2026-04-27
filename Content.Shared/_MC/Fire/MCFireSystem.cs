@@ -18,7 +18,9 @@ public sealed class MCFireSystem : EntitySystem
 
         SubscribeLocalEvent<FlammableComponent, MobStateChangedEvent>(OnMobStateChanged);
 
-        _configuration.OnValueChanged(MCConfigVars.FireResistOnDeath, value => _enabled = value, invokeImmediately: true);
+        _configuration.OnValueChanged(MCConfigVars.FireResistOnDeath,
+            value => _enabled = value,
+            invokeImmediately: true);
     }
 
     private void OnMobStateChanged(Entity<FlammableComponent> entity, ref MobStateChangedEvent args)
@@ -41,5 +43,21 @@ public sealed class MCFireSystem : EntitySystem
 
         RemCompDeferred<RMCImmuneToIgnitionComponent>(entity);
         RemCompDeferred<RMCImmuneToFireTileDamageComponent>(entity);
+    }
+
+    public bool Burning(Entity<FlammableComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
+        return entity.Comp.FireStacks > 0;
+    }
+
+    public void Extinguish(Entity<FlammableComponent?> entity)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return;
+
+        entity.Comp.FireStacks = 0;
     }
 }

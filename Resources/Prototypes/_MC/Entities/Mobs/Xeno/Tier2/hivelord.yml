@@ -47,6 +47,7 @@
     - MCActionXenoSecreteStructure
     - MCActionXenoBlessings
     - MCActionXenoDigTunnel
+    - MCActionXenoPlaceAcidWell
     # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
@@ -101,6 +102,7 @@
     range: 7
   - type: MCXenoCreateResinJelly
   - type: MCXenoRecycle
+  - type: MCXenoPlace
   - type: XenoConstruction # TODO: Make MC component
     buildRange: 2.75
     buildDelay: 1

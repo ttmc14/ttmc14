@@ -34,6 +34,7 @@ public sealed class MCXenoConstructionSystem : EntitySystem
 {
     private static readonly ProtoId<TagPrototype> AirlockTag = "Airlock";
     private static readonly ProtoId<TagPrototype> StructureTag = "Structure";
+    private static readonly ProtoId<TagPrototype> XenoStcuture = "MCXenoStruct";
 
     [Dependency] private readonly SharedMapSystem _mapSystem = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
@@ -74,7 +75,7 @@ public sealed class MCXenoConstructionSystem : EntitySystem
             }
 
             if (HasComp<XenoConstructComponent>(uid) ||
-                _tags.HasAnyTag(uid.Value, StructureTag, AirlockTag) ||
+                _tags.HasAnyTag(uid.Value, StructureTag, AirlockTag, XenoStcuture) ||
                 _xenoTunnelQuery.HasComp(uid) ||
                 _sentryQuery.HasComp(uid) ||
                 _blockXenoConstructionQuery.HasComp(uid))

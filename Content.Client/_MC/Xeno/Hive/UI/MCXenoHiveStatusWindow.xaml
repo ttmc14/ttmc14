@@ -1,0 +1,201 @@
+﻿<ui:MCXenoHiveStatusWindow xmlns="https://spacestation14.io"
+                            xmlns:ui="clr-namespace:Content.Client._MC.Xeno.Hive.UI"
+                            MinSize="900 700"
+                            Title="Normal Hive Status">
+
+    <BoxContainer Orientation="Vertical"
+                  SeparationOverride="6"
+                  HorizontalExpand="True"
+                  VerticalExpand="True">
+
+        <!-- GENERAL INFORMATION -->
+        <PanelContainer>
+            <BoxContainer Orientation="Vertical"
+                          SeparationOverride="4">
+
+                <!-- Section Header -->
+                <PanelContainer StyleClasses="SectionHeader">
+                    <Label Text="General Information"
+                           Margin="8 4" />
+                </PanelContainer>
+
+                <!-- Psy / Larva -->
+                <BoxContainer Orientation="Horizontal"
+                              Margin="8 4">
+                    <Label Text="Psy Points: " />
+                    <Label Name="PsyPointsLabel"
+                           Text="0"
+                           Modulate="#FF4444" />
+
+                    <Control MinSize="15 1"/>
+
+                    <Label Text="Borrowed Larva: " />
+                    <Label Name="BorrowedLarvaLabel"
+                           Text="0"
+                           Modulate="#FF4444" />
+                </BoxContainer>
+
+                <!-- Larva Generation -->
+                <BoxContainer Orientation="Horizontal"
+                              Margin="8 2">
+                    <Label Text="Larva Generation:"
+                           MinWidth="140" />
+
+                    <ProgressBar Name="LarvaGenerationBar"
+                                 Access="Public"
+                                 HorizontalExpand="True">
+                        <Label Name="LarvaGenerationLabel"
+                               Access="Public"
+                               Align="Right"
+                               Margin="0 0 5 0"
+                               Text="0 per minute (0/10)" />
+                    </ProgressBar>
+                </BoxContainer>
+
+                <!-- Evolution Progress -->
+                <BoxContainer Orientation="Horizontal"
+                              Margin="8 2">
+                    <Label Text="Evolution Progress:"
+                           MinWidth="140" />
+
+                    <ProgressBar Name="EvolutionProgressBar"
+                                 Access="Public"
+                                 HorizontalExpand="True">
+                        <Label Name="EvolutionProgressLabel"
+                               Access="Public"
+                               Align="Right"
+                               Margin="0 0 5 0"
+                               Text="5%" />
+                    </ProgressBar>
+                </BoxContainer>
+
+            </BoxContainer>
+        </PanelContainer>
+
+
+        <!-- HIVE POPULATION -->
+        <PanelContainer VerticalExpand="True">
+            <BoxContainer Orientation="Vertical"
+                          SeparationOverride="6">
+
+                <PanelContainer StyleClasses="SectionHeader">
+                    <Label Text="Hive Population"
+                           Margin="8 4" />
+                </PanelContainer>
+
+                <!-- Total Sisters -->
+                <CenterContainer>
+                    <Label Name="TotalSistersLabel"
+                           Text="Total Living Sisters: 2" />
+                </CenterContainer>
+
+                <!-- Tier 4 -->
+                <PanelContainer>
+                    <BoxContainer Orientation="Vertical">
+                        <CenterContainer>
+                            <Label Text="Tier 4: 0 Sisters" />
+                        </CenterContainer>
+
+                        <GridContainer Columns="4">
+                            <Button Text="King"/>
+                            <Button Text="Predalien"/>
+                            <Button Text="Queen"/>
+                            <Button Text="Shrike"/>
+                        </GridContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Tier 3 -->
+                <PanelContainer>
+                    <BoxContainer Orientation="Vertical">
+                        <CenterContainer>
+                            <Label Text="Tier 3: (0/1) Sisters" />
+                        </CenterContainer>
+
+                        <GridContainer Columns="5">
+                            <Button Text="Behemoth"/>
+                            <Button Text="Boiler"/>
+                            <Button Text="Chimera"/>
+                            <Button Text="Crusher"/>
+                            <Button Text="Defiler"/>
+                            <Button Text="Gorger"/>
+                            <Button Text="Praetorian"/>
+                            <Button Text="Ravager"/>
+                            <Button Text="Warlock"/>
+                            <Button Text="Widow"/>
+                        </GridContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Tier 2 -->
+                <PanelContainer>
+                    <BoxContainer Orientation="Vertical">
+                        <CenterContainer>
+                            <Label Text="Tier 2: (0/3) Sisters" />
+                        </CenterContainer>
+
+                        <GridContainer Columns="4">
+                            <Button Text="Bull"/>
+                            <Button Text="Carrier"/>
+                            <Button Text="Hivelord"/>
+                            <Button Text="Hunter"/>
+                            <Button Text="Panther"/>
+                            <Button Text="Spitter"/>
+                            <Button Text="Warrior"/>
+                        </GridContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
+                <!-- Tier 1 -->
+                <PanelContainer>
+                    <BoxContainer Orientation="Vertical">
+                        <CenterContainer>
+                            <Label Text="Tier 1: 2 Sisters" />
+                        </CenterContainer>
+
+                        <GridContainer Columns="4">
+                            <Button Text="Defender"/>
+                            <Button Text="Drone"/>
+                            <Button Text="Runner"/>
+                            <Button Text="Sentinel"/>
+                        </GridContainer>
+                    </BoxContainer>
+                </PanelContainer>
+
+            </BoxContainer>
+        </PanelContainer>
+
+
+        <!-- XENOMORPH LIST -->
+        <PanelContainer VerticalExpand="True">
+            <BoxContainer Orientation="Vertical">
+
+                <PanelContainer StyleClasses="SectionHeader">
+                    <Label Text="Xenomorph List"
+                           Margin="8 4" />
+                </PanelContainer>
+
+                <ItemList Name="XenoList"
+                          Access="Public"
+                          VerticalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+
+
+        <!-- HIVE STRUCTURES -->
+        <PanelContainer VerticalExpand="True">
+            <BoxContainer Orientation="Vertical">
+
+                <PanelContainer StyleClasses="SectionHeader">
+                    <Label Text="Hive Structures"
+                           Margin="8 4" />
+                </PanelContainer>
+
+                <ItemList Name="StructuresList"
+                          Access="Public"
+                          VerticalExpand="True" />
+            </BoxContainer>
+        </PanelContainer>
+
+    </BoxContainer>
+</ui:MCXenoHiveStatusWindow>

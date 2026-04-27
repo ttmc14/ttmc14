@@ -10,7 +10,7 @@ public abstract partial class MCSharedXenoHiveSystem
 
     public bool IsMember(Entity<HiveMemberComponent?> entity, EntityUid hiveUid)
     {
-        if (GetHive(hiveUid) is not { } memberHive)
+        if (GetHive(entity) is not { } memberHive)
             return false;
 
         return memberHive.Owner == hiveUid;
@@ -58,7 +58,7 @@ public abstract partial class MCSharedXenoHiveSystem
 
     public bool FromSameHive(Entity<HiveMemberComponent?> source, Entity<HiveMemberComponent?> destination)
     {
-        return GetHive(source) is {} aHive && IsMember(destination, aHive);
+        return GetHive(source) is { } aHive && IsMember(destination, aHive);
     }
 
     #endregion

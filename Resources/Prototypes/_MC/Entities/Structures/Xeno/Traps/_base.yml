@@ -1,0 +1,51 @@
+- type: entity
+  id: MCXenoTrap
+  name: resin trap
+  description: It looks like a hidey hole.
+  categories: [ MCContent ]
+  abstract: true
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Clickable
+  - type: Transform
+    anchored: true
+  - type: Physics
+    bodyType: Static
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.25,-0.25,0.25,0.25"
+        density: 20
+        hard: false
+        layer:
+        - SmallMobLayer
+        mask:
+        - MobLayer
+        restitution: 0.3
+        friction: 0.2
+  - type: CollisionWake
+    enabled: false
+  - type: Flammable
+    fireSpread: false
+    damage:
+      types:
+        MCBurn: 50
+  - type: Damageable
+    damageContainer: StructuralXeno
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 10
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: RMCNightVisionVisible
+    priority: -1
+  - type: Corrodible
+    isCorrodible: false
+  - type: XenoConstruct

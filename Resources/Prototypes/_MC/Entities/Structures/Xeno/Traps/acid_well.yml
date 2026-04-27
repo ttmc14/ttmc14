@@ -1,0 +1,36 @@
+- type: entity
+  parent: MCXenoTrap
+  id: MCXenoAcidWell
+  name: acid well
+  description: An acid well. It stores acid to put out fires.
+  components:
+  - type: Tag
+    tags:
+    - MCXenoStruct
+    - MCDamageAcid
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/acid_well.rsi
+    drawdepth: FloorObjects
+    layers:
+    - state: base
+    - state: fill_1
+      map: [ "enum.MCXenoAcidWellLayers.Fill" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.MCXenoAcidWellVisuals.Fill:
+        enum.MCXenoAcidWellLayers.Fill:
+          0: { state: fill_0 }
+          1: { state: fill_1 }
+          2: { state: fill_2 }
+          3: { state: fill_3 }
+          4: { state: fill_4 }
+          5: { state: fill_5 }
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 5
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+  - type: MCXenoAcidWell

@@ -47,6 +47,7 @@
     - MCActionXenoSecreteStructure
     - MCActionXenoLayEgg
     - MCActionXenoBlessings
+    - MCActionXenoPlaceAcidWell
     # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
@@ -107,6 +108,7 @@
   - type: MCXenoZoom
     zoom: 1.5,1.5
     doAfter: 1
+  - type: MCXenoPlaceStructure
   - type: XenoConstruction
     buildDelay: 2
   - type: MCXenoNeurotoxinSting

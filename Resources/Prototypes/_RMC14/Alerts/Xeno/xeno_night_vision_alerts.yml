@@ -13,6 +13,8 @@
   minSeverity: 0
   maxSeverity: 2
   clickEvent: !type:ToggleNightVisionAlertEvent
+  altClickEvent: !type:MCXenoHiveStatusAlertEvent
+  #  clickEvent: !type:MCXenoHiveStatusAlertEvent # MC TEST!!!
 
 - type: alert
   id: SynthNightVision
