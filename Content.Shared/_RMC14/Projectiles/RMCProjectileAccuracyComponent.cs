@@ -58,6 +58,9 @@ public sealed partial class RMCProjectileAccuracyComponent : Component
 
     [DataField, AutoNetworkedField]
     public uint Tick;
+
+    [DataField, AutoNetworkedField]
+    public HashSet<NetEntity> Dodged = new();
 }
 
 [DataRecord, Serializable, NetSerializable]

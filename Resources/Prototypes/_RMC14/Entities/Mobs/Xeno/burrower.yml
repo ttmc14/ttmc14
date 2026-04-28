@@ -12,6 +12,7 @@
   description: A beefy alien with sharp claws.
   components:
   - type: XenoHidden
+  - type: CanBuildThickFromConstructNode
   - type: GuideHelp
     guides:
     - RMCGuideRoleBurrower
@@ -24,6 +25,10 @@
     - Alive
     - Critical
     - Dead
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+    - RMCSynthGrabbable
   - type: MobThresholds
     thresholds:
       0: Alive
@@ -73,12 +78,12 @@
   - type: XenoBurrow
   - type: MeleeWeapon
     damage:
-      types:
-        MCBrute: 27.5
+      groups:
+        Brute: 27.5
   - type: XenoTailStab
     tailDamage:
-      types:
-        MCBrute: 36
+      groups:
+        Brute: 36
   - type: Tackle
     min: 3
     max: 5
@@ -118,6 +123,7 @@
     - HiveEggMorpherXenoConstructionNode
     - HiveClusterXenoConstructionNode
     - HiveRecoveryNodeXenoConstructionNode
+    - HivePlasmaTreeXenoConstructionNode
   - type: IntelRecoverCorpseObjectiveOnDeath
     value: 0.2
   - type: FixedIdentity

@@ -15,6 +15,7 @@ using Robust.Client.UserInterface.RichText;
 using Content.Client.UserInterface.RichText;
 using Robust.Shared.Input;
 using Robust.Shared.IoC;
+using SixLabors.ImageSharp.Processing;
 
 namespace Content.Client.Paper.UI
 {
@@ -26,7 +27,7 @@ namespace Content.Client.Paper.UI
         [Dependency] private readonly IInputManager _inputManager = default!;
         [Dependency] private readonly IResourceCache _resCache = default!;
 
-        private static Color DefaultTextColor = new(25, 25, 25);
+        public Color DefaultTextColor = new(25, 25, 25);
 
         // Size of resize handles around the paper
         private const int DRAG_MARGIN_SIZE = 16;
@@ -758,6 +759,24 @@ namespace Content.Client.Paper.UI
                 pos += substring.Length;
             }
             return count;
+        }
+
+        public Color BackgroundColor
+        {
+            get => ((StyleBoxFlat) PaperContent.PanelOverride!).BackgroundColor;
+            set => ((StyleBoxFlat) PaperContent.PanelOverride!).BackgroundColor = value;
+        }
+
+        public Color BorderColor
+        {
+            get => ((StyleBoxFlat) PaperContent.PanelOverride!).BorderColor;
+            set => ((StyleBoxFlat) PaperContent.PanelOverride!).BorderColor = value;
+        }
+
+        public Thickness BorderThickness
+        {
+            get => ((StyleBoxFlat) PaperContent.PanelOverride!).BorderThickness;
+            set => ((StyleBoxFlat) PaperContent.PanelOverride!).BorderThickness = value;
         }
     }
 }
