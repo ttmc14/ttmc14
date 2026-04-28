@@ -237,6 +237,7 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
         SubscribeLocalEvent<DropshipHijackStartEvent>(OnDropshipHijackStart);
         SubscribeLocalEvent<DropshipHijackLandedEvent>(OnDropshipHijackLanded);
 
+        /*
         SubscribeLocalEvent<MarineComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<MarineComponent, ComponentRemove>(OnCompRemove);
 
@@ -246,6 +247,7 @@ public sealed partial class CMDistressSignalRuleSystem : GameRuleSystem<CMDistre
         SubscribeLocalEvent<XenoEvolutionGranterComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<XenoComponent, ComponentInit>(OnXenoComponentInit);
         SubscribeLocalEvent<HiveMemberComponent, HiveChangedEvent>(OnHiveChanged);
+        */
 
         Subs.CVar(_config, RMCCVars.CMMarinesPerXeno, v => _marinesPerXeno = v, true);
         Subs.CVar(_config, RMCCVars.RMCAutoBalance, v => _autoBalance = v, true);
