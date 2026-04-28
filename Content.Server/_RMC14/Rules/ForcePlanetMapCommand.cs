@@ -1,4 +1,4 @@
-﻿using Content.Server._MC.Xeno.Spawn;
+using Content.Server._MC.Xeno.Spawn;
 using Content.Server.Administration;
 using Content.Server.GameTicking;
 using Content.Shared._RMC14.Rules;
@@ -9,6 +9,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Server._RMC14.Rules;
 
+[AdminCommand(AdminFlags.RMCMaintainer)] //RMC14
 [ToolshedCommand, AdminCommand(AdminFlags.Round)]
 public sealed class ForcePlanetMapCommand : ToolshedCommand
 {
