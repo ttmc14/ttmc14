@@ -3,6 +3,7 @@
   # MC
   - MCXenoBase
   - MCXenoComponentBoilerGlob
+  - MCXenoComponentTier3
   - MCXenoComponentEvolutionTier3
   # RMC
   - CMXenoDeveloped

@@ -1,0 +1,6 @@
+- type: entity
+  id: MCXenoComponentSpiting
+  abstract: true
+  components:
+  - type: MCXenoSpit
+  - type: MCXenoSpitToggle

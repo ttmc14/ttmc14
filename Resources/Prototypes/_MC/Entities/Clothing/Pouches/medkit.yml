@@ -34,13 +34,11 @@
   components:
   - type: StorageFill
     contents:
-    - id: MCTraumaKit
-    - id: MCTraumaKit
-    - id: MCTraumaKit
-    - id: MCBurnKit
-    - id: MCBurnKit
-    - id: MCBurnKit
+    - id: MCTraumaKitCombat
+    - id: MCBurnKitCombat
     - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillNanoblood
 
 - type: entity
   parent: MCPouchStorage

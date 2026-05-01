@@ -1,0 +1,100 @@
+
+- type: entity
+  id: MCXenoComponentConstruction
+  abstract: true
+  components:
+  - type: XenoConstruction
+    buildDelay: 2
+    canBuild:
+    - MCWallXenoResinThick
+    - MCWallXenoResinThickBulletproof
+    - MCWallXenoResinThickFireproof
+    - MCWallXenoResinThickHardy
+    - MCDoorXenoResinThick
+    - MCXenoStickyResin
+
+- type: entity
+  id: MCXenoComponentBlessings
+  abstract: true
+  components:
+  - type: MCXenoBlessings
+    entries:
+    - LarvaSilo
+    - EvolutionTower
+    - PsychicRelay
+    # - PheromoneTower
+    - Spawner
+    # - AcidPool
+    # - AcidJaws
+    # - AcidMaw
+    # - AcidTurret
+    # - StickyResinTurret
+    # - Gargoyle
+    # - PrimordialTierOne
+    # - PrimordialTierTwo
+    # - PrimordialTierThree
+    # - PrimordialTierFour
+
+- type: entity
+  id: MCXenoComponentPickup
+  abstract: true
+  components:
+  - type: WhitelistPickup
+    whitelist:
+      components:
+      - XenoParasite
+      - XenoEgg
+      - XenoFruit
+      - MCXenoResinJelly
+  - type: MultiHandedHolder
+    items:
+    - hands: 2
+      whitelist:
+        components:
+        - XenoEgg
+  - type: EggPlantTime
+    plantTime: 2.5
+
+- type: entity
+  id: MCXenoComponentPickupable
+  abstract: true
+  components:
+  - type: WhitelistPickupBy
+    whitelist:
+      components:
+      - Xeno
+
+- type: entity
+  id: MCXenoComponentPlantingWeeds
+  abstract: true
+  components:
+  - type: MCXenoPlantingWeeds
+    selected: MCXenoWeedsNode
+    autoSprite:
+      sprite: _MC/Interface/Actions/Xeno/general.rsi
+      state: repeating
+    weeds:
+      MCXenoWeedsNode:
+        name: Default (75)
+        cost: 75
+        sprite:
+          sprite: _MC/Interface/Xeno/weed_icons.rsi
+          state: default
+      MCXenoWeedsNodeSticky:
+        name: Sticky (150)
+        cost: 150
+        sprite:
+          sprite: _MC/Interface/Xeno/weed_icons.rsi
+          state: sticky
+      MCXenoWeedsNodeFireproof:
+        name: Fireproof (150)
+        cost: 150
+        sprite:
+          sprite: _MC/Interface/Xeno/weed_icons.rsi
+          state: fireproof
+      MCXenoWeedsNodeResting:
+        name: Resting (225)
+        cost: 225
+        sprite:
+          sprite: _MC/Interface/Xeno/weed_icons.rsi
+          state: resting

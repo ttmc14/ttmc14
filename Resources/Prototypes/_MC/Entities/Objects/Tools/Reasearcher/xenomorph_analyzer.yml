@@ -1,0 +1,25 @@
+- type: entity
+  parent: MCToolResearcher
+  id: MCToolResearcherXenoAnalyzer
+  name: xeno analyzer
+  description: A tool for analyzing xenos for research material. Just click on a xeno. Can be used to befriend Newt.
+  components:
+  - type: Tag
+    tags:
+    - MCTool
+    - MCToolResearcher
+    - MCToolResearcherXenoAnalyzer
+  - type: Sprite
+    sprite: _MC/Objects/Tools/surgery.rsi
+    state: predator_bonesaw
+  - type: Item
+    size: Normal
+  - type: MCToolXenoAnalyzer
+    skillId: MCSkillMedical
+    skillLevel: 4
+    baseAnalyzeTime: 5
+    failedAnalyzeTime: 15
+    skillTimeReduction: 2
+
+- type: Tag
+  id: MCToolResearcherXenoAnalyzer

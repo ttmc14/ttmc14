@@ -1,0 +1,71 @@
+# Evolution
+- type: entity
+  id: MCXenoComponentEvolution
+  abstract: true
+  components:
+  - type: XenoEvolution
+    actionId: MCActionXenoEvolve
+    max: 225
+    evolvesToWithoutPoints:
+    - MCXenoShrike
+    - MCXenoQueen
+
+- type: entity
+  parent: MCXenoComponentEvolution
+  id: MCXenoComponentEvolutionTier1
+  abstract: true
+  components:
+  - type: XenoEvolution
+    evolvesTo:
+    - MCXenoWarrior
+    - MCXenoHivelord
+    # - MCXenoCarrier
+    - MCXenoWraith
+    # - MCXenoHunter
+    - MCXenoBull
+    - MCXenoSpitter
+    - MCXenoForger
+    # - MCXenoPanther
+  - type: XenoDevolve
+    devolvesTo:
+    - MCXenoRafik
+
+- type: entity
+  parent: MCXenoComponentEvolution
+  id: MCXenoComponentEvolutionTier2
+  abstract: true
+  components:
+  - type: XenoEvolution
+    evolvesTo:
+    - MCXenoCrusher
+    - MCXenoDefiler
+    # - MCXenoGorger
+    - MCXenoWarlock
+    - MCXenoPraetorian
+    - MCXenoBoiler
+    - MCXenoRavager
+    # - MCXenoWidow
+    # - MCXenoChimera
+    # - MCXenoBehemoths
+  - type: XenoDevolve
+    devolvesTo:
+    - MCXenoDefender
+    - MCXenoDrone
+    - MCXenoRunner
+    - MCXenoSentinel
+
+- type: entity
+  id: MCXenoComponentEvolutionTier3
+  abstract: true
+  components:
+  - type: XenoDevolve
+    devolvesTo:
+    - MCXenoWarrior
+    - MCXenoHivelord
+    # - MCXenoCarrier
+    - MCXenoWraith
+    # - MCXenoHunter
+    - MCXenoBull
+    - MCXenoSpitter
+    - MCXenoForger
+    # - MCXenoPanther

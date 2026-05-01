@@ -4,7 +4,7 @@
   - MCXenoBase
   - MCXenoComponentPickup
   - MCXenoComponentBlessings
-
+  - MCXenoComponentTier4
   # RMC
   - CMXenoDeveloped
   - RMCXenoSpeechSounds
@@ -68,16 +68,9 @@
     baseWalkSpeed: 2.7
     baseSprintSpeed: 3.5
   # Special
-  - type: XenoAnnounceDeath
-    message: mc-xeno-hive-ruler-dead
-    color: "#921992"
   - type: XenoEvolutionCapped
     id: MCXenoKing
     max: 1
-  - type: MCXenoHiveLeader
-  - type: DropshipHijacker
-  - type: TacticalMapUser
-    canDraw: true
   # Abilities
   - type: XenoPheromones
     pheromonesMultiplier: 6

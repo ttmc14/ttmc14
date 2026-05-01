@@ -8,31 +8,34 @@
 - type: entity
   parent: MCSkill
   id: MCSkillCqc
-  name: CQC
-  categories: [ HideSpawnMenu ]
+  name: cqc
   components:
   - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillMeleeWeapons
-  name: Melee weapons
-  categories: [ HideSpawnMenu ]
+  name: melee weapons
   components:
   - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillEngineer
-  name: Engineer
-  categories: [ HideSpawnMenu ]
+  name: engineer
   components:
   - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillConstruction
-  name: Construction
-  categories: [ HideSpawnMenu ]
+  name: construction
+  components:
+  - type: SkillDefinition
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillMedical
+  name: medical
   components:
   - type: SkillDefinition

@@ -1,0 +1,177 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "predator_cautery"
+    },
+    {
+      "name": "predator_hemostat"
+    },
+    {
+      "name": "predator_retractor"
+    },
+    {
+      "name": "predator_scalpel"
+    },
+    {
+      "name": "predator_bonesaw"
+    },
+    {
+      "name": "predator_bonesetter"
+    },
+    {
+      "name": "predator_bone-gel"
+    },
+    {
+      "name": "predator_drill"
+    },
+    {
+      "name": "predator_drill_on",
+      "delays": [
+        [
+          0.1,
+          0.1
+        ]
+      ]
+    },
+    {
+      "name": "predator_fixovein"
+    },
+    {
+      "name": "solderingtool",
+      "delays": [
+        [
+          0.5,
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "stabilizer_gel"
+    },
+    {
+      "name": "wound_clamp"
+    },
+    {
+      "name": "wound_clamp_on",
+      "delays": [
+        [
+          0.1,
+          2
+        ]
+      ]
+    },
+    {
+      "name": "healing_gun"
+    },
+    {
+      "name": "healing_gun_empty"
+    },
+    {
+      "name": "healing_gun_on",
+      "delays": [
+        [
+          0.8,
+          1.2,
+          1.2,
+          1.2,
+          1.2,
+          1.2,
+          1.2,
+          1.2,
+          1.2
+        ]
+      ]
+    },
+    {
+      "name": "healing_gel"
+    },
+    {
+      "name": "saw"
+    },
+    {
+      "name": "scalpel"
+    },
+    {
+      "name": "retractor"
+    },
+    {
+      "name": "hemostat"
+    },
+    {
+      "name": "cautery"
+    },
+    {
+      "name": "drill"
+    },
+    {
+      "name": "bone-gel"
+    },
+    {
+      "name": "bonesetter"
+    },
+    {
+      "name": "fixovein"
+    },
+    {
+      "name": "scalpel_laser3_off"
+    },
+    {
+      "name": "scalpel_laser3_on"
+    },
+    {
+      "name": "scalpel_manager_off"
+    },
+    {
+      "name": "scalpel_manager_on",
+      "delays": [
+        [
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ]
+      ]
+    },
+    {
+      "name": "alien_saw"
+    },
+    {
+      "name": "alien_drill"
+    },
+    {
+      "name": "alien_cautery"
+    },
+    {
+      "name": "alien_scalpel"
+    },
+    {
+      "name": "alien_hemostat"
+    },
+    {
+      "name": "alien_retractor"
+    },
+    {
+      "name": "suture"
+    },
+    {
+      "name": "surgical_membrane"
+    },
+    {
+      "name": "tube"
+    },
+    {
+      "name": "tweezers"
+    },
+    {
+      "name": "tweezers_advanced"
+    }
+  ]
+}

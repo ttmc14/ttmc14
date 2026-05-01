@@ -1,0 +1,11 @@
+- type: entity
+  id: MCXenoComponentCharge
+  abstract: true
+  components:
+  - type: MCXenoCharge
+    damage:
+      types:
+        MCBrute: 37
+    structureDamage:
+      types:
+        MCBrute: 240

@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCStructure
+  id: MCResearchConsole
+  name: research console
+  description: A  console for performing complex computations. Release the stabilizers to move it around.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/bepis.rsi
+    state: chamber
+    offset: 0, 0.5
+  # Integrity
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: MCIntegrity
+    thresholds:
+      Destruction: 200
+  - type: MCIntegrityDestructible
+  # Physics
+  - type: Physics
+    bodyType: Dynamic
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.45"
+        density: 190
+        mask:
+        - MachineMask
+        layer:
+        - MachineLayer
+        - BulletImpassable
+  - type: Anchorable
+  # Main
+  - type: Speech
+  - type: MCMachineXenoAnalyzer

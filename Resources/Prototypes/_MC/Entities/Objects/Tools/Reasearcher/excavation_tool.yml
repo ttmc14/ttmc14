@@ -1,0 +1,19 @@
+- type: entity
+  parent: MCToolResearcher
+  id: MCToolResearcherExcavationTool
+  name: subterrain scanner and excavator
+  description: A tool for locating and uncovering underground resources.
+  components:
+  - type: Tag
+    tags:
+    - MCTool
+    - MCToolResearcher
+    - MCToolResearcherExcavationTool
+  - type: Sprite
+    sprite: _MC/Objects/Tools/surgery.rsi
+    state: alien_drill
+  - type: Item
+    size: Normal
+
+- type: Tag
+  id: MCToolResearcherExcavationTool

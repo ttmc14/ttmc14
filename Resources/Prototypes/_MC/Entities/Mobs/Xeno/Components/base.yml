@@ -1,0 +1,63 @@
+# A set of ready-made component presets for xenos
+# Use only for components that are frequently repeated (presets)
+# and have a large definition.
+# Or else the two abilities must be identical.
+
+- type: entity
+  id: MCXenoComponentTier0
+  abstract: true
+  components:
+  - type: MCASRSCost
+    cost: 50
+
+- type: entity
+  id: MCXenoComponentTier1
+  abstract: true
+  components:
+  - type: Xeno
+    tier: 1
+  - type: MCASRSCost
+    cost: 150
+  - type: MCToolXenoAnalyzable
+    rewardProtId: MCResearchResourceXenoTier1
+
+- type: entity
+  id: MCXenoComponentTier2
+  abstract: true
+  components:
+  - type: Xeno
+    tier: 2
+  - type: MCASRSCost
+    cost: 300
+  - type: MCToolXenoAnalyzable
+    rewardProtId: MCResearchResourceXenoTier2
+
+- type: entity
+  id: MCXenoComponentTier3
+  abstract: true
+  components:
+  - type: Xeno
+    tier: 3
+  - type: MCASRSCost
+    cost: 500
+  - type: MCToolXenoAnalyzable
+    rewardProtId: MCResearchResourceXenoTier3
+
+- type: entity
+  id: MCXenoComponentTier4
+  abstract: true
+  components:
+  - type: Xeno
+    tier: 4
+  - type: MCASRSCost
+    cost: 1000
+  - type: MCToolXenoAnalyzable
+    rewardProtId: MCResearchResourceXenoTier4
+  # Tier 4 specials
+  - type: MCXenoHiveLeader
+  - type: DropshipHijacker
+  - type: TacticalMapUser
+    canDraw: true
+  - type: XenoAnnounceDeath
+    message: mc-xeno-hive-ruler-dead
+    color: "#921992"

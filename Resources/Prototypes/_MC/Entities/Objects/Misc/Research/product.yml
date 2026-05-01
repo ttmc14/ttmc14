@@ -1,0 +1,55 @@
+- type: entity
+  parent: MCItem
+  id: MCResearchProduct
+  name: money
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/coins.rsi
+    state: coin_iron
+  - type: MCASRSCost
+    cost: 1
+
+- type: entity
+  parent: MCResearchProduct
+  id: MCResearchProductBasic
+  name: 50 credits coin
+  description: A coin containing rare materials worth for 50 credits.
+  components:
+  - type: Sprite
+    state: coin_silver
+  - type: MCASRSCost
+    cost: 50
+
+- type: entity
+  parent: MCResearchProduct
+  id: MCResearchProductCommon
+  name: 150 credits coin
+  description: A coin containing rare materials worth for 50 credits.
+  components:
+  - type: Sprite
+    state: coin_gold
+  - type: MCASRSCost
+    cost: 150
+
+- type: entity
+  parent: MCResearchProduct
+  id: MCResearchProductUncommon
+  name: 250 credits coin
+  description: A coin containing rare materials worth for 50 credits.
+  components:
+  - type: Sprite
+    state: coin_uranium
+  - type: MCASRSCost
+    cost: 250
+
+- type: entity
+  parent: MCResearchProduct
+  id: MCResearchProductRare
+  name: 800 credits coin
+  description: A coin containing rare materials worth for 50 credits.
+  components:
+  - type: Sprite
+    state: coin_diamond
+  - type: MCASRSCost
+    cost: 800

@@ -1,0 +1,134 @@
+- type: entity
+  parent: MCItem
+  id: MCResearchResource
+  name: unknown substance research material
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/coins.rsi
+    state: coin_mythril
+    color: "#e2a4dd"
+  - type: MCResearchableResource
+    tierProbabilities:
+      basic: 0
+      common: 0
+      uncommon: 0
+      rare: 0
+    rewards:
+    - id: money
+      tiers:
+      - id: basic
+        rewards:
+        - MCResearchProductBasic
+        - MCResearchProductCommon
+      - id: common
+        rewards:
+        - MCResearchProductCommon
+        - MCResearchProductUncommon
+      - id: uncommon
+        rewards:
+        - MCResearchProductUncommon
+        # TODO: blade, shoulder
+        # We will give compensation for TODO
+        - MCResearchProductRare
+      - id: rare
+        rewards:
+        - MCResearchProductRare
+    - id: xeno
+      tiers:
+      - id: basic
+        rewards:
+        - MCResearchProductBasic
+        - MCResearchProductCommon
+      - id: common
+        rewards:
+        - MCResearchProductUncommon
+      - id: uncommon
+        rewards:
+        - MCResearchProductUncommon
+        # TODO: chem_blood_implanter, cloak_implanter, shoulder_mount
+        # We will give compensation for TODO
+        - MCResearchProductRare
+      - id: rare
+        rewards:
+        - MCResearchProductRare
+
+- type: entity
+  parent: MCResearchResource
+  id: MCResearchResourceMoney
+  name: unidentified substance research material
+  description: The random data it provides could probably secure some funding.
+  components:
+  - type: Sprite
+    color: "#f0bee3"
+  - type: MCResearchableResource
+    category: money
+    tierProbabilities:
+      basic: 100
+      common: 30
+      uncommon: 20
+      rare: 5
+
+- type: entity
+  parent: MCResearchResource
+  id: MCResearchResourceXeno
+  abstract: true
+  components:
+  - type: MCResearchableResource
+    category: xeno
+
+- type: entity
+  parent: MCResearchResourceXeno
+  id: MCResearchResourceXenoTier1
+  name: xeno research material - tier 1
+  components:
+  - type: Sprite
+    color: "#f0bee3"
+  - type: MCResearchableResource
+    tierProbabilities:
+      basic: 100
+      common: 15
+      uncommon: 7
+      rare: 1
+
+- type: entity
+  parent: MCResearchResourceXeno
+  id: MCResearchResourceXenoTier2
+  name: xeno research material - tier 2
+  components:
+  - type: Sprite
+    color: "#d6e641"
+  - type: MCResearchableResource
+    tierProbabilities:
+      basic: 100
+      common: 40
+      uncommon: 20
+      rare: 6
+
+- type: entity
+  parent: MCResearchResourceXeno
+  id: MCResearchResourceXenoTier3
+  name: xeno research material - tier 3
+  components:
+  - type: Sprite
+    color: "#e43939"
+  - type: MCResearchableResource
+    tierProbabilities:
+      basic: 100
+      common: 50
+      uncommon: 40
+      rare: 10
+
+- type: entity
+  parent: MCResearchResourceXeno
+  id: MCResearchResourceXenoTier4
+  name: xeno research material - tier 4
+  components:
+  - type: Sprite
+    color: "#a800ad"
+  - type: MCResearchableResource
+    tierProbabilities:
+      basic: 100
+      common: 50
+      uncommon: 40
+      rare: 50

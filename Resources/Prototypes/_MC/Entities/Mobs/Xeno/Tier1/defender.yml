@@ -3,6 +3,7 @@
   # MC
   - MCXenoBase
   - MCXenoComponentFixtureDefender
+  - MCXenoComponentTier1
   - MCXenoComponentEvolutionTier1
   # RMC
   - CMXenoDeveloped

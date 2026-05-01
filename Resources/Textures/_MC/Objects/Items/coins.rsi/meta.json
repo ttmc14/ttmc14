@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "coin_silver"
+    },
+    {
+      "name": "coin_gold"
+    },
+    {
+      "name": "coin_uranium"
+    },
+    {
+      "name": "coin_phoron"
+    },
+    {
+      "name": "coin_iron"
+    },
+    {
+      "name": "coin_diamond"
+    },
+    {
+      "name": "coin_adamantine"
+    },
+    {
+      "name": "coin_mythril"
+    }
+  ]
+}

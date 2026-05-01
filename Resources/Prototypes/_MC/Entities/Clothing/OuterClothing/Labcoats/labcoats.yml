@@ -24,7 +24,7 @@
       acid: 25
 
 - type: entity
-  parent: [RMCBaseJacketButtonableOpened, MCLabcoatBase]
+  parent: [ RMCBaseJacketButtonableOpened, MCLabcoatBase ]
   id: MCLabcoatBaseOpened
   suffix: MC, Opened
   name: labcoat
@@ -47,7 +47,7 @@
     sprite: _MC/Clothing/OuterClothing/Labcoats/labcoat_researcher.rsi
 
 - type: entity
-  parent: [RMCBaseJacketButtonableOpened, MCLabcoatResearcher]
+  parent: [ RMCBaseJacketButtonableOpened, MCLabcoatResearcher ]
   id: MCLabcoatResearcherOpened
   suffix: MC, Opened
   name: researcher's labcoat
@@ -70,7 +70,7 @@
     sprite: _MC/Clothing/OuterClothing/Labcoats/labcoat_cmo.rsi
 
 - type: entity
-  parent: [RMCBaseJacketButtonableOpened, MCLabcoatCMO]
+  parent: [ RMCBaseJacketButtonableOpened, MCLabcoatCMO ]
   id: MCLabcoatCMOOpened
   suffix: MC, Opened
   name: chief medical officer's labcoat

@@ -65,7 +65,7 @@
         MCBelt: 1
       entries:
       - id: MCBeltMedicBagFull
-      - id: MCBeltMedicalMedFull
+      - id: MCBeltMedicalFilledMedical
       - id: MCBeltMedicalHyposprayCorpsmanFull
     - name: Pouches
       choices:

@@ -36,6 +36,9 @@
       points: 45
     - type: Skills
       skills:
+        # MC
+        MCSkillMedical: 2
+        # RMC
         RMCSkillMedical: 2
         RMCSkillSurgery: 2
         RMCSkillLeadership: 1

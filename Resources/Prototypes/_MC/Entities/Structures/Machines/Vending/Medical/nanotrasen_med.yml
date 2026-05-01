@@ -10,9 +10,9 @@
     sprite: _MC/Structures/Machines/vending.rsi
     layers:
     - state: med-off
-      map: ["enum.VendingMachineVisualLayers.Base"]
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
     - state: med
-      map: ["enum.VendingMachineVisualLayers.BaseUnshaded"]
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     sections:
     - name: Pill Bottles
@@ -23,7 +23,7 @@
       - id: MCPillCanisterTricordrazine
       - id: MCPillCanisterDylovene
       - id: MCPillCanisterInaprovaline
-      - id: MCPillCanisterSalineGlucose
+      - id: MCPillCanisterIsotonic
       - id: MCPillCanisterParacetamol
       - id: MCPillCanisterDexalin
         amount: 6
@@ -98,8 +98,8 @@
         amount: 1
     - name: Misc
       entries:
-      # xeno_analyzer = 2
-      # excavation_tool
+      - id: MCToolResearcherXenoAnalyzer
+      - id: MCToolResearcherExcavationTool
       - id: MCPouchSurgeryFill
       - id: MCWebbingSurgeryFill
       - id: MCSprayBottleSterilizingFill

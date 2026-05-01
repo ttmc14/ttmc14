@@ -1,0 +1,13 @@
+- type: entity
+  parent: MCTool
+  id: MCToolResearcher
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCTool
+    - MCToolResearcher
+  # skill 4 medical required
+
+- type: Tag
+  id: MCToolResearcher

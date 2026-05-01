@@ -2,6 +2,7 @@
   parent:
   # MC
   - MCXenoBase
+  - MCXenoComponentTier2
   - MCXenoComponentEvolutionTier2
   # RMC
   - CMXenoDeveloped

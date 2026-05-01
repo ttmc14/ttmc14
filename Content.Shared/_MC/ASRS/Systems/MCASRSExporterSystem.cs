@@ -61,10 +61,7 @@ public sealed class MCASRSExporterSystem : EntitySystem
         {
             var cost = _mcAsrsCost.GetCost(uid);
             if (cost == 0)
-            {
-                Announce(Loc.GetString("export-pad-human-not-interesting"));
                 continue;
-            }
 
             if (_mobState.IsAlive(uid))
             {
@@ -73,8 +70,13 @@ public sealed class MCASRSExporterSystem : EntitySystem
             }
 
             value += cost;
-
             PredictedQueueDel(uid);
+        }
+
+        if (value == 0)
+        {
+            Announce(Loc.GetString("export-pad-human-not-interesting"));
+            return;
         }
 
         _mcAsrs.AddBalance(value);

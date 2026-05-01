@@ -8,6 +8,7 @@
   - MCXenoComponentCharge
   - MCXenoComponentSpiting
   - MCXenoComponentBlessings
+  - MCXenoComponentTier4
   # RMC
   - CMXenoDeveloped
   - RMCXenoSpeechSounds
@@ -100,9 +101,6 @@
     size: Big
   - type: XenoAcid
   # - type: MCXenoLayEgg
-  - type: DropshipHijacker
-  - type: TacticalMapUser
-    canDraw: true
   # Abilities
   - type: MCXenoAcidicSalve
   - type: MCXenoZoom

@@ -228,6 +228,9 @@
     - 0,0,15,3
     whitelist:
       tags:
+      # MC
+      - MCToolResearcher
+      # Other
       - MCHealthAnalyzer
       - MCDropper
       - GlassBeaker
@@ -269,23 +272,50 @@
 
 - type: entity
   parent: MCBeltMedical
-  id: MCBeltMedicalMedFull
-  suffix: Med, Full
+  id: MCBeltMedicalFilledMedical
+  suffix: Filled, Medical
   components:
   - type: StorageFill
     contents:
     - id: MCPillCanisterBicaridine
     - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTramadol
     - id: MCPillCanisterTricordrazine
     - id: MCPillCanisterDylovene
     - id: MCPillCanisterInaprovaline
+    - id: MCPillCanisterDexalin
+    # spaceacilin
+    # alkysin
     - id: MCPillCanisterImidazoline
+    - id: MCPillCanisterIsotonic
     - id: MCPillCanisterHypervene
-    - id: MCPillCanisterTramadol
-    - id: MCPillCanisterSalineGlucose
+    - id: MCDefibrillator
     - id: MCStasisBagFolded
     - id: MCRollerBedSpawnFolded
+    - id: MCHealthAnalyzer
+
+- type: entity
+  parent: MCBeltMedical
+  id: MCBeltMedicalFilledResearcher
+  suffix: Filled, Researcher
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterDylovene
+    - id: MCPillCanisterInaprovaline
+    - id: MCPillCanisterDexalin
+    # spaceacilin
+    # alkysin
+    - id: MCPillCanisterImidazoline
+    - id: MCPillCanisterIsotonic
+    - id: MCPillCanisterHypervene
     - id: MCDefibrillator
+    - id: MCToolResearcherExcavationTool
+    - id: MCToolResearcherXenoAnalyzer
     - id: MCHealthAnalyzer
 
 - type: entity

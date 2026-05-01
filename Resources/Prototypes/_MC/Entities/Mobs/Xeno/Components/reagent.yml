@@ -1,0 +1,47 @@
+- type: entity
+  id: MCXenoComponentReagentSelector
+  abstract: true
+  components:
+  - type: MCXenoReagentSelector
+    entries:
+      Hemodile:
+        name: Hemodile
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: hemodile
+        reagentId: MCHemodile
+        smokeEntityId: MCSmokeXenoHemodile
+      Neurotoxin:
+        name: Neurotoxin
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: neurotoxin
+        reagentId: MCNeurotoxin
+        smokeEntityId: MCSmokeXenoNeurotoxin
+      Ozelomelyn:
+        name: Ozelomelyn
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: ozelomelyn
+        reagentId: MCOzelomelyn
+        smokeEntityId: MCSmokeXenoOzelomelyn
+      Transvitox:
+        name: Transvitox
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: transvitox
+        reagentId: MCTransvitox
+        smokeEntityId: MCSmokeXenoTransvitox
+      Sanguinal:
+        name: Sanguinal
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: sanguinal
+        reagentId: MCSanguinal
+        smokeEntityId: MCSmokeXenoSanguinal
+      Acid:
+        name: Acid
+        sprite:
+          sprite: _MC/Interface/Xeno/toxins.rsi
+          state: acid
+        smokeEntityId: MCSmokeXenoAcidLight

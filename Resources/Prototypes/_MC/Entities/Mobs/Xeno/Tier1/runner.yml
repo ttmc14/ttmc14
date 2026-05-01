@@ -4,6 +4,7 @@
   - MCXenoBase
   - MCXenoComponentFixtureRunner
   - MCXenoComponentLayersRunner
+  - MCXenoComponentTier1
   - MCXenoComponentEvolutionTier1
   # RMC
   - CMXenoDeveloped

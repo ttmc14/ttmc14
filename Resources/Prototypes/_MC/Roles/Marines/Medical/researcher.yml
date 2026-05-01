@@ -39,6 +39,7 @@
         # MC
         MCSkillCqc: -1
         MCSkillMeleeWeapons: -1
+        MCSkillMedical: 4
         # RMC
         RMCSkillMedical: 4
         RMCSkillSurgery: 3
@@ -69,9 +70,8 @@
     shoes: MCLaceup
     mask: MCMaskSterile
     jumpsuit: MCJumpsuitMarineResearcher
-    outerClothing: MCLabcoatResearcherOpened
-    suitstorage: MCPaperNoteChem
-    belt: MCBeltMedicalMedFull
+    outerClothing: MCLabcoatResearcherVest
+    belt: MCBeltMedicalFilledResearcher
     pocket1: MCPouchMedkitFill
     pocket2: MCPouchSurgeryFill
   inhand:

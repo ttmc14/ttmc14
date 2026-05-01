@@ -24,7 +24,7 @@
       - id: MCPillCanisterCombatMix
       - id: MCPillCanisterDylovene
       - id: MCPillCanisterParacetamol
-      - id: MCPillCanisterSalineGlucose # isotonic
+      - id: MCPillCanisterIsotonic # isotonic
       - id: MCPillCanisterSugar
       - id: MCPillCanisterDoctorDelight
       - id: MCPillCanister

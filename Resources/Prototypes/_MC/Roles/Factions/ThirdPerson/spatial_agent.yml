@@ -18,6 +18,7 @@
         # MC
         MCSkillEngineer: 4
         MCSkillConstruction: 4
+        MCSkillMedical: 4
         # RMC
         RMCSkillMedical: 4
         RMCSkillSurgery: 4

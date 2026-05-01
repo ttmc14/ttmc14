@@ -336,7 +336,7 @@
 
 - type: entity
   parent: MCPillCanister
-  id: MCPillCanisterSalineGlucose
+  id: MCPillCanisterIsotonic
   name: isotonic pill bottle
   description: Contains pills that stimulate the regeneration of lost blood.
   suffix: Isotonic, 16, MC

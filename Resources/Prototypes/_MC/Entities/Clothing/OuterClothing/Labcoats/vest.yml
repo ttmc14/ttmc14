@@ -1,0 +1,39 @@
+- type: entity
+  parent: MCOuterClothing
+  id: MCLabcoatResearcherVest
+  name: researcher's labcoat
+  description: A high quality labcoat, seemingly worn by scholars and researchers alike. It has a distinct rough feel to it, and goads you towards adventure.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Labcoats/labcoat_researcher_vest.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/OuterClothing/Labcoats/labcoat_researcher_vest.rsi
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 65
+      energy: 55
+      bomb: 50
+      bio: 50
+      fire: 50
+      acid: 55
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: MCArmorModularClothing
+    slots:
+    - id: main
+      whitelist:
+        tags: []
+        # TODO
+    - id: storage
+      whitelist:
+        tags:
+        - MCArmorModuleBodyStorage
+  - type: ClothingSpeedModifier
+    walkModifier: 0.9
+    sprintModifier: 0.9

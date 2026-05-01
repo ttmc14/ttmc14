@@ -121,7 +121,8 @@
                 <BoxContainer Orientation="Vertical" Access="Public" Margin="8">
                     <CheckBox Text="{Loc 'asrs-ui-show-icons'}"
                               Name="ShowIconsButton"
-                              Access="Public" />
+                              Access="Public"
+                              Pressed="True" />
                 </BoxContainer>
 
                 <cc:HSeparator Color="#4972A1" Margin="8 0" />

@@ -1,0 +1,11 @@
+- type: entity
+  parent: MCItem
+  id: MCTool
+  abstract: true
+  components:
+  - type: Tag
+    tags: [ MCTool ]
+  - type: DoAfter
+
+- type: Tag
+  id: MCTool

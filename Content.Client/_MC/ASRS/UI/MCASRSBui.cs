@@ -17,7 +17,7 @@ public sealed partial class MCASRSBui(EntityUid owner, Enum uiKey) : BoundUserIn
     [ViewVariables]
     private MCBeaconChooseWindow _beaconChooseWindow = null!;
 
-    public bool SettingShowIcons { get; private set; }
+    public bool SettingShowIcons { get; private set; } = true;
 
     private MCASRSView? _openedView;
 

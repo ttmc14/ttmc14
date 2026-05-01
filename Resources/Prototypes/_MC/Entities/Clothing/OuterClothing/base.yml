@@ -1,0 +1,22 @@
+- type: entity
+  parent: MCClothing
+  id: MCOuterClothing
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Clothing/Pouches/small_drop.rsi
+    state: icon
+  - type: Appearance
+  - type: Item
+    size: Huge
+  - type: Clothing
+    quickEquip: true
+    slots:
+    - outerClothing
+  - type: ExplosionResistance
+    damageCoefficient: 0
+    worn: false
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

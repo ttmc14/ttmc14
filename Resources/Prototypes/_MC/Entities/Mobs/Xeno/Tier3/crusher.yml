@@ -3,6 +3,7 @@
   # MC
   - MCXenoBase
   - MCXenoComponentCharge
+  - MCXenoComponentTier3
   - MCXenoComponentEvolutionTier3
   # RMC
   - CMXenoDeveloped
