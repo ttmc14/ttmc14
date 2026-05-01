@@ -21,7 +21,7 @@ public abstract partial class MCSharedXenoHiveSystem
         if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
-        entity.Comp.BurrowedLarva = value;
+        // entity.Comp.BurrowedLarva = value;
         Dirty(entity);
 
         // TODO Remove shit
@@ -32,7 +32,8 @@ public abstract partial class MCSharedXenoHiveSystem
     [PublicAPI]
     public int GetBurrowedLarva(Entity<MCXenoHiveComponent?> entity)
     {
-        return !_mcHiveQuery.Resolve(entity, ref entity.Comp) ? 0 : entity.Comp.BurrowedLarva;
+        // return !_mcHiveQuery.Resolve(entity, ref entity.Comp) ? 0 : entity.Comp.BurrowedLarva;
+        return EnsureComp<HiveComponent>(entity).BurrowedLarva;
     }
 
     #endregion
