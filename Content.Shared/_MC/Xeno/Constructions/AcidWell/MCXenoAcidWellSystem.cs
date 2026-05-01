@@ -8,6 +8,7 @@ using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
@@ -113,6 +114,9 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
 
     private void OnCollideStart(Entity<MCXenoAcidWellComponent> entity, ref StartCollideEvent args)
     {
+        if (!HasComp<MobStateComponent>(args.OtherEntity))
+            return;
+
         if (HasComp<XenoComponent>(args.OtherEntity))
         {
             OnStepXeno(entity, args.OtherEntity);
