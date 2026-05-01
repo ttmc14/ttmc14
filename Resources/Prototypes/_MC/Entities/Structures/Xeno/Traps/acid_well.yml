@@ -34,3 +34,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: MCXenoAcidWell
+  - type: PointLight
+    enabled: true
+    castShadows: false
+    color: "#64C864"
