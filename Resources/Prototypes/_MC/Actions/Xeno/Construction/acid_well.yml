@@ -1,7 +1,7 @@
 - type: entity
   parent: ActionXenoBase
   id: MCActionXenoPlaceAcidWell
-  name: Place acid well (200)
+  name: place acid well (200)
   description: Place an acid well that can put out fires and destroy sticky grenades.
   components:
   - type: Action
@@ -9,7 +9,7 @@
     icon:
       sprite: _MC/Interface/Actions/Xeno/construction.rsi
       state: place_trap
-    useDelay: 120
+    useDelay: 45
   - type: InstantAction
     event: !type:MCXenoPlaceStructureInstantActionEvent
       structure:
