@@ -1,4 +1,5 @@
 ﻿using Content.Server._MC.Xeno.Hive;
+using Content.Server._RMC14.Xenonids.Hive;
 using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Shared._RMC14.Spawners;
@@ -23,7 +24,7 @@ public sealed class MCXenoSpawnFlowSystem : EntitySystem
     [Dependency] private readonly XenoSystem _xeno = null!;
     [Dependency] private readonly XenoEvolutionSystem _evolution = null!;
 
-    [Dependency] private readonly MCXenoHiveSystem _hive = null!;
+    [Dependency] private readonly MCXenoHiveSystem _mcHive = null!;
     [Dependency] private readonly MCXenoRoleSelectionSystem _roleSelect = null!;
 
     public void Spawn(
@@ -70,7 +71,7 @@ public sealed class MCXenoSpawnFlowSystem : EntitySystem
         var xenoEnt = SpawnAtPosition(ent, point.ToCoordinates());
 
         _xeno.MakeXeno(xenoEnt);
-        _hive.SetHive(xenoEnt, _hive.DefaultHive);
+        _mcHive.SetHive(xenoEnt, _mcHive.DefaultHive);
 
         if (TryComp<XenoEvolutionComponent>(xenoEnt, out var evo))
             _evolution.SetPoints((xenoEnt, evo), 100);
@@ -93,8 +94,8 @@ public sealed class MCXenoSpawnFlowSystem : EntitySystem
         var spawned = SpawnLarvaBatch(ev, larvaJob, larvaEnt, spawnPoints, used, targetCount);
 
         var unfilled = targetCount - spawned;
-        if (unfilled > 0 && _hive.DefaultHive is { } hive)
-            _hive.AddBurrowedLarva(hive, unfilled);
+        if (unfilled > 0 && _mcHive.DefaultHive is { } hive)
+            _mcHive.AddBurrowedLarva(hive, unfilled);
     }
 
     public int SpawnLarvaBatch(

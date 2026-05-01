@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
+using Content.Shared._RMC14.Xenonids.Hive;
 using JetBrains.Annotations;
 
 namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
@@ -22,6 +23,10 @@ public abstract partial class MCSharedXenoHiveSystem
 
         entity.Comp.BurrowedLarva = value;
         Dirty(entity);
+
+        // TODO Remove shit
+        var rmcComp = EnsureComp<HiveComponent>(entity);
+        rmcComp.BurrowedLarva = value;
     }
 
     [PublicAPI]
