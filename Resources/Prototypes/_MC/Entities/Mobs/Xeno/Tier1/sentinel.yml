@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -33,12 +33,18 @@
   - type: XenoEvolution
     strains:
     - MCXenoSentinelRetrograde
+  # Skins
+  - type: MCXenoSkin
+    skins: {}
+  #    rouny: _MC/Mobs/Xenos/sentinel_rouny.rsi
   # Actions
   - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoSentinel
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
     # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
@@ -90,7 +96,8 @@
     ventCrawlIcon: drone
 
 - type: entity
-  parent: MCXenoSentinel
+  parent:
+  - MCXenoSentinel
   id: MCXenoSentinelRetrograde
   name: retrograde sentinel
   description: A weak ranged combat alien. This one seems to have a different kind of spit.

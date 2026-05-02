@@ -10,25 +10,21 @@ namespace Content.Shared._MC.Xeno.Abilities.Drone.Recycle;
 
 public sealed class MCXenoRecycleSystem : MCXenoAbilitySystem
 {
-
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly MobStateSystem _mobState = default!;
-    [Dependency] private readonly XenoPlasmaSystem _xenoPlasma = default!;
-    [Dependency] private readonly SharedAudioSystem _audio = default!;
-    [Dependency] private readonly SharedPopupSystem _popup = default!;
-    [Dependency] private readonly INetManager _net = default!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MCXenoRecycleComponent, MCXenoRecycleActionEvent>(OnAction);
-        SubscribeLocalEvent<MCXenoRecycleComponent, MCXenoRecycleDoAfterEvent>(OnXenoRecycleDoAfter);
+        SubscribeLocalEvent<MCXenoRecycleComponent, MCXenoRecycleDoAfterEvent>(OnActionDoAfter);
     }
 
     private void OnAction(Entity<MCXenoRecycleComponent> entity, ref MCXenoRecycleActionEvent args)
     {
-        if (IsXeno(args.Target))
+        if (!IsXeno(args.Target))
         {
             _popup.PopupClient(Loc.GetString("recycle-no-sister"), entity, entity, PopupType.MediumCaution);
             return;
@@ -52,7 +48,7 @@ public sealed class MCXenoRecycleSystem : MCXenoAbilitySystem
         });
     }
 
-    private void OnXenoRecycleDoAfter(Entity<MCXenoRecycleComponent> entity, ref MCXenoRecycleDoAfterEvent args)
+    private void OnActionDoAfter(Entity<MCXenoRecycleComponent> entity, ref MCXenoRecycleDoAfterEvent args)
     {
         var target = args.Target;
         if (args.Handled || args.Cancelled || target is null)
@@ -67,6 +63,7 @@ public sealed class MCXenoRecycleSystem : MCXenoAbilitySystem
         _audio.PlayPredicted(entity.Comp.EffectSound, entity, entity);
         _popup.PopupClient(Loc.GetString("recycle-end"), entity, entity, PopupType.MediumCaution);
 
-        ServerQueueDel(target);
+
+        PredictedQueueDel(target);
     }
 }

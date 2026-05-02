@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -29,11 +29,18 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: crusher
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/crusher_rouny.rsi
   # Actions
   - type: Xeno
     tier: 3
     role: MCXenoCrusher
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve

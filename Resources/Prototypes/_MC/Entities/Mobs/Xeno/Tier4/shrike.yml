@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -33,12 +33,19 @@
       state: shrike
   - type: XenoInhands
     prefix: shrike
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/shrike_rouny.rsi
   # Actions
   - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 4
     role: MCXenoShrike
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve

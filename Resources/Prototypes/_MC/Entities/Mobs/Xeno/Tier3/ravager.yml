@@ -24,11 +24,18 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: ravager
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/ravager_rouny.rsi
   # Actions
   - type: Xeno
     tier: 3
     role: MCXenoRavager
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve

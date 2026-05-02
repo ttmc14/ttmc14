@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -30,6 +30,10 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: runner
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/runner_rouny.rsi
   # Evolution
   - type: XenoEvolution
     strains:
@@ -40,6 +44,11 @@
     tier: 1
     role: MCXenoRunner
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
+    # Visuals
+    - MCActionXenoSkin
     # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
@@ -90,7 +99,8 @@
     ventCrawlIcon: drone
 
 - type: entity
-  parent: MCXenoRunner
+  parent:
+  - MCXenoRunner
   id: MCXenoRunnerMelter
   name: melter
   description: A fast, four-legged terror. It got acid covered all over it.

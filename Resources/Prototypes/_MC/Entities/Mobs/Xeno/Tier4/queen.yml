@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -30,17 +30,22 @@
       0: Alive
       600: Critical
       700: Dead
-  - type: XenoAnnounceDeath
-    message: mc-xeno-hive-ruler-dead
-    color: "#921992"
   - type: XenoPlasma
     plasma: 1200
     maxPlasma: 1200
     plasmaRegenOnWeeds: 90
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/queen_rouny.rsi
+  # Actions
   - type: Xeno
     tier: 4
     role: MCXenoQueen
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     # Construction

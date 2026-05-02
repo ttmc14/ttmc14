@@ -1,0 +1,87 @@
+﻿<skin:MCXenoSkinWindow
+    xmlns="https://spacestation14.io"
+    xmlns:skin="clr-namespace:Content.Client._MC.Xeno.Abilities.Skin"
+    Title="Skin Selector"
+    MinSize="700 450"
+    SetSize="800 500">
+
+    <BoxContainer Orientation="Horizontal"
+                  SeparationOverride="8"
+                  VerticalExpand="True"
+                  HorizontalExpand="True">
+
+        <!-- LEFT -->
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      VerticalExpand="True">
+
+            <SpriteView Name="SkinPreview"
+                        Access="Public"
+                        HorizontalExpand="True"
+                        VerticalExpand="True"
+                        Scale="3 3"/>
+
+            <Control MinHeight="8"/>
+
+            <!-- NAV -->
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalExpand="True"
+                          SeparationOverride="8">
+
+                <Button Name="PreviousButton"
+                        Access="Public"
+                        Text="◀"
+                        HorizontalExpand="True"
+                        StyleClasses="ButtonSquare"/>
+
+                <Button Name="ResetPreviewButton"
+                        Access="Public"
+                        Text="⟲"
+                        HorizontalExpand="True"
+                        StyleClasses="ButtonSquare"/>
+
+                <Button Name="NextButton"
+                        Access="Public"
+                        Text="▶"
+                        HorizontalExpand="True"
+                        StyleClasses="ButtonSquare"/>
+            </BoxContainer>
+        </BoxContainer>
+
+        <!-- RIGHT -->
+        <BoxContainer Orientation="Vertical"
+                      HorizontalExpand="True"
+                      VerticalExpand="True">
+
+            <ScrollContainer VerticalExpand="True"
+                             HorizontalExpand="True">
+
+                <BoxContainer Name="SkinList"
+                              Access="Public"
+                              Orientation="Vertical"
+                              SeparationOverride="4" />
+            </ScrollContainer>
+
+            <Control MinHeight="8"/>
+
+            <BoxContainer Orientation="Horizontal"
+                          HorizontalExpand="True"
+                          SeparationOverride="8">
+
+                <Button Name="ResetButton"
+                        Access="Public"
+                        Text="Сбросить"
+                        HorizontalExpand="True" />
+
+                <Button Name="ApplyButton"
+                        Access="Public"
+                        Text="Применить"
+                        HorizontalExpand="True"
+                        StyleClasses="ButtonColorGreen" />
+            </BoxContainer>
+
+        </BoxContainer>
+
+    </BoxContainer>
+
+</skin:MCXenoSkinWindow>

@@ -21,7 +21,7 @@ public sealed class MCCustomizationSystem : EntitySystem
 
     private void OnInteractUsingEvent(Entity<MCCustomizationHolderComponent> entity, ref InteractUsingEvent args)
     {
-        if (args.Handled)
+        if (args.Handled || !entity.Comp.Paintable)
             return;
 
         if (!HasComp<MCCustomizationPaintComponent>(args.Used))

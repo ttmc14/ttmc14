@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -33,12 +33,22 @@
       state: drone
   - type: XenoInhands
     prefix: drone
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/drone_rouny.rsi
   # Actions
   - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoDrone
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve

@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -33,12 +33,19 @@
   - type: XenoEvolution
     strains:
     - MCXenoDefenderSteelCrest
+  # Skins
+  - type: MCXenoSkin
+    skins:
+      rouny: _MC/Mobs/Xenos/defender_rouny.rsi
   # Actions
   - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno
     tier: 1
     role: MCXenoDefender
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
@@ -131,6 +138,7 @@
     tier: 1
     role: MCXenoDefender
     actionIds:
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve

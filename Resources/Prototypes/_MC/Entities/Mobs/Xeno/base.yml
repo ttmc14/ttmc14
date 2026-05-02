@@ -44,6 +44,8 @@
   - type: UserInterface
     interfaces:
       # MC
+      enum.MCXenoSkinUI.Key:
+        type: MCXenoSkinBui
       enum.MCXenoHiveStatusUI.Key:
         type: MCXenoHiveStatusBui
       enum.MCXenoReagentSelectorUI.Key:

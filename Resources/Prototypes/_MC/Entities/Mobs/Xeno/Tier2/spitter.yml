@@ -1,4 +1,4 @@
-- type: entity
+﻿- type: entity
   parent:
   # MC
   - MCXenoBase
@@ -29,11 +29,18 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: spitter
+  # Skins
+  - type: MCXenoSkin
+    skins: {}
+  #    rouny: _MC/Mobs/Xenos/spitter_rouny.rsi
   # Actions
   - type: Xeno
     tier: 2
     role: MCXenoSpitter
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve

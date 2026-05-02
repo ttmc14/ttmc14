@@ -61,11 +61,18 @@
       state: carrier
   - type: XenoInhands
     prefix: carrier
+  # Skins
+  - type: MCXenoSkin
+    skins: {}
+  #    rouny: _MC/Mobs/Xenos/carrier_rouny.rsi
   # Actions
   - type: Xeno
     role: CMXenoCarrier
     tier: 2
     actionIds:
+    # Visuals
+    - MCActionXenoSkin
+    # Base
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve # Weeds

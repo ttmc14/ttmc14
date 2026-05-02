@@ -1,5 +1,20 @@
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoSkin
+  name: Skin
+  description: Drip.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _RMC14/Actions/xeno_actions.rsi
+      state: watch_xeno
+    useDelay: 0
+  - type: InstantAction
+    event: !type:MCXenoSkinActionEvent
+
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoRest
   name: Rest
   description: Lie down to regenerate health more quickly while on weeds.

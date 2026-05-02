@@ -7,6 +7,9 @@ namespace Content.Shared._MC.Marine.Customization;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCCustomizationHolderComponent : Component
 {
+    [DataField]
+    public bool Paintable = true;
+
     [DataField, AutoNetworkedField]
     public string? State;
 
