@@ -5711,7 +5711,7 @@ entities:
     - type: Transform
       pos: 35.5,19.5
       parent: 1
-- proto: MCBeltMedicalMedFull
+- proto: MCBeltMedicalFilledMedical
   entities:
   - uid: 509
     components:

@@ -2,7 +2,52 @@
   parent: MCMarker
   id: MCSpawnExcavation
   name: excavation site spawner
+  abstract: true
   components:
   - type: Sprite
     sprite: _MC/Markers/landmarks.rsi
     state: clockwork_orange
+  - type: MCExcavationSite
+  # Tac map
+  - type: MarineMapTracked
+  - type: XenoMapTracked
+  - type: TacticalMapTracked
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/excavation.rsi
+      state: money
+
+- type: entity
+  parent: MCSpawnExcavation
+  id: MCSpawnExcavationMoney
+  suffix: money
+  components:
+  - type: MCExcavationSite
+    rewardsMin: 2
+    rewardsMax: 4
+    rewards:
+    - MCResearchResourceMoney
+  # Tac map
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/excavation.rsi
+      state: money
+
+- type: entity
+  parent: MCSpawnExcavation
+  id: MCSpawnExcavationXeno
+  suffix: xeno
+  components:
+  - type: MCExcavationSite
+    rewardsMin: 2
+    rewardsMax: 4
+    rewards:
+    - MCResearchResourceXenoTier1
+    - MCResearchResourceXenoTier2
+    - MCResearchResourceXenoTier2
+    - MCResearchResourceXenoTier3
+  # Tac map
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/excavation.rsi
+      state: xeno

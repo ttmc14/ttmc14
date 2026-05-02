@@ -21,4 +21,10 @@ public sealed partial class MCToolXenoAnalyzerComponent : Component
 
     [DataField]
     public TimeSpan SkillTimeReduction = TimeSpan.FromSeconds(2);
+
+    [DataField]
+    public float FailChancePerMissingSkill = 0.35f;
+
+    [DataField]
+    public float MaxFailChance = 0.95f;
 }

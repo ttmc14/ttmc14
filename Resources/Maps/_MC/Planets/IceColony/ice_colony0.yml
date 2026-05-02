@@ -54981,32 +54981,6 @@ entities:
     - type: Transform
       pos: 116.58723,-134.17065
       parent: 1
-- proto: MCComputerNukeDiskGeneratorBlue
-  entities:
-  - uid: 18625
-    components:
-    - type: Transform
-      pos: 145.5,-6.5
-      parent: 1
-- proto: MCComputerNukeDiskGeneratorGreen
-  entities:
-  - uid: 18970
-    components:
-    - type: Transform
-      pos: 93.5,-78.5
-      parent: 1
-- proto: MCComputerNukeDiskGeneratorRed
-  entities:
-  - uid: 19266
-    components:
-    - type: Transform
-      pos: 45.5,-95.5
-      parent: 1
-  - uid: 24154
-    components:
-    - type: Transform
-      pos: 107.5,-191.5
-      parent: 1
 - proto: MCDecalDropshipNumber1
   entities:
   - uid: 4343
@@ -60208,7 +60182,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 108.38587,-130.5
       parent: 1
-- proto: MCSpawnExcavation
+- proto: MCSpawnExcavationMoney
   entities:
   - uid: 13196
     components:
@@ -60226,6 +60200,21 @@ entities:
     components:
     - type: Transform
       pos: 103.5,-147.5
+      parent: 1
+  - uid: 18625
+    components:
+    - type: Transform
+      pos: 145.5,-6.5
+      parent: 1
+  - uid: 19266
+    components:
+    - type: Transform
+      pos: 45.5,-95.5
+      parent: 1
+  - uid: 24154
+    components:
+    - type: Transform
+      pos: 107.5,-191.5
       parent: 1
 - proto: MCSpawnXenoProtection
   entities:

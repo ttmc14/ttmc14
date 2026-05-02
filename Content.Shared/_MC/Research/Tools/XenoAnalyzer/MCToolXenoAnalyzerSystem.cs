@@ -2,6 +2,7 @@
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
+using Robust.Shared.Random;
 
 namespace Content.Shared._MC.Research.Tools.XenoAnalyzer;
 
@@ -11,7 +12,9 @@ public sealed class MCToolXenoAnalyzerSystem : EntitySystem
     private static readonly LocId AlreadyProbedLocId = "mc-xeno-analyzer-already-probed";
     private static readonly LocId BeginsCuttingLocId = "mc-xeno-analyzer-begins-cutting";
     private static readonly LocId FindingWeakPointLocId = "mc-xeno-analyzer-finding-weak-point";
+    private static readonly LocId AnalyzeFailedLocId = "mc-xeno-analyzer-failed";
 
+    [Dependency] private readonly IRobustRandom _random = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SkillsSystem _skills = null!;
@@ -56,6 +59,12 @@ public sealed class MCToolXenoAnalyzerSystem : EntitySystem
         if (target.Researched)
             return;
 
+        if (RollAnalyzeFailure(entity, args.User))
+        {
+            ShowAnalyzePopup(args.User,  Loc.GetString(AnalyzeFailedLocId, ("user", args.User)), PopupType.MediumCaution);
+            return;
+        }
+
         CompleteResearch(args.Target.Value, target);
     }
 
@@ -94,9 +103,9 @@ public sealed class MCToolXenoAnalyzerSystem : EntitySystem
             ("target", target));
     }
 
-    private void ShowAnalyzePopup(EntityUid user, string text)
+    private void ShowAnalyzePopup(EntityUid user, string text, PopupType type = PopupType.Medium)
     {
-        _popup.PopupPredicted(text, user, user);
+        _popup.PopupPredicted(text, user, user, type);
     }
 
     private void StartAnalyzeDoAfter(Entity<MCToolXenoAnalyzerComponent> entity, EntityUid user, EntityUid target, TimeSpan duration)
@@ -123,5 +132,23 @@ public sealed class MCToolXenoAnalyzerSystem : EntitySystem
 
         component.Researched = true;
         Dirty(targetUid, component);
+    }
+
+    private bool RollAnalyzeFailure(Entity<MCToolXenoAnalyzerComponent> analyzer, EntityUid user)
+    {
+        var chance = GetAnalyzeFailChance(analyzer, user);
+        return chance > 0f && _random.Prob(chance);
+    }
+
+    private float GetAnalyzeFailChance(Entity<MCToolXenoAnalyzerComponent> entity, EntityUid user)
+    {
+        var skill = _skills.GetSkill(user, entity.Comp.SkillId);
+        var missingSkill = entity.Comp.SkillLevel - skill;
+
+        if (missingSkill <= 0)
+            return 0f;
+
+        var failChance = entity.Comp.FailChancePerMissingSkill * missingSkill;
+        return float.Min(failChance, entity.Comp.MaxFailChance);
     }
 }

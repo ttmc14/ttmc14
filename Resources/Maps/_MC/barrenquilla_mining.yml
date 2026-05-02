@@ -50197,18 +50197,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 68.5,-129.5
       parent: 1
-- proto: RMCMagazineSMGP90
-  entities:
-  - uid: 4712
-    components:
-    - type: Transform
-      pos: 32.274887,-21.530186
-      parent: 1
-  - uid: 4713
-    components:
-    - type: Transform
-      pos: 32.524887,-21.67081
-      parent: 1
 - proto: RMCMirror
   entities:
   - uid: 4714
@@ -137031,13 +137019,6 @@ entities:
     components:
     - type: Transform
       pos: 11.5,-9.5
-      parent: 1
-- proto: RMCWeaponSMGP90
-  entities:
-  - uid: 20582
-    components:
-    - type: Transform
-      pos: 32.509262,-21.29581
       parent: 1
 - proto: RMCWeaponTaser
   entities:

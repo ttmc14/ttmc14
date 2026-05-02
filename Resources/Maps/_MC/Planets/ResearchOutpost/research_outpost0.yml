@@ -23098,7 +23098,7 @@ entities:
     - type: Transform
       pos: 76.5,-17.5
       parent: 1
-- proto: MCSpawnExcavation
+- proto: MCSpawnExcavationMoney
   entities:
   - uid: 13184
     components:

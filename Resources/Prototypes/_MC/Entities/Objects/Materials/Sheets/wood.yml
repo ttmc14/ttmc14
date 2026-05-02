@@ -95,6 +95,15 @@
 
 - type: entity
   parent: MCPlankWood
+  id: MCPlankWood25
+  suffix: 25
+  components:
+  - type: Stack
+    stackType: MCWood
+    count: 25
+
+- type: entity
+  parent: MCPlankWood
   id: MCPlankWood30
   suffix: 30
   components:

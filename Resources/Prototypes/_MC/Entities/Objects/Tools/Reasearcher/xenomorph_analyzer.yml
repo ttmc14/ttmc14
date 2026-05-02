@@ -17,9 +17,11 @@
   - type: MCToolXenoAnalyzer
     skillId: MCSkillMedical
     skillLevel: 4
-    baseAnalyzeTime: 5
+    baseAnalyzeTime: 2.5
     failedAnalyzeTime: 15
     skillTimeReduction: 2
+    failChancePerMissingSkill: 0.25
+    maxFailChance: 0.95
 
 - type: Tag
   id: MCToolResearcherXenoAnalyzer

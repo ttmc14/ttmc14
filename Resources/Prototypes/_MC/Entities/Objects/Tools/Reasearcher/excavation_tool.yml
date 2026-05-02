@@ -14,6 +14,11 @@
     state: alien_drill
   - type: Item
     size: Normal
+  - type: MCToolExcavation
+    skillId: MCSkillMedical
+    skillLevel: 4
+    excavateTime: 10
+    searchRadius: 2.5
 
 - type: Tag
   id: MCToolResearcherExcavationTool
