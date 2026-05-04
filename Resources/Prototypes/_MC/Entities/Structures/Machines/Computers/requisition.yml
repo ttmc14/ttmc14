@@ -718,9 +718,9 @@
         icon:
           sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
           state: stretcher_down
-        cost: 80
+        cost: 500
         entities:
-        - RMCMedevacStretcherFolded
+        - MCMedevacStretcherFolded
         - MCBeaconMedevac
       - name: mc-asrs-entry-lemoline
         icon:
