@@ -19,6 +19,7 @@ namespace Content.Shared._MC.Deploy;
 public sealed class MCDeploySystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = null!;
+
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly FixtureSystem _fixture = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;

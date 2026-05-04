@@ -15,6 +15,14 @@ public sealed class MCAreasSystem : EntitySystem
         return _rmcArea.TryGetArea(coordinates, out _, out var areaPrototype) ? areaPrototype.Name : Loc.GetString(UnknownAreaLocId);
     }
 
+    public bool GetAreaCoordsMessage(EntityUid coordinates, out Vector2i coords, out string areaName)
+    {
+        var position = Transform(coordinates).Coordinates;
+        coords = new Vector2i((int) position.X, (int) position.Y);
+        areaName = GetAreaName(coordinates);
+        return true;
+    }
+
     public string GetAreaCoordsMessage(EntityUid coordinates)
     {
         var position = Transform(coordinates).Coordinates;

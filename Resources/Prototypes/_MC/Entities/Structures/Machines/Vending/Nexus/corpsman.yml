@@ -114,4 +114,4 @@
     - MCHealthAnalyzer
     - MCMedicalTweezers
     - MCBeaconMedevac
-    # /obj/structure/bed/medevac_stretcher
+    - MCMedevacStretcherFolded

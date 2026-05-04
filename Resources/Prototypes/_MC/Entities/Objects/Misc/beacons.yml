@@ -75,6 +75,10 @@
             state: med_0
           Deployed:
             state: med_1
+  - type: MCPairLinkInteractLinked
+    whitelist:
+      components:
+      - MCMedevac
 
 - type: Tag
   id: MCBeaconMedevac

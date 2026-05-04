@@ -86,7 +86,7 @@
     - MCBeaconSupply
     - MCBeaconOrbital
     - MCHealthAnalyzer
-    # /obj/item/roller/medevac,
+    - MCMedevacStretcherFolded
     - MCBeaconMedevac
     - MCWhistle
     - MCGlassesHudHealth

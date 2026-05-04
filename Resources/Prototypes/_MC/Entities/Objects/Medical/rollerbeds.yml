@@ -13,8 +13,7 @@
     damageModifierSet: StructuralMarine
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 100
       behaviors:
       - !type:DoActsBehavior
@@ -30,14 +29,12 @@
   parent: [ MCRollerBedDestruction, RollerBed ]
   id: MCRollerBed
   name: roller bed
-  suffix: MC
   description: A collapsed roller bed that can be carried around.
+  categories: [ MCContent ]
   components:
   - type: Tag
     tags:
-    - CMRollerItem
     - MCRollerItem
-    - CMRollerBed
     - MCRollerBed
   - type: Sprite
     sprite: _MC/Structures/Furniture/rollerbeds.rsi
@@ -113,6 +110,100 @@
 - type: entity
   parent: MCPortableSurgicalBed
   id: MCPortableSurgicalBedSpawnFolded
+  suffix: folded
+  components:
+  - type: Foldable
+    folded: true
+  - type: Strap
+    enabled: false
+
+- type: entity
+  parent: MCRollerBed
+  id: MCMedevacStretcher
+  name: medevac stretcher
+  description: A collapsible stretcher that can be activated to send patients to an overhead dropship.
+  components:
+  - type: Tag
+    tags:
+    - MCRollerBed
+  - type: Item
+    size: Small
+    heldPrefix: stretcher
+  - type: Clickable
+  - type: InteractionOutline
+  - type: CollisionWake
+  - type: Transform
+    noRot: true
+  - type: Corrodible
+  - type: Sprite
+    sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
+    noRot: true
+    drawdepth: OverMobs
+    layers:
+    - state: stretcher_down
+      map: [ "unfoldedLayer" ]
+    - state: stretcher_folded
+      map: [ "foldedLayer" ]
+      visible: false
+    - state: stretcher_box
+      map: [ "buckledLayer" ]
+      visible: false
+    - state: beacon_active_up
+      map: [ "buckledBeaconLayer" ]
+      visible: false
+    - state: winched_stretcher
+      map: [ "stretcherAnimatedLayer" ]
+      visible: false
+  - type: Physics
+    bodyType: Dynamic
+    fixedRotation: false
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 80
+        mask:
+        - MobMask
+  - type: Strap
+    position: Down
+    rotation: -90
+    buckleOffset: "0,0.15"
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.StrapVisuals.State:
+        buckledLayer:
+          True: { visible: true }
+          False: { visible: false }
+      enum.FoldedVisuals.State:
+        foldedLayer:
+          True: { visible: true }
+          False: { visible: false }
+        unfoldedLayer:
+          True: { visible: false }
+          False: { visible: true }
+      enum.MedevacStretcherVisuals.BeaconState:
+        buckledBeaconLayer:
+          On: { visible: true }
+          Off: { visible: false }
+      enum.MedevacStretcherVisuals.MedevacingState:
+        buckledLayer:
+          True: { state: winched_stretcher }
+          False: { state: stretcher_box }
+  # Specials
+  - type: Speech
+  - type: MCMedevac
+  - type: MCPairLinkInteractLinked
+    whitelist:
+      components:
+      - MCBeacon
+      tags:
+      - MCBeaconMedevac
+
+- type: entity
+  parent: MCMedevacStretcher
+  id: MCMedevacStretcherFolded
   suffix: folded
   components:
   - type: Foldable
