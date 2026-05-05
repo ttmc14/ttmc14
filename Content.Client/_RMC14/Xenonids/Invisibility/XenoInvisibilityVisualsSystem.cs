@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Xenonids.Invisibility;
+﻿using Content.Shared._MC.Xeno.Abilities.Chimera.Phantom;
+using Content.Shared._RMC14.Xenonids.Invisibility;
 using Robust.Client.GameObjects;
 
 namespace Content.Client._RMC14.Xenonids.Invisibility;
@@ -15,8 +16,8 @@ public sealed class XenoInvisibilityVisualsSystem : EntitySystem
     public override void Update(float frameTime)
     {
         // MC Changes
-        var invisible = EntityQueryEnumerator<SpriteComponent>();
-        while (invisible.MoveNext(out var uid, out var sprite))
+        var invisible = EntityQueryEnumerator<MCXenoPhantomComponent, SpriteComponent>();
+        while (invisible.MoveNext(out var uid, out _, out var sprite))
         {
             var opacity = _activeInvisibleQuery.TryComp(uid, out var invisibleComponent) ? invisibleComponent.Opacity ?? 1 : 1;
             sprite.Color = Color.Transparent.WithAlpha(opacity);
