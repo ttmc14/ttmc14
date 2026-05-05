@@ -9,7 +9,7 @@ public sealed partial class MCSlowdownStacksComponent : Component
     public TimeSpan UpdateNext;
 
     [DataField, AutoNetworkedField]
-    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(0.5f);
+    public TimeSpan UpdateDelay = TimeSpan.FromSeconds(0.1f);
 
     [DataField, AutoNetworkedField]
     public float Stacks;

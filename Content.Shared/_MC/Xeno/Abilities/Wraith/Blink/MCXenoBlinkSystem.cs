@@ -148,14 +148,14 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
     {
         foreach (var taget in _lookup.GetEntitiesInRange<MobStateComponent>(position, entity.Comp.Range))
         {
-            if (_mobState.IsDead(taget, taget.Comp))
+            if (IsDead(taget))
                 continue;
 
-            if (HasComp<XenoComponent>(taget) && MCXenoHive.FromSameHive(entity.Owner, taget.Owner))
+            if (MCXenoHive.FromSameHive(entity.Owner, taget.Owner))
                 continue;
 
             _mcStun.Stagger(taget, entity.Comp.StaggerDuration);
-            _mcSlowdownStacks.AdjustSlowdown(entity, entity.Comp.SlowdownStacks);
+            _mcSlowdownStacks.AdjustSlowdown(taget, entity.Comp.SlowdownStacks);
         }
     }
 }

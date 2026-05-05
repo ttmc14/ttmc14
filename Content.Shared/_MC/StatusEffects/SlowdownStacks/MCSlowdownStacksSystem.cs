@@ -14,7 +14,7 @@ public sealed partial class MCSlowdownStacksSystem : EntitySystem
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<MCSlowdownStacksComponent, RefreshMovementSpeedModifiersEvent>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<MCSlowdownStacksComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
     public override void Update(float frameTime)
@@ -45,9 +45,9 @@ public sealed partial class MCSlowdownStacksSystem : EntitySystem
         PredictedQueueDel(entity.Owner);
     }
 
-    private static void OnRefreshMovementSpeedModifiers(Entity<MCSlowdownStacksComponent> entity, ref RefreshMovementSpeedModifiersEvent args)
+    private static void OnRefreshMovementSpeedModifiers(Entity<MCSlowdownStacksComponent> entity, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
     {
-        args.ModifySpeed(GetSpeedMultiplier(entity));
+        args.Args.ModifySpeed(GetSpeedMultiplier(entity));
     }
 
     private static float GetSpeedMultiplier(Entity<MCSlowdownStacksComponent> entity)
