@@ -1,5 +1,6 @@
 ﻿using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffectNew;
+using Content.Shared.StatusEffectNew.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.StatusEffects.SlowdownStacks;
@@ -18,24 +19,25 @@ public sealed partial class MCSlowdownStacksSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var query = EntityQueryEnumerator<MCSlowdownStacksComponent>();
-        while (query.MoveNext(out var uid, out var component))
+        var query = EntityQueryEnumerator<MCSlowdownStacksComponent, StatusEffectComponent>();
+        while (query.MoveNext(out var uid, out var component, out var statusEffectComponent))
         {
             if (component.UpdateNext > _timing.CurTime)
                 continue;
 
-            Update((uid, component), 1f /  (float) component.UpdateDelay.TotalSeconds);
+            Update((uid, component), 1f /  (float) component.UpdateDelay.TotalSeconds, statusEffectComponent.AppliedTo);
 
             component.UpdateNext = _timing.CurTime + component.UpdateDelay;
             DirtyField(uid, component, nameof(MCSlowdownStacksComponent.UpdateNext));
         }
     }
 
-    private void Update(Entity<MCSlowdownStacksComponent> entity, float scale)
+    private void Update(Entity<MCSlowdownStacksComponent> entity, float scale, EntityUid? targetUid)
     {
         entity.Comp.Stacks -= entity.Comp.Regeneration * scale;
 
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(entity);
+        if (targetUid is not null)
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(targetUid.Value);
 
         if (entity.Comp.Stacks > 0)
             return;
