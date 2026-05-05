@@ -20,6 +20,9 @@ public sealed class MCXenoPhantomSystem : MCXenoAbilitySystem
 
     private void OnAction(Entity<MCXenoPhantomComponent> entity, ref MCXenoPhantomActionEvent args)
     {
+        if (args.Handled)
+            return;
+
         if (!TryUseAction(entity, args.Action))
             return;
 
@@ -33,6 +36,8 @@ public sealed class MCXenoPhantomSystem : MCXenoAbilitySystem
         MCXenoHive.SetSameHive(entity.Owner, instance);
 
         _audio.PlayPredicted(entity.Comp.EffectSound, entity, entity);
+
+        args.Handled = true;
     }
 
     private void OnPreventCollision(Entity<MCXenoPhantomComponent> ent, ref PreventCollideEvent args)
