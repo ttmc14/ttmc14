@@ -257,6 +257,23 @@
   id: MCXenoBoiler
   isXeno: true
 
+# Chimera
+- type: job
+  parent: MCJobXeno
+  id: MCXenoChimera
+  name: mc-job-name-xeno-chimera
+  playTimeTracker: MCXenoChimera
+
+- type: playTimeTracker
+  id: MCXenoChimera
+  isXeno: true
+
+- type: job
+  parent: MCJobXeno
+  id: MCXenoChimeraClone
+  name: mc-job-name-xeno-chimera-clone
+  playTimeTracker: MCXenoChimera
+
 # Crusher
 - type: job
   parent: MCJobXeno

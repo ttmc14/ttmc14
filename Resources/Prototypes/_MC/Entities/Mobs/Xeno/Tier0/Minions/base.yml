@@ -1,7 +1,6 @@
 - type: entity
   parent:
   - MCXenoUnactiveBase
-  # - MCAIXenoSimple # - MCXenoComponentAI
   # RMC
   - CMXenoDeveloped
   - RMCXenoSpeechSounds

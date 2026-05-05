@@ -45,7 +45,7 @@
     - MCXenoBoiler
     - MCXenoRavager
     # - MCXenoWidow
-    # - MCXenoChimera
+    - MCXenoChimera
     # - MCXenoBehemoths
   - type: XenoDevolve
     devolvesTo:

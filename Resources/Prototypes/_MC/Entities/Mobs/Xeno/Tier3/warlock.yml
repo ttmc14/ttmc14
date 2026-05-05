@@ -2,6 +2,7 @@
   parent:
   # MC
   - MCXenoBase
+  - MCXenoComponentFixtureRunner
   - MCXenoComponentTier3
   - MCXenoComponentEvolutionTier3
   # RMC
@@ -74,8 +75,8 @@
       types:
         MCBrute: 15
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.857
-    baseSprintSpeed: 4
+    baseWalkSpeed: 3.35
+    baseSprintSpeed: 5
   # Abilities
   - type: MCXenoTransferPlasma
     amount: 400

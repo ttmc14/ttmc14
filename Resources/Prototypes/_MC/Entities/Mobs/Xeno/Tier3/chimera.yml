@@ -2,6 +2,7 @@
   parent:
   # MC
   - MCXenoBase
+  - MCXenoComponentFixtureRunner
   - MCXenoComponentTier3
   - MCXenoComponentEvolutionTier3
   # RMC
@@ -11,7 +12,7 @@
   - RMCXenoMobCollision
   id: MCXenoChimera
   name: chimera
-  description: A slim, deadly alien creature. It has two additional arms with mantis blades.
+  description: A slim, deadly alien creature.
   components:
   # Name
   - type: FixedIdentity
@@ -44,6 +45,11 @@
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
     # Abilities
+    - MCActionXenoBlinkChimera
+    - MCActionXenoBodySwap
+    - MCActionXenoWarpBlast
+    - MCActionXenoPhantom
+    - MCActionXenoAbduction
     hudOffset: -0.15, 0.25
   # Statistics
   - type: MobThresholds
@@ -68,10 +74,22 @@
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 18
+        MCBrute: 25
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.35
+    baseWalkSpeed: 3.5
     baseSprintSpeed: 5
   - type: RMCSize
     size: Big
   # Abilities
+  - type: MCXenoBlink
+    range: 5.5
+  - type: MCXenoBodySwap
+    range: 9.5
+  - type: MCXenoWarpBlast
+    range: 2.5
+  - type: MCXenoPhantom
+  - type: MCXenoPounceAbduct
+  - type: MCXenoPounce
+    hitSelfParalyzeTime: 0
+    maxDistance: 5
+    hitKnockdownTime: 0.5

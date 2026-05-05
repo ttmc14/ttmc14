@@ -50,17 +50,19 @@
     - MCActionXenoPortalPlacer
     - MCActionXenoBanish
     - MCActionXenoRecall
+    # Utilities
+    - MCActionXenoTransferPlasmaUnbound
     hudOffset: -0.1, 0.1
   # Statistics
   - type: MobThresholds
     thresholds:
       0: Alive
-      340: Critical
-      440: Dead
+      350: Critical
+      450: Dead
   - type: XenoPlasma
-    plasma: 400
-    maxPlasma: 400
-    plasmaRegenOnWeeds: 35
+    plasma: 500
+    maxPlasma: 500
+    plasmaRegenOnWeeds: 50
   - type: MCArmor
     soft:
       melee: 40
@@ -72,13 +74,18 @@
       fire: 30
       acid: 20
   - type: MeleeWeapon
+    attackRate: 1.7
     damage:
       types:
         MCBrute: 25
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.448
-    baseSprintSpeed: 5.263
+    baseWalkSpeed: 4
+    baseSprintSpeed: 6.25
   # Abilities
+  - type: MCXenoTransferPlasma
+    amount: 200
+    delay: 0.5
+    range: 7
   - type: MCXenoPortalPlacer
     portalFirst:
       id: MCXenoPortalOrange
@@ -91,8 +98,8 @@
         sprite: _MC/Effects/portals.rsi
         state: blue
   - type: MCXenoBlink
+    range: 2.5
   - type: MCXenoRewind
   - type: MCXenoBanish
-
 - type: Tag
   id: MCXenoIgnoreBanish

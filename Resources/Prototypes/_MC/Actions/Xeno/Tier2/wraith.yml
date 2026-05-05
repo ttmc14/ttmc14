@@ -48,7 +48,7 @@
   - type: Action
     itemIconStyle: NoItem
     icon:
-      sprite: _MC/Interface/Actions/Xeno/wraith.rsi
+      sprite: _MC/Interface/Actions/Xeno/Tier2/wraith.rsi
       state: portal
     useDelay: 7
   - type: InstantAction

@@ -1,0 +1,82 @@
+- type: entity
+  parent: MCActionXenoBlink
+  id: MCActionXenoBlinkChimera
+  name: Blink (50)
+  description: We teleport ourselves a short distance to a location within line of sight.
+  components:
+  - type: Action
+    useDelay: 3
+  - type: XenoActionPlasma
+    cost: 50
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoBodySwap
+  name: Body swap (100)
+  description: Swap places with another xeno.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/chimera.rsi
+      state: body_swap
+    useDelay: 20
+    checkCanInteract: false
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: EntityTargetAction
+    event: !type:MCXenoBodySwapActionEvent
+  - type: XenoActionPlasma
+    cost: 100
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoWarpBlast
+  name: Warp Blast (100)
+  description: Create a pure force explosion that damages and knockbacks targets around.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/chimera.rsi
+      state: warp_blast
+    useDelay: 20
+  - type: InstantAction
+    event: !type:MCXenoWarpBlastActionEvent
+  - type: XenoActionPlasma
+    cost: 100
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPhantom
+  name: Phantom (100)
+  description: Create a physical clone and hide in shadows.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/chimera.rsi
+      state: phantom
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCXenoPhantomActionEvent
+  - type: XenoActionPlasma
+    cost: 100
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: MCActionXenoPounce
+  id: MCActionXenoAbduction
+  name: Abduction (100)
+  description: Abduct the prey.
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/chimera.rsi
+      state: abduction
+    useDelay: 20
+  - type: XenoActionPlasma
+    cost: 100

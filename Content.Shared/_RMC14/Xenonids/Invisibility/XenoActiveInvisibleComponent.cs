@@ -5,7 +5,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 namespace Content.Shared._RMC14.Xenonids.Invisibility;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState, AutoGenerateComponentPause]
-[Access(typeof(XenoInvisibilitySystem))]
+// [Access(typeof(XenoInvisibilitySystem))] // MC Changes
 public sealed partial class XenoActiveInvisibleComponent : Component
 {
     [DataField(customTypeSerializer: typeof(TimeOffsetSerializer)), AutoNetworkedField, AutoPausedField]
@@ -19,4 +19,8 @@ public sealed partial class XenoActiveInvisibleComponent : Component
 
     [DataField, AutoNetworkedField]
     public bool DidPopup;
+
+    // MC Changes
+    [DataField, AutoNetworkedField]
+    public float? Opacity;
 }

@@ -24,5 +24,5 @@ public sealed partial class MCXenoBlinkComponent : Component
     public TimeSpan StaggerDuration = TimeSpan.FromSeconds(2);
 
     [DataField]
-    public TimeSpan SlowdownDuration = TimeSpan.FromSeconds(3);
+    public float SlowdownStacks = 3;
 }

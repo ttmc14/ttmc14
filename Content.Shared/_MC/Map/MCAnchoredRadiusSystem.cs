@@ -16,6 +16,18 @@ public sealed class MCAnchoredRadiusSystem : EntitySystem
         _gridQuery = GetEntityQuery<MapGridComponent>();
     }
 
+    public void GetAnchoredInRadius(
+        HashSet<EntityUid> list,
+        EntityCoordinates coords,
+        int radius)
+    {
+        var enumerator = GetAnchoredInRadius(coords, radius);
+        while (enumerator.MoveNext(out var uid))
+        {
+            list.Add(uid);
+        }
+    }
+
     public MCAnchoredRadiusEnumerator GetAnchoredInRadius(
         EntityCoordinates coords,
         int radius)

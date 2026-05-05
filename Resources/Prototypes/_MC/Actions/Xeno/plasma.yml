@@ -15,3 +15,16 @@
   - type: EntityTargetAction
     event: !type:MCXenoTransferPlasmaActionEvent
     canTargetSelf: false
+
+- type: entity
+  parent: MCActionXenoTransferPlasma
+  id: MCActionXenoTransferPlasmaUnbound
+  components:
+  - type: Action
+    checkCanInteract: false
+  - type: TargetAction
+    range: -1
+    checkCanAccess: false
+  - type: EntityTargetAction
+    event: !type:MCXenoTransferPlasmaActionEvent
+    canTargetSelf: false

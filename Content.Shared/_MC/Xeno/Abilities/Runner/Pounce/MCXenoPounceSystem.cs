@@ -138,6 +138,8 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         var duration = _timing.CurTime + TimeSpan.FromSeconds(direction.Length() / entity.Comp.Strength);
 
         pouncingComponent.End = duration;
+        pouncingComponent.Origin = origin;
+
         Dirty(entity, pouncingComponent);
 
         ActionStartUseDelay<MCXenoPounceActionEvent>(entity, actionUid);

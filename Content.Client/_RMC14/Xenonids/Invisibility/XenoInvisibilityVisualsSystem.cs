@@ -14,11 +14,13 @@ public sealed class XenoInvisibilityVisualsSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        var invisible = EntityQueryEnumerator<XenoTurnInvisibleComponent, SpriteComponent>();
-        while (invisible.MoveNext(out var uid, out var comp, out var sprite))
+        // MC Changes
+        var invisible = EntityQueryEnumerator<SpriteComponent>();
+        while (invisible.MoveNext(out var uid, out var sprite))
         {
-            var opacity = _activeInvisibleQuery.HasComp(uid) ? comp.Opacity : 1;
+            var opacity = _activeInvisibleQuery.TryComp(uid, out var invisibleComponent) ? invisibleComponent.Opacity ?? 1 : 1;
             sprite.Color = Color.Transparent.WithAlpha(opacity);
         }
+        // MC End
     }
 }

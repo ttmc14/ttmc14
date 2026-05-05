@@ -1,6 +1,8 @@
 ﻿using System.Numerics;
 using Content.Shared._MC.Areas;
 using Content.Shared._MC.Areas.Components;
+using Content.Shared._MC.StatusEffects.SlowdownStacks;
+using Content.Shared._MC.Stun;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Xenonids;
@@ -25,9 +27,9 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
     [Dependency] private readonly PullingSystem _pulling = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
 
-    [Dependency] private readonly RMCSlowSystem _rmcSlow = null!;
-
     [Dependency] private readonly MCAreasSystem _mcArea = null!;
+    [Dependency] private readonly MCStunSystem _mcStun = null!;
+    [Dependency] private readonly MCSlowdownStacksSystem _mcSlowdownStacks = null!;
 
     public override void Initialize()
     {
@@ -152,8 +154,8 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
             if (HasComp<XenoComponent>(taget) && MCXenoHive.FromSameHive(entity.Owner, taget.Owner))
                 continue;
 
-            // TODO: Stagger
-            _rmcSlow.TrySlowdown(taget, entity.Comp.StaggerDuration);
+            _mcStun.Stagger(taget, entity.Comp.StaggerDuration);
+            _mcSlowdownStacks.AdjustSlowdown(entity, entity.Comp.SlowdownStacks);
         }
     }
 }

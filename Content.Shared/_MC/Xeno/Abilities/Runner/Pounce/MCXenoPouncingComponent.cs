@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Map;
 
 namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce;
 
@@ -10,4 +11,7 @@ public sealed partial class MCXenoPouncingComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan End;
+
+    [DataField, AutoNetworkedField]
+    public MapCoordinates Origin;
 }
