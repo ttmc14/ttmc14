@@ -7,6 +7,8 @@
     snap:
     - Wall
   components:
+  - type: Tag
+    tags: [ MCXenoIgnoreBanish ]
   - type: Transform
     anchored: true
   - type: Sprite
@@ -31,8 +33,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         mask:
         - FullTileMask
@@ -155,32 +156,30 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-              CMRodMetal:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameAlmayer
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+          CMRodMetal:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameAlmayer
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -234,32 +233,30 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-              CMRodMetal:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameWhite
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+          CMRodMetal:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameWhite
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -291,29 +288,27 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 40
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameColony
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameColony
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -345,32 +340,30 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-              CMRodMetal:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameColonyReinforced
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+          CMRodMetal:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameColonyReinforced
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -424,32 +417,30 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-              CMRodMetal:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameHunterReinforced
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+          CMRodMetal:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameHunterReinforced
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -481,29 +472,27 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 40
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameWood
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 40
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameWood
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -535,32 +524,30 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-              CMRodMetal:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameWood
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+          CMRodMetal:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameWood
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction
@@ -592,32 +579,30 @@
   - type: Repairable
   - type: Destructible
     thresholds:
-      - trigger:
-          !type:DamageTrigger
-          damage: 600 # excessive damage destroys window and frame
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:DoActsBehavior
-            acts: ["Destruction"]
-      - trigger:
-          !type:DamageTrigger
-          damage: 100
-        behaviors:
-          - !type:PlaySoundBehavior
-            sound:
-              collection: WindowShatter
-          - !type:SpawnEntitiesBehavior
-            spawn:
-              CMShardGlass:
-                min: 1
-                max: 1
-              CMRodMetal:
-                min: 1
-                max: 1
-          - !type:ChangeConstructionNodeBehavior
-            node: windowFrameAI
+    - trigger: !type:DamageTrigger
+        damage: 600 # excessive damage destroys window and frame
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: WindowShatter
+      - !type:SpawnEntitiesBehavior
+        spawn:
+          CMShardGlass:
+            min: 1
+            max: 1
+          CMRodMetal:
+            min: 1
+            max: 1
+      - !type:ChangeConstructionNodeBehavior
+        node: windowFrameAI
   - type: RMCWallExplosionDeletable
   - type: DestroyedByExplosionType
   - type: Construction

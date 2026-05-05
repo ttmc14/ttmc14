@@ -94,8 +94,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         mask:
         - FullTileMask
@@ -125,6 +124,8 @@
     snap:
     - Wall
   components:
+  - type: Tag
+    tags: [ MCXenoIgnoreBanish ]
   - type: Icon
     state: full
 
@@ -234,8 +235,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.5,-0.5,0.5,0.5"
         mask:
         - FullTileMask
