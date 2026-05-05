@@ -70,8 +70,9 @@
     useDelay: 20
   - type: TargetAction
     range: -1
-    # checkCanAccess: false
+    checkCanAccess: false
   - type: EntityTargetAction
+    targetCheckCanInteract: false
     event: !type:MCXenoBanishActionEvent
   - type: XenoActionPlasma
     cost: 100
