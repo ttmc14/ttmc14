@@ -31,11 +31,11 @@
     skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
-    repairableDamageLimit: 340
-  - type: NailgunRepairable
+  # repairableDamageLimit: 340 - !!MC-TODO: At TGMC You can heal cades with Metal at 1 hand, and blowtorch at second.!!
+  # - type: NailgunRepairable
     # cm13 max_health%: 0.3, 0.45
-    repairMetal: 135
-    repairPlasteel: 200
+    # repairMetal: 135
+    # repairPlasteel: 200
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

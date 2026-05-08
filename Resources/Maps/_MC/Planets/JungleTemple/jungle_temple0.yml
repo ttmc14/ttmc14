@@ -4,8 +4,8 @@ meta:
   engineVersion: 264.0.2
   forkId: ""
   forkVersion: ""
-  time: 04/02/2026 13:25:19
-  entityCount: 9294
+  time: 05/08/2026 16:27:04
+  entityCount: 9326
 maps:
 - 1
 grids:
@@ -714,15 +714,11 @@ entities:
             color: '#FFFFFF5D'
             id: Dirt
           decals:
+            731: 30,39
             807: 44,61
             808: 49,61
             809: 44,73
             810: 49,73
-        - node:
-            color: '#FFFFFF5D'
-            id: Dirt
-          decals:
-            731: 30,39
         - node:
             color: '#FFFFFF69'
             id: Dirt
@@ -18098,29 +18094,29 @@ entities:
     - type: Roof
       data:
         -1,3: 13889313184910671872
-        0,3: 18446738554676568064
+        0,3: 18446744073709543424
         1,3: 18446744073709551360
-        2,3: 9187202500199939840
-        3,3: 1096758001664
+        2,3: 9187202502347423488
+        3,3: 1099511562240
         2,4: 17361500191990972287
         2,5: 17361641481138401520
         3,4: 18446462598732840960
         3,5: 18446744073709551615
         4,2: 18446744073709551615
-        4,3: 3617234925708640255
+        4,3: 4485303753884303359
         5,2: 18446744073709551615
-        5,3: 281474976710655
+        5,3: 289637751035265023
         4,1: 18446742974197923840
         5,1: 18446742974197923840
         0,4: 3772834016
         1,4: 4294967295
-        4,4: 9223145753049969202
+        4,4: 9223158981751355962
         4,5: 18446744073709551487
-        5,4: 290200700988686336
+        5,4: 290205116282438660
         5,5: 506381209866536708
         4,6: 18446744071705264127
         4,7: 18446744073709551615
-        5,6: 506381209765611271
+        5,6: 506381209799165703
         5,7: 506381209866536711
         2,6: 9259542121117970672
         2,7: 9259542123273814144
@@ -48458,6 +48454,170 @@ entities:
     - type: Transform
       pos: 70.58877,116.526596
       parent: 1
+- proto: MCSpawnExcavationMoney
+  entities:
+  - uid: 9238
+    components:
+    - type: Transform
+      pos: 3.5,15.5
+      parent: 1
+  - uid: 9239
+    components:
+    - type: Transform
+      pos: 8.5,-0.5
+      parent: 1
+  - uid: 9241
+    components:
+    - type: Transform
+      pos: 19.5,6.5
+      parent: 1
+  - uid: 9242
+    components:
+    - type: Transform
+      pos: 15.5,16.5
+      parent: 1
+  - uid: 9243
+    components:
+    - type: Transform
+      pos: 7.5,37.5
+      parent: 1
+  - uid: 9244
+    components:
+    - type: Transform
+      pos: 13.5,44.5
+      parent: 1
+  - uid: 9245
+    components:
+    - type: Transform
+      pos: 4.5,57.5
+      parent: 1
+  - uid: 9246
+    components:
+    - type: Transform
+      pos: 12.5,67.5
+      parent: 1
+  - uid: 9247
+    components:
+    - type: Transform
+      pos: -2.5,81.5
+      parent: 1
+  - uid: 9248
+    components:
+    - type: Transform
+      pos: -16.5,96.5
+      parent: 1
+  - uid: 9249
+    components:
+    - type: Transform
+      pos: -5.5,112.5
+      parent: 1
+  - uid: 9250
+    components:
+    - type: Transform
+      pos: 7.5,111.5
+      parent: 1
+  - uid: 9251
+    components:
+    - type: Transform
+      pos: 28.5,84.5
+      parent: 1
+  - uid: 9252
+    components:
+    - type: Transform
+      pos: 15.5,80.5
+      parent: 1
+  - uid: 9253
+    components:
+    - type: Transform
+      pos: 58.5,111.5
+      parent: 1
+  - uid: 9254
+    components:
+    - type: Transform
+      pos: 85.5,107.5
+      parent: 1
+  - uid: 9255
+    components:
+    - type: Transform
+      pos: 88.5,80.5
+      parent: 1
+  - uid: 9256
+    components:
+    - type: Transform
+      pos: 69.5,67.5
+      parent: 1
+  - uid: 9257
+    components:
+    - type: Transform
+      pos: 87.5,64.5
+      parent: 1
+  - uid: 9258
+    components:
+    - type: Transform
+      pos: 99.5,52.5
+      parent: 1
+  - uid: 9259
+    components:
+    - type: Transform
+      pos: 76.5,43.5
+      parent: 1
+  - uid: 9260
+    components:
+    - type: Transform
+      pos: 68.5,32.5
+      parent: 1
+  - uid: 9261
+    components:
+    - type: Transform
+      pos: 55.5,19.5
+      parent: 1
+  - uid: 9262
+    components:
+    - type: Transform
+      pos: 53.5,-1.5
+      parent: 1
+  - uid: 9263
+    components:
+    - type: Transform
+      pos: 39.5,-1.5
+      parent: 1
+  - uid: 9264
+    components:
+    - type: Transform
+      pos: 32.5,44.5
+      parent: 1
+  - uid: 9265
+    components:
+    - type: Transform
+      pos: 19.5,51.5
+      parent: 1
+  - uid: 9266
+    components:
+    - type: Transform
+      pos: 30.5,67.5
+      parent: 1
+  - uid: 9267
+    components:
+    - type: Transform
+      pos: 79.5,20.5
+      parent: 1
+  - uid: 9269
+    components:
+    - type: Transform
+      pos: 68.5,-8.5
+      parent: 1
+- proto: MCSpawnExcavationXeno
+  entities:
+  - uid: 9240
+    components:
+    - type: Transform
+      pos: 18.5,-8.5
+      parent: 1
+  - uid: 9268
+    components:
+    - type: Transform
+      pos: 82.5,-2.5
+      parent: 1
 - proto: MCSpawnNukeDiskGenerator
   entities:
   - uid: 1570
@@ -51480,6 +51640,8 @@ entities:
     - type: Transform
       pos: 65.47603,107.58958
       parent: 1
+    - type: HideLayerClothing
+      slots: null
 - proto: RMCBarrelBlue
   entities:
   - uid: 333

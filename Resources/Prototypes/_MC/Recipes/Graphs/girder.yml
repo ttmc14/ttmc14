@@ -1,0 +1,179 @@
+- type: constructionGraph
+  parent: RMC
+  id: MCGirder
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: girder
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: MCMetal
+        amount: 2
+        doAfter: 4
+
+  - node: mcgirder
+    entity: MCGirder
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 2
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 4
+      - tool: Cutting
+        doAfter: 4
+      - tool: Anchoring
+        doAfter: 4
+
+    - to: mcwall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: MCMetal
+        amount: 3
+        doAfter: 3
+      - tool: Screwing
+        doAfter: 3
+      - tool: Welding
+        doAfter: 4
+      - material: MCMetal
+        amount: 2
+        doAfter: 2
+      - tool: Screwing
+        doAfter: 3
+      - tool: Welding
+        doAfter: 4
+
+    - to: mcreinforcedWall
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: MCPlasteel
+        amount: 4
+        doAfter: 4
+      - tool: Screwing
+        doAfter: 4
+      - material: MCRodMetal
+        amount: 2
+        doAfter: 0
+      - tool: Welding
+        doAfter: 5
+      - tool: Screwing
+        doAfter: 3
+      - tool: Welding
+        doAfter: 4
+
+  - node: mcwall
+    entity: MCWallRegular
+    edges:
+    - to: mcgirder
+      completed:
+      - !type:GivePrototype
+        prototype: MCRodMetal1
+        amount: 1
+      steps:
+      - tool: Welding
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Screwing
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Cutting
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Anchoring
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Prying
+        doAfter: 6
+        duplicateConditions: All
+
+  - node: mcreinforcedWall
+    entity: MCWallReinforced
+    edges:
+    - to: mcgirder
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCRodMetal1
+        amount: 2
+      steps:
+      - tool: Welding
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Screwing
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Cutting
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Anchoring
+        doAfter: 6
+        duplicateConditions: All
+      - tool: Prying
+        doAfter: 6
+        duplicateConditions: All
+
+- type: constructionGraph
+  parent: RMC
+  id: MCGirderDamaged
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: girder
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      steps:
+      - material: MCMetal
+        amount: 2
+        doAfter: 4
+
+  - node: mcgirderdamaged
+    entity: MCGirderDamaged
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 1
+      - !type:DeleteEntity {}
+      steps:
+      - tool: Screwing
+        doAfter: 2
+        duplicateConditions: All
+      - tool: Cutting
+        doAfter: 2
+        duplicateConditions: All
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+
+    - to: mcgirder
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: MCGirder
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Prying
+        doAfter: 2
+        duplicateConditions: All
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
