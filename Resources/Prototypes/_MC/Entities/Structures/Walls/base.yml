@@ -87,7 +87,7 @@
     - doors
 
 - type: examinableDamage
-  id: RMCGirderMessages
+  id: MCGirderMessages
   messages:
     - rmc-girder-integrity-1
     - rmc-girder-integrity-2
@@ -247,7 +247,7 @@
     sprite: _RMC14/Structures/Walls/structures.rsi
     state: girder_damaged
   - type: ExaminableDamage
-    messages: RMCGirderMessages
+    messages: MCGirderMessages
   - type: Damageable
     damageContainer: StructuralMarine
     damageModifierSet: StructuralMarine
