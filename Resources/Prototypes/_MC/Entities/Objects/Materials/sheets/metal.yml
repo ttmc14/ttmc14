@@ -31,9 +31,12 @@
     # Materials
     - MCBarbedWireBuild
     - MCRazorwireBuild
+    - MCRodMetalBuild
     # Barricades
     - MCMetalBarricadeBuild
     - MCMetalBarricadeFoldingBuild
+    # Structures
+    - MCGirderBuild
   - type: RMCConstructionUpgradeItem
     whitelist:
       tags:

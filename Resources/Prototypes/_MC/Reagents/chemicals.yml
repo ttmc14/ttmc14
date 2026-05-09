@@ -18,7 +18,8 @@
   parent: SheetOtherBase
   id: MCSheetPhoron
   name: phoron
-  suffix: Full, MC
+  suffix: Full
+  categories: [ MCContent ]
   components:
   - type: Material
   - type: PhysicalComposition
@@ -87,32 +88,32 @@
   flavor: bitter
   color: "#A5F0EE"
   boilingPoint: 147.0
-  meltingPoint: -11.0
+  meltingPoint: -11
   overdose: 30
   criticalOverdose: 50
   tileReactions:
-    - !type:CleanTileReaction {}
-    - !type:CleanDecalsReaction {}
+  - !type:CleanTileReaction {}
+  - !type:CleanDecalsReaction {}
   metabolisms:
     Medicine:
       metabolismRate: 0.01
       effects:
-        - !type:ChemVomit
-          probability: 0.1
-        - !type:HealthChange
-          conditions:
-          - !type:ReagentThreshold
-            min: 30
-          damage:
-            types:
-              MCToxin: 1
-        - !type:HealthChange
-          conditions:
-          - !type:ReagentThreshold
-            min: 50
-          damage:
-            types:
-              MCToxin: 1
+      - !type:ChemVomit
+        probability: 0.1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 30
+        damage:
+          types:
+            MCToxin: 1
+      - !type:HealthChange
+        conditions:
+        - !type:ReagentThreshold
+          min: 50
+        damage:
+          types:
+            MCToxin: 1
 
 - type: reagent
   id: MCSterilizine
@@ -122,19 +123,19 @@
   flavor: bitter
   color: "#C8A5DC"
   boilingPoint: 147.0
-  meltingPoint: -11.0
+  meltingPoint: -11
   tileReactions:
-    - !type:CleanTileReaction {}
-    - !type:CleanDecalsReaction {}
+  - !type:CleanTileReaction {}
+  - !type:CleanDecalsReaction {}
   metabolisms:
     Medicine:
       metabolismRate: 0.1
       effects:
-        - !type:ChemVomit
-          probability: 0.2
-        - !type:HealthChange # Эта хуйня по факту должна инфекции уничтожать.
-          damage:
-            types:
-              MCBurn: 2
-              MCToxin: 3
-
+      - !type:ChemVomit
+        probability: 0.2
+      # Эта хуйня по факту должна инфекции уничтожать.
+      - !type:HealthChange
+        damage:
+          types:
+            MCBurn: 2
+            MCToxin: 3

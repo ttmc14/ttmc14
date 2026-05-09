@@ -5,7 +5,8 @@
   categories: [ MCContent ]
   components:
   - type: Tag
-    tags: [ Wall ]
+    tags:
+    - MCXenoIgnoreBanish
   - type: XenoFriendly
   - type: MCXenoIgnoreFriendlyCollision
   - type: MCAIPathfindingIgnore # ALERT

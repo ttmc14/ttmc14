@@ -100,6 +100,7 @@
   id: MCBoxGovernmentRounds
   name: packet of .45-70
   description: A packet containing 50 rounds of .45-70 Government.
+  categories: [ MCContent ]
   components:
   - type: Tag
     tags:

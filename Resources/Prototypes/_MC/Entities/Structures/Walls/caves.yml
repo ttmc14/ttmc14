@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCWall
+  parent: MCWallInvincibleBase
   id: MCWallCaveInvincible
   name: rock
   abstract: true
