@@ -15,3 +15,21 @@
   name: ???
   damageTypes:
   - MCBurn
+
+- type: damageGroup
+  id: MCToxin
+  name: ???
+  damageTypes:
+  - MCToxin
+
+- type: damageGroup
+  id: MCOxygen
+  name: ???
+  damageTypes:
+  - MCOxygen
+
+- type: damageGroup
+  id: MCClone
+  name: ???
+  damageTypes:
+  - MCClone
