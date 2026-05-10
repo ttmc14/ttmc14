@@ -45,7 +45,9 @@
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 8
+        MCBrute: 10
+  - type: CMArmorPiercing
+    amount: 5
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 4.25

@@ -84,6 +84,8 @@
     damage:
       types:
         MCBrute: 20
+  - type: CMArmorPiercing
+    amount: 10
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.85
     baseSprintSpeed: 4
