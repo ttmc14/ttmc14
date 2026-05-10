@@ -10,6 +10,7 @@
       preconditions:
         Enemy: true
         OrderAttack: true
+        OrderFollow: false
       priority: 10
 
     # Rest if owner do
@@ -35,7 +36,6 @@
       preconditions:
         Owner: true
         OwnerResting: false
-        OrderFollow: true
       priority: 1
 
     # Sensors
