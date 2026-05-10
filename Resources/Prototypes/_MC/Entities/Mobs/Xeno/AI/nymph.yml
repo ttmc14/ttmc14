@@ -74,7 +74,7 @@
       threshold: 0.95
       direction: Grater
 
-    - !type:MCAISensorCheckXenoResting
+    - !type:MCAISensorXenoResting
       conditionKey: Resting
 
     actions:

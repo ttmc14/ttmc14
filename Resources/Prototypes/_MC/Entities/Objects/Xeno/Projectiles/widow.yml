@@ -1,0 +1,16 @@
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoProjectileWeb
+  components:
+  - type: Sprite
+    layers:
+    - state: web
+  - type: Projectile
+    damage: {}
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 8
+  - type: MCStunOnHit
+    maxDistance: 8
+    paralyzeTime: 2

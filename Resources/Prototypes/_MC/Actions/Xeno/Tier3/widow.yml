@@ -1,0 +1,114 @@
+# Orders
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoOrderAttack
+  name: Order Attack
+  description: Send out your summons to attack nearby humans.
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+      state: order_attack
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoOrderActionEvent
+      orderId: attack
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoOrderFollow
+  name: Order Follow
+  description: Recall your summons to follow you once more.
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+      state: order_follow
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoOrderActionEvent
+      orderId: follow
+
+# Summons
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSpawnSpiderling
+  name: Birth Spiderling (80)
+  description: Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+      state: summon_create
+    useDelay: 15
+  - type: InstantAction
+    event: !type:MCXenoSummonActionEvent
+  - type: XenoActionPlasma
+    cost: 80
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAbsorbSpiderling
+  name: Absorb Spiderling (15)
+  description: We kill our spiderling and absorb their life energy and plasma.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+      state: summon_absorb
+    useDelay: 10
+  - type: TargetAction
+    range: 3
+  - type: EntityTargetAction
+    event: !type:MCXenoSummonAbsorbActionEvent
+    canTargetSelf: false
+  - type: XenoActionPlasma
+    cost: 15
+
+# Spit
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSpitOnceWeb
+  name: Web Spit (100)
+  description: Stun and blind the target with a web projectile.
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+      state: spit_web
+    useDelay: 15
+  - type: TargetAction
+    range: 9999
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoSpitOnceActionEvent
+      range: 8
+      speed: 30
+      projectileId: MCXenoProjectileWeb
+  - type: XenoActionPlasma
+    cost: 100
+  - type: ActionBlockIfResting
+
+# Other
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoWebPounce
+  name: Web Pounce (200)
+  description: Shoot out a web and pull it to traverse forward like Spiderman.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+      state: pounce
+    useDelay: 15
+  - type: TargetAction
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
+  - type: XenoActionPlasma
+    cost: 200
+  - type: ActionBlockIfResting

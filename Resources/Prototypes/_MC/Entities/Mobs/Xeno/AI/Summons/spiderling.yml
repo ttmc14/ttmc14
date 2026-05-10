@@ -1,0 +1,116 @@
+- type: entity
+  id: MCAIXenoSummonSpiderling
+  components:
+  - type: InputMover
+  - type: MCAIAgent
+    # Goals
+    goals:
+    - desiredState:
+        EnemyDead: true
+      preconditions:
+        Enemy: true
+        OrderAttack: true
+      priority: 10
+
+    # Rest if owner do
+    - desiredState:
+        Resting: true
+      preconditions:
+        Resting: false
+        Owner: true
+        OwnerResting: true
+      priority: 2
+
+    - desiredState:
+        Resting: false
+      preconditions:
+        Resting: true
+        Owner: true
+        OwnerResting: false
+      priority: 2
+
+    # Follow owner
+    - desiredState:
+        FollowOwner: true
+      preconditions:
+        Owner: true
+        OwnerResting: false
+        OrderFollow: true
+      priority: 1
+
+    # Sensors
+    sensors:
+    - !type:MCAISensorNearestHostile
+      conditionKey: Enemy
+      outputTargetKey: hostile
+
+    - !type:MCAISensorRangeToTarget
+      conditionKey: EnemyInRange
+      targetKey: hostile
+      range: 1.5
+
+    - !type:MCAISensorXenoOwner
+      conditionKey: Owner
+      outputTargetKey: owner
+
+    - !type:MCAISensorXenoResting
+      conditionKey: OwnerResting
+      targetKey: owner
+
+    - !type:MCAISensorXenoResting
+      conditionKey: Resting
+
+    - !type:MCAISensorXenoOrder
+      conditionKey: OrderAttack
+      id: attack
+
+    - !type:MCAISensorXenoOrder
+      conditionKey: OrderFollow
+      id: follow
+
+    # Actions
+    actions:
+    # Rest down
+    - !type:MCAIActionUse
+      preconditions:
+        Resting: false
+      effects:
+        Resting: true
+      actionPrototype: MCActionXenoRest
+      cost: 0
+
+    # Rest up
+    - !type:MCAIActionUse
+      preconditions:
+        Resting: true
+      effects:
+        Resting: false
+      actionPrototype: MCActionXenoRest
+      cost: 0
+
+    # Move to hostile
+    - !type:MCAIActionMoveToTarget
+      targetKey: hostile
+      preconditions:
+        Resting: false
+        Enemy: true
+      effects:
+        EnemyInRange: true
+
+    # Attack hostile
+    - !type:MCAIActionMeleeAttack
+      targetKey: hostile
+      preconditions:
+        Resting: false
+        EnemyInRange: true
+      effects:
+        EnemyDead: true
+
+    # Move to owner
+    - !type:MCAIActionMoveToTarget
+      targetKey: owner
+      preconditions:
+        Resting: false
+        Owner: true
+      effects:
+        FollowOwner: true

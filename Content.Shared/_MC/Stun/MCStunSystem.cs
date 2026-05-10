@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using Content.Shared._MC.Stun.Events;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Pulling;
 using Content.Shared._RMC14.Slow;
 using Content.Shared._RMC14.Stun;
@@ -24,6 +25,8 @@ public sealed class MCStunSystem : EntitySystem
 
     [Dependency] private readonly RMCSlowSystem _slow = null!;
     [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     public override void Initialize()
     {
@@ -53,6 +56,9 @@ public sealed class MCStunSystem : EntitySystem
             return;
 
         if (TryComp<RMCSizeComponent>(args.Target, out var sizeComponent) && sizeComponent.Size == RMCSizes.Big)
+            return;
+
+        if (_mcXenoHive.FromSameHive(entity.Owner, args.Target))
             return;
 
         if (!IsParalyzed(args.Target))

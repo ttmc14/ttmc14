@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "order_attack"
+    },
+    {
+      "name": "order_follow"
+    },
+    {
+      "name": "pounce"
+    },
+    {
+      "name": "spit_web"
+    },
+    {
+      "name": "summon_absorb"
+    },
+    {
+      "name": "summon_attach"
+    },
+    {
+      "name": "summon_create"
+    },
+    {
+      "name": "summon_promote"
+    }
+  ]
+}

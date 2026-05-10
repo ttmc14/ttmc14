@@ -44,7 +44,7 @@
     - MCXenoPraetorian
     - MCXenoBoiler
     - MCXenoRavager
-    # - MCXenoWidow
+    - MCXenoWidow
     - MCXenoChimera
     # - MCXenoBehemoths
   - type: XenoDevolve
