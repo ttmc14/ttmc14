@@ -1,0 +1,150 @@
+- type: entity
+  parent: MCWeaponRevolver
+  id: MCWeaponR312Albedo
+  name: R-312 'Albedo' Revolver
+  description: Futuristic style revolver with railgun system, using to fire EMB (experimental medical bullets). Just first make sure that you chambered EMB, but not .500 White Express.
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponRevolver
+    - MCWeaponR312Albedo
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Special/albedo.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Special/albedo.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Fire/t312.ogg
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - MCSpeedLoaderR312AlbedoMD
+      - MCCartridgeR312AlbedoMD
+    proto: MCCartridgeR312AlbedoMD
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+  - type: RMCSelectiveFire
+    baseFireRate: 2
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 3
+    accuracyMultiplierUnwielded: 2
+  - type: AttachableHolder
+    slots:
+      #mc-aslot-barrel:
+        #hitelist:
+         #tags:
+         #- MCAttachmentRecoilCompensator # Left it here for future changes
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentRailFlashlight
+      #mc-aslot-underbarrel:
+       #whitelist:
+         #tags:
+         #- MCAttachmentLaserSight # Left it here for future changes
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.8, 0.065
+      rmc-aslot-rail: 0, 0.15
+      rmc-aslot-underbarrel: 0.375, -0.25
+
+- type: entity
+  id: MCBaseSpeedLoadereR312Albedo
+  name: R-312 'Albedo' revolver speed loader
+  parent: MCItem
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSidearm
+    - MCMagazineRevolver
+    - MCSpeedLoaderR312Albedo
+  - type: Item
+    size: Small
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeR312AlbedoMD
+    capacity: 5
+  - type: Sprite
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: entity
+  parent: MCBaseSpeedLoadereR312Albedo
+  id: MCSpeedLoaderR312AlbedoMD
+  name: R-312 Meraderm EMB speed loader
+  description: A R-500 'Albedo' revolver speed loader.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/r44.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: base-5
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: base
+    steps: 6
+    zeroVisible: false
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeR312AlbedoMD
+    capacity: 5
+  - type: Appearance
+  - type: Tag
+    tags:
+    - MCSpeedLoaderR312AlbedoMD
+
+- type: entity
+  id: MCCartridgeR312AlbedoMD
+  name: cartridge (.500 EMB)
+  parent: CMCartridgePistolBase
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeR312AlbedoMD
+  - type: CartridgeAmmo
+    proto: MCBulletR312AlbedoMD
+
+- type: entity
+  parent: CMBulletBase
+  id: MCBulletR312AlbedoMD
+  name: bullet (.500 EMB)
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 15
+  - type: CMArmorPiercing
+    amount: 10
+  - type: MCXenoSunderDamageOnHit
+    amount: 1
+  - type: SolutionContainerManager
+    solutions:
+      ammo:
+        maxVol: 2
+  - type: MeleeChemicalInjector
+    solution: ammo
+  - type: RefillableSolution
+    solution: ammo
+  - type: InjectableSolution
+    solution: ammo
+  - type: SolutionInjectOnProjectileHit
+    transferAmount: 2
+    solution: ammo
+  - type: SolutionTransfer
+    maxTransferAmount: 10
+
+- type: Tag
+  id: MCSpeedLoaderR312AlbedoMD
+
+- type: Tag
+  id: MCWeaponRevolverR312Albedo
+
+- type: Tag
+  id: MCCartridgeR312AlbedoMD
