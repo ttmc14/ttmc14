@@ -27,7 +27,7 @@
     thresholds:
       0: Alive
       150: Critical
-      250: Dead
+      151: Dead
   - type: XenoPlasma
     plasma: 50
     maxPlasma: 50
