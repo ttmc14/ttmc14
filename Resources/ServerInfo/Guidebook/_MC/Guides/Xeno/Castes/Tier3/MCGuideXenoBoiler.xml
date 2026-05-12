@@ -1,5 +1,5 @@
 <Document>
-  
+
   # КСЕНОМОРФ ПОДДЕРЖКИ
 
   <Box VerticalAlignment="Bottom">
@@ -27,5 +27,59 @@
   [bold]Скорость:[/bold] 3.225 \n
   [bold]Защита:[/bold] 45/45/45/45/0/35/45/35 \n
   [bold]Размер:[/bold] Большой
+
+  # Способности
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPlaceAcidWell"/>
+
+  Размещает колодец кислоты, который может тушить огонь и уничтожать липкие гранаты.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoSelectReagent"/>
+
+  Выбирает тип снаряда для бомбардировки: кислоту или нейротоксин.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoSprayAcidBoiler"/>
+
+  Создаёт линию опасной кислоты в направлении цели.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoBoilerLongRange"/>
+
+  Активирует прицел оружия в направлении вашего взгляда. Необходимо оставаться на месте для использования.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoCreateGlob"/>
+
+  Создаёт снаряд для бомбардировки.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoBombard"/>
+
+  Запускает шар кислоты или нейротоксина после задержки.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoAcidShroud"/>
+
+  Создаёт небольшое облако кислотного или нейротоксинового газа вокруг вас, чтобы скрыться. Это отключает другие способности на короткое время, позволяя вам сбежать.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoAcidStrong"/>
+
+  Со временем расплавляет конструкцию или предмет.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPlaceTrap"/>
+
+  Размещает яму на сорняках, которую можно заполнить лицехватом, жидкой кислотой или кислотным газом. Активируется, когда на неё наступает морпех.
 
 </Document>

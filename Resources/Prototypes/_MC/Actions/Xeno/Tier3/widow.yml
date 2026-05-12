@@ -20,6 +20,9 @@
   name: Order Follow
   description: Recall your summons to follow you once more.
   components:
+  - type: Sprite
+    sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi
+    state: order_follow
   - type: Action
     icon:
       sprite: _MC/Interface/Actions/Xeno/Tier3/widow.rsi

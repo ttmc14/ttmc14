@@ -25,6 +25,9 @@
   name: Blink (30)
   description: Teleport to a space a short distance away within line of sight. Can teleport mobs you're dragging with you at the cost of higher cooldown.
   components:
+  - type: Sprite
+    sprite: _MC/Interface/Actions/Xeno/wraith.rsi
+    state: blink
   - type: Action
     itemIconStyle: NoItem
     icon:
