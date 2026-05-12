@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Actions;
+﻿using Content.Shared._MC.Xeno.Abilities.Evasion;
+using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.Actions;
@@ -9,7 +10,7 @@ using Robust.Shared.Audio.Systems;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._MC.Xeno.Abilities.Evasion;
+namespace Content.Shared._MC.Xeno.Abilities.Runner.Evasion;
 
 public sealed class MCXenoEvasionSystem : EntitySystem
 {

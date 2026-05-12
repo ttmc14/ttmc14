@@ -3,6 +3,7 @@
   # MC
   - MCXenoBase
   - MCXenoComponentFixtureRunner
+  - MCXenoComponentReagentSelector
   - MCXenoComponentTier2
   - MCXenoComponentEvolutionTier2
   # RMC
@@ -42,8 +43,13 @@
     - MCActionXenoSkin
     # Base
     - MCActionXenoRest
-    - MCActionXenoPsydrain
+    - MCActionXenoPsydrainLowCost
     - MCActionXenoDevolve
+    # Main
+    - MCActionXenoTearingTail
+    - MCActionXenoSelectReagent
+    - MCActionXenoPouncePanther
+    - MCActionXenoEvasiveManeuvers
     # Utilities
     - MCActionXenoHide
     hudOffset: -0.15, 0.25
@@ -64,7 +70,7 @@
       laser: 15
       energy: 15
       bomb: 0
-      bio: 7
+      bio: 10
       fire: 0
       acid: 5
   - type: MeleeWeapon
@@ -74,13 +80,18 @@
         MCBrute: 23
   - type: MovementSpeedModifier
     baseWalkSpeed: 4
-    baseSprintSpeed: 6.66
+    baseSprintSpeed: 6.7
+  - type: VentCrawler
+    ventCrawlIcon: drone
   # Abilities
+  - type: MCXenoAdrenalin
+  - type: MCXenoPounceHeal
+    adjustPlasma: 35
+    adjustHealth: 25
   - type: MCXenoPounce
     hitSound: /Audio/_RMC14/Xeno/alien_pounce.ogg
     hitDamage:
       types:
         MCBrute: 25
-  - type: MCXenoEvasion
-  - type: VentCrawler
-    ventCrawlIcon: drone
+  - type: MCXenoEvasiveManeuvers
+  - type: MCXenoTearingTail
