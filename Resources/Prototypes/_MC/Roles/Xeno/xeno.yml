@@ -340,6 +340,27 @@
   id: MCXenoWarlock
   isXeno: true
 
+# Widow
+- type: job
+  parent: MCJobXeno
+  id: MCXenoWidow
+  name: mc-job-name-xeno-widow
+  playTimeTracker: MCXenoWidow
+
+- type: playTimeTracker
+  id: MCXenoWidow
+  isXeno: true
+
+- type: job
+  parent: MCJobXeno
+  id: MCXenoSummonSpiderling
+  name: mc-job-name-xeno-spiderling
+  playTimeTracker: MCXenoSummonSpiderling
+
+- type: playTimeTracker
+  id: MCXenoSummonSpiderling
+  isXeno: true
+
 # Tier 4
 
 # Shrike

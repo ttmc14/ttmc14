@@ -38,7 +38,7 @@
   # Actions
   - type: Xeno
     tier: 3
-    role: MCXenoBoiler
+    role: MCXenoWidow
     actionIds:
     # Visuals
     - MCActionXenoSkin
