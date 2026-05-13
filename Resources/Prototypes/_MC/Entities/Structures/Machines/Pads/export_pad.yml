@@ -5,8 +5,8 @@
   description: A telepad for sending valuble assets, such as valuble minerals and alien corpses. It needs to be wrenched down in a powered area to function.
   components:
   - type: Sprite
-    sprite: _MC/Structures/Machines/teleporter.rsi
-    state: teleporter_deployed_on
+    sprite: _MC/Structures/Machines/Pads/exporter.rsi
+    state: base_on
   # Integrity
   - type: Damageable
     damageContainer: Inorganic

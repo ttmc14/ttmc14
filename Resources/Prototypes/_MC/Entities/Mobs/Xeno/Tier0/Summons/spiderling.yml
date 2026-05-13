@@ -58,3 +58,5 @@
   # Nah no cost for summons
   - type: MCASRSCost
     cost: 0
+  - type: RMCGibOnDeath
+    gibChance: 1

@@ -63,3 +63,5 @@
     lifetime: 7
   - type: MCTimedDespawnDisappearanceVisuals
     lifetime: 7
+  - type: RMCGibOnDeath
+    gibChance: 1
