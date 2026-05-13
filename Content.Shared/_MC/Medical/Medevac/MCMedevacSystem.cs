@@ -1,7 +1,7 @@
 ﻿using Content.Shared._MC.Areas;
 using Content.Shared._MC.Chat;
-using Content.Shared._MC.Deploy;
-using Content.Shared._MC.Linking.Pair;
+using Content.Shared._MC.Engineering.Deploy;
+using Content.Shared._MC.Engineering.Linking.Pair;
 using Content.Shared.Buckle;
 using Content.Shared.Buckle.Components;
 using Content.Shared.Interaction;

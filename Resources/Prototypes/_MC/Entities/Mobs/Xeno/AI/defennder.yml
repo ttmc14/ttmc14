@@ -1,6 +1,7 @@
 - type: entity
   id: MCAIXenoDefender
   components:
+  - type: InputMover
   - type: MCAIAgent
     # Goals
     goals:

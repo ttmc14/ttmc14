@@ -130,9 +130,6 @@ public sealed class DefibrillatorSystem : EntitySystem
         if (!targetCanBeAlive && !component.CanDefibCrit && _mobState.IsCritical(target, mobState))
             return false;
 
-        if (HasComp<MCDefibrillatorNoBlockComponent>(uid))
-            return true;
-
         if (TryComp(target, out RMCDefibrillatorBlockedComponent? block))
         {
             if (user != null)

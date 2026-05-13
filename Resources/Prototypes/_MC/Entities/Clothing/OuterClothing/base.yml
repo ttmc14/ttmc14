@@ -20,3 +20,37 @@
     blacklist:
       components:
       - Xeno
+
+- type: entity
+  abstract: true
+  id: MCAllowSuitStorageClothingArmor
+  components:
+  - type: AllowSuitStorage
+    whitelist:
+      components:
+      - RMCLighter
+      - Bible
+      - Gun
+      - CassettePlayer
+      tags:
+      - GasTank
+      - Flashlight
+      - DiscreteHealthAnalyzer
+      - CigPack
+      - Knife
+      - RMCG8Pouch
+      - RMCMacheteScabbard
+      - RMCScabbardKatana
+      - MCScabbardKatana
+      - MCScabbardMachete
+      #TODO Various holsters should fit here - 47 belt, 1984, m44, and flaregun
+      - RMCM82FHolster
+      - RMCSmartPistolHolster
+      - RMCSMGHolster
+      - RMCSMGPouchHolster
+      - RMCGeneralPistolHolster
+      - RMCGeneralRevolverHolster
+      - RMCBeltHolsterM13
+      - RMCXM51Holster
+      - RMCDetector
+      - RMCMatebaHolster

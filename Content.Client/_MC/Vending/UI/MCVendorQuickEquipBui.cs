@@ -1,6 +1,6 @@
 ﻿using Content.Client._MC.Serialization.Loadout;
+using Content.Shared._MC.Engineering.Vending.UI.Messages;
 using Content.Shared._MC.Serialization.Loadout;
-using Content.Shared._MC.Vending.UI.Messages;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
@@ -12,7 +12,6 @@ public sealed class MCVendorQuickEquipBui(EntityUid owner, Enum uiKey) : BoundUs
 {
     [Dependency] private readonly IEntityManager _entities = null!;
 
-    private MCLoadoutSerializerSystem _mcLoadoutSerializer = null!;
     private MCLoadoutExporterSystem _mcLoadoutExporter = null!;
 
     [ViewVariables]
@@ -22,7 +21,6 @@ public sealed class MCVendorQuickEquipBui(EntityUid owner, Enum uiKey) : BoundUs
     {
         base.Open();
 
-        _mcLoadoutSerializer = _entities.System<MCLoadoutSerializerSystem>();
         _mcLoadoutExporter = _entities.System<MCLoadoutExporterSystem>();
 
         _window = this.CreateWindow<MCVendorQuickEquip>();

@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using Content.Shared._MC.Beacon.Prototypes;
+using Content.Shared._MC.Engineering.Beacon.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;

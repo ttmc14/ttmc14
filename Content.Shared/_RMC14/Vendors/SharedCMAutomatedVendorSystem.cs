@@ -1,5 +1,5 @@
 using System.Numerics;
-using Content.Shared._MC.Vending.Events;
+using Content.Shared._MC.Engineering.Vending.Events;
 using Content.Shared._RMC14.Animations;
 using Content.Shared._RMC14.Holiday;
 using Content.Shared._RMC14.Inventory;

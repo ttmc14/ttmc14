@@ -1,5 +1,5 @@
-﻿using Content.Shared._MC.Beacon;
-using Content.Shared._MC.Beacon.Events;
+﻿using Content.Shared._MC.Engineering.Beacon;
+using Content.Shared._MC.Engineering.Beacon.Events;
 
 namespace Content.Shared._MC.ASRS.Systems;
 

@@ -1,6 +1,7 @@
 - type: entity
   id: MCAIXenoMantis
   components:
+  - type: InputMover
   - type: MCAIAgent
     # Goals
     goals:
