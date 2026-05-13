@@ -35,3 +35,7 @@
   - type: Speech
   - type: MCASRSExporter
     efficiency: 1
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

@@ -57,6 +57,10 @@
     whitelist:
       components:
       - MCTeleporter
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
 
 - type: entity
   id: MCVendorBundleASRSTeleporter
