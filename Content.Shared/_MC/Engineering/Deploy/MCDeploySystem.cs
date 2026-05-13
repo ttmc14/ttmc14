@@ -152,7 +152,7 @@ public sealed class MCDeploySystem : EntitySystem
             return;
 
         var targetEntity = entity;
-        if (_stack.Use(entity, 1))
+        if (HasComp<StackComponent>(entity) && _stack.Use(entity, 1))
         {
             if (string.IsNullOrEmpty(entity.Comp.DeployedPrototype))
                 return;

@@ -71,6 +71,7 @@ public sealed class MCTeleporterSystem : EntitySystem
         Dirty(linked, linkedComp);
 
         _audio.PlayPredicted(entity.Comp.EffectSoundTeleport, entity, args.User);
+        _audio.PlayPredicted(entity.Comp.EffectSoundTeleport, linked, args.User);
 
         args.Handled = true;
     }
