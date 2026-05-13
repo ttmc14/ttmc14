@@ -6,7 +6,16 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Machines/Pads/teleporter.rsi
-    state: base_on
+    layers:
+    - map: [ "base" ]
+      state: base
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item: { state: base }
+          Deployed: { state: base_on }
   # Integrity
   - type: Damageable
     damageContainer: Inorganic
@@ -38,6 +47,8 @@
         mask:
         - MachineMask
   # Main
+  - type: Item
+    size: Large
   - type: MCTeleporter
   - type: MCDeploy
     deployFixture: teleporter
