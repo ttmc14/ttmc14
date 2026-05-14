@@ -53,13 +53,13 @@ public sealed partial class CEZLevelsSystem
 
     private void OnViewerInit(Entity<CEZLevelViewerComponent> ent, ref MapInitEvent args)
     {
-        _actions.AddAction(ent, ref ent.Comp.ZLevelActionEntity, ent.Comp.ActionProto);
+        _actions.AddAction(ent, ref ent.Comp.ActionEntity, ent.Comp.ActionId);
         _meta.AddFlag(ent, MetaDataFlags.ExtraTransformEvents);
     }
 
     private void OnCompRemove(Entity<CEZLevelViewerComponent> ent, ref ComponentRemove args)
     {
-        _actions.RemoveAction(ent.Comp.ZLevelActionEntity);
+        _actions.RemoveAction(ent.Comp.ActionEntity);
         _meta.RemoveFlag(ent, MetaDataFlags.ExtraTransformEvents);
 
         foreach (var eye in ent.Comp.Eyes)

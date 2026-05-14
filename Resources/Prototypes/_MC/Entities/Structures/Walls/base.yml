@@ -89,10 +89,10 @@
 - type: examinableDamage
   id: MCGirderMessages
   messages:
-    - rmc-girder-integrity-1
-    - rmc-girder-integrity-2
-    - rmc-girder-integrity-3
-    - rmc-girder-integrity-4
+  - rmc-girder-integrity-1
+  - rmc-girder-integrity-2
+  - rmc-girder-integrity-3
+  - rmc-girder-integrity-4
 
 - type: entity
   parent: BaseStructure
@@ -107,8 +107,7 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape:
-          !type:PhysShapeAabb
+        shape: !type:PhysShapeAabb
           bounds: "-0.45,-0.45,0.45,0.45"
         density: 60
         mask:
@@ -132,8 +131,7 @@
     damageModifierSet: RMCGirder
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -180,8 +178,7 @@
   ##  node: reinforcedGirder
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 500
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -191,8 +188,7 @@
             max: 1
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 50
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -253,8 +249,7 @@
     damageModifierSet: StructuralMarine
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 100
       behaviors:
       - !type:SpawnEntitiesBehavior
