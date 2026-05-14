@@ -154,7 +154,7 @@
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
     max: 10
-  - type: MCXenoProjectileInject
+  - type: MCProjectileInject
     reagents:
     - ReagentId: MCNeurotoxin
       Quantity: 10

@@ -1,0 +1,389 @@
+- type: entity
+  parent: MCWeaponRevolver
+  id: MCWeaponRevolverR312
+  name: R-312 'Albedo' Revolver
+  description: Futuristic style revolver with railgun system, using to fire EMB (experimental medical bullets). Just first make sure that you chambered EMB, but not .500 White Express.
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponRevolver
+    - MCWeaponRevolverR312
+    # Visuals
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Special/albedo.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Special/albedo.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Fire/t312.ogg
+  # Statistics
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - MCSpeedLoaderR312
+      - MCCartridgeRevolverR312
+      - MCCartridgeRevolverR312Medical
+      - MCCartridgeRevolverR312MedicalAdrenaline
+      - MCCartridgeRevolverR312MedicalRussianRed
+      - MCCartridgeRevolverR312MedicalMeraderm
+      - MCCartridgeRevolverR312MedicalNeuraline
+      - MCCartridgeRevolverR312MedicalHyronalin
+      - MCCartridgeRevolverR312MedicalCombat
+    proto: MCCartridgeRevolverR312
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    baseFireRate: 5
+    # Recoil
+    recoilWielded: -1
+    recoilUnwielded: -1
+    # Scatter
+    scatterWielded: 0 # -7
+    scatterUnwielded: 0 # -5
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 3
+    accuracyMultiplierUnwielded: 2
+  - type: RMCExtraProjectilesDamageMods
+    damageMultiplier: 0.35
+  - type: GunRequiresSkills
+    skills:
+      MCSkillMedical: 2
+  - type: AttachableHolder
+    slots: {}
+  - type: AttachableHolderVisuals
+    offsets: {}
+
+- type: Tag
+  id: MCWeaponRevolverR312
+
+# Speed loaders
+- type: entity
+  parent: MSpeedLoader
+  id: MCBaseSpeedLoaderR312
+  name: R-500 speed loader (.500)
+  description: A R-312 'Albedo' revolver speed loader.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSidearm
+    - MCMagazineRevolver
+    - MCSpeedLoaderR312
+  - type: MagazineVisuals
+    magState: base
+    steps: 4
+    zeroVisible: false
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312
+    capacity: 5
+
+- type: Tag
+  id: MCSpeedLoaderR312
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312Medical
+  name: R-312 EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312Medical
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312Medical
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312MedicalAdrenaline
+  name: R-312 Adrenaline EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312MedicalAdrenaline
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalAdrenaline
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312MedicalRussianRed
+  name: R-312 Russian Red EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312MedicalRussianRed
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalRussianRed
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312MedicalMeraderm
+  name: R-312 Meraderm EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312MedicalMeraderm
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalMeraderm
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312MedicalNeuraline
+  name: R-312 Neuraline EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312MedicalNeuraline
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalNeuraline
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312MedicalHyronalin
+  name: R-312 Hyronalin EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312MedicalHyronalin
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalHyronalin
+
+- type: entity
+  parent: MCBaseSpeedLoaderR312
+  id: MCSpeedLoaderR312MedicalCombat
+  name: R-312 Combat Mix EMB speed loader (.500)
+  components:
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR312MedicalCombat
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalCombat
+
+# Cartridges
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeRevolverR312
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312
+
+- type: Tag
+  id: MCCartridgeRevolverR312
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312Medical
+  name: .500 EMB
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312Medical
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312Medical
+
+- type: Tag
+  id: MCCartridgeRevolverR312Medical
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312MedicalAdrenaline
+  name: .500 Adrenaline EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312MedicalAdrenaline
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalAdrenaline
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalAdrenaline
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312MedicalRussianRed
+  name: .500 Russian Red EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312MedicalRussianRed
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalRussianRed
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalRussianRed
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312MedicalMeraderm
+  name: .500 Meraderm EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312MedicalMeraderm
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalMeraderm
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalMeraderm
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312MedicalNeuraline
+  name: .500 Neuraline EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312MedicalNeuraline
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalNeuraline
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalNeuraline
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312MedicalHyronalin
+  name: .500 Hyronalin EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312MedicalHyronalin
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalHyronalin
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalHyronalin
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312MedicalCombat
+  name: .500 Combat Mix EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCCartridgeRevolverR312MedicalCombat
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalCombat
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalCombat
+
+# Bulletes
+- type: entity
+  parent: MCBullet
+  id: MCBulletRevolverR312
+  name: .500 White Express revolver bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+  - type: CMArmorPiercing
+    amount: 60 # xeno 20
+  - type: MCStunOnHit
+    knockback: 1
+    slowdownTime: 0
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 15
+      falloff: 5
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletRevolverR312Medical
+  name: .500 EMB
+  components:
+  - type: MCProjectileInject
+    ignoreArmor: true
+    effect: true
+    effectColor: "#ff8000"
+  - type: MCProjectileIgnoreXeno
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 20
+  - type: CMArmorPiercing
+    amount: 120 # xeno 20
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 15
+      falloff: 5
+
+- type: entity
+  parent: MCBulletRevolverR312Medical
+  id: MCBulletRevolverR312MedicalAdrenaline
+  name: .500 Adrenaline EMB
+  components:
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCAdrenalin
+      Quantity: 2
+    - ReagentId: MCHyronalin
+      Quantity: 3
+
+- type: entity
+  parent: MCBulletRevolverR312Medical
+  id: MCBulletRevolverR312MedicalRussianRed
+  name: .500 Russian Red EMB
+  components:
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCRussianRed
+      Quantity: 5
+
+- type: entity
+  parent: MCBulletRevolverR312Medical
+  id: MCBulletRevolverR312MedicalMeraderm
+  name: .500 Meraderm EMB
+  components:
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCMeralyne
+      Quantity: 2.5
+    - ReagentId: MCDermaline
+      Quantity: 2.5
+
+- type: entity
+  parent: MCBulletRevolverR312Medical
+  id: MCBulletRevolverR312MedicalNeuraline
+  name: .500 Neuraline EMB
+  components:
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCNeuraline
+      Quantity: 3.1
+    - ReagentId: MCHyronalin
+      Quantity: 1.9
+
+- type: entity
+  parent: MCBulletRevolverR312Medical
+  id: MCBulletRevolverR312MedicalHyronalin
+  name: .500 Hyronalin EMB
+  components:
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCHyronalin
+      Quantity: 5
+
+- type: entity
+  parent: MCBulletRevolverR312Medical
+  id: MCBulletRevolverR312MedicalCombat
+  name: .500 Combat Mix EMB
+  components:
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCBicaridine
+      Quantity: 5
+    - ReagentId: MCKelotane
+      Quantity: 5
+    - ReagentId: MCTramadol
+      Quantity: 2.5
+    - ReagentId: MCTricordrazine
+      Quantity: 2.5

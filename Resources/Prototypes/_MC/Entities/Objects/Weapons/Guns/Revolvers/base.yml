@@ -1,0 +1,73 @@
+- type: entity
+  parent: RMCWeaponRevolverBase
+  id: MCWeaponRevolver
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCWeaponZLevelsShoot
+  - type: RMCSelectiveFire
+    # Scatter
+    scatterWielded: 4
+    scatterUnwielded: 12
+    # scatterIncrease: 0
+    # scatterDecay: 0
+    # Recoil
+    recoilWielded: 0
+    recoilUnwielded: 0
+    # Burst
+    burstScatterMult: 1
+    burstFireRateMultiplier: 1
+    modifiers:
+      Burst:
+        fireDelay: 0
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
+      FullAuto:
+        fireDelay: 0
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: null
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 1
+  - type: RMCWeaponDamageFalloff
+  - type: Gun
+    meleeCooldownOnShoot: false
+    resetOnHandSelected: false
+    burstCooldown: 0
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponRevolver
+  - type: MCAimedShoot
+    aimSpeedModifier: 0.65
+
+- type: Tag
+  id: MCWeaponRevolver
+
+- type: entity
+  parent: MCItem
+  id: MSpeedLoader
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSidearm
+    - MCMagazineRevolver
+  - type: Item
+    size: Small
+  - type: SpeedLoader
+  - type: BallisticAmmoProvider
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/r44.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: base-5
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: ContainerContainer
+    containers:
+      ballistic-ammo: !type:Container
+        ents: []
+
+- type: Tag
+  id: MCMagazineRevolver
