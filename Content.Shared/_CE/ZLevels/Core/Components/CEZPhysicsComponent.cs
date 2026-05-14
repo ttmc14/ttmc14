@@ -31,8 +31,9 @@ public sealed partial class CEZPhysicsComponent : Component
     public int CurrentZLevel;
 
     // Physics
+
     [DataField, AutoNetworkedField]
-    public float Bounciness = 0.3f;
+    public float Bounciness;
 
     [DataField, AutoNetworkedField]
     public float GravityMultiplier = 1f;
@@ -95,6 +96,22 @@ public sealed partial class CEZPhysicsComponent : Component
     /// </summary>
     [ViewVariables]
     public bool CachedStickyGround;
+
+    #endregion
+
+    #region Sleep
+
+    [DataField]
+    public float SleepTimer;
+
+    [DataField]
+    public bool Sleeping;
+
+    [DataField]
+    public float SleepThreshold = 0.3f;
+
+    [DataField]
+    public float TimeToSleep = 2f;
 
     #endregion
 }

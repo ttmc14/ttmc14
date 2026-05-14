@@ -19,8 +19,6 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     [Dependency] private readonly IEyeManager _eye = default!;
     [Dependency] private readonly AnimationPlayerSystem _animation = default!;
 
-    public static float ZLevelOffset = 0.7f;
-
     public override void Initialize()
     {
         base.Initialize();
@@ -92,7 +90,7 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
 
         var pos = ent.Comp.LocalPosition;
 
-        if (xform.ParentUid != xform.MapUid && ZPhyzQuery.TryComp(xform.ParentUid, out var parentZPhys))
+        if (xform.ParentUid != xform.MapUid && ZPhysicsQuery.TryComp(xform.ParentUid, out var parentZPhys))
             pos = parentZPhys.LocalPosition;
 
         return pos;

@@ -2,6 +2,7 @@
 using Content.Shared._MC.Weapon.ZLevels;
 using Content.Shared.Weapons.Ranged.Components;
 using Content.Shared.Weapons.Ranged.Events;
+using Robust.Shared.Map;
 
 namespace Content.Shared._MC.Weapon;
 
@@ -24,6 +25,9 @@ public sealed class MCWeaponShootSystem : EntitySystem
 
         if (!_zLevels.IsVoidAtCoordinates(target, out _))
             return;
+
+        gun.ShootCoordinates = new EntityCoordinates(target.EntityId, target.X, target.Y);
+        Dirty(entity, gun);
 
         _zHelper.ApplyZPhysics(entity, args.FiredProjectiles, target, gun.ProjectileSpeed);
     }
