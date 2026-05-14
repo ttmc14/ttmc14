@@ -13,6 +13,12 @@ public sealed partial class CEZLevelsNetworkComponent : Component
     [ViewVariables, AutoNetworkedField]
     public readonly Dictionary<int, EntityUid?> ZLevels = new();
 
+    /// <remarks>
+    /// Reversed version of <see cref="ZLevels"/>
+    /// </remarks>
+    [ViewVariables, AutoNetworkedField]
+    public readonly Dictionary<EntityUid, int> ZLevelByEntity = new();
+
     [ViewVariables, AutoNetworkedField]
     public readonly List<EntityUid> SortedZLevels = new();
 

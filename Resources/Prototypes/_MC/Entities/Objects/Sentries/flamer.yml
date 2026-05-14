@@ -41,6 +41,14 @@
       AggroVisionRadius: !type:Single "8.0"
 
 - type: entity
+  parent: MCSentryFlamer
+  id: MCSentryFlamerDeployed
+  suffix: Deployed
+  components:
+  - type: MCDeploy
+    state: Deployed
+
+- type: entity
   parent: MCMagazine
   id: MCMagazineSentryFlamer
   name: SFT-575 fuel canister

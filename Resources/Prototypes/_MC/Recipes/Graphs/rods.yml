@@ -1,0 +1,27 @@
+- type: constructionGraph
+  parent: RMC
+  id: MCRods
+  start: start
+  graph:
+  - node: start
+    edges:
+    - to: MCRodMetal
+      completed:
+      - !type:SetStackCount
+        amount: 2
+      steps:
+      - material: MCMetal
+        amount: 1
+    - to: MCRodPlasteel
+      completed:
+      - !type:SetStackCount
+        amount: 1
+      steps:
+      - material: MCPlasteel
+        amount: 1
+
+  - node: MCRodMetal
+    entity: MCRodMetal
+
+  - node: MCRodPlasteel
+    entity: MCRodPlasteel

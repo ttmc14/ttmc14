@@ -44,7 +44,9 @@ public sealed partial class CEZLevelsSystem
             return false;
         }
 
-        network.Comp.ZLevels.Add(depth, mapUid);
+        network.Comp.ZLevels[depth] = mapUid;
+        network.Comp.ZLevelByEntity[mapUid] = depth;
+
         Dirty(network);
 
         // Welcome to fast api code

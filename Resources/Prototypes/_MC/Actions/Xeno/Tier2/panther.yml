@@ -1,0 +1,55 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoTearingTail
+  name: Tearing tail (35)
+  description: Hit all nearby enemies around you, poisoning them with selected toxin and healing you for each target hit.
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier2/panther.rsi
+      state: tearing_tail
+    useDelay: 10
+  - type: InstantAction
+    event: !type:MCXenoTearingTailActionEvent
+  - type: XenoActionPlasma
+    cost: 35
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPouncePanther
+  name: Pounce (15)
+  description: Leap at your target, tackling and disarming them. Heals and restores some plasma on succesfull hit.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/runner.rsi
+      state: pounce
+    useDelay: 8
+  - type: TargetAction
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
+  - type: XenoActionPlasma
+    cost: 15
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoEvasiveManeuvers
+  name: Toggle evasive maneuvers (35)
+  description: Toggle evasive action, forcing non-friendly projectiles that would hit you to miss.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier2/panther.rsi
+      state: evasive_maneuvers
+    useDelay: 2.5
+  - type: InstantAction
+    event: !type:MCXenoEvasiveManeuversActionEvent
+  - type: XenoActionPlasma
+    cost: 35
+  - type: ActionBlockIfResting

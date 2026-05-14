@@ -6,7 +6,7 @@
   - MCArmorComponentInteraction
   # RMC
   - ClothingOuterBaseMedium
-  - RMCAllowSuitStorageClothingArmor
+  - MCAllowSuitStorageClothingArmor
   id: MCArmor
   categories: [ MCContent ]
   abstract: true

@@ -1,0 +1,76 @@
+- type: entity
+  parent: MCItem
+  id: MCASRSTeleporterPad
+  name: asrs bluespace teleporter
+  description: A bluespace telepad for moving personnel and equipment across small distances to another prelinked teleporter. If area is unpowered, used built-in cell to provide teleportations.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/Pads/teleporter.rsi
+    layers:
+    - map: [ "base" ]
+      state: base
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MCDeployLayers.Layer:
+        base:
+          Item: { state: base }
+          Deployed: { state: base_on }
+  # Integrity
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: MCIntegrity
+    thresholds:
+      Destruction: 200
+  - type: MCIntegrityDestructible
+  # Physics
+  - type: Physics
+    bodyType: Dynamic
+    canCollide: false
+  - type: Transform
+    anchored: false
+    noRot: true
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.25
+        density: 20
+        mask:
+        - ItemMask
+        restitution: 0.3
+        friction: 0.2
+      teleporter:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.45,-0.45,0.45,0.00"
+        density: 190
+        mask:
+        - MachineMask
+  # Main
+  - type: Item
+    size: Large
+  - type: MCTeleporter
+  - type: MCDeploy
+    deployFixture: teleporter
+    deployTime: 2
+  - type: MCPairLinkInteractLinked
+    whitelist:
+      components:
+      - MCTeleporter
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+
+- type: entity
+  id: MCVendorBundleASRSTeleporter
+  name: asrs bluespace teleporter
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/Pads/teleporter.rsi
+    state: base_on
+  - type: CMVendorBundle
+    bundle:
+    - MCASRSTeleporterPad
+    - MCASRSTeleporterPad

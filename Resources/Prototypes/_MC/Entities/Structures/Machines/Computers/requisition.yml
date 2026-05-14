@@ -46,8 +46,8 @@
         - MCBeaconOrbital
       - name: asrs export point
         icon:
-          sprite: _MC/Structures/Machines/teleporter.rsi
-          state: teleporter_deployed_on
+          sprite: _MC/Structures/Machines/Pads/exporter.rsi
+          state: base_on
         cost: 300
         entities:
         - MCASRSExportPad
@@ -62,8 +62,8 @@
       entries:
       - name: mc-asrs-entry-sniper-SR26-kit
         icon:
-          sprite: _MC/Objects/Weapons/Guns/Snipers/sr26.rsi
-          state: icon
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr26/icon.rsi
+          state: base
         cost: 775
         entities:
         - MCWeaponSniperSR26
@@ -90,7 +90,7 @@
         - MCMagazineSR26Incendiary
       - name: mc-asrs-entry-sniper-SR81-kit
         icon:
-          sprite: _MC/Objects/Weapons/Guns/Snipers/sr81.rsi
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr81/icon.rsi
           state: base
         cost: 500
         entities:
@@ -104,7 +104,7 @@
         - MCMagazineSR81
       - name: mc-asrs-entry-br8-Scout-Rifle
         icon:
-          sprite: _MC/Objects/Weapons/Guns/Rifles/br8.rsi
+          sprite: _MC/Objects/Weapons/Guns/Rifles/br8/icon.rsi
           state: base
         cost: 400
         entities:
@@ -323,7 +323,7 @@
         - MCCaseGrenadeRazorburn
       - name: mc-asrs-entry-RGC canister box
         icon:
-          sprite: _MC/Objects/Weapons/Grenades/rgc.rsi
+          sprite: _MC/Objects/Weapons/Grenades/rg.rsi
           state: icon
         cost: 600
         entities:
@@ -545,21 +545,29 @@
           sprite: _RMC14/Structures/Storage/reagent_tank.rsi
           state: weldtank
         cost: 100
-        entries:
+        entities:
         - MCTankReagentFuel
       - name: Water tank
         icon:
           sprite: _RMC14/Structures/Storage/reagent_tank.rsi
           state: tank_normal
         cost: 100
-        entries:
+        entities:
         - RMCTankReagentWater
+      - name: asrs bluespace teleporter
+        icon:
+          sprite: _MC/Structures/Machines/Pads/teleporter.rsi
+          state: base_on
+        cost: 500
+        entities:
+        - MCASRSTeleporterPad
+        - MCASRSTeleporterPad
     - name: mc-asrs-category-smartguns
       # SG-29
       entries:
       - name: mc-asrs-entry-sg29
         icon:
-          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29.rsi
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29/icon.rsi
           state: base
         cost: 400
         entities:

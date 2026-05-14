@@ -1,19 +1,24 @@
 ﻿- type: entity
-  parent: [ MCWeaponGun, MCItem, RMCBaseAttachableHolder ]
+  parent:
+  - MCWeaponGun
+  - MCAttachableHolder
   id: MCWeaponFlamer
   name: FL-84 flamethrower
   description: M34 incinerator unit has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly.
   components:
+  - type: Tag
+    tags:
+    - MCWeaponIncineratorFL84
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
     state: base
     layers:
     - state: base
-      map: ["enum.GunVisualLayers.Base"]
+      map: [ "enum.GunVisualLayers.Base" ]
     - state: mag-0
-      map: ["enum.GunVisualLayers.Mag"]
+      map: [ "enum.GunVisualLayers.Mag" ]
     - state: lit
-      map: ["enum.RMCIgniterVisuals.Ignited"]
+      map: [ "enum.RMCIgniterVisuals.Ignited" ]
   - type: Item
     sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
     size: Large
@@ -23,16 +28,14 @@
     - suitStorage
     - Back
   - type: Gun
-    cameraRecoilScalar: 0
-    fireRate: 0.444
-    resetOnHandSelected: false
-    selectedMode: SemiAuto
-    availableModes:
-    - SemiAuto
     soundGunshot:
       collection: MCFL84Shoot
     soundEmpty:
       path: /Audio/_MC/Weapons/Guns/Empty/flamethrower_empty.ogg # че-то не работает
+  - type: RMCSelectiveFire
+    baseFireRate: 1
+    baseFireModes:
+    - SemiAuto
   - type: ShootUseDelay
   - type: ContainerContainer
     containers:
@@ -51,9 +54,6 @@
   - type: Wieldable
   - type: WieldableSpeedModifiers
     base: 0.6
-    light: 0.75
-    medium: 0.85
-    heavy: 0.9
   - type: GunRequiresWield
   - type: MagazineVisuals
     magState: mag
@@ -98,9 +98,6 @@
         enum.RMCIgniterVisuals.Ignited:
           True: { visible: true }
           False: { visible: false }
-  - type: Tag
-    tags:
-    - MCWeaponIncineratorFL84
 
 - type: entity
   parent: MCWeaponFlamer
@@ -161,9 +158,6 @@
         whitelist:
           tags:
           - MCFlamerTank
-
-
-
 
 - type: Tag
   id: MCWeaponIncineratorFL84

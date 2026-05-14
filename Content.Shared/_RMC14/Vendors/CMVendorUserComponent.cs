@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Vending;
+﻿using Content.Shared._MC.Engineering.Vending;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;

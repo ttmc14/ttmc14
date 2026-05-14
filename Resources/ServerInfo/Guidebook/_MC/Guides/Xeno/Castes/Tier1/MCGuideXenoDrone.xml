@@ -1,5 +1,5 @@
 <Document>
-  
+
   # КСЕНОМОРФ ПОДДЕРЖКИ
 
   <Box VerticalAlignment="Bottom">
@@ -22,6 +22,7 @@
   Ваша задача застроить каждый метр на планете во благо вашей королевы и только в смерти вы обретете покой!
 
   # Характеристики и пути эволюции
+
   Эволюционирует из личинки
 
   [bold]Здоровье:[/bold] 300 \n
@@ -30,5 +31,77 @@
   [bold]Скорость:[/bold] 5.2 \n
   [bold]Защита:[/bold] 30/25/25/30/0/15/10/15 \n
   [bold]Феромоны:[/bold] x2 \n
+
+  # Способности
+
+  <MCGuideEntityEmbed Entity="MCActionXenoChooseStructure"/>
+
+  Выберите структуру, которую хотите создать с помощью действия «Выделить смолу».
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoSecreteStructure"/>
+
+  Строит структуры, которые можно выбрать, нажав на способность, пока она активна.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoSelectWeeds"/>
+
+  Выберите траву для посадки с помощью способности «Посадить траву».
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPlaceAcidWell"/>
+
+  Размещает колодец кислоты, который может тушить огонь и уничтожать липкие гранаты.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPlantWeeds"/>
+
+  Высаживает узел смоляного сорняка, который начнёт выращивать траву в радиусе 2 тайлов, позволяя ксеноморфам восстанавливать здоровье и плазму, находясь на этой клетке.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoAcidicSalve"/>
+
+  Используется на ксеноморфах в радиусе одного тайла, восстанавливая 50 HP. Эффект увеличивается при активных феромонах восстановления. 1/20 восстановленного здоровья идёт на восстановление раскола брони.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoTransferPlasma"/>
+
+  Передайте часть своей плазмы союзнику.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPheromones"/>
+
+  Дает бафф близлежащим ксеноморфам. Потребляет 2,5 плазмы в секунду.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoOzelomelynSting"/>
+
+  Канализированная ближняя атака, вводящая цели озеломелин в течение нескольких секунд, очищая химикаты и нанося небольшой токсинный урон.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoAcidWeak"/>
+
+  Со временем расплавляет конструкцию или предмет.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoCreateResinJelly"/>
+
+  Помещает смоляное желе в активную руку, которое можно использовать на себе или других кастах ксеноморфов для 30-секундной защиты от огня.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoRecycle"/>
+
+  Мы расчленяем тело павшего ксеноморфа, чтобы морпехи не смогли заполучить наших сестёр по оружию.
 
 </Document>

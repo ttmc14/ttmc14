@@ -4,6 +4,7 @@
   name: reagent tank
   description: A reagent tank, typically used to store large quantities of chemicals.
   suffix: Empty
+  categories: [ MCContent ]
   components:
   - type: Sprite
     sprite: _RMC14/Structures/Storage/reagent_tank.rsi

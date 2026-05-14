@@ -16,10 +16,10 @@
     skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
-    repairableDamageLimit: 600
-  - type: NailgunRepairable
+  # repairableDamageLimit: 600 - !!MC-TODO: At TGMC You can heal cades with Plasteel at 1 hand, and blowtorch at second.!!
+  # - type: NailgunRepairable
     # cm13 max_health%: 0.3
-    repairPlasteel: 240
+    # repairPlasteel: 240
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger

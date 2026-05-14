@@ -55,7 +55,7 @@
   - type: MagazineAmmoProvider
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot
+      gun_magazine: !type:ContainerSlot ""
   - type: HTN
     rootTask:
       task: RMCSentryCompound
@@ -105,8 +105,10 @@
   - type: NpcFactionMember
     factions:
     - UNMC
+  - type: MarineIFF
   - type: UserIFF
-    faction: FactionMarine
+    factions:
+    - FactionMarine
   - type: Flammable
     fireSpread: false
     maximumFireStacks: 0.5

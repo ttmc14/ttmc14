@@ -25,7 +25,8 @@
     tags:
     - DoorBumpOpener
   - type: ItemIFF
-    faction: FactionMarine
+    factions:
+    - FactionMarine
 
 - type: entity
   parent: MCDogtag

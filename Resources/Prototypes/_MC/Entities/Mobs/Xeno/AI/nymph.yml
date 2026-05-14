@@ -1,6 +1,7 @@
 - type: entity
   id: MCAIXenoNymph
   components:
+  - type: InputMover
   - type: MCAIAgent
     goals:
 
@@ -9,7 +10,7 @@
       preconditions:
         Resting: true
         HightPlasma: true
-      priority: 10
+      priority: 50
 
     - desiredState:
         WeaponAcidApplied: true
@@ -17,48 +18,69 @@
         WeaponGun: true
         WeaponGunHasAcid: false
         LowPlasma: false
-      priority: 5
+      priority: 40
+
+    - desiredState:
+        BarricadeAcidApplied: true
+      preconditions:
+        Barricade: true
+        BarricadeHasAcid: false
+        LowPlasma: false
+      priority: 39
 
     - desiredState:
         EnemyDead: true
       preconditions:
         Enemy: true
-      priority: 4
+      priority: 30
 
     - desiredState:
         PlasmaFull: true
       preconditions:
         LowPlasma: true
-      priority: 3
+      priority: 20
 
     - desiredState:
         ExplorePlant: true
       preconditions:
         LowPlasma: false
-      priority: 1
+      priority: 10
 
     sensors:
     - !type:MCAISensorNearestHostile
       conditionKey: Enemy
       outputTargetKey: hostile
 
-    - !type:MCAISensorNearestGun
-      conditionKey: WeaponGun
-      outputTargetKey: weaponGun
-
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRange
       targetKey: hostile
       range: 1.5
+
+    - !type:MCAISensorNearestGun
+      conditionKey: WeaponGun
+      outputTargetKey: weaponGun
 
     - !type:MCAISensorRangeToTarget
       conditionKey: WeaponGunInRange
       targetKey: weaponGun
       range: 1.5
 
+    - !type:MCAISensorNearestBarricade
+      conditionKey: Barricade
+      outputTargetKey: barricade
+
+    - !type:MCAISensorRangeToTarget
+      conditionKey: BarricadeInRange
+      targetKey: barricade
+      range: 1.5
+
     - !type:MCAISensorAcidOnTarget
       conditionKey: WeaponGunHasAcid
       targetKey: weaponGun
+
+    - !type:MCAISensorAcidOnTarget
+      conditionKey: BarricadeHasAcid
+      targetKey: barricade
 
     - !type:MCAISensorCheckHealthLevel
       conditionKey: LowHealth
@@ -74,7 +96,7 @@
       threshold: 0.95
       direction: Grater
 
-    - !type:MCAISensorCheckXenoResting
+    - !type:MCAISensorXenoResting
       conditionKey: Resting
 
     actions:
@@ -121,6 +143,14 @@
         WeaponGunInRange: true
       cost: 0.35
 
+    - !type:MCAIActionMoveToTarget
+      targetKey: barricade
+      preconditions:
+        Barricade: true
+      effects:
+        BarricadeInRange: true
+      cost: 0.35
+
     - !type:MCAIActionUse
       targetKey: weaponGun
       preconditions:
@@ -128,6 +158,16 @@
         WeaponGunInRange: true
       effects:
         WeaponAcidApplied: true
+      actionPrototype: MCActionXenoAcidWeak
+      cost: 0.4
+
+    - !type:MCAIActionUse
+      targetKey: barricade
+      preconditions:
+        Barricade: true
+        BarricadeInRange: true
+      effects:
+        BarricadeAcidApplied: true
       actionPrototype: MCActionXenoAcidWeak
       cost: 0.4
 

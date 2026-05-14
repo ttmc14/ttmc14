@@ -1,5 +1,7 @@
 - type: entity
-  parent: MCOuterClothing
+  parent:
+  - MCOuterClothing
+  - MCAllowSuitStorageClothingArmor
   id: MCLabcoatResearcherVest
   name: researcher's labcoat
   description: A high quality labcoat, seemingly worn by scholars and researchers alike. It has a distinct rough feel to it, and goads you towards adventure.
@@ -37,3 +39,10 @@
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
+  # RMC
+  - type: CMHardArmor
+  - type: MoveOrderArmor
+  - type: RMCBulkyArmor
+  - type: RMCMagneticArmor
+  - type: RMCNameItemOnVend
+    item: Armor

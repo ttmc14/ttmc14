@@ -1,0 +1,62 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentFixtureRunner
+  - MCAIXenoSummonSpiderling
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoSummonSpiderling
+  name: spiderling
+  description: A widow spawn, it chitters angrily without any sense of self-preservation, only to obey the widow's will.
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/Summons/Spiderlings/base.rsi
+  - type: FixedIdentity
+    name: mc-job-name-xeno-spiderling
+  - type: Xeno
+    tier: -1
+    role: MCXenoSummonSpiderling
+    hudOffset: 0, 0
+    actionIds:
+    - MCActionXenoRest
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      151: Dead
+  - type: XenoPlasma
+    plasma: 50
+    maxPlasma: 50
+    plasmaRegenOnWeeds: 10
+  - type: MCArmor
+    soft:
+      melee: 15
+      bullet: 0
+      laser: 5
+      energy: 0
+      bomb: 0
+      bio: 0
+      fire: 0
+      acid: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 10
+  - type: CMArmorPiercing
+    amount: 5
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.25
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
+      state: minion
+  # Nah no cost for summons
+  - type: MCASRSCost
+    cost: 0
+  - type: RMCGibOnDeath
+    gibChance: 1

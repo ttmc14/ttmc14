@@ -48,6 +48,8 @@
         points: 3
     - name: Tools
       entries:
+      - id: MCVendorBundleASRSTeleporter
+        points: 25
       # Plasma cutter
       - id: RMCWelderIndustrial
         points: 5

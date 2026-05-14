@@ -2,6 +2,7 @@
   parent: MCStructure
   id: MCMiner
   name: mining drill
+  suffix: Phoron
   components:
   - type: Sprite
     sprite: _MC/Structures/Machines/mining_drill.rsi
@@ -45,3 +46,14 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
       state: phoron
+
+- type: entity
+  parent: MCMiner
+  id: MCMinerPlatinum
+  name: mining drill
+  suffix: Platinum
+  components:
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
+      state: platinum

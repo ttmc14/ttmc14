@@ -299,21 +299,25 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 90
+        MCBrute: 125
   - type: RMCProjectileAccuracy
     thresholds:
     - range: 45
       falloff: 9999
   - type: CMArmorPiercing
-    amount: 50
+    amount: 70
   - type: MCXenoSunderDamageOnHit
     amount: 15
   - type: MCStunOnHit
-    maxDistance: 12
-    paralyzeTime: 1
-    staggerTime: 1
-    knockback: 2
-    slowdownTime: 0.5
+    maxDistance: 25
+    paralyzeTime: 2
+    staggerTime: 2
+    knockback: 4
+    slowdownTime: 2
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 5
 
 - type: entity
   parent: MCBullet
@@ -327,18 +331,22 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 70
+        MCBrute: 80
   - type: RMCProjectileAccuracy
     thresholds:
-    - range: 20
-      falloff: 999
+    - range: 25
+      falloff: 9999
   - type: CMArmorPiercing
-    amount: 30
+    amount: 50
   - type: MCXenoSunderDamageOnHit
     amount: 5
   - type: IgniteOnProjectileHit
-    intensity: 15
-    duration: 3
+    intensity: 30
+    duration: 5
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 5
 
 - type: entity
   parent: MCBullet
@@ -355,9 +363,13 @@
         MCBrute: 90
   - type: RMCProjectileAccuracy
     thresholds:
-    - range: 20
-      falloff: 999
+    - range: 25
+      falloff: 9999
   - type: CMArmorPiercing
-    amount: 0
+    amount: 20
   - type: MCXenoSunderDamageOnHit
     amount: 15
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 5

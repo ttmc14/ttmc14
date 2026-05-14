@@ -2,6 +2,9 @@
   parent:
   # MC
   - MCXenoBase
+  - MCXenoComponentPickup
+  - MCXenoComponentPlantingWeeds
+  - MCXenoComponentConstruction
   - MCXenoComponentTier3
   - MCXenoComponentEvolutionTier3
   # RMC
@@ -35,7 +38,7 @@
   # Actions
   - type: Xeno
     tier: 3
-    role: MCXenoBoiler
+    role: MCXenoWidow
     actionIds:
     # Visuals
     - MCActionXenoSkin
@@ -43,7 +46,19 @@
     - MCActionXenoRest
     - MCActionXenoPsydrain
     - MCActionXenoDevolve
+    # Construction
+    - MCActionXenoChooseStructure
+    - MCActionXenoSecreteStructure
+    - MCActionXenoSelectWeeds
+    - MCActionXenoPlantWeeds
     # Abilities
+    - MCActionXenoSpawnSpiderling
+    - MCActionXenoAbsorbSpiderling
+    - MCActionXenoSpitOnceWeb
+    - MCActionXenoWebPounce
+    # Orders
+    - MCActionXenoOrderAttack
+    - MCActionXenoOrderFollow
     hudOffset: -0.15, 0.25
   # Statistics
   - type: MobThresholds
@@ -68,10 +83,23 @@
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 18
+        MCBrute: 20
+  - type: CMArmorPiercing
+    amount: 10
   - type: MovementSpeedModifier
     baseWalkSpeed: 2.85
     baseSprintSpeed: 4
   - type: RMCSize
     size: Big
   # Abilities
+  - type: MCXenoSpitOnce
+  - type: MCXenoSummonAbsorb
+  - type: MCXenoSummon
+  - type: MCXenoOrder
+    order: follow
+  - type: MCXenoPounce
+    maxDistance: 5
+    strength: 40
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 0.1
+    stopOnHit: false

@@ -75,6 +75,7 @@
   id: MCBoxMartiniRounds
   name: box of .557/440 rifle rounds
   description: A box filled with rifle bullets.
+  categories: [ MCContent ]
   components:
   - type: Tag
     tags:

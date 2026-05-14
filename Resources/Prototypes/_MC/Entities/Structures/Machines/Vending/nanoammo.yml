@@ -30,3 +30,8 @@
         amount: 5
       - id: MCBoxGovernmentRounds
         amount: 5
+
+- type: entity
+  parent: MCMachineVendingNanoAmmo
+  id: MCMachineVendingNanoAmmoGround
+  suffix: Ground

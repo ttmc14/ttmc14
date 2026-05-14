@@ -76,6 +76,14 @@
     cost: 50
 
 - type: entity
+  parent: MCActionXenoPsydrain
+  id: MCActionXenoPsydrainLowCost
+  name: Psy drain (10)
+  components:
+  - type: XenoActionPlasma
+    cost: 10
+
+- type: entity
   parent: ActionXenoBase
   id: MCActionXenoPheromones
   name: Emit Pheromones (35)

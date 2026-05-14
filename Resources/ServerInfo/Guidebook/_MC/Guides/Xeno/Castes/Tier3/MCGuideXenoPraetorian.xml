@@ -1,5 +1,5 @@
 <Document>
-  
+
   # БОЕВОЙ КСЕНОМОРФ
 
   <Box>
@@ -29,5 +29,58 @@
   [bold]Феромоны:[/bold] x4.5 \n
   [bold]Размер:[/bold] Большой
 
+  # Способности
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPlaceAcidWell"/>
+
+  Размещает колодец кислоты, который может тушить огонь и уничтожать липкие гранаты.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPlaceTrap"/>
+
+  Размещает яму на сорняках, которую можно заполнить лицехватом, жидкой кислотой или кислотным газом. Активируется, когда на неё наступает морпех.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoDash"/>
+
+  Мгновенно перемещается к выбранной клетке.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoScatterSpitPraetorian"/>
+
+  Плюёт большим количеством рассеяной кислоты, что брызнется на землю.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoSprayAcidPraetorian"/>
+
+  Спрыскивает короткую линию опасной кислоты на вашу цель.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoToggleXenoSpitPassthroughPraetorian"/>
+
+  Переключает плевок на кислотную лужу.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoToggleXenoSpitToxLossPraetorian"/>
+
+  Переключает плевок на ядовитую лужу.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoPheromones"/>
+
+  Дает бафф близлежащим ксеноморфам. Потребляет 2,5 плазмы в секунду.
+
+  \n
+
+  <MCGuideEntityEmbed Entity="MCActionXenoAcidStrong"/>
+
+  Со временем расплавляет конструкцию или предмет.
+
 </Document>
- 

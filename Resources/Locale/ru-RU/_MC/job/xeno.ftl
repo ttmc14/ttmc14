@@ -30,3 +30,6 @@ mc-job-name-xeno-ravager-bloodthirster = Жнец
 mc-job-name-xeno-warlock = Варлок
 mc-job-name-xeno-shrike = Принцесса
 mc-job-name-xeno-queen = Королева
+mc-job-name-xeno-widow = Вдова
+mc-job-name-xeno-spiderling = Спайдерлинг
+mc-job-name-xeno-chimera = Химера

@@ -1,0 +1,64 @@
+- type: entity
+  parent: MCGuidebookActionXeno
+  id: MCGuidebookActionXenoSelectReagent
+  name: Select Reagent
+  description: Selects which reagent to use for reagent slash and noxious gas. Hemodile slows targets down, multiplied by each other xeno-based toxin. Transvitox converts burns to toxin, and causes additional toxin damage when they take brute damage, both effects multiplied by other xeno-based toxins. Ozelomelyn purges all medicines from their system rapidly and causes minor toxin damage. Acid is transparent but causes major burn damage.
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Interface/Xeno/toxins.rsi
+    state: icon
+
+- type: entity
+  parent: MCGuidebookActionXenoSelectReagent
+  id: MCGuidebookActionXenoSelectReagentAcid
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: acid
+
+- type: entity
+  parent: MCGuidebookActionXenoSelectReagentAcid
+  id: MCGuidebookActionXenoSelectReagentHemodile
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: hemodile
+
+- type: entity
+  parent: MCGuidebookActionXenoSelectReagentAcid
+  id: MCGuidebookActionXenoSelectReagentNeurotoxin
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: neurotoxin
+
+- type: entity
+  parent: MCGuidebookActionXenoSelectReagentAcid
+  id: MCGuidebookActionXenoSelectReagentOzelomelyn
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: ozelomelyn
+
+- type: entity
+  parent: MCGuidebookActionXenoSelectReagentAcid
+  id: MCGuidebookActionXenoSelectReagentSanguinal
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: sanguinal
+
+- type: entity
+  parent: MCGuidebookActionXenoSelectReagentAcid
+  id: MCGuidebookActionXenoSelectReagentTransvitox
+  name: ""
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    state: transvitox

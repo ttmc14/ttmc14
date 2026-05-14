@@ -8,6 +8,7 @@ using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._CE.ZLevels.Core.EntitySystems;
@@ -25,13 +26,20 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [Dependency] private readonly SharedMapSystem _map = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
 
+    #region Queries
+
+    protected EntityQuery<CEZPhysicsComponent> ZPhysicsQuery;
+
     private EntityQuery<MapComponent> _mapQuery;
     private EntityQuery<MapGridComponent> _gridQuery;
+    private EntityQuery<PhysicsComponent> _physicsQuery;
+    private EntityQuery<TransformComponent> _transformQuery;
 
     private EntityQuery<CEZLevelMapComponent> _zMapQuery;
     private EntityQuery<CEZLevelsNetworkComponent> _zNetworkQuery;
+    private EntityQuery<CEZLevelHighGroundComponent> _zHighGroundQuery;
 
-    protected EntityQuery<CEZPhysicsComponent> ZPhyzQuery;
+    #endregion
 
     private bool _clientSimulation;
     private TimeSpan _fixedTimestep;
@@ -43,13 +51,20 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
         _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsClientSimulation, i => _clientSimulation = i, true);
         _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsTickRate, i => _fixedTimestep = TimeSpan.FromSeconds(1d / i), true);
 
+        #region Queries
+
+        ZPhysicsQuery = GetEntityQuery<CEZPhysicsComponent>();
+
         _mapQuery = GetEntityQuery<MapComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
+        _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _transformQuery = GetEntityQuery<TransformComponent>();
 
         _zMapQuery = GetEntityQuery<CEZLevelMapComponent>();
         _zNetworkQuery = GetEntityQuery<CEZLevelsNetworkComponent>();
+        _zHighGroundQuery = GetEntityQuery<CEZLevelHighGroundComponent>();
 
-        ZPhyzQuery = GetEntityQuery<CEZPhysicsComponent>();
+        #endregion
 
         InitializeActivation();
         InitializeCacheHooks();
@@ -61,24 +76,29 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     {
         belowMap = default;
 
-        var mapUid = _transform.GetMapId(coords);
-        if (mapUid == MapId.Nullspace)
+        var mapId = _transform.GetMapId(coords);
+        if (mapId == MapId.Nullspace)
             return false;
 
-        var mapEntity = _map.GetMap(mapUid);
-        if (!_zMapQuery.TryComp(mapEntity, out var zMapComp))
+        var mapUid = _map.GetMap(mapId);
+
+        if (!_zMapQuery.TryComp(mapUid, out var zMap))
             return false;
 
-        if (!TryMapDown((mapEntity, zMapComp), out belowMap))
+        if (!TryMapDown((mapUid, zMap), out belowMap))
             return false;
 
-        if (!TryComp<MapGridComponent>(mapEntity, out var mapGridComponent))
+        // No grid means empty space.
+        if (!_gridQuery.TryComp(mapUid, out var grid))
             return true;
 
-        var tileIndices = _map.LocalToTile(mapEntity, mapGridComponent, coords);
-        var tile = _map.GetTileRef(mapEntity, mapGridComponent, tileIndices);
+        var indices = _map.LocalToTile(mapUid, grid, coords);
 
-        return tile.Tile.IsEmpty;
+        // Avoid unnecessary temp variables.
+        return _map
+            .GetTileRef(mapUid, grid, indices)
+            .Tile
+            .IsEmpty;
     }
 
     /// <summary>
@@ -88,22 +108,23 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     public bool TryGetZNetwork(EntityUid mapUid, out Entity<CEZLevelsNetworkComponent> zLevel)
     {
         zLevel = default;
-        if (!TryComp<CEZLevelMapComponent>(mapUid, out var zLevelMapComponent))
+        if (!_zMapQuery.TryComp(mapUid, out var zMap))
             return false;
 
-        if (TerminatingOrDeleted(zLevelMapComponent.NetworkUid))
+        var networkUid = zMap.NetworkUid;
+        if (TerminatingOrDeleted(networkUid))
         {
-            Log.Error($"Trying access to terminated z-network, map: {mapUid}, outdated network uid: {zLevelMapComponent.NetworkUid}");
+            Log.Error($"Trying access to terminated z-network, map: {mapUid}, outdated network uid: {networkUid}");
             return false;
         }
 
-        if (!TryComp<CEZLevelsNetworkComponent>(zLevelMapComponent.NetworkUid, out var zNetworkComponent))
+        if (!_zNetworkQuery.TryComp(networkUid, out var zNetworkComponent))
         {
-            Log.Error($"Trying access to z-network without component??? WHY?! map: {mapUid}, network uid: {zLevelMapComponent.NetworkUid}");
+            Log.Error($"Trying access to z-network without component??? WHY?! map: {mapUid}, network uid: {networkUid}");
             return false;
         }
 
-        zLevel = new Entity<CEZLevelsNetworkComponent>(zLevelMapComponent.NetworkUid, zNetworkComponent);
+        zLevel = (networkUid, zNetworkComponent);
         return true;
     }
 
@@ -125,81 +146,104 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
         if (!Resolve(entity, ref entity.Comp, false))
             return null;
 
-        // Offen we use 1 or -1 for getting maps
-        // Because we process this separated for performance boost
-        switch (offset)
+        var target = offset switch
         {
-            case 1 when entity.Comp.MapAbove is not null:
-                return new Entity<CEZLevelMapComponent>(entity.Comp.MapAbove.Value, _zMapQuery.GetComponent(entity.Comp.MapAbove.Value));
-            case -1 when entity.Comp.MapBelow is not null:
-                return new Entity<CEZLevelMapComponent>(entity.Comp.MapBelow.Value, _zMapQuery.GetComponent(entity.Comp.MapBelow.Value));
-        }
+             1 => entity.Comp.MapAbove,
+            -1 => entity.Comp.MapBelow,
+             _ => null,
+        };
 
-        if (!_zNetworkQuery.TryComp(entity.Comp.NetworkUid, out var zLevelsNetworkComponent))
+        if (target is not null && _zMapQuery.TryComp(target.Value, out var component))
+            return (target.Value, component);
+
+        if (!_zNetworkQuery.TryComp(entity.Comp.NetworkUid, out var network))
             return null;
 
-        var requiredDepth = entity.Comp.Depth + offset;
-        if (!zLevelsNetworkComponent.ZLevels.TryGetValue(requiredDepth, out var targetId))
+        if (!network.ZLevels.TryGetValue(entity.Comp.Depth + offset, out var targetId))
             return null;
 
-        if (!_zMapQuery.TryComp(targetId, out var zLevelMapComponent))
-            return null;
-
-        return (targetId.Value, zLevelMapComponent);
+        return _zMapQuery.TryComp(targetId, out var comp)
+            ? (targetId.Value, comp)
+            : null;
     }
 
     [PublicAPI]
-    public bool TryMapUp(Entity<CEZLevelMapComponent?> inputMapUid, out Entity<CEZLevelMapComponent> aboveMapUid)
-    {
-        return TryMapOffset(inputMapUid, 1, out aboveMapUid);
-    }
+    public bool TryMapUp(Entity<CEZLevelMapComponent?> inputMapUid, out Entity<CEZLevelMapComponent> aboveMapUid) =>
+        TryMapOffset(inputMapUid, 1, out aboveMapUid);
 
     [PublicAPI]
-    public bool TryMapDown(Entity<CEZLevelMapComponent?> inputMapUid, out Entity<CEZLevelMapComponent> belowMapUid)
-    {
-        return TryMapOffset(inputMapUid, -1, out belowMapUid);
-    }
+    public bool TryMapDown(Entity<CEZLevelMapComponent?> inputMapUid, out Entity<CEZLevelMapComponent> belowMapUid) =>
+        TryMapOffset(inputMapUid, -1, out belowMapUid);
 
     /// <summary>
     /// Returns a list of all maps above the specified map. The closest map at the top is returned first.
     /// </summary>
     [PublicAPI]
-    public List<EntityUid> GetAllMapsAbove(Entity<CEZLevelMapComponent> mapUid)
+    public List<EntityUid> GetAllMapsAbove(Entity<CEZLevelMapComponent> entity)
     {
-        if (!_zNetworkQuery.TryComp(mapUid.Comp.NetworkUid, out var networkComp) || mapUid.Comp.Depth >= networkComp.SortedMax)
+        if (!_zNetworkQuery.TryComp(entity.Comp.NetworkUid, out var network) || entity.Comp.Depth >= network.SortedMax)
             return new List<EntityUid>();
 
-        var startIndex = mapUid.Comp.Depth < networkComp.SortedMin
-            ? 0
-            : mapUid.Comp.Depth - networkComp.SortedMin + 1;
+        var startIndex = entity.Comp.Depth < network.SortedMin ? 0 : entity.Comp.Depth - network.SortedMin + 1;
+        var estimatedCount = network.SortedZLevels.Count - startIndex;
+        var result = new List<EntityUid>(estimatedCount);
+        var zLevels = network.SortedZLevels;
 
-        var result = new List<EntityUid>();
-        for (var i = startIndex; i < networkComp.SortedZLevels.Count; i++)
+        for (var i = startIndex; i < zLevels.Count; i++)
         {
-            var entity = networkComp.SortedZLevels[i];
+            var uid = zLevels[i];
+            if (uid == EntityUid.Invalid)
+                continue;
 
-            if (entity != EntityUid.Invalid && _zMapQuery.HasComp(entity))
-                result.Add(entity);
+            if (_zMapQuery.HasComp(uid))
+                result.Add(uid);
         }
 
         return result;
+    }
+
+    [PublicAPI]
+    public void GetAllMapsAbove(Entity<CEZLevelMapComponent> entity, List<EntityUid> result)
+    {
+        result.Clear();
+
+        if (!_zNetworkQuery.TryComp(entity.Comp.NetworkUid, out var network) || entity.Comp.Depth >= network.SortedMax)
+            return;
+
+        var startIndex = entity.Comp.Depth < network.SortedMin ? 0 : entity.Comp.Depth - network.SortedMin + 1;
+        var zLevels = network.SortedZLevels;
+
+        for (var i = startIndex; i < zLevels.Count; i++)
+        {
+            var uid = zLevels[i];
+
+            if (uid.IsValid() && _zMapQuery.HasComp(uid))
+                result.Add(uid);
+        }
     }
 
     /// <summary>
     /// Returns a list of all maps below the specified map. The closest map at the bottom is returned first.
     /// </summary>
     [PublicAPI]
-    public List<EntityUid> GetAllMapsBelow(Entity<CEZLevelMapComponent> mapUid)
+    public List<EntityUid> GetAllMapsBelow(Entity<CEZLevelMapComponent> entity)
     {
-        var result = new List<EntityUid>();
-        if (!_zNetworkQuery.TryComp(mapUid.Comp.NetworkUid, out var zLevelsNetworkComponent))
-            return result;
+        if (!_zNetworkQuery.TryComp(entity.Comp.NetworkUid, out var network) || entity.Comp.Depth <= network.SortedMin)
+            return new List<EntityUid>();
 
-        var dept = mapUid.Comp.Depth;
-        foreach (var mapEntry in zLevelsNetworkComponent.SortedZLevels)
+        var endIndex = entity.Comp.Depth - network.SortedMin;
+        var result = new List<EntityUid>(endIndex);
+        var zLevels = network.SortedZLevels;
+
+        // Iterate backwards for nearest-first ordering.
+        for (var i = endIndex - 1; i >= 0; i--)
         {
-            if (_zMapQuery.TryComp(mapEntry, out var zComp) && zComp.Depth < dept)
-                result.Add(mapEntry);
+            var uid = zLevels[i];
+            if (uid == EntityUid.Invalid)
+                continue;
+
+            if (_zMapQuery.HasComp(uid))
+                result.Add(uid);
         }
 
         return result;

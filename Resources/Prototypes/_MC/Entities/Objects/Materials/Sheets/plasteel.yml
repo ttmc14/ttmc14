@@ -17,6 +17,7 @@
     buildable:
     - MCPlasteelBarricadeFoldableBuild
     - MCPlasteelBarricadeBuild
+    - MCRodPlasteelBuild
   - type: Stack
     count: 50
     stackType: MCPlasteel

@@ -1,0 +1,85 @@
+- type: entity
+  parent:
+  - MCItem
+  - RMCPowerCellSlotUnremovable
+  id: MCDefibrillator
+  name: emergency defibrillator
+  description: A handheld emergency defibrillator, used to restore fibrillating patients. Can optionally bring people back from the dead.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/defib.rsi
+    layers:
+    - state: defib
+    - state: defib_on
+      map: [ "enum.ToggleableVisuals.Layer" ]
+      visible: false
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        enum.ToggleableVisuals.Layer:
+          True: { visible: true }
+          False: { visible: false }
+  - type: MeleeWeapon
+    attackRate: 0.9
+    damage:
+      types:
+        MCBrute: 5
+    soundHit:
+      collection: GenericHit
+  - type: DamageOtherOnHit
+    damage:
+      types:
+        MCBrute: 5
+  - type: Item
+    size: Normal
+    sprite: _MC/Objects/Medical/defib.rsi
+    heldPrefix: defib
+  - type: Speech
+    speechVerb: Robotic
+  - type: ItemToggle
+    soundActivate:
+      path: /Audio/_RMC14/Medical/defib_SafetyOn.ogg
+    soundDeactivate:
+      path: /Audio/_RMC14/Medical/defib_safetyOff.ogg
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
+  - type: MCDefibrillator
+    effectSoundZap:
+      path: /Audio/_RMC14/Medical/defib_release.ogg
+      params:
+        volume: -1
+    effectSoundFailure:
+      path: /Audio/_RMC14/Medical/defib_failed.ogg
+      params:
+        volume: -1
+    effectSoundSuccess:
+      path: /Audio/_RMC14/Medical/defib_success.ogg
+      params:
+        volume: -1
+    effectSoundReady:
+      path: /Audio/_RMC14/Medical/defib_ready.ogg
+      params:
+        volume: -1
+    effectSoundCharge:
+      path: /Audio/_RMC14/Medical/defib_charge.ogg
+      params:
+        volume: -1
+  - type: DoAfter
+  - type: UseDelay
+  - type: PowerCellDraw
+    enabled: false
+    useRate: 66
+  - type: RMCPowerUsageDisplay
+
+- type: entity
+  parent: MCDefibrillator
+  id: MCDefibrillatorEmpty
+  suffix: Empty
+  components:
+  - type: ItemSlots
+    slots:
+      cell_slot:
+        name: power-cell-slot-component-slot-name-default

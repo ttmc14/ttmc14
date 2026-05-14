@@ -1,12 +1,13 @@
 - type: entity
-  parent: MCWall
-  id: MCWallReinforcedInvincible
-  name: reinforced wall
+  parent: MCWallInvincibleBase
+  id: MCWallInvincible
+  suffix: Invincible
+  name: Heavy Reinforced Wall
   description: A huge chunk of reinforced metal used to seperate rooms.
   components:
   - type: Sprite
     sprite: _MC/Structures/Walls/reinforced.rsi
-    state: wall-invincible
+    state: rwall-0
   - type: Icon
     sprite: _MC/Structures/Walls/reinforced.rsi
     state: wall-invincible
@@ -14,10 +15,15 @@
     key: mcWalls
     base: rwall-
     mode: MCCardinalFlagsExtended
+  - type: Appearance
+  - type: Bullethole
+  - type: Corrodible
+    isCorrodible: false
 
 - type: entity
-  parent: MCWallReinforcedInvincible
+  parent: MCWall
   id: MCWallReinforced
+  Suffix: Reinforced
   components:
   - type: Sprite
     sprite: _MC/Structures/Walls/reinforced.rsi
@@ -27,18 +33,32 @@
     state: wall-reinforced
   - type: ReceiverXenoClaws
     maxHealth: 3000
-    minimumClawStrength: VerySharp
+  - type: IconSmooth
+    key: mcWalls
+    additionalKeys:
+    - windows
+    - doors
+    base: rwall-
+    mode: MCCardinalFlagsExtended
   - type: Destructible
     thresholds:
-    - trigger: !type:DamageTrigger
+    - trigger:
+        !type:DamageTrigger
         damage: 3000
       behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        - !type:ChangeConstructionNodeBehavior
+          node: mcgirder
+        - !type:DoActsBehavior
+          acts: ["Breakage"]
+  - type: Construction
+    graph: MCGirder
+    node: mcreinforcedWall
 
 - type: entity
-  parent: MCWallReinforcedInvincible
+  parent: MCWall
+  name: Wall
   id: MCWallRegular
+  suffix: Regular
   components:
   - type: Sprite
     sprite: _MC/Structures/Walls/regular.rsi
@@ -46,20 +66,26 @@
   - type: Icon
     sprite: _MC/Structures/Walls/regular.rsi
     state: metal-0
-  - type: ReceiverXenoClaws
-    maxHealth: 1500
-    minimumClawStrength: VerySharp
-  - type: Destructible
-    thresholds:
-    - trigger: !type:DamageTrigger
-        damage: 1500
-      behaviors:
-      - !type:DoActsBehavior
-        acts: [ "Destruction" ]
   - type: IconSmooth
     key: mcWalls
+    additionalKeys:
+    - windows
+    - doors
     base: metal-
     mode: MCCardinalFlagsExtended
+  - type: Destructible
+    thresholds:
+    - trigger:
+        !type:DamageTrigger
+        damage: 1000
+      behaviors:
+        - !type:ChangeConstructionNodeBehavior
+          node: mcgirder
+        - !type:DoActsBehavior
+          acts: ["Breakage"]
+  - type: Construction
+    graph: MCGirder
+    node: mcwall
 
 - type: entity
   parent: CMWindowWhiteColonyReinforced

@@ -25,7 +25,7 @@
     - MCXenoBull
     - MCXenoSpitter
     - MCXenoForger
-    # - MCXenoPanther
+    - MCXenoPanther
   - type: XenoDevolve
     devolvesTo:
     - MCXenoRafik
@@ -44,7 +44,7 @@
     - MCXenoPraetorian
     - MCXenoBoiler
     - MCXenoRavager
-    # - MCXenoWidow
+    - MCXenoWidow
     - MCXenoChimera
     # - MCXenoBehemoths
   - type: XenoDevolve
@@ -68,4 +68,4 @@
     - MCXenoBull
     - MCXenoSpitter
     - MCXenoForger
-    # - MCXenoPanther
+    - MCXenoPanther

@@ -1,5 +1,5 @@
 using Content.Shared._CE.ZLevels.Core.Components;
-using Content.Shared.Actions;
+using Content.Shared._CE.ZLevels.Core.Events;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 
@@ -15,33 +15,33 @@ public abstract partial class CESharedZLevelsSystem
         SubscribeLocalEvent<CEZLevelViewerComponent, CEToggleZLevelLookUpAction>(OnToggleLookUp);
     }
 
-    protected virtual void OnViewerMove(Entity<CEZLevelViewerComponent> ent, ref MoveEvent args)
+    protected virtual void OnViewerMove(Entity<CEZLevelViewerComponent> entity, ref MoveEvent args)
     {
-        if (!ent.Comp.LookUp)
+        if (!entity.Comp.LookUp)
             return;
 
-        if (!HasOpaqueAbove(ent))
+        if (!HasOpaqueAbove(entity))
             return;
 
-        ent.Comp.LookUp = false;
-        DirtyField(ent, ent.Comp, nameof(CEZLevelViewerComponent.LookUp));
+        entity.Comp.LookUp = false;
+        DirtyField(entity, entity.Comp, nameof(CEZLevelViewerComponent.LookUp));
     }
 
-    private void OnToggleLookUp(Entity<CEZLevelViewerComponent> ent, ref CEToggleZLevelLookUpAction args)
+    private void OnToggleLookUp(Entity<CEZLevelViewerComponent> entity, ref CEToggleZLevelLookUpAction args)
     {
         if (args.Handled)
             return;
 
         args.Handled = true;
 
-        if (HasOpaqueAbove(ent))
+        if (HasOpaqueAbove(entity))
         {
-            _popup.PopupClient(Loc.GetString("ce-zlevel-look-up-fail"), ent, ent);
+            _popup.PopupClient(Loc.GetString("ce-zlevel-look-up-fail"), entity, entity);
             return;
         }
 
-        ent.Comp.LookUp = !ent.Comp.LookUp;
-        DirtyField(ent, ent.Comp, nameof(CEZLevelViewerComponent.LookUp));
+        entity.Comp.LookUp = !entity.Comp.LookUp;
+        DirtyField(entity, entity.Comp, nameof(CEZLevelViewerComponent.LookUp));
     }
 
     public bool HasOpaqueAbove(EntityUid ent, Entity<CEZLevelMapComponent?>? currentMapUid = null)
@@ -64,5 +64,3 @@ public abstract partial class CESharedZLevelsSystem
         return !tileDef.Transparent;
     }
 }
-
-public sealed partial class CEToggleZLevelLookUpAction : InstantActionEvent;

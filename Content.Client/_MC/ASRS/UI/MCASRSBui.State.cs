@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Content.Shared._MC.ASRS;
 using Content.Shared._MC.ASRS.Ui;
-using Content.Shared._MC.Beacon;
+using Content.Shared._MC.Engineering.Beacon;
 
 namespace Content.Client._MC.ASRS.UI;
 

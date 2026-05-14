@@ -46,11 +46,13 @@ public sealed class HealthScannerUiData
     private readonly Dictionary<EntProtoId<SkillDefinitionComponent>, int> _defibSkill = new() { ["RMCSkillMedical"] = 2 };
     private readonly Dictionary<EntProtoId<SkillDefinitionComponent>, int> _larvaSurgerySkill = new() { ["RMCSkillSurgery"] = 2 };
 
-    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "Brute";
-    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "Burn";
-    private static readonly ProtoId<DamageGroupPrototype> ToxinGroup = "Toxin";
-    private static readonly ProtoId<DamageGroupPrototype> AirlossGroup = "Airloss";
-    private static readonly ProtoId<DamageGroupPrototype> GeneticGroup = "Genetic";
+    // MC Changes:
+    private static readonly ProtoId<DamageGroupPrototype> BruteGroup = "MCBrute";
+    private static readonly ProtoId<DamageGroupPrototype> BurnGroup = "MCBurn";
+    private static readonly ProtoId<DamageGroupPrototype> ToxinGroup = "MCToxin";
+    private static readonly ProtoId<DamageGroupPrototype> AirlossGroup = "MCOxygen";
+    private static readonly ProtoId<DamageGroupPrototype> GeneticGroup = "MCClone";
+    // MC Changes End
 
     public HealthScannerUiData()
     {

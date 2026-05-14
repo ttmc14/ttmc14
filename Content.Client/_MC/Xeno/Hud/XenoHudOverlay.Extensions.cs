@@ -16,27 +16,36 @@ public sealed partial class XenoHudOverlay
     private void UpdatePlasma(Entity<XenoComponent, SpriteComponent> ent, DrawingHandleWorld handle)
     {
         var (uid, xeno, sprite) = ent;
-        if (!_xenoPlasmaQuery.TryComp(uid, out var comp) || comp.MaxPlasma == 0)
+
+        if (!_xenoPlasmaQuery.TryComp(uid, out var comp) || comp.MaxPlasma <= 0)
             return;
 
-        var plasmaFixedPoint = comp.Plasma;
-        var plasma = plasmaFixedPoint.Double();
+        var plasmaTemp = comp.Plasma;
+        var plasma = double.Clamp(plasmaTemp.Double(), 0, comp.MaxPlasma);
         var plasmaMax = comp.MaxPlasma;
-        var plasmaRegenLimit = comp.PlasmaRegenLimit == -1
-            ? 0
+
+        var regenLimit = comp.PlasmaRegenLimit == -1
+            ? plasmaMax
             : comp.PlasmaRegenLimit;
 
-        var plasmaLevel = ContentHelpers.RoundToLevels(plasma, plasmaMax - plasmaRegenLimit, 11);
-        var plasmaName = plasmaLevel > 0 ? $"{plasmaLevel * 10}" : "0";
+        regenLimit = Math.Clamp(regenLimit, 0, plasmaMax);
 
-        DrawBar($"plasma{plasmaName}", xeno, sprite, handle, path: "/Textures/_MC/Interface/Xeno/hud.rsi");
+        var plasmaLevel = ContentHelpers.RoundToLevels(plasma, regenLimit, 11);
+        DrawBar($"plasma{(plasmaLevel > 0 ? plasmaLevel * 10 : 0)}",
+            xeno, sprite, handle,
+            path: "/Textures/_MC/Interface/Xeno/hud.rsi");
 
-        if (comp.PlasmaRegenLimit <= 0 || plasma <= plasmaRegenLimit)
+        if (plasma <= regenLimit || regenLimit >= plasmaMax)
             return;
 
-        var overPlasmaLevel = ContentHelpers.RoundToLevels(plasma - plasmaRegenLimit, plasmaRegenLimit, 11);
-        var overPlasmaName = overPlasmaLevel > 0 ? $"{overPlasmaLevel * 10}" : "0";
-        DrawBar($"over_plasma{overPlasmaName}", xeno, sprite, handle, path: "/Textures/_MC/Interface/Xeno/hud.rsi");
+        var overPlasmaLevel = ContentHelpers.RoundToLevels(
+            plasma - regenLimit,
+            plasmaMax - regenLimit,
+            11);
+
+        DrawBar($"over_plasma{(overPlasmaLevel > 0 ? overPlasmaLevel * 10 : 0)}",
+            xeno, sprite, handle,
+            path: "/Textures/_MC/Interface/Xeno/hud.rsi");
     }
 
     private void UpdateSunder(Entity<XenoComponent, SpriteComponent> entity, DrawingHandleWorld handle)

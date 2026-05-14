@@ -1,0 +1,67 @@
+- type: entity
+  parent:
+  # MC
+  - MCXenoBase
+  - MCXenoComponentFixtureRunner
+  - MCAIXenoChimeraClone
+  # RMC
+  - CMXenoDeveloped
+  - RMCXenoSpeechSounds
+  - RMCXenoCommendationReceiver
+  - RMCXenoMobCollision
+  id: MCXenoChimeraClone
+  name: chimera
+  description: A slim, deadly alien creature.
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/chimera.rsi
+    offset: 0,0.5
+  - type: FixedIdentity
+    name: mc-job-name-xeno-chimera-clone
+  - type: Xeno
+    tier: -1
+    role: MCXenoChimeraClone
+    hudOffset: -0.2, 0.3
+    actionIds: []
+  - type: MobThresholds
+    thresholds:
+      0: Alive
+      150: Critical
+      250: Dead
+  - type: XenoPlasma
+    plasma: 275
+    maxPlasma: 275
+    plasmaRegenOnWeeds: 11
+  - type: MCArmor
+    soft:
+      melee: 0
+      bullet: 0
+      laser: 0
+      energy: 0
+      bomb: 0
+      bio: 0
+      fire: 0
+      acid: 0
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 20
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 5
+  - type: TacticalMapIcon
+    icon:
+      sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
+      state: minion
+  # Mark clone
+  - type: MCXenoPhantomClone
+  # Nah no cost for clones
+  - type: MCASRSCost
+    cost: 0
+  # TODO: gib
+  - type: TimedDespawn
+    lifetime: 7
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 7
+  - type: RMCGibOnDeath
+    gibChance: 1
