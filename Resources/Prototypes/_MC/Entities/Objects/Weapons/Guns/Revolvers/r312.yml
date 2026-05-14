@@ -11,9 +11,9 @@
     - MCWeaponRevolverR312
     # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Special/albedo.rsi
+    sprite: _MC/Objects/Weapons/Guns/Revolvers/r312.rsi
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Special/albedo.rsi
+    sprite: _MC/Objects/Weapons/Guns/Revolvers/r312.rsi
   - type: Gun
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Fire/t312.ogg
@@ -21,14 +21,14 @@
   - type: RevolverAmmoProvider
     whitelist:
       tags:
-      - MCSpeedLoaderR312
+      - MCSpeedloaderR312
       - MCCartridgeRevolverR312
       - MCCartridgeRevolverR312Medical
       - MCCartridgeRevolverR312MedicalAdrenaline
       - MCCartridgeRevolverR312MedicalRussianRed
       - MCCartridgeRevolverR312MedicalMeraderm
       - MCCartridgeRevolverR312MedicalNeuraline
-      - MCCartridgeRevolverR312MedicalHyronalin
+      - MCCartridgeRevolverR312MedicalHypervene
       - MCCartridgeRevolverR312MedicalCombat
     proto: MCCartridgeRevolverR312
     capacity: 5
@@ -39,16 +39,16 @@
     - FullAuto
     baseFireRate: 5
     # Recoil
-    recoilWielded: -1
-    recoilUnwielded: -1
+    recoilWielded: 0 # -1
+    recoilUnwielded: 0 # -1
     # Scatter
     scatterWielded: 0 # -7
     scatterUnwielded: 0 # -5
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 3
     accuracyMultiplierUnwielded: 2
-  - type: RMCExtraProjectilesDamageMods
-    damageMultiplier: 0.35
+  - type: MCWeaponRangeDamageMultiplier
+    multiplier: 0.35
   - type: GunRequiresSkills
     skills:
       MCSkillMedical: 2
@@ -62,33 +62,27 @@
 
 # Speed loaders
 - type: entity
-  parent: MSpeedLoader
-  id: MCBaseSpeedLoaderR312
-  name: R-500 speed loader (.500)
-  description: A R-312 'Albedo' revolver speed loader.
+  parent: MCSpeedloaderR500
+  id: MCSpeedloaderR312
+  name: R-312 White Express speed loader (.500)
   components:
   - type: Tag
     tags:
     - MCMagazineSidearm
     - MCMagazineRevolver
-    - MCSpeedLoaderR312
-  - type: MagazineVisuals
-    magState: base
-    steps: 4
-    zeroVisible: false
+    - MCSpeedloaderR312
   - type: BallisticAmmoProvider
     proto: MCCartridgeRevolverR312
     whitelist:
       tags:
       - MCCartridgeRevolverR312
-    capacity: 5
 
 - type: Tag
-  id: MCSpeedLoaderR312
+  id: MCSpeedloaderR312
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312Medical
+  parent: MCSpeedloaderR312
+  id: MCSpeedloaderR312Medical
   name: R-312 EMB speed loader (.500)
   components:
   - type: BallisticAmmoProvider
@@ -98,10 +92,18 @@
       - MCCartridgeRevolverR312Medical
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312MedicalAdrenaline
+  parent: MCSpeedloaderR312Medical
+  id: MCSpeedloaderR312MedicalAdrenaline
   name: R-312 Adrenaline EMB speed loader (.500)
   components:
+  - type: MagazineVisuals
+    magState: adrenaline
+  - type: Sprite
+    layers:
+    - state: adrenaline
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: adrenaline-1
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: BallisticAmmoProvider
     proto: MCCartridgeRevolverR312MedicalAdrenaline
     whitelist:
@@ -109,10 +111,18 @@
       - MCCartridgeRevolverR312MedicalAdrenaline
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312MedicalRussianRed
+  parent: MCSpeedloaderR312Medical
+  id: MCSpeedloaderR312MedicalRussianRed
   name: R-312 Russian Red EMB speed loader (.500)
   components:
+  - type: MagazineVisuals
+    magState: russian_red
+  - type: Sprite
+    layers:
+    - state: russian_red
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: russian_red-1
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: BallisticAmmoProvider
     proto: MCCartridgeRevolverR312MedicalRussianRed
     whitelist:
@@ -120,10 +130,18 @@
       - MCCartridgeRevolverR312MedicalRussianRed
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312MedicalMeraderm
+  parent: MCSpeedloaderR312Medical
+  id: MCSpeedloaderR312MedicalMeraderm
   name: R-312 Meraderm EMB speed loader (.500)
   components:
+  - type: MagazineVisuals
+    magState: meraderm
+  - type: Sprite
+    layers:
+    - state: meraderm
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: meraderm-1
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: BallisticAmmoProvider
     proto: MCCartridgeRevolverR312MedicalMeraderm
     whitelist:
@@ -131,10 +149,18 @@
       - MCCartridgeRevolverR312MedicalMeraderm
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312MedicalNeuraline
+  parent: MCSpeedloaderR312Medical
+  id: MCSpeedloaderR312MedicalNeuraline
   name: R-312 Neuraline EMB speed loader (.500)
   components:
+  - type: MagazineVisuals
+    magState: neuraline
+  - type: Sprite
+    layers:
+    - state: neuraline
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: neuraline-1
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: BallisticAmmoProvider
     proto: MCCartridgeRevolverR312MedicalNeuraline
     whitelist:
@@ -142,21 +168,37 @@
       - MCCartridgeRevolverR312MedicalNeuraline
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312MedicalHyronalin
-  name: R-312 Hyronalin EMB speed loader (.500)
+  parent: MCSpeedloaderR312Medical
+  id: MCSpeedloaderR312MedicalHypervene
+  name: R-312 Hypervene EMB speed loader (.500)
   components:
+  - type: MagazineVisuals
+    magState: hypervene
+  - type: Sprite
+    layers:
+    - state: hypervene
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: hypervene-1
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: BallisticAmmoProvider
-    proto: MCCartridgeRevolverR312MedicalHyronalin
+    proto: MCCartridgeRevolverR312MedicalHypervene
     whitelist:
       tags:
-      - MCCartridgeRevolverR312MedicalHyronalin
+      - MCCartridgeRevolverR312MedicalHypervene
 
 - type: entity
-  parent: MCBaseSpeedLoaderR312
-  id: MCSpeedLoaderR312MedicalCombat
+  parent: MCSpeedloaderR312Medical
+  id: MCSpeedloaderR312MedicalCombat
   name: R-312 Combat Mix EMB speed loader (.500)
   components:
+  - type: MagazineVisuals
+    magState: combat
+  - type: Sprite
+    layers:
+    - state: combat
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: combat-1
+      map: [ "enum.GunVisualLayers.Mag" ]
   - type: BallisticAmmoProvider
     proto: MCCartridgeRevolverR312MedicalCombat
     whitelist:
@@ -164,13 +206,28 @@
       - MCCartridgeRevolverR312MedicalCombat
 
 # Cartridges
-- type: entity
-  parent: MCCartridge
+- type: stack
   id: MCCartridgeRevolverR312
+  name: handful of .500 White Express revolver bullet
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR500
+  id: MCCartridgeRevolverR312
+  name: .500 White Express revolver bullet
   components:
   - type: Tag
     tags:
+    - MCHandful
     - MCCartridgeRevolverR312
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312
   - type: CartridgeAmmo
     proto: MCBulletRevolverR312
 
@@ -178,13 +235,49 @@
   id: MCCartridgeRevolverR312
 
 - type: entity
-  parent: MCCartridgeRevolverR312
-  id: MCCartridgeRevolverR312Medical
-  name: .500 EMB
+  parent: MCBoxHandfulR500
+  id: MCBoxHandfulR312
+  name: packet of .500 White Express revolver bullet
   components:
   - type: Tag
     tags:
+    - MCBoxHandfulR312
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/base.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312
+      amount: 10
+
+- type: Tag
+  id: MCBoxHandfulR312
+
+- type: stack
+  id: MCCartridgeRevolverR312Medical
+  name: handful of .500 EMB revolver bullet
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312Medical
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312
+  id: MCCartridgeRevolverR312Medical
+  name: .500 EMB revolver bullet
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
     - MCCartridgeRevolverR312Medical
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312Medical
   - type: CartridgeAmmo
     proto: MCBulletRevolverR312Medical
 
@@ -192,13 +285,43 @@
   id: MCCartridgeRevolverR312Medical
 
 - type: entity
-  parent: MCCartridgeRevolverR312
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312Medical
+  name: packet of .500 EMB revolver bullet
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/base.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312Medical
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312Medical
+      amount: 10
+
+- type: stack
+  id: MCCartridgeRevolverR312MedicalAdrenaline
+  name: handful of .500 Adrenaline EMB cartridge
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/adrenaline.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312MedicalAdrenaline
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312Medical
   id: MCCartridgeRevolverR312MedicalAdrenaline
   name: .500 Adrenaline EMB cartridge
   components:
   - type: Tag
     tags:
+    - MCHandful
     - MCCartridgeRevolverR312MedicalAdrenaline
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/adrenaline.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312MedicalAdrenaline
   - type: CartridgeAmmo
     proto: MCBulletRevolverR312MedicalAdrenaline
 
@@ -206,13 +329,43 @@
   id: MCCartridgeRevolverR312MedicalAdrenaline
 
 - type: entity
-  parent: MCCartridgeRevolverR312
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312MedicalAdrenaline
+  name: packet of .500 Adrenaline EMB cartridge
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/adrenaline.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalAdrenaline
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312MedicalAdrenaline
+      amount: 10
+
+- type: stack
+  id: MCCartridgeRevolverR312MedicalRussianRed
+  name: handful of .500 Russian Red EMB cartridge
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/russian_red.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312MedicalRussianRed
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312Medical
   id: MCCartridgeRevolverR312MedicalRussianRed
   name: .500 Russian Red EMB cartridge
   components:
   - type: Tag
     tags:
+    - MCHandful
     - MCCartridgeRevolverR312MedicalRussianRed
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/russian_red.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312MedicalRussianRed
   - type: CartridgeAmmo
     proto: MCBulletRevolverR312MedicalRussianRed
 
@@ -220,13 +373,43 @@
   id: MCCartridgeRevolverR312MedicalRussianRed
 
 - type: entity
-  parent: MCCartridgeRevolverR312
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312MedicalRussianRed
+  name: packet of .500 Russian Red EMB cartridge
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/russian_red.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalRussianRed
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312MedicalRussianRed
+      amount: 10
+
+- type: stack
+  id: MCCartridgeRevolverR312MedicalMeraderm
+  name: handful of .500 Meraderm EMB cartridge
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/meraderm.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312MedicalMeraderm
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312Medical
   id: MCCartridgeRevolverR312MedicalMeraderm
   name: .500 Meraderm EMB cartridge
   components:
   - type: Tag
     tags:
+    - MCHandful
     - MCCartridgeRevolverR312MedicalMeraderm
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/meraderm.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312MedicalMeraderm
   - type: CartridgeAmmo
     proto: MCBulletRevolverR312MedicalMeraderm
 
@@ -234,13 +417,131 @@
   id: MCCartridgeRevolverR312MedicalMeraderm
 
 - type: entity
-  parent: MCCartridgeRevolverR312
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312MedicalMeraderm
+  name: packet of .500 Meraderm EMB cartridge
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/meraderm.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalMeraderm
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312MedicalMeraderm
+      amount: 10
+
+- type: stack
+  id: MCCartridgeRevolverR312MedicalHypervene
+  name: handful of .500 Hypervene EMB cartridge
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/hypervene.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312MedicalHypervene
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312Medical
+  id: MCCartridgeRevolverR312MedicalHypervene
+  name: .500 Hypervene EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridgeRevolverR312MedicalHypervene
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/hypervene.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312MedicalHypervene
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalHypervene
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalHypervene
+
+- type: entity
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312MedicalHypervene
+  name: packet of .500 Hypervene EMB cartridge
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/hypervene.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalHypervene
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312MedicalHypervene
+      amount: 10
+
+- type: stack
+  id: MCCartridgeRevolverR312MedicalCombat
+  name: handful of .500 Combat Mix EMB cartridge
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/combat.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312MedicalCombat
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312Medical
+  id: MCCartridgeRevolverR312MedicalCombat
+  name: .500 Combat Mix EMB cartridge
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridgeRevolverR312MedicalCombat
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/combat.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312MedicalCombat
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR312MedicalCombat
+
+- type: Tag
+  id: MCCartridgeRevolverR312MedicalCombat
+
+- type: entity
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312MedicalCombat
+  name: packet of .500 Combat Mix EMB cartridge
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/combat.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalCombat
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312MedicalCombat
+      amount: 10
+
+- type: stack
+  id: MCCartridgeRevolverR312MedicalNeuraline
+  name: handful of .500 Combat Mix EMB cartridge
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/combat.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR312MedicalNeuraline
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR312Medical
   id: MCCartridgeRevolverR312MedicalNeuraline
   name: .500 Neuraline EMB cartridge
   components:
   - type: Tag
     tags:
+    - MCHandful
     - MCCartridgeRevolverR312MedicalNeuraline
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/neuraline.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR312MedicalNeuraline
   - type: CartridgeAmmo
     proto: MCBulletRevolverR312MedicalNeuraline
 
@@ -248,55 +549,32 @@
   id: MCCartridgeRevolverR312MedicalNeuraline
 
 - type: entity
-  parent: MCCartridgeRevolverR312
-  id: MCCartridgeRevolverR312MedicalHyronalin
-  name: .500 Hyronalin EMB cartridge
+  parent: MCBoxHandfulR312
+  id: MCBoxHandfulR312MedicalNeuraline
+  name: packet of .500 Neuraline EMB cartridge
   components:
-  - type: Tag
-    tags:
-    - MCCartridgeRevolverR312MedicalHyronalin
-  - type: CartridgeAmmo
-    proto: MCBulletRevolverR312MedicalHyronalin
-
-- type: Tag
-  id: MCCartridgeRevolverR312MedicalHyronalin
-
-- type: entity
-  parent: MCCartridgeRevolverR312
-  id: MCCartridgeRevolverR312MedicalCombat
-  name: .500 Combat Mix EMB cartridge
-  components:
-  - type: Tag
-    tags:
-    - MCCartridgeRevolverR312MedicalCombat
-  - type: CartridgeAmmo
-    proto: MCBulletRevolverR312MedicalCombat
-
-- type: Tag
-  id: MCCartridgeRevolverR312MedicalCombat
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/neuraline.rsi
+  - type: Storage
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR312MedicalNeuraline
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR312MedicalNeuraline
+      amount: 10
 
 # Bulletes
 - type: entity
-  parent: MCBullet
+  parent: MCBulletRevolverR500
   id: MCBulletRevolverR312
   name: .500 White Express revolver bullet
   components:
-  - type: Projectile
-    damage:
-      types:
-        MCBrute: 100
-  - type: CMArmorPiercing
-    amount: 60 # xeno 20
   - type: MCStunOnHit
     knockback: 1
-    slowdownTime: 0
-  - type: RMCProjectileAccuracy
-    thresholds:
-    - range: 15
-      falloff: 5
 
 - type: entity
-  parent: MCBullet
+  parent: MCBulletRevolverR312
   id: MCBulletRevolverR312Medical
   name: .500 EMB
   components:
@@ -324,9 +602,9 @@
   - type: MCProjectileInject
     reagents:
     - ReagentId: MCAdrenalin
-      Quantity: 2
+      Quantity: 4
     - ReagentId: MCHyronalin
-      Quantity: 3
+      Quantity: 6
 
 - type: entity
   parent: MCBulletRevolverR312Medical
@@ -336,7 +614,7 @@
   - type: MCProjectileInject
     reagents:
     - ReagentId: MCRussianRed
-      Quantity: 5
+      Quantity: 7.5
 
 - type: entity
   parent: MCBulletRevolverR312Medical
@@ -346,9 +624,9 @@
   - type: MCProjectileInject
     reagents:
     - ReagentId: MCMeralyne
-      Quantity: 2.5
+      Quantity: 5
     - ReagentId: MCDermaline
-      Quantity: 2.5
+      Quantity: 5
 
 - type: entity
   parent: MCBulletRevolverR312Medical
@@ -358,18 +636,18 @@
   - type: MCProjectileInject
     reagents:
     - ReagentId: MCNeuraline
-      Quantity: 3.1
+      Quantity: 6
     - ReagentId: MCHyronalin
-      Quantity: 1.9
+      Quantity: 2.8
 
 - type: entity
   parent: MCBulletRevolverR312Medical
-  id: MCBulletRevolverR312MedicalHyronalin
-  name: .500 Hyronalin EMB
+  id: MCBulletRevolverR312MedicalHypervene
+  name: .500 Hypervene EMB
   components:
   - type: MCProjectileInject
     reagents:
-    - ReagentId: MCHyronalin
+    - ReagentId: MCHypervene
       Quantity: 5
 
 - type: entity

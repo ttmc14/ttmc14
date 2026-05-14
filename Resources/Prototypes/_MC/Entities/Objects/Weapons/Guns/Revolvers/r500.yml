@@ -1,0 +1,257 @@
+- type: entity
+  parent: MCWeaponRevolver
+  id: MCWeaponRevolverR500
+  name: R-500 'Nigredo' revolver
+  description: The R-500 'Nigredo' revolver, chambered in .500 Nigro Express. Hard to use, but hits as hard as it’s kicks your hand. This handgun made by BMSS, designed to be deadly, unholy force to stop everything what moves, so in exchange for it, revolver lacking recoil control and have tight cocking system. Because of its specific, handcanon niche, was produced in small numbers. Black & Metzer special attachments system can turn extremely powerful handgun to fullscale rifle, making it a weapon to surpass Metal Gear.
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponSidearm
+    - MCWeaponRevolver
+    - MCWeaponRevolverR500
+    # Visuals
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Revolvers/r500.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Revolvers/r500.rsi
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Fire/t500.ogg
+  # Statistics
+  - type: RevolverAmmoProvider
+    whitelist:
+      tags:
+      - MCSpeedloaderR500
+      - MCCartridgeRevolverR500
+      - MCCartridgeRevolverR500Slavs
+    proto: MCCartridgeRevolverR500
+    capacity: 5
+    chambers: [ True, True, True, True, True ]
+    ammoSlots: [ null, null, null, null, null ]
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    baseFireRate: 1.25
+    # Recoil
+    recoilWielded: 2
+    recoilUnwielded: 3
+    # Scatter
+    scatterWielded: 0 # -1
+    scatterUnwielded: 5
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 0.9
+  - type: AttachableHolder
+    slots: {}
+  - type: AttachableHolderVisuals
+    offsets: {}
+
+- type: Tag
+  id: MCWeaponRevolverR500
+
+# Speed loaders
+- type: entity
+  parent: MSpeedloader
+  id: MCSpeedloaderR500
+  name: R-500 speed loader (.500)
+  description: A R-312 'Albedo' revolver speed loader.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineSidearm
+    - MCMagazineRevolver
+    - MCSpeedloaderR500
+  - type: MagazineVisuals
+    magState: base
+    steps: 1
+    zeroVisible: false
+    zeroOnlyOnEmpty: true
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: base-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR500
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR500
+    capacity: 5
+
+- type: Tag
+  id: MCSpeedloaderR500
+
+- type: entity
+  parent: MCSpeedloaderR500
+  id: MCSpeedloaderR500Slavs
+  name: R-500 speed loader (.500 'Slavs')
+  components:
+  - type: MagazineVisuals
+    magState: sv
+  - type: Sprite
+    layers:
+    - state: sv
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: sv-1
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRevolverR500Slavs
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR500Slavs
+
+# Cartridges
+- type: stack
+  id: MCCartridgeRevolverR500
+  name: handful of .500 White Express revolver bullet
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR500
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeRevolverR500
+  name: .500 White Express revolver bullet
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridgeRevolverR500
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
+    layers:
+    - state: base-1
+      map: [ "base" ]
+  - type: Stack
+    count: 5
+    stackType: MCCartridgeRevolverR500
+    baseLayer: base
+    layerStates:
+    - base-1
+    - base-1
+    - base-2
+    - base-3
+    - base-4
+    - base-5
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR500
+
+- type: Tag
+  id: MCCartridgeRevolverR500
+
+- type: entity
+  parent: MCBoxHandful
+  id: MCBoxHandfulR500
+  name: packet of .500 White Express revolver bullet
+  components:
+  - type: Tag
+    tags:
+    - MCBoxHandfulR500
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/base.rsi
+    layers:
+    - state: base-full
+      map: [ "base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        base:
+          True: { state: base-full }
+          False: { state: base-empty }
+  - type: Item
+    size: Small
+  - type: RMCStorageEjectHand
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,9,1 # 10 slots
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR500
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR500
+      amount: 10
+  - type: FixedItemSizeStorage
+
+- type: Tag
+  id: MCBoxHandfulR500
+
+- type: stack
+  id: MCCartridgeRevolverR500Slavs
+  name: handful of .500 'Slavs' revolver bullet
+  icon:
+    sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/sv.rsi
+    state: base-1
+  spawn: MCCartridgeRevolverR500Slavs
+  maxCount: 5
+
+- type: entity
+  parent: MCCartridgeRevolverR500
+  id: MCCartridgeRevolverR500Slavs
+  name: .500 'Slavs' revolver bullet
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridgeRevolverR500Slavs
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/r500/sv.rsi
+  - type: Stack
+    stackType: MCCartridgeRevolverR500Slavs
+  - type: CartridgeAmmo
+    proto: MCBulletRevolverR500Slavs
+
+- type: Tag
+  id: MCCartridgeRevolverR500Slavs
+
+- type: entity
+  parent: MCBoxHandfulR500
+  id: MCBoxHandfulR500Slavs
+  name: packet of .500 'Slavs' revolver bullet
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/sv.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,9,1 # 10 slots
+    whitelist:
+      tags:
+      - MCCartridgeRevolverR500Slavs
+  - type: StorageFill
+    contents:
+    - id: MCCartridgeRevolverR500Slavs
+      amount: 10
+
+# Bulletes
+- type: entity
+  parent: MCBullet
+  id: MCBulletRevolverR500
+  name: .500 White Express revolver bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+  - type: CMArmorPiercing
+    amount: 60 # xeno 20
+  - type: MCStunOnHit
+    knockback: 2
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 15
+      falloff: 5
+
+- type: entity
+  parent: MCBulletRevolverR500
+  id: MCBulletRevolverR500Slavs
+  name: .500 'Slavs' revolver bullet
+  components:
+  - type: MCStunOnHit
+    paralyzeTime: 2
+    knockback: 1

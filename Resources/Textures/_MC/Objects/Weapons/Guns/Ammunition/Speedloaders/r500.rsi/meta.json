@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "base-1"
+    },
+    {
+      "name": "adrenaline"
+    },
+    {
+      "name": "adrenaline-1"
+    },
+    {
+      "name": "combat"
+    },
+    {
+      "name": "combat-1"
+    },
+    {
+      "name": "hypervene"
+    },
+    {
+      "name": "hypervene-1"
+    },
+    {
+      "name": "meraderm"
+    },
+    {
+      "name": "meraderm-1"
+    },
+    {
+      "name": "neuraline"
+    },
+    {
+      "name": "neuraline-1"
+    },
+    {
+      "name": "russian_red"
+    },
+    {
+      "name": "russian_red-1"
+    },
+    {
+      "name": "sv"
+    },
+    {
+      "name": "sv-1"
+    }
+  ]
+}
