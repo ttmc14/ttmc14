@@ -152,7 +152,7 @@
     staggerTime: 1
     slowdownTime: 1.5
     maxDistance: 10
-  - type: MCXenoProjectileInject
+  - type: MCProjectileInject
     reagents:
     - ReagentId: MCNeurotoxin
       Quantity: 4

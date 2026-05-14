@@ -9,6 +9,7 @@
     - MCWeaponSidearm
     - MCWeaponRevolver
     - MCWeaponRevolverR44
+  # Visuals
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Pistols/r44.rsi
   - type: Clothing
@@ -16,6 +17,7 @@
   - type: Gun
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_r44.ogg
+  # Statistics
   - type: RevolverAmmoProvider
     whitelist:
       tags:

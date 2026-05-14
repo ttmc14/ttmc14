@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCStorageItem
+  id: MCBoxHandful
+  name: box of shotgun shells
+  abstract: true
+  components:
+  - type: Item
+    size: Large
+  - type: Storage
+    grid:
+    - 0,0,9,1 # 5 slots
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+    layers:
+    - state: smallshell_box
+      color: "#ff0000"
+    - state: smallshell_box_12g
+      color: "#00ff00"
+    - state: smallshell_ammo_full_12g_base
+      color: "#ffffff"
+    - state: smallshell_ammo_full_12g_color
+      color: "#0000ff"
+      map: [ "full" ]
+    - state: smallshell_empty
+      map: [ "empty" ]
+      color: "#ff0000"
+  - type: Appearance
+  - type: Tag
+    tags:
+    - RMCBoxShotgunShells
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
+  - type: CMStorageVisualizer
+    storageEmpty: empty
+  - type: RMCStorageEjectHand
+    state: Last

@@ -80,6 +80,40 @@
       - id: MCCaseSyringeFillNanoblood
         name: syringe Case (120u Nanoblood)
         points: 5
+    - name: Albedo
+      entries:
+      - id: MCWeaponRevolverR312
+        points: 10
+      - id: MCBoxHandfulR312
+        points: 3
+      - id: MCBoxHandfulR312MedicalAdrenaline
+        points: 7
+      - id: MCBoxHandfulR312MedicalRussianRed
+        points: 7
+      - id: MCBoxHandfulR312MedicalMeraderm
+        points: 10
+      - id: MCBoxHandfulR312MedicalNeuraline
+        points: 10
+      - id: MCBoxHandfulR312MedicalHypervene
+        points: 7
+      - id: MCBoxHandfulR312MedicalCombat
+        points: 3
+      - id: MCSpeedloaderR312
+        points: 1
+      - id: MCSpeedloaderR312MedicalAdrenaline
+        points: 1
+      - id: MCSpeedloaderR312MedicalRussianRed
+        points: 1
+      - id: MCSpeedloaderR312MedicalMeraderm
+        points: 1
+      - id: MCSpeedloaderR312MedicalNeuraline
+        points: 1
+      - id: MCSpeedloaderR312MedicalHypervene
+        points: 1
+      - id: MCSpeedloaderR312MedicalCombat
+        points: 1
+      - id: MCPouchR312
+        points: 1
     - name: Tools
       entries:
       - id: MCHyposprayBig
