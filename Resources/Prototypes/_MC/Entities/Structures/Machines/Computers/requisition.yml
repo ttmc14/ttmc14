@@ -545,14 +545,14 @@
           sprite: _RMC14/Structures/Storage/reagent_tank.rsi
           state: weldtank
         cost: 100
-        entries:
+        entities:
         - MCTankReagentFuel
       - name: Water tank
         icon:
           sprite: _RMC14/Structures/Storage/reagent_tank.rsi
           state: tank_normal
         cost: 100
-        entries:
+        entities:
         - RMCTankReagentWater
       - name: asrs bluespace teleporter
         icon:
