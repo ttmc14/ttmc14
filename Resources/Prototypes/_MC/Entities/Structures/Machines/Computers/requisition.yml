@@ -559,7 +559,7 @@
           sprite: _MC/Structures/Machines/Pads/teleporter.rsi
           state: base_on
         cost: 500
-        entries:
+        entities:
         - MCASRSTeleporterPad
         - MCASRSTeleporterPad
     - name: mc-asrs-category-smartguns
