@@ -1,7 +1,7 @@
 ﻿using System.Numerics;
 using Robust.Shared.GameStates;
 
-namespace Content.Shared._MC.Vehicle.Components;
+namespace Content.Shared._MC.Vehicle.Grid.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCVehicleMapComponent : Component

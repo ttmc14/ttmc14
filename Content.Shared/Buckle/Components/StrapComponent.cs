@@ -90,6 +90,11 @@ public sealed partial class StrapComponent : Component
     /// </summary>
     [DataField]
     public bool BuckleOnInteractHand = true;
+
+    // MC Changes
+    [DataField]
+    public bool ModifyBuckleDrawDepth;
+    // MC End
 }
 
 public enum StrapPosition

@@ -1,0 +1,105 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "oxygen"
+    },
+    {
+      "name": "anesthetic"
+    },
+    {
+      "name": "phoron"
+    },
+    {
+      "name": "emergency"
+    },
+    {
+      "name": "emergency_engi"
+    },
+    {
+      "name": "emergency_double"
+    },
+    {
+      "name": "emergency_tst"
+    },
+    {
+      "name": "oxygen_f"
+    },
+    {
+      "name": "oxygen_fr"
+    },
+    {
+      "name": "canister"
+    },
+    {
+      "name": "jetpack"
+    },
+    {
+      "name": "jetpack-on",
+      "delays": [
+        [
+          0.3,
+          0.2,
+          0.2,
+          0.2
+        ]
+      ]
+    },
+    {
+      "name": "jetpack-void"
+    },
+    {
+      "name": "jetpack-void-on",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "jetpack-black"
+    },
+    {
+      "name": "jetpack-black-on",
+      "delays": [
+        [
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ]
+      ]
+    },
+    {
+      "name": "bomb_assembly"
+    },
+    {
+      "name": "flametank"
+    },
+    {
+      "name": "fire_extinguisher0"
+    },
+    {
+      "name": "fire_extinguisher1"
+    },
+    {
+      "name": "miniFE0"
+    },
+    {
+      "name": "miniFE1"
+    },
+    {
+      "name": "marine_flamerpack"
+    },
+    {
+      "name": "welderpack"
+    }
+  ]
+}

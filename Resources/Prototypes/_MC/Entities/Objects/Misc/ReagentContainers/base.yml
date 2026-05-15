@@ -1,0 +1,30 @@
+- type: entity
+  parent: MCItem
+  id: MCReagentContainer
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Items/tank.rsi
+    state: canister
+  - type: Item
+    sprite: _MC/Objects/Items/tank.rsi
+    size: Large
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+  - type: DrainableSolution
+    solution: tank
+  - type: ExaminableSolution
+    solution: tank
+  - type: SolutionTransfer
+    canChangeTransferAmount: true
+  - type: UserInterface
+    interfaces:
+      enum.TransferAmountUiKey.Key:
+        type: TransferAmountBoundUserInterface
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

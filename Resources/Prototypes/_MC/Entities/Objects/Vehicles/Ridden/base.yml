@@ -1,0 +1,48 @@
+- type: entity
+  id: MCVehicleRidden
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - DoorBumpOpener
+  - type: Corrodible
+    isCorrodible: false
+  - type: Sprite
+    drawdepth: OverMobs
+    noRot: true
+    layers:
+    - map: [ base ]
+      sprite: _MC/Objects/Vehicles/Ridden/motorbike.rsi
+      state: base
+  - type: Puller
+    needsHands: false
+  - type: Pullable
+  - type: InputMover
+  - type: InteractionOutline
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 3
+    baseSprintSpeed: 6
+  - type: Physics
+    bodyType: KinematicController
+  - type: Clickable
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.35
+        density: 500
+        mask:
+        - MobMask
+        layer:
+        - MobLayer
+  - type: Appearance
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Strap
+    buckleOffset: 0, 0
+    blacklist:
+      components:
+      - Xeno
+  - type: MCVehicleOperated
+  - type: MCVehicleOperatedStrap

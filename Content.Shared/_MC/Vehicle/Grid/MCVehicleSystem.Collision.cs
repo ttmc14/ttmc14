@@ -1,4 +1,4 @@
-﻿namespace Content.Shared._MC.Vehicle.Systems;
+﻿namespace Content.Shared._MC.Vehicle.Grid;
 
 public sealed partial class MCVehicleSystem
 {

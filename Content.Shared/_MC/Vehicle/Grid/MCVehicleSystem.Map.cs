@@ -1,10 +1,10 @@
 ﻿using System.Numerics;
-using Content.Shared._MC.Vehicle.Components;
+using Content.Shared._MC.Vehicle.Grid.Components;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
-namespace Content.Shared._MC.Vehicle.Systems;
+namespace Content.Shared._MC.Vehicle.Grid;
 
 public sealed partial class MCVehicleSystem
 {

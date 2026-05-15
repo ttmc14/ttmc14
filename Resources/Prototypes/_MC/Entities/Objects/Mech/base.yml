@@ -48,7 +48,7 @@
   - type: Appearance
   - type: ContainerContainer
     containers:
-      rmc-mech-pilot: !type:ContainerSlot ""
+      rmc-mech-pilot: !type:ContainerSlot
   - type: Damageable
     damageContainer: Inorganic
   - type: FootstepModifier

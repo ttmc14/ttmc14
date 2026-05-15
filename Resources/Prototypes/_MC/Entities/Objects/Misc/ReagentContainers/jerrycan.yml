@@ -1,0 +1,48 @@
+- type: entity
+  parent: MCReagentContainer
+  id: MCReagentContainerJerrycan
+  name: jerry can
+  description: A can filled with fuel to light things on fire. It has Absolut Jerry stamped in the side.
+  suffix: Filled
+  components:
+  - type: Tag
+    tags:
+    - MCReagentContainerJerrycan
+  - type: Sprite
+    sprite: _MC/Objects/Items/tank.rsi
+    state: canister
+  - type: Item
+    sprite: _MC/Objects/Items/tank.rsi
+    size: Large
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+        reagents:
+        - ReagentId: WeldingFuel
+          Quantity: 200
+  - type: SolutionTransfer
+    transferAmount: 50
+    maxTransferAmount: 200
+    transferAmounts:
+    - 10
+    - 20
+    - 30
+    - 40
+    - 50
+    - 100
+    - 150
+    - 200
+
+- type: entity
+  parent: MCReagentContainerJerrycan
+  id: MCReagentContainerJerrycanEmpty
+  suffix: Empty
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      tank:
+        maxVol: 200
+
+- type: Tag
+  id: MCReagentContainerJerrycan

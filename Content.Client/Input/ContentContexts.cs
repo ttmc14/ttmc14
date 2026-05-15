@@ -1,3 +1,4 @@
+using Content.Shared._MC;
 using Content.Shared._RMC14.Input;
 using Content.Shared.Input;
 using Robust.Shared.Input;
@@ -129,6 +130,7 @@ namespace Content.Client.Input
 
 
             CMFunctions(contexts);
+            MCKeyFunctions.Register(human); // MC Changes
         }
 
         private static void CMFunctions(IInputContextContainer contexts)
