@@ -1,5 +1,6 @@
 using System.Linq;
 using System.Numerics;
+using Content.Shared._MC.Vehicle.Operated.Events;
 using Content.Shared.Climbing.Events;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Systems;
@@ -27,6 +28,18 @@ public sealed class RMCMovementSystem : EntitySystem
     {
         SubscribeLocalEvent<RMCMobCollisionComponent, MapInitEvent>(OnMobCollisionMapInit);
         SubscribeLocalEvent<RMCMobCollisionComponent, MobStateChangedEvent>(OnMobCollisionMobStateChanged);
+
+        // MC Changes
+        SubscribeLocalEvent((Entity<RMCMobCollisionComponent> entity, ref MCVehicleOperatedAddedEvent _) =>
+        {
+            _fixture.DestroyFixture(entity, entity.Comp.FixtureId);
+        });
+
+        SubscribeLocalEvent((Entity<RMCMobCollisionComponent> entity, ref MCVehicleOperatedRemovedEvent _) =>
+        {
+            CreateMobCollisionFixture(entity);
+        });
+        // MC End
     }
 
     private void OnMobCollisionMapInit(Entity<RMCMobCollisionComponent> ent, ref MapInitEvent args)

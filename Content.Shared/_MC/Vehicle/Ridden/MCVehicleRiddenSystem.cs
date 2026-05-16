@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Vehicle.Operated;
+﻿using Content.Shared._MC.Mob.Movement;
+using Content.Shared._MC.Vehicle.Operated;
 using Content.Shared._MC.Vehicle.Operated.Events;
 using Content.Shared._MC.Vehicle.Ridden.Components;
 using Content.Shared.ActionBlocker;
@@ -7,12 +8,20 @@ using Content.Shared.Interaction;
 using Content.Shared.Interaction.Components;
 using Content.Shared.Inventory.VirtualItem;
 using Content.Shared.Movement.Events;
+using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Vehicle.Ridden;
 
 public sealed partial class MCVehicleRiddenSystem : EntitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly INetManager _net = null!;
+
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedVirtualItemSystem _virtualItem = null!;
     [Dependency] private readonly MCVehicleOperatedSystem _vehicleOperated = null!;
@@ -21,6 +30,7 @@ public sealed partial class MCVehicleRiddenSystem : EntitySystem
     {
         SubscribeLocalEvent<MCVehicleRiddenComponent, MCVehicleOperatedChangedEvent>(OnOperatedChanged);
         SubscribeLocalEvent<MCVehicleRiddenComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MCVehicleRiddenComponent, MCMobStepEvent>(OnMove);
 
         SubscribeLocalEvent<MCVehicleRiddenComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MCVehicleRiddenComponent, InteractUsingEvent>(OnInteractUsing);
@@ -34,26 +44,17 @@ public sealed partial class MCVehicleRiddenSystem : EntitySystem
 
         var fuelPercent = entity.Comp.Fuel / entity.Comp.FuelMax * 100f;
 
-        args.PushText(Loc.GetString(
-            "mc-vehicle-fuel-examine",
-            ("fuel", fuelPercent.ToString("0.0"))));
+        var message = new FormattedMessage();
+        message.AddMarkupOrThrow(Loc.GetString("mc-vehicle-fuel-examine", ("fuel", fuelPercent.ToString("0.0"))));
+        args.PushMessage(message);
     }
 
     private void OnOperatedChanged(
         Entity<MCVehicleRiddenComponent> entity,
         ref MCVehicleOperatedChangedEvent args)
     {
-        ref var comp = ref entity.Comp;
-
-        comp.LastPosition = _transform.GetWorldPosition(entity);
-        comp.Operated = args.NewOperator != null;
-
-        DirtyFields(
-            entity,
-            comp,
-            null,
-            nameof(MCVehicleRiddenComponent.LastPosition),
-            nameof(MCVehicleRiddenComponent.Operated));
+        entity.Comp.Operated = args.NewOperator != null;
+        DirtyField(entity, entity.Comp, nameof(MCVehicleRiddenComponent.Operated));
 
         if (args.NewOperator is { } newOperator)
             AddVirtualHands(entity, newOperator);
@@ -70,48 +71,45 @@ public sealed partial class MCVehicleRiddenSystem : EntitySystem
         RemoveVirtualHands(entity, operatorEntity);
     }
 
+    private void OnMove(Entity<MCVehicleRiddenComponent> entity, ref MCMobStepEvent args)
+    {
+        if (!entity.Comp.Operated)
+            return;
+
+        if (entity.Comp.Fuel <= 0)
+            return;
+
+        ConsumeFuel(entity);
+    }
+
     private void OnCanMove(Entity<MCVehicleRiddenComponent> entity, ref UpdateCanMoveEvent args)
     {
         if (entity.Comp.Fuel <= 0)
             args.Cancel();
     }
 
-    public override void Update(float frameTime)
+
+    private void ConsumeFuel(Entity<MCVehicleRiddenComponent> entity)
     {
-        var query = EntityQueryEnumerator<MCVehicleRiddenComponent>();
-        while (query.MoveNext(out var uid, out var comp))
+        // TODO: I'm lazy need get move speed and recalculate cost
+        const float speed = 6f;
+
+        if (entity.Comp.EffectEngineSoundNext <= _timing.CurTime && _net.IsServer)
         {
-            if (!comp.Operated)
-                continue;
-
-            if (comp.Fuel <= 0)
-                continue;
-
-            ConsumeFuel(uid, comp);
+            _audio.PlayPvs(entity.Comp.EffectSoundEngine, entity, entity.Comp.EffectSoundEngine.Params);
+            entity.Comp.EffectEngineSoundNext = _timing.CurTime + entity.Comp.EffectEngineSoundInterval;
         }
-    }
 
-    private void ConsumeFuel(EntityUid uid, MCVehicleRiddenComponent comp)
-    {
-        var currentPosition = _transform.GetWorldPosition(uid);
-        var distance = (currentPosition - comp.LastPosition).Length();
-
-        comp.LastPosition = currentPosition;
-        DirtyField(uid, comp, nameof(MCVehicleRiddenComponent.LastPosition));
-
-        if (distance <= 0f)
-            return;
-
-        var fuelCost = distance * comp.FuelCost;
+        var fuelCost = entity.Comp.FuelCost / speed;
         if (fuelCost <= 0f)
             return;
 
-        comp.Fuel = float.Max(0f, comp.Fuel - fuelCost);
+        entity.Comp.Fuel = float.Max(0f, entity.Comp.Fuel - fuelCost);
 
-        if (comp.Fuel == 0f)
-            _actionBlocker.UpdateCanMove(uid);
+        if (entity.Comp.Fuel == 0f)
+            _actionBlocker.UpdateCanMove(entity);
 
-        DirtyField(uid, comp, nameof(MCVehicleRiddenComponent.Fuel));
+        DirtyField(entity, entity.Comp, nameof(MCVehicleRiddenComponent.Fuel));
     }
 
     private void AddVirtualHands(

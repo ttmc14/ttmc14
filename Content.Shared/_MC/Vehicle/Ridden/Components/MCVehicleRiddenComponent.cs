@@ -1,6 +1,6 @@
-﻿using System.Numerics;
-using Content.Shared.Chemistry.Reagent;
+﻿using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Whitelist;
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 
@@ -11,9 +11,6 @@ public sealed partial class MCVehicleRiddenComponent : Component
 {
     [AutoNetworkedField]
     public bool Operated;
-
-    [AutoNetworkedField]
-    public Vector2 LastPosition;
 
     [DataField, AutoNetworkedField]
     public float Fuel = 1000f;
@@ -35,4 +32,17 @@ public sealed partial class MCVehicleRiddenComponent : Component
 
     [DataField]
     public int HandsRequired = 1;
+
+    [DataField]
+    public SoundSpecifier EffectSoundEngine = new SoundPathSpecifier("/Audio/_MC/Effects/Vehicles/carrev.ogg",
+        new AudioParams
+    {
+        Volume = 5f,
+    });
+
+    [DataField]
+    public TimeSpan EffectEngineSoundInterval = TimeSpan.FromSeconds(1.5f);
+
+    [ViewVariables]
+    public TimeSpan EffectEngineSoundNext;
 }

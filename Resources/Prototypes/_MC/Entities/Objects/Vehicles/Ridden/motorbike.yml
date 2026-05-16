@@ -4,6 +4,11 @@
   name: all-terrain motorbike
   description: An all-terrain vehicle built for traversing rough terrain with ease. TGMC CAVALRY is stamped on the side of the engine.
   components:
+  - type: Sprite
+    layers:
+    - map: [ base ]
+      sprite: _MC/Objects/Vehicles/Ridden/motorbike.rsi
+      state: base
   - type: MCVehicleRidden
     fuel: 1000
     fuelMax: 1000
@@ -31,6 +36,9 @@
     examinableTypes:
     - MCBrute
     - MCBurn
+  - type: MovementSpeedModifier
+    baseWalkSpeed: 4.75
+    baseSprintSpeed: 6.75
   - type: RMCRepairable
   - type: RequireProjectileTarget
   - type: MobCollision
