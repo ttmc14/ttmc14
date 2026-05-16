@@ -1,0 +1,54 @@
+- type: entity
+  id: MCRequisitionsArmor
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-armor
+      entries:
+      - icon:
+          sprite: _RMC14/Objects/Clothing/Back/Backpacks/Marines/scout_cloak.rsi
+          state: icon
+        cost: 500
+        entities:
+        - MCSatchelScout
+      - icon:
+          sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/ghillie/jungle.rsi
+          state: icon
+        cost: 500
+        entities:
+        - CMArmorM45
+      - icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_fire
+        cost: 200
+        entities:
+        - MCArmorModuleValkyrieAutomedical
+      - icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_fire
+        cost: 120
+        entities:
+        - MCArmorModuleSurtPyrotechnical
+        - MCArmorModuleSurtPyrotechnicalHelmet
+      - icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_armor
+        cost: 120
+        entities:
+        - MCArmorModuleMark2TyrArmor
+        - MCArmorModuleMark2TyrArmorHelmet
+      - icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_biohazard
+        cost: 120
+        entities:
+        - MCArmorModuleMark2Mimir
+        - MCArmorModuleMark2MimirHelmet
+      - icon:
+          sprite: _MC/Clothing/modular.rsi
+          state: mod_boomimmune
+        cost: 100
+        entities:
+        - MCArmorModuleHlinExplosive
+

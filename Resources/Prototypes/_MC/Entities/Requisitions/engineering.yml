@@ -1,0 +1,63 @@
+- type: entity
+  id: MCRequisitionsEngineering
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-engineering
+      entries:
+      - icon:
+          sprite: _RMC14/Objects/Misc/sandbags.rsi
+          state: sandbag_stack
+        cost: 100
+        entities:
+        - CMSandbagEmpty50
+      - icon:
+          sprite: _RMC14/Objects/Materials/Sheets/metal.rsi
+          state: metal_4
+        cost: 200
+        entities:
+        - MCSheetMetal50
+      - icon:
+          sprite: _RMC14/Objects/Materials/Sheets/plasteel.rsi
+          state: plasteel_4
+        cost: 400
+        entities:
+        - MCSheetPlasteel50
+      - icon:
+          sprite: _RMC14/Objects/Materials/Sheets/glass.rsi
+          state: glass_4
+        cost: 100
+        entities:
+        - MCSheetGlass
+      - icon:
+          sprite: _RMC14/Objects/Materials/Sheets/wood.rsi
+          state: wood_4
+        cost: 100
+        entities:
+        - MCPlankWood50
+      - icon:
+          sprite: _RMC14/Objects/Materials/Sheets/phoron.rsi
+          state: phoron
+        cost: 200
+        entities:
+        - MCSheetPhoron
+      - icon:
+          sprite: _RMC14/Structures/Storage/reagent_tank.rsi
+          state: weldtank
+        cost: 100
+        entities:
+        - MCTankReagentFuel
+      - icon:
+          sprite: _RMC14/Structures/Storage/reagent_tank.rsi
+          state: tank_normal
+        cost: 100
+        entities:
+        - RMCTankReagentWater
+      - icon:
+          sprite: _MC/Structures/Machines/Pads/teleporter.rsi
+          state: base_on
+        cost: 500
+        entities:
+        - MCASRSTeleporterPad
+        - MCASRSTeleporterPad

@@ -15,6 +15,8 @@ public sealed partial class MCASRSRequestButton : BoxContainer
 
     public MCASRSRequestButton(MCASRSRequest request, Action<MCASRSRequest> approved, Action<MCASRSRequest> denied, Action<MCASRSRequest> delivered, bool approveDisabled, bool interactable = true, bool deliverable = false) : this()
     {
+        var localizationManager = IoCManager.Resolve<ILocalizationManager>();
+
         ApproveButton.Disabled = approveDisabled;
 
         ApproveButton.OnPressed += _ => approved.Invoke(request);
@@ -36,7 +38,11 @@ public sealed partial class MCASRSRequestButton : BoxContainer
             if (count > 0)
                 message += $"{count}x";
 
-            message += $"{Loc.GetString(entry.Name ?? "Unknown")} ({entry.Cost * count})";
+            var name = entry.Name;
+            if (entry.Entities.Count > 0 && localizationManager.GetEntityData(entry.Entities[0]).Name is { } entityName)
+                name ??= entityName;
+
+            message += $"{Loc.GetString(name ?? "Unknown")} ({entry.Cost * count})";
             label.SetMessage(message);
 
             Container.Children.Add(label);

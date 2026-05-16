@@ -28,6 +28,7 @@ public sealed partial class MCASRSOrderButton : BoxContainer
         RobustXamlLoader.Load(this);
 
         var sprite = IoCManager.Resolve<IEntityManager>().System<SpriteSystem>();
+        var localizationManager = IoCManager.Resolve<ILocalizationManager>();
 
         _entry = entry;
         _count = count;
@@ -42,7 +43,11 @@ public sealed partial class MCASRSOrderButton : BoxContainer
         if (entry.Icon is not null)
             IconTextureRect.Texture = sprite.Frame0(entry.Icon);
 
-        OrderNameLabel.SetMessage($"{Loc.GetString(entry.Name ?? "Unknown")} ({entry.Cost})");
+        var name = entry.Name;
+        if (entry.Entities.Count > 0 && localizationManager.GetEntityData(entry.Entities[0]).Name is { } entityName)
+            name ??= entityName;
+
+        OrderNameLabel.SetMessage($"{Loc.GetString(name ?? "Unknown")} ({entry.Cost})");
 
         RefreshCount(invoke: false);
     }

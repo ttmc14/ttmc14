@@ -1,0 +1,7 @@
+- type: entity
+  id: MCRequisitionsImports
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-imports

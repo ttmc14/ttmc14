@@ -1,0 +1,171 @@
+- type: entity
+  id: MCRequisitionsMedical
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-medical
+      entries:
+      - name: mc-asrs-entry-emergency-medkit
+        icon:
+          sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
+          state: base
+        cost: 80
+        entities:
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFill
+        # /obj/item/reagent_containers/hypospray/autoinjector/neuraline,
+        # /obj/item/stack/nanopaste
+      - name: mc-asrs-entry-medevac-stretcher
+        icon:
+          sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
+          state: stretcher_down
+        cost: 500
+        entities:
+        - MCMedevacStretcherFolded
+        - MCBeaconMedevac
+      - name: mc-asrs-entry-lemoline
+        icon:
+          sprite: _MC/Objects/Chemistry/bottles.rsi
+          state: bottle-1
+        cost: 80
+        entities:
+        - MCBottleLemoline
+      - name: mc-asrs-entry-advanced-medkits
+        icon:
+          sprite: /Textures/_MC/Objects/Medical/medical.rsi
+          state: combat_traumakit
+        cost: 100
+        entities:
+        - MCTraumaKitCombat
+        - MCTraumaKitCombat
+        - MCTraumaKitCombat
+        - MCTraumaKitCombat
+        - MCTraumaKitCombat
+        - MCBurnKitCombat
+        - MCBurnKitCombat
+        - MCBurnKitCombat
+        - MCBurnKitCombat
+        - MCBurnKitCombat
+      - name: mc-asrs-entry-health-scanner-gloves
+        icon:
+          sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
+          state: icon
+        cost: 60
+        entities:
+        - MCClothingHandsHealthanalyzer
+      - name: Nanoblood hypospray
+        icon:
+          sprite: _MC/Objects/Medical/hypospray.rsi
+          state: base
+        cost: 100
+        entities:
+        - MCHyposprayBigFillNanoblood
+        - MCHyposprayBigFillNanoblood
+      - name: Meraderm pill bottle
+        icon:
+          sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
+          state: pill_canister0
+        cost: 300
+        entities:
+        - MCPillCanisterMeralyne
+        - MCPillCanisterDermaline
+        - MCPillCanisterMeraderm
+      - name: Anti-toxin pill bottles kit
+        icon:
+          sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
+          state: pill_canister12
+        cost: 20
+        entities:
+        - MCPillCanisterHypervene
+        - MCPillCanisterDylovene
+        - MCPillCanisterTricordrazine
+      - name: Russian Red pill bottle
+        icon:
+          sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
+          state: pill_canister10
+        cost: 250
+        entities:
+        - RMCPillCanisterRussianRed
+      - name: mc-asrs-entry-bluespace-beakers
+        icon:
+          sprite: _MC/Objects/Chemistry/bluespace_beaker.rsi
+          state: beakerbluespace
+        cost: 50
+        entities:
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+      - name: Medical defibrillator
+        icon:
+          sprite: _MC/Objects/Medical/defib.rsi
+          state: defib
+        cost: 50
+        entities:
+        - MCDefibrillator
+        - MCDefibrillator
+      # Albedo
+      - name: R-312 'Albedo' revolver
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Revolvers/r312.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCWeaponRevolverR312
+        - MCSpeedloaderR312
+      - name: R-312 adrenaline ammo
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+          state: adrenaline-1
+        cost: 50
+        entities:
+        - MCBoxHandfulR312MedicalAdrenaline
+        - MCSpeedloaderR312MedicalAdrenaline
+      - name: R-312 russian red ammo
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+          state: russian_red-1
+        cost: 150
+        entities:
+        - MCBoxHandfulR312MedicalRussianRed
+        - MCSpeedloaderR312MedicalRussianRed
+      - name: R-312 meraderm ammo
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+          state: meraderm-1
+        cost: 100
+        entities:
+        - MCBoxHandfulR312MedicalMeraderm
+        - MCSpeedloaderR312MedicalMeraderm
+      - name: R-312 neuraline ammo
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+          state: neuraline-1
+        cost: 200
+        entities:
+        - MCBoxHandfulR312MedicalNeuraline
+        - MCSpeedloaderR312MedicalNeuraline
+      - name: R-312 hypervene ammo
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+          state: hypervene-1
+        cost: 120
+        entities:
+        - MCBoxHandfulR312MedicalHypervene
+        - MCSpeedloaderR312MedicalHypervene
+      - name: R-312 combat mix ammo
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
+          state: combat-1
+        cost: 150
+        entities:
+        - MCBoxHandfulR312MedicalCombat
+        - MCSpeedloaderR312MedicalCombat
+      - name: BMSS medkit pouch
+        icon:
+          sprite: _MC/Clothing/Pouches/r312.rsi
+          state: base
+        cost: 10
+        entities:
+        - MCPouchR312

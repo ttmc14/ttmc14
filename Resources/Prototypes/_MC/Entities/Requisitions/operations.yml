@@ -1,0 +1,41 @@
+- type: entity
+  id: MCRequisitionsOperations
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-operations
+      entries:
+      # Beacons
+      - icon:
+          sprite: _MC/Objects/Items/beacon.rsi
+          state: motion_0
+        cost: 100
+        entities:
+        - MCBeaconSupply
+      - icon:
+          sprite: _MC/Objects/Items/beacon.rsi
+          state: motion_4
+        cost: 50
+        entities:
+        - MCBeaconOrbital
+      # Utilities
+      - icon:
+          sprite: _MC/Objects/Devices/binoculars.rsi
+          state: range_finders
+        cost: 25
+        entities:
+        - MCRangefinder
+      # Economy & Workstations
+      - icon:
+          sprite: _MC/Structures/Machines/Pads/exporter.rsi
+          state: base_on
+        cost: 300
+        entities:
+        - MCASRSExportPad
+      - icon:
+          sprite: _MC/Structures/Machines/bepis.rsi
+          state: chamber
+        cost: 200
+        entities:
+        - MCResearchConsole

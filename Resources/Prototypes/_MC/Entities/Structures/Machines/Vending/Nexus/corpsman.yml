@@ -99,7 +99,7 @@
       - id: MCBoxHandfulR312MedicalCombat
         points: 3
       - id: MCSpeedloaderR312
-        points: 1
+        points: 0
       - id: MCSpeedloaderR312MedicalAdrenaline
         points: 1
       - id: MCSpeedloaderR312MedicalRussianRed

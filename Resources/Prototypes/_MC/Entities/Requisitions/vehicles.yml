@@ -1,0 +1,22 @@
+- type: entity
+  id: MCRequisitionsVehicles
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-vehicles
+      entries:
+      - name: All-terrain motorbike
+        icon:
+          sprite: _MC/Objects/Vehicles/Ridden/motorbike.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCVehicleRiddenMotorbike
+      - name: Jerry can
+        icon:
+          sprite: _MC/Objects/Items/tank.rsi
+          state: canister
+        cost: 100
+        entities:
+        - MCReagentContainerJerrycan

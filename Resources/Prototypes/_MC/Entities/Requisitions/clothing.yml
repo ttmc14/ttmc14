@@ -1,0 +1,20 @@
+- type: entity
+  id: MCRequisitionsClothing
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-clothing
+      entries:
+      - icon:
+          sprite: _MC/Clothing/Back/Satchels/Marines/medical.rsi
+          state: icon
+        cost: 75
+        entities:
+        - MCSatchelMarineCorpsman
+      - icon:
+          sprite: _MC/Clothing/Back/Backpacks/Marines/medical.rsi
+          state: icon
+        cost: 75
+        entities:
+        - MCBackpackMarineCorpsman

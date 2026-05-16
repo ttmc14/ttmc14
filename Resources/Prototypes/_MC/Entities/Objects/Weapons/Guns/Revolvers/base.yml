@@ -5,6 +5,11 @@
   abstract: true
   components:
   - type: MCWeaponZLevelsShoot
+  - type: GunDualWielding
+    weaponGroup: None
+    scatterModifier: 0
+    accuracyAddMult: 0
+    recoilModifier: 0
   - type: RMCSelectiveFire
     # Scatter
     scatterWielded: 4

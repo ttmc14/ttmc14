@@ -591,6 +591,8 @@
     amount: 120 # xeno 20
   - type: RMCProjectileAccuracy
     thresholds:
+    - range: 0
+      falloff: 0
     - range: 15
       falloff: 5
 

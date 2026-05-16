@@ -1,0 +1,152 @@
+- type: entity
+  id: MCRequisitionsSmartguns
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-smartguns
+      # SG-29
+      entries:
+      - name: mc-asrs-entry-sg29
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg29/icon.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponSmartGunSG29
+      - name: mc-asrs-entry-sg29-drum
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg29.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSmartGunSG29
+      # SG-25
+      - name: mc-asrs-entry-sg25
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg25.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponSmartGunSG25
+      - name: mc-asrs-entry-sg25-mag
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg25.rsi
+          state: base
+        cost: 20
+        entities:
+        - MCMagazineSmartGunSG25
+      - name: mc-asrs-entry-sg25-extended
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg25_ext.rsi
+          state: base
+        cost: 200
+        entities:
+        - MCMagazineSmartGunSG25Extended
+      - name: mc-asrs-entry-sg-ammo-box
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
+        cost: 400
+        entities:
+        - MCBoxBulletsSmartGunSG29
+      # SG-85
+      - name: SG-85 smart gatling gun
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponSmartGunSG85
+      - name: SG-85 Minigun Powerpack
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Powerpacks/sg85.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCPowerpackSG85
+      - name: SG-85 ammo bin
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
+        cost: 50
+        entities:
+        - MCBoxBulletsSmartGunSG85
+      # SG-26
+      - name: mc-asrs-entry-sg62
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg62.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponSmartGunSG62
+      - name: mc-asrs-entry-sg62-mag
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg62.rsi
+          state: base
+        cost: 35
+        entities:
+        - MCMagazineSmartGunSG62
+      - name: mc-asrs-entry-sg62-box
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
+        cost: 50
+        entities:
+        - MCBoxBulletsSmartGunSG62
+      - name: mc-asrs-entry-sg153-mag
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153.rsi
+          state: base
+        cost: 15
+        entities:
+        - MCMagazineSmartGunSG153
+      - name: mc-asrs-entry-sg153-box
+        icon:
+          sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Boxes/modular_boxes.rsi
+          state: rifle_box
+        cost: 10
+        entities:
+        - MCBoxBulletsSmartGunSG153
+      - name: mc-asrs-entry-sg153-highimpact
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_hi.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSmartGunSG153Highimpact
+      - name: mc-asrs-entry-sg153-heavyrubber
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_hr.rsi
+          state: base
+        cost: 15
+        entities:
+        - MCMagazineSmartGunSG153Heavyrubber
+      - name: mc-asrs-entry-sg153-tanglefoot
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_pl.rsi
+          state: base
+        cost: 15
+        entities:
+        - MCMagazineSmartGunSG153Plasmaloss
+      - name: mc-asrs-entry-sg153-tungsten
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_tg.rsi
+          state: base
+        cost: 15
+        entities:
+        - MCMagazineSmartGunSG153Tungsten
+      - name: mc-asrs-entry-sg153-flak
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_fl.rsi
+          state: base
+        cost: 15
+        entities:
+        - MCMagazineSmartGunSG153Flak
+      - name: mc-asrs-entry-sg153-incendiary
+        icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sg153_ic.rsi
+          state: base
+        cost: 15
+        entities:
+        - MCMagazineSmartGunSG153Incendiary

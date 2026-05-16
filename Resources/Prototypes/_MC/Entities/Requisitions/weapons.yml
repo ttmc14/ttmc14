@@ -1,0 +1,124 @@
+- type: entity
+  id: MCRequisitionsWeapons
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-weapons
+      # SR-26
+      entries:
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr26/icon.rsi
+          state: base
+        cost: 775
+        entities:
+        - MCWeaponSniperSR26
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+          state: base
+        cost: 30
+        entities:
+        - MCMagazineSR26
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSR26Flak
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr26.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineSR26Incendiary
+      # SR-81
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Snipers/sr81/icon.rsi
+          state: base
+        cost: 500
+        entities:
+        - MCWeaponSniperSR81
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr81.rsi
+          state: base
+        cost: 30
+        entities:
+        - MCMagazineSR81
+      # BR-8
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Rifles/br8/icon.rsi
+          state: base
+        cost: 400
+        entities:
+        - MCWeaponRifleBR8
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 20
+        entities:
+        - MCMagazineRifleBR8
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineRifleBR8Impact
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/br8.rsi
+          state: base
+        cost: 40
+        entities:
+        - MCMagazineRifleBR8Incendiary
+      # Peppergun
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Special/pepperball.rsi
+          state: base
+        cost: 100
+        entities:
+        - MCWeaponPepperball
+      # FL-84
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCWeaponFlamer
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+          state: flametank_large_green
+        cost: 75
+        entities:
+        - MCTankFlamerGreen
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+          state: flametank_large_blue
+        cost: 300
+        entities:
+        - MCTankFlamerBlue
+      # FL-84 Backpacks
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamethrower_tank.rsi
+          state: flamethrower_tank
+        cost: 200
+        entities:
+        - MCBackpackFlamer
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/x_flamethrower_tank.rsi
+          state: x_flamethrower_tank
+        cost: 600
+        entities:
+        - MCBackpackFlamerX
+      # SR-127
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127_flak.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSR127Flak
+      # AR-12
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi
+          state: base
+        cost: 30
+        entities:
+        - MCMagazineRifleAR12AP

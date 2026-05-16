@@ -244,6 +244,8 @@
     knockback: 2
   - type: RMCProjectileAccuracy
     thresholds:
+    - range: 0
+      falloff: 0
     - range: 15
       falloff: 5
 

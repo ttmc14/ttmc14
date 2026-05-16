@@ -81,12 +81,22 @@
       - id: MCMeleeWeaponValiSword
     - name: Sidearm
       entries:
+      # R-44
+      - id: MCWeaponRevolverR44
+      - id: MCSpeedLoaderR44
+      # R-500
+      - id: MCWeaponRevolverR500
+        amount: 10
+      - id: MCSpeedloaderR500
+      - id: MCSpeedloaderR500Slavs
+      # R-312
+      - id: MCSpeedloaderR312
+      - id: MCBoxHandfulR312
+      # Other
       - id: MCWeaponP14
       - id: MCMagazinePistolP14
       - id: MCWeaponP23
       - id: MCMagazinePistolP23
-      - id: MCWeaponRevolverR44
-      - id: MCSpeedLoaderR44
       - id: MCWeaponP17
       - id: MCMagazinePistolP17
       - id: MCWeaponMK88

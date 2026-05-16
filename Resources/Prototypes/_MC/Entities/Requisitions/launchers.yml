@@ -1,0 +1,50 @@
+- type: entity
+  id: MCRequisitionsLaunchers
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: Launchers
+      entries:
+      - icon:
+          sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+          state: icon-full
+        cost: 400
+        entities:
+        - MCBackpackMarineRL160Full
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell
+        cost: 30
+        entities:
+        - MCRocketShell
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_le
+        cost: 30
+        entities:
+        - MCRocketShellLight
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_heat
+        cost: 30
+        entities:
+        - MCRocketShellHeat
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_smoke
+        cost: 30
+        entities:
+        - MCRocketShellSmoke
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_cloak
+        cost: 30
+        entities:
+        - MCRocketShellCloak
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
+          state: shell_tanglefoot
+        cost: 30
+        entities:
+        - MCRocketShellTanglefoot

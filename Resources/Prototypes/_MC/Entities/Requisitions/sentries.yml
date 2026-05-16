@@ -1,0 +1,73 @@
+- type: entity
+  id: MCRequisitionsSentries
+  abstract: true
+  components:
+  - type: MCASRSConsole
+    categories:
+    - name: mc-asrs-category-stationary
+      entries:
+      # Base
+      - icon:
+          sprite: _MC/Objects/Sentries/base.rsi
+          state: handled
+        cost: 200
+        entities:
+        - MCSentryBig
+      - icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/base.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSentryBig
+      # Mini
+      - icon:
+          sprite: _MC/Objects/Sentries/mini.rsi
+          state: handled
+        cost: 350
+        entities:
+        - MCSentryMini
+      - icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/mini.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSentryMini
+      # Sniper
+      - icon:
+          sprite: _MC/Objects/Sentries/sniper.rsi
+          state: handled
+        cost: 350
+        entities:
+        - MCSentrySniper
+      - icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/sniper.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSentrySniper
+      # Shotgun
+      - icon:
+          sprite: _MC/Objects/Sentries/shotgun.rsi
+          state: handled
+        cost: 350
+        entities:
+        - MCSentryShotgun
+      - icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/shotgun.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSentryShotgun
+      # Flamer
+      - icon:
+          sprite: _MC/Objects/Sentries/flamer.rsi
+          state: handheld
+        cost: 350
+        entities:
+        - MCSentryFlamer
+      - icon:
+          sprite: _MC/Objects/Items/Ammunition/Sentry/flamer.rsi
+          state: base
+        cost: 50
+        entities:
+        - MCMagazineSentryFlamer
