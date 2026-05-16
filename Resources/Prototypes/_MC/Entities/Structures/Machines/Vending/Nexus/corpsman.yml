@@ -23,6 +23,10 @@
       entries:
       - id: MCImplantSkillMelee
         points: 25
+      - id: MCImplantSkillMedical
+        points: 20
+      - id: MCImplantSkillEngineering
+        points: 15
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne

@@ -23,6 +23,10 @@
       entries:
       - id: MCImplantSkillMelee
         points: 25
+      - id: MCImplantSkillMedical
+        points: 15
+      - id: MCImplantSkillEngineering
+        points: 15
     - name: Materials
       entries:
       - id: MCSheetMetal10

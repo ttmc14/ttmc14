@@ -23,6 +23,12 @@
       entries:
       - id: MCImplantSkillMelee
         points: 15
+      - id: MCImplantSkillMedical
+        points: 15
+      - id: MCImplantSkillEngineering
+        points: 15
+      - id: MCImplantSkillLeadership
+        points: 20
     - name: RL-160
       entries:
       - id: MCBackpackMarineRL160Full

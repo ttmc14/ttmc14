@@ -1,0 +1,42 @@
+- type: entity
+  parent: MCMachineVending
+  id: MCMachineVendingNexusMarine
+  name: NEXUS automated marine's equipment rack
+  description: An automated equipment rack hooked up to a colossal storage of basic cat-herding devices.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Machines/vending.rsi
+    layers:
+    - state: squadleader-off
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: squadleader-deny
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: CMAutomatedVendor
+    jobs: [ MCSquadMarine ]
+    sections:
+    # Implanter
+    - name: Implanter
+      entries:
+      - id: MCImplantSkillMelee
+        points: 25
+      - id: MCImplantSkillMedical
+        points: 20
+      - id: MCImplantSkillEngineering
+        points: 20
+    # Grenades
+    - name: Grenades
+      entries:
+      - id: MCGrenadeHedp
+        points: 2
+      - id: MCGrenadeHidp
+        points: 2
+      - id: MCGrenadeHefaM15
+        points: 3
+      - id: MCGrenadePGas
+        points: 25
+    # Injectors
+    # Vehicles
+    - name: Vehicles
+      entries:
+      - id: MCVehicleRiddenMotorbike
+        points: 30

@@ -4,7 +4,7 @@ meta:
   engineVersion: 264.0.2
   forkId: ""
   forkVersion: ""
-  time: 02/08/2026 20:52:13
+  time: 05/16/2026 05:28:12
   entityCount: 422
 maps: []
 grids:
@@ -15,6 +15,7 @@ nullspace: []
 tilemap:
   0: Space
   35: CMFloorCargo
+  861: CMFloorPlating
   63: CMFloorSteel
   44: CMFloorSteelAlpha0
   46: CMFloorSteelAlpha1
@@ -87,7 +88,6 @@ tilemap:
   13: MCShuttleRasputinDark6
   14: MCShuttleRasputinDark7
   17: MCShuttleRasputinDark8
-  861: Plating
   3: RMCFloorEmpty
   32: RMCFloorMono
   48: RMCFloorTComms
@@ -627,6 +627,8 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CableMVUncuttable
   entities:
   - uid: 7
@@ -799,6 +801,8 @@ entities:
     - type: Transform
       pos: -5.5,-4.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CMChairOfficeDark
   entities:
   - uid: 45
@@ -825,6 +829,8 @@ entities:
     - type: Transform
       pos: -1.4657207,3.5187173
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CMHandLabeler
   entities:
   - uid: 217
@@ -832,6 +838,8 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CMHyperSleepChamber
   entities:
   - uid: 20
@@ -872,6 +880,8 @@ entities:
     - type: Transform
       pos: -5.5,-4.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CMOperatingTable
   entities:
   - uid: 58
@@ -898,6 +908,8 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CMSeatPilot
   entities:
   - uid: 49
@@ -917,25 +929,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 0.5,12.5
-      parent: 1
-- proto: CMSheetMetal
-  entities:
-  - uid: 104
-    components:
-    - type: Transform
-      pos: -3.5,10.5
-      parent: 1
-  - uid: 254
-    components:
-    - type: Transform
-      pos: -3.5,10.5
-      parent: 1
-- proto: CMSheetPlasteel
-  entities:
-  - uid: 255
-    components:
-    - type: Transform
-      pos: -3.5,10.5
       parent: 1
 - proto: CMShower
   entities:
@@ -1638,6 +1631,8 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: CryoPod
   entities:
   - uid: 363
@@ -1654,11 +1649,15 @@ entities:
     - type: Transform
       pos: -1.6331971,13.718691
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 343
     components:
     - type: Transform
       pos: -5.633197,-2.8328955
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCAidKitBurnFilled
   entities:
   - uid: 382
@@ -1666,6 +1665,8 @@ entities:
     - type: Transform
       pos: -5.570697,-3.0828955
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCAidKitFirstFilled
   entities:
   - uid: 383
@@ -1673,6 +1674,8 @@ entities:
     - type: Transform
       pos: -2.4443307,-5.3509893
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCAidKitOxygenFilled
   entities:
   - uid: 384
@@ -1680,6 +1683,8 @@ entities:
     - type: Transform
       pos: -2.4912057,-5.0853643
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCApcAlmayer
   entities:
   - uid: 280
@@ -1777,6 +1782,8 @@ entities:
     - type: Transform
       pos: -5.351947,-2.8485205
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCBeakerBluespace
   entities:
   - uid: 337
@@ -1784,11 +1791,15 @@ entities:
     - type: Transform
       pos: -5.305072,-2.5985205
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 387
     components:
     - type: Transform
       pos: -5.664447,-2.4110205
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCButtonShipCanterburyCic
   entities:
   - uid: 344
@@ -1835,16 +1846,22 @@ entities:
     - type: Transform
       pos: -1.5,3.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 389
     components:
     - type: Transform
       pos: -1.5,3.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 390
     components:
     - type: Transform
       pos: -1.5,3.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCChemMaster
   entities:
   - uid: 178
@@ -2045,11 +2062,6 @@ entities:
       parent: 1
 - proto: MCMachineVendingGhmmeMarine
   entities:
-  - uid: 172
-    components:
-    - type: Transform
-      pos: 3.5,0.5
-      parent: 1
   - uid: 188
     components:
     - type: Transform
@@ -2702,6 +2714,13 @@ entities:
     components:
     - type: Transform
       pos: 6.5,-0.5
+      parent: 1
+- proto: MCMachineVendingNexusMarine
+  entities:
+  - uid: 172
+    components:
+    - type: Transform
+      pos: 3.5,0.5
       parent: 1
 - proto: MCMachineVendingNexusMedical
   entities:
@@ -3392,6 +3411,8 @@ entities:
     - type: Transform
       pos: -5.383197,-3.3016455
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCOverwatchConsole
   entities:
   - uid: 354
@@ -3528,11 +3549,40 @@ entities:
     - type: Transform
       pos: -1.6175721,13.545089
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 381
     components:
     - type: Transform
       pos: -5.539447,-3.2703955
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
+- proto: MCSheetMetal
+  entities:
+  - uid: 104
+    components:
+    - type: Transform
+      pos: -3.5,10.5
+      parent: 1
+    - type: CEZPhysics
+      sleeping: True
+  - uid: 254
+    components:
+    - type: Transform
+      pos: -3.5,10.5
+      parent: 1
+    - type: CEZPhysics
+      sleeping: True
+- proto: MCSheetPlasteel
+  entities:
+  - uid: 255
+    components:
+    - type: Transform
+      pos: -3.5,10.5
+      parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCShutterShipCanterburyCic
   entities:
   - uid: 352
@@ -3840,6 +3890,8 @@ entities:
     - type: Transform
       pos: -5.570697,-4.4578953
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: MCTankReagentCombatMix
   entities:
   - uid: 185
@@ -4134,16 +4186,22 @@ entities:
     - type: Transform
       pos: -5.5,4.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 316
     components:
     - type: Transform
       pos: -5.5,4.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
   - uid: 317
     components:
     - type: Transform
       pos: -5.5,4.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: RMCLightReplacer
   entities:
   - uid: 313
@@ -4151,12 +4209,14 @@ entities:
     - type: Transform
       pos: -1.5,3.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: RMCRecharger
   entities:
   - uid: 47
     components:
     - type: Transform
-      pos: -2.5,1.6
+      pos: -2.5,1.5
       parent: 1
   - uid: 367
     components:
@@ -4264,6 +4324,8 @@ entities:
     - type: Transform
       pos: -3.5,10.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: RMCUtilityAttachmentPoint
   entities:
   - uid: 351
@@ -4286,6 +4348,8 @@ entities:
     - type: Transform
       pos: -1.5,3.5
       parent: 1
+    - type: CEZPhysics
+      sleeping: True
 - proto: SpawnPointLatejoin
   entities:
   - uid: 364
