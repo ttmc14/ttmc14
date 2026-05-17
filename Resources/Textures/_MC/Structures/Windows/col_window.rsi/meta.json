@@ -1,0 +1,152 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "col_window0"
+        },
+        {
+            "name": "col_window-1"
+        },
+        {
+            "name": "col_window-2"
+        },
+        {
+            "name": "col_window-3"
+        },
+        {
+            "name": "col_window-4"
+        },
+        {
+            "name": "col_window-5"
+        },
+        {
+            "name": "col_window-6"
+        },
+        {
+            "name": "col_window-7"
+        },
+        {
+            "name": "col_window-8"
+        },
+        {
+            "name": "col_window-9"
+        },
+        {
+            "name": "col_window-10"
+        },
+        {
+            "name": "col_window-11"
+        },
+        {
+            "name": "col_window-12"
+        },
+        {
+            "name": "col_window-13"
+        },
+        {
+            "name": "col_window-14"
+        },
+        {
+            "name": "col_window-15"
+        },
+        {
+            "name": "col_window-21"
+        },
+        {
+            "name": "col_window-23"
+        },
+        {
+            "name": "col_window-29"
+        },
+        {
+            "name": "col_window-31"
+        },
+        {
+            "name": "col_window-38"
+        },
+        {
+            "name": "col_window-39"
+        },
+        {
+            "name": "col_window-46"
+        },
+        {
+            "name": "col_window-47"
+        },
+        {
+            "name": "col_window-55"
+        },
+        {
+            "name": "col_window-63"
+        },
+        {
+            "name": "col_window-74"
+        },
+        {
+            "name": "col_window-75"
+        },
+        {
+            "name": "col_window-78"
+        },
+        {
+            "name": "col_window-79"
+        },
+        {
+            "name": "col_window-95"
+        },
+        {
+            "name": "col_window-110"
+        },
+        {
+            "name": "col_window-111"
+        },
+        {
+            "name": "col_window-127"
+        },
+        {
+            "name": "col_window-137"
+        },
+        {
+            "name": "col_window-139"
+        },
+        {
+            "name": "col_window-141"
+        },
+        {
+            "name": "col_window-143"
+        },
+        {
+            "name": "col_window-157"
+        },
+        {
+            "name": "col_window-159"
+        },
+        {
+            "name": "col_window-175"
+        },
+        {
+            "name": "col_window-191"
+        },
+        {
+            "name": "col_window-203"
+        },
+        {
+            "name": "col_window-207"
+        },
+        {
+            "name": "col_window-223"
+        },
+        {
+            "name": "col_window-239"
+        },
+        {
+            "name": "col_window-255"
+        }
+    ]
+}

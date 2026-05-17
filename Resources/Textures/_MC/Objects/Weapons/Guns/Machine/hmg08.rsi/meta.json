@@ -23,6 +23,32 @@
     },
     {
       "name": "base"
+    },
+    {
+      "name": "mg08"
+    },
+    {
+      "name": "mg08_deployed",
+       "directions": 4
+    },
+    {
+      "name": "mg08_deployed_e",
+       "directions": 4
+    },
+    {
+      "name": "mg08_e"
+    },
+    {
+      "name": "equipped-SUITSTORAGE",
+         "directions": 4
+    },
+    {
+      "name": "equipped-BACKPACK",
+         "directions": 4
+    },
+    {
+      "name": "mg08_overheat",
+         "directions": 4
     }
   ]
 }

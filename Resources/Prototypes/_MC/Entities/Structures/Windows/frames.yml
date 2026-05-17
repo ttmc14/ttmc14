@@ -1,0 +1,123 @@
+- type: entity
+  abstract: true
+  parent: CMBaseStructureCorrodible
+  id: MCBaseWindowFrame
+  suffix: MC
+  name: window frame
+  description: A big hole in the wall that used to sport a large window. Can be vaulted through.
+  categories: [ MCContent ]
+  placement:
+    mode: SnapgridCenter
+    snap:
+    - Wall
+  components:
+  - type: Transform
+    anchored: true
+  - type: Sprite
+    drawdepth: Walls
+  - type: PlacementReplacement
+    key: walls
+  - type: Damageable
+    damageContainer: StructuralInorganic
+    damageModifierSet: StructuralMetallic
+  - type: StaticPrice
+    price: 75
+  - type: Physics
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.49,-0.49,0.49,0.49"
+        density: 1000
+        mask:
+        - MachineMask
+        layer:
+        - MidImpassable
+        - BulletImpassable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              MCSheetMetal1:
+                min: 2
+                max: 2
+  - type: InteractionOutline
+  - type: Clickable
+  - type: Climbable
+  - type: RMCWallExplosionDeletable
+  - type: DestroyedByExplosionType
+  - type: DamageMultiplierFlags
+    flags: Breaching
+  - type: MinimapColor
+    color: "#8d2294ad"
+  - type: ReceiverXenoClaws
+    maxHealth: 600
+    hitsToDestroy: 3
+  - type: XenoLeapDestroyOnPass
+    spawnPrototype: MCSheetMetal1
+    amount: 2
+  - type: RequireProjectileTarget
+  - type: XenoToggleChargingDamage
+    stageLoss: 2
+    sound: /Audio/_RMC14/Structures/metalhit.ogg
+    damage:
+      types:
+        MCBrute: 80
+  - type: XenoCrusherChargable
+  - type: RMCMesonsNonviewable
+  - type: Tag
+    tags:
+    - Structure
+    - MCWindowFrame
+
+- type: entity
+  parent: MCBaseWindowFrame
+  id: MCWindowFrameColony
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/col_frame.rsi
+    state: col_frame_window_0
+  - type: Icon
+    sprite: _MC/Structures/Windows/col_frame.rsi
+    state: col_frame_window_0
+  - type: IconSmooth
+    key: mcWalls
+    additionalKeys:
+    - doors
+    base: col_frame_window_
+    mode: CardinalFlags
+  - type: Construction
+    graph: MCWindowColony
+    node: windowFrameColony
+
+- type: entity
+  parent: MCBaseWindowFrame
+  id: MCWindowFrameColonyReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/col_rframe.rsi
+    state: col_rwindow_frame_0
+  - type: Icon
+    sprite: _MC/Structures/Windows/col_rframe.rsi
+    state: col_rwindow_frame_0
+  - type: IconSmooth
+    key: mcWalls
+    additionalKeys:
+    - doors
+    base: col_rwindow_frame_
+    mode: CardinalFlags
+  - type: Construction
+    graph: MCWindowColonyReinforced
+    node: windowFrameColonyReinforced
+  - type: ReceiverXenoClaws
+    hitsToDestroy: 5
+
+- type: Tag
+  id: MCWindowFrame

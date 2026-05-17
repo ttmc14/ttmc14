@@ -66,6 +66,10 @@
       - id: MCMagazineMG42
       - id: MCWeaponMachineGunMG60
       - id: MCMagazineMG60
+      #- id: MC08Mount Until TDP Fix the gun
+      #  amount: 2
+      #- id: MCMagazineMG08
+      #  amount: 4
     - name: Melee
       entries:
       - id: MCKnifeCombat

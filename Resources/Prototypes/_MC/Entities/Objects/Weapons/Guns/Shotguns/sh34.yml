@@ -17,16 +17,17 @@
     shotsPerBurst: 1
   - type: Appearance
   - type: ShootUseDelay
+  - type: UseDelay
   - type: GunRequiresWield
   - type: RMCSelectiveFire
-    recoilWielded: 1
+    recoilWielded: 3
     recoilUnwielded: 4
-    scatterWielded: 3
-    scatterUnwielded: 10
+    scatterWielded: 6
+    scatterUnwielded: 15
     baseFireRate: 1.538 # 1 / 0.65 SECONDS
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1
-    accuracyMultiplierUnwielded: 1
+    accuracyMultiplier: 0.8
+    accuracyMultiplierUnwielded: 0.3
   - type: BallisticAmmoProvider
     cycleable: true
     whitelist:

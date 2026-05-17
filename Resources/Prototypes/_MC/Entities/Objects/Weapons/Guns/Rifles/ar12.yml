@@ -21,6 +21,7 @@
   # Statistics
   - type: Gun
     shotsPerBurst: 3
+    selectedMode: FullAuto
     soundGunshot:
       collection: MCAR12Shoot
   - type: RMCSelectiveFire

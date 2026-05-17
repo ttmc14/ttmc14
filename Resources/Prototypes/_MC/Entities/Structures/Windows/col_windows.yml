@@ -1,0 +1,133 @@
+- type: entity
+  parent: CMBaseWindow
+  id: MCWindowColony
+  suffix: MC
+  name: window
+  description: A glass window inside a wall frame.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/col_window.rsi
+    state: col_window0
+  - type: Icon
+    sprite: _MC/Structures/Windows/col_window.rsi
+    state: col_window0
+  - type: IconSmooth
+    key: windows
+    additionalKeys:
+    - doors
+    base: col_window
+    mode: CardinalFlags
+  - type: Repairable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600 # excessive damage destroys window and frame
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CMShardGlass:
+                min: 1
+                max: 1
+          - !type:ChangeConstructionNodeBehavior
+            node: windowFrameSolaris
+  - type: RMCWallExplosionDeletable
+  - type: DestroyedByExplosionType
+  - type: Construction
+    graph: RMCWindowSolaris
+    node: windowSolaris
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: RMCWindowFrameSolaris
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: CMBaseWindow
+  id: MCWindowColonyReinforced
+  suffix: MC
+  name: reinforced window
+  description: A glass window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/col_rwindow.rsi
+    state: col_rwindow-0
+  - type: Icon
+    sprite: _MC/Structures/Windows/col_rwindow.rsi
+    state: col_rwindow-0
+  - type: IconSmooth
+    key: windows
+    additionalKeys:
+    - doors
+    base: col_rwindow-
+    mode: CardinalFlags
+  - type: Repairable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600 # excessive damage destroys window and frame
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CMShardGlass:
+                min: 1
+                max: 1
+              MCRodMetal:
+                min: 1
+                max: 1
+          - !type:ChangeConstructionNodeBehavior
+            node: windowFrameSolarisReinforced
+  - type: RMCWallExplosionDeletable
+  - type: DestroyedByExplosionType
+  - type: Construction
+    graph: RMCWindowSolarisReinforced
+    node: windowSolarisReinforced
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: RMCWindowFrameSolarisReinforced
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: CMBaseWindowIndestructible
+  id: MCWindowColonyHull
+  name: hull window
+  description: A glass window. Something tells you this one is somehow indestructible.
+  components:
+  - type: Corrodible
+    isCorrodible: false
+  - type: Sprite
+    sprite: _MC/Structures/Windows/col_rwindow.rsi
+    state: col_rwindow-0
+  - type: Icon
+    sprite: _MC/Structures/Windows/col_rwindow.rsi
+    state: col_rwindow-0
+  - type: IconSmooth
+    key: windows
+    additionalKeys:
+    - doors
+    base: col_rwindow-
+    mode: CardinalFlags
