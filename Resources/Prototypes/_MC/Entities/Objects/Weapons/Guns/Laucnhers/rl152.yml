@@ -1,0 +1,229 @@
+- type: entity
+  parent:
+  - MCWeaponLauncher
+  - MCAttachableHolder
+  id: MCWeaponLauncherRL152
+  name: RL-152 SADAR rocket launcher
+  description: The RL-152 is the primary anti-armor weapon of the TGMC. Used to take out light-tanks and enemy structures, the RL-152 rocket launcher is a dangerous weapon with a variety of combat uses. Uses a variety of 84mm rockets.
+  components:
+  - type: Tag
+    tags:
+    - MCWeaponLauncherRL152
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Launchers/Rl152/inhands.rsi
+    layers:
+    - state: base
+      sprite: _MC/Objects/Weapons/Guns/Launchers/Rl152/icon.rsi
+      map: [ "enum.GunVisualLayers.Base" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Launchers/Rl152/inhands.rsi
+  - type: Gun
+    fireRate: 1
+    soundGunshot:
+      path: /Audio/_RMC14/Weapons/Guns/Gunshots/m5_shoot.ogg
+  - type: Item
+    size: Large
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCRocketSadar
+    capacity: 1
+    cycleable: true
+    proto: MCRocketShell
+    # soundInsert:
+    #   path: /Audio/_RMC14/Weapons/Guns/Cock/m5_ammo.ogg
+  - type: AttachableHolder
+    slots:
+      mc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-aslot-muzzle: 0.03125, -0.4375
+      mc-aslot-rail: -0.53125, -0.40625
+      mc-aslot-underbarrel: -0.40625, -0.5625
+      mc-aslot-stock: -0.40625, -0.5625
+  - type: WieldDelay
+    baseDelay: 1.4
+    preventFiring: true
+  - type: MCWeaponRangeDelayed
+    delay: 1
+  - type: ShootAtFixedPoint
+    maxFixedRange: 30
+
+- type: Tag
+  id: MCWeaponLauncherRL152
+
+# Rockets
+- type: entity
+  parent: MCRocketShell
+  id: MCRocketSadar
+  name: 84mm 'L-G' high-explosive rocket
+  description: A warhead for the RL-152 rocket launcher. Carries a bogstandard HE warhead that explodes. Due to being laser-guided, it will hit exactly where you aim, however the payload is smaller due to the internal space required for this.  When empty, use this frame to deconstruct it.
+  suffix: RL-152
+  components:
+  - type: Tag
+    tags:
+    - MCRocketSadar
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+    layers:
+    - map: [ "enum.AmmoVisualLayers.Base" ]
+      state: he
+  - type: CartridgeAmmo
+    proto: MCProjectileRockerSadar
+
+- type: Tag
+  id: MCRocketSadar
+
+- type: entity
+  parent: MCRocketSadar
+  id: MCRocketSadarUnguided
+  name: 84mm 'Unguided' high-explosive rocket
+  description: A warhead for the RL-152 rocket launcher. Carries a bogstandard HE warhead that explodes. It is entirely unguided, and thus 'Dumb', this allows for a larger payload, and a skilled operator can hit longer ranged hits that a laser-guided rocket could not reach at all.  When empty, use this frame to deconstruct it.
+  components:
+  - type: Sprite
+    layers:
+    - state: he_unguided
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRockerSadarUnguided
+
+- type: entity
+  parent: MCRocketSadar
+  id: MCRocketSadarAP
+  name: 84mm 'L-G' anti-armor rocket
+  description: A tube for an AP rocket, the warhead of which inside is a missile assisted kinetic penetrator that will devastate just about anything that it hits internally, destroying it's armor in the process. When empty, use this frame to deconstruct it.
+  components:
+  - type: Sprite
+    layers:
+    - state: ap
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRockerSadarAP
+
+- type: entity
+  parent: MCRocketSadar
+  id: MCRocketSadarWP
+  name: 84mm 'L-G' white-phosphorus rocket
+  description: A highly destructive warhead that bursts into deadly flames on impact. Due to being laser-guided, it will hit exactly where you aim, however the payload is smaller due to the internal space required for this. Use this in hand to deconstruct it.
+  components:
+  - type: Sprite
+    layers:
+    - state: wp
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRockerSadarWP
+
+- type: entity
+  parent: MCRocketSadar
+  id: MCRocketSadarWPUnguided
+  name: 84mm 'Unguided' white-phosphorus rocket
+  description: A highly destructive warhead that bursts into deadly flames on impact. It is entirely unguided, and thus 'Dumb', the benefit of this is a bigger overall payload, and a skilled operator can hit longer ranged hits that a laser-guided rocket could not reach at all. Use this in hand to deconstruct it.
+  components:
+  - type: Sprite
+    layers:
+    - state: wp_unguided
+      map: [ "enum.AmmoVisualLayers.Base" ]
+  - type: CartridgeAmmo
+    proto: MCProjectileRockerSadarWPUnguided
+
+# Projectiles
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRockerSadar
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+    layers:
+    - state: he
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 30
+        MCBurn: 30
+    maxFixedRange: 14
+  - type: CMArmorPiercing
+    amount: 100
+  - type: Explosive
+    explosionType: MC
+    totalIntensity: 240
+    maxIntensity: 240
+    intensitySlope: 65
+    maxTileBreak: 0
+
+- type: entity
+  parent: MCProjectileRockerSadar
+  id: MCProjectileRockerSadarUnguided
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+    layers:
+    - state: he_unguided
+  - type: IgnoreArc
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRockerSadarAP
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+    layers:
+    - state: ap
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 170
+        MCBurn: 170
+    maxFixedRange: 14
+  - type: CMArmorPiercing
+    amount: 200
+  - type: Explosive
+    explosionType: MC
+    totalIntensity: 50
+    maxIntensity: 50
+    intensitySlope: 25
+    maxTileBreak: 0
+  - type: MCXenoSunderDamageOnHit
+    amount: 50
+
+- type: entity
+  parent: MCProjectileRocketShell
+  id: MCProjectileRockerSadarWP
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+    layers:
+    - state: wp
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+        MCBurn: 100
+    maxFixedRange: 20
+  - type: CMArmorPiercing
+    amount: 75
+  - type: Explosive
+    explosionType: MC
+    totalIntensity: 50
+    maxIntensity: 50
+    intensitySlope: 25
+    maxTileBreak: 0
+  - type: MCXenoSunderDamageOnHit
+    amount: 50
+  - type: TileFireOnTrigger
+    spawn: MCFireSadarWP
+    range: 4
+    sound:
+      path: /Audio/_RMC14/Weapons/Guns/Flamer/gun_flamethrower3.ogg
+
+- type: entity
+  parent: MCProjectileRockerSadarWP
+  id: MCProjectileRockerSadarWPUnguided
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+    layers:
+    - state: wp_unguided
+  - type: IgnoreArc

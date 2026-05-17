@@ -31,15 +31,14 @@ public sealed partial class MCArmorSystem
         if (!TryGetArmor(uid, out var soft, out var hard))
             return (0, 0);
 
+        if (_tag.HasTag(tool, TagBomb))
+            return (soft.Bomb, hard.Bomb);
+
         if (_tag.HasTag(tool, TagMelee) || HasComp<MeleeWeaponComponent>(tool))
             return (soft.Melee, hard.Melee);
 
-        // High priority than bullet
         if (_tag.HasTag(tool, TagLaser))
             return (soft.Laser, hard.Laser);
-
-        if (_tag.HasTag(tool, TagBullet) || HasComp<RMCBulletComponent>(tool))
-            return (soft.Bullet, hard.Bullet);
 
         if (_tag.HasTag(tool, TagAcid))
             return (soft.Acid, hard.Acid);
@@ -50,11 +49,12 @@ public sealed partial class MCArmorSystem
         if (_tag.HasTag(tool, TagEnergy))
             return (soft.Energy, hard.Energy);
 
-        if (_tag.HasTag(tool, TagBomb))
-            return (soft.Bomb, hard.Bomb);
-
         if (_tag.HasTag(tool, TagBio))
             return (soft.Bio, hard.Bio);
+
+        if (_tag.HasTag(tool, TagBullet) || HasComp<RMCBulletComponent>(tool))
+            return (soft.Bullet, hard.Bullet);
+
 
         return (0, 0);
     }

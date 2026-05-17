@@ -1,0 +1,143 @@
+# RL-160
+- type: entity
+  parent:
+  - MCBackpack
+  - RMCScabbardBase
+  id: MCBackpackMarineRL160
+  name: RL-160 bag
+  description: This backpack can hold 4 67mm shells, in addition to a recoiless launcher.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
+  - type: StorageOpenDoAfter
+    duration: 0.5
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - MCRocketShell
+  - type: FixedItemSizeStorage
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponLauncherRl160
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        whitelist:
+          tags:
+          - MCWeaponLauncherRl160
+  - type: CMHolster
+  - type: RMCMagneticItemReceiver
+
+- type: entity
+  parent: MCBackpackMarineRL160
+  id: MCBackpackMarineRL160Filled
+  suffix: Filled
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        startingItem: MCWeaponLauncherRl160
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponLauncherRl160
+  - type: StorageFill
+    contents:
+    - id: MCRocketShell
+    - id: MCRocketShell
+    - id: MCRocketShellLight
+    - id: MCRocketShellLight
+
+# RL-152
+- type: entity
+  parent:
+  - MCBackpack
+  - RMCScabbardBase
+  id: MCBackpackMarineRL152
+  name: RL-152 bag
+  description: This backpack can hold 4 40mm shells, in addition to a SADAR launcher.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/sadar.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/sadar.rsi
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,7,1 # 4 slots
+    whitelist:
+      tags:
+      - MCRocketSadar
+  - type: FixedItemSizeStorage
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponLauncherRL152
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        whitelist:
+          tags:
+          - MCWeaponLauncherRL152
+  - type: CMHolster
+  - type: RMCMagneticItemReceiver
+
+- type: entity
+  parent: MCBackpackMarineRL152
+  id: MCBackpackMarineRL152Filled
+  suffix: Filled
+  components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        startingItem: MCWeaponLauncherRL152
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponLauncherRL152
+  - type: StorageFill
+    contents:
+    - id: MCRocketSadar
+    - id: MCRocketSadar
+    - id: MCRocketSadarAP
+    - id: MCRocketSadarAP
+
+# RL-57
+- type: entity
+  parent: MCBackpack
+  id: MCBackpackMarineRLQuad
+  name: RL-57 bag
+  description: This backpack can hold 2 rocket arrays, in addition to a thermobaric launcher.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/quad.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/quad.rsi

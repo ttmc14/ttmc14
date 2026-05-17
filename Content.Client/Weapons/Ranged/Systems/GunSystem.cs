@@ -7,6 +7,7 @@ using Content.Client.Animations;
 using Content.Client.Gameplay;
 using Content.Client.Items;
 using Content.Client.Weapons.Ranged.Components;
+using Content.Shared._MC.Weapons.Range.Delayed.Components;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared._RMC14.Weapons.Ranged.Prediction;
 using Content.Shared.CombatMode;
@@ -178,6 +179,11 @@ public sealed partial class GunSystem : SharedGunSystem
         {
             return;
         }
+
+        // MC Changes
+        if (HasComp<MCWeaponRangeDelayedComponent>(gunUid))
+            return;
+        // MC End
 
         var useKey = gun.UseKey ? EngineKeyFunctions.Use : EngineKeyFunctions.UseSecondary;
 

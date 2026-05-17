@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.CCVar;
+﻿using Content.Shared._MC.Weapons.Range.Delayed.Components;
+using Content.Shared._RMC14.CCVar;
 using Content.Shared.CombatMode;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Configuration;
@@ -30,6 +31,11 @@ public abstract class SharedGunPredictionSystem : EntitySystem
         {
             return null;
         }
+
+        // MC Changes
+        if (HasComp<MCWeaponRangeDelayedComponent>(ent))
+            return null;
+        // MC End
 
         if (ent != GetEntity(netGun))
             return null;

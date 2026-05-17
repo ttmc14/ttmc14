@@ -31,7 +31,7 @@
         points: 20
     - name: RL-160
       entries:
-      - id: MCBackpackMarineRL160Full
+      - id: MCBackpackMarineRL160Filled
         name: RL-160 Recoilless rifle kit
         points: 15
       - id: MCRocketShell

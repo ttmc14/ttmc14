@@ -47,9 +47,8 @@
   - type: WieldDelay
     baseDelay: 1.2
     preventFiring: true
-  - type: MCWeaponFireDelay
+  - type: MCWeaponRangeDelayed
     delay: 1
-  - type: DoAfter
   - type: ShootAtFixedPoint
     maxFixedRange: 30
 
@@ -157,6 +156,8 @@
     - MCDamageBomb
   - type: Projectile
     impactEffect: BulletImpactEffect
+    deleteOnCollide: false
+    queueDeletion: true
     damage:
       types:
         MCBrute: 50
@@ -181,10 +182,10 @@
     radius: 3.5
     color: orange
     energy: 0.5
+  - type: DeleteOnTrigger
   - type: IgnorePredictionHide
   - type: TriggerOnCollide
-    # TODO RMC14 Make TriggerOnCollide spawn the explosion on the OtherEntity tile more consistently, so the explosion is centered properly
-    fixtureID: projectile # no parent entity from BaseBulletTrigger because it has Clickable
+    fixtureID: projectile
   - type: Physics
     bodyType: Dynamic
     fixedRotation: false

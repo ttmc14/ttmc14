@@ -20,7 +20,7 @@
         - CMArmorM45
       - icon:
           sprite: _MC/Clothing/modular.rsi
-          state: mod_fire
+          state: mod_autodoc
         cost: 200
         entities:
         - MCArmorModuleValkyrieAutomedical

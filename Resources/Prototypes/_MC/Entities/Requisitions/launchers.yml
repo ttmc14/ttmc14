@@ -6,12 +6,19 @@
     categories:
     - name: Launchers
       entries:
+      # RL-160
       - icon:
           sprite: _MC/Clothing/Back/Backpacks/Marines/rocket.rsi
           state: icon-full
-        cost: 400
+        cost: 620
         entities:
-        - MCBackpackMarineRL160Full
+        - MCBackpackMarineRL160Filled
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Launchers/Rl160/icon.rsi
+          state: base
+        cost: 500
+        entities:
+        - MCWeaponLauncherRl160
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl160_shell.rsi
           state: shell
@@ -48,3 +55,60 @@
         cost: 30
         entities:
         - MCRocketShellTanglefoot
+      # RL-152
+      - icon:
+          sprite: _MC/Clothing/Back/Backpacks/Marines/sadar.rsi
+          state: icon-full
+        cost: 950
+        entities:
+        - MCBackpackMarineRL152Filled
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Launchers/Rl152/icon.rsi
+          state: base
+        cost: 800
+        entities:
+        - MCWeaponLauncherRL152
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+          state: he
+        cost: 50
+        entities:
+        - MCRocketSadar
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+          state: he_unguided
+        cost: 50
+        entities:
+        - MCRocketSadarUnguided
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+          state: ap
+        cost: 60
+        entities:
+        - MCRocketSadarAP
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+          state: wp
+        cost: 80
+        entities:
+        - MCRocketSadarWP
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
+          state: wp_unguided
+        cost: 80
+        entities:
+        - MCRocketSadarWPUnguided
+      # GL-81
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Launchers/gl81.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCWeaponLauncherGl81
+      # GL-70
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Launchers/gl70.rsi
+          state: base
+        cost: 300
+        entities:
+        - MCWeaponLauncherGl70

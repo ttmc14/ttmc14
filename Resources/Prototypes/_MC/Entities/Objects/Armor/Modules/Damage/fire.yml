@@ -14,14 +14,12 @@
     visuals:
       sprite: _MC/Clothing/modular.rsi
       state: mod_fire_a
-    userComponents:
-    - type: RMCImmuneToIgnition
-    - type: RMCImmuneToFireTileDamage
   - type: MCArmor
     soft:
       fire: 100
     hard:
       fire: 100
+  - type: MCModuleFireImmune
   - type: ClothingSpeedModifier
     walkModifier: 0.85
     sprintModifier: 0.85

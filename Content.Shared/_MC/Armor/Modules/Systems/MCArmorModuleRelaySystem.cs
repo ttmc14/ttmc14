@@ -2,6 +2,7 @@
 using Content.Shared._MC.Armor.Modules.Components;
 using Content.Shared._MC.Armor.Modules.Events;
 using Content.Shared._MC.Weapon.Vali.Events;
+using Content.Shared._RMC14.Atmos;
 using Content.Shared.Actions;
 using Content.Shared.Clothing;
 using Content.Shared.Damage;
@@ -21,6 +22,8 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
 
         SubscribeLocalEvent<InventoryComponent, ExaminedEvent>(InventoryRelayEvent);
         SubscribeLocalEvent<InventoryComponent, MCWeaponValiMeleeHitEvent>(InventoryRelayEvent);
+        SubscribeLocalEvent<InventoryComponent, RMCIgniteAttemptEvent>(InventoryRelayEvent);
+        SubscribeLocalEvent<InventoryComponent, RMCGetFireImmunityEvent>(InventoryRelayEvent);
 
         // Other relay shit
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RefreshMovementSpeedModifiersEvent>>(RelayEvent);
@@ -30,6 +33,8 @@ public sealed class MCArmorModuleRelaySystem : EntitySystem
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<ExaminedEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<AttackedEvent>>(RelayEvent);
         SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<MCWeaponValiMeleeHitEvent>>(RelayEvent);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RMCIgniteAttemptEvent>>(RelayEvent);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, InventoryRelayedEvent<RMCGetFireImmunityEvent>>(RelayEvent);
 
         SubscribeLocalEvent<MCArmorModularClothingComponent, GetItemActionsEvent>(RelayEvent);
         SubscribeLocalEvent<MCArmorComponent, MCArmorModuleRelayedEvent<MCArmorGetEvent>>(OnModuleGetRelayed);

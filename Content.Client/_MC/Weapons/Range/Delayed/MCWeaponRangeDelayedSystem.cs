@@ -1,7 +1,7 @@
 ﻿using Content.Client.CombatMode;
 using Content.Client.Gameplay;
-using Content.Shared._MC.Xeno.Spit;
-using Content.Shared.ActionBlocker;
+using Content.Shared._MC.Weapons.Range.Delayed;
+using Content.Shared._MC.Weapons.Range.Delayed.Events;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Client.Input;
@@ -11,9 +11,9 @@ using Robust.Shared.Input;
 using Robust.Shared.Map;
 using Robust.Shared.Timing;
 
-namespace Content.Client._MC.Xeno.Spit;
+namespace Content.Client._MC.Weapons.Range.Delayed;
 
-public sealed class MCXenoSpitSystem : MCSharedXenoSpitSystem
+public sealed class MCWeaponRangeDelayedSystem : MCWeaponRangeDelayedSharedSystem
 {
     [Dependency] private readonly IStateManager _state = null!;
     [Dependency] private readonly IEyeManager _eye = null!;
@@ -21,11 +21,26 @@ public sealed class MCXenoSpitSystem : MCSharedXenoSpitSystem
     [Dependency] private readonly IMapManager _mapManager  = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly IPlayerManager _player = null!;
+    [Dependency] private readonly IOverlayManager _overlay = null!;
 
     [Dependency] private readonly CombatModeSystem _combatMode = null!;
     [Dependency] private readonly InputSystem _input = null!;
     [Dependency] private readonly TransformSystem _transform = null!;
     [Dependency] private readonly MapSystem _map = null!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        _overlay.AddOverlay(new MCWeaponRangeDelayedOverlay());
+    }
+
+    public override void Shutdown()
+    {
+        base.Shutdown();
+
+        _overlay.RemoveOverlay<MCWeaponRangeDelayedOverlay>();
+    }
 
     public override void Update(float frameTime)
     {
@@ -34,21 +49,26 @@ public sealed class MCXenoSpitSystem : MCSharedXenoSpitSystem
         if (!_timing.IsFirstTimePredicted)
             return;
 
-        if (_player.LocalEntity is not { } entityUid)
+        if (_player.LocalEntity is not { } entityUid || _player.LocalSession is not { } session)
             return;
 
-        if (!XenoSpitQuery.TryComp(entityUid, out var xenoSpitComponent))
-            return;
-
-        if (!xenoSpitComponent.Enabled)
+        if (!TryGetGun(entityUid, out var gunUid, out var gun, out _))
             return;
 
         if (!_combatMode.IsInCombatMode(entityUid))
             return;
 
-        var keyState = _input.CmdStates.GetState(EngineKeyFunctions.UseSecondary);
+        var keyState = _input.CmdStates.GetState(EngineKeyFunctions.Use);
         if (keyState != BoundKeyState.Down)
+        {
+            var evEnd = new MCWeaponRangeDelayedRequestStopEvent
+            {
+                Gun = GetNetEntity(gunUid),
+            };
+
+            RaisePredictiveEvent(evEnd);
             return;
+        }
 
         var mousePosition = _eye.PixelToMap(_inputManager.MouseScreenPosition);
         if (mousePosition.MapId == MapId.Nullspace)
@@ -62,10 +82,14 @@ public sealed class MCXenoSpitSystem : MCSharedXenoSpitSystem
             ? GetNetEntity(screen.GetClickedEntity(mousePosition))
             : null;
 
-        RaisePredictiveEvent(new MCXenoSpitEvent(
-            target,
-            GetNetEntity(entityUid),
-            GetNetCoordinates(coordinates)
-        ));
+        var evStart = new MCWeaponRangeDelayedRequestStartEvent
+        {
+            Target = target,
+            Coordinates = GetNetCoordinates(coordinates),
+            Gun = GetNetEntity(gunUid),
+            LastRealTick = RMCLagCompensation.GetLastRealTick(null),
+        };
+
+        RaisePredictiveEvent(evStart);
     }
 }

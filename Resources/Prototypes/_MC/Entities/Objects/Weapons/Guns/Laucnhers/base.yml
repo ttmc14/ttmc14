@@ -52,9 +52,6 @@
   - type: GunRequiresWield
   - type: WieldableSpeedModifiers
     base: 0.5
-    light: 0.69
-    medium: 0.75
-    heavy: 0.806
   - type: WieldDelay
     baseDelay: 0.8
   - type: Clothing

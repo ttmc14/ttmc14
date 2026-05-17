@@ -1,0 +1,19 @@
+- type: entity
+  parent: MCFire
+  id: MCFireSadarWP
+  suffix: RL-152
+  components:
+  - type: DamageOnCollide
+    damage:
+      types:
+        MCBurn: 27
+  - type: RMCIgniteOnCollide
+    maxStacks: 17
+    intensity: 27
+    duration: 27
+    tileDamage:
+      types:
+        MCBurn: 0.15 # ?
+  - type: TileFire
+    id: MCFireSadarWP
+    duration: 27
