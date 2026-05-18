@@ -1,0 +1,520 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/UngaCo/UngaMarines-13/commit/6b0be1ccffe1fdfc99e833909a3f20204ec3219e",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "1"
+    },
+    {
+      "name": "2"
+    },
+    {
+      "name": "3"
+    },
+    {
+      "name": "4"
+    },
+    {
+      "name": "5"
+    },
+    {
+      "name": "6"
+    },
+    {
+      "name": "7"
+    },
+    {
+      "name": "8"
+    },
+    {
+      "name": "9"
+    },
+    {
+      "name": "10"
+    },
+    {
+      "name": "11"
+    },
+    {
+      "name": "12"
+    },
+    {
+      "name": "13"
+    },
+    {
+      "name": "14"
+    },
+    {
+      "name": "15"
+    },
+    {
+      "name": "16"
+    },
+    {
+      "name": "17"
+    },
+    {
+      "name": "18"
+    },
+    {
+      "name": "19"
+    },
+    {
+      "name": "20"
+    },
+    {
+      "name": "21"
+    },
+    {
+      "name": "22"
+    },
+    {
+      "name": "23"
+    },
+    {
+      "name": "24"
+    },
+    {
+      "name": "25"
+    },
+    {
+      "name": "26"
+    },
+    {
+      "name": "27"
+    },
+    {
+      "name": "28"
+    },
+    {
+      "name": "29"
+    },
+    {
+      "name": "30"
+    },
+    {
+      "name": "31"
+    },
+    {
+      "name": "32"
+    },
+    {
+      "name": "33"
+    },
+    {
+      "name": "34"
+    },
+    {
+      "name": "35"
+    },
+    {
+      "name": "36"
+    },
+    {
+      "name": "37"
+    },
+    {
+      "name": "38"
+    },
+    {
+      "name": "39"
+    },
+    {
+      "name": "40"
+    },
+    {
+      "name": "41"
+    },
+    {
+      "name": "42"
+    },
+    {
+      "name": "43"
+    },
+    {
+      "name": "44"
+    },
+    {
+      "name": "45"
+    },
+    {
+      "name": "46"
+    },
+    {
+      "name": "47"
+    },
+    {
+      "name": "48"
+    },
+    {
+      "name": "49"
+    },
+    {
+      "name": "50"
+    },
+    {
+      "name": "51"
+    },
+    {
+      "name": "52",
+      "directions": 4
+    },
+    {
+      "name": "53"
+    },
+    {
+      "name": "54",
+      "directions": 4
+    },
+    {
+      "name": "55"
+    },
+    {
+      "name": "56"
+    },
+    {
+      "name": "57"
+    },
+    {
+      "name": "58"
+    },
+    {
+      "name": "59"
+    },
+    {
+      "name": "60"
+    },
+    {
+      "name": "61"
+    },
+    {
+      "name": "62"
+    },
+    {
+      "name": "63"
+    },
+    {
+      "name": "64"
+    },
+    {
+      "name": "65"
+    },
+    {
+      "name": "66"
+    },
+    {
+      "name": "67"
+    },
+    {
+      "name": "68"
+    },
+    {
+      "name": "69"
+    },
+    {
+      "name": "70"
+    },
+    {
+      "name": "71"
+    },
+    {
+      "name": "72"
+    },
+    {
+      "name": "73"
+    },
+    {
+      "name": "74"
+    },
+    {
+      "name": "75"
+    },
+    {
+      "name": "76"
+    },
+    {
+      "name": "77"
+    },
+    {
+      "name": "78"
+    },
+    {
+      "name": "79"
+    },
+    {
+      "name": "80"
+    },
+    {
+      "name": "81"
+    },
+    {
+      "name": "82"
+    },
+    {
+      "name": "83"
+    },
+    {
+      "name": "84"
+    },
+    {
+      "name": "85"
+    },
+    {
+      "name": "86"
+    },
+    {
+      "name": "87"
+    },
+    {
+      "name": "88"
+    },
+    {
+      "name": "89"
+    },
+    {
+      "name": "90"
+    },
+    {
+      "name": "91"
+    },
+    {
+      "name": "92"
+    },
+    {
+      "name": "93a"
+    },
+    {
+      "name": "93"
+    },
+    {
+      "name": "93b"
+    },
+    {
+      "name": "94"
+    },
+    {
+      "name": "95"
+    },
+    {
+      "name": "96"
+    },
+    {
+      "name": "97"
+    },
+    {
+      "name": "98"
+    },
+    {
+      "name": "99"
+    },
+    {
+      "name": "100"
+    },
+    {
+      "name": "101"
+    },
+    {
+      "name": "102"
+    },
+    {
+      "name": "103",
+      "directions": 4
+    },
+    {
+      "name": "104",
+      "directions": 4
+    },
+    {
+      "name": "105",
+      "directions": 4
+    },
+    {
+      "name": "106",
+      "directions": 4
+    },
+    {
+      "name": "107"
+    },
+    {
+      "name": "108"
+    },
+    {
+      "name": "109",
+      "directions": 4
+    },
+    {
+      "name": "110"
+    },
+    {
+      "name": "111"
+    },
+    {
+      "name": "112"
+    },
+    {
+      "name": "113"
+    },
+    {
+      "name": "114"
+    },
+    {
+      "name": "115",
+      "directions": 4
+    },
+    {
+      "name": "116",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_edge",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_rear_door",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_aisle",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_window_glass",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_panel",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_backengine",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_backengine2",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_backengine3",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_backengine4",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_backengine5",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_exterior_fins",
+      "directions": 8
+    },
+    {
+      "name": "shuttle_exterior_corners",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_exterior_panels",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_exterior_front",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_wall",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_edgealt",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_inwards",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_corneralt",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_alt2",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_exterior_finnleft",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_exterior_finnright",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_exterior_finback",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_interior_threeside",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_rearcorner",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_rearcorner_alt",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_glass1",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_glass2",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_glass3"
+    },
+    {
+      "name": "shuttle_glass4"
+    },
+    {
+      "name": "shuttle_glass5"
+    },
+    {
+      "name": "shuttle_glass6"
+    },
+    {
+      "name": "shuttle_engine_alt",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_side_engine_alt",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_wall_left",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_wall_right",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_wall_left_alt"
+    },
+    {
+      "name": "shuttle_wall_right_alt"
+    },
+    {
+      "name": "shuttle_single_window",
+      "directions": 4
+    }
+  ]
+}

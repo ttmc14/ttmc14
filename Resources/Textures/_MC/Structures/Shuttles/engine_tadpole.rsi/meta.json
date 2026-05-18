@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "https://github.com/UngaCo/UngaMarines-13/commit/6b0be1ccffe1fdfc99e833909a3f20204ec3219e",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base",
+      "directions": 4
+    }
+  ]
+}

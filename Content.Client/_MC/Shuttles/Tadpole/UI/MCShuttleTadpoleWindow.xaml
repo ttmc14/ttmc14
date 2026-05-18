@@ -1,0 +1,16 @@
+﻿<ui:MCShuttleTadpoleWindow xmlns="https://spacestation14.io"
+                           xmlns:ui="clr-namespace:Content.Client._MC.Shuttles.Tadpole.UI"
+                           xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <PanelContainer Margin="0">
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#200000" BorderColor="#4d1717" BorderThickness="2" />
+        </PanelContainer.PanelOverride>
+
+        <BoxContainer Margin="0" VerticalAlignment="Center" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
+            <Button Name="ButtonLand" Access="Public" Text="Land" HorizontalExpand="True" />
+            <Button Name="ButtonTakOff" Access="Public" Text="Take off" HorizontalExpand="True" />
+            <Button Name="ButtonReturn" Access="Public" Text="Return to ship" HorizontalExpand="True" />
+        </BoxContainer>
+
+    </PanelContainer>
+</ui:MCShuttleTadpoleWindow>
