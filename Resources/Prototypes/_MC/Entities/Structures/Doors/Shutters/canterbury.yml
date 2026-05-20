@@ -1,6 +1,5 @@
-# podlocks
 - type: entity
-  parent: RMCPodDoorAlmayerIndestructible
+  parent: MCPodlockShipIndestructible
   id: MCPodlockShipCanterbury
   name: umbillical airlock
   suffix: Canterbury
@@ -27,13 +26,12 @@
   components:
   - type: MCOperationPodlock
 
-# shutters
+# Shutters
 - type: entity
-  parent: RMCShutterAlmayer
+  parent: MCShutterShip
   id: MCShutterShipCanterbury
   name: transit shutters
   suffix: Canterbury
-  categories: [ MCContent ]
   abstract: true
 
 - type: entity

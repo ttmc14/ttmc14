@@ -1,0 +1,70 @@
+- type: entity
+  parent: MCComputerIndestructible
+  id: MCComputerDropshipPicker
+  name: dropship picker
+  description: A computer that lets you choose the model of the shuttle.
+  components:
+  # Visuals
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _MC/Structures/Machines/Computers/dropship_picker_green.rsi
+    layers:
+    - state: base
+    - state: screen
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    castShadows: false
+    radius: 1
+    energy: 0.5
+    color: "#929b44"
+  # UI
+  - type: ActivatableUIRequiresPower
+  - type: ActivatableUI
+    key: enum.MCDropshipPickerUI.Key
+  - type: UserInterface
+    interfaces:
+      enum.MCDropshipPickerUI.Key:
+        type: MCDropshipPickerBui
+  # Power
+  - type: ApcPowerReceiver
+  - type: RMCPowerReceiver
+    idleLoad: 300
+    activeLoad: 300
+    channel: Equipment
+  # Custom
+  - type: MCDropshipPicker
+    landPoint: mc-picker-land-point
+    dropshipGrids:
+    - name: Default
+      path: /Maps/_MC/Shuttles/Tadpole/default.yml
+    - name: Mini
+      path: /Maps/_MC/Shuttles/Tadpole/mini.yml
+
+- type: entity
+  parent: MCComputerDropshipPicker
+  id: MCComputerDropshipPickerCrash
+  suffix: Crash
+  components:
+  - type: MCDropshipPicker
+    dropshipGrids: []
+  # TODO:
+  #  - name: Mini
+  #    path: /Maps/_MC/Shuttles/Tadpole/mini.yml
+
+- type: entity
+  parent: MCMarker
+  id: MCMarkerTargetPointDropshipPickerLand
+  name: dropship picker land
+  components:
+  - type: MCShuttleTargetPoint
+    id: mc-picker-land-point
+    offset: -0.5,-0.5
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: pink
+    - sprite: _MC/Structures/Machines/Computers/dropship_picker_green.rsi
+      state: screen
+    - sprite: _MC/Structures/Machines/Computers/dropship_picker_green.rsi
+      state: base

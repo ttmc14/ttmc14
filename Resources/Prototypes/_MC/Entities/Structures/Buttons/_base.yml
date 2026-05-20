@@ -1,0 +1,14 @@
+- type: entity
+  parent: RMCPodDoorButton
+  id: MCButton
+  categories: [ MCContent ]
+  abstract: true
+
+- type: entity
+  parent: MCButton
+  id: MCButtonPowered
+  suffix: Powered
+  abstract: true
+  components:
+  - type: ApcPowerReceiver
+    needsPower: false

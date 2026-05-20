@@ -251,9 +251,9 @@
       - MCBodyBag
       - MCHypospray
       - MCTweezers
+      - MCDefibrillator
       components:
       - Hypospray
-      - Defibrillator
       - Pill
   - type: IgnoreContentsSize
     items:

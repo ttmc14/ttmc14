@@ -1,0 +1,42 @@
+- type: entity
+  parent: MCComputerIndestructible
+  id: MCComputerTadpolePowered
+  name: tadpole navigation computer
+  description: Used to designate a precise transit location for the Tadpole.
+  suffix: Powered
+  components:
+  # Visuals
+  - type: Sprite
+    drawdepth: SmallObjects
+    sprite: _MC/Structures/Machines/Computers/tadpole.rsi
+    layers:
+    - state: base
+    - state: screen
+      shader: unshaded
+  - type: PointLight
+    enabled: true
+    castShadows: false
+    radius: 1
+    energy: 0.5
+    color: "#980000"
+  # UI
+  - type: ActivatableUI
+    key: enum.MCShuttleTadpoleUI.Key
+  - type: UserInterface
+    interfaces:
+      enum.MCShuttleTadpoleUI.Key:
+        type: MCShuttleTadpoleBui
+  # Custom
+  - type: MCShuttleTadpole
+
+- type: entity
+  parent: MCComputerTadpolePowered
+  id: MCComputerTadpole
+  suffix: No Power
+  components:
+  - type: ActivatableUIRequiresPower
+  - type: ApcPowerReceiver
+  - type: RMCPowerReceiver
+    idleLoad: 300
+    activeLoad: 300
+    channel: Equipment

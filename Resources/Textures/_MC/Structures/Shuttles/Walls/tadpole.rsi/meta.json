@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "shuttle_glass1",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_glass2",
+      "directions": 4
+    },
+    {
+      "name": "shuttle_single_window",
+      "directions": 4
+    },
+    {
+      "name": "blue_cockpit_fl",
+      "directions": 4
+    },
+    {
+      "name": "blue_cockpit_fr",
+      "directions": 4
+    },
+    {
+      "name": "blue_fl",
+      "directions": 4
+    },
+    {
+      "name": "blue_front",
+      "directions": 4
+    },
+    {
+      "name": "blue_fr",
+      "directions": 4
+    },
+    {
+      "name": "blue_weapon_ll",
+      "directions": 4
+    },
+    {
+      "name": "blue_weapon_rr",
+      "directions": 4
+    },
+    {
+      "name": "tadpole_interior_corner",
+      "directions": 4
+    },
+    {
+      "name": "tadpole_interior_corner_alt",
+      "directions": 4
+    }
+  ]
+}

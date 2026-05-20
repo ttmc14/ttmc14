@@ -1,0 +1,8 @@
+- type: entity
+  parent: MCButtonPowered
+  id: MCButtonTadpole
+  name: inner door-control
+  suffix: Tadpole, Powered
+  components:
+  - type: RMCDoorButton
+    id: mc-tadpole-inner

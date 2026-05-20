@@ -1,0 +1,50 @@
+- type: entity
+  parent: MCProp
+  id: MCPropShuttleEngine
+  name: engine
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Shuttles/engine.rsi
+
+- type: entity
+  parent: MCPropShuttleEngine
+  id: MCPropShuttleEngineLeft1
+  components:
+  - type: Sprite
+    state: left_1
+
+- type: entity
+  parent: MCPropShuttleEngine
+  id: MCPropShuttleEngineLeft2
+  components:
+  - type: Sprite
+    state: left_2
+
+- type: entity
+  parent: MCPropShuttleEngine
+  id: MCPropShuttleEngineLeft3
+  components:
+  - type: Sprite
+    state: left_3
+
+- type: entity
+  parent: MCPropShuttleEngine
+  id: MCPropShuttleEngineRight1
+  components:
+  - type: Sprite
+    state: right_1
+
+- type: entity
+  parent: MCPropShuttleEngine
+  id: MCPropShuttleEngineRight2
+  components:
+  - type: Sprite
+    state: right_2
+
+- type: entity
+  parent: MCPropShuttleEngine
+  id: MCPropShuttleEngineRight3
+  components:
+  - type: Sprite
+    state: right_3

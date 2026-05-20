@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCPodDoorButton
+  parent: MCButton
   id: MCButtonDroppodBay
   name: droppod bay
   components:
@@ -9,7 +9,7 @@
     access: [ [ "MCAccessLogistics" ], [ "MCAccessBrig" ], [ "MCAccessEngineering" ], [ "MCAccessEngineeringPreparation" ], [ "MCAccessBridge" ], [ "MCAccessDropship" ] ]
 
 - type: entity
-  parent: RMCPodDoorButton
+  parent: MCButton
   id: MCButtonAmmunitionStorage
   name: ammunition storage
   components:
@@ -19,7 +19,7 @@
     access: [ [ "MCAccessLogistics" ], [ "MCAccessBrig" ], [ "MCAccessEngineering" ], [ "MCAccessMarineSquadLeader" ], [ "MCAccessBridge" ], [ "MCAccessDropship" ] ]
 
 - type: entity
-  parent: RMCPodDoorButton
+  parent: MCButton
   id: MCButtonMechShutters
   name: mech shutters
   components:
@@ -29,7 +29,7 @@
     access: [ [ "MCAccessMech" ] ]
 
 - type: entity
-  parent: RMCPodDoorButton
+  parent: MCButton
   id: MCButtonMechRequisitionWarehouse
   name: requisition warehouse
   components:
@@ -39,7 +39,7 @@
     access: [ [ "MCAccessLogistics" ], [ "MCAccessCargo" ] ]
 
 - type: entity
-  parent: RMCPodDoorButton
+  parent: MCButton
   id: MCButtonShipCicArmory
   name: cic armory
   components:

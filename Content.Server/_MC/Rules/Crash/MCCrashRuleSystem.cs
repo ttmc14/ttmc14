@@ -29,6 +29,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
     [Dependency] private readonly ShuttleSystem _shuttle = null!;
     [Dependency] private readonly RoundEndSystem _roundEnd = null!;
 
+    [Dependency] private readonly MCCrashMapVoteSystem _mcCrashMapVote = null!;
     [Dependency] private readonly MCRuleStartValidationSystem _mcRuleStartValidation = null!;
     [Dependency] private readonly MCXenoAutoSpawnBalanceSystem _mcXenoAutoSpawnBalance = null!;
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
@@ -95,7 +96,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
             return;
 
         ev.Maps.Clear();
-        ev.Maps.Add(_prototype.Index<GameMapPrototype>("MCCanterbury"));
+        ev.Maps.Add(_prototype.Index(_mcCrashMapVote.SelectedMap));
 
         _mcXenoSpawn.SelectRandomPlanet();
 

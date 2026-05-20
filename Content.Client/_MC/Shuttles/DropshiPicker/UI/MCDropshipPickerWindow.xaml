@@ -1,0 +1,15 @@
+﻿<ui:MCDropshipPickerWindow xmlns="https://spacestation14.io"
+                           xmlns:ui="clr-namespace:Content.Client._MC.Shuttles.DropshiPicker.UI"
+                           xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+    <PanelContainer Margin="0">
+
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#353e1c" BorderColor="#152a15" BorderThickness="2" />
+        </PanelContainer.PanelOverride>
+
+        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
+            <BoxContainer Name="Container" Access="Public" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" />
+        </ScrollContainer>
+
+    </PanelContainer>
+</ui:MCDropshipPickerWindow>

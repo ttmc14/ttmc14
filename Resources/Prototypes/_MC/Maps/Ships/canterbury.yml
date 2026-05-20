@@ -1,7 +1,7 @@
 - type: gameMap
   id: MCCanterbury
   mapName: Canterbury
-  mapPath: /Maps/_MC/Shuttles/tgs_canterbury.yml
+  mapPath: /Maps/_MC/Shuttles/Canterbury/tgs_canterbury.yml
   minPlayers: 0
   maxRandomOffset: 0
   randomRotation: false
@@ -17,6 +17,37 @@
         availableJobs:
           # Command
           MCFC: [ 1, 1 ]
+          # Medical
+          MCCMO: [ 1, 1 ]
+          MCDoctor: [ 1, 1 ]
+          MCResearcher: [ 1, 1 ]
+          # Squad
+          MCSquadLeader: [ 1, 1 ]
+          MCSquadSmartgunner: [ 1, 1 ]
+          MCSquadEngineer: [ 1, 1 ]
+          MCSquadCorpsman: [ 1, 1 ]
+          MCSquadMarine: [ -1, -1 ]
+
+- type: gameMap
+  id: MCCanterburyMothership
+  mapName: Canterbury Mothership
+  mapPath: /Maps/_MC/Shuttles/Canterbury/tgs_canterbury_mothership.yml
+  minPlayers: 10
+  maxRandomOffset: 0
+  randomRotation: false
+  fallback: true
+  isGrid: true
+  stations:
+    TGCCanterbury:
+      stationProto: StandardUNMCWarship
+      components:
+      - type: StationNameSetup
+        mapNameTemplate: ТГК Кентербери "Мазершип"
+      - type: StationJobs
+        availableJobs:
+          # Command
+          MCFC: [ 1, 1 ]
+          MCTransportOfficer: [ 1, 1 ]
           # Medical
           MCCMO: [ 1, 1 ]
           MCDoctor: [ 1, 1 ]

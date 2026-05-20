@@ -1,0 +1,21 @@
+- type: entity
+  parent: RMCPodDoorIndestructible
+  id: MCPodlockIndestructible
+  categories: [ MCContent ]
+  abstract: true
+
+- type: entity
+  parent: RMCPodDoorAlmayerIndestructible
+  id: MCPodlockShipIndestructible
+  suffix: Indestructible
+  categories: [ MCContent ]
+  abstract: true
+
+- type: entity
+  parent: RMCShutterBase
+  id: MCShutterShip
+  categories: [ MCContent ]
+  components:
+  - type: RMCPodDoor
+  - type: Clickable
+  - type: InteractionOutline

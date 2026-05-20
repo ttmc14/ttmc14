@@ -1,0 +1,8 @@
+- type: entity
+  parent: MCPropNoFixture
+  id: MCPropShuttleEngineTadpole
+  name: engine tadpole
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Shuttles/engine_tadpole.rsi
+    state: base

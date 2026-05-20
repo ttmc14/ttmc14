@@ -28,6 +28,9 @@ public sealed partial class MCShuttleSpaceSystem : EntitySystem
         var query = EntityQueryEnumerator<MCShuttleSpaceComponent, MapComponent>();
         while (query.MoveNext(out var uid, out var component, out var mapComponent))
         {
+            if (component.Id != id)
+                continue;
+
             mapId = mapComponent.MapId;
             entity = (uid, component);
             return true;

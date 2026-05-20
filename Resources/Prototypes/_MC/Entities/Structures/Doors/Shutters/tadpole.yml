@@ -1,0 +1,7 @@
+- type: entity
+  parent: MCShutterShip
+  id: MCShutterTadpole
+  suffix: Tadpole
+  components:
+  - type: RMCPodDoor
+    id: mc-tadpole-inner

@@ -9,7 +9,7 @@ public sealed partial class MCShuttleSpaceSystem
     [PublicAPI]
     public void EnsureMap(string id, out MapId mapId, out Entity<MCShuttleSpaceComponent> entity)
     {
-        if (!Get(id, out mapId, out entity))
+        if (Get(id, out mapId, out entity))
             return;
 
         mapId = Create(id, out entity);

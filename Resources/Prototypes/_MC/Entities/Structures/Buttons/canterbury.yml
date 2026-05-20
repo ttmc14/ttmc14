@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCPodDoorButton
+  parent: MCButton
   id: MCButtonShipCanterbury
   name: outer door
   suffix: Canterbury

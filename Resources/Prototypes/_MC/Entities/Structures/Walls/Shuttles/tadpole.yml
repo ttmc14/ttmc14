@@ -1,0 +1,135 @@
+- type: entity
+  parent: MCWallInvincibleBase
+  id: MCWallTadpole
+  name: tadpole wall
+  abstract: true
+  components:
+  - type: Corrodible
+    isCorrodible: false
+  - type: Sprite
+    sprite: _MC/Structures/Shuttles/Walls/tadpole.rsi
+  - type: Icon
+    sprite: _MC/Structures/Shuttles/Walls/tadpole.rsi
+
+- type: entity
+  parent: MCWallTadpole
+  id: MCWallTadpoleOccluder
+  abstract: true
+  components:
+  - type: Occluder
+    enabled: false
+
+- type: entity
+  parent: MCWallTadpole
+  id: MCWallTadpoleCockpitFrontLeft
+  suffix: Front left
+  components:
+  - type: Sprite
+    state: blue_cockpit_fl
+  - type: Icon
+    state: blue_cockpit_fl
+
+- type: entity
+  parent: MCWallTadpole
+  id: MCWallTadpoleCockpitFrontRight
+  suffix: Front right
+  components:
+  - type: Sprite
+    state: blue_cockpit_fr
+  - type: Icon
+    state: blue_cockpit_fr
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleCornerFrontLeft
+  suffix: Front left
+  components:
+  - type: Sprite
+    state: blue_fl
+  - type: Icon
+    state: blue_fl
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleCornerFrontRight
+  suffix: Front right
+  components:
+  - type: Sprite
+    state: blue_fr
+  - type: Icon
+    state: blue_fr
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleCornerFront
+  suffix: Front
+  components:
+  - type: Sprite
+    state: blue_front
+  - type: Icon
+    state: blue_front
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleGlass1
+  suffix: 1
+  components:
+  - type: Sprite
+    state: shuttle_glass1
+  - type: Icon
+    state: shuttle_glass1
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleGlass2
+  suffix: 2
+  components:
+  - type: Sprite
+    state: shuttle_glass2
+  - type: Icon
+    state: shuttle_glass2
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleSingleWindow
+  components:
+  - type: Sprite
+    state: shuttle_single_window
+  - type: Icon
+    state: shuttle_single_window
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleInteriorCorner
+  components:
+  - type: Sprite
+    state: tadpole_interior_corner
+  - type: Icon
+    state: tadpole_interior_corner
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleInteriorCornerAlt
+  components:
+  - type: Sprite
+    state: tadpole_interior_corner_alt
+  - type: Icon
+    state: tadpole_interior_corner_alt
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleWeaponLeft
+  components:
+  - type: Sprite
+    state: blue_weapon_ll
+  - type: Icon
+    state: blue_weapon_ll
+
+- type: entity
+  parent: MCWallTadpoleOccluder
+  id: MCWallTadpoleWeaponRight
+  components:
+  - type: Sprite
+    state: blue_weapon_rr
+  - type: Icon
+    state: blue_weapon_rr

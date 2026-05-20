@@ -96,6 +96,7 @@ entities:
   entities:
   - uid: 1
     components:
+    - type: MCShuttlePreventCollide
     - type: MetaData
       name: ТГК Кентербери
     - type: Transform

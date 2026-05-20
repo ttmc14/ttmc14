@@ -1,5 +1,5 @@
 - type: entity
-  parent: RMCPodDoorIndestructible
+  parent: MCPodlockIndestructible
   id: MCPodlockOperation
   suffix: Operation
   components:
