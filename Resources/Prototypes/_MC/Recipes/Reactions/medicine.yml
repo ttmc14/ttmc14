@@ -150,8 +150,6 @@
       amount: 1
     MCRadium:
       amount: 1
-    MCLemoline:
-      amount: 1
   products:
     MCHyronalin: 3
 
@@ -334,3 +332,18 @@
     MCTimeroll: 2
     MCPhoron: 5
     MCHydrogen: 1
+
+- type: reaction
+  id: MCNeuraline
+  reactants:
+    MCSynaptizine:
+      amount: 1
+    MCArithrazine:
+      amount: 1
+    MCTricordrazine:
+      amount: 2
+    MCLemoline:
+      amount: 1
+  products:
+    MCNeuraline: 4
+    # TODO: huskpowder: 1

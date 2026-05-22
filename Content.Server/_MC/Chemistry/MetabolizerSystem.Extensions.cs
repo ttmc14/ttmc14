@@ -22,6 +22,9 @@ public partial class MetabolizerSystem
         new ("MCNeurotoxin", null),
         new ("MCNanoMachines", null),
         new ("MCSynaptizine", null),
+        new ("MCRussianRed", null),
+        new ("MCNeuraline", null),
+        new ("MCAdrenalin", null),
     ];
 
     private readonly List<EntityUid> _updated = [];

@@ -36,6 +36,24 @@
 
 - type: entity
   parent: MCAutoInjector
+  id: MCAutoInjectorNeuraline
+  name: neuraline autoinjector
+  description: An auto-injector loaded with 3 doses of neuraline, an extremely powerful stimulant. !DO NOT USE MORE THAN ONCE AT A TIME!
+  components:
+  - type: Hypospray
+    transferAmount: 4
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 12
+        reagents:
+        - ReagentId: MCNeuraline
+          Quantity: 12
+  - type: IconLabel
+    labelTextLocId: mc-neuraline-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
   id: MCAutoInjectorSynaptizine
   name: synaptizine auto-injector
   description: An auto-injector freshly loaded with a safe-to-use synaptizine mix.
