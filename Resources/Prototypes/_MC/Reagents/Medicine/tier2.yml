@@ -90,7 +90,7 @@
       - !type:HealthChange
         damage:
           types:
-            MCToxin: -1.5
+            MCToxin: -1
       - !type:HealthChange
         conditions:
         - !type:ReagentThreshold

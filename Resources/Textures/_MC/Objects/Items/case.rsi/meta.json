@@ -33,6 +33,9 @@
     },
     {
       "name": "sentry_mini_case"
+    },
+    {
+      "name": "case_med"
     }
   ]
 }

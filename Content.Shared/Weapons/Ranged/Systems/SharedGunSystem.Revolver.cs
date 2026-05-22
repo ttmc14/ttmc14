@@ -12,6 +12,7 @@ using Robust.Shared.Utility;
 using System;
 using System.Linq;
 using Content.Shared.Interaction.Events;
+using Content.Shared.Stacks;
 using Content.Shared.Wieldable;
 using Content.Shared.Wieldable.Components;
 using JetBrains.Annotations;
@@ -152,9 +153,22 @@ public partial class SharedGunSystem
                     continue;
                 }
 
-                component.AmmoSlots[index] = ent.Value;
-                Containers.Insert(ent.Value, component.AmmoContainer);
-                SetChamber(index, component, uid);
+                // MC Changes
+                var ammoEnt = ent.Value;
+
+                if (TryComp(ammoEnt, out StackComponent? stack) && stack.Count > 1)
+                {
+                    var coordinates = TransformSystem.GetMoverCoordinates(ammoEnt);
+                    var split = _rmcStack.Split((ammoEnt, stack), 1, coordinates);
+
+                    if (split != null)
+                        ammoEnt = split.Value;
+                }
+
+                component.AmmoSlots[index] = ammoEnt;
+                Containers.Insert(ammoEnt, component.AmmoContainer);
+                SetChamber(index, component, ammoEnt);
+                // MC End
 
                 if (ev.Ammo.Count == 0)
                     break;
@@ -180,6 +194,17 @@ public partial class SharedGunSystem
             {
                 continue;
             }
+
+            // MC Changes
+            if (TryComp(uid, out StackComponent? stack) && stack.Count > 1)
+            {
+                var coordinates = TransformSystem.GetMoverCoordinates(uid);
+                var split = _rmcStack.Split((uid, stack), 1, coordinates);
+
+                if (split != null)
+                    uid = split.Value;
+            }
+            // MC End
 
             component.AmmoSlots[index] = uid;
             Containers.Insert(uid, component.AmmoContainer);

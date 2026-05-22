@@ -70,6 +70,10 @@
         points: 3
       - id: MCAutoInjectorSynaptizine
         points: 2
+      - id: MCAutoInjectorOxycodone
+        points: 2
+      - id: MCAutoInjectorNeuraline
+        points: 14
     - name: Syringe Cases
       entries:
       - id: MCCaseSyringeFillMeralyne

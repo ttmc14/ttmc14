@@ -37,6 +37,7 @@
     - MCMetalBarricadeFoldingBuild
     # Structures
     - MCGirderBuild
+    - MCWindowFrameBuild
   - type: RMCConstructionUpgradeItem
     whitelist:
       tags:

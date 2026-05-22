@@ -1,0 +1,50 @@
+- type: constructionGraph
+  parent: RMC
+  id: MCWindowColonyReinforced
+  start: start
+  graph:
+  - node: start # not currently buildable
+
+  - node: windowFrameColonyReinforced
+    entity: MCWindowFrameColonyReinforced
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 2
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+
+    - to: windowColonyReinforced
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: MCGlassReinforced
+        amount: 2
+        doAfter: 2
+
+  - node: windowColonyReinforced
+    entity: MCWindowFrameColonyReinforced
+    edges:
+    - to: windowFrameColonyReinforced
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: MCSheetGlassReinforced1
+        amount: 2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+      - tool: Prying
+      - tool: Screwing

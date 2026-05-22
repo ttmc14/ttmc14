@@ -595,6 +595,8 @@
       falloff: 0
     - range: 15
       falloff: 5
+  - type: MCStunOnHit
+    knockback: 0
 
 - type: entity
   parent: MCBulletRevolverR312Medical
@@ -638,9 +640,9 @@
   - type: MCProjectileInject
     reagents:
     - ReagentId: MCNeuraline
-      Quantity: 6
+      Quantity: 3
     - ReagentId: MCHyronalin
-      Quantity: 2.8
+      Quantity: 1.6
 
 - type: entity
   parent: MCBulletRevolverR312Medical
@@ -667,3 +669,74 @@
       Quantity: 2.5
     - ReagentId: MCTricordrazine
       Quantity: 2.5
+
+# Case
+- type: entity
+  parent: MCCase
+  id: MCCaseAlbedoBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/case.rsi
+    layers:
+    - map: [ "full" ]
+      state: case_med
+    - map: [ "empty" ]
+      state: empty_case
+      visible: false
+  - type: Icon
+    sprite: _MC/Objects/Items/case.rsi
+    state: case_med
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,3 # 8 slots
+
+- type: entity
+  parent: MCCaseAlbedoBase
+  id: MCCaseR312SpecCase
+  name: R-312 'Albedo' Revolver special case
+  description: High-tech case made by BMSS for delivery their special weapons. Label on this case says 'Since we have already called Nigredo death, within the same metaphor we can call Albedo life. It is time to shoot at people legally.'
+  components:
+  - type: Tag
+    tags:
+    - MCCaseR312SpecCase
+  - type: Sprite
+    sprite: _MC/Objects/Items/case.rsi
+    state: case_med
+  - type: Icon
+    sprite: _MC/Objects/Items/case.rsi
+    state: case_med
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,1,3 # 8 slots
+    whitelist:
+      tags:
+      - MCWeaponRevolverR312
+      - MCSpeedloaderR312
+      - MCCartridgeRevolverR312
+      - MCBoxHandfulR312
+  - type: StorageFill
+    contents:
+    - id: MCWeaponRevolverR312
+      amount: 1
+    - id: MCSpeedloaderR312MedicalAdrenaline
+      amount: 1
+    - id: MCBoxHandfulR312MedicalAdrenaline
+      amount: 1
+    - id: MCBoxHandfulR312MedicalRussianRed
+      amount: 1
+    - id: MCBoxHandfulR312MedicalMeraderm
+      amount: 1
+    - id: MCBoxHandfulR312MedicalHypervene
+      amount: 1
+    - id: MCBoxHandfulR312MedicalNeuraline
+      amount: 1
+    - id: MCBoxHandfulR312MedicalCombat
+      amount: 1
+    - id: MCPouchR312
+      amount: 1
+
+- type: Tag
+  id: MCCaseR312SpecCase

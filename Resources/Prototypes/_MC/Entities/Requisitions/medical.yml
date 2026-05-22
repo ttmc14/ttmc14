@@ -105,7 +105,31 @@
         entities:
         - MCDefibrillator
         - MCDefibrillator
+      # Injectors
+      - name: Russian Red auto injector (x1)
+        cost: 30
+        entities:
+        - MCAutoInjectorRussianRed
+      - name: Synaptizine auto injector (x1)
+        cost: 30
+        entities:
+        - MCAutoInjectorSynaptizine
+      - name: Oxycodone auto injector (x1)
+        cost: 20
+        entities:
+        - MCAutoInjectorOxycodone
+      - name: Neuraline autoinjector (x1)
+        cost: 70
+        entities:
+        - MCAutoInjectorNeuraline
       # Albedo
+      - name: R-312 'Albedo' Revolver special case
+        icon:
+          sprite: _MC/Objects/Items/case.rsi
+          state: case_med
+        cost: 500
+        entities:
+        - MCCaseR312SpecCase
       - name: R-312 'Albedo' revolver
         icon:
           sprite: _MC/Objects/Weapons/Guns/Revolvers/r312.rsi

@@ -1,18 +1,10 @@
-- type: stack
-  id: MCRodMetal
-  name: rods
-  icon:
-    sprite: /Textures/_RMC14/Objects/Materials/parts.rsi
-    state: rods
-  spawn: MCRodMetal1
-  maxCount: 60
-
 - type: entity
   parent: PartRodMetal
   id: MCRodMetal
   name: metal rod
   description: Some rods. Can be used for building, or something.
   suffix: Filled
+  categories: [ MCContent ]
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Materials/parts.rsi
@@ -28,7 +20,7 @@
       - state: inhand-right
   - type: Stack
     count: 60
-    stackType: MCRodMetal
+    stackType: CMRodMetal
     baseLayer: base
     layerStates:
     - rods
@@ -37,14 +29,11 @@
     tags:
     - RodMetal1
   - type: Construction
-    graph: CMRods
-    node: CMRodMetal
-  - type: FloorTile
-    outputs:
-    - CMFloorSteelPlanetEngine
+    graph: MCRods
+    node: MCRodMetal
   - type: RMCRefinable
     spawn:
-    - id: CMSheetMetal1
+    - id: MCSheetMetal1
   - type: Material
   - type: PhysicalComposition
     materialComposition:
@@ -77,5 +66,61 @@
   components:
   - type: Sprite
     state: rods
+  - type: Stack
+    count: 1
+
+- type: entity
+  parent: MCRodMetal
+  id: MCRodPlasteel
+  name: plasteel rod
+  description: Some plasteel rods. Can be used for building sturdier structures and objects.
+  suffix: Filled
+  components:
+  - type: PhysicalComposition
+    materialComposition:
+      CMPlasteel: 3750
+  - type: Stack
+    count: 60
+    stackType: CMRodPlasteel
+    baseLayer: base
+    layerStates:
+    - rods_plasteel
+    - rods_plasteel_5
+  - type: Sprite
+    state: rods_plasteel
+  - type: Item
+    heldPrefix: rods
+  - type: Construction
+    graph: MCRods
+    node: MCRodPlasteel
+  - type: StackPrice
+    price: 15
+  - type: RMCRefinable
+    amount: 2
+    spawn:
+    - id: MCSheetPlasteel1
+  - type: RMCConstructionItem
+    buildable:
+    - RMCWeaponMountBuild
+
+- type: entity
+  parent: MCRodPlasteel
+  id: MCRodPlasteel10
+  name: plasteel rod
+  suffix: "10"
+  components:
+  - type: Sprite
+    state: rods_plasteel
+  - type: Stack
+    count: 10
+
+- type: entity
+  parent: MCRodPlasteel
+  id: MCRodPlasteel1
+  name: plasteel rod
+  suffix: Single
+  components:
+  - type: Sprite
+    state: rods_plasteel
   - type: Stack
     count: 1

@@ -93,31 +93,37 @@
     Medicine:
       metabolismRate: 1
       effects:
-      - !type:HealthChange
-        conditions:
-        damage:
-          types:
-            MCBrute: -7
-            MCBurn: -7
-            MCToxin: -2.5
-            MCClone: 0.7
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 15
-          max: 20
-        damage:
-          types:
-            MCBrute: 1
-      - !type:HealthChange
-        conditions:
-        - !type:ReagentThreshold
-          min: 20
-        damage:
-          types:
-            MCBrute: 1
-            MCBurn: 2
-            # brain loss?
+      - !type:MCReagentRussianRed
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCNeuraline
+  name: reagent-name-mc-neuraline
+  desc: reagent-desc-mc-neuraline
+  physicalDesc: mc-reagent-physical-desc-liquid
+  color: "#C8A5DC"
+  overdose: 5
+  criticalOverdose: 6
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.4
+      effects:
+      - !type:MCReagentNeuraline
+
+- type: reagent
+  parent: MCReagentMedicine
+  id: MCAdrenalin
+  name: reagent-name-mc-adrenalin
+  desc: reagent-desc-mc-adrenalin
+  physicalDesc: mc-reagent-physical-desc-liquid
+  color: "#f14a17"
+  overdose: 6
+  criticalOverdose: 10
+  metabolisms:
+    Medicine:
+      metabolismRate: 0.1
+      effects:
+      - !type:MCReagentAdrenalin
 
 - type: reagent
   parent: MCReagentMedicine

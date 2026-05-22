@@ -17,3 +17,19 @@
   materialCost: 6
   skill: MCSkillConstruction
   requiredSkillLevel: 0
+
+- type: rmcConstruction
+  id: MCRodPlasteelBuild
+  name: plasteel rod
+  prototype: MCRodPlasteel1
+  doAfterTime: 0
+  doAfterTimeMin: 0
+  amount: 2
+  skill: MCSkillConstruction
+  requiredSkillLevel: 0
+  materialCost: 1
+  ignoreBuildRestrictions: true
+  restrictedCollisionGroup: null
+  stackAmounts:
+  - 6
+  - 12
