@@ -1,163 +1,170 @@
-﻿- type: entity
-  parent:
-  - MCWeaponGun
-  - MCAttachableHolder
+- type: entity
   id: MCWeaponFlamer
   name: FL-84 flamethrower
   description: M34 incinerator unit has proven to be one of the most effective weapons at clearing out soft-targets. This is a weapon to be feared and respected as it is quite deadly.
+  parent:
+    - MCWeaponGun
+    - MCAttachableHolder
   components:
-  - type: Tag
-    tags:
-    - MCWeaponIncineratorFL84
-  - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
-    state: base
-    layers:
-    - state: base
-      map: [ "enum.GunVisualLayers.Base" ]
-    - state: mag-0
-      map: [ "enum.GunVisualLayers.Mag" ]
-    - state: lit
-      map: [ "enum.RMCIgniterVisuals.Ignited" ]
-  - type: Item
-    sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
-    size: Large
-  - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
-    slots:
-    - suitStorage
-    - Back
-  - type: Gun
-    soundGunshot:
-      collection: MCFL84Shoot
-    soundEmpty:
-      path: /Audio/_MC/Weapons/Guns/Empty/flamethrower_empty.ogg # че-то не работает
-  - type: RMCSelectiveFire
-    baseFireRate: 1
-    baseFireModes:
-    - SemiAuto
-  - type: ShootUseDelay
-  - type: ContainerContainer
-    containers:
-      gun_magazine: !type:ContainerSlot
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Tank
-        startingItem: MCTankFlamer
-        insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
-        ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MCFlamerTank
-  - type: Wieldable
-  - type: WieldableSpeedModifiers
-    base: 0.6
-  - type: GunRequiresWield
-  - type: MagazineVisuals
-    magState: mag
-    steps: 1
-    zeroVisible: true
-  - type: RMCFlamerAmmoProvider
-    range: 6
-    spawn: null
-  - type: AttachableHolder
-    slots:
-      mc-aslot-rail:
-        whitelist:
-          tags:
-          - MCAttachmentRailFlashlight
-          - MCAttachmentMagneticHarness
-      mc-slot-underbarrel:
-        startingAttachable: MCAttachmentUnderslungHydrocannon
-        whitelist:
-          tags:
-          - MCAttachmentUnderslungHydrocannon
-  - type: AttachableHolderVisuals
-    offsets:
-      mc-slot-rail: -0.032, 0.092
-      mc-slot-underbarrel: 0.230, -0.038
-  - type: WieldedCrosshair
-    rsi:
-      sprite: _RMC14/Interface/MousePointer/flamer_mouse.rsi
-      state: all
-  - type: RMCIgniter # Обещаю нахуй, эта хуйня будет отключатся при отсутствии магазина
-    sound:
-      path: /Audio/_MC/Weapons/Guns/Interact/flamethrower_off.ogg
-      params:
-        variation: 0.025
-  - type: RMCAmmoEject
-  - type: GenericVisualizer
-    visuals:
-      enum.RMCFlamerVisualLayers.Strip:
+    - type: Tag
+      tags:
+        - MCWeaponIncineratorFL84
+    - type: Sprite
+      sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+      layers:
+        - state: base
+          map:
+            - enum.GunVisualLayers.Base
+        - state: mag-0
+          map:
+            - enum.GunVisualLayers.Mag
+        - state: lit
+          map:
+            - enum.RMCIgniterVisuals.Ignited
+      state: base
+    - type: Item
+      size: Large
+      sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+    - type: Clothing
+      slots:
+        - suitStorage
+        - Back
+      sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi
+    - type: Gun
+      soundGunshot:
+        collection: MCFL84Shoot
+      soundEmpty:
+        path: /Audio/_MC/Weapons/Guns/Empty/flamethrower_empty.ogg
+    - type: RMCSelectiveFire
+      baseFireModes:
+        - SemiAuto
+      baseFireRate: 1
+    - type: ShootUseDelay
+    - type: ContainerContainer
+      containers:
+        gun_magazine: !type:ContainerSlot {}
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Tank
+          startingItem: MCTankFlamer
+          insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
+          ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MCFlamerTank
+    - type: Wieldable
+    - type: WieldableSpeedModifiers
+      base: 0.6
+    - type: GunRequiresWield
+    - type: MagazineVisuals
+      magState: mag
+      steps: 1
+      zeroVisible: true
+    - type: RMCFlamerAmmoProvider
+      range: 6
+      spawn: null
+    - type: AttachableHolder
+      slots:
+        mc-aslot-rail:
+          whitelist:
+            tags:
+              - MCAttachmentRailFlashlight
+              - MCAttachmentMagneticHarness
+        mc-slot-underbarrel:
+          startingAttachable: MCAttachmentUnderslungHydrocannon
+          whitelist:
+            tags:
+              - MCAttachmentUnderslungHydrocannon
+    - type: AttachableHolderVisuals
+      offsets:
+        mc-slot-rail: '-0.032, 0.092'
+        mc-slot-underbarrel: 0.230, -0.038
+    - type: WieldedCrosshair
+      rsi:
+        sprite: _RMC14/Interface/MousePointer/flamer_mouse.rsi
+        state: all
+    - type: RMCIgniter
+      sound:
+        path: /Audio/_MC/Weapons/Guns/Interact/flamethrower_off.ogg
+        params:
+          variation: 0.025
+    - type: RMCAmmoEject
+    - type: GenericVisualizer
+      visuals:
         enum.RMCFlamerVisualLayers.Strip:
-          True: { visible: true }
-          False: { visible: false }
-      enum.RMCIgniterVisuals.Ignited:
+          enum.RMCFlamerVisualLayers.Strip:
+            'true':
+              visible: true
+            'false':
+              visible: false
         enum.RMCIgniterVisuals.Ignited:
-          True: { visible: true }
-          False: { visible: false }
+          enum.RMCIgniterVisuals.Ignited:
+            'true':
+              visible: true
+            'false':
+              visible: false
 
 - type: entity
-  parent: MCWeaponFlamer
   id: MCWeaponFlamerUnloaded
   suffix: Unloaded, NoAttachable
+  parent: MCWeaponFlamer
   components:
-  - type: AttachableHolder
-    slots:
-      mc-aslot-rail:
-        whitelist:
-          tags:
-          - MCAttachmentRailFlashlight
-          - MCAttachmentMagneticHarness
-      mc-slot-underbarrel:
-        whitelist:
-          tags:
-          - MCAttachmentUnderslungHydrocannon
+    - type: AttachableHolder
+      slots:
+        mc-aslot-rail:
+          whitelist:
+            tags:
+              - MCAttachmentRailFlashlight
+              - MCAttachmentMagneticHarness
+        mc-slot-underbarrel:
+          whitelist:
+            tags:
+              - MCAttachmentUnderslungHydrocannon
 
 - type: entity
-  parent: MCWeaponFlamer
   id: MCWeaponFlamerUnloadedNoMag
   suffix: Unloaded, NoMag
+  parent: MCWeaponFlamer
   components:
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Tank
-        insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
-        ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MCFlamerTank
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Tank
+          insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
+          ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MCFlamerTank
 
 - type: entity
-  parent: MCWeaponFlamer
   id: MCWeaponFlamerUnloadedAll
   suffix: Unloaded All
+  parent: MCWeaponFlamer
   components:
-  - type: AttachableHolder
-    slots:
-      mc-aslot-rail:
-        whitelist:
-          tags:
-          - MCAttachmentRailFlashlight
-          - MCAttachmentMagneticHarness
-      mc-slot-underbarrel:
-        whitelist:
-          tags:
-          - MCAttachmentUnderslungHydrocannon
-  - type: ItemSlots
-    slots:
-      gun_magazine:
-        name: Tank
-        insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
-        ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
-        priority: 2
-        whitelist:
-          tags:
-          - MCFlamerTank
+    - type: AttachableHolder
+      slots:
+        mc-aslot-rail:
+          whitelist:
+            tags:
+              - MCAttachmentRailFlashlight
+              - MCAttachmentMagneticHarness
+        mc-slot-underbarrel:
+          whitelist:
+            tags:
+              - MCAttachmentUnderslungHydrocannon
+    - type: ItemSlots
+      slots:
+        gun_magazine:
+          name: Tank
+          insertSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_reload.ogg
+          ejectSound: /Audio/_MC/Weapons/Guns/Reload/flamethrower_unload.ogg
+          priority: 2
+          whitelist:
+            tags:
+              - MCFlamerTank
 
 - type: Tag
   id: MCWeaponIncineratorFL84

@@ -1,10 +1,11 @@
 ﻿using Content.Client.Clothing;
-using Content.Shared._MC.Armor.Modules.Components;
+using Content.Shared._MC.Armor.Modules.Core;
+using Content.Shared._MC.Armor.Modules.Core.Components;
 using Content.Shared.Clothing;
 
 namespace Content.Client._MC.Armor.Modules;
 
-public sealed class MCArmorModuleSystem : Content.Shared._MC.Armor.Modules.MCArmorModuleSystem
+public sealed class MCArmorModuleSystem : MCArmorModuleSharedSystem
 {
     public override void Initialize()
     {

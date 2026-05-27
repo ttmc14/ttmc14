@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Armor;
+﻿using Content.Shared._MC.Armor.Core;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Effects;
 using Content.Shared.Inventory;

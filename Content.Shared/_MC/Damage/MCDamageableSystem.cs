@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Armor;
+﻿using Content.Shared._MC.Armor.Core;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
