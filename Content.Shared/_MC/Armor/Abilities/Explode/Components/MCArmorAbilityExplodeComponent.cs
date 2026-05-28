@@ -8,7 +8,7 @@ namespace Content.Shared._MC.Armor.Abilities.Explode.Components;
 public sealed partial class MCArmorAbilityExplodeComponent : Component
 {
     [DataField]
-    public EntProtoId ActionProtoId = "MCFire";
+    public EntProtoId ActionProtoId = "MCActionArmorExplode";
 
     [DataField]
     public EntityUid? Action;

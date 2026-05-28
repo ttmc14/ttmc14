@@ -1,0 +1,11 @@
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionArmorExplode
+  name: Explode yourself
+  description: Boom!
+  components:
+  - type: Action
+    useDelay: 0.25
+    itemIconStyle: BigItem
+  - type: InstantAction
+    event: !type:MCArmorAbilityExplodeActionEvent
