@@ -14,7 +14,11 @@
     solutions:
       tank:
         maxVol: 200
+  - type: RefillableSolution
+    solution: tank
   - type: DrainableSolution
+    solution: tank
+  - type: DrawableSolution
     solution: tank
   - type: ExaminableSolution
     solution: tank
