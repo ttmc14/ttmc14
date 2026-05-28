@@ -17,7 +17,7 @@
     sprite: _MC/Objects/Weapons/Melee/Vali/spear.rsi
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    range: 2.5
+    range: 2
     damage:
       types:
         MCBrute: 32
