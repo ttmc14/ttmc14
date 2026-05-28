@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._MC;
 using Content.Shared.ActionBlocker;
@@ -131,9 +132,19 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     [PublicAPI]
     public bool TryMapOffset(Entity<CEZLevelMapComponent?> entity, int offset, out Entity<CEZLevelMapComponent> output)
     {
+        return TryMapOffset(entity, offset, out output, out _);
+    }
+
+    [PublicAPI]
+    public bool TryMapOffset(Entity<CEZLevelMapComponent?> entity, int offset, out Entity<CEZLevelMapComponent> output, [NotNullWhen(true)] out MapComponent? mapComponent)
+    {
         output = default;
+        mapComponent = null;
 
         if (MapOffset(entity, offset) is not { } result)
+            return false;
+
+        if (!TryComp(result, out mapComponent))
             return false;
 
         output = result;
