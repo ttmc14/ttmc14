@@ -17,7 +17,6 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly SpriteSystem _sprite = default!;
     [Dependency] private readonly IEyeManager _eye = default!;
-    [Dependency] private readonly AnimationPlayerSystem _animation = default!;
 
     public override void Initialize()
     {
@@ -31,11 +30,11 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
     private void OnEyeOffset(Entity<CEZPhysicsComponent> ent, ref GetEyeOffsetEvent args)
     {
         Angle rotation = _eye.CurrentEye.Rotation * -1;
-        var localPosition = GetVisualsLocalPosition((ent, ent), Transform(ent));
+        var localPosition = ent.Comp.LocalPosition;
         var offset = rotation.RotateVec(new Vector2(0, localPosition * ZLevelOffset));
         args.Offset += offset;
     }
-
+    
     private void OnStartup(Entity<CEZPhysicsComponent> ent, ref ComponentStartup args)
     {
         if (!TryComp<SpriteComponent>(ent, out var sprite))
@@ -49,56 +48,53 @@ public sealed partial class CEClientZLevelsSystem : CESharedZLevelsSystem
         ent.Comp.SpriteOffsetDefault = sprite.Offset;
     }
 
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        var query = EntityQueryEnumerator<CEZPhysicsComponent, SpriteComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var zPhys, out var sprite, out var xform))
-        {
-            var localPosition = GetVisualsLocalPosition((uid, zPhys), xform);
-
-            sprite.NoRotation = localPosition != 0 || zPhys.NoRotDefault;
-
-            _sprite.SetOffset((uid, sprite), zPhys.SpriteOffsetDefault + new Vector2(0, localPosition * ZLevelOffset));
-            _sprite.SetDrawDepth((uid, sprite), localPosition > 0 ? (int)Shared.DrawDepth.DrawDepth.OverMobs : zPhys.DrawDepthDefault);
-        }
-
-        // Update StartOffset for entities with running fatigue animations
-        // This allows animations to follow dynamic offset changes (e.g., from Z-levels system)
-        /*
-        var query2 = EntityQueryEnumerator<StaminaComponent, SpriteComponent, CEZPhysicsComponent>();
-        while (query2.MoveNext(out var uid, out var stamina, out var sprite, out var zPhys))
-        {
-            // Only update if animation is running
-            if (!_animation.HasRunningAnimation(uid, StaminaSystem.StaminaAnimationKey))
-                continue;
-
-            // Update the base offset to track changes made by other systems
-            stamina.StartOffset = zPhys.SpriteOffsetDefault;
-        }
-        */
-    }
-
-
-    public float GetVisualsLocalPosition(Entity<CEZPhysicsComponent?> ent, TransformComponent? xform = null)
-    {
-        if (!Resolve(ent, ref ent.Comp, false))
-            return 0;
-        if (!Resolve(ent, ref xform, false))
-            return 0;
-
-        var pos = ent.Comp.LocalPosition;
-
-        if (xform.ParentUid != xform.MapUid && ZPhysicsQuery.TryComp(xform.ParentUid, out var parentZPhys))
-            pos = parentZPhys.LocalPosition;
-
-        return pos;
-    }
-
     public override void Shutdown()
     {
         base.Shutdown();
         _overlay.RemoveOverlay<CEZLevelBlurOverlay>();
+    }
+}
+
+internal sealed class CEClientZLevelsPreAnimSystem : EntitySystem
+{
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        UpdatesBefore.Add(typeof(AnimationPlayerSystem));
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        var query = EntityQueryEnumerator<CEZPhysicsComponent, SpriteComponent>();
+        while (query.MoveNext(out var uid, out var zPhys, out var sprite))
+        {
+            var localPosition = zPhys.LocalPosition;
+            sprite.NoRotation = localPosition != 0 || zPhys.NoRotDefault;
+            _sprite.SetOffset((uid, sprite), zPhys.SpriteOffsetDefault);
+            _sprite.SetDrawDepth((uid, sprite), localPosition > 0 ? (int)Shared.DrawDepth.DrawDepth.OverMobs : zPhys.DrawDepthDefault);
+        }
+    }
+}
+
+internal sealed class CEClientZLevelsPostAnimSystem : EntitySystem
+{
+    [Dependency] private readonly SpriteSystem _sprite = default!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+        UpdatesAfter.Add(typeof(AnimationPlayerSystem));
+    }
+
+    public override void FrameUpdate(float frameTime)
+    {
+        var query = EntityQueryEnumerator<CEZPhysicsComponent, SpriteComponent>();
+        while (query.MoveNext(out var uid, out var zPhys, out var sprite))
+        {
+            var zOffset = new Vector2(0, zPhys.LocalPosition * CESharedZLevelsSystem.ZLevelOffset);
+            _sprite.SetOffset((uid, sprite), sprite.Offset + zOffset);
+        }
     }
 }
