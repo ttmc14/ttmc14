@@ -115,6 +115,13 @@
         cost: 50
         entities:
         - MCMagazineSR127Flak
+      # Vali
+      - icon:
+          sprite: _MC/Objects/Weapons/Melee/Vali/valhala.rsi
+          state: icon
+        cost: 600
+        entities:
+        - MCMeleeWeaponValiValhala
       # AR-12
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi
