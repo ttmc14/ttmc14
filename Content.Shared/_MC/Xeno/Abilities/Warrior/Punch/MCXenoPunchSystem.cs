@@ -97,7 +97,7 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
             return false;
         }
 
-        if (!TryUseAction(entity, args.Action, entity, affectOnStructures: true))
+        if (!TryUseAction(entity, args.Action, args.Target, affectOnStructures: true))
             return false;
 
         RemComp<MCXenoAgilityActiveComponent>(entity);
