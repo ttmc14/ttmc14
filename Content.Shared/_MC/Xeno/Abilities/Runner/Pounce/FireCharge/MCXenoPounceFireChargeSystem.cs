@@ -1,8 +1,7 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Pounce.Firecharge;
-using Content.Shared.Atmos.Components;
+﻿using Content.Shared.Atmos.Components;
 using Content.Shared.Damage;
 
-namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce.Firecharge;
+namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce.FireCharge;
 
 public sealed class MCXenoPounceFireChargeSystem : EntitySystem
 {

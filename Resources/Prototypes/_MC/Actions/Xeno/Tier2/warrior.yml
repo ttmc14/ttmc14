@@ -1,5 +1,46 @@
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoFuriousCharge
+  name: Furious Charge (10)
+  description: WIP.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/runner.rsi
+      state: pounce
+    useDelay: 10
+  - type: TargetAction
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
+  - type: XenoActionPlasma
+    cost: 10
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPunch
+  name: Punch (15)
+  description: Strike a target next to you, inflicting stamina damage, stagger and slowdown. Deals 1.5x damage, stagger and slowdown to grappled targets. Deals quadruple damage to structures and machinery.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
+      state: punch
+    useDelay: 10
+  - type: TargetAction
+  - type: EntityTargetAction
+    event: !type:MCXenoPunchActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 15
+
+# Legacy
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoGrappleToss
   name: Grapple Toss (30)
   description: Throw a creature you're grappling on selected tile, up to 5 tiles away. Big targets (i.e. T3's) have their range reduced by 1.
@@ -23,25 +64,6 @@
     ids:
     - MCActionXenoFling
     cooldown: 20
-
-- type: entity
-  parent: ActionXenoBase
-  id: MCActionXenoPunch
-  name: Punch (15)
-  description: Strike a target next to you, inflicting stamina damage, stagger and slowdown. Deals 1.5x damage, stagger and slowdown to grappled targets. Deals quadruple damage to structures and machinery.
-  components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon:
-      sprite: _MC/Interface/Actions/Xeno/warrior.rsi
-      state: punch
-    useDelay: 10
-  - type: TargetAction
-  - type: EntityTargetAction
-    event: !type:MCXenoPunchActionEvent
-  - type: ActionBlockIfResting
-  - type: XenoActionPlasma
-    cost: 15
 
 - type: entity
   parent: ActionXenoBase

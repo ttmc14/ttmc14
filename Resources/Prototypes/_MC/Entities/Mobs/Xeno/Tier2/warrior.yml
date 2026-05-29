@@ -45,10 +45,11 @@
     - MCActionXenoDevolve
     # Main
     - MCActionXenoAgility
-    - MCActionXenoLunge
+    - MCActionXenoPunch
+    - MCActionXenoFuriousCharge
+    # Legacy
     - MCActionXenoGrappleToss
     - MCActionXenoFling
-    - MCActionXenoPunch
     hudOffset: -0.15, 0.25
   # Statistics
   - type: MobThresholds
@@ -75,11 +76,27 @@
       types:
         MCBrute: 25
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.777
-    baseSprintSpeed: 3.846
+    baseWalkSpeed: 2.25
+    baseSprintSpeed: 3.25
   # Abilities
   - type: MCXenoAgility
-  - type: MCXenoLunge
   - type: MCXenoGrappleToss
   - type: MCXenoFling
   - type: MCXenoPunch
+  # Pounce (Furious Charge)
+  - type: MCXenoPounce
+    maxDistance: 5
+    strength: 45
+    hitSelfParalyzeTime: 0
+    hitSound: /Audio/_MC/Effects/alien_bite2.ogg
+    hitDamage:
+      types:
+        MCBrute: 15
+  - type: MCXenoPounceKnockback
+    entry:
+      distance: 2
+      speed: 40
+  - type: MCXenoPounceMomentum
+    gain: 2
+  # Passive
+  - type: MCXenoMomentum

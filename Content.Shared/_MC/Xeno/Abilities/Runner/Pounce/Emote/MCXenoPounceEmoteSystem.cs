@@ -1,5 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Pounce;
-using Content.Shared._RMC14.Emote;
+﻿using Content.Shared._RMC14.Emote;
 
 namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce.Emote;
 
