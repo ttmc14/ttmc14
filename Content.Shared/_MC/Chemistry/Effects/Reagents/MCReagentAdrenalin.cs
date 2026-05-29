@@ -127,19 +127,11 @@ public sealed partial class MCReagentAdrenalin : MCReagentEffect
         if (!MCSolutionCooldown.IsReady(uid, solution, SpecialEffectCritKey) || volume.Float() < SpecialEffectVolume)
             return;
 
-        foreach (var (type, value) in damageableComponent.Damage.DamageDict)
-        {
-            switch (type)
-            {
-                case "MCBrute":
-                    MCDamageable.AdjustBruteLoss(uid, -value.Float() * SpecialEffectHealBruteMultiplier);
-                    break;
+        if (damageableComponent.Damage.DamageDict.TryGetValue("MCBrute", out var bruteDamage))
+            MCDamageable.AdjustBruteLoss(uid, -bruteDamage.Float() * SpecialEffectHealBruteMultiplier);
 
-                case "MCBurn":
-                    MCDamageable.AdjustBurnLoss(uid, -value.Float() * SpecialEffectHealBurnMultiplier);
-                    break;
-            }
-        }
+        if (damageableComponent.Damage.DamageDict.TryGetValue("MCBurn", out var burnDamage))
+            MCDamageable.AdjustBurnLoss(uid, -burnDamage.Float() * SpecialEffectHealBurnMultiplier);
 
         MCDamageable.AdjustToxLoss(uid, 5f);
 
