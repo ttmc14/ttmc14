@@ -12,6 +12,7 @@ public sealed class MCXenoMomentumSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
 
+    [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = null!;
 
     private EntityQuery<MCXenoMomentumComponent> _query;
@@ -150,6 +151,9 @@ public sealed class MCXenoMomentumSystem : MCXenoAbilitySystem
     {
         if (!_query.Resolve(entity, ref entity.Comp, logMissing: false))
             return;
+
+        _appearance.SetData(entity, MCXenoMomentumVisuals.Visuals, entity.Comp.Stacks);
+        _appearance.SetData(entity, MCXenoMomentumLayer.Base, entity.Comp.Stacks > 0);
 
         _movementSpeed.RefreshMovementSpeedModifiers(entity);
     }

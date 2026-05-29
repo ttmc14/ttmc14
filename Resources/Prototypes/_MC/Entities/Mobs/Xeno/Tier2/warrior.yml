@@ -24,6 +24,21 @@
   - type: Sprite
     sprite: _MC/Mobs/Xenos/warrior.rsi
     offset: 0, 0.35
+    layers:
+    - map: [ "enum.XenoVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.RMCDamageVisualLayers.Base" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Left" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Right" ]
+      visible: false
+    - map: [ "enum.MCXenoMomentumLayer.Base" ]
+      sprite: _MC/Interface/Xeno/hud_momentum.rsi
+      state: stack_0
+      offset: 0.75, -0.5
+      shader: unshaded
+      visible: false
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi

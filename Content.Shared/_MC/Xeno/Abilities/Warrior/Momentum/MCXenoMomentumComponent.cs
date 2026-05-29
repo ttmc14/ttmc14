@@ -1,4 +1,5 @@
 ﻿using Robust.Shared.GameStates;
+using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Xeno.Abilities.Warrior.Momentum;
 
@@ -28,4 +29,16 @@ public sealed partial class MCXenoMomentumComponent : Component
 
     [DataField]
     public float StacksArmorBonus = 2.5f;
+}
+
+[Serializable, NetSerializable]
+public enum MCXenoMomentumLayer
+{
+    Base,
+}
+
+[Serializable, NetSerializable]
+public enum MCXenoMomentumVisuals
+{
+    Visuals,
 }

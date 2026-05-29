@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Made by TornadoTechnology (GitHub)",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "stack_0"
+    },
+    {
+      "name": "stack_1"
+    },
+    {
+      "name": "stack_2"
+    },
+    {
+      "name": "stack_3"
+    },
+    {
+      "name": "stack_4"
+    },
+    {
+      "name": "stack_5"
+    },
+    {
+      "name": "stack_6"
+    },
+    {
+      "name": "stack_7"
+    },
+    {
+      "name": "stack_8"
+    }
+  ]
+}
