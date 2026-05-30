@@ -53,6 +53,7 @@
     sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
   - type: MCHealthGloves
   - type: HealthScanner
+    skill: MCSkillMedical
     sound:
       path: "/Audio/Items/Medical/healthscanner.ogg"
   - type: ActivatableUI
