@@ -20,6 +20,9 @@
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_shotgun_u7.ogg
       params:
         volume: -2
+  - type: RMCFireGroup
+    group: MCShotgun
+    delay: 2.5
   - type: RMCSelectiveFire
     baseFireRate: 0.476
   - type: GunDamageModifier
@@ -28,7 +31,7 @@
     damageMultiplier: 1
   - type: ContainerContainer
     containers:
-      ballistic-ammo: !type:Container ""
+      ballistic-ammo: !type:Container
   - type: RMCAmmoEject
     containerID: ballistic-ammo
     ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg

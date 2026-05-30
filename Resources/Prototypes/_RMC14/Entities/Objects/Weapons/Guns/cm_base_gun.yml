@@ -15,7 +15,7 @@
   - type: GunSkilledRecoil
     setRecoil: 0
     skills:
-      RMCSkillFirearms: 1
+      MCSkillFirearms: 1 # mc-changes
   - type: UseDelay
     delay: 0
   - type: WieldDelay
