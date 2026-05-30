@@ -23,8 +23,8 @@
     - map: [ "acided" ]
     drawdepth: WallTops
   - type: RMCRepairable
+    skill: MCSkillEngineer
     heal: 200
-    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
   #  repairableDamageLimit: 300 - !!MC-TODO: At TGMC You can heal cades with Metal at 1 hand, and blowtorch at second.!!

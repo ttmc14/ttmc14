@@ -8,12 +8,6 @@
     state: pamphlet_written
   - type: Item
     size: Tiny
-  - type: SkillPamphlet
-    whitelists:
-    - popup: rmc-pamphlets-cant-use
-      restrictions:
-        components:
-        - Marine
   - type: EmitSoundOnPickup
     sound:
       path: /Audio/_RMC14/Handling/paper_pickup.ogg
@@ -33,16 +27,16 @@
     guides:
     - MCGuideMarineSkills
 
-
 - type: entity
   parent: MCImplantSkill
   id: MCImplantSkillMelee
   name: CQC skill implanter
   description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your CQC skills.
   components:
-  - type: SkillPamphlet
-    addSkills:
-      MCSkillMeleeWeapons: 1 # TODO: max 1
+  - type: MCSkillInjector
+    skill: MCSkillMeleeWeapons
+    level: 1
+    levelMax: 1
 
 - type: entity
   parent: MCImplantSkill
@@ -50,23 +44,21 @@
   name: medical skill implanter
   description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your medical skills.
   components:
-  # name: medtech implant system
-  # desc: A compact device that electro-shakes you every time you apply bandages counterclockwise, right next to your heart! Update medical skills!
-  - type: SkillPamphlet
-    addSkills:
-      MCSkillMedical: 1 # TODO: max 3
+  - type: MCSkillInjector
+    skill: MCSkillMedical
+    level: 1
+    levelMax: 3
 
 - type: entity
   parent: MCImplantSkill
   id: MCImplantSkillEngineering
   name: engineering skill implanter
   description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your engineering skills.
-  # name: engineering implants system
-  # desc: Working with welding has become much easier! Update engineering skills!
   components:
-  - type: SkillPamphlet
-    addSkills:
-      MCSkillEngineer: 1 # TODO: max 4
+  - type: MCSkillInjector
+    skill: MCSkillEngineer
+    level: 1
+    levelMax: 4
 
 - type: entity
   parent: MCImplantSkill
@@ -74,8 +66,7 @@
   name: command leadership skill implanter
   description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your leadership skills.
   components:
-  # name: command protocols 'Graiyor' codex
-  # desc: Uploading knowledge of advanced mnemonics of inspiration and persuasion to the brain so that people around go under bullets even more willingly! Update leadership skills!
-  - type: SkillPamphlet
-    addSkills:
-      RMCSkillLeadership: 1 # TODO: max 5
+  - type: MCSkillInjector
+    skill: MCSkillLeadership
+    level: 1
+    levelMax: 5

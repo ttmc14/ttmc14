@@ -50120,7 +50120,7 @@ entities:
     - type: Transform
       pos: 8.5,28.5
       parent: 1
-- proto: MCWebbingSurgeryFill
+- proto: MCWebbingSurgeryFilled
   entities:
   - uid: 1505
     components:

@@ -41,6 +41,7 @@
     min: 1
     skilledDelay: 0
     doAfter: 3
+    skill: MCSkillMedical
 
 - type: entity
   parent: MCHypospray

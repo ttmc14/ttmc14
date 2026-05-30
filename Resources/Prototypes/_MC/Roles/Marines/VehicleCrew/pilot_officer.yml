@@ -33,16 +33,17 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+      skill: MCSkillLeadership
     - type: Skills
       skills:
-        RMCSkillPilot: 1
-        RMCSkillJtac: 2
-        RMCSkillPolice: 2
-        RMCSkillPowerLoader: 3
-        RMCSkillLeadership: 2
-        RMCSkillCqc: 1
-        RMCSkillSmartGun: -4
-        RMCSkillFireman: 1
+        MCSkillPilot: 1
+        MCSkillJtac: 2
+        MCSkillPolice: 2
+        MCSkillPowerLoader: 3
+        MCSkillLeadership: 2
+        MCSkillCqc: 1
+        MCSkillSmartGun: -4
+        MCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-pilot-officer
     - type: TacticalMapIcon

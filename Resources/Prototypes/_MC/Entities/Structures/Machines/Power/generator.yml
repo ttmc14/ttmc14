@@ -12,6 +12,7 @@
   - type: Corrodible
     isCorrodible: false
   - type: RMCFusionReactor
+    skill: MCSkillEngineer
     watts: 50000
   - type: ActivatableUIBlacklist
     blacklist:

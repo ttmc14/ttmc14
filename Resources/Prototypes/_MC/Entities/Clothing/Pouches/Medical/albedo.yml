@@ -22,7 +22,7 @@
       - MCSyringe
       - MCPillCanister
       # PillPacket
-      - MCHealingItem
+      - MCHealing
       - MCHypospray
       - MCAutoInjector
       # Albedo
@@ -39,8 +39,8 @@
   components:
   - type: StorageFill
     contents:
-    - id: MCTraumaKitCombat
-    - id: MCBurnKitCombat
-    - id: MCSplint
+    - id: MCHealingTraumaKitCombat
+    - id: MCHealingBurnKitCombat
+    - id: MCHealingSplint
     - id: MCHyposprayFillMeraderm
     - id: MCHyposprayFillNanoblood

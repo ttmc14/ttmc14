@@ -1,23 +1,8 @@
 # Base
-- type: entity
-  parent: BaseToolSurgery
-  id: MCBaseToolSurgery
-  suffix: MC
-  abstract: true
-  name: retractor
-  description: Retracts stuff.
-  components:
-  - type: Item
-    size: Small
-  - type: CMSurgeryTool
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - suitstorage
 
 # Retractor
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCRetractor
   suffix: MC
   name: retractor
@@ -47,7 +32,7 @@
 
 # Hemostat
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   suffix: MC
   id: MCHemostat
   name: hemostat
@@ -75,7 +60,7 @@
 
 # Cautery
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCCautery
   suffix: MC
   name: cautery
@@ -112,7 +97,7 @@
 
 # Surgical drill
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCSurgicalDrill
   suffix: MC
   name: surgical drill
@@ -146,7 +131,7 @@
 
 # Scalpel
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCScalpel
   suffix: MC
   name: scalpel
@@ -224,7 +209,7 @@
 
 # Circular saw
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCCircularSaw
   suffix: MC
   name: circular saw
@@ -262,7 +247,7 @@
 
 # Bone setter
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCBonesetter
   suffix: MC
   name: bone setter
@@ -287,7 +272,7 @@
 
 # Bone Gel
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCBoneGel
   suffix: MC
   name: bottle of bone gel
@@ -300,7 +285,7 @@
 
 # Surgical Membrane
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCSurgicalMembrane
   suffix: MC
   name: surgical membrane
@@ -310,21 +295,9 @@
     sprite: _MC/Objects/Medical/Surgery/healing.rsi
     state: surgical_membrane
 
-# Surgical Suture
-- type: entity
-  parent: MCBaseToolSurgery
-  id: MCSurgicalSuture
-  suffix: MC
-  name: surgical suture
-  description: ""
-  components:
-  - type: Sprite
-    sprite: _MC/Objects/Medical/Surgery/healing.rsi
-    state: suture
-
 # FixOVein
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCFixOVein
   suffix: MC
   name: FixOVein
@@ -343,7 +316,7 @@
 
 # Tweezers
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCMedicalTweezers
   suffix: MC
   name: medical tweezers
@@ -361,7 +334,7 @@
 
 # Nanopaste
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCTubeNanopaste
   suffix: MC
   name: nanopaste
@@ -403,7 +376,7 @@
 
 # Autopsy Scanner
 - type: entity
-  parent: MCBaseToolSurgery
+  parent: MCToolSurgery
   id: MCAutopsyScanner
   suffix: MC
   name: autopsy scanner

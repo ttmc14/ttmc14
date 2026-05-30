@@ -46,11 +46,11 @@
         amount: 1
     - name: Heal Pack
       entries:
-      - id: MCGauze
+      - id: MCHealingGauze
         amount: 2
-      - id: MCOintment
+      - id: MCHealingOintment
         amount: 2
-      - id: MCSplint
+      - id: MCHealingSplint
         amount: 1
     - name: Misc
       entries:

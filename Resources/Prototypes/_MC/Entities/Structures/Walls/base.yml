@@ -265,6 +265,7 @@
   - type: ReceiverXenoClaws
     maxHealth: 100
   - type: RMCRepairable
+    skill: MCSkillEngineer
     delay: 3
   - type: RMCRepairableReplace
     prototype: MCGirder

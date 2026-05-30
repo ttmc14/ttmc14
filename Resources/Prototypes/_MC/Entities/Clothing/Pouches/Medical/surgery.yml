@@ -13,14 +13,14 @@
     grid:
     - 0,0,13,3
     whitelist:
-      components:
-      - CMSurgeryTool
+      tags:
+      - MCToolSurgery
   - type: FixedItemSizeStorage
 
 - type: entity
   parent: MCPouchSurgery
-  id: MCPouchSurgeryFill
-  suffix: Fill, MC
+  id: MCPouchSurgeryFilled
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
@@ -31,7 +31,7 @@
     - id: MCSurgicalMembrane
     - id: MCCautery
     - id: MCCircularSaw
-    - id: MCSurgicalSuture
+    - id: MCToolSurgerySuture
     - id: MCBoneGel
     - id: MCBonesetter
     - id: MCFixOVein

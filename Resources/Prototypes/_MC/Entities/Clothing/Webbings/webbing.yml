@@ -107,7 +107,7 @@
     whitelist:
       tags:
       - MCHealthAnalyzer # /obj/item/healthanalyzer
-      - MCHealingItem # /obj/item/stack/medical
+      - MCHealing # /obj/item/stack/medical
       - MCHypospray # /obj/item/reagent_containers/hypospray
       - MCHyposprayAdvanced # /obj/item/reagent_containers/hypospray/advanced
       - MCAutoInjector # /obj/item/reagent_containers/hypospray/autoinjector
@@ -135,7 +135,7 @@
       whitelist:
         tags:
         - MCHealthAnalyzer # /obj/item/healthanalyzer
-        - MCHealingItem # /obj/item/stack/medical
+        - MCHealing # /obj/item/stack/medical
         - MCHypospray # /obj/item/reagent_containers/hypospray
         - MCHyposprayAdvanced # /obj/item/reagent_containers/hypospray/advanced
         - MCAutoInjector # /obj/item/reagent_containers/hypospray/autoinjector

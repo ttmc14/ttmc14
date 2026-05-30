@@ -10,8 +10,7 @@
   - type: MeleeSound
     soundGroups:
       Brute:
-        path:
-          "/Audio/_RMC14/Structures/metalhit.ogg"
+        path: "/Audio/_RMC14/Structures/metalhit.ogg"
   - type: Sprite
     sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
     layers:
@@ -38,8 +37,8 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: RMCRepairable
+    skill: MCSkillEngineer
     heal: 200
-    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
   #  repairableDamageLimit: 675 - !!MC-TODO: At TGMC You can heal cades with Plasteel at 1 hand, and blowtorch at second.!!
@@ -47,8 +46,7 @@
   #  repairPlasteel: 400
   - type: Destructible
     thresholds:
-    - trigger:
-        !type:DamageTrigger
+    - trigger: !type:DamageTrigger
         damage: 900
       behaviors:
       - !type:SpawnEntitiesBehavior
@@ -62,7 +60,7 @@
       - !type:DoActsBehavior
         acts: [ "Destruction" ]
   - type: DamageVisuals
-    thresholds: [4, 8, 12]
+    thresholds: [ 4, 8, 12 ]
     damageDivisor: 25
     trackAllDamage: true
     damageOverlay:
@@ -103,100 +101,100 @@
   id: MCBarricadeBurnPlasteel
   suffix: Biohazard
   components:
-    - type: Sprite
-      sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
-      layers:
-      - state: plasteel
-      - state: burn_upgrade
-      - map: [ "acided" ]
-    - type: MCArmor
-      soft:
-        melee: 10
-        bullet: 30
-        laser: 30
-        energy: 30
-        bomb: 40
-        bio: 100
-        fire: 80
-        acid: 80
-    - type: DamageVisuals
-      thresholds: [4, 8, 12]
-      damageDivisor: 25
-      trackAllDamage: true
-      damageOverlay:
-        sprite: _RMC14/Structures/Walls/Barricades/burn_barricade_cracks.rsi
-    - type: RMCConstructionUpgradeTarget
-      skill: MCSkillConstruction
-      upgrades: null
-    - type: Flammable
-      damage:
-        types:
-          Heat: 2.8125
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: plasteel
+    - state: burn_upgrade
+    - map: [ "acided" ]
+  - type: MCArmor
+    soft:
+      melee: 10
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 40
+      bio: 100
+      fire: 80
+      acid: 80
+  - type: DamageVisuals
+    thresholds: [ 4, 8, 12 ]
+    damageDivisor: 25
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/burn_barricade_cracks.rsi
+  - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
+    upgrades: null
+  - type: Flammable
+    damage:
+      types:
+        Heat: 2.8125
 
 - type: entity
   parent: MCBarricadePlasteel
   id: MCBarricadeBrutePlasteel
   suffix: Reinforced
   components:
-    - type: Sprite
-      sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
-      layers:
-      - state: plasteel
-      - state: brute_upgrade
-      - map: [ "acided" ]
-    - type: MCArmor
-      soft:
-        melee: 50
-        bullet: 80
-        laser: 80
-        energy: 80
-        bomb: 40
-        bio: 100
-        fire: 80
-        acid: 40
-    - type: DamageVisuals
-      thresholds: [4, 8, 12]
-      damageDivisor: 25
-      trackAllDamage: true
-      damageOverlay:
-        sprite: _RMC14/Structures/Walls/Barricades/brute_barricade_cracks.rsi
-    - type: RMCConstructionUpgradeTarget
-      skill: MCSkillConstruction
-      upgrades: null
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: plasteel
+    - state: brute_upgrade
+    - map: [ "acided" ]
+  - type: MCArmor
+    soft:
+      melee: 50
+      bullet: 80
+      laser: 80
+      energy: 80
+      bomb: 40
+      bio: 100
+      fire: 80
+      acid: 40
+  - type: DamageVisuals
+    thresholds: [ 4, 8, 12 ]
+    damageDivisor: 25
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/brute_barricade_cracks.rsi
+  - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
+    upgrades: null
 
 - type: entity
   parent: MCBarricadePlasteel
   id: MCBarricadeExplosivePlasteel
   suffix: Composite
   components:
-    - type: Sprite
-      sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
-      layers:
-      - state: plasteel
-      - state: explosive_upgrade
-      - map: [ "acided" ]
-    - type: ExplosionResistance
-      damageCoefficient: 0.5
-    - type: MCArmor
-      soft:
-        melee: 10
-        bullet: 30
-        laser: 30
-        energy: 30
-        bomb: 100
-        bio: 100
-        fire: 80
-        acid: 40
-    - type: DamageVisuals
-      thresholds: [4, 8, 12]
-      damageDivisor: 25
-      trackAllDamage: true
-      damageOverlay:
-        sprite: _RMC14/Structures/Walls/Barricades/explosive_barricade_cracks.rsi
-    - type: RMCConstructionUpgradeTarget
-      skill: MCSkillConstruction
-      upgrades: null
-    - type: Flammable
-      damage:
-        types:
-          Heat: 1.875
+  - type: Sprite
+    sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
+    layers:
+    - state: plasteel
+    - state: explosive_upgrade
+    - map: [ "acided" ]
+  - type: ExplosionResistance
+    damageCoefficient: 0.5
+  - type: MCArmor
+    soft:
+      melee: 10
+      bullet: 30
+      laser: 30
+      energy: 30
+      bomb: 100
+      bio: 100
+      fire: 80
+      acid: 40
+  - type: DamageVisuals
+    thresholds: [ 4, 8, 12 ]
+    damageDivisor: 25
+    trackAllDamage: true
+    damageOverlay:
+      sprite: _RMC14/Structures/Walls/Barricades/explosive_barricade_cracks.rsi
+  - type: RMCConstructionUpgradeTarget
+    skill: MCSkillConstruction
+    upgrades: null
+  - type: Flammable
+    damage:
+      types:
+        Heat: 1.875

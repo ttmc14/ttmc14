@@ -33,22 +33,21 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+      skill: MCSkillLeadership
     - type: CMVendorUser
       points: 45
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 2
         MCSkillConstruction: 2
         MCSkillCqc: 1
-        # RMC
-        RMCSkillLeadership: 3
-        RMCSkillMedical: 1
-        RMCSkillSurgery: 1
-        RMCSkillSmartGun: 0
-        RMCSkillFirearms: 1
-        RMCSkillJtac: 1
-        RMCSkillFireman: 1
+        MCSkillLeadership: 3
+        MCSkillMedical: 1
+        MCSkillSurgery: 1
+        MCSkillSmartGun: 0
+        MCSkillFirearms: 1
+        MCSkillJtac: 1
+        MCSkillFireman: 1
     - type: SquadArmorWearer
     - type: MCSendOrders
     - type: JobPrefix

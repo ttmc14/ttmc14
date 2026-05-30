@@ -28,3 +28,6 @@
   # [cost]
   - type: MCASRSCost
     cost: 25
+  # [skills]
+  - type: MCSkillInjectable
+    slotsMax: 2

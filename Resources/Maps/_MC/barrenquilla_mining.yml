@@ -40312,7 +40312,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 36.5,-63.5
       parent: 1
-- proto: MCGauze
+- proto: MCHealingGauze
   entities:
   - uid: 3343
     components:
@@ -41166,7 +41166,7 @@ entities:
     - type: Transform
       pos: 153.5,-122.5
       parent: 1
-- proto: MCOintment
+- proto: MCHealingOintment
   entities:
   - uid: 3359
     components:

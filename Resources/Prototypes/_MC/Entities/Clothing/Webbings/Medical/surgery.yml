@@ -1,8 +1,6 @@
-
 - type: entity
   parent: MCWebbing
   id: MCWebbingSurgery
-  suffix: MC
   name: surgical webbing
   description: A clean white Nylon webbing composed of many straps and pockets to hold surgical tools.
   components:
@@ -13,8 +11,8 @@
     grid:
     - 0,0,13,3
     whitelist:
-      components:
-      - CMSurgeryTool
+      tags:
+      - MCToolSurgery
   - type: FixedItemSizeStorage
   - type: Webbing
     playerSprite:
@@ -26,20 +24,14 @@
       grid:
       - 0,0,13,3
       whitelist:
-        components:
-        - CMSurgeryTool
+        tags:
+        - MCToolSurgery
     - type: FixedItemSizeStorage
-    - type: RMCStorageEjectHand
-      state: Open
-    - type: ExplosionResistance
-      damageCoefficient: 0
-      worn: false
-    - type: StoreAfterFailedInteract
 
 - type: entity
   parent: MCWebbingSurgery
-  id: MCWebbingSurgeryFill
-  suffix: Fill, MC
+  id: MCWebbingSurgeryFilled
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
@@ -50,7 +42,7 @@
     - id: MCSurgicalMembrane
     - id: MCCautery
     - id: MCCircularSaw
-    - id: MCSurgicalSuture
+    - id: MCToolSurgerySuture
     - id: MCBoneGel
     - id: MCBonesetter
     - id: MCFixOVein

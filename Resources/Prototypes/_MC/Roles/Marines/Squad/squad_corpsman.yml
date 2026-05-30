@@ -36,15 +36,12 @@
       points: 45
     - type: Skills
       skills:
-        # MC
         MCSkillMedical: 2
-        # RMC
-        RMCSkillMedical: 2
-        RMCSkillSurgery: 2
-        RMCSkillLeadership: 1
-        RMCSkillSmartGun: -4
-        RMCSkillFirearms: 1
-        RMCSkillFireman: 1
+        MCSkillSurgery: 2
+        MCSkillLeadership: 1
+        MCSkillSmartGun: -4
+        MCSkillFirearms: 1
+        MCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
       prefix: mc-job-prefix-squad-corpsman

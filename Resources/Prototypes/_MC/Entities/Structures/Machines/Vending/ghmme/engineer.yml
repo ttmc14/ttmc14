@@ -85,7 +85,7 @@
       - id: MCPouchConstructionFill
         name: Construction pouch (materials included)
       - id: MCPouchPistolMagazineLarge
-      - id: MCPouchMedkitSquadBaseFill
+      - id: MCPouchMedkitSquadBaseFilled
         name: Medical pouch (chems included)
       - id: MCPouchMedicalInjectorBaseFull
         name: Auto-injector's medical pouch (chems included)

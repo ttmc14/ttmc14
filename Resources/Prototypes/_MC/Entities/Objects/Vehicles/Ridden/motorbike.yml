@@ -41,6 +41,7 @@
     baseWalkSpeed: 4.75
     baseSprintSpeed: 6.75
   - type: RMCRepairable
+    skill: MCSkillEngineer
   - type: RequireProjectileTarget
   - type: MobCollision
   - type: RMCMobCollision

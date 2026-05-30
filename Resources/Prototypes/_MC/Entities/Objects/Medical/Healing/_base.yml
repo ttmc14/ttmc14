@@ -1,0 +1,77 @@
+- type: entity
+  parent: MCItem
+  id: MCHealing
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+  - type: Sprite
+    sprite: _MC/Objects/Medical/medical.rsi
+  - type: Item
+    size: Small
+    sprite: _MC/Objects/Medical/medical.rsi
+    heldPrefix: ointment
+
+- type: Tag
+  id: MCHealing
+
+- type: entity
+  parent: MCHealing
+  id: MCHealingType
+  abstract: true
+  components:
+  - type: WoundTreater
+    treats: true
+    consumable: true
+    canUseUnskilled: true
+    doAfterSkill: MCSkillMedical
+    skills:
+      MCSkillMedical: 2
+  - type: MedicallyUnskilledDoAfter
+    skill: MCSkillMedical
+    min: 2
+    doAfter: 8
+    skilledDelay: 2
+
+- type: entity
+  parent: MCHealingType
+  id: MCHealingBrute
+  abstract: true
+  components:
+  - type: WoundTreater
+    wound: Brute
+    group: MCBrute
+    damage: -12
+    unskilledDamage: -6
+    treatBeginSound:
+      path: "/Audio/_RMC14/Medical/bandage.ogg"
+    treatEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+    userPopup: cm-trauma-kit-user-popup
+    targetPopup: cm-trauma-kit-target-popup
+    othersPopup: cm-trauma-kit-others-popup
+    noneSelfPopup: cm-trauma-kit-none-self-popup
+    noneOtherPopup: cm-trauma-kit-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+
+- type: entity
+  id: MCHealingBurn
+  parent: MCHealingType
+  abstract: true
+  components:
+  - type: WoundTreater
+    wound: Burn
+    group: MCBurn
+    damage: -12
+    unskilledDamage: -6
+    skills:
+      MCSkillMedical: 2
+    userPopup: cm-burn-kit-user-popup
+    targetPopup: cm-burn-kit-target-popup
+    othersPopup: cm-burn-kit-others-popup
+    noneSelfPopup: cm-burn-kit-none-self-popup
+    noneOtherPopup: cm-burn-kit-none-other-popup
+    noWoundsOnUserPopup: cm-burns-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-burns-already-treated-target-popup

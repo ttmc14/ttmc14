@@ -1,0 +1,15 @@
+- type: entity
+  parent: MCItem
+  id: MCToolSurgery
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCToolSurgery
+  - type: Item
+    size: Small
+  - type: CMSurgeryTool
+    skillType: MCSkillSurgery
+
+- type: Tag
+  id: MCToolSurgery

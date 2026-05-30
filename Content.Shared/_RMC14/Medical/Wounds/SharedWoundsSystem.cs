@@ -170,6 +170,20 @@ public abstract class SharedWoundsSystem : EntitySystem
         }
 
         args.Handled = true;
+
+        // MC Start
+        if (damage != FixedPoint2.Zero && treater.Comp.WoundGroups is not null)
+        {
+            foreach (var (key, value) in treater.Comp.WoundGroups)
+            {
+                var total = _rmcDamageable.DistributeDamageCached((target, damageable), value, damage);
+                _damageable.TryChangeDamage(target, total, true, damageable: damageable, origin: user, tool: args.Used);
+            }
+
+            damage = FixedPoint2.Zero;
+        }
+        // MC End
+
         if (damage != FixedPoint2.Zero)
         {
             var total = _rmcDamageable.DistributeDamageCached((target, damageable), treater.Comp.Group, damage);
@@ -180,11 +194,17 @@ public abstract class SharedWoundsSystem : EntitySystem
         var wounds = CollectionsMarshal.AsSpan(wounded.Wounds);
         foreach (ref var wound in wounds)
         {
-            if (wound.Type != treater.Comp.Wound || wound.Treated)
+            // MC Start
+            var supportsWound = treater.Comp.WoundGroups?.ContainsKey(wound.Type) ?? wound.Type == treater.Comp.Wound;
+            if (!supportsWound)
                 continue;
 
-            if (!treater.Comp.Treats && FixedPoint2.Abs(wound.Healed) < wound.Damage / 2)
+            if (treater.Comp.Treats && wound.Treated)
                 continue;
+
+            if (!treater.Comp.Treats && !treater.Comp.IgnoreTreatmentLimits && FixedPoint2.Abs(wound.Healed) < wound.Damage / 2)
+                continue;
+            // MC End
 
             wound.Treated = true;
             anyWounds = true;
@@ -303,10 +323,18 @@ public abstract class SharedWoundsSystem : EntitySystem
         var untreated = false;
         var surgeryUntreated = false;
         var otherUntreated = false;
-        var divisor = FixedPoint2.New(2);
+        // MC Start
+        var divisor = treater.Comp.IgnoreTreatmentLimits
+            ? FixedPoint2.New(1)
+            : FixedPoint2.New(2);
+        // MC End
         var wounds = CollectionsMarshal.AsSpan(wounded.Wounds);
         foreach (ref var wound in wounds)
         {
+            // MC Start
+            var supportsWound = treater.Comp.WoundGroups?.ContainsKey(wound.Type) ?? wound.Type == treater.Comp.Wound;
+            // MC End
+
             if (wound.Type == WoundType.Surgery &&
                 treater.Comp.Wound != WoundType.Surgery &&
                 !wound.Treated)
@@ -314,14 +342,16 @@ public abstract class SharedWoundsSystem : EntitySystem
                 surgeryUntreated = true;
             }
 
-            if (wound.Type != treater.Comp.Wound && !wound.Treated)
+            if (!supportsWound && !wound.Treated) // MC
                 otherUntreated = true;
 
-            if (wound.Type != treater.Comp.Wound)
+            if (!supportsWound) // MC
                 continue;
 
-            if (treater.Comp.Treats && wound.Treated)
-                continue;
+            // MC Start
+            // if (wound.Type != treater.Comp.Wound)
+            //    continue;
+            // MC End
 
             if (max == FixedPoint2.Zero)
             {

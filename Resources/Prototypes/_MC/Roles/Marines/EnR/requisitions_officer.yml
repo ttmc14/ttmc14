@@ -28,18 +28,17 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+      skill: MCSkillLeadership
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 4
         MCSkillConstruction: 4
-        # RMC
-        RMCSkillPolice: 2
-        RMCSkillVehicles: 4
-        RMCSkillLeadership: 3
-        RMCSkillSmartGun: -4
-        RMCSkillFirearms: 1
-        RMCSkillFireman: 1
+        MCSkillPolice: 2
+        MCSkillVehicles: 4
+        MCSkillLeadership: 3
+        MCSkillSmartGun: -4
+        MCSkillFirearms: 1
+        MCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
       prefix: mc-job-prefix-ro

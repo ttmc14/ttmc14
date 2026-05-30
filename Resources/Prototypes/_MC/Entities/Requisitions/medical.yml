@@ -12,10 +12,10 @@
           state: base
         cost: 80
         entities:
-        - MCPouchMedkitCorpsmanFill
-        - MCPouchMedkitCorpsmanFill
-        - MCPouchMedkitCorpsmanFill
-        - MCPouchMedkitCorpsmanFill
+        - MCPouchMedkitCorpsmanFilled
+        - MCPouchMedkitCorpsmanFilled
+        - MCPouchMedkitCorpsmanFilled
+        - MCPouchMedkitCorpsmanFilled
         # /obj/item/reagent_containers/hypospray/autoinjector/neuraline,
         # /obj/item/stack/nanopaste
       - name: mc-asrs-entry-medevac-stretcher
@@ -39,16 +39,16 @@
           state: combat_traumakit
         cost: 100
         entities:
-        - MCTraumaKitCombat
-        - MCTraumaKitCombat
-        - MCTraumaKitCombat
-        - MCTraumaKitCombat
-        - MCTraumaKitCombat
-        - MCBurnKitCombat
-        - MCBurnKitCombat
-        - MCBurnKitCombat
-        - MCBurnKitCombat
-        - MCBurnKitCombat
+        - MCHealingTraumaKitCombat
+        - MCHealingTraumaKitCombat
+        - MCHealingTraumaKitCombat
+        - MCHealingTraumaKitCombat
+        - MCHealingTraumaKitCombat
+        - MCHealingBurnKitCombat
+        - MCHealingBurnKitCombat
+        - MCHealingBurnKitCombat
+        - MCHealingBurnKitCombat
+        - MCHealingBurnKitCombat
       - name: mc-asrs-entry-health-scanner-gloves
         icon:
           sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
