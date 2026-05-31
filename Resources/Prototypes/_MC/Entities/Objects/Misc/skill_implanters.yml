@@ -51,6 +51,17 @@
 
 - type: entity
   parent: MCImplantSkill
+  id: MCImplantSkillSurgery
+  name: surgery skill implanter
+  description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your surgery skills.
+  components:
+  - type: MCSkillInjector
+    skill: MCSkillMedical
+    level: 1
+    levelMax: 3
+
+- type: entity
+  parent: MCImplantSkill
   id: MCImplantSkillEngineering
   name: engineering skill implanter
   description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your engineering skills.

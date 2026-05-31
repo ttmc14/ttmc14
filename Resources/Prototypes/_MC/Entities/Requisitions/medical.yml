@@ -6,8 +6,7 @@
     categories:
     - name: mc-asrs-category-medical
       entries:
-      - name: mc-asrs-entry-emergency-medkit
-        icon:
+      - icon:
           sprite: _MC/Clothing/Pouches/firstaid_injector.rsi
           state: base
         cost: 80
@@ -18,44 +17,20 @@
         - MCPouchMedkitCorpsmanFilled
         # /obj/item/reagent_containers/hypospray/autoinjector/neuraline,
         # /obj/item/stack/nanopaste
-      - name: mc-asrs-entry-medevac-stretcher
-        icon:
+      - icon:
           sprite: _RMC14/Structures/Furniture/rollerbeds.rsi
           state: stretcher_down
         cost: 500
         entities:
         - MCMedevacStretcherFolded
         - MCBeaconMedevac
-      - name: mc-asrs-entry-lemoline
-        icon:
-          sprite: _MC/Objects/Chemistry/bottles.rsi
-          state: bottle-1
-        cost: 80
-        entities:
-        - MCBottleLemoline
-      - name: mc-asrs-entry-advanced-medkits
-        icon:
+      - icon:
           sprite: /Textures/_MC/Objects/Medical/medical.rsi
           state: combat_traumakit
-        cost: 100
+        cost: 120
         entities:
         - MCHealingTraumaKitCombat
-        - MCHealingTraumaKitCombat
-        - MCHealingTraumaKitCombat
-        - MCHealingTraumaKitCombat
-        - MCHealingTraumaKitCombat
         - MCHealingBurnKitCombat
-        - MCHealingBurnKitCombat
-        - MCHealingBurnKitCombat
-        - MCHealingBurnKitCombat
-        - MCHealingBurnKitCombat
-      - name: mc-asrs-entry-health-scanner-gloves
-        icon:
-          sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
-          state: icon
-        cost: 60
-        entities:
-        - MCClothingHandsHealthanalyzer
       - name: Nanoblood hypospray
         icon:
           sprite: _MC/Objects/Medical/hypospray.rsi
@@ -64,8 +39,8 @@
         entities:
         - MCHyposprayBigFillNanoblood
         - MCHyposprayBigFillNanoblood
-      - name: Meraderm pill bottle
-        icon:
+      # Pills
+      - icon:
           sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
           state: pill_canister0
         cost: 300
@@ -73,8 +48,7 @@
         - MCPillCanisterMeralyne
         - MCPillCanisterDermaline
         - MCPillCanisterMeraderm
-      - name: Anti-toxin pill bottles kit
-        icon:
+      - icon:
           sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
           state: pill_canister12
         cost: 20
@@ -82,46 +56,78 @@
         - MCPillCanisterHypervene
         - MCPillCanisterDylovene
         - MCPillCanisterTricordrazine
-      - name: Russian Red pill bottle
-        icon:
+      - icon:
           sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
           state: pill_canister10
         cost: 250
         entities:
         - RMCPillCanisterRussianRed
-      - name: mc-asrs-entry-bluespace-beakers
-        icon:
+      # Injectors
+      - icon:
+          sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+          state: autoinjector
+        cost: 30
+        entities:
+        - MCAutoInjectorRussianRed
+      - icon:
+          sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+          state: autoinjector
+        cost: 30
+        entities:
+        - MCAutoInjectorSynaptizine
+      - icon:
+          sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+          state: autoinjector
+        cost: 20
+        entities:
+        - MCAutoInjectorOxycodone
+      - icon:
+          sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+          state: autoinjector
+        cost: 70
+        entities:
+        - MCAutoInjectorNeuraline
+      # Storage
+      - icon:
+          sprite: _MC/Objects/Chemistry/bottles.rsi
+          state: bottle-1
+        cost: 80
+        entities:
+        - MCBottleLemoline
+      - icon:
           sprite: _MC/Objects/Chemistry/bluespace_beaker.rsi
           state: beakerbluespace
         cost: 50
         entities:
         - MCBeakerBluespace
         - MCBeakerBluespace
-      - name: Medical defibrillator
-        icon:
+      # Tools
+      - icon:
           sprite: _MC/Objects/Medical/defib.rsi
           state: defib
         cost: 50
         entities:
         - MCDefibrillator
         - MCDefibrillator
-      # Injectors
-      - name: Russian Red auto injector (x1)
-        cost: 30
+      - icon:
+          sprite: _MC/Objects/Medical/civdefib.rsi
+          state: defib
+        cost: 150
         entities:
-        - MCAutoInjectorRussianRed
-      - name: Synaptizine auto injector (x1)
-        cost: 30
+        - MCDefibrillatorAdvanced
+      - icon:
+          sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
+          state: icon
+        cost: 60
         entities:
-        - MCAutoInjectorSynaptizine
-      - name: Oxycodone auto injector (x1)
-        cost: 20
+        - MCClothingHandsHealthScanner
+      - icon:
+          sprite: _MC/Clothing/Hands/Gloves/defib_out.rsi
+          state: icon
+        cost: 120
         entities:
-        - MCAutoInjectorOxycodone
-      - name: Neuraline autoinjector (x1)
-        cost: 70
-        entities:
-        - MCAutoInjectorNeuraline
+        - MCClothingHandsDefibrillator
+        points: 120
       # Albedo
       - name: R-312 'Albedo' Revolver special case
         icon:

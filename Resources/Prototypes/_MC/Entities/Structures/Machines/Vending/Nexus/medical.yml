@@ -81,7 +81,9 @@
         points: 2
       - id: MCGlassesHudHealth
         points: 2
-      - id: MCClothingHandsHealthanalyzer
+      - id: MCClothingHandsHealthScanner
         points: 2
+      - id: MCClothingHandsDefibrillator
+        points: 4
       - id: MCDefibrillatorAdvanced
         points: 5
