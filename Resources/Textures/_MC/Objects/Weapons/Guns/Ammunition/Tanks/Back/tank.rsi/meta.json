@@ -8,7 +8,7 @@
   },
   "states": [
     {
-      "name": "x_flamethrower_tank",
+      "name": "base",
       "delays": [
         [
           0.2,
@@ -19,6 +19,9 @@
           0.2
         ]
       ]
+    },
+    {
+      "name": "base-empty"
     },
     {
       "name": "equipped-BACKPACK",
