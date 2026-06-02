@@ -218,6 +218,53 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
             ? null
             : _mcWeedsRegenerationQuery.CompOrNull(entity.Comp.LastWeedsEntity.Value);
     }
+    /// <summary>
+    /// Возвращает нормализованное состояние здоровья существа на основе порогов урона.
+    /// От 1.0 до 0.0, если урон ниже критического порога ("прижизни").
+    /// От 0.0 до -1.0, если урон между критическим и смертельным порогами ("крит").
+    /// -1.0, если урон достиг смертельного порога.
+    /// </summary>
+    public float GetHealthStateRatio(EntityUid uid)
+    {
+        if (!_damageableQuery.TryComp(uid, out var damageable))
+            return 0f;
+
+        float currentDamage = damageable.TotalDamage.Float();
+
+        // Получаем пороговые значения урона из MobThresholds (300 и 400 из вашего примера)
+        float criticalDamageThreshold = GetHealthThreshold(uid);
+        float deadDamageThreshold = GetMaxHealthThreshold(uid);
+
+        // === Защита от некорректных данных прототипов (деление на ноль) ===
+        if (criticalDamageThreshold <= 0f)
+            criticalDamageThreshold = deadDamageThreshold * 0.75f; // Фоллбэк: крит на 75% от смерти
+
+        if (deadDamageThreshold <= criticalDamageThreshold)
+            deadDamageThreshold = criticalDamageThreshold + 100f; // Фоллбэк: смерть всегда выше крита
+
+        // 1. Состояние "Прижизни" (Урон от 0 до 300)
+        if (currentDamage <= criticalDamageThreshold)
+        {
+            // Нормализуем диапазон урона [0, criticalDamageThreshold] в [1.0, 0.0]
+            // 0 урона = 1.0 (полное здоровье)
+            // 300 урона = 0.0 (граница критического состояния)
+            float ratio = 1f - (currentDamage / criticalDamageThreshold);
+            return Math.Clamp(ratio, 0f, 1f);
+        }
+
+        // 2. Состояние "Крит" (Урон от 300 до 400)
+        if (currentDamage < deadDamageThreshold)
+        {
+            // Нормализуем диапазон урона [criticalDamageThreshold, deadDamageThreshold] в [0.0, -1.0]
+            // 300 урона = 0.0
+            // 400 урона = -1.0
+            float ratio = -(currentDamage - criticalDamageThreshold) / (deadDamageThreshold - criticalDamageThreshold);
+            return Math.Clamp(ratio, -1f, 0f);
+        }
+
+        // 3. Состояние "Мертв" (Урон >= 400)
+        return -1f;
+    }
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

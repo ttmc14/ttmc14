@@ -43,16 +43,13 @@
     tier: 4
     role: MCXenoShrike
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Construction
     - MCActionXenoChooseStructure
     - MCActionXenoSecreteStructure
-    - MCActionXenoBlessings
     - MCActionXenoPlaceAcidWell
     # Weeds
     - MCActionXenoSelectWeeds

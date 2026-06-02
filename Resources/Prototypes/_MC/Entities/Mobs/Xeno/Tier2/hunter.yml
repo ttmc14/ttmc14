@@ -37,12 +37,10 @@
     tier: 2
     role: MCXenoHunter
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     hudOffset: -0.1, 0.1
   # Statistics
   - type: MobThresholds

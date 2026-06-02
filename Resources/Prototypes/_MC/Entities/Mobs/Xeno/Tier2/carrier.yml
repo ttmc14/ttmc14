@@ -70,12 +70,10 @@
     role: CMXenoCarrier
     tier: 2
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds
     # Main

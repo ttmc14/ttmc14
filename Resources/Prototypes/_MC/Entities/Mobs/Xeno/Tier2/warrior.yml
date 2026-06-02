@@ -52,12 +52,10 @@
     tier: 2
     role: MCXenoWarrior
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoAgility
     - MCActionXenoPunch

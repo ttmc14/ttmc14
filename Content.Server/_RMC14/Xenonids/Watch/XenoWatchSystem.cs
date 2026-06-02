@@ -131,8 +131,10 @@ public sealed class XenoWatchSystem : SharedXenoWatchSystem
     {
         base.Watch(watcher, toWatch);
 
-        if (!HasQueenPopup(watcher))
-            return;
+        // mc-changes-start
+        // if (!HasQueenPopup(watcher))
+        //    return;
+        // mc-changes-end
 
         if (watcher.Owner == toWatch.Owner)
             return;

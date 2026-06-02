@@ -37,12 +37,10 @@
     tier: 2
     role: MCXenoBull
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoGoreCharge
     - MCActionXenoHeadbuttCharge

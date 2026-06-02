@@ -38,12 +38,10 @@
     tier: 2
     role: MCXenoWraith
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoRewind
     - MCActionXenoBlink

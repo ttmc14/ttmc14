@@ -43,12 +43,10 @@
     tier: 1
     role: MCXenoDefender
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoCrestDefense
     - MCActionXenoFortify

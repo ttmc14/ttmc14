@@ -42,12 +42,10 @@
     tier: 3
     role: MCXenoDefiler
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Weeds
     - MCActionXenoSelectWeeds
     - MCActionXenoPlantWeeds

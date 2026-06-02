@@ -38,12 +38,10 @@
     tier: 2
     role: MCXenoSpitter
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoSprayAcid
     - MCActionXenoToggleXenoSpit
