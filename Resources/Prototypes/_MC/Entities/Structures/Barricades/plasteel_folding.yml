@@ -76,8 +76,8 @@
       types:
         MCBrute: 10
   - type: Construction
-    graph: BarricadePlasteelDoorGraph
-    node: nodeBarricadePlasteelDoor
+    graph: MCBarricadePlasteelDoorGraph
+    node: mcnodeBarricadePlasteelDoor
   - type: InteractedBlacklist
     anchoredOnly: true
     blacklist:

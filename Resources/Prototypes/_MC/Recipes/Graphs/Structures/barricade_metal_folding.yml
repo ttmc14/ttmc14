@@ -1,0 +1,40 @@
+- type: constructionGraph
+  parent: RMC
+  id: MCBarricadeMetalDoorGraph
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DeleteEntity
+    edges:
+    - to: mcnodeBarricadeMetalDoor
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: CMSteel
+        amount: 6
+        doAfter: 3
+
+  - node: mcnodeBarricadeMetalDoor
+    entity: MCBarricadeMetalFolding
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 6
+      - !type:ConditionalAction
+        condition:
+          !type:IsBarbed
+        action:
+          !type:SpawnPrototype
+          prototype: MCBarbedWire1
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Prying
+        doAfter: 5
