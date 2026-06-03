@@ -77,13 +77,14 @@
         name: Big hypospray
         points: 10
       - id: MCHypospray
-        name: Hypospray
-        points: 2
+        points: 1
       - id: MCGlassesHudHealth
-        points: 2
+        points: 1
       - id: MCClothingHandsHealthScanner
-        points: 2
-      - id: MCClothingHandsDefibrillator
-        points: 4
+        points: 1
       - id: MCDefibrillatorAdvanced
         points: 5
+      - id: MCClothingHandsDefibrillator
+        points: 4
+      - id: MCClothingHandsDefibrillatorAdvanced
+        points: 10

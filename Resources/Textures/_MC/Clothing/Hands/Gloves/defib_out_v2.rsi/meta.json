@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/tgstation/TerraGov-Marine-Corps/commit/36d75b66e15f987d92545002c138ce6cf194d014, https://github.com/tgstation/TerraGov-Marine-Corps/commit/4d074b22384a040895f93a2d2374952eecfdd592",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "icon"
+    },
+    {
+      "name": "equipped-HAND",
+      "directions": 4
+    }
+  ]
+}
