@@ -9,8 +9,8 @@ public sealed class MCSkillMeleeWeaponSystem : EntitySystem
     private static readonly EntProtoId<SkillDefinitionComponent> SkillMeleeWeapons = "MCSkillMeleeWeapons";
     private static readonly EntProtoId<SkillDefinitionComponent> SkillCqc = "MCSkillCqc";
 
-    private static readonly float SkillMeleeWeaponBuff = 0.15f;
-    private static readonly float SkillCqcBuff = 0f;
+    private const float SkillMeleeWeaponBuff = 0.15f;
+    private const float SkillCqcBuff = 0f;
 
     [Dependency] private readonly SkillsSystem _rmcSkills = null!;
 

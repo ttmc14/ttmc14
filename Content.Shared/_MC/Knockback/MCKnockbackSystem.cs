@@ -10,11 +10,6 @@ public sealed class MCKnockbackSystem : EntitySystem
     [Dependency] private readonly ThrowingSystem _throwing = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
 
-    public void Charge(EntityUid uid)
-    {
-
-    }
-
     public void Knockback(EntityUid uid, Vector2 direction, MCKnockbackEntry entry, bool compensateFriction = true, bool animated = true)
     {
         Knockback(uid, direction, entry.Distance, entry.Speed, compensateFriction, animated);

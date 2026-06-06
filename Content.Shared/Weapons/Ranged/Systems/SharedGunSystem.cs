@@ -4,6 +4,7 @@ using System.Numerics;
 using Content.Shared._MC.Marine.Equipment.Weapon.Ranged;
 using Content.Shared._MC.Weapon.Laser.Components;
 using Content.Shared._MC.Weapon.Laser.Systems;
+using Content.Shared._MC.ZLevels.Weapons;
 using Content.Shared._RMC14.Attachable.Systems;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Emplacements;
@@ -101,6 +102,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
     // MC Changes:
     [Dependency] private readonly MCWeaponLaserSystem _mcWeaponLaser = null!;
+    [Dependency] private readonly MCZLevelShootingSystem _mcZLevelShooting = null!;
     // MC Changes End
 
     private const float InteractNextFire = 0.3f;
@@ -315,6 +317,11 @@ public abstract partial class SharedGunSystem : EntitySystem
         // First shot
         // Previously we checked shotcounter but in some cases all the bullets got dumped at once
         // curTime - fireRate is insufficient because if you time it just right you can get a 3rd shot out slightly quicker.
+
+        // MC Changes
+        var nextFireBeforeAttempt = gun.NextFire;
+        // MC End
+
         if (gun.NextFire < curTime - fireRate || gun.ShotCounter == 0 && gun.NextFire < curTime)
             gun.NextFire = curTime;
 
@@ -376,6 +383,24 @@ public abstract partial class SharedGunSystem : EntitySystem
             gun.NextFire = attemptEv.ResetCooldown ? curTime : TimeSpan.FromSeconds(Math.Max(lastFire.TotalSeconds + SafetyNextFire, gun.NextFire.TotalSeconds));
             return null;
         }
+
+        // MC Changes
+        fromCoordinates = attemptEv.FromCoordinates;
+        toCoordinates = attemptEv.ToCoordinates;
+        if (toCoordinates == null)
+            return null;
+
+        var sourceFromCoordinates = fromCoordinates;
+        if (!_mcZLevelShooting.TryAdjustShotCoordinates(user, fromCoordinates, toCoordinates.Value, out fromCoordinates, out var adjustedToCoordinates))
+        {
+            gun.NextFire = nextFireBeforeAttempt;
+            DirtyField(gunUid, gun, nameof(GunComponent.NextFire));
+            return null;
+        }
+
+        _mcZLevelShooting.TryGetProjectileVisualOffset(user, sourceFromCoordinates, fromCoordinates, toCoordinates.Value, out var projectileVisualOffset);
+        toCoordinates = adjustedToCoordinates;
+        // MC End
 
         // Remove ammo
         var ev = new TakeAmmoEvent(shots, new List<(EntityUid? Entity, IShootable Shootable)>(), fromCoordinates, user);
@@ -447,6 +472,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         if (Timing.IsFirstTimePredicted)
         {
             projectiles = Shoot(gunUid, gun, ev.Ammo, fromCoordinates, toCoordinates.Value, out userImpulse, user, throwItems: attemptEv.ThrowItems, predictedProjectiles, userSession);
+            _mcZLevelShooting.ApplyProjectileVisualOffset(projectiles, projectileVisualOffset); // MC Changes
         }
 
         var shotEv = new GunShotEvent(user, ev.Ammo, fromCoordinates, toCoordinates.Value);

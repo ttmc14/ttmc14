@@ -1,0 +1,97 @@
+- type: entity
+  id: MCHealingTraumaKit
+  name: advanced trauma kit
+  description: An advanced trauma kit for severe injuries.
+  suffix: MC
+  parent: MCHealingBrute
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingTraumaKit
+  - type: Sprite
+    state: traumakit
+  - type: Item
+    heldPrefix: traumakit
+  - type: Stack
+    stackType: MCHealingTraumaKit
+    count: 10
+  - type: WoundTreater
+    damage: -12
+    unskilledDamage: -6
+    skills:
+      MCSkillMedical: 2
+    treatBeginSound:
+      path: /Audio/_RMC14/Medical/bandage.ogg
+    treatEndSound:
+      path: /Audio/Items/Medical/brutepack_end.ogg
+    userPopup: cm-trauma-kit-user-popup
+    targetPopup: cm-trauma-kit-target-popup
+    othersPopup: cm-trauma-kit-others-popup
+    noneSelfPopup: cm-trauma-kit-none-self-popup
+    noneOtherPopup: cm-trauma-kit-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 2
+    skilledDelay: 2
+    doAfter: 8
+
+- type: stack
+  id: MCHealingTraumaKit
+  name: advanced trauma kit
+  icon:
+    sprite: /Textures/_MC/Objects/Medical/medical.rsi
+    state: traumakit
+  spawn: MCHealingTraumaKit
+  maxCount: 10
+
+- type: Tag
+  id: MCHealingTraumaKit
+
+- type: entity
+  id: MCHealingBurnKit
+  name: advanced burn kit
+  description: An advanced treatment kit for severe burns.
+  suffix: MC
+  parent: MCHealingBurn
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingBurnKit
+  - type: Sprite
+    state: burnkit
+  - type: Item
+    heldPrefix: burnkit
+  - type: Stack
+    stackType: MCHealingBurnKit
+    count: 10
+  - type: WoundTreater
+    damage: -12
+    unskilledDamage: -6
+    skills:
+      MCSkillMedical: 2
+    userPopup: cm-burn-kit-user-popup
+    targetPopup: cm-burn-kit-target-popup
+    othersPopup: cm-burn-kit-others-popup
+    noneSelfPopup: cm-burn-kit-none-self-popup
+    noneOtherPopup: cm-burn-kit-none-other-popup
+    noWoundsOnUserPopup: cm-burns-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-burns-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 2
+    skilledDelay: 2
+    doAfter: 8
+
+- type: stack
+  id: MCHealingBurnKit
+  name: advanced burn kit
+  icon:
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
+    state: burnkit
+  spawn: MCHealingBurnKit
+  maxCount: 10
+
+- type: Tag
+  id: MCHealingBurnKit

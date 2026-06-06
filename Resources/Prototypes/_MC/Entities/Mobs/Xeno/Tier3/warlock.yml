@@ -38,12 +38,10 @@
     tier: 3
     role: MCXenoWarlock
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoTransferPlasma
     - MCActionXenoPsychicBlast

@@ -24,6 +24,21 @@
   - type: Sprite
     sprite: _MC/Mobs/Xenos/warrior.rsi
     offset: 0, 0.35
+    layers:
+    - map: [ "enum.XenoVisualLayers.Base" ]
+      state: alive
+    - map: [ "enum.RMCDamageVisualLayers.Base" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Left" ]
+      visible: false
+    - map: [ "enum.XenoInhandVisualLayers.Right" ]
+      visible: false
+    - map: [ "enum.MCXenoMomentumLayer.Base" ]
+      sprite: _MC/Interface/Xeno/hud_momentum.rsi
+      state: stack_0
+      offset: 0.75, -0.5
+      shader: unshaded
+      visible: false
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
@@ -37,18 +52,17 @@
     tier: 2
     role: MCXenoWarrior
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoAgility
-    - MCActionXenoLunge
+    - MCActionXenoPunch
+    - MCActionXenoFuriousCharge
+    # Legacy
     - MCActionXenoGrappleToss
     - MCActionXenoFling
-    - MCActionXenoPunch
     hudOffset: -0.15, 0.25
   # Statistics
   - type: MobThresholds
@@ -75,11 +89,27 @@
       types:
         MCBrute: 25
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.777
-    baseSprintSpeed: 3.846
+    baseWalkSpeed: 2.25
+    baseSprintSpeed: 3.25
   # Abilities
   - type: MCXenoAgility
-  - type: MCXenoLunge
   - type: MCXenoGrappleToss
   - type: MCXenoFling
   - type: MCXenoPunch
+  # Pounce (Furious Charge)
+  - type: MCXenoPounce
+    maxDistance: 5
+    strength: 45
+    hitSelfParalyzeTime: 0
+    hitSound: /Audio/_MC/Effects/alien_bite2.ogg
+    hitDamage:
+      types:
+        MCBrute: 15
+  - type: MCXenoPounceKnockback
+    entry:
+      distance: 2
+      speed: 40
+  - type: MCXenoPounceMomentum
+    gain: 2
+  # Passive
+  - type: MCXenoMomentum

@@ -36,14 +36,10 @@
     tier: 4
     role: MCXenoKing
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
-    # Construction
-    - MCActionXenoBlessings
     # Weeds
     - MCActionXenoPheromones
     hudOffset: -0.1, 0.1

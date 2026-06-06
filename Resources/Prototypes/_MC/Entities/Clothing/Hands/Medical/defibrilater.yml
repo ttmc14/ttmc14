@@ -1,0 +1,64 @@
+- type: entity
+  parent: MCClothingHands
+  id: MCClothingHandsDefibrillator
+  name: medical combat gloves
+  description: Advanced medical gauntlets with small but powerful electrodes to resuscitate incapacitated patients. No more bulky units!
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/defib_out.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/defib_out.rsi
+  - type: MCDefibrillator
+    effectSoundZap:
+      path: /Audio/_RMC14/Medical/defib_release.ogg
+      params:
+        volume: -1
+    effectSoundFailure:
+      path: /Audio/_RMC14/Medical/defib_failed.ogg
+      params:
+        volume: -1
+    effectSoundSuccess:
+      path: /Audio/_RMC14/Medical/defib_success.ogg
+      params:
+        volume: -1
+    effectSoundReady:
+      path: /Audio/_RMC14/Medical/defib_ready.ogg
+      params:
+        volume: -1
+    effectSoundCharge:
+      path: /Audio/_RMC14/Medical/defib_charge.ogg
+      params:
+        volume: -1
+
+- type: entity
+  parent: MCClothingHands
+  id: MCClothingHandsDefibrillatorAdvanced
+  name: advanced medical combat gloves
+  description: Advanced medical gauntlets with small but powerful electrodes to resuscitate incapacitated patients. No more bulky units!
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/defib_out_v2.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/defib_out_v2.rsi
+  - type: MCDefibrillatorNoBlock
+  - type: MCDefibrillator
+    effectSoundZap:
+      path: /Audio/_RMC14/Medical/defib_release.ogg
+      params:
+        volume: -1
+    effectSoundFailure:
+      path: /Audio/_RMC14/Medical/defib_failed.ogg
+      params:
+        volume: -1
+    effectSoundSuccess:
+      path: /Audio/_RMC14/Medical/defib_success.ogg
+      params:
+        volume: -1
+    effectSoundReady:
+      path: /Audio/_RMC14/Medical/defib_ready.ogg
+      params:
+        volume: -1
+    effectSoundCharge:
+      path: /Audio/_RMC14/Medical/defib_charge.ogg
+      params:
+        volume: -1

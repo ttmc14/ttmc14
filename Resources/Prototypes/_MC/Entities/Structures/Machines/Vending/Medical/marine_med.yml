@@ -52,12 +52,12 @@
         amount: 20
     - name: Heal Pack
       entries:
-      - id: MCGauze
-      - id: MCOintment
-      - id: MCSplint
-      - id: MCTraumaKit
+      - id: MCHealingGauze
+      - id: MCHealingOintment
+      - id: MCHealingSplint
+      - id: MCHealingTraumaKit
         amount: 50
-      - id: MCBurnKit
+      - id: MCHealingBurnKit
         amount: 50
     - name: Misc
       entries:

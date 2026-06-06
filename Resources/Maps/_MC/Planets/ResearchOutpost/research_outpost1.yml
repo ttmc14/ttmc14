@@ -9647,7 +9647,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 40.52166,-28.636885
       parent: 1
-- proto: MCSurgicalSuture
+- proto: MCToolSurgerySuture
   entities:
   - uid: 4387
     components:

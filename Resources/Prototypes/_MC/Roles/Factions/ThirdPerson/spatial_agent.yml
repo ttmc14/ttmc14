@@ -15,29 +15,24 @@
     components:
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 4
         MCSkillConstruction: 4
         MCSkillMedical: 4
-        # RMC
-        RMCSkillMedical: 4
-        RMCSkillSurgery: 4
-        RMCSkillEngineer: 4
-        RMCSkillPolice: 4
-        RMCSkillPowerLoader: 4
-        RMCSkillLeadership: 4
-        RMCSkillSmartGun: 4
-        RMCSkillFirearms: 4
-        RMCOverwatchConsole: 4
-        RMCSkillCqc: 4
-        RMCSkillFireman: 4
-        RMCSkillEndurance: 4
-        RMCSkillOverwatch: 4
-        RMCSkillJtac: 4
-        RMCSkillExecution: 4
-        RMCSkillIntel: 4
-        RMCSkillNavigations: 4
-        RMCSkillVehicles: 4
+        MCSkillSurgery: 4
+        MCSkillPolice: 4
+        MCSkillPowerLoader: 4
+        MCSkillLeadership: 4
+        MCSkillSmartGun: 4
+        MCSkillFirearms: 4
+        MCSkillOverwatch: 4
+        MCSkillCqc: 4
+        MCSkillFireman: 4
+        MCSkillEndurance: 4
+        MCSkillJtac: 4
+        MCSkillExecution: 4
+        MCSkillIntel: 4
+        MCSkillNavigations: 4
+        MCSkillVehicles: 4
     - type: JobPrefix
       prefix: mc-job-prefix-spatial-agent
 

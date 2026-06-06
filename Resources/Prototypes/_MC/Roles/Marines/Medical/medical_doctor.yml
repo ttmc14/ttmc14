@@ -36,16 +36,12 @@
       points: 45
     - type: Skills
       skills:
-        # MC
         MCSkillCqc: -1
         MCSkillMeleeWeapons: -1
         MCSkillMedical: 4
-        # RMC
-        RMCSkillMedical: 4
-        RMCSkillSurgery: 4
-        RMCSkillCqc: 1
-        RMCSkillSmartGun: -4
-        RMCSkillFireman: 1
+        MCSkillSurgery: 4
+        MCSkillSmartGun: -4
+        MCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-doctor
     - type: TacticalMapIcon
@@ -74,8 +70,8 @@
     outerClothing: MCLabcoatBaseOpened
     suitstorage: MCPaperNoteChem
     belt: MCBeltMedicalFilledMedical
-    pocket1: MCPouchMedkitFill
-    pocket2: MCPouchSurgeryFill
+    pocket1: MCPouchMedkitFilled
+    pocket2: MCPouchSurgeryFilled
   inhand:
   - MCMedicalTweezers
   - MCBottleLemolineDoctor

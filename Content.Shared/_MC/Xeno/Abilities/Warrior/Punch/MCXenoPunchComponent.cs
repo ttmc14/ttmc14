@@ -7,6 +7,9 @@ namespace Content.Shared._MC.Xeno.Abilities.Warrior.Punch;
 public sealed partial class MCXenoPunchComponent : Component
 {
     [DataField, AutoNetworkedField]
+    public int MomentumEmpowerCost = 3;
+
+    [DataField, AutoNetworkedField]
     public TimeSpan SlowdownTime = TimeSpan.FromSeconds(3);
 
     [DataField, AutoNetworkedField]
@@ -16,7 +19,7 @@ public sealed partial class MCXenoPunchComponent : Component
     public float DamageMultiplier = 1.5f;
 
     [DataField, AutoNetworkedField]
-    public float EmpowerMultiplier = 1.5f;
+    public float EmpowerMultiplier = 1.75f;
 
     [DataField, AutoNetworkedField]
     public float GrappledDamageMultiplier = 1.75f;
@@ -32,8 +35,6 @@ public sealed partial class MCXenoPunchComponent : Component
 
     [DataField, AutoNetworkedField]
     public float KnockbackSpeed = 10f;
-
-    // Visuals only
 
     [DataField, AutoNetworkedField]
     public TimeSpan ShakeTime = TimeSpan.FromSeconds(0.5);

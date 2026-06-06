@@ -241,11 +241,11 @@
       - MCSyringe
       - MCCaseSyringe
       - CMBloodPack
-      - MCGauze
-      - MCSplint
-      - MCOintment
-      - MCTraumaKit
-      - MCBurnKit
+      - MCHealingGauze
+      - MCHealingSplint
+      - MCHealingOintment
+      - MCHealingTraumaKit
+      - MCHealingBurnKit
       - MCAutoInjector
       - MCRollerItem
       - MCBodyBag

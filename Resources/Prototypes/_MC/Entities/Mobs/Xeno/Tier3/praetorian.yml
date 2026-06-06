@@ -38,12 +38,10 @@
     tier: 3
     role: MCXenoPraetorian
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Construction
     - MCActionXenoPlaceAcidWell
     - MCActionXenoPlaceTrap

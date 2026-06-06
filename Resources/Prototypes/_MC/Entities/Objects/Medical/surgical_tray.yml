@@ -43,9 +43,8 @@
     - id: MCSurgicalMembrane
     - id: MCCautery
     - id: MCCircularSaw
-    - id: MCSurgicalSuture
+    - id: MCToolSurgerySuture
     - id: MCBoneGel
     - id: MCBonesetter
     - id: MCFixOVein
     - id: MCTubeNanopaste
-

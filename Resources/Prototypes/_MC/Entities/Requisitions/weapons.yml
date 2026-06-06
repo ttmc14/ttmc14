@@ -85,6 +85,12 @@
         - MCWeaponFlamer
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+          state: flametank_large
+        cost: 60
+        entities:
+        - MCTankFlamer
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
           state: flametank_large_green
         cost: 75
         entities:
@@ -97,14 +103,20 @@
         - MCTankFlamerBlue
       # FL-84 Backpacks
       - icon:
-          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamethrower_tank.rsi
-          state: flamethrower_tank
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/Back/tank.rsi
+          state: base
         cost: 200
         entities:
         - MCBackpackFlamer
       - icon:
-          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/x_flamethrower_tank.rsi
-          state: x_flamethrower_tank
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/Back/tank_g.rsi
+          state: base
+        cost: 150
+        entities:
+        - MCBackpackFlamerG
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/Back/tank_x.rsi
+          state: base
         cost: 600
         entities:
         - MCBackpackFlamerX
@@ -115,6 +127,13 @@
         cost: 50
         entities:
         - MCMagazineSR127Flak
+      # Vali
+      - icon:
+          sprite: _MC/Objects/Weapons/Melee/Vali/valhala.rsi
+          state: icon
+        cost: 600
+        entities:
+        - MCMeleeWeaponValiValhala
       # AR-12
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/ar12_AP.rsi

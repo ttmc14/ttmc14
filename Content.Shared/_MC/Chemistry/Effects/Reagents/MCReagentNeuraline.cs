@@ -93,19 +93,12 @@ public sealed partial class MCReagentNeuraline : MCReagentEffect
         if (!MCSolutionCooldown.IsReady(uid, solution, reagent.ID) || volume.Float() < SpecialEffectVolume)
             return;
 
-        foreach (var (type, value) in damageableComponent.Damage.DamageDict)
-        {
-            switch (type)
-            {
-                case "MCBrute":
-                    MCDamageable.AdjustBruteLoss(uid, -value.Float() * SpecialEffectHealMultiplier);
-                    break;
+        if (damageableComponent.Damage.DamageDict.TryGetValue("MCBrute", out var bruteDamage))
+            MCDamageable.AdjustBruteLoss(uid, -bruteDamage.Float() * SpecialEffectHealMultiplier);
 
-                case "MCBurn":
-                    MCDamageable.AdjustBurnLoss(uid, -value.Float() * SpecialEffectHealMultiplier);
-                    break;
-            }
-        }
+        if (damageableComponent.Damage.DamageDict.TryGetValue("MCBurn", out var burnDamage))
+            MCDamageable.AdjustBurnLoss(uid, -burnDamage.Float() * SpecialEffectHealMultiplier);
+
 
         args.EntityManager.System<SharedJitteringSystem>().DoJitter(uid, TimeSpan.FromSeconds(5f), true);
 

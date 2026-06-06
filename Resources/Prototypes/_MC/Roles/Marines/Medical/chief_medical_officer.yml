@@ -33,22 +33,20 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+      skill: MCSkillLeadership
     - type: CMVendorUser
       points: 75
     - type: Skills
       skills:
-        # MC
         MCSkillCqc: -1
         MCSkillMeleeWeapons: -1
         MCSkillMedical: 5
-        # RMC
-        RMCSkillMedical: 5
-        RMCSkillSurgery: 5
-        RMCSkillPolice: 2
-        RMCSkillLeadership: 2
-        RMCSkillSmartGun: -4
-        RMCSkillFirearms: 0
-        RMCSkillFireman: 1
+        MCSkillSurgery: 5
+        MCSkillPolice: 2
+        MCSkillLeadership: 2
+        MCSkillSmartGun: -4
+        MCSkillFirearms: 0
+        MCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-cmo
     - type: TacticalMapIcon
@@ -76,8 +74,8 @@
     jumpsuit: MCJumpsuitMedicalScrubsBlue
     outerClothing: MCLabcoatCMOOpened
     belt: MCBeltMedicalFilledMedical
-    pocket1: MCPouchMedkitFill
-    pocket2: MCPouchSurgeryFill
+    pocket1: MCPouchMedkitFilled
+    pocket2: MCPouchSurgeryFilled
   inhand:
   - MCMedicalTweezers
   - MCBottleLemolineDoctor

@@ -11,6 +11,9 @@
       "name": "icon"
     },
     {
+      "name": "base"
+    },
+    {
       "name": "equipped-HAND",
       "directions": 4
     }

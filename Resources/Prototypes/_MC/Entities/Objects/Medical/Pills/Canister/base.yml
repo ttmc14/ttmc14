@@ -7,6 +7,7 @@
   - type: Tag
     tags:
     - MCPillCanister
+    - MCIconLabelAllow
   - type: Sprite
     sprite: _RMC14/Objects/Chemistry/pill_canister.rsi
     layers:

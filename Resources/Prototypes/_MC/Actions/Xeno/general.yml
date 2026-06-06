@@ -1,5 +1,20 @@
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoHiveStatus
+  name: Hive status
+  description: WIP.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/legacy.rsi
+      state: evolve
+    useDelay: 0
+  - type: InstantAction
+    event: !type:MCXenoHiveStatusActionEvent
+
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoSkin
   name: Skin
   description: Drip.

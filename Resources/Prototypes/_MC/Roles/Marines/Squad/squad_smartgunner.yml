@@ -36,10 +36,10 @@
       points: 45
     - type: Skills
       skills:
-        RMCSkillLeadership: 1
-        RMCSkillSmartGun: 0
-        RMCSkillFirearms: 1
-        RMCSkillFireman: 1
+        MCSkillLeadership: 1
+        MCSkillSmartGun: 0
+        MCSkillFirearms: 1
+        MCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
       prefix: mc-job-prefix-squad-smartgunner

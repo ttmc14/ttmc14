@@ -279,6 +279,7 @@
     liveUpdate: true # mc-changes
   - type: EmoteCooldown
   - type: FiremanCarriable
+    skill: MCSkillFireman # mc-changes
   - type: CanFiremanCarry
   - type: RMCSuicide
     damage:

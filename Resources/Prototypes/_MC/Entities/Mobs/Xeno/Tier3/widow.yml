@@ -40,12 +40,10 @@
     tier: 3
     role: MCXenoWidow
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Construction
     - MCActionXenoChooseStructure
     - MCActionXenoSecreteStructure

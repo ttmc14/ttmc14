@@ -33,23 +33,21 @@
   - !type:AddComponentSpecial
     components:
     - type: MarineOrders
+      skill: MCSkillLeadership
     - type: MCSendOrders
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 3
         MCSkillConstruction: 2
         MCSkillMedical: 2
-        # RMC
-        RMCSkillMedical: 2
-        RMCSkillSurgery: 1
-        RMCSkillPolice: 2
-        RMCSkillJtac: 2
-        RMCSkillPowerLoader: 2
-        RMCSkillLeadership: 3
-        RMCSkillSmartGun: -4
-        RMCSkillFirearms: 1
-        RMCSkillFireman: 1
+        MCSkillSurgery: 1
+        MCSkillPolice: 2
+        MCSkillJtac: 2
+        MCSkillPowerLoader: 2
+        MCSkillLeadership: 3
+        MCSkillSmartGun: -4
+        MCSkillFirearms: 1
+        MCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-so
     - type: TacticalMapIcon

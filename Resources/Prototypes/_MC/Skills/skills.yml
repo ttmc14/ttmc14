@@ -9,33 +9,99 @@
   parent: MCSkill
   id: MCSkillCqc
   name: cqc
-  components:
-  - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillMeleeWeapons
   name: melee weapons
-  components:
-  - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillEngineer
   name: engineer
-  components:
-  - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillConstruction
   name: construction
-  components:
-  - type: SkillDefinition
 
 - type: entity
   parent: MCSkill
   id: MCSkillMedical
   name: medical
-  components:
-  - type: SkillDefinition
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillSurgery
+  name: Surgery
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillLeadership
+  name: Leadership
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillSmartGun
+  name: Smart Gun
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillFirearms
+  name: Firearms
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillFireman
+  name: Fireman
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillPowerLoader
+  name: Power Loader
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillJtac
+  name: Jtac
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillVehicles
+  name: Vehicles
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillPolice
+  name: Police
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillEndurance
+  name: Endurance
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillExecution
+  name: Execution
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillNavigations
+  name: Navigations
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillOverwatch
+  name: Overwatch
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillIntel
+  name: Intel
+
+- type: entity
+  parent: MCSkill
+  id: MCSkillPilot
+  name: Pilot
+

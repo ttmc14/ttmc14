@@ -34,7 +34,7 @@
     state: spear
   - type: MeleeWeapon
     wideAnimationRotation: -135
-    range: 2.5
+    range: 2
     damage:
       types:
         MCBrute: 40

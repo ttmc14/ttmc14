@@ -38,12 +38,10 @@
     tier: 3
     role: MCXenoCrusher
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoCrestToss
     - MCActionXenoStomp

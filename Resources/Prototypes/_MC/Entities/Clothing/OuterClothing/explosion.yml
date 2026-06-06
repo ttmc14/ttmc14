@@ -1,0 +1,35 @@
+- type: entity
+  parent:
+  - MCOuterClothing
+  - MCAllowSuitStorageClothingArmor
+  id: MCArmorExplodeVest
+  name: tactical explosive vest
+  description: Obviously someone just strapped a bomb to a marine harness and called it tactical. The light has been removed, and its switch used as the detonator.
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: _MC/Clothing/OuterClothing/Armor/Other/boom_vest.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/OuterClothing/Armor/Other/boom_vest.rsi
+  - type: MCArmor
+    soft:
+      melee: 0
+      bullet: 0
+      laser: 0
+      energy: 0
+      bomb: 0
+      bio: 0
+      fire: 0
+      acid: 0
+  - type: ClothingSpeedModifier
+    walkModifier: 1
+    sprintModifier: 1
+  - type: MCArmorAbilityExplode
+  # RMC
+  - type: CMHardArmor
+  - type: MoveOrderArmor
+  - type: RMCBulkyArmor
+  - type: RMCMagneticArmor
+  - type: RMCNameItemOnVend
+    item: Armor

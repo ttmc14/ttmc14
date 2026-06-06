@@ -44,12 +44,10 @@
     tier: 1
     role: MCXenoRunner
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoEvasion
     - MCActionXenoPounce

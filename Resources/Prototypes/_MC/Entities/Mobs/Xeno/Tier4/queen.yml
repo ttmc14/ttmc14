@@ -43,16 +43,14 @@
     tier: 4
     role: MCXenoQueen
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
     # Construction
     - MCActionXenoChooseStructure
     - MCActionXenoSecreteStructure
     - MCActionXenoLayEgg
-    - MCActionXenoBlessings
     - MCActionXenoPlaceAcidWell
     # Weeds
     - MCActionXenoSelectWeeds

@@ -6,6 +6,7 @@
   - type: UsableWhileDevoured
     canUnequip: true
   - type: GunUnskilledPenalty
+    skill: MCSkillFirearms # mc-changes
   - type: GunIFF
     enabled: false
   - type: RMCWeaponDamageFalloff
@@ -14,7 +15,7 @@
   - type: GunSkilledRecoil
     setRecoil: 0
     skills:
-      RMCSkillFirearms: 1
+      MCSkillFirearms: 1 # mc-changes
   - type: UseDelay
     delay: 0
   - type: WieldDelay
@@ -47,6 +48,7 @@
     burstCooldown: 0
   - type: RMCWeaponAccuracy
   - type: GunSkilledAccuracy
+    skill: MCSkillFirearms # mc-changes
   - type: Appearance
   - type: WieldedCrosshair
     rsi:

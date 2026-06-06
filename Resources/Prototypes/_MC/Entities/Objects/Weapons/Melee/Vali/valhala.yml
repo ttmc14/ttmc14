@@ -1,0 +1,40 @@
+- type: entity
+  parent: MCMeleeWeaponVali
+  id: MCMeleeWeaponValiValhala
+  name: VAL-HAL-A halberd harvester
+  description: "TerraGov Marine Corps' cutting-edge 'Harvester' halberd, with experimental plasma regulator. An advanced weapon that combines sheer force with the ability to apply a variety of debilitating effects when loaded with certain reagents, but should be used with both hands. Activate after loading to prime a single use of an effect. It also harvests substances from alien lifeforms it strikes when connected to the Vali system."
+  components:
+  - type: Tag
+    tags:
+    - MCMeleeWeaponVali
+    - MCMeleeWeaponValiValhala
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Melee/Vali/valhala.rsi
+    state: icon
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Melee/Vali/valhala.rsi
+  - type: Item
+    sprite: _MC/Objects/Weapons/Melee/Vali/valhala.rsi
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Melee/Vali/valhala.rsi
+  - type: MCWeaponVali
+    reagentCapacity: 45
+    harvestAmount: 20
+  - type: MeleeWeapon
+    attackRate: 0.65
+    range: 2
+    damage:
+      types:
+        MCBrute: 40
+  - type: IncreaseDamageOnWield
+    damage:
+      types:
+        MCBrute: 45 # Total: 95
+  - type: Wieldable
+  - type: WieldDelay
+    baseDelay: 0.8
+  - type: WieldableSpeedModifiers
+    base: 0.5
+
+- type: Tag
+  id: MCMeleeWeaponValiValhala

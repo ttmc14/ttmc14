@@ -34,16 +34,14 @@
     components:
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 2
         MCSkillConstruction: 2
-        # RMC
-        RMCSkillPilot: 1
-        RMCSkillJtac: 1
-        RMCSkillPowerLoader: 3
-        RMCSkillSmartGun: -4
-        RMCSkillFirearms: 1
-        RMCSkillFireman: 1
+        MCSkillPilot: 1
+        MCSkillJtac: 1
+        MCSkillPowerLoader: 3
+        MCSkillSmartGun: -4
+        MCSkillFirearms: 1
+        MCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-assault-crewman
     - type: TacticalMapIcon

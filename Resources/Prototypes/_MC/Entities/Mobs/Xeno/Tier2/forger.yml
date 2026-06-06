@@ -38,12 +38,10 @@
     tier: 2
     role: MCXenoForger
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoInferno
     - MCActionXenoFireball

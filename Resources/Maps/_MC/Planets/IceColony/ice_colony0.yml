@@ -55321,7 +55321,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 182.5,-117.5
       parent: 1
-- proto: MCGauze
+- proto: MCHealingGauze
   entities:
   - uid: 18759
     components:
@@ -58212,7 +58212,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 69.5,-166.5
       parent: 1
-- proto: MCOintment
+- proto: MCHealingOintment
   entities:
   - uid: 18723
     components:
@@ -148733,7 +148733,7 @@ entities:
     - type: Transform
       pos: 141.5,-42.5
       parent: 1
-- proto: MCWallReinforcedInvincible
+- proto: MCWallInvincible
   entities:
   - uid: 928
     components:

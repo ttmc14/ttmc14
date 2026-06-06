@@ -10,6 +10,7 @@
       sprite: _MC/Objects/Vehicles/Ridden/motorbike.rsi
       state: base
   - type: MCVehicleRidden
+    fuelCost: 0.35
     fuel: 1000
     fuelMax: 1000
     allowedReagents:
@@ -40,6 +41,7 @@
     baseWalkSpeed: 4.75
     baseSprintSpeed: 6.75
   - type: RMCRepairable
+    skill: MCSkillEngineer
   - type: RequireProjectileTarget
   - type: MobCollision
   - type: RMCMobCollision

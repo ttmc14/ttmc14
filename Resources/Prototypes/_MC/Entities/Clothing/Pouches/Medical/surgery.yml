@@ -1,0 +1,37 @@
+- type: entity
+  parent:
+  - MCPouchStorage
+  - MCPouchVisualizerOpen
+  id: MCPouchSurgery
+  name: surgery tools pouch
+  description: An eye catching white medical pouch capable of holding all your surgical tools.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/surgery.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,13,3
+    whitelist:
+      tags:
+      - MCToolSurgery
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchSurgery
+  id: MCPouchSurgeryFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCScalpelManager
+    - id: MCScalpel
+    - id: MCHemostat
+    - id: MCRetractor
+    - id: MCSurgicalMembrane
+    - id: MCCautery
+    - id: MCCircularSaw
+    - id: MCToolSurgerySuture
+    - id: MCBoneGel
+    - id: MCBonesetter
+    - id: MCFixOVein

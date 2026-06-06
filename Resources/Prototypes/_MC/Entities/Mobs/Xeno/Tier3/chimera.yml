@@ -38,12 +38,10 @@
     tier: 3
     role: MCXenoChimera
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Abilities
     - MCActionXenoBlinkChimera
     - MCActionXenoBodySwap

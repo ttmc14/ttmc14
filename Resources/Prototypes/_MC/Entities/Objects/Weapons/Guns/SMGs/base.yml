@@ -33,6 +33,7 @@
   - type: RMCNameItemOnVend
     item: PrimaryGun
   - type: GunUnskilledPenalty
+    skill: MCSkillFirearms
     angleIncrease: 20
   - type: Tag
     tags:

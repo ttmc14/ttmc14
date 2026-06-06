@@ -44,16 +44,13 @@
     tier: 2
     role: MCXenoHivelord
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Construction
     - MCActionXenoChooseStructure
     - MCActionXenoSecreteStructure
-    - MCActionXenoBlessings
     - MCActionXenoDigTunnel
     - MCActionXenoPlaceAcidWell
     # Weeds

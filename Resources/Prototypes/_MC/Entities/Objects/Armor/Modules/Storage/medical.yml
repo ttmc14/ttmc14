@@ -19,17 +19,17 @@
         tags:
         - GlassBeaker
         - MCSyringe
-        - MCSplint
-        - MCOintment
-        - MCGauze
+        - MCHealingSplint
+        - MCHealingOintment
+        - MCHealingGauze
         - MCPillCanister
         - MCHealthAnalyzer
         - MCRollerBed
         - MCBodyBag
         - MCBottle
         - MCHypospray
-        - MCBurnKit
-        - MCTraumaKit
+        - MCHealingBurnKit
+        - MCHealingTraumaKit
         - MCAutoInjector
         components:
         - EntrenchingTool
@@ -39,23 +39,23 @@
     grid:
     - 0,0,9,1 # 5 slots
     whitelist:
-        tags:
-        - GlassBeaker
-        - MCSyringe
-        - MCSplint
-        - MCOintment
-        - MCGauze
-        - MCPillCanister
-        - MCHealthAnalyzer
-        - MCRollerBed
-        - MCBodyBag
-        - MCBottle
-        - MCHypospray
-        - MCBurnKit
-        - MCTraumaKit
-        - MCAutoInjector
-        components:
-        - EntrenchingTool
+      tags:
+      - GlassBeaker
+      - MCSyringe
+      - MCHealingSplint
+      - MCHealingOintment
+      - MCHealingGauze
+      - MCPillCanister
+      - MCHealthAnalyzer
+      - MCRollerBed
+      - MCBodyBag
+      - MCBottle
+      - MCHypospray
+      - MCHealingBurnKit
+      - MCHealingTraumaKit
+      - MCAutoInjector
+      components:
+      - EntrenchingTool
   - type: FixedItemSizeStorage
 
 - type: entity

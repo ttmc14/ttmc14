@@ -39,12 +39,10 @@
     tier: 2
     role: MCXenoPanther
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrainLowCost
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoTearingTail
     - MCActionXenoSelectReagent

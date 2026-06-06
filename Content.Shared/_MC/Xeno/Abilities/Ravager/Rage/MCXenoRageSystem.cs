@@ -1,5 +1,4 @@
 ﻿using Content.Shared._MC.Stun.Events;
-using Content.Shared._MC.Xeno.Abilities.Pounce;
 using Content.Shared._MC.Xeno.Abilities.Ravager.Endure;
 using Content.Shared._MC.Xeno.Abilities.Ravager.Ravage;
 using Content.Shared._MC.Xeno.Heal;
