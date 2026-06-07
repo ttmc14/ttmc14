@@ -1,0 +1,27 @@
+- type: constructionGraph
+  parent: MC
+  id: MCRazorwireGraph
+  start: start
+  graph:
+
+  - node: start
+    actions:
+    - !type:DeleteEntity
+    edges:
+    - to: razorwire
+
+  - node: razorwire
+    entity: MCRazorwire
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCBarbedWire1
+        amount: 6
+      - !type:DeleteEntity {}
+      conditions:
+      - !type:EntityAnchored
+        anchored: true
+      steps:
+      - tool: Cutting
+        doAfter: 1
