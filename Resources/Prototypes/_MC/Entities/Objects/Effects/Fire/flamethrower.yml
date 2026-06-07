@@ -138,3 +138,178 @@
           Four: { state: dynamic_4 }
 
 # No Parity Sector
+
+# TX - Tanglefoot - Plasma eating fire
+- type: entity
+  parent: MCFire
+  id: MCFireFlamethrowerTX
+  suffix: TTMC, TX
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    layers:
+    - map: [ "base" ]
+      state: violet_3
+  - type: DamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        MCBurn: 28
+  - type: RMCIgniteOnCollide
+    maxStacks: 20
+    intensity: 28
+    duration: 16
+    tileDamage:
+      types:
+        MCBurn: 0.25
+  - type: MCSmokePlasma
+    multiplier: 0.2
+  - type: PointLight
+    color: "#AD3D70FF"
+  - type: TileFire
+    id: MCFireFlamethrowerTX
+    duration: 20
+    extinguishInstantly: false
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: violet_1 }
+          Two: { state: violet_2 }
+          Three: { state: violet_3 }
+          Four: { state: violet_3 }
+
+# SX - Slowing - Slows 66% of xeno speed
+- type: entity
+  parent: MCFire
+  id: MCFireFlamethrowerSX
+  suffix: TTMC, SX
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: "#A8E3C7FF"
+    layers:
+    - map: [ "base" ]
+      state: dynamic_4
+  - type: PointLight
+    color: "#A8E3C7FF"
+  - type: DamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        MCBurn: 21
+  - type: RMCIgniteOnCollide
+    maxStacks: 45
+    intensity: 21
+    duration: 8
+    tileDamage:
+      types:
+        MCBurn: 0.1
+  - type: TileFire
+    id: MCFireFlamethrowerSX
+    duration: 12
+    extinguishInstantly: false
+  - type: SpeedModifierContacts
+    walkSpeedModifier: 0.333
+    sprintSpeedModifier: 0.333
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: dynamic_1 }
+          Two: { state: dynamic_2 }
+          Three: { state: dynamic_3 }
+          Four: { state: dynamic_4 }
+
+# CX - Cluster - Despawn to more tiles
+- type: entity
+  parent: MCFire
+  id: MCFireFlamethrowerCX
+  suffix: TTMC, CX
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: "#FAA048FF"
+    layers:
+    - map: [ "base" ]
+      state: dynamic_4
+  - type: PointLight
+    color: "#FAA048FF"
+  - type: DamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        MCBurn: 38
+  - type: RMCIgniteOnCollide
+    maxStacks: 10
+    intensity: 38
+    duration: 1
+    tileDamage:
+      types:
+        MCBurn: 0.35
+  - type: TileFire
+    id: MCFireFlamethrowerCX
+    duration: 1
+    extinguishInstantly: false
+  - type: TimedDespawn # TTMC - Дабы наверняка
+    lifetime: 1
+  - type: TriggerOnSpawn
+  - type: TileFireOnTrigger
+    range: 1
+    spawn: MCFireFlamethrowerCXCluster
+    sound:
+      path: /Audio/_RMC14/Weapons/Guns/Flamer/gun_flamethrower2.ogg
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: dynamic_4 }
+          Two: { state: dynamic_4 }
+          Three: { state: dynamic_4 }
+          Four: { state: dynamic_4 }
+
+- type: entity
+  parent: MCFire
+  id: MCFireFlamethrowerCXCluster
+  suffix: TTMC, CXCLuster
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Sprite
+    color: "#A67649FF"
+    layers:
+    - map: [ "base" ]
+      state: dynamic_4
+  - type: PointLight
+    color: "#A67649FF"
+  - type: DamageOnCollide
+    damageDead: false
+    fire: true
+    damage:
+      types:
+        MCBurn: 19
+  - type: RMCIgniteOnCollide
+    maxStacks: 15
+    intensity: 19
+    duration: 18
+    tileDamage:
+      types:
+        MCBurn: 0.1
+  - type: TileFire
+    id: MCFireFlamethrowerCXCluster
+    duration: 12
+    extinguishInstantly: false
+  - type: GenericVisualizer
+    visuals:
+      enum.TileFireLayers.Base:
+        base:
+          One: { state: dynamic_1 }
+          Two: { state: dynamic_2 }
+          Three: { state: dynamic_2 }
+          Four: { state: dynamic_2 }
