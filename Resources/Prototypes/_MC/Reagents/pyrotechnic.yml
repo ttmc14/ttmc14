@@ -60,11 +60,15 @@
 - type: reagent
   parent: MCNapalm
   id: MCNapalmTX
+  name: mc-reagent-name-ttmctxfire
+  desc: mc-reagent-desc-ttmctxfire
   fireEntity: MCFireFlamethrowerTX
 
 - type: reagent
   parent: MCNapalm
   id: MCNapalmSX
+  name: mc-reagent-name-ttmcsxfire
+  desc: mc-reagent-desc-ttmcsxfire
   fireEntity: MCFireFlamethrowerSX
 
 - type: reagent
