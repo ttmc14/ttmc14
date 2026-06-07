@@ -87,6 +87,12 @@
         cost: 70
         entities:
         - MCAutoInjectorNeuraline
+      - icon:
+          sprite: _RMC14/Objects/Medical/auto_injectors.rsi
+          state: autoinjector
+        cost: 250
+        entities:
+        - MCAutoInjectorDremin
       # Storage
       - icon:
           sprite: _MC/Objects/Chemistry/bottles.rsi
