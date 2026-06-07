@@ -109,6 +109,18 @@
     damage:
       types:
         MCBrute: 40
+  - type: DamageOnCollide #TODO: MC component for charge
+    canRehit: false
+    paralyze: 2
+    damage:
+      types:
+        MCBrute: 40
+    chainDamage:
+      types:
+        MCBrute: 40
+    whitelist:
+      components:
+      - MCXenoChargeActive # If crusher have toggled charge, he will stunned & damaged - THIS IS "КОСТЫЛЬ"
   - type: MeleeSound
     soundTypes:
       MCBrute:
