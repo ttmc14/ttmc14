@@ -134,7 +134,42 @@ public partial class SharedGunSystem
                 return false;
             }
 
-            for (var i = 0; i < component.Capacity; i++)
+            // MC Changes
+            var allAmmo = new List<EntityUid>();
+            foreach (var ammoEntry in ev.Ammo)
+            {
+                if (ammoEntry.Entity == null)
+                {
+                    Log.Error($"Tried to load hitscan into a revolver which is unsupported");
+                    continue;
+                }
+
+                var ammoEnt = ammoEntry.Entity.Value;
+
+                if (TryComp(ammoEnt, out StackComponent? stack))
+                {
+                    while (stack.Count > 1)
+                    {
+                        var coordinates = TransformSystem.GetMoverCoordinates(ammoEnt);
+                        var split = _rmcStack.Split((ammoEnt, stack), 1, coordinates);
+
+                        if (split != null)
+                            allAmmo.Add(split.Value);
+                        else
+                            break;
+                    }
+
+                    if (stack.Count > 0)
+                        allAmmo.Add(ammoEnt);
+                }
+                else
+                {
+                    allAmmo.Add(ammoEnt);
+                }
+            }
+
+            var ammoIndex = 0;
+            for (var i = 0; i < component.Capacity && ammoIndex < allAmmo.Count; i++)
             {
                 var index = (component.CurrentIndex + i) % component.Capacity;
 
@@ -144,35 +179,17 @@ public partial class SharedGunSystem
                     continue;
                 }
 
-                var ent = ev.Ammo.Last().Entity;
-                ev.Ammo.RemoveAt(ev.Ammo.Count - 1);
-
-                if (ent == null)
-                {
-                    Log.Error($"Tried to load hitscan into a revolver which is unsupported");
-                    continue;
-                }
-
-                // MC Changes
-                var ammoEnt = ent.Value;
-
-                if (TryComp(ammoEnt, out StackComponent? stack) && stack.Count > 1)
-                {
-                    var coordinates = TransformSystem.GetMoverCoordinates(ammoEnt);
-                    var split = _rmcStack.Split((ammoEnt, stack), 1, coordinates);
-
-                    if (split != null)
-                        ammoEnt = split.Value;
-                }
-
-                component.AmmoSlots[index] = ammoEnt;
-                Containers.Insert(ammoEnt, component.AmmoContainer);
-                SetChamber(index, component, ammoEnt);
-                // MC End
-
-                if (ev.Ammo.Count == 0)
-                    break;
+                var ent = allAmmo[ammoIndex++];
+                component.AmmoSlots[index] = ent;
+                Containers.Insert(ent, component.AmmoContainer);
+                SetChamber(index, component, ent);
             }
+
+            for (; ammoIndex < allAmmo.Count; ammoIndex++)
+            {
+                Del(allAmmo[ammoIndex]);
+            }
+            // MC End
 
             DebugTools.Assert(ammo.Count == 0);
             UpdateRevolverAppearance(revolverUid, component);
@@ -185,6 +202,9 @@ public partial class SharedGunSystem
         }
 
         // Try to insert the entity directly.
+        // MC Changes
+        var inserted = false;
+
         for (var i = 0; i < component.Capacity; i++)
         {
             var index = (component.CurrentIndex + i) % component.Capacity;
@@ -195,20 +215,38 @@ public partial class SharedGunSystem
                 continue;
             }
 
-            // MC Changes
+            EntityUid ammoEnt;
+
             if (TryComp(uid, out StackComponent? stack) && stack.Count > 1)
             {
+                // Если это стак с несколькими патронами, отделяем 1 патрон
                 var coordinates = TransformSystem.GetMoverCoordinates(uid);
                 var split = _rmcStack.Split((uid, stack), 1, coordinates);
 
-                if (split != null)
-                    uid = split.Value;
-            }
-            // MC End
+                if (split == null)
+                    continue;
 
-            component.AmmoSlots[index] = uid;
-            Containers.Insert(uid, component.AmmoContainer);
-            SetChamber(index, component, uid);
+                ammoEnt = split.Value;
+            }
+            else
+            {
+                // Если это не стак или в стаке 1 патрон, используем саму сущность
+                ammoEnt = uid;
+            }
+
+            component.AmmoSlots[index] = ammoEnt;
+            Containers.Insert(ammoEnt, component.AmmoContainer);
+            SetChamber(index, component, ammoEnt);
+
+            inserted = true;
+
+            // Если мы использовали саму сущность (не стак или последний патрон), выходим
+            if (ammoEnt == uid)
+                break;
+        }
+
+        if (inserted)
+        {
             Audio.PlayPredicted(component.SoundInsert, revolverUid, user);
             Popup(Loc.GetString("gun-revolver-insert"), revolverUid, user);
             UpdateRevolverAppearance(revolverUid, component);
@@ -219,6 +257,7 @@ public partial class SharedGunSystem
 
         Popup(Loc.GetString("gun-revolver-full"), revolverUid, user);
         return false;
+        // MC End
     }
 
     private void SetChamber(int index, RevolverAmmoProviderComponent component, EntityUid uid)
