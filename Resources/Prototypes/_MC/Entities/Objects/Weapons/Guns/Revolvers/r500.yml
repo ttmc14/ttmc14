@@ -54,7 +54,7 @@
   parent: MSpeedloader
   id: MCSpeedloaderR500
   name: R-500 speed loader (.500)
-  description: A R-312 'Albedo' revolver speed loader.
+  description: A R-500 'Nigredo' revolver speed loader.
   components:
   - type: Tag
     tags:
@@ -87,6 +87,7 @@
   parent: MCSpeedloaderR500
   id: MCSpeedloaderR500Slavs
   name: R-500 speed loader (.500 'Slavs')
+  description: A R-500-Slavs 'Nigredo' revolver speed loader.
   components:
   - type: MagazineVisuals
     magState: sv
