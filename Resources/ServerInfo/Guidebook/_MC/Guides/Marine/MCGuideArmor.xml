@@ -1,0 +1,61 @@
+<Document>
+  # [bold]Что такое броня и модули к броне.[/bold]
+  Броня морпеха [bold]ВАЖНА[/bold], и её неношение ведёт прямиком к медику
+  Броня имеет :
+  1. Модуль брони
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleMark1Mimir"/>
+    <GuideEntityEmbed Entity="MCArmorModuleMark1TyrArmor"/>
+  </Box>
+  2. Хранилище-модуль
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageGeneral"/>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageInjector"/>
+  </Box>
+  - А также модуль на шлема
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetAntenna"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetBinoculars"/>
+  </Box>
+
+  ### [bold] Разряды/Тиры брони :[/bold]
+  Каждая броня разделяется на 3 вида :
+  1. Лёгкая броня - Быстрая но мало-бронированная
+  2. Средняя броня - Средняя броня во всём
+  3. Тяжёлая броня - Медленный но бронированный
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModularJaegerScout"/>
+    <GuideEntityEmbed Entity="MCArmorModularJaegerInfantry"/>
+    <GuideEntityEmbed Entity="MCArmorModularJaegerGugnir"/>
+  </Box>
+  Выберите броню по вкусу и вашему стилю игры. [bold]ЭКСПЕРИМЕНТИРУЙТЕ[/bold]
+
+  ### [bold] Модули брони :[/bold]
+  Каждый модуль уникален, выбирайте по своему вкусу
+  Брони "Защитного" типа имеют MK2 версию, что сильнее MK1 версии, они обычно покупаемые в Снабжении
+  Все модули брони относятся по своим свойствам. А именно :
+  - Защитные - Что увеличивает защиту брони
+  - Специальные - Что то дают не увеличивая что-то
+  [bold]Защитные модули :[/bold]
+  - Ход, Мимир, Тюр (Hod, Mimir, Tyr ) модули, это обычные защитные модули
+  Они дают защиту но в большинстве уменьшают вашу скорость
+  У них есть версии MK2, что сильнее но менее доступны
+  - Хлин, Сюрт (Hlin, Surt) модули, органиченые защитные модули
+  Они тоже дают защиту, но более направленную
+  Она ограниченна, и можно получить только через Снабжение
+  Сюрт даёт неуязвимость к огню, с ней вы не можете загореться
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleHodBalistic"/>
+    <GuideEntityEmbed Entity="MCArmorModuleMark1Mimir"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHlinExplosive"/>
+    <GuideEntityEmbed Entity="MCArmorModuleMark1TyrArmor"/>
+    <GuideEntityEmbed Entity="MCArmorModuleSurtPyrotechnical"/>
+  </Box>
+
+  [bold] Специальные модули :[/bold]
+  - Вали, 
+  ### Ближний бой [Melee weapons]
+
+  Данный навык увеличивает урон, наносимый оружием ближнего боя, на 15% за каждый уровень навыка.
+
+</Document>
