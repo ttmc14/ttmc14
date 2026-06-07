@@ -1,0 +1,27 @@
+- type: reaction
+  id: MCNapalmTX
+  reactants:
+    MCPhoron:
+      amount: 10
+    MCLemoline:
+      amount: 10
+    MCEthylredoxrazine:
+      amount: 10
+    MCQuickClotPlus:
+      amount: 10
+  products:
+    MCNapalmTX: 8
+
+- type: reaction
+  id: MCNapalmSX
+  reactants:
+    MCNeuraline:
+      amount: 10
+    MCLemoline:
+      amount: 10
+    MCNanoblood:
+      amount: 10
+    MCRyetalyn:
+      amount: 10
+  products:
+    MCNapalmSX: 8
