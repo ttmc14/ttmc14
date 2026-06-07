@@ -63,6 +63,24 @@
     },
     {
       "name": "flametank_vsd_e"
+    },
+    {
+      "name": "flametank_large_tx"
+    },
+    {
+      "name": "flametank_large_tx_e"
+    },
+    {
+      "name": "flametank_large_sx"
+    },
+    {
+      "name": "flametank_large_sx_e"
+    },
+    {
+      "name": "flametank_large_cx"
+    },
+    {
+      "name": "flametank_large_cx_e"
     }
   ]
 }
