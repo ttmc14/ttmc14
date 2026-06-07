@@ -96,3 +96,21 @@
           Quantity: 3
   - type: IconLabel
     labelTextLocId: mc-synaptizine-expired-container-label-text
+
+- type: entity
+  parent: MCAutoInjector
+  id: MCAutoInjectorDremin
+  name: dremin auto-injector
+  description: An auto-injector loaded with 3 uses of dremin, a chemical designed to remove clone damage.
+  components:
+  - type: Hypospray
+    transferAmount: 5
+  - type: SolutionContainerManager
+    solutions:
+      pen:
+        maxVol: 15
+        reagents:
+        - ReagentId: MCDremin
+          Quantity: 15
+  - type: IconLabel
+    labelTextLocId: mc-dremin-container-label-text
