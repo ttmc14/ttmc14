@@ -165,6 +165,108 @@
   - type: Appearance
   - type: SolutionStorageFillable
     solution: rmc_flamer_tank
+
+# TTMC Non parity Fire - Start
+
+
+- type: entity
+  parent: MCTankFlamer
+  id: MCTankFlamerTX
+  suffix: TTMC, TX
+  name: large flamethrower tank (TX)
+  description: A large fuel tank of plasma-eating chemicals with fire reagents, for use in the FL-84 flamethrower. Handle with care.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+    state: flametank_large_tx
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 75
+        reagents:
+        - ReagentId: MCNapalmTX
+          Quantity: 75
+  - type: RMCFlamerTank
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamerTX
+  - type: Tag
+    tags:
+    - MCFlamerTank
+
+- type: entity
+  parent: MCTankFlamer
+  id: MCTankFlamerSX
+  suffix: TTMC, SX
+  name: large flamethrower tank (SX)
+  description: A large fuel tank of ultra thick that slows down any creature that stand on it, for use in the FL-84 flamethrower. Handle with care.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+    state: flametank_large_sx
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 75
+        reagents:
+        - ReagentId: MCNapalmSX
+          Quantity: 75
+  - type: RMCFlamerTank
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamerSX
+  - type: Tag
+    tags:
+    - MCFlamerTank
+
+- type: entity
+  parent: MCTankFlamer
+  id: MCTankFlamerCX
+  suffix: TTMC, CX
+  name: large flamethrower tank (CX)
+  description: A large fuel tank of cluster fire, primary fire terminates to small but more fire, for use in the FL-84 flamethrower. Handle with care.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+    state: flametank_large_cx
+  - type: Item
+    size: Normal
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 75
+        reagents:
+        - ReagentId: MCNapalmCX
+          Quantity: 75
+  - type: RMCFlamerTank
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamerCX
+  - type: Tag
+    tags:
+    - MCFlamerTank
+
+- type: Tag
+  id: MCPyroFlamerTX
+
+- type: Tag
+  id: MCPyroFlamerSX
+
+- type: Tag
+  id: MCTankFlamerCX
+
+# TTMC Non parity Fire - End
+    
 - type: Tag
   id: MCFlamerTankMini
 
