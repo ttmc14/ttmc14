@@ -110,7 +110,7 @@
       types:
         MCBrute: 40
   - type: DamageOnCollide #TODO: MC component for charge
-    canRehit: false
+    canRehit: true
     paralyze: 2
     damage:
       types:
