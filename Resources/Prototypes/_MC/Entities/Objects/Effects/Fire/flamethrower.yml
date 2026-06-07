@@ -190,12 +190,12 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: "#a8e3c7"
+    color: "#A8E3C7FF"
     layers:
     - map: [ "base" ]
       state: dynamic_4
   - type: PointLight
-    color: "#a8ec7"
+    color: "#A8E3C7FF"
   - type: DamageOnCollide
     damageDead: false
     fire: true
@@ -234,12 +234,12 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: "#faa048"
+    color: "#FAA048FF"
     layers:
     - map: [ "base" ]
       state: dynamic_4
   - type: PointLight
-    color: "#faa048"
+    color: "#FAA048FF"
   - type: DamageOnCollide
     damageDead: false
     fire: true
@@ -282,12 +282,12 @@
     mode: SnapgridCenter
   components:
   - type: Sprite
-    color: "#a67649"
+    color: "#A67649FF"
     layers:
     - map: [ "base" ]
       state: dynamic_4
   - type: PointLight
-    color: "#a67649"
+    color: "#A67649FF"
   - type: DamageOnCollide
     damageDead: false
     fire: true
