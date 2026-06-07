@@ -101,6 +101,12 @@
         cost: 300
         entities:
         - MCTankFlamerBlue
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+          state: flametank_large_cx
+        cost: 450
+        entities:
+        - MCTankFlamerCX
       # FL-84 Backpacks
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/Back/tank.rsi
