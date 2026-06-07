@@ -34,3 +34,4 @@ mc-quickclotplus-container-label-text = Qk+
 mc-russian-red-container-label-text = RR
 mc-synaptizine-container-label-text = Sy
 mc-synaptizine-expired-container-label-text = Sy-
+mc-dremin-container-label-text = Dr
