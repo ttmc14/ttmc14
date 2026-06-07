@@ -13,6 +13,12 @@
     layers:
     - state: resin
       map: [ "enum.DoorVisualLayers.Base" ]
+    - state: unlit
+      map: [ "enum.DoorVisualLayers.BaseUnlit" ]
+      visible: false
+    - state: unlit
+      map: [ "enum.DoorVisualLayers.BaseBolted" ]
+      visible: false
   - type: AnimationPlayer
   - type: Physics
   - type: Fixtures
@@ -62,8 +68,8 @@
     emergencyAccessLayer: false
     animatePanel: false
     powered: true
-    openingSpriteState: closed_unlit
-    closingSpriteState: closed_unlit
+    openingSpriteState: unlit
+    closingSpriteState: unlit
   - type: XenoConstructionPlasmaCost
     plasma: 120
   - type: MeleeReceivedMultiplier

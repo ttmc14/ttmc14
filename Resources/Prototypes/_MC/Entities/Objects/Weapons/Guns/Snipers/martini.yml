@@ -71,7 +71,7 @@
       path: /Audio/_MC/Weapons/Guns/Pump/martini_cocked.ogg
 
 - type: entity
-  parent: RMCBoxShotgunBase
+  parent: MCStorageItem
   id: MCBoxMartiniRounds
   name: box of .557/440 rifle rounds
   description: A box filled with rifle bullets.
@@ -80,9 +80,11 @@
   - type: Tag
     tags:
     - MCBoxMartiniRounds
+  - type: Appearance
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/martini.rsi
     layers:
+    - state: base-empty
     - state: base-full
       map: [ "base" ]
   - type: GenericVisualizer
@@ -94,6 +96,7 @@
   - type: Item
     size: Small
   - type: RMCStorageEjectHand
+    state: Last
   - type: Storage
     maxItemSize: Small
     grid:
@@ -105,6 +108,10 @@
     contents:
     - id: MCCartridgeMartini
       amount: 4
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
 
 - type: entity
   parent: MCBoxMartiniRounds
