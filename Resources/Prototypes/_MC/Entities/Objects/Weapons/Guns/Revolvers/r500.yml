@@ -45,6 +45,9 @@
     slots: {}
   - type: AttachableHolderVisuals
     offsets: {}
+    # Specific
+  - type: MCWeaponRangeDelayed
+    delay: 0.3
 
 - type: Tag
   id: MCWeaponRevolverR500
