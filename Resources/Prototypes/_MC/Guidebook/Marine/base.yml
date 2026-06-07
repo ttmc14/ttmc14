@@ -18,6 +18,20 @@
 
 - type: guideEntry
   parent: MC
+  id: MCGuideMarineValiWeapon
+  name: Вали
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/MCGuideVali.xml"
+
+- type: guideEntry
+  parent: MC
+  id: MCGuideMarineArmor
+  name: Броня и шлема
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/MCGuideArmor.xml"
+
+- type: guideEntry
+  parent: MC
   id: MCGuideMarineMedicine
   name: Медицина и Химия
   priority: 2
