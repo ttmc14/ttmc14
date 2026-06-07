@@ -54,3 +54,20 @@
   parent: MCNapalm
   id: MCNapalmRGB
   fireEntity: MCFireFlamethrowerRGB
+
+# TTMC Non parity fire
+
+- type: reagent
+  parent: MCNapalm
+  id: MCNapalmTX
+  fireEntity: MCFireFlamethrowerTX
+
+- type: reagent
+  parent: MCNapalm
+  id: MCNapalmSX
+  fireEntity: MCFireFlamethrowerSX
+
+- type: reagent
+  parent: MCNapalm
+  id: MCNapalmCX
+  fireEntity: MCFireFlamethrowerCX
