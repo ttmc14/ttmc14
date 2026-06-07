@@ -53,9 +53,37 @@
   </Box>
 
   [bold] Специальные модули :[/bold]
-  - Вали, 
-  ### Ближний бой [Melee weapons]
+  - Вали, Свалинн, Балдур (Vali, Svalinn, Baldur) общедоступные свободные модули
+  Вали - Химический модуль, подробнее можно узнать в отдельном гайде
+  Свалинн - Щит что может поглотить до 45 урона, с перезарядкой в 12.5 секунд. Уменьшает общую броню
+  Балдур - Увеличивает мощность светильника брони, приятное дополнение
+  - Валькирия (Valkyrie) это медицинский модуль, что покупается в снабжении
+  Сам модуль является "Переносным Авто-Доком", залечивая раны и чиня поломанные кости. Но замедляя носителя.
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleValiChemical"/>
+    <GuideEntityEmbed Entity="MCArmorModuleSvalinnEnergyShield"/>
+    <GuideEntityEmbed Entity="MCArmorModuleBaldur"/>
+    <GuideEntityEmbed Entity="MCArmorModuleValkyrieAutomedical"/>
+  </Box>
 
-  Данный навык увеличивает урон, наносимый оружием ближнего боя, на 15% за каждый уровень навыка.
+  [bold] Модули на шлем :[/bold]
+  Я не буду сюда включать защитные модули, только специализированные
+  - HM-9, Фрейр, HM-6, ТСМ, HM-3 (HM-9, freyr, HM-6, TSM, HM-3) общедоступные модули для всех
+  HM-3 - Обычный сварочный щиток, что поможет в инженерно-слесарных работах
+  HM-6 - Бинокль встроенный в шлем, поможет в определении дальних дистанций и в работе с точными винтовками
+  HM-9 - Антенна что позволяет говорить везде и всегда, несмотря на помехи.
+  Фрейр - Визуальный помощник морпеха, делает всё светлее.
+  ТСМ (Тактический Сенсорный Модуль) - Детектор Движения прямо в шлеме. Отслеживает врага прайм тайм, не знаете что брать? Берите это смело!
+  - BE-35 (BE-35) ограниченный модуль, получаемый только в снабжении
+  Сам по себе представляет зелёный ПНВ, но с ним вы будете медленее чем обычно
+  ### Ближний бой [Melee weapons]
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetAntenna"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetArtemisMk1"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetBinoculars"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetMotionDetector"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetNightVision"/>
+    <GuideEntityEmbed Entity="MCArmorModuleHelmetWelding"/>
+  </Box>
 
 </Document>
