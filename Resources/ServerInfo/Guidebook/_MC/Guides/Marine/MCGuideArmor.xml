@@ -66,6 +66,23 @@
     <GuideEntityEmbed Entity="MCArmorModuleValkyrieAutomedical"/>
   </Box>
 
+  [bold] Модули Хранилища :[/bold]
+  Все модули-Хранилища общедоступные, и получаемы всегда
+  В этом семействе есть :
+  Общее-Хранилище - 2 слота под предметы нормального типа, средняк в своей красоте
+  Инженерное-Хранилище - 5 фиксированных слотов под большие предметы, туда входит всё, от листов металла до гранат-шипов, кроме турелей
+  Гранатное-Хранилище - 9 фиксированных слотов под гранаты, 9 гранат для самоубийства!
+  Медицинское-Хранилище - 5 фиксированных слотов под медицину, туда можно засунуть наборы, гипоспреи, дефиб, каталку, мензурку
+  Автоинъекторное-Хранилище - 14 фиксированных слотов под инъекторы, любимая вещь Вали и впринципе хорошый выбор
+  <Box>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageGeneral"/>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageEngineering"/>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageGrenade"/>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageMedical"/>
+    <GuideEntityEmbed Entity="MCArmorModuleStorageInjector"/>
+  </Box>
+
+  
   [bold] Модули на шлем :[/bold]
   Я не буду сюда включать защитные модули, только специализированные
   - HM-9, Фрейр, HM-6, ТСМ, HM-3 (HM-9, freyr, HM-6, TSM, HM-3) общедоступные модули для всех
