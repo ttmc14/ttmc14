@@ -14,7 +14,7 @@
   id: MCAttachmentMuzzleCharger
 
 - type: entity
-  parent: [ MCBaseMeleeWeapon, BaseKnife, MCAttachmentBaseMuzzle ]
+  parent: [ MCBaseMeleeWeapon, BaseKnife, MCAttachmentBarrel ]
   id: MCAttachmentBayonet
   name: bayonet
   description: A sharp blade for mounting on a weapon. It can be used to stab manually on anything but harm intent. Slightly reduces the accuracy of the gun when mounted.
@@ -27,7 +27,7 @@
     tags:
     - Knife
     - MCBayonet
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentBayonet
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Attachments/muzzle.rsi
@@ -67,7 +67,7 @@
   - type: DeleteOnExplosion
 
 - type: entity
-  parent: MCAttachmentBaseMuzzle
+  parent: MCAttachmentBarrel
   id: MCAttachmentRecoilCompensator
   name: recoil compensator
   description: "A muzzle attachment that reduces recoil and scatter by diverting expelled gasses upwards. Significantly reduces recoil and scatter, regardless of if the weapon is wielded."
@@ -76,7 +76,7 @@
     state: comp
   - type: Tag
     tags:
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentRecoilCompensator
   - type: AttachableVisuals
   - type: AttachableWeaponRangedMods
@@ -91,7 +91,7 @@
       recoilFlat: -2
 
 - type: entity
-  parent: MCAttachmentBaseMuzzle
+  parent: MCAttachmentBarrel
   id: MCAttachmentExtendedMuzzle
   name: extended barrel
   description: A lengthened barrel allows for lessened scatter, greater accuracy and muzzle velocity due to increased stabilization and shockwave exposure.
@@ -100,7 +100,7 @@
     state: ebarrel
   - type: Tag
     tags:
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentExtendedMuzzle
   - type: AttachableVisuals
   - type: AttachableSizeMods
@@ -118,7 +118,7 @@
       accuracyAddMult: 0.10
 
 - type: entity
-  parent: MCAttachmentBaseMuzzle
+  parent: MCAttachmentBarrel
   id: MCAttachmentSuppressor
   name: suppressor
   description: "A small tube with exhaust ports to expel noise and gas. Does not completely silence a weapon, but does make it much quieter and a little more accurate and stable at the cost of bullet speed."
@@ -127,7 +127,7 @@
     state: suppressor
   - type: Tag
     tags:
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentSuppressor
   - type: AttachableVisuals
     prefix: suppressor
@@ -150,7 +150,7 @@
       scatterFlat: -2
 
 - type: entity
-  parent: MCAttachmentBaseMuzzle
+  parent: MCAttachmentBarrel
   id: MCAttachmentMuzzleCharger
   name: barrel charger
   description: "A fitted barrel extender that goes on the muzzle, with a small shaped charge that propels a bullet much faster. Greatly increases projectile speed and reduces damage falloff."
@@ -159,7 +159,7 @@
     state: hbarrel
   - type: Tag
     tags:
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentMuzzleCharger
   - type: AttachableVisuals
   - type: AttachableWeaponRangedMods

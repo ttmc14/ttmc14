@@ -28,7 +28,7 @@
   - type: DeleteOnExplosion
 
 - type: entity
-  parent: [ MCBaseMeleeWeapon, BaseKnife, MCAttachmentBaseMuzzle ]
+  parent: [ MCBaseMeleeWeapon, BaseKnife, MCAttachmentBarrel ]
   id: MCKnifeBayonet
   name: M-22 bayonet
   description: A sharp knife that is the standard issue combat knife of the TerraGov Marine Corps can be attached to a variety of weapons at will or used as a standard knife.
@@ -41,7 +41,7 @@
     tags:
     - Knife
     - MCBayonet
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentBayonet
   - type: Sprite
     sprite: _MC/Objects/Weapons/Melee/bayonetknife.rsi
@@ -76,12 +76,12 @@
       accuracyAddMult: -0.5
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.10
+      accuracyAddMult: -0.1
   - type: AttachablePrying
   - type: DeleteOnExplosion
 
 - type: entity
-  parent: [ MCBaseMeleeWeapon, BaseKnife, MCAttachmentBaseMuzzle ]
+  parent: [ MCBaseMeleeWeapon, BaseKnife, MCAttachmentBarrel ]
   id: MCKnifeBayonetSOM
   name: S20 SOM bayonet
   description: A large knife that is the standard issue combat knife of the SOM. Can be attached to a variety of weapons at will or used as a standard knife.
@@ -94,7 +94,7 @@
     tags:
     - Knife
     - MCBayonet
-    - MCAttachmentMuzzle
+    - MCAttachmentBarrel
     - MCAttachmentBayonet
   - type: Sprite
     sprite: _MC/Objects/Weapons/Melee/bayonetknife_som.rsi
@@ -129,6 +129,6 @@
       accuracyAddMult: -0.5
     - conditions:
         unwieldedOnly: true
-      accuracyAddMult: -0.10
+      accuracyAddMult: -0.1
   - type: AttachablePrying
   - type: DeleteOnExplosion
