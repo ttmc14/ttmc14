@@ -8,6 +8,8 @@
   children:
   - MCGuideMarineSkills
   - MCGuideMarineMedicine
+  - MCGuideMarineValiWeapon
+  - MCGuideMarineArmor
 
 - type: guideEntry
   parent: MC
