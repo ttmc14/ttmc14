@@ -6,9 +6,9 @@
     MCLemoline:
       amount: 10
     MCEthylredoxrazine:
-      amount: 10
+      amount: 3
     MCQuickClotPlus:
-      amount: 10
+      amount: 3
   products:
     MCNapalmTX: 8
 
@@ -16,11 +16,11 @@
   id: MCNapalmSX
   reactants:
     MCNeuraline:
-      amount: 10
+      amount: 3
     MCLemoline:
       amount: 10
     MCNanoblood:
-      amount: 10
+      amount: 3
     MCRyetalyn:
       amount: 10
   products:
