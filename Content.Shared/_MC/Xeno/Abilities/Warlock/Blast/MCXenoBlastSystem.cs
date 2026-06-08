@@ -7,6 +7,7 @@ using Content.Shared._MC.Physics;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._MC.ZLevels.Weapons;
 using Content.Shared.DoAfter;
 using Content.Shared.Physics;
 using Robust.Shared.Audio.Systems;
@@ -31,6 +32,7 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
     [Dependency] private readonly MCPhysicsFixtureCacheSystem _mcPhysicsFixtureCache = null!;
     [Dependency] private readonly MCAnchoredRadiusSystem _mcAnchoredRadius = null!;
+    [Dependency] private readonly MCZLevelShootingSystem _mcZLevelShooting = null!;
 
 
     public override void Initialize()
@@ -49,8 +51,14 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
         if (!CanUseAction(entity, args.Action))
             return;
 
-        var coordinatesStart = _transform.GetMapCoordinates(entity);
-        var coordinatesTarget = _transform.ToMapCoordinates(args.Target);
+        _mcZLevelShooting.TryAdjustShotCoordinates(entity,
+            Transform(entity).Coordinates,
+            args.Target,
+            out var adjustedStart ,
+            out var adjustedTarget);
+
+        var coordinatesStart = _transform.ToMapCoordinates(adjustedStart);
+        var coordinatesTarget = _transform.ToMapCoordinates(adjustedTarget);
 
         var direction = coordinatesTarget.Position - coordinatesStart.Position;
         var distance = float.Min(direction.Length(), entity.Comp.Range);

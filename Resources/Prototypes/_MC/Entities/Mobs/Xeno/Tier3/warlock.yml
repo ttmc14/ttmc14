@@ -47,6 +47,10 @@
     - MCActionXenoPsychicBlast
     - MCActionXenoPsychicCrush
     - MCActionXenoPsychicShield
+    # ZLevels
+    # - MCActionXenoAntigravity
+    # - MCActionXenoAntigravityZLevelUp
+    # - MCActionXenoAntigravityZLevelDown
     hudOffset: -0.1,0.1
   # Statistics
   - type: MobThresholds
@@ -83,3 +87,4 @@
   - type: MCXenoBlast
   - type: MCXenoPsyCrush
   - type: MCXenoShield
+  - type: MCXenoAntigravity
