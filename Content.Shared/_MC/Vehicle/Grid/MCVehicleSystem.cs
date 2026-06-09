@@ -1,5 +1,7 @@
 ﻿using Content.Shared._MC.Vehicle.Grid.Components;
+using Content.Shared._MC.Vehicle.Operated;
 using Content.Shared.Interaction;
+using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Network;
 
 namespace Content.Shared._MC.Vehicle.Grid;
@@ -8,14 +10,22 @@ public sealed partial class MCVehicleSystem : EntitySystem
 {
     [Dependency] private readonly INetManager _net = null!;
 
+    [Dependency] private readonly SharedEyeSystem _eye = null!;
+    [Dependency] private readonly SharedMapSystem _map = null!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
+
+    [Dependency] private readonly MCVehicleOperatedSystem _mcVehicleOperated = null!;
 
     public override void Initialize()
     {
         base.Initialize();
 
+        InitializeSeat();
+
         SubscribeLocalEvent<MCVehicleComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MCVehicleComponent, ActivateInWorldEvent>(OnWorldInteract);
+
         SubscribeLocalEvent<MCVehicleGridExitPointComponent, ActivateInWorldEvent>(OnExitWorldInteract);
     }
 

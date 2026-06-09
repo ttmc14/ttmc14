@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "rack_secondary"
+    },
+    {
+      "name": "rack_primary"
+    },
+    {
+      "name": "rack_primary_overlay"
+    },
+    {
+      "name": "breech"
+    },
+    {
+      "name": "periscope"
+    },
+    {
+      "name": "chair"
+    },
+    {
+      "name": "breech_secondary"
+    }
+  ]
+}
