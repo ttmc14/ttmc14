@@ -34,6 +34,11 @@
     # - PrimordialTierTwo
     # - PrimordialTierThree
     # - PrimordialTierFour
+    # Supports
+    - PheromoneTower1
+    - PheromoneTower2
+    - PheromoneTower3
+
 
 - type: entity
   id: MCXenoComponentPickup

@@ -1,0 +1,8 @@
+﻿<ui:MCXenoStructuresPheromoneTowerWindow
+    xmlns:ui="clr-namespace:Content.Client._MC.Xeno.Structures.PheromoneTowers.UI"
+    xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
+    CloseButtonStyleClass="RadialMenuCloseButton"
+    VerticalExpand="True"
+    HorizontalExpand="True">
+    <controls:RadialContainer Name="Main" Access="Public" />
+</ui:MCXenoStructuresPheromoneTowerWindow>

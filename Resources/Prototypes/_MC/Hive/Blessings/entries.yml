@@ -39,19 +39,6 @@
   time: 10
 
 - type: MCXenoBlessingsEntry
-  id: PheromoneTower
-  name: Pheromone Tower
-  description: Constructs a tower that emanates a selectable type of pheromone.
-  icon:
-    sprite: _MC/Interface/Xeno/buyable_icons.rsi
-    state: pherotower
-  group: Building
-  costType: Tactical
-  cost: 150
-  entity: MCXenoPheromoneTowerRecovery
-  time: 10
-
-- type: MCXenoBlessingsEntry
   id: Spawner
   name: Spawner
   description: Constructs a spawner that generates ai xenos over time.
