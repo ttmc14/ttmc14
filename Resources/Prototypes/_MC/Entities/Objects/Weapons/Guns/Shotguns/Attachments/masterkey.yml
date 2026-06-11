@@ -1,6 +1,5 @@
-
 - type: entity
-  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
+  parent: [ MCAttachmentUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentUnderbarrelShotgun
   name: masterkey shotgun
   description: A weapon-mounted, three-shot shotgun. Reloadable with any normal 12 gauge shell. The short barrel reduces the ammo's effectiveness drastically in exchange for fitting as a attachment..

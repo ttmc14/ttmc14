@@ -58,6 +58,9 @@
       "directions": 4
     },
     {
+      "name": "unlit"
+    },
+    {
       "name": "resinopening",
       "directions": 4,
       "delays": [

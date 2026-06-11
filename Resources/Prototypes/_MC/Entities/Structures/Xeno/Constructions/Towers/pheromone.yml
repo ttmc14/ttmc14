@@ -7,7 +7,17 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t1.rsi
-    state: frenzy
+    layers:
+    - map: [ "base" ]
+      state: frenzy
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MCXenoStructurePheromoneTowerLayers.Layer:
+        base:
+          Recovery: { state: recovery }
+          Warding: { state: warding }
+          Frenzy: { state: frenzy }
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
@@ -28,6 +38,11 @@
     color: "#ff3b3b"
   - type: XenoStructureMapTracked
   - type: TacticalMapTracked
+  - type: MCXenoStructurePheromoneTower
+  - type: UserInterface
+    interfaces:
+      enum.MCXenoStructurePheromoneTowerSelectUI.Key:
+        type: MCXenoStructurePheromoneTowerBui
 
 - type: entity
   parent: MCXenoPheromoneTower
@@ -35,7 +50,6 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t1.rsi
-    state: frenzy
   - type: XenoPheromones
     pheromones: Frenzy
     pheromonesMultiplier: 3.5
@@ -51,7 +65,6 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t2.rsi
-    state: frenzy
   - type: XenoPheromones
     pheromones: Frenzy
     pheromonesMultiplier: 5.5
@@ -67,7 +80,6 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t3.rsi
-    state: frenzy
   - type: XenoPheromones
     pheromones: Frenzy
     pheromonesMultiplier: 7.5

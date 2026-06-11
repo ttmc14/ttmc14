@@ -98,7 +98,7 @@
   id: MCAttachmentBarrelSR26
 
 - type: entity
-  parent: MCAttachmentBaseScope
+  parent: MCAttachmentScope
   id: MCAttachmentRailScopeSR26
   name: antimaterial rifle scope
   description: A rail mounted zoom sight scope specialized for the SR-26 sniper rifle. Allows zoom by activating the attachment.

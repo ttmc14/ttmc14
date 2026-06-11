@@ -57,3 +57,47 @@
   - type: InstantAction
     event: !type:MCXenoShieldActionEvent
   - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoAntigravity
+  name: Antigravity (200)
+  description: WIP.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/Tier3/warlock.rsi
+      state: fly
+    useDelay: 10
+  - type: InstantAction
+    event: !type:MCXenoAntigravityActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  id: MCActionXenoAntigravityZLevelUp
+  name: Move up
+  description: Move up one Z-Level
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: _CE/Actions/misc.rsi
+      state: up
+  - type: InstantAction
+    event: !type:MCXenoAntigravityMoveUpActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  id: MCActionXenoAntigravityZLevelDown
+  name: Move down
+  description: Move down one Z-Level
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: _CE/Actions/misc.rsi
+      state: down
+  - type: InstantAction
+    event: !type:MCXenoAntigravityMoveDownActionEvent
+  - type: ActionBlockIfResting

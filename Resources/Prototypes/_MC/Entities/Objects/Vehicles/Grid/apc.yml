@@ -1,0 +1,41 @@
+- type: entity
+  parent: MCVehicle
+  id: MCVehicleApc
+  components:
+  - type: MCVehicle
+    path: /Maps/_MC/Vehicles/apc.yml
+  - type: Sprite
+    sprite: _MC/Objects/Vehicles/APC/apc.rsi
+    drawdepth: Mobs
+    layers:
+    - map: [ base ]
+      state: base
+
+- type: entity
+  parent: CMSeatBase
+  id: MCVehicleApcSeat
+  name: driver seat
+  categories: [ MCContent ]
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Vehicles/APC/interior.rsi
+    state: chair
+  - type: MCVehicleGridDriverSeat
+  - type: RemoveComponents
+    components:
+    - type: Damageable
+    - type: Destructible
+    - type: Corrodible
+
+- type: entity
+  id: MCVehicleApcChassis
+  name: apc interior chassis
+  categories: [ MCContent ]
+  placement:
+    mode: PlaceFree
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Vehicles/APC/chassis.rsi
+    state: base
+    drawdepth: FloorTiles
+  - type: InteractionTransparency

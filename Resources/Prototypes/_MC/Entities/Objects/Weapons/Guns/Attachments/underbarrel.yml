@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentAngledGrip
   name: angled grip
   description: "A custom-built improved foregrip for less recoil, and faster wielding time. However, it also increases weapon size, and slightly hinders unwielded firing."
@@ -29,7 +29,7 @@
       scatterFlat: 1
 
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentVerticalGrip
   name: vertical grip
   description: "A custom-built improved foregrip for better accuracy, moderately faster aimed movement speed, less recoil, and less scatter when wielded especially during burst fire. However, it also increases weapon size, slightly increases wield delay and makes unwielded fire more cumbersome."
@@ -61,7 +61,7 @@
       scatterFlat: 1
 
 - type: entity
-  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
+  parent: [ MCAttachmentUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentBipod
   name: bipod
   description: "A simple set of telescopic poles to keep a weapon stabilized during firing. Greatly increases accuracy and reduces recoil and scatter when properly placed, but also increases weapon size."
@@ -135,7 +135,7 @@
       recoilFlat: -2
 
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentBurstFireAssembly
   name: burst fire assembly
   description: "A mechanism re-assembly kit that allows for automatic fire, or more shots per burst if the weapon already has the ability. Increases scatter and decreases accuracy."
@@ -160,7 +160,7 @@
       accuracyAddMult: -0.2
 
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentGyroscopicStabilizer
   name: gyroscopic stabilizer
   description: A set of weights and balances to stabilize the weapon when burst firing or moving, especially while shooting one-handed. Greatly reduces movement penalties to accuracy. Significantly reduces burst scatter, recoil and general scatter. By increasing accuracy while moving, it let you move faster when taking aim.
@@ -185,7 +185,7 @@
       recoilFlat: -1
 
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentLaserSight
   name: laser sight
   description: A laser sight placed under the barrel. Significantly increases one-handed accuracy and significantly reduces unwielded penalties to accuracy.
@@ -207,7 +207,7 @@
       accuracyAddMult: 0.15
 
 - type: entity
-  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
+  parent: [ MCAttachmentUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentUnderbarrelFlashlight
   name: underbarreled flashlight
   description: "A simple flashlight used for mounting on a firearm. Has no drawbacks, but isn't particuraly useful outside of providing a light source. It is small and conductive."
@@ -285,7 +285,7 @@
     - Flashlight
 
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentMiniFlamethrower
   name: underbarrel flamethrower
   description: A weapon-mounted refillable flamethrower attachment. It has a secondary setting for a more intense flame with far less propulsion ability and heavy fuel usage.
@@ -358,7 +358,7 @@
     offset: -0.125, 0.245
 
 - type: entity
-  parent: [ MCAttachmentBaseUnderbarrel, MCAttachableToggleableBase ]
+  parent: [ MCAttachmentUnderbarrel, MCAttachableToggleableBase ]
   id: MCAttachmentGrenadeLauncher
   name: underslung grenade launcher
   description: A weapon-mounted, reloadable, two-shot grenade launcher.
@@ -437,7 +437,7 @@
     - MCAttachmentGrenadeLauncher
 
 - type: entity
-  parent: MCAttachmentBaseUnderbarrel
+  parent: MCAttachmentUnderbarrel
   id: MCAttachmentUnderslungHydrocannon
   name: underslung hydrocannon
   description: For the quenching of unfortunate mistakes.

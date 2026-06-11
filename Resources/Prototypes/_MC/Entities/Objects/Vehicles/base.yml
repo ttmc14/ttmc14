@@ -24,7 +24,7 @@
     fixtures:
       world:
         shape: !type:PhysShapeAabb
-          bounds: -1.425,-1.925,1.425,1.925
+          bounds: -1.425,-1.425,1.425,1.425
         density: 1000
         mask:
         - Impassable
@@ -35,7 +35,7 @@
         - LargeMobLayer
       mob:
         shape: !type:PhysShapeAabb
-          bounds: -1.425,-1.925,1.425,1.925
+          bounds: -1.425,-1.425,1.425,1.425
         density: 1000
         mask:
         - MidImpassable

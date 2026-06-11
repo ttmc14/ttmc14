@@ -5,6 +5,7 @@ using Content.Shared._RMC14.NPC;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
+using Content.Shared.Maps;
 using Content.Shared.Popups;
 using Content.Shared.Stacks;
 using Content.Shared.Verbs;
@@ -27,6 +28,7 @@ public sealed class MCDeploySystem : EntitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
     [Dependency] private readonly SharedStackSystem _stack = null!;
+    [Dependency] private readonly TurfSystem _turf = null!;
 
     [Dependency] private readonly SharedRMCNPCSystem _rmcNpc = null!;
     [Dependency] private readonly RMCMapSystem _rmcMap = null!;
@@ -85,6 +87,9 @@ public sealed class MCDeploySystem : EntitySystem
         if (!args.CanInteract || !args.CanAccess)
             return;
 
+        if (!entity.Comp.UndeployAllowed)
+            return;
+
         var user = args.User;
         args.Verbs.Add(new AlternativeVerb
         {
@@ -122,6 +127,9 @@ public sealed class MCDeploySystem : EntitySystem
         args.Handled = true;
 
         if (!CanDeployPopup(entity, args.User, out var coordinates, out var angle))
+            return;
+
+        if (!entity.Comp.DeployAllowed)
             return;
 
         var ev = new MCDeployDoAfterEvent(GetNetCoordinates(coordinates), angle);
@@ -250,11 +258,19 @@ public sealed class MCDeploySystem : EntitySystem
         rotation = default;
 
         var moverCoordinates = _transform.GetMoverCoordinateRotation(user, Transform(user));
+
         coordinates = moverCoordinates.Coords;
         rotation = moverCoordinates.worldRot.GetCardinalDir().ToAngle();
 
         var direction = rotation.GetCardinalDir();
+
         coordinates = coordinates.Offset(direction.ToVec());
+
+        if (!_turf.TryGetTileRef(coordinates, out var tileRef) && tileRef is null)
+            return false;
+
+        if (_turf.IsSpace(tileRef.Value))
+            return false;
 
         return CanDeployPopup(entity, user, coordinates);
     }

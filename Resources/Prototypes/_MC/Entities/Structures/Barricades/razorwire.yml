@@ -8,11 +8,11 @@
 
 # TODO: Xeno acid smoke x2 damage
 - type: entity
-  parent: MCItem
   id: MCRazorwire
   name: razorwire obstacle
   description: A bundle of barbed wire supported by metal rods. Used to deny access to areas under (literal) pain of entanglement and injury. A classic fortification since the 1900s.
   suffix: Full (10)
+  parent: MCItem
   components:
   # Visuals
   - type: Tag
@@ -24,7 +24,8 @@
   - type: Sprite
     sprite: _MC/Structures/Barricades/Razorwire/barbedwire.rsi
     layers:
-    - map: [ "base" ]
+    - map:
+      - base
       state: barbedwire_assembly
   - type: Appearance
   - type: GenericVisualizer
@@ -36,17 +37,25 @@
           Deployed:
             state: barbedwire_x
   - type: DamageVisuals
-    thresholds: [ 25, 50, 75, 100 ]
+    thresholds:
+    - 25
+    - 50
+    - 75
+    - 100
     trackAllDamage: true
     damageOverlay:
       sprite: _MC/Structures/Barricades/Razorwire/barbedwire_cracks.rsi
+  - type: Construction
+    graph: MCRazorwireGraph
+    node: razorwire
   # Deployment
   - type: Item
     size: Normal
   - type: MCDeploy
-    deployTime: 2.5
     deployFixture: razorwire
+    deployTime: 2.5
     deployedPrototype: MCRazorwire1
+    undeployAllowed: false
   # Physics
   - type: Fixtures
     fixtures:
@@ -81,14 +90,15 @@
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
-          MCBarbedWire1:
+          MCRodMetal:
             min: 1
             max: 1
       - !type:PlaySoundBehavior
         sound:
           collection: MetalBreak
       - !type:DoActsBehavior
-        acts: [ "Destruction" ]
+        acts:
+        - Destruction
   # Interaction
   - type: InteractedBlacklist
     blacklist:
@@ -99,14 +109,26 @@
     damage:
       types:
         MCBrute: 40
+  - type: DamageOnCollide #TODO: MC component for charge
+    canRehit: true
+    paralyze: 2
+    damage:
+      types:
+        MCBrute: 40
+    chainDamage:
+      types:
+        MCBrute: 40
+    whitelist:
+      components:
+      - MCXenoChargeActive # If crusher have toggled charge, he will stunned & damaged - THIS IS "КОСТЫЛЬ"
   - type: MeleeSound
     soundTypes:
       MCBrute:
-        path: "/Audio/_RMC14/Items/barbed_wire_movement.ogg"
+        path: /Audio/_RMC14/Items/barbed_wire_movement.ogg
   # Fire
   - type: Flammable
-    fireSpread: false
     maximumFireStacks: 0.5
+    fireSpread: false
     damage:
       types:
         MCBurn: 2.5
@@ -122,8 +144,8 @@
       fire: 80
       acid: 0
   - type: Stack
-    count: 10
     stackType: MCRazorwire
+    count: 10
 
 - type: entity
   parent: MCRazorwire

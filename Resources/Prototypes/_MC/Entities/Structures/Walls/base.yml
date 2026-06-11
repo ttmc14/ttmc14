@@ -1,7 +1,6 @@
 - type: entity
   parent: BaseStructure
   id: MCWallInvincibleNoIcon
-  abstract: True
   description: A huge chunk of metal used to separate rooms.
   categories: [ MCContent ]
   placement:

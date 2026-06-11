@@ -13,20 +13,28 @@ public sealed partial class MCVehicleSystem
         if (!CanEnter(entity, user))
             return;
 
-        Enter(entity, user);
+        var difference = _transform.GetWorldPosition(user) - _transform.GetWorldPosition(entity);
+        var rotation = Transform(entity).LocalRotation;
+        var localDifference = (-rotation).RotateVec(difference);
+
+        var direction = localDifference.LengthSquared() > 0.01f
+            ? localDifference.GetDir()
+            : Direction.Invalid;
+
+        Enter(entity, user, direction);
+    }
+
+    private void Enter(Entity<MCVehicleComponent> entity, EntityUid user, Direction direction)
+    {
+        if (!GetEnterPointCoordinates(entity, direction, out var coordinates))
+            return;
+
+        _transform.SetCoordinates(user, coordinates);
     }
 
     private bool CanEnter(Entity<MCVehicleComponent> entity, EntityUid user)
     {
         return true;
-    }
-
-    private void Enter(Entity<MCVehicleComponent> entity, EntityUid user)
-    {
-        if (!GetEnterPointCoordinates(entity, Direction.Invalid, out var coordinates))
-            return;
-
-        _transform.SetCoordinates(user, coordinates);
     }
 
     private bool GetEnterPointCoordinates(Entity<MCVehicleComponent> entity, Direction direction, out EntityCoordinates coordinates)
