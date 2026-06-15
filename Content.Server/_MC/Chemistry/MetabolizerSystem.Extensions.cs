@@ -43,13 +43,36 @@ public partial class MetabolizerSystem
     private void BeforeMetabolize(
         EntityUid uid,
         Solution solution,
-        Entity<MetabolizerComponent, OrganComponent?, SolutionContainerManagerComponent?> ent)
+        Entity<MetabolizerComponent, OrganComponent?, SolutionContainerManagerComponent?> entity)
     {
         if (!TryGetTicker(uid, solution, out var ticker))
             return;
 
         var entries = GetOrCreateEntries(ticker, solution);
-        UpdateTickEntries(uid, ent, solution, entries);
+        UpdateTickEntries(uid, entity, solution, entries);
+    }
+
+    private List<MCSolutionTickerComponent.TickEntry> GetOrCreateEntries(
+        MCSolutionTickerComponent ticker,
+        Solution solution)
+    {
+        if (ticker.Entries.TryGetValue(solution, out var entries))
+            return entries;
+
+        entries = [];
+
+        foreach (var reagent in _tickableReagents)
+        {
+            entries.Add(
+                new MCSolutionTickerComponent.TickEntry(
+                    reagent,
+                    -1
+                )
+            );
+        }
+
+        ticker.Entries[solution] = entries;
+        return entries;
     }
 
     private void ClearTickMetabolize(
@@ -85,19 +108,6 @@ public partial class MetabolizerSystem
         return TryComp(uid, out ticker) && _updated.Add(uid);
     }
 
-    private List<MCSolutionTickerComponent.TickEntry> GetOrCreateEntries(
-        MCSolutionTickerComponent ticker,
-        Solution solution)
-    {
-        if (ticker.Entries.TryGetValue(solution, out var entries))
-            return entries;
-
-        entries = [];
-        ticker.Entries[solution] = entries;
-
-        return entries;
-    }
-
     private void UpdateTickEntries(
         EntityUid uid,
         Entity<MetabolizerComponent, OrganComponent?, SolutionContainerManagerComponent?> ent,
@@ -106,28 +116,16 @@ public partial class MetabolizerSystem
     {
         foreach (var entry in entries)
         {
-            if (solution.TryGetReagent(entry.Reagent, out _))
+            if (!solution.TryGetReagent(entry.Reagent, out _))
             {
-                entry.Ticks++;
+                if (entry.Ticks > 0)
+                    OnReagentFinished(uid, ent, solution, entry.Reagent);
+
+                entry.Ticks = 0;
                 continue;
             }
 
-            if (entry.Ticks <= 0)
-                continue;
-
-            OnReagentFinished(uid, ent, solution, entry.Reagent);
-            entry.Ticks = 0;
-        }
-
-        foreach (var reagent in solution.Contents)
-        {
-            if (!_tickableReagents.Contains(reagent.Reagent))
-                continue;
-
-            if (entries.Exists(e => e.Reagent == reagent.Reagent))
-                continue;
-
-            entries.Add(new MCSolutionTickerComponent.TickEntry(reagent.Reagent, 1));
+            entry.Ticks++;
         }
     }
 
