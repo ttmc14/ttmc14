@@ -68,6 +68,7 @@
       enum.UniformAccessoriesUi.Key:
         type: UniformAccessoryBui
   # Modular
+  - type: DoAfter
   - type: MCArmorModularClothing
     slots:
     - id: main

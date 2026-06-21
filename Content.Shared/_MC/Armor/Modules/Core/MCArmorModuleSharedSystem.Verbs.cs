@@ -59,7 +59,7 @@ public partial class MCArmorModuleSharedSystem
 
             continue;
 
-            void Act() => TryDetachSpecificModule(entity, module, user.Value);
+            void Act() => TryDetachSpecificModule(entity, module, user.Value, duration: module.Comp.DurationUnequip);
         }
     }
 

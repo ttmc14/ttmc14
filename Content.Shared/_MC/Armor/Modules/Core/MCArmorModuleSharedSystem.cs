@@ -1,8 +1,6 @@
-﻿using System.Diagnostics.CodeAnalysis;
-using System.Linq;
-using Content.Shared._MC.Armor.Modules.Core.Components;
+﻿using Content.Shared._MC.Armor.Modules.Core.Components;
 using Content.Shared._MC.Armor.Modules.Core.Events;
-using Content.Shared._MC.Popup;
+using Content.Shared.DoAfter;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Interaction;
 using Content.Shared.Inventory.Events;
@@ -13,6 +11,7 @@ using Content.Shared.Popups;
 using Content.Shared.Storage;
 using Content.Shared.Storage.EntitySystems;
 using Content.Shared.Whitelist;
+using JetBrains.Annotations;
 using Robust.Shared.Containers;
 using Robust.Shared.Map.Components;
 
@@ -20,6 +19,7 @@ namespace Content.Shared._MC.Armor.Modules.Core;
 
 public abstract partial class MCArmorModuleSharedSystem : EntitySystem
 {
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedContainerSystem _container = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly SharedItemSystem _item = null!;
@@ -29,41 +29,32 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
     [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
     [Dependency] private readonly SharedStorageSystem _storage = null!;
 
-    protected EntityQuery<MCArmorModuleComponent> ArmorModuleQuery;
-
-    private readonly List<(EntityUid, EntityUid)> _doTransfer = new();
+    [PublicAPI] protected EntityQuery<ItemComponent> ItemQuery;
+    [PublicAPI] protected EntityQuery<MapGridComponent> MapGridQuery;
+    [PublicAPI] protected EntityQuery<StorageComponent> StorageQuery;
+    [PublicAPI] protected EntityQuery<MCArmorModuleComponent> ArmorModuleQuery;
+    [PublicAPI] protected EntityQuery<MCArmorModularClothingComponent> ArmorModularClothingQuery;
 
     public override void Initialize()
     {
-        base.Initialize();
+        // Queries
+        ItemQuery = GetEntityQuery<ItemComponent>();
+        MapGridQuery = GetEntityQuery<MapGridComponent>();
+        StorageQuery = GetEntityQuery<StorageComponent>();
 
         ArmorModuleQuery = GetEntityQuery<MCArmorModuleComponent>();
+        ArmorModularClothingQuery = GetEntityQuery<MCArmorModularClothingComponent>();
 
         InitializeContainer();
         InitializeVerbs();
 
         SubscribeLocalEvent<MCArmorModularClothingComponent, InteractUsingEvent>(OnInteract, before: [ typeof(SharedStorageSystem) ]);
+
+        SubscribeLocalEvent<MCArmorModularClothingComponent, MCArmorModuleAttachDoAfterEvent>(OnArmorAttachDoAfter);
+        SubscribeLocalEvent<MCArmorModularClothingComponent, MCArmorModuleDeattachDoAfterEvent>(OnArmorDeattachDoAfter);
+
         SubscribeLocalEvent<MCArmorModularClothingComponent, GotEquippedEvent>(OnArmorEquipped);
         SubscribeLocalEvent<MCArmorModularClothingComponent, GotUnequippedEvent>(OnArmorUnequipped);
-    }
-
-    public override void Update(float frameTime)
-    {
-        base.Update(frameTime);
-
-        if (_doTransfer.Count == 0)
-            return;
-
-        foreach (var (uid, moduleUid) in _doTransfer)
-        {
-            if (!TryComp<StorageComponent>(uid, out var storage))
-                continue;
-
-            foreach (var stored in storage.Container.ContainedEntities.ToArray())
-                _storage.Insert(moduleUid, stored, out _, playSound: false);
-        }
-
-        _doTransfer.Clear();
     }
 
     private void OnInteract(Entity<MCArmorModularClothingComponent> entity, ref InteractUsingEvent args)
@@ -71,12 +62,42 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
         if (!ArmorModuleQuery.TryComp(args.Used, out var moduleComponent))
             return;
 
-        EntityUid? user = Transform(entity).ParentUid;
-        if (HasComp<MapGridComponent>(user))
-            user = null;
-
-        TryAttachModuleToAnySlot(entity, (args.Used, moduleComponent), user);
         args.Handled = true;
+
+        var user = Transform(entity).ParentUid;
+        if (MapGridQuery.HasComp(user))
+        {
+            TryAttachModuleToAnySlot(entity, (args.Used, moduleComponent));
+            return;
+        }
+
+        TryAttachModuleToAnySlot(entity, (args.Used, moduleComponent), user, duration: moduleComponent.DurationEquip);
+    }
+
+    private void OnArmorAttachDoAfter(Entity<MCArmorModularClothingComponent> entity, ref MCArmorModuleAttachDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Used is null)
+            return;
+
+        if (!ArmorModuleQuery.TryComp(args.Used, out var moduleComponent))
+            return;
+
+        var slot = FindFreeSlotForModule(entity, args.Used.Value);
+        if (slot is null)
+            return;
+
+        AttachModuleToAnySlot(entity, (args.Used.Value, moduleComponent), args.User, slot);
+    }
+
+    private void OnArmorDeattachDoAfter(Entity<MCArmorModularClothingComponent> entity, ref MCArmorModuleDeattachDoAfterEvent args)
+    {
+        if (args.Handled || args.Cancelled || args.Used is null)
+            return;
+
+        if (!ArmorModuleQuery.TryComp(args.Used, out var moduleComponent))
+            return;
+
+        DetachSpecificModule(entity, (args.Used.Value, moduleComponent), args.User);
     }
 
     private void OnArmorEquipped(Entity<MCArmorModularClothingComponent> entity, ref GotEquippedEvent args)
@@ -84,7 +105,7 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
         var previous = entity.Comp.CurrentUser;
 
         EntityUid? user = Transform(entity).ParentUid;
-        if (HasComp<MapGridComponent>(user))
+        if (MapGridQuery.HasComp(user))
             user = null;
 
         entity.Comp.CurrentUser = user;
@@ -99,75 +120,9 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
 
         entity.Comp.CurrentUser = null;
         Dirty(entity);
-
         RaiseUserChangedOnAllModules(entity, previous, null);
     }
 
-    private bool TryAttachModuleToAnySlot(
-        Entity<MCArmorModularClothingComponent> entity,
-        Entity<MCArmorModuleComponent> module,
-        EntityUid? user)
-    {
-        if (!CanAttachModule(entity, module, user))
-            return false;
-
-        var slot = FindFreeSlotForModule(entity, module);
-        if (slot is null)
-        {
-            _popup.PopupLocEntServer(user, "mc-module-no-free-slot", PopupType.MediumCaution);
-            return false;
-        }
-
-        var container = _container.EnsureContainer<Container>(entity, entity.Comp.ContainerId);
-        if (!_container.Insert(module.Owner, container))
-            return false;
-
-        slot.Module = module;
-        ApplyModuleEffects(entity, module, user);
-
-        _doTransfer.Add((entity, module));
-
-        var ev = new MCArmorModuleAttachedEvent(entity, module, user);
-        RaiseLocalEvent(module, ref ev);
-        return true;
-    }
-
-    private MCArmorModuleSlot? FindFreeSlotForModule(
-        Entity<MCArmorModularClothingComponent> entity,
-        EntityUid module)
-    {
-        return entity.Comp.Slots.FirstOrDefault(slot => slot.Module is null && _whitelist.IsWhitelistPassOrNull(slot.Whitelist, module));
-    }
-
-    private bool CanAttachModule(
-        Entity<MCArmorModularClothingComponent> armor,
-        EntityUid module,
-        EntityUid? user)
-    {
-        if (!ArmorModuleQuery.HasComp(module))
-            return false;
-
-        if (!TryComp<ItemComponent>(armor, out _) ||
-            !TryComp<ItemComponent>(module, out _))
-            return false;
-
-        if (IsInStorage(armor))
-        {
-            _popup.PopupLocEntServer(user, "mc-module-cannot-in-storage", PopupType.SmallCaution);
-            return false;
-        }
-
-        return true;
-    }
-
-    private bool IsInStorage(EntityUid entity)
-    {
-        if (!_container.TryGetContainingContainer(entity, out var containing))
-            return false;
-
-        return TryComp<StorageComponent>(containing.Owner, out var storage) &&
-               storage.StoredItems.ContainsKey(entity);
-    }
 
     private void ApplyModuleEffects(
         Entity<MCArmorModularClothingComponent> entity,
@@ -179,7 +134,6 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
         if (user is null)
             return;
 
-        EntityManager.AddComponents(user.Value, module.Comp.UserComponents);
         RefreshUser(user);
     }
 
@@ -197,14 +151,6 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
         RefreshUser(user);
     }
 
-    private void RefreshUser(EntityUid? uid)
-    {
-        if (uid is not { } user)
-            return;
-
-        _speedModifier.RefreshMovementSpeedModifiers(user);
-    }
-
     private IEnumerable<Entity<MCArmorModuleComponent>> EnumerateModules(
         Entity<MCArmorModularClothingComponent> entity)
     {
@@ -215,77 +161,6 @@ public abstract partial class MCArmorModuleSharedSystem : EntitySystem
         {
             if (ArmorModuleQuery.TryComp(ent, out var comp))
                 yield return (ent, comp);
-        }
-    }
-
-    public EntityUid? GetUser(EntityUid uid)
-    {
-        return !TryComp<MCArmorModularClothingComponent>(Transform(uid).ParentUid, out var containerComponent) ? null : containerComponent.CurrentUser;
-    }
-
-    private bool TryGetArmorContainer(Entity<MCArmorModularClothingComponent> entity, [NotNullWhen(true)] out Container? container)
-    {
-        container = null;
-        if (!_container.TryGetContainer(entity, entity.Comp.ContainerId, out var baseContainer))
-            return false;
-
-        container = (Container) baseContainer;
-        return true;
-    }
-
-    public bool HasAnyModule(Entity<MCArmorModularClothingComponent> entity)
-    {
-        return EnumerateModules(entity).Any();
-    }
-
-    private bool TryDetachSpecificModule(
-        Entity<MCArmorModularClothingComponent> entity,
-        Entity<MCArmorModuleComponent> module,
-        EntityUid user)
-    {
-        if (!_container.TryRemoveFromContainer(module.Owner))
-            return false;
-
-        foreach (var slot in entity.Comp.Slots)
-        {
-            if (slot.Module != module.Owner)
-                continue;
-
-            slot.Module = null;
-            break;
-        }
-
-        _hands.TryPickupAnyHand(user, module);
-
-        var ev = new MCArmorModuleDetachedEvent(entity, module, user);
-        RaiseLocalEvent(module, ref ev);
-
-        if (TryComp<StorageComponent>(entity, out var storage))
-        {
-            foreach (var stored in storage.Container.ContainedEntities.ToArray())
-                _storage.Insert(module, stored, out _, playSound: false);
-        }
-
-        RefreshUser(user);
-        RemoveModuleEffects(entity, module, user);
-        return true;
-    }
-
-    private void RefreshEvents(Entity<MCArmorModularClothingComponent> armor)
-    {
-        var ev = new MCArmorModuleUserChangedEvent(null, armor.Comp.CurrentUser);
-        foreach (var (entityUid, _) in EnumerateModules(armor))
-        {
-            RaiseLocalEvent(entityUid, ref ev);
-        }
-    }
-
-    private void RaiseUserChangedOnAllModules(Entity<MCArmorModularClothingComponent> armor, EntityUid? oldUser, EntityUid? newUser)
-    {
-        var ev = new MCArmorModuleUserChangedEvent(oldUser, newUser);
-        foreach (var (entityUid, _) in EnumerateModules(armor))
-        {
-            RaiseLocalEvent(entityUid, ref ev);
         }
     }
 }
