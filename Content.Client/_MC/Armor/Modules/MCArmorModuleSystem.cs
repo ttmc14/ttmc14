@@ -24,11 +24,17 @@ public sealed class MCArmorModuleSystem : MCArmorModuleSharedSystem
             if (moduleComponent.Visuals is not {} sprite)
                 continue;
 
-            args.Layers.Add(($"mc_armor_modular_clothing_slot_{slot.Id}", new PrototypeLayerData
+            var target = moduleComponent.VisualsLayer ?? args.Slot;
+            var key = $"mc_armor_modular_clothing_slot_{slot.Id}";
+
+            args.Layers.Add((key, new PrototypeLayerData
             {
                 RsiPath = sprite.RsiPath.CanonPath,
                 State = sprite.RsiState,
             }));
+
+            // Depth tweak
+            args.MCDepth[key] = target;
         }
     }
 }

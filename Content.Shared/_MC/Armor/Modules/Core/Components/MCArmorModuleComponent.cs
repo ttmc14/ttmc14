@@ -12,6 +12,9 @@ public sealed partial class MCArmorModuleComponent : Component
     public SpriteSpecifier.Rsi? Visuals;
 
     [DataField, AutoNetworkedField]
+    public string? VisualsLayer;
+
+    [DataField, AutoNetworkedField]
     public MCArmorDefinition Armor;
 
     [DataField]

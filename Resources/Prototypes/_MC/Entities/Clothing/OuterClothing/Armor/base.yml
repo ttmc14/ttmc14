@@ -79,6 +79,10 @@
       whitelist:
         tags:
           - MCArmorModuleBodyStorage
+    - id: customization
+      whitelist:
+        tags:
+          - MCArmorModuleCustomizationBody
 
 # Components
 - type: entity

@@ -13,6 +13,9 @@
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     sections:
+    - name: Paint
+      entries:
+      - id: MCCustomizationPaint
     - name: Standard
       entries:
       - id: MCJumpsuitMarineSquad
@@ -61,6 +64,49 @@
       entries:
       - id: MCBackpackMarineStandard
       - id: MCSatchelMarineStandard
+    - name: Capes
+      entries:
+      - id: MCArmorModuleCustomizationCapeBack
+      - id: MCArmorModuleCustomizationCapeCover1
+      - id: MCArmorModuleCustomizationCapeCover2
+      - id: MCArmorModuleCustomizationCapeDrifter
+      - id: MCArmorModuleCustomizationCapeFull
+      - id: MCArmorModuleCustomizationCapeFullHide
+      - id: MCArmorModuleCustomizationCapeGeist
+      - id: MCArmorModuleCustomizationCapeGeistHide
+      - id: MCArmorModuleCustomizationCapeGhille
+      - id: MCArmorModuleCustomizationCapeGhille2
+      - id: MCArmorModuleCustomizationCapeGhilleLeft
+      - id: MCArmorModuleCustomizationCapeGhilleRight
+      - id: MCArmorModuleCustomizationCapeHalf
+      - id: MCArmorModuleCustomizationCapeHalfHide
+      - id: MCArmorModuleCustomizationCapeJacket
+      - id: MCArmorModuleCustomizationCapeKama
+      - id: MCArmorModuleCustomizationCapeKilt
+      - id: MCArmorModuleCustomizationCapeKiltAlt
+      - id: MCArmorModuleCustomizationCapeNormal
+      - id: MCArmorModuleCustomizationCapeNormalHide
+      - id: MCArmorModuleCustomizationCapeOldShort
+      - id: MCArmorModuleCustomizationCapeOldShortHide
+      - id: MCArmorModuleCustomizationCapeOverlord
+      - id: MCArmorModuleCustomizationCapeOverlord2
+      - id: MCArmorModuleCustomizationCapeOverlord3
+      - id: MCArmorModuleCustomizationCapeRapierLeft
+      - id: MCArmorModuleCustomizationCapeRapierRight
+      - id: MCArmorModuleCustomizationCapeScarf
+      - id: MCArmorModuleCustomizationCapeScarfHide
+      - id: MCArmorModuleCustomizationCapeScarfRound
+      - id: MCArmorModuleCustomizationCapeScarfTied
+      - id: MCArmorModuleCustomizationCapeShoal
+      - id: MCArmorModuleCustomizationCapeShoal2
+      - id: MCArmorModuleCustomizationCapeShoalBack
+      - id: MCArmorModuleCustomizationCapeShort
+      - id: MCArmorModuleCustomizationCapeShortHide
+      - id: MCArmorModuleCustomizationCapeShredded
+      - id: MCArmorModuleCustomizationCapeShreddedHide
+      - id: MCArmorModuleCustomizationCapeStar
+      - id: MCArmorModuleCustomizationCapeStriped
+      - id: MCArmorModuleCustomizationCapeStripedHide
     - name: Instruments
       entries:
       - id: SynthesizerInstrument
