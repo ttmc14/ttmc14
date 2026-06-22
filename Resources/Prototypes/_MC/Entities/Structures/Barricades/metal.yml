@@ -62,8 +62,8 @@
       types:
         MCBrute: 10
   - type: Construction
-    graph: BarricadeMetalGraph
-    node: nodeMetal
+    graph: MCBarricadeMetalGraph
+    node: mcnodeMetal
   - type: RMCConstructionUpgradeTarget
     skill: MCSkillConstruction
     upgrades:
