@@ -107,7 +107,7 @@
   - type: RMCProjectileAccuracy
     thresholds:
     - range: 4
-      falloff: 20
+      falloff: 10
 
 # slug
 - type: entity
@@ -176,25 +176,24 @@
   - type: MCXenoSunderDamageOnHit
     amount: 7.5
   - type: CMArmorPiercing
-    amount: 10
+    amount: 20
   - type: MCStunOnHit
     paralyzeTime: 1
     staggerTime: 1
     knockback: 1
-    slowdownTime: 1.5
-    maxDistance: 6
+    slowdownTime: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
     - range: 7
       falloff: 9999
       ignoreModifiers: true
     - range: 0
-      falloff: 10
+      falloff: 1
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
-    - range: 7
-      falloff: 30
+    - range: 8
+      falloff: 10
 
 # slug tx15
 - type: entity
@@ -238,19 +237,19 @@
     amount: 30
   - type: MCStunOnHit
     knockback: 2
-    slowdownTime: 1.5
+    slowdownTime: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 7
+    - range: 15
       falloff: 9999
       ignoreModifiers: true
     - range: 0
-      falloff: 8
+      falloff: 1
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
-    - range: 7
-      falloff: 30
+    - range: 8
+      falloff: 10
 
 # flechette
 - type: entity
@@ -326,11 +325,11 @@
     spread: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 5
+    - range: 15
       falloff: 9999
       ignoreModifiers: true
     - range: 0
-      falloff: 12
+      falloff: 0.25
 
 - type: entity
   parent: MCBulletShotgunFlechette
