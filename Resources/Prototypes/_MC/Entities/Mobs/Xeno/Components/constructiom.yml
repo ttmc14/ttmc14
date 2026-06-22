@@ -22,13 +22,13 @@
     - LarvaSilo
     - EvolutionTower
     - PsychicRelay
-    # - PheromoneTower
+    - PheromoneTower
     - Spawner
     # - AcidPool
     # - AcidJaws
     # - AcidMaw
-    # - AcidTurret
-    # - StickyResinTurret
+    - AcidTurret
+    - StickyResinTurret
     # - Gargoyle
     # - PrimordialTierOne
     # - PrimordialTierTwo

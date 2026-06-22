@@ -110,7 +110,8 @@
     state: acidturret
   group: Defences
   costType: Tactical
-  cost: 50
+  entity: MCXenoStructureTurretAcid
+  cost: 100
   time: 10
 
 - type: MCXenoBlessingsEntry
@@ -122,6 +123,7 @@
     state: resinturret
   group: Defences
   costType: Tactical
+  entity: MCXenoStructureTurretSticky
   cost: 50
   time: 10
 
