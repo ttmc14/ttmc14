@@ -23,7 +23,7 @@
   id: MCGuideMarineValiWeapon
   name: Вали
   priority: 1
-  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/MCGuideVali.xml"
+  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/Weapons/MCGuideVali.xml"
 
 - type: guideEntry
   parent: MC
