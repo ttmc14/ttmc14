@@ -1,0 +1,383 @@
+- type: entity
+  id: MCWeaponMachineGunMG27
+  name: MG-27 medium machinegun
+  description: The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes.
+  parent: MCWeaponMG
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    layers:
+    - state: base
+      map:
+      - enum.GunVisualLayers.Base
+    - state: mag-0
+      map:
+      - enum.GunVisualLayers.Mag
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27.ogg
+      params:
+        volume: -4
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/m41a_empty.ogg
+    availableModes:
+    - FullAuto
+    selectedMode: FullAuto
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilWielded: 1.1
+    recoilUnwielded: 4
+    scatterWielded: 2
+    scatterUnwielded: 25
+    baseFireRate: 7
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.6
+  - type: WieldDelay
+    baseDelay: 2.2 # Pariarity
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineMG42
+        insertSound: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27_boxin.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27_boxout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineMG42
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentRedDotSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.7, -0.0225
+      rmc-aslot-rail: 0.2, 0.09
+      rmc-aslot-underbarrel: 0.28, -0.31
+  - type: Wieldable
+  - type: Construction
+    graph: MCMg27MountGraph
+    node: mg27
+
+- type: entity
+  id: MCMagazineMG27
+  name: MG-27 box magazine (10x27m Caseless)
+  description: A box of 150 10x27mm caseless rounds for the MG-27 medium machinegun.
+  parent: RMCMagazineLMGBase
+  components:
+  - type: Tag
+    tags:
+    - RMCMagazineLMG
+    - MCMagazineMG27
+  - type: BallisticAmmoProvider
+    proto: MCCartridgeRifleAR12
+    capacity: 150
+    whitelist:
+      tags:
+      - MCCartridgeRifleAR12
+    mayTransfer: true
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/mg27.rsi
+    layers:
+    - state: base
+      map:
+      - enum.GunVisualLayers.Base
+    - state: mag-0
+      map:
+      - enum.GunVisualLayers.Mag
+  - type: Appearance
+
+- type: entity
+  id: MCWeaponMachineGunMG27Mount
+  name: MG-27 medium machinegun
+  description: The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes.
+  parent:
+  - RMCBaseWeaponMount
+  - MCItem
+  components:
+  - type: Item
+    size: Huge
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    layers:
+    - state: t27_deployed
+      map:
+      - enum.WeaponMountComponentVisualLayers.Mounted
+      visible: false
+    - state: t27_deployed_e
+      map:
+      - enum.WeaponMountComponentVisualLayers.MountedAmmo
+      visible: false
+    - state: base
+      map:
+      - enum.WeaponMountComponentVisualLayers.Folded
+      visible: false
+    - state: mag-0
+      map:
+      - enum.WeaponMountComponentVisualLayers.FoldedAmmo
+      visible: false
+    state: base
+  - type: Strap
+    enabled: false
+  - type: Clothing
+    slots:
+    - suitStorage
+    - Back
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 200
+      behaviors:
+      - !type:PlaySoundBehavior
+        sound:
+          collection: MetalBreak
+      - !type:DoActsBehavior
+        acts:
+        - Breakage
+  - type: CollisionWake
+  - type: WeaponMount
+    fixedWeaponPrototype: MCWeaponMachineGunMG27Mounted
+    isWeaponSecured: true
+    isWeaponLocked: false
+    assembleDelay: 1
+    mountExclusionAreaSize: 0
+    barricadeExclusionAreaSize: 0
+    canRotateWithoutTool: true
+    mountOnDeploy: true
+    acidableWhileUndeployed: true
+    undeploySound: /Audio/_MC/Weapons/Guns/flipblade.ogg
+  - type: Tag
+    tags:
+    - MCWeaponMachineGunMG27Mount
+  - type: Foldable
+    folded: true
+    isLocked: true
+  - type: Corrodible
+    isCorrodible: true
+  - type: Construction
+    graph: MCMg27MountGraph
+    node: mg27mount
+
+- type: entity
+  id: MCWeaponMachineGunMG27Mounted
+  name: MG-27 medium machinegun
+  description: The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes.
+  parent: MCWeaponMG
+  suffix: DO NOT TOUCH.
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    layers:
+    - state: base
+      map:
+      - enum.GunVisualLayers.Base
+    - state: mag-0
+      map:
+      - enum.GunVisualLayers.Mag
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+  - type: Tag
+    tags:
+    - MCWeaponMachineGunMG27
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27.ogg
+      params:
+        volume: -4
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/m41a_empty.ogg
+    availableModes:
+    - FullAuto
+    selectedMode: FullAuto
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilWielded: 1.1
+    recoilUnwielded: 4
+    scatterWielded: 2
+    scatterUnwielded: 25
+    baseFireRate: 8
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.6
+  - type: WieldDelay
+    baseDelay: 2.2 # Pariarity
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineMG42
+        insertSound: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27_boxin.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27_boxout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineMG42
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentRedDotSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.7, -0.0225
+      rmc-aslot-rail: 0.2, 0.09
+      rmc-aslot-underbarrel: 0.28, -0.31
+  - type: Wieldable
+
+- type: Tag
+  id: MCWeaponMachineGunMG27Mount
+
+- type: Tag
+  id: MCWeaponMachineGunMG27
+
+- type: Tag
+  id: MCMagazineMG27
+
+- type: entity
+  id: MCWeaponMachineGunMG27TEST
+  name: MG-27 medium machinegun
+  description: The MG-27 is the SG-29s aging IFF-less cousin, made for rapid accurate machinegun fire in a short amount of time, you could use it while standing, not a great idea. Use the tripod for actual combat. It uses 10x27mm boxes.
+  parent: MCWeaponMG
+  suffix: TEST
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    layers:
+    - state: base
+      map: [ enum.GunVisualLayers.Base ]
+    - state: mag-0
+      map: [ enum.GunVisualLayers.Mag ]
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+    state: icon
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Machine/mg27.rsi
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot {}
+      gun_chamber: !type:ContainerSlot {}
+  - type: Gun
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27.ogg
+      params:
+        volume: -4
+    soundEmpty:
+      path: /Audio/_MC/Weapons/Guns/Empty/m41a_empty.ogg
+    availableModes:
+    - FullAuto
+    selectedMode: FullAuto
+  - type: RMCSelectiveFire
+    baseFireModes:
+    - FullAuto
+    recoilWielded: 1.1
+    recoilUnwielded: 4
+    scatterWielded: 2
+    scatterUnwielded: 25
+    baseFireRate: 7
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 1.1
+    accuracyMultiplierUnwielded: 0.6
+  - type: WieldDelay
+    baseDelay: 2.2 # Pariarity
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineMG42
+        insertSound: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27_boxin.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Machineguns/MG27/MG27_boxout.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineMG42
+  - type: GunDamageModifier
+    multiplier: 1
+  - type: AttachableHolder
+    slots:
+      rmc-aslot-barrel:
+        whitelist:
+          tags:
+          - MCAttachmentSuppressor
+          - MCAttachmentBayonet
+      rmc-aslot-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentRedDotSight
+      rmc-aslot-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+  - type: AttachableHolderVisuals
+    offsets:
+      rmc-aslot-barrel: 0.7, -0.0225
+      rmc-aslot-rail: 0.2, 0.09
+      rmc-aslot-underbarrel: 0.28, -0.31
+  - type: Wieldable
+  - type: WeaponMount
+    fixedWeaponPrototype: MCWeaponMachineGunMG27Mounted
+    isWeaponSecured: false
+    isWeaponLocked: false
+    assembleDelay: 1
+    mountExclusionAreaSize: 0
+    barricadeExclusionAreaSize: 0
+    canRotateWithoutTool: true
+    mountOnDeploy: true
+    acidableWhileUndeployed: true
+    undeploySound: /Audio/_MC/Weapons/Guns/flipblade.ogg
+  - type: Foldable
+    folded: true
+    isLocked: false

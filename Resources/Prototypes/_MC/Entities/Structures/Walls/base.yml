@@ -74,6 +74,14 @@
     hitsToDestroy: 20
   - type: Appearance
   - type: Bullethole
+  - type: RMCGenericExamine
+    message: rmc-structure-wall-repair-examine-tip
+    whitelist:
+      components:
+      - Marine
+  - type: RMCRepairable
+    heal: 200
+    delay: 1
   - type: XenoToggleChargingDamage
     stop: true
     damage:

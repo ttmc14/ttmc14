@@ -1,0 +1,40 @@
+- type: constructionGraph
+  parent: RMC
+  id: MCBarricadePlasteelDoorGraph
+  start: start
+  graph:
+  - node: start
+    actions:
+    - !type:DeleteEntity
+    edges:
+    - to: nodeBarricadePlasteelDoor
+      completed:
+      - !type:SnapToGrid
+      steps:
+      - material: CMPlasteel
+        amount: 8
+        doAfter: 4
+
+  - node: mcnodeBarricadePlasteelDoor
+    entity: MCBarricadePlasteelFolding
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetPlasteel1
+        amount: 8
+      - !type:ConditionalAction
+        condition:
+          !type:IsBarbed
+        action:
+          !type:SpawnPrototype
+          prototype: MCBarbedWire1
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored
+        anchored: false
+      steps:
+      - tool: Screwing
+        doAfter: 1
+      - tool: Prying
+        doAfter: 5
