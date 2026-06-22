@@ -80,8 +80,8 @@
       fire: 100
       acid: 55
   - type: Construction
-    graph: MCBarricadePlasteelGraph
-    node: mcnodePlasteel
+    graph: BarricadePlasteelGraph
+    node: nodePlasteel
   - type: RMCConstructionUpgradeTarget
     skill: MCSkillConstruction
     upgrades:

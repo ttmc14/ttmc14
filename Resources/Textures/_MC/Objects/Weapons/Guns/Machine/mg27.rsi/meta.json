@@ -39,14 +39,6 @@
     },
     {
       "name": "base"
-    },
-    {
-      "name": "t27_deployed_e",
-      "directions": 4
-    },
-    {
-      "name": "t27_deployed",
-      "directions": 4
     }
   ]
 }

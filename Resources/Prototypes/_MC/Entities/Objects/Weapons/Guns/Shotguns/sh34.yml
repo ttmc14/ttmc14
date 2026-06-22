@@ -17,8 +17,6 @@
     shotsPerBurst: 1
   - type: Appearance
   - type: ShootUseDelay
-  - type: WieldDelay
-    delay: 0.7
   - type: UseDelay
   - type: GunRequiresWield
   - type: RMCSelectiveFire
