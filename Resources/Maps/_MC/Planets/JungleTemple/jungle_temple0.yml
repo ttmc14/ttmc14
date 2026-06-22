@@ -51893,15 +51893,6 @@ entities:
       parent: 1
     - type: CEZPhysics
       sleeping: True
-- proto: MCWebbingSurgeryFill
-  entities:
-  - uid: 1505
-    components:
-    - type: Transform
-      pos: 39.5,22.5
-      parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCWindowColonyReinforced
   entities:
   - uid: 3683
