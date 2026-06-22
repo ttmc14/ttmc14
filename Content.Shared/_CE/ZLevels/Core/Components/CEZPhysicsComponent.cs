@@ -101,16 +101,12 @@ public sealed partial class CEZPhysicsComponent : Component
 
     #region Sleep
 
-    [DataField]
     public float SleepTimer;
 
-    [DataField]
     public bool Sleeping;
 
-    [DataField]
     public float SleepThreshold = 0.3f;
 
-    [DataField]
     public float TimeToSleep = 2f;
 
     #endregion
