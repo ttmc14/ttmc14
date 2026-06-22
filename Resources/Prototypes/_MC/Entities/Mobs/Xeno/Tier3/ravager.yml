@@ -33,12 +33,10 @@
     tier: 3
     role: MCXenoRavager
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Abilities
     - MCActionXenoRavage
     - MCActionXenoCharge

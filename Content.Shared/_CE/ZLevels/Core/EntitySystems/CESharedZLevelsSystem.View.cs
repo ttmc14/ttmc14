@@ -1,5 +1,7 @@
+using System.Numerics;
 using Content.Shared._CE.ZLevels.Core.Components;
 using Content.Shared._CE.ZLevels.Core.Events;
+using Content.Shared._MC.ZLevels;
 using Content.Shared.Maps;
 using Robust.Shared.Map;
 
@@ -62,5 +64,118 @@ public abstract partial class CESharedZLevelsSystem
 
         var tileDef = (ContentTileDefinition)TilDefMan[tileRef.Tile.TypeId];
         return !tileDef.Transparent;
+    }
+
+    public bool TryFindZShotOpening(
+        EntityUid sourceMap,
+        EntityUid targetMap,
+        int offset,
+        Vector2 from,
+        Vector2 to,
+        out Vector2 opening,
+        bool preferOpeningAwayFromSource = false,
+        float maxSourceDistanceFromOpeningEdgeTiles = float.PositiveInfinity)
+    {
+        opening = default;
+        if (offset == 0)
+            return false;
+
+        var openingMap = offset < 0 ? sourceMap : targetMap;
+        if (!_gridQuery.TryComp(openingMap, out var grid))
+            return false;
+
+        var sourceTile = preferOpeningAwayFromSource
+            ? _map.WorldToTile(openingMap, grid, from)
+            : default;
+
+        var fallbackOpening = Vector2.Zero;
+        var hasFallbackOpening = false;
+
+        var maxSourceDistanceFromOpeningCenter = float.IsPositiveInfinity(maxSourceDistanceFromOpeningEdgeTiles)
+            ? float.PositiveInfinity
+            : grid.TileSize * (0.5f + Math.Max(0f, maxSourceDistanceFromOpeningEdgeTiles));
+
+        var maxSourceDistanceSquared = maxSourceDistanceFromOpeningCenter * maxSourceDistanceFromOpeningCenter;
+        var selectedOpening = Vector2.Zero;
+
+        var localFrom = _map.WorldToLocal(openingMap, grid, from) / grid.TileSize;
+        var localTo = _map.WorldToLocal(openingMap, grid, to) / grid.TileSize;
+
+        var localDelta = localTo - localFrom;
+
+        var currentTile = new Vector2i((int) MathF.Floor(localFrom.X), (int) MathF.Floor(localFrom.Y));
+        var endTile = new Vector2i((int) MathF.Floor(localTo.X), (int) MathF.Floor(localTo.Y));
+
+        var stepX = Math.Sign(localDelta.X);
+        var stepY = Math.Sign(localDelta.Y);
+
+        var tDeltaX = stepX == 0 ? float.PositiveInfinity : MathF.Abs(1f / localDelta.X);
+        var tDeltaY = stepY == 0 ? float.PositiveInfinity : MathF.Abs(1f / localDelta.Y);
+
+        var nextBoundaryX = stepX > 0 ? currentTile.X + 1f : currentTile.X;
+        var nextBoundaryY = stepY > 0 ? currentTile.Y + 1f : currentTile.Y;
+
+        var tMaxX = stepX == 0 ? float.PositiveInfinity : (nextBoundaryX - localFrom.X) / localDelta.X;
+        var tMaxY = stepY == 0 ? float.PositiveInfinity : (nextBoundaryY - localFrom.Y) / localDelta.Y;
+
+        while (true)
+        {
+            if (TryUseOpeningTile(currentTile))
+            {
+                opening = selectedOpening;
+                return true;
+            }
+
+            if (currentTile == endTile)
+                break;
+
+            if (tMaxX < tMaxY)
+            {
+                currentTile += new Vector2i(stepX, 0);
+                tMaxX += tDeltaX;
+                continue;
+            }
+
+            if (tMaxY < tMaxX)
+            {
+                currentTile += new Vector2i(0, stepY);
+                tMaxY += tDeltaY;
+                continue;
+            }
+
+            currentTile += new Vector2i(stepX, stepY);
+            tMaxX += tDeltaX;
+            tMaxY += tDeltaY;
+        }
+
+        if (!hasFallbackOpening)
+            return false;
+
+        opening = fallbackOpening;
+        return true;
+
+        bool TryUseOpeningTile(Vector2i tile)
+        {
+            if (_map.TryGetTileRef(openingMap, grid, tile, out var tileRef) && !MCZLevelOpeningCache.IsOpeningTile(tileRef.Tile, TilDefMan))
+                return false;
+
+            var openingCenter = _map.ToCenterCoordinates(openingMap, tile, grid).Position;
+            if (Vector2.DistanceSquared(from, openingCenter) > maxSourceDistanceSquared)
+                return false;
+
+            if (preferOpeningAwayFromSource && tile == sourceTile)
+            {
+                if (hasFallbackOpening)
+                    return false;
+
+                fallbackOpening = openingCenter;
+                hasFallbackOpening = true;
+
+                return false;
+            }
+
+            selectedOpening = openingCenter;
+            return true;
+        }
     }
 }

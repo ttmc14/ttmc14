@@ -1,5 +1,4 @@
-﻿using Content.Shared._MC.Armor;
-using Content.Shared._MC.Armor.Events;
+﻿using Content.Shared._MC.Armor.Core.Events;
 using Content.Shared._MC.Xeno.Visuals;
 using Content.Shared.Movement.Systems;
 

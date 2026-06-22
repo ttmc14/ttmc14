@@ -20,12 +20,12 @@
       - MCSyringe
       - MCCaseSyringe
       - MCAutoInjector
-      - MCGauze
-      - MCSplint
+      - MCHealingGauze
+      - MCHealingSplint
       - Ointments
-      - MCOintment
-      - MCTraumaKit
-      - MCBurnKit
+      - MCHealingOintment
+      - MCHealingTraumaKit
+      - MCHealingBurnKit
       - MCPill
       - MCPacketPills
       components:
@@ -65,10 +65,10 @@
     - id: MCPillCanisterQuickClot
     # alkysine pill bottle
     # spaceacillin pill bottle
-    - id: MCTraumaKit
+    - id: MCHealingTraumaKit
       amount: 3
-    - id: MCBurnKit
+    - id: MCHealingBurnKit
       amount: 3
-    - id: MCSplint
+    - id: MCHealingSplint
       amount: 2
     - id: MCHealthAnalyzer

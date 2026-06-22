@@ -1,5 +1,5 @@
 ﻿using Content.Shared._CE.ZLevels.Core.EntitySystems;
-using Content.Shared._MC.Armor;
+using Content.Shared._MC.Armor.Core;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
 using Content.Shared.Inventory;

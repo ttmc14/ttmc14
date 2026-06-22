@@ -218,6 +218,30 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
             ? null
             : _mcWeedsRegenerationQuery.CompOrNull(entity.Comp.LastWeedsEntity.Value);
     }
+
+    public float GetHealthStateRatio(EntityUid uid)
+    {
+        if (!_damageableQuery.TryComp(uid, out var damageable))
+            return 0f;
+
+        var currentDamage = damageable.TotalDamage.Float();
+        var criticalDamageThreshold = GetHealthThreshold(uid);
+        var deadDamageThreshold = GetMaxHealthThreshold(uid);
+
+        if (criticalDamageThreshold <= 0f)
+            criticalDamageThreshold = deadDamageThreshold * 0.75f;
+
+        if (deadDamageThreshold <= criticalDamageThreshold)
+            deadDamageThreshold = criticalDamageThreshold + 100f;
+
+        if (currentDamage <= criticalDamageThreshold)
+            return float.Clamp(1f - currentDamage / criticalDamageThreshold, 0f, 1f);
+
+        if (currentDamage >= deadDamageThreshold)
+            return -1f;
+
+        return Math.Clamp(-(currentDamage - criticalDamageThreshold) / (deadDamageThreshold - criticalDamageThreshold), -1f, 0f);
+    }
 }
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]

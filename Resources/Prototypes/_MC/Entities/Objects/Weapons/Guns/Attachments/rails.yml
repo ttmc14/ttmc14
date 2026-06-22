@@ -1,9 +1,8 @@
 - type: entity
-  parent: [ MCAttachmentBaseRail, MCAttachableToggleableBase ]
+  parent: [ MCAttachmentRail, MCAttachableToggleableBase ]
   id: MCAttachmentRailFlashlight
   name: rail flashlight
-  description: "A simple flashlight used for mounting on a firearm.
-    Has no drawbacks, but isn't particuraly useful outside of providing a light source."
+  description: "A simple flashlight used for mounting on a firearm. Has no drawbacks, but isn't particuraly useful outside of providing a light source."
   components:
   - type: ItemTogglePointLight
   - type: ToggleableVisuals
@@ -81,7 +80,7 @@
     node: RailLight
 
 - type: entity
-  parent: MCAttachmentBaseRail
+  parent: MCAttachmentRail
   id: MCAttachmentMagneticHarness
   name: magnetic harness
   description: A magnetically attached harness kit that attaches to the rail mount of a weapon. When dropped, the weapon will sling to a TGMC armor.
@@ -96,7 +95,7 @@
   - type: AttachableVisuals
 
 - type: entity
-  parent: MCAttachmentBaseScope
+  parent: MCAttachmentScope
   id: MCAttachmentT47RailScope
   name: T-47 rail scope
   description: A marine standard mounted zoom sight scope. Allows zoom by activating the attachment.
@@ -134,7 +133,7 @@
       accuracyAddMult: -0.05
 
 - type: entity
-  parent: MCAttachmentBaseScope
+  parent: MCAttachmentScope
   id: MCAttachmentMiniScope
   name: mini rail scope
   description: A small rail mounted zoom sight scope. Allows zoom by activating the attachment.
@@ -177,11 +176,10 @@
       accuracyAddMult: -0.05
 
 - type: entity
-  parent: MCAttachmentBaseRail
+  parent: MCAttachmentRail
   id: MCAttachmentRedDotSight
   name: red-dot sight
-  description: "A red-dot sight for short to medium range. Does not have a zoom feature, but does increase weapon accuracy and fire rate while aiming by a good amount.
-    No drawbacks."
+  description: "A red-dot sight for short to medium range. Does not have a zoom feature, but does increase weapon accuracy and fire rate while aiming by a good amount. No drawbacks."
   components:
   - type: Sprite
     state: reddot
@@ -213,4 +211,3 @@
 
 - type: Tag
   id: MCAttachmentRedDotSight # Прицел с красной точкой
-

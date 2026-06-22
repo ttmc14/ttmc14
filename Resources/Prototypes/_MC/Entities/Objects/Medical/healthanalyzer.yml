@@ -2,9 +2,11 @@
   id: MCHealthAnalyzer
   parent: MCItem
   name: HF2 health analyzer
-  suffix: MC
   description: A high-tech hand-held body scanner able to distinguish vital signs of subjects. The front panel is able to provide the readout of a subject's status.
   components:
+  - type: Tag
+    tags:
+    - MCHealthAnalyzer
   - type: Sprite
     sprite: _MC/Objects/Medical/healthanalyzer.rsi
     state: icon
@@ -14,38 +16,35 @@
         shader: unshaded
         visible: true
         map: [ "enum.PowerDeviceVisualLayers.Powered" ]
+  - type: Clothing
+    quickEquip: false
+    slots:
+    - belt
   - type: Item
     size: Small
     heldPrefix: analyzer
     storedRotation: -90
-  - type: ActivatableUI
-    key: enum.HealthScannerUIKey.Key
-    inHandsOnly: false
   - type: UserInterface
     interfaces:
       enum.HealthScannerUIKey.Key:
         type: MCHealthScannerBui
+  - type: ActivatableUI
+    key: enum.HealthScannerUIKey.Key
+    inHandsOnly: false
   - type: HealthScanner
     sound:
       path: "/Audio/_RMC14/Medical/healthanalyzer.ogg"
   - type: UseDelay
     delay: 0
-  - type: MedicallyUnskilledDoAfter # Parity
+  - type: MedicallyUnskilledDoAfter
     min: 1
     doAfter: 5
-  - type: Tag
-    tags:
-    - MCHealthAnalyzer
-  - type: Clothing
-    quickEquip: false
-    slots:
-    - belt
+    skill: MCSkillMedical
 
 - type: entity
   parent: MCHealthAnalyzer
   id: MCHealthAnalyzerCombat
   name: HF2 combat health analyzer
-  suffix: MC
   description: A high-tech portable combat body scanner capable of quickly distinguishing the vital signs of various objects. Information about the condition of the object is displayed on the front panel.
   components:
   - type: Sprite
@@ -74,6 +73,7 @@
   - type: UseDelay
     delay: 0
   - type: MedicallyUnskilledDoAfter
+    skill: MCSkillMedical
     min: 1
     doAfter: 1
   - type: Tag

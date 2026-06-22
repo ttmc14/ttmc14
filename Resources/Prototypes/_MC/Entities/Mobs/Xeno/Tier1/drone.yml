@@ -43,15 +43,10 @@
     tier: 1
     role: MCXenoDrone
     actionIds:
-    # Visuals
-    - MCActionXenoSkin
     # Base
-    # Visuals
-    - MCActionXenoSkin
-    # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Construction
     - MCActionXenoChooseStructure
     - MCActionXenoSecreteStructure

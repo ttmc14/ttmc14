@@ -14,6 +14,9 @@
   - type: MCSolutionTicker
   - type: MCSolutionEventProvider
   - type: MCSolutionCooldownProvider
+  # [pain]
+  - type: MCPain
+  - type: MCPainReagents
   # [armor]
   - type: MCArmor
     showExamine: false
@@ -28,3 +31,6 @@
   # [cost]
   - type: MCASRSCost
     cost: 25
+  # [skills]
+  - type: MCSkillInjectable
+    slotsMax: 2

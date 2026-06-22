@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Armor.Events;
+﻿using Content.Shared._MC.Armor.Core.Events;
 using Content.Shared.Movement.Systems;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;

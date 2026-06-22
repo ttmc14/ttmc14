@@ -2,6 +2,7 @@
 using Content.Shared._MC.Mob.Stamina;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Abilities.Warrior.Agility;
+using Content.Shared._MC.Xeno.Abilities.Warrior.Momentum;
 using Content.Shared._RMC14.CameraShake;
 using Content.Shared._RMC14.Weapons.Melee;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -23,7 +24,6 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
-    [Dependency] private readonly MobStateSystem _mobState = null!;
     [Dependency] private readonly SharedJitteringSystem _jittering = null!;
     [Dependency] private readonly RMCCameraShakeSystem _cameraShake = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
@@ -31,6 +31,7 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
     [Dependency] private readonly MCStunSystem _mcStun = null!;
     [Dependency] private readonly MCStaminaSystem _mcStamina = null!;
     [Dependency] private readonly MCKnockbackSystem _mcKnockback = null!;
+    [Dependency] private readonly MCXenoMomentumSystem _mcMomentum = null!;
 
     public override void Initialize()
     {
@@ -44,10 +45,7 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
         if (!TryUse(entity, ref args))
             return;
 
-        // TODO: empower
-        const bool empowered = false;
-
-        var empowerMultiplier = empowered ? entity.Comp.EmpowerMultiplier : 1;
+        var empowerMultiplier = _mcMomentum.TryRemoveStacks(entity.Owner, entity.Comp.MomentumEmpowerCost) ? entity.Comp.EmpowerMultiplier : 1;
         var grappled = TryComp<PullerComponent>(entity, out var pullerComponent) && pullerComponent.Pulling == args.Target;
 
         var damage = GetDamage(entity);
@@ -79,13 +77,10 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
         _mcStun.Slowdown(args.Target, slowdown);
         _mcStun.Stagger(args.Target, stagger);
 
-        // TODO: blur
-
         _damageable.TryChangeDamage(args.Target, damage * damageMultiplier * empowerMultiplier * structureDamageMultiplier, origin: entity, tool: entity);
         _mcStamina.ApplyDamage(args.Target, damageTotal * damageMultiplier * empowerMultiplier * structureDamageMultiplier);
         _mcKnockback.KnockbackFrom(args.Target, entity, entity.Comp.KnockbackDistance, entity.Comp.KnockbackSpeed);
 
-        // Effects
         AnimateHit(entity, args.Target);
 
         _audio.PlayPredicted(sound, entity, entity);
@@ -98,33 +93,16 @@ public sealed class MCXenoPunchSystem : MCXenoAbilitySystem
 
         if (!HasComp<DamageableComponent>(args.Target))
         {
-            PopupClient(LocIdCannotDamage);
+            _popup.PopupClient(Loc.GetString(LocIdCannotDamage), entity, entity);
             return false;
         }
 
-        if (MCXenoHive.FromSameHive(entity.Owner, args.Target))
-        {
-            PopupClient(LocIdCannotPunch);
-            return false;
-        }
-
-        if (_mobState.IsDead(args.Target))
-        {
-            PopupClient(LocIdTargetDead);
-            return false;
-        }
-
-        if (!RMCActions.TryUseAction(entity, args.Action, entity))
+        if (!TryUseAction(entity, args.Action, args.Target, affectOnStructures: true))
             return false;
 
         RemComp<MCXenoAgilityActiveComponent>(entity);
 
         args.Handled = true;
         return true;
-
-        void PopupClient(LocId message)
-        {
-            _popup.PopupClient(Loc.GetString(message), entity, entity);
-        }
     }
 }

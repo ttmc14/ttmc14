@@ -1,0 +1,79 @@
+- type: entity
+  parent:
+  - MCPouchStorage
+  - MCPouchVisualizerOpen
+  id: MCPouchMedkit
+  name: medkit pouch
+  description: A standard use medkit pouch that can contain all kinds of medical supplies and equipment.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/medkit.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,13,1 # 7 slots
+    whitelist:
+      tags:
+      - MCHealthAnalyzer
+      - MCDropper
+      - MCPill
+      - MCPacketPills
+      - MCBottle
+      - MCBottleFilled
+      - MCSyringe
+      - MCPillCanister
+      - MCHealing
+      - MCHypospray
+      - MCAutoInjector
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchMedkit
+  id: MCPouchStorageSOM
+  description: A standard use medkit pouch that can contain all kinds of medical supplies and equipment. Made with traditional SOM leather.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/medkit_som.rsi
+
+- type: entity
+  parent: MCPouchMedkit
+  id: MCPouchMedkitFilled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCHealingTraumaKitCombat
+    - id: MCHealingBurnKitCombat
+    - id: MCHealingSplint
+    - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillNanoblood
+
+- type: entity
+  parent: MCPouchMedkit
+  id: MCPouchMedkitCorpsmanFilled
+  suffix: Filled, Corpsman
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCHealingTraumaKitCombat
+    - id: MCHealingBurnKitCombat
+    - id: MCHealingSplint
+    - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillNanoblood
+
+- type: entity
+  parent: MCPouchMedkit
+  id: MCPouchMedkitSquadBaseFilled
+  suffix: Filled, Squad base
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterDylovene
+    - id: MCHealingGauze
+    - id: MCHealingOintment

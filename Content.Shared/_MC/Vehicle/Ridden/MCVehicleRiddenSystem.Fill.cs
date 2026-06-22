@@ -6,15 +6,20 @@ using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FixedPoint;
 using Content.Shared.Interaction;
+using Content.Shared.Whitelist;
 
 namespace Content.Shared._MC.Vehicle.Ridden;
 
 public sealed partial class MCVehicleRiddenSystem
 {
+    [Dependency] private readonly EntityWhitelistSystem _entityWhitelist = null!;
     [Dependency] private readonly SharedSolutionContainerSystem _solutionContainer = null!;
 
     private void OnInteractUsing(Entity<MCVehicleRiddenComponent> entity, ref InteractUsingEvent args)
     {
+        if (!_entityWhitelist.IsWhitelistPassOrNull(entity.Comp.RefillWhitelist, args.Used))
+            return;
+
         if (!CanFill(entity, args.Used))
             return;
 

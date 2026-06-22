@@ -8,6 +8,10 @@
 # WallSolid: Window
 # Table: null
 
+# 30-05-2026
+MCTraumaKit: MCHealingTraumaKit
+MCBurnKit: MCHealingBurnKit
+
 # 27-01-2026
 MCChemDispenserGround: MCDispenserChemicalGround
 MCChemDispenserMedbay: MCDispenserChemicalMedbay

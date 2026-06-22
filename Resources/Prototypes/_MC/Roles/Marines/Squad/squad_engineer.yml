@@ -36,15 +36,13 @@
       points: 75
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 3
         MCSkillConstruction: 3
-        # RMC
-        RMCSkillPowerLoader: 1
-        RMCSkillLeadership: 1
-        RMCSkillSmartGun: -4
-        RMCSkillFirearms: 1
-        RMCSkillFireman: 1
+        MCSkillPowerLoader: 1
+        MCSkillLeadership: 1
+        MCSkillSmartGun: -4
+        MCSkillFirearms: 1
+        MCSkillFireman: 1
     - type: SquadArmorWearer
     - type: JobPrefix
       prefix: mc-job-prefix-squad-engineer

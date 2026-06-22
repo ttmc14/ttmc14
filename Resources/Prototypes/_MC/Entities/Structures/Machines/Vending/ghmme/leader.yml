@@ -88,7 +88,7 @@
       - id: MCPouchPistolMagazineLarge
       # Sidearm pouch
       - id: MCPouchExplosive
-      - id: MCPouchMedkitSquadBaseFill
+      - id: MCPouchMedkitSquadBaseFilled
         name: Medical pouch (chems included)
       - id: MCPouchMedicalInjectorBaseFull
         name: Auto-injector's medical pouch (chems included)

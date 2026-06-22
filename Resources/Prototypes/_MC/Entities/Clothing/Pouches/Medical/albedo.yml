@@ -1,0 +1,46 @@
+- type: entity
+  parent:
+  - MCPouchStorage
+  - MCPouchVisualizerOpen
+  id: MCPouchR312
+  name: BMSS medkit pouch
+  description: Advanced medkit pouch made by BMSS. It is also capable of holding R-312 ammo and tweezers.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/r312.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,13,1 # 7 slots
+    whitelist:
+      tags:
+      - MCHealthAnalyzer
+      - MCDropper
+      - MCPill
+      - MCPacketPills
+      - MCBottle
+      - MCSyringe
+      - MCPillCanister
+      # PillPacket
+      - MCHealing
+      - MCHypospray
+      - MCAutoInjector
+      # Albedo
+      - MCWeaponRevolverR312
+      - MCSpeedloaderR312
+      - MCBoxHandfulR312
+      - MCHandful
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCPouchR312
+  id: MCPouchR312Filled
+  suffix: Filled
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCHealingTraumaKitCombat
+    - id: MCHealingBurnKitCombat
+    - id: MCHealingSplint
+    - id: MCHyposprayFillMeraderm
+    - id: MCHyposprayFillNanoblood

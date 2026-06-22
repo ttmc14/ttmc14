@@ -1,5 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Hive.Systems;
-using Content.Shared._MC.Xeno.Hive.Systems.Main;
+﻿using Content.Shared._MC.Xeno.Hive.Systems.Main;
 
 namespace Content.Client._MC.Xeno.Hive;
 

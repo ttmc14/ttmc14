@@ -1,0 +1,305 @@
+{
+  "version": 1,
+  "license": null,
+  "copyright": null,
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "kama",
+      "directions": 4
+    },
+    {
+      "name": "kilt",
+      "directions": 4
+    },
+    {
+      "name": "kilt_alt",
+      "directions": 4
+    },
+    {
+      "name": "kilt_no_color",
+      "directions": 4
+    },
+    {
+      "name": "old_short",
+      "directions": 4
+    },
+    {
+      "name": "old_short_h",
+      "directions": 4
+    },
+    {
+      "name": "scarf_round",
+      "directions": 4
+    },
+    {
+      "name": "striped",
+      "directions": 4
+    },
+    {
+      "name": "striped_h",
+      "directions": 4
+    },
+    {
+      "name": "geist",
+      "directions": 4
+    },
+    {
+      "name": "geist_h",
+      "directions": 4
+    },
+    {
+      "name": "scarf_tied",
+      "directions": 4
+    },
+    {
+      "name": "ghille",
+      "directions": 4
+    },
+    {
+      "name": "ghille_right",
+      "directions": 4
+    },
+    {
+      "name": "ghille_left",
+      "directions": 4
+    },
+    {
+      "name": "ghille_2",
+      "directions": 4
+    },
+    {
+      "name": "drifter",
+      "directions": 4
+    },
+    {
+      "name": "scarf",
+      "directions": 4
+    },
+    {
+      "name": "scarf_h",
+      "directions": 4
+    },
+    {
+      "name": "normal",
+      "directions": 4
+    },
+    {
+      "name": "normal_h",
+      "directions": 4
+    },
+    {
+      "name": "short",
+      "directions": 4
+    },
+    {
+      "name": "short_h",
+      "directions": 4
+    },
+    {
+      "name": "shredded",
+      "directions": 4
+    },
+    {
+      "name": "shredded_h",
+      "directions": 4
+    },
+    {
+      "name": "half",
+      "directions": 4
+    },
+    {
+      "name": "half_h",
+      "directions": 4
+    },
+    {
+      "name": "full",
+      "directions": 4
+    },
+    {
+      "name": "full_h",
+      "directions": 4
+    },
+    {
+      "name": "back",
+      "directions": 4
+    },
+    {
+      "name": "cover_1",
+      "directions": 4
+    },
+    {
+      "name": "cover_2",
+      "directions": 4
+    },
+    {
+      "name": "overlord",
+      "directions": 4
+    },
+    {
+      "name": "overlord_2",
+      "directions": 4
+    },
+    {
+      "name": "shoal",
+      "directions": 4
+    },
+    {
+      "name": "shoal_back",
+      "directions": 4
+    },
+    {
+      "name": "star",
+      "directions": 4
+    },
+    {
+      "name": "shoal_2",
+      "directions": 4
+    },
+    {
+      "name": "rapier_left",
+      "directions": 4
+    },
+    {
+      "name": "rapier_right",
+      "directions": 4
+    },
+    {
+      "name": "overlord_3",
+      "directions": 4
+    },
+    {
+      "name": "jacket",
+      "directions": 4
+    },
+    {
+      "name": "kama_icon"
+    },
+    {
+      "name": "kilt_icon"
+    },
+    {
+      "name": "kilt_alt_icon"
+    },
+    {
+      "name": "kilt_no_color_icon"
+    },
+    {
+      "name": "old_short_icon"
+    },
+    {
+      "name": "old_short_h_icon"
+    },
+    {
+      "name": "scarf_round_icon"
+    },
+    {
+      "name": "striped_icon"
+    },
+    {
+      "name": "striped_h_icon"
+    },
+    {
+      "name": "geist_icon"
+    },
+    {
+      "name": "geist_h_icon"
+    },
+    {
+      "name": "scarf_tied_icon"
+    },
+    {
+      "name": "ghille_icon"
+    },
+    {
+      "name": "ghille_right_icon"
+    },
+    {
+      "name": "ghille_left_icon"
+    },
+    {
+      "name": "ghille_2_icon"
+    },
+    {
+      "name": "drifter_icon"
+    },
+    {
+      "name": "scarf_icon"
+    },
+    {
+      "name": "scarf_h_icon"
+    },
+    {
+      "name": "normal_icon"
+    },
+    {
+      "name": "normal_h_icon"
+    },
+    {
+      "name": "short_icon"
+    },
+    {
+      "name": "short_h_icon"
+    },
+    {
+      "name": "shredded_icon"
+    },
+    {
+      "name": "shredded_h_icon"
+    },
+    {
+      "name": "half_icon"
+    },
+    {
+      "name": "half_h_icon"
+    },
+    {
+      "name": "full_icon"
+    },
+    {
+      "name": "full_h_icon"
+    },
+    {
+      "name": "back_icon"
+    },
+    {
+      "name": "cover_1_icon"
+    },
+    {
+      "name": "cover_2_icon"
+    },
+    {
+      "name": "overlord_icon"
+    },
+    {
+      "name": "overlord_2_icon"
+    },
+    {
+      "name": "shoal_icon"
+    },
+    {
+      "name": "shoal_back_icon"
+    },
+    {
+      "name": "star_icon"
+    },
+    {
+      "name": "shoal_2_icon"
+    },
+    {
+      "name": "rapier_left_icon"
+    },
+    {
+      "name": "rapier_right_icon"
+    },
+    {
+      "name": "overlord_3_icon"
+    },
+    {
+      "name": "jacket_icon"
+    }
+  ]
+}

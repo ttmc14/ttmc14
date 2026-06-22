@@ -92,6 +92,7 @@
       state: all
   - type: MountableWeapon
   - type: GunUnskilledPenalty
+    skill: MCSkillFirearms # mc-changes
     firearms: 0
     angleIncrease: 0
     accuracyAddMult: 0

@@ -75,7 +75,7 @@
     baseDelay: 0.85
   # Skills
   - type: MCGunSkilled
-    skill: RMCSkillSmartGun
+    skill: MCSkillSmartGun
   # Crosshair
   - type: WieldedCrosshair
     rsi:
@@ -103,7 +103,7 @@
       mc-slot-rail: 0.093750, 0.218750
 
 - type: entity
-  parent: [ MCAttachmentBaseUnderbarrel, RMCAttachableToggleableBase ]
+  parent: [ MCAttachmentUnderbarrel, RMCAttachableToggleableBase ]
   id: MCAttachmentUnderbarrelSG62
   name: SG-153 spotting rifle
   description: An underslung spotting rifle, generally found ontop of another gun.
@@ -161,7 +161,7 @@
           - MCMagazineSmartGunSG153
   # Skills
   - type: MCGunSkilled
-    skill: RMCSkillSmartGun
+    skill: MCSkillSmartGun
   # Crosshair
   - type: WieldedCrosshair
     rsi:

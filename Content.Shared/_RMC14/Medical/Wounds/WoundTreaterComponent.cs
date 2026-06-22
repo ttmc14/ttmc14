@@ -12,6 +12,14 @@ namespace Content.Shared._RMC14.Medical.Wounds;
 [Access(typeof(SharedWoundsSystem))]
 public sealed partial class WoundTreaterComponent : Component
 {
+    // MC Start
+    [DataField, AutoNetworkedField]
+    public Dictionary<WoundType, ProtoId<DamageGroupPrototype>>? WoundGroups;
+
+    [DataField, AutoNetworkedField]
+    public bool IgnoreTreatmentLimits;
+    // MC End
+
     [DataField(required: true), AutoNetworkedField]
     public WoundType Wound;
 

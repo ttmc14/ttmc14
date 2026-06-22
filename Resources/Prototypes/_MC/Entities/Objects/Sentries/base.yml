@@ -90,6 +90,7 @@
       components:
       - Xeno
   - type: RMCRepairable
+    skill: MCSkillEngineer
   - type: RMCNameItemOnVend
     item: Sentry
   - type: RequireProjectileTarget
@@ -138,6 +139,8 @@
       acid: 50
   - type: MarineMapTracked
   - type: TacticalMapTracked
+  - type: Corrodible
+    isCorrodible: false
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/job_icons.rsi

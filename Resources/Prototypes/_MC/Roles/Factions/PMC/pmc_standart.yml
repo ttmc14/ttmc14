@@ -17,14 +17,11 @@
     components:
     - type: Skills
       skills:
-        # MC
         MCSkillEngineer: 1
         MCSkillConstruction: 1
-        # RMC
-        RMCSkillFirearms: 1
-        RMCSkillSmartGun: -4
-        RMCSkillFireman: 1
-        RMCSkillEngineer: 1
+        MCSkillFirearms: 1
+        MCSkillSmartGun: -4
+        MCSkillFireman: 1
     - type: JobPrefix
       prefix: mc-job-prefix-pmc-standart
     - type: TacticalMapIcon

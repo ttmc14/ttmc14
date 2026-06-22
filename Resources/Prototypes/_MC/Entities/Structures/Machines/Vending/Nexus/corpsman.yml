@@ -25,8 +25,16 @@
         points: 25
       - id: MCImplantSkillMedical
         points: 20
+      - id: MCImplantSkillSurgery
+        points: 20
       - id: MCImplantSkillEngineering
         points: 15
+    - name: Healing
+      entries:
+      - id: MCHealingTraumaKitCombat
+        points: 3
+      - id: MCHealingBurnKitCombat
+        points: 3
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne
@@ -128,14 +136,17 @@
         name: Big hypospray
         points: 10
       - id: MCHypospray
-        name: Hypospray
-        points: 2
+        points: 1
       - id: MCGlassesHudHealth
-        points: 2
-      - id: MCClothingHandsHealthanalyzer
-        points: 2
+        points: 1
+      - id: MCClothingHandsHealthScanner
+        points: 1
       - id: MCDefibrillatorAdvanced
         points: 5
+      - id: MCClothingHandsDefibrillator
+        points: 4
+      - id: MCClothingHandsDefibrillatorAdvanced
+        points: 10
 
 - type: entity
   id: MCVendorBundleEssentialCorpsman

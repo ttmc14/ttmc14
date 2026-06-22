@@ -1,5 +1,5 @@
 using System.Linq;
-using Content.Shared._MC.Armor.Events;
+using Content.Shared._MC.Armor.Core.Events;
 using Content.Shared._MC.Xeno.Abilities.Defender.Crest;
 using Content.Shared._MC.Xeno.Visuals;
 using Content.Shared._RMC14.Stun;

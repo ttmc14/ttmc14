@@ -1,0 +1,43 @@
+- type: entity
+  parent: MCItem # MCToolSurgery
+  id: MCToolSurgerySuture
+  name: surgical suture
+  components:
+  - type: Tag
+    tags:
+    - MCToolSurgery
+  - type: Sprite
+    sprite: _MC/Objects/Medical/Surgery/healing.rsi
+    state: suture
+  - type: Item
+    size: Small
+  - type: WoundTreater
+    woundGroups:
+      Brute: MCBrute
+      Burn: MCBurn
+    wound: Brute # Unsed, but requierd
+    treats: false
+    ignoreTreatmentLimits: true
+    consumable: false
+    group: Brute # Unsed, but requierd
+    damage: -37.5
+    canUseUnskilled: false
+    doAfterSkill: MCSkillSurgery
+    skills:
+      MCSkillSurgery: 2
+    treatBeginSound:
+      path: /Audio/_RMC14/Medical/bandage.ogg
+    treatEndSound:
+      path: /Audio/Items/Medical/brutepack_end.ogg
+    userPopup: cm-trauma-kit-user-popup
+    targetPopup: cm-trauma-kit-target-popup
+    othersPopup: cm-trauma-kit-others-popup
+    noneSelfPopup: cm-trauma-kit-none-self-popup
+    noneOtherPopup: cm-trauma-kit-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    skill: MCSkillSurgery
+    min: 10
+    skilledDelay: 2
+    doAfter: 15

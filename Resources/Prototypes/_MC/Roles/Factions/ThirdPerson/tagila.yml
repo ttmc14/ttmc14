@@ -13,13 +13,13 @@
     components:
     - type: Skills
       skills:
-        RMCSkillMedical: 2
-        RMCSkillFirearms: 3
-        RMCSkillCqc: 3
-        RMCSkillFireman: 3
-        RMCSkillEndurance: 4
-        RMCSkillExecution: 3
-        RMCSkillNavigations: 4
+        MCSkillMedical: 2
+        MCSkillFirearms: 3
+        MCSkillCqc: 3
+        MCSkillFireman: 3
+        MCSkillEndurance: 4
+        MCSkillExecution: 3
+        MCSkillNavigations: 4
 
 - type: playTimeTracker
   id: MCTagila
@@ -34,10 +34,10 @@
     outerClothing: MCTagilaArmourVest
     back: MCTagilaHammer
     belt: MCClothingBeltMarine
-    pocket1: MCPouchMedkitFill
+    pocket1: MCPouchMedkitFilled
     pocket2: MCPouchGrenadeFill
   inhand:
-    - MCWeaponRifleAK1225
+  - MCWeaponRifleAK1225
   storage:
     belt:
     - MCMagazineRifleAK1225
@@ -46,4 +46,3 @@
     - MCMagazineRifleAK1225
     - MCMagazineRifleAK1225
     - MCMagazineRifleAK1225
-

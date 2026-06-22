@@ -1,0 +1,39 @@
+- type: MCXenoBlessingsEntry
+  id: PheromoneTower1
+  name: Pheromone Tower Tier 1
+  description: Constructs a tower that emanates a selectable type of pheromone.
+  icon:
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t1.rsi
+    state: frenzy
+  group: Support
+  costType: Tactical
+  cost: 15
+  entity: MCXenoPheromoneTowerTier1
+  time: 3
+
+- type: MCXenoBlessingsEntry
+  id: PheromoneTower2
+  name: Pheromone Tower Tier 2
+  description: Constructs a tower that emanates a selectable type of pheromone.
+  icon:
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t2.rsi
+    state: frenzy
+  group: Support
+  costType: Tactical
+  cost: 45
+  entity: MCXenoPheromoneTowerTier2
+  time: 3
+
+- type: MCXenoBlessingsEntry
+  id: PheromoneTower3
+  name: Pheromone Tower Tier 3
+  description: Constructs a tower that emanates a selectable type of pheromone.
+  icon:
+    sprite: _MC/Structures/Xeno/Towers/pheromone_t3.rsi
+    state: frenzy
+  group: Support
+  costType: Tactical
+  cost: 65
+  entity: MCXenoPheromoneTowerTier3
+  time: 3
+

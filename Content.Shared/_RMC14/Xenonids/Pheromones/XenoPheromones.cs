@@ -7,5 +7,5 @@ public enum XenoPheromones
 {
     Recovery,
     Warding,
-    Frenzy
+    Frenzy,
 }

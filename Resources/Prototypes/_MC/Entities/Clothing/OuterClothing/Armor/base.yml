@@ -68,6 +68,7 @@
       enum.UniformAccessoriesUi.Key:
         type: UniformAccessoryBui
   # Modular
+  - type: DoAfter
   - type: MCArmorModularClothing
     slots:
     - id: main
@@ -78,6 +79,10 @@
       whitelist:
         tags:
           - MCArmorModuleBodyStorage
+    - id: customization
+      whitelist:
+        tags:
+          - MCArmorModuleCustomizationBody
 
 # Components
 - type: entity

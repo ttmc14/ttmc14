@@ -36,14 +36,17 @@ public sealed partial class MCVehicleOperatedSystem
     }
 
     [PublicAPI]
-    public bool TryRemoveOperator(Entity<MCVehicleOperatedComponent> entity)
+    public bool TryRemoveOperated(Entity<MCVehicleOperatedComponent?> entity)
     {
         return TrySetOperator(entity, null, removeExisting: true);
     }
 
     [PublicAPI]
-    public bool TrySetOperator(Entity<MCVehicleOperatedComponent> entity, EntityUid? uid, bool removeExisting = true)
+    public bool TrySetOperator(Entity<MCVehicleOperatedComponent?> entity, EntityUid? uid, bool removeExisting = true)
     {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
         if (!ValidateOperatorChange(entity, uid, removeExisting))
             return false;
 
@@ -51,7 +54,7 @@ public sealed partial class MCVehicleOperatedSystem
 
         if (entity.Comp.Operator is { } currentOperator && TryComp<MCVehicleOperatorComponent>(currentOperator, out var currentOperatorComponent))
         {
-            var exitEvent = new MCVehicleOperatedRemovedEvent(entity, currentOperator);
+            var exitEvent = new MCVehicleOperatedRemovedEvent((entity, entity.Comp), currentOperator);
             RaiseLocalEvent(currentOperator, ref exitEvent);
 
             currentOperatorComponent.Vehicle = null;
@@ -71,7 +74,7 @@ public sealed partial class MCVehicleOperatedSystem
 
             _mover.SetRelay(operatorNewUid, entity);
 
-            var enterEvent = new MCVehicleOperatedAddedEvent(entity, operatorNewUid);
+            var enterEvent = new MCVehicleOperatedAddedEvent((entity, entity.Comp), operatorNewUid);
             RaiseLocalEvent(uid.Value, ref enterEvent);
         }
         else
@@ -85,22 +88,25 @@ public sealed partial class MCVehicleOperatedSystem
         return true;
     }
 
-    private bool ValidateOperatorChange(Entity<MCVehicleOperatedComponent> entity, EntityUid? uid, bool removeExisting)
+    private bool ValidateOperatorChange(Entity<MCVehicleOperatedComponent?> entity, EntityUid? uid, bool removeExisting)
     {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return false;
+
         if (entity.Comp.Operator is null && uid is null)
             return false;
 
         if (TryComp<MCVehicleOperatorComponent>(uid, out var operatorComponent))
             return operatorComponent.Vehicle != entity.Owner;
 
-        if (!removeExisting && entity.Comp.Operator is not null)
-            return false;
-
-        return true;
+        return removeExisting || entity.Comp.Operator is null;
     }
 
-    private void RaiseChangedEvent(Entity<MCVehicleOperatedComponent> entity, EntityUid? newOperatorUid, EntityUid? oldOperatorUid)
+    private void RaiseChangedEvent(Entity<MCVehicleOperatedComponent?> entity, EntityUid? newOperatorUid, EntityUid? oldOperatorUid)
     {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return;
+
         var ev = new MCVehicleOperatedChangedEvent(newOperatorUid, oldOperatorUid);
         RaiseLocalEvent(entity, ref ev);
         Dirty(entity);

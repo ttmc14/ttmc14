@@ -1,0 +1,313 @@
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillMeralyne
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-meralyne-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 120
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillDermaline
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-dermaline-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCDermaline
+          Quantity: 120
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillMeraderm
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-meraderm-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 60
+        - ReagentId: MCDermaline
+          Quantity: 60
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillNanoblood
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-nanoblood-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCNanoblood
+          Quantity: 120
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillOxycodone
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-oxycodone-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCOxycodone
+          Quantity: 120
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillHypervene
+  suffix: Fill
+  components:
+  - type: Hypospray
+    transferAmount: 3
+  - type: IconLabel
+    labelTextLocId: mc-hypervene-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCHypervene
+          Quantity: 120
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillQuickClotPlus
+  suffix: Fill
+  components:
+  - type: Hypospray
+    transferAmount: 5
+  - type: IconLabel
+    labelTextLocId: mc-quickclotplus-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCQuickClotPlus
+          Quantity: 120
+
+- type: entity
+  parent: MCHypospray
+  id: MCHyposprayFillBKTT
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-combat-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 120
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 40
+        - ReagentId: MCKelotane
+          Quantity: 40
+        - ReagentId: MCTramadol
+          Quantity: 20
+        - ReagentId: MCTricordrazine
+          Quantity: 20
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillBicaridine
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-bicaridine-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillKelotane
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-kelotane-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCKelotane
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillTricordrazine
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-tricordrazine-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCTricordrazine
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillDylovene
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-dylovene-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCDylovene
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillInaprovaline
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-inaprovaline-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCInaprovaline
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillIsotonic
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-isotonic-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCSalineGlucose
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillQuickClot
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-quickclot-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCQuickClot
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillQuickClotPlus
+  suffix: Fill
+  components:
+  - type: Hypospray
+    transferAmount: 5
+  - type: IconLabel
+    labelTextLocId: mc-quickclotplus-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCQuickClotPlus
+          Quantity: 240
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillBKTT
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-combat-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCBicaridine
+          Quantity: 80
+        - ReagentId: MCKelotane
+          Quantity: 80
+        - ReagentId: MCTramadol
+          Quantity: 40
+        - ReagentId: MCTricordrazine
+          Quantity: 40
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillCombatAdv
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-combatadv-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCMeralyne
+          Quantity: 60
+        - ReagentId: MCDermaline
+          Quantity: 60
+        - ReagentId: MCOxycodone
+          Quantity: 60
+        - ReagentId: MCRyetalyn
+          Quantity: 30
+        - ReagentId: MCHyronalin
+          Quantity: 30
+
+- type: entity
+  parent: MCHyposprayBig
+  id: MCHyposprayBigFillNanoblood
+  suffix: Fill
+  components:
+  - type: IconLabel
+    labelTextLocId: mc-nanoblood-container-label-text
+  - type: SolutionContainerManager
+    solutions:
+      hypospray:
+        maxVol: 240
+        reagents:
+        - ReagentId: MCNanoblood
+          Quantity: 240

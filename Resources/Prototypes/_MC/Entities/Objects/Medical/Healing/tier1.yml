@@ -1,0 +1,161 @@
+- type: entity
+  parent: MCHealingBrute
+  id: MCHealingGauze
+  name: roll of gauze
+  description: Some sterile gauze to wrap around bloody stumps.
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingGauze
+  - type: Sprite
+    state: brutepack
+  - type: Item
+    heldPrefix: brutepack
+  - type: Stack
+    stackType: MCHealingGauze
+    count: 40
+  - type: WoundTreater
+    damage: -3
+    unskilledDamage: -3
+    skills:
+      MCSkillMedical: 0
+    treatBeginSound:
+      path: /Audio/_RMC14/Medical/bandage.ogg
+    treatEndSound:
+      path: /Audio/Items/Medical/brutepack_end.ogg
+    userPopup: cm-gauze-user-popup
+    targetPopup: cm-gauze-target-popup
+    othersPopup: cm-gauze-others-popup
+    noneSelfPopup: cm-gauze-none-self-popup
+    noneOtherPopup: cm-gauze-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 0
+    skilledDelay: 2
+    doAfter: 2
+
+- type: stack
+  id: MCHealingGauze
+  name: gauze
+  icon:
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
+    state: brutepack
+  spawn: MCHealingGauze
+  maxCount: 40
+
+- type: Tag
+  id: MCHealingGauze
+
+- type: entity
+  parent: MCHealingBurn
+  id: MCHealingOintment
+  name: ointment
+  description: Some sterile gauze to wrap around bloody stumps.
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingOintment
+  - type: Sprite
+    state: ointment
+  - type: Item
+    heldPrefix: ointment
+  - type: Stack
+    stackType: MCHealingOintment
+    count: 40
+  - type: WoundTreater
+    damage: -3
+    unskilledDamage: -3
+    skills:
+      MCSkillMedical: 0
+    treatBeginSound:
+      path: "/Audio/Items/Medical/ointment_begin.ogg"
+    treatEndSound:
+      path: "/Audio/_RMC14/Medical/ointment.ogg"
+    userPopup: cm-ointment-user-popup
+    targetPopup: cm-ointment-target-popup
+    othersPopup: cm-ointment-others-popup
+    noneSelfPopup: cm-ointment-none-self-popup
+    noneOtherPopup: cm-ointment-none-other-popup
+    noWoundsOnUserPopup: cm-burns-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-burns-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 0
+    doAfter: 2
+    skilledDelay: 2
+
+- type: stack
+  id: MCHealingOintment
+  name: ointment
+  icon:
+    sprite: /Textures/_MC/Objects/Medical/medical.rsi
+    state: ointment
+  spawn: MCHealingOintment
+  maxCount: 40
+
+- type: Tag
+  id: MCHealingOintment
+
+- type: entity
+  parent: MCHealing
+  id: MCHealingSplint
+  name: medical splints
+  description: Used to stabilize broken bones.
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingSplint
+  - type: Sprite
+    state: splint
+  - type: Item
+    heldPrefix: splint
+  - type: Stack
+    stackType: MCHealingSplint
+    count: 5
+  - type: WoundTreater
+    wound: Brute
+    treats: true
+    group: Brute
+    consumable: true
+    damage: -40
+    unskilledDamage: -30
+    canUseUnskilled: true
+    skills:
+      MCSkillMedical: 2
+    treatBeginSound:
+      path: "/Audio/Items/Medical/brutepack_begin.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    treatEndSound:
+      path: "/Audio/Items/Medical/brutepack_end.ogg"
+      params:
+        volume: 1.0
+        variation: 0.125
+    userPopup: cm-trauma-kit-user-popup
+    targetPopup: cm-trauma-kit-target-popup
+    othersPopup: cm-trauma-kit-others-popup
+    noneSelfPopup: cm-trauma-kit-none-self-popup
+    noneOtherPopup: cm-trauma-kit-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 1
+    skilledDelay: 5
+    doAfter: 5
+
+- type: stack
+  id: MCHealingSplint
+  name: splint
+  icon:
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
+    state: splint
+  spawn: MCHealingSplint
+  maxCount: 5
+
+- type: Tag
+  id: MCHealingSplint
+

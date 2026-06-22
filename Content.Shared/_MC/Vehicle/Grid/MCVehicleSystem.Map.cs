@@ -11,8 +11,6 @@ public sealed partial class MCVehicleSystem
     private const float GridOffsetStep = 10f;
 
     [Dependency] private readonly MetaDataSystem _meta = null!;
-    [Dependency] private readonly SharedMapSystem _map = null!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
 
     private void EnsureMap(out MapId id, out Entity<MCVehicleMapComponent> entity)
     {

@@ -128,7 +128,7 @@ public sealed class XenoEvolutionSystem : EntitySystem
 
     private void OnXenoEvolveMapInit(Entity<XenoEvolutionComponent> ent, ref MapInitEvent args)
     {
-        _action.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionId);
+        // _action.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionId); mc-changes
     }
 
     private void OnXenoEvolveAction(Entity<XenoEvolutionComponent> xeno, ref XenoOpenEvolutionsActionEvent args)

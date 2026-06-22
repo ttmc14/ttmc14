@@ -2,35 +2,12 @@
 Copyright (c) 2026 CrystallEdge (https://github.com/crystallpunk-14/crystall-edge)
 
 LICENSE SCOPE & APPLICATION
-This project is dual-licensed under the PolyForm Noncommercial 1.0.0 AND the MIT License.
+This project is licensed under the MIT License.
 By default, this license applies to ALL files within this directory and all of its
 subdirectories, recursively. Individual file headers are not required for this
 license to be enforceable.
 
-PART 1: POLYFORM NONCOMMERCIAL LICENSE 1.0.0
-<https://polyformproject.org/licenses/noncommercial/1.0.0>
-
-Acceptance: User accepts this license by making use of the software.
-
-Copyright Grant: The licensor grants you a non-exclusive, royalty-free, worldwide,
-non-transferable license to do everything with the software that would otherwise
-infringe the licensor's copyright in it, provided that you do not use the software
-for commercial purposes.
-
-Patent Grant: The licensor grants you a non-exclusive, royalty-free, worldwide,
-non-transferable patent license to make, have made, use, sell, offer for sale,
-import and otherwise transfer the software, where such license applies only to
-those patent claims that the licensor can license and that are infringed by the
-software alone, provided that you do not use the software for commercial purposes.
-
-Commercial Purposes: Commercial purposes include any use for commercial advantage
-or monetary compensation.
-
-Redistribution: You may redistribute the software, provided that you include
-this license with it.
-
-
-PART 2: THE MIT LICENSE
+THE MIT LICENSE
 <https://opensource.org/licenses/MIT>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -45,7 +22,7 @@ copies or substantial portions of the Software.
 
 ---
 
-NO LIABILITY (APPLIES TO ALL LICENSES)
+NO LIABILITY
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE

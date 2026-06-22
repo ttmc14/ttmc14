@@ -72,8 +72,7 @@
         MCPouch: 2
       entries:
       - id: MCPouchMedicalInjectorMedicFull
-      - id: MCPouchMedkitCorpsmanFill
-        name: Medkit pouch
-        recommended: true
+      - id: MCPouchMedkitCorpsmanFilled
+      - id: MCPouchR312Filled
       - id: MCPouchConstructionFill
         name: Construction pouch (materials included)

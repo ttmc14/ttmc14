@@ -8,5 +8,5 @@ namespace Content.Shared._MC.Weapon.Range;
 public sealed partial class MCGunSkilledComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public EntProtoId<SkillDefinitionComponent> Skill = "RMCSkillFirearms";
+    public EntProtoId<SkillDefinitionComponent> Skill = "MCSkillFirearms";
 }

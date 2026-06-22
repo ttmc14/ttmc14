@@ -17,6 +17,7 @@ public abstract class SharedRMCIconLabelSystem : EntitySystem
     [Dependency] private readonly TagSystem _tag = default!;
 
     private static readonly ProtoId<TagPrototype> PillCanisterTag = "PillCanister";
+    private static readonly ProtoId<TagPrototype> MCAllowTag = "MCIconLabelAllow"; // mc-changes
 
     public override void Initialize()
     {
@@ -31,7 +32,7 @@ public abstract class SharedRMCIconLabelSystem : EntitySystem
             return;
         if (HasComp<XenoComponent>(args.User))
             return;
-        if (!_tag.HasTag(ent, PillCanisterTag))
+        if (!_tag.HasTag(ent, PillCanisterTag) && !_tag.HasTag(ent, MCAllowTag)) // mc-changes
             return;
 
         var user = args.User;

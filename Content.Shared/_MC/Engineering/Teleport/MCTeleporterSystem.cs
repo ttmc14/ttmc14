@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Engineering.Deploy;
 using Content.Shared._MC.Engineering.Linking.Pair;
+using Content.Shared._RMC14.Pulling;
 using Content.Shared.Interaction;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Popups;
@@ -21,6 +22,8 @@ public sealed class MCTeleporterSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
+
+    [Dependency] private readonly RMCPullingSystem _rmcPulling = null!;
 
     [Dependency] private readonly MCPairLinkSystem _mcPair = null!;
     [Dependency] private readonly MCDeploySystem _mcDeploy = null!;
@@ -93,6 +96,7 @@ public sealed class MCTeleporterSystem : EntitySystem
             if (!HasComp<MobStateComponent>(entity))
                 continue;
 
+            _rmcPulling.TryStopAllPullsFromAndOn(entity);
             _transform.SetCoordinates(entity, targetCoords);
             count++;
         }

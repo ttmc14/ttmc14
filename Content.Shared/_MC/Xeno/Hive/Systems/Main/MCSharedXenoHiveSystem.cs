@@ -34,6 +34,17 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
         InitializeRuler();
     }
 
+    public bool TryGetHive(Entity<HiveMemberComponent?> member, out Entity<MCXenoHiveComponent> hive)
+    {
+        hive = default;
+
+        if (GetHive(member) is not { } uid)
+            return false;
+
+        hive = uid;
+        return true;
+    }
+
     public Entity<MCXenoHiveComponent>? GetHive(Entity<HiveMemberComponent?> member)
     {
         if (!_rmcHiveMemberQuery.Resolve(member, ref member.Comp, false))

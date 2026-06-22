@@ -9,3 +9,6 @@
   id: MCStorageItem
   abstract: true
   categories: [ MCContent ]
+
+- type: Tag
+  id: MCIconLabelAllow

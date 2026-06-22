@@ -9,8 +9,23 @@ public sealed partial class MCDefibrillatorSystem : EntitySystem
     /// <inheritdoc />
     public override void Initialize()
     {
+        SubscribeLocalEvent<InteractHandEvent>(OnAnyInteractHand);
         SubscribeLocalEvent<MCDefibrillatorComponent, AfterInteractEvent>(OnAfterInteract);
         SubscribeLocalEvent<MCDefibrillatorComponent, MCDefibrillatorApplyDoAfterEvent>(OnDoAfter);
+    }
+
+    private void OnAnyInteractHand(InteractHandEvent args)
+    {
+        var user = args.User;
+        var target = args.Target;
+
+        if (!_inventory.TryGetSlotEntity(user, "gloves", out var glovesUid) || glovesUid is not { } gloves)
+            return;
+
+        if (!TryComp<MCDefibrillatorComponent>(gloves, out var glovesComp))
+            return;
+
+        args.Handled = TryStart((gloves, glovesComp), target, user);
     }
 
     private void OnAfterInteract(Entity<MCDefibrillatorComponent> entity, ref AfterInteractEvent args)

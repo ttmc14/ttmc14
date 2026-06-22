@@ -1,201 +1,271 @@
 ﻿<ui:MCXenoHiveStatusWindow xmlns="https://spacestation14.io"
-                            xmlns:ui="clr-namespace:Content.Client._MC.Xeno.Hive.UI"
-                            MinSize="900 700"
-                            Title="Normal Hive Status">
+                           xmlns:ui="clr-namespace:Content.Client._MC.Xeno.Hive.UI"
+                           xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                           xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                           MinSize="600 500"
+                           SetSize="900 700"
+                           Title="Normal Hive Status">
 
+    <!-- Main layout container -->
     <BoxContainer Orientation="Vertical"
-                  SeparationOverride="6"
                   HorizontalExpand="True"
                   VerticalExpand="True">
 
-        <!-- GENERAL INFORMATION -->
-        <PanelContainer>
+        <!-- Main ScrollContainer for all content -->
+        <ScrollContainer HScrollEnabled="False"
+                         HorizontalExpand="True"
+                         VerticalExpand="True">
+
             <BoxContainer Orientation="Vertical"
-                          SeparationOverride="4">
+                          HorizontalExpand="True"
+                          Align="Begin"
+                          Margin="4">
 
-                <!-- Section Header -->
-                <PanelContainer StyleClasses="SectionHeader">
-                    <Label Text="General Information"
-                           Margin="8 4" />
+                <!-- Action Buttons Panel -->
+                <PanelContainer Margin="0 0 0 12">
+                    <PanelContainer.PanelOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#141414"
+                                               BorderColor="#3A3A3A"
+                                               BorderThickness="1" />
+                    </PanelContainer.PanelOverride>
+
+                    <BoxContainer Orientation="Horizontal"
+                                  HorizontalExpand="True"
+                                  Align="Center"
+                                  SeparationOverride="4"
+                                  Margin="6">
+
+                        <Button Name="SkinsButton" ToolTip="Skins">
+                            <TextureRect Name="SkinsTexture" />
+                        </Button>
+
+                        <Button Name="BlessingsButton" ToolTip="Blessings">
+                            <TextureRect Name="BlessingsTexture" />
+                        </Button>
+
+                        <Button Name="EvolveButton" ToolTip="Evolve">
+                            <TextureRect Name="EvolveTexture" />
+                        </Button>
+
+                        <Button Name="DevolveButton" ToolTip="De-evolve">
+                            <TextureRect Name="DevolveTexture" />
+                        </Button>
+
+                    </BoxContainer>
                 </PanelContainer>
 
-                <!-- Psy / Larva -->
-                <BoxContainer Orientation="Horizontal"
-                              Margin="8 4">
-                    <Label Text="Psy Points: " />
-                    <Label Name="PsyPointsLabel"
-                           Text="0"
-                           Modulate="#FF4444" />
+                <cc:HSeparator Color="#3A3A3A" Margin="0 0 0 12" />
 
-                    <Control MinSize="15 1"/>
+                <!-- General Information Panel -->
+                <BoxContainer Orientation="Vertical"
+                              HorizontalExpand="True"
+                              Margin="4">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#1A1A1A"
+                                                   BorderColor="#3A3A3A"
+                                                   BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
 
-                    <Label Text="Borrowed Larva: " />
-                    <Label Name="BorrowedLarvaLabel"
-                           Text="0"
-                           Modulate="#FF4444" />
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <Label Text="General Information"
+                                   StyleClasses="LabelHeading"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 0 0 16" />
+
+                            <!-- Psy Points Block (visibility controlled via code) -->
+                            <BoxContainer Name="PsyPointsBlock"
+                                          Orientation="Vertical"
+                                          Margin="0 0 0 12"
+                                          Visible="True">
+
+                                <Label Text="Psy Points"
+                                       StyleClasses="LabelHeading"
+                                       Margin="0 0 6 0" />
+
+                                <!-- Dynamically populated from code -->
+                                <BoxContainer Name="PsyPointsContainer"
+                                              Orientation="Horizontal"
+                                              HorizontalExpand="True"
+                                              SeparationOverride="12" />
+
+                                <!-- Separator after psy points -->
+                                <cc:HSeparator Color="#3A3A3A" Margin="0 8 0 0" />
+                            </BoxContainer>
+
+                            <!-- Burrowed Larva Count -->
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+                                <Label Text="Burrowed Larva: " />
+                                <Label Name="BorrowedLarvaLabel"
+                                       Text="0"
+                                       Modulate="#FF4444" />
+                            </BoxContainer>
+
+                            <!-- Larva Generation Progress -->
+                            <BoxContainer Name="LarvaGenerationBlock"
+                                          Orientation="Horizontal"
+                                          Margin="0 0 0 4"
+                                          Visible="True">
+                                <Label Text="Larva Generation:" MinWidth="140" />
+                                <ProgressBar Name="LarvaGenerationBar"
+                                             Access="Public"
+                                             HorizontalExpand="True">
+                                    <Label Name="LarvaGenerationLabel"
+                                           Access="Public"
+                                           Align="Right"
+                                           Margin="0 0 5 0"
+                                           Text="0 per minute (0/10)" />
+                                </ProgressBar>
+                            </BoxContainer>
+
+                            <!-- Evolution Progress -->
+                            <BoxContainer Name="EvolutionBlock"
+                                          Orientation="Horizontal"
+                                          Margin="0 0 0 4"
+                                          Visible="True">
+                                <Label Text="Evolution Progress:" MinWidth="140" />
+                                <ProgressBar Name="EvolutionProgressBar"
+                                             Access="Public"
+                                             HorizontalExpand="True">
+                                    <Label Name="EvolutionProgressLabel"
+                                           Access="Public"
+                                           Align="Right"
+                                           Margin="0 0 5 0"
+                                           Text="9%" />
+                                </ProgressBar>
+                            </BoxContainer>
+
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
 
-                <!-- Larva Generation -->
-                <BoxContainer Orientation="Horizontal"
-                              Margin="8 2">
-                    <Label Text="Larva Generation:"
-                           MinWidth="140" />
+                <!-- Hive Population Panel -->
+                <BoxContainer Orientation="Vertical"
+                              HorizontalExpand="True"
+                              Margin="4">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#1A1A1A"
+                                                   BorderColor="#3A3A3A"
+                                                   BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
 
-                    <ProgressBar Name="LarvaGenerationBar"
-                                 Access="Public"
-                                 HorizontalExpand="True">
-                        <Label Name="LarvaGenerationLabel"
-                               Access="Public"
-                               Align="Right"
-                               Margin="0 0 5 0"
-                               Text="0 per minute (0/10)" />
-                    </ProgressBar>
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <Label Text="Hive Population"
+                                   StyleClasses="LabelHeading"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 0 0 16" />
+
+                            <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+                                <Label Name="TotalSistersLabel"
+                                       Text="Total Living Sisters: 1"
+                                       HorizontalExpand="True" />
+
+                                <CheckBox Name="CompactModeCheckBox"
+                                          Text="Compact Mode"
+                                          Margin="0 0 8 0" />
+
+                                <CheckBox Name="ShowEmptyCheckBox"
+                                          Text="Show Empty" />
+                            </BoxContainer>
+
+                            <!-- Dynamically populated tier containers -->
+                            <BoxContainer Name="TiersContainer"
+                                          Orientation="Vertical"
+                                          SeparationOverride="4" />
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
 
-                <!-- Evolution Progress -->
-                <BoxContainer Orientation="Horizontal"
-                              Margin="8 2">
-                    <Label Text="Evolution Progress:"
-                           MinWidth="140" />
+                <!-- Xenomorph List Panel -->
+                <BoxContainer Orientation="Vertical"
+                              HorizontalExpand="True"
+                              Margin="4">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#1A1A1A"
+                                                   BorderColor="#3A3A3A"
+                                                   BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
 
-                    <ProgressBar Name="EvolutionProgressBar"
-                                 Access="Public"
-                                 HorizontalExpand="True">
-                        <Label Name="EvolutionProgressLabel"
-                               Access="Public"
-                               Align="Right"
-                               Margin="0 0 5 0"
-                               Text="5%" />
-                    </ProgressBar>
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <Label Text="Xenomorph List"
+                                   StyleClasses="LabelHeading"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 0 0 16" />
+
+                            <ScrollContainer HScrollEnabled="False"
+                                             HorizontalExpand="True"
+                                             VerticalExpand="True"
+                                             MinHeight="150">
+
+                                <!-- PanelContainer for dark background -->
+                                <PanelContainer HorizontalExpand="True"
+                                                VerticalExpand="True">
+                                    <PanelContainer.PanelOverride>
+                                        <graphics:StyleBoxFlat BackgroundColor="#0D0D0D"
+                                                               BorderColor="#2A2A2A"
+                                                               BorderThickness="1" />
+                                    </PanelContainer.PanelOverride>
+
+                                    <!-- Dynamically populated xenomorph rows -->
+                                    <BoxContainer Name="XenoList"
+                                                  Access="Public"
+                                                  Orientation="Vertical"
+                                                  HorizontalExpand="True"
+                                                  Align="Begin"
+                                                  Margin="4" />
+                                </PanelContainer>
+                            </ScrollContainer>
+                        </BoxContainer>
+                    </PanelContainer>
+                </BoxContainer>
+
+                <!-- Hive Structures Panel -->
+                <BoxContainer Orientation="Vertical"
+                              HorizontalExpand="True"
+                              Margin="4">
+                    <PanelContainer>
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#1A1A1A"
+                                                   BorderColor="#3A3A3A"
+                                                   BorderThickness="1" />
+                        </PanelContainer.PanelOverride>
+
+                        <BoxContainer Orientation="Vertical" Margin="8">
+                            <Label Text="Hive Structures"
+                                   StyleClasses="LabelHeading"
+                                   HorizontalAlignment="Center"
+                                   Margin="0 0 0 16" />
+
+                            <ScrollContainer HScrollEnabled="False"
+                                             HorizontalExpand="True"
+                                             VerticalExpand="True"
+                                             MinHeight="150">
+
+                                <!-- PanelContainer for dark background -->
+                                <PanelContainer HorizontalExpand="True"
+                                                VerticalExpand="True">
+                                    <PanelContainer.PanelOverride>
+                                        <graphics:StyleBoxFlat BackgroundColor="#0D0D0D"
+                                                               BorderColor="#2A2A2A"
+                                                               BorderThickness="1" />
+                                    </PanelContainer.PanelOverride>
+
+                                    <!-- Dynamically populated structure rows -->
+                                    <BoxContainer Name="StructuresList"
+                                                  Access="Public"
+                                                  Orientation="Vertical"
+                                                  HorizontalExpand="True"
+                                                  Align="Begin"
+                                                  Margin="4" />
+                                </PanelContainer>
+                            </ScrollContainer>
+                        </BoxContainer>
+                    </PanelContainer>
                 </BoxContainer>
 
             </BoxContainer>
-        </PanelContainer>
-
-
-        <!-- HIVE POPULATION -->
-        <PanelContainer VerticalExpand="True">
-            <BoxContainer Orientation="Vertical"
-                          SeparationOverride="6">
-
-                <PanelContainer StyleClasses="SectionHeader">
-                    <Label Text="Hive Population"
-                           Margin="8 4" />
-                </PanelContainer>
-
-                <!-- Total Sisters -->
-                <CenterContainer>
-                    <Label Name="TotalSistersLabel"
-                           Text="Total Living Sisters: 2" />
-                </CenterContainer>
-
-                <!-- Tier 4 -->
-                <PanelContainer>
-                    <BoxContainer Orientation="Vertical">
-                        <CenterContainer>
-                            <Label Text="Tier 4: 0 Sisters" />
-                        </CenterContainer>
-
-                        <GridContainer Columns="4">
-                            <Button Text="King"/>
-                            <Button Text="Predalien"/>
-                            <Button Text="Queen"/>
-                            <Button Text="Shrike"/>
-                        </GridContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-                <!-- Tier 3 -->
-                <PanelContainer>
-                    <BoxContainer Orientation="Vertical">
-                        <CenterContainer>
-                            <Label Text="Tier 3: (0/1) Sisters" />
-                        </CenterContainer>
-
-                        <GridContainer Columns="5">
-                            <Button Text="Behemoth"/>
-                            <Button Text="Boiler"/>
-                            <Button Text="Chimera"/>
-                            <Button Text="Crusher"/>
-                            <Button Text="Defiler"/>
-                            <Button Text="Gorger"/>
-                            <Button Text="Praetorian"/>
-                            <Button Text="Ravager"/>
-                            <Button Text="Warlock"/>
-                            <Button Text="Widow"/>
-                        </GridContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-                <!-- Tier 2 -->
-                <PanelContainer>
-                    <BoxContainer Orientation="Vertical">
-                        <CenterContainer>
-                            <Label Text="Tier 2: (0/3) Sisters" />
-                        </CenterContainer>
-
-                        <GridContainer Columns="4">
-                            <Button Text="Bull"/>
-                            <Button Text="Carrier"/>
-                            <Button Text="Hivelord"/>
-                            <Button Text="Hunter"/>
-                            <Button Text="Panther"/>
-                            <Button Text="Spitter"/>
-                            <Button Text="Warrior"/>
-                        </GridContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-                <!-- Tier 1 -->
-                <PanelContainer>
-                    <BoxContainer Orientation="Vertical">
-                        <CenterContainer>
-                            <Label Text="Tier 1: 2 Sisters" />
-                        </CenterContainer>
-
-                        <GridContainer Columns="4">
-                            <Button Text="Defender"/>
-                            <Button Text="Drone"/>
-                            <Button Text="Runner"/>
-                            <Button Text="Sentinel"/>
-                        </GridContainer>
-                    </BoxContainer>
-                </PanelContainer>
-
-            </BoxContainer>
-        </PanelContainer>
-
-
-        <!-- XENOMORPH LIST -->
-        <PanelContainer VerticalExpand="True">
-            <BoxContainer Orientation="Vertical">
-
-                <PanelContainer StyleClasses="SectionHeader">
-                    <Label Text="Xenomorph List"
-                           Margin="8 4" />
-                </PanelContainer>
-
-                <ItemList Name="XenoList"
-                          Access="Public"
-                          VerticalExpand="True" />
-            </BoxContainer>
-        </PanelContainer>
-
-
-        <!-- HIVE STRUCTURES -->
-        <PanelContainer VerticalExpand="True">
-            <BoxContainer Orientation="Vertical">
-
-                <PanelContainer StyleClasses="SectionHeader">
-                    <Label Text="Hive Structures"
-                           Margin="8 4" />
-                </PanelContainer>
-
-                <ItemList Name="StructuresList"
-                          Access="Public"
-                          VerticalExpand="True" />
-            </BoxContainer>
-        </PanelContainer>
-
+        </ScrollContainer>
     </BoxContainer>
 </ui:MCXenoHiveStatusWindow>

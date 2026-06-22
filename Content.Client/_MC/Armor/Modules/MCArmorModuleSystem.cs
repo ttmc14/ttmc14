@@ -1,10 +1,11 @@
 ﻿using Content.Client.Clothing;
-using Content.Shared._MC.Armor.Modules.Components;
+using Content.Shared._MC.Armor.Modules.Core;
+using Content.Shared._MC.Armor.Modules.Core.Components;
 using Content.Shared.Clothing;
 
 namespace Content.Client._MC.Armor.Modules;
 
-public sealed class MCArmorModuleSystem : Content.Shared._MC.Armor.Modules.MCArmorModuleSystem
+public sealed class MCArmorModuleSystem : MCArmorModuleSharedSystem
 {
     public override void Initialize()
     {
@@ -23,11 +24,17 @@ public sealed class MCArmorModuleSystem : Content.Shared._MC.Armor.Modules.MCArm
             if (moduleComponent.Visuals is not {} sprite)
                 continue;
 
-            args.Layers.Add(($"mc_armor_modular_clothing_slot_{slot.Id}", new PrototypeLayerData
+            var target = moduleComponent.VisualsLayer ?? args.Slot;
+            var key = $"mc_armor_modular_clothing_slot_{slot.Id}";
+
+            args.Layers.Add((key, new PrototypeLayerData
             {
                 RsiPath = sprite.RsiPath.CanonPath,
                 State = sprite.RsiState,
             }));
+
+            // Depth tweak
+            args.MCDepth[key] = target;
         }
     }
 }

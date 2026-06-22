@@ -27,8 +27,8 @@
     interactSuccessSound:
       collection: FenceRattle
   - type: RMCRepairable
+    skill: MCSkillEngineer
     heal: 60
-    skill: MCSkillConstruction
     delay: 10
     fuelUsed: 2
   # repairableDamageLimit: 340 - !!MC-TODO: At TGMC You can heal cades with Metal at 1 hand, and blowtorch at second.!!

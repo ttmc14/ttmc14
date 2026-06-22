@@ -79,7 +79,7 @@
       mc-aslot-underbarrel: 0.4200, -0.100
 
 - type: entity
-  parent: MCAttachmentBaseScope
+  parent: MCAttachmentScope
   id: MCAttachmentRailScopeSR81
   name: nightvision rail scope
   description: A rail mounted nightvision zoom sight scope specialized for the SR81 sniper rifle. Allows zoom by activating the attachment.
@@ -106,9 +106,9 @@
       offset: 16
       allowMovement: true
       doAfter: 0
-# TODO:
-#   - NightvisionScope
-#      active: True
+  # TODO:
+  #   - NightvisionScope
+  #      active: True
   - type: AttachableSpeedMods
     modifiers:
     - conditions:

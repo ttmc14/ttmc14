@@ -1,0 +1,26 @@
+- type: entity
+  parent: MCClothingHands
+  id: MCClothingHandsHealthScanner
+  name: HF2 analyzer gloves
+  description: Advanced medical gauntlets with a built-in health analyzer for quickly scanning patients via a simple touch or wave.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Hands/Gloves/medscan.rsi
+  - type: MCHealthGloves
+  - type: HealthScanner
+    skill: MCSkillMedical
+    sound:
+      path: "/Audio/Items/Medical/healthscanner.ogg"
+  - type: ActivatableUI
+    key: enum.HealthScannerUIKey.Key
+    inHandsOnly: false
+  - type: UserInterface
+    interfaces:
+      enum.HealthScannerUIKey.Key:
+        type: MCHealthScannerBui
+  - type: MedicallyUnskilledDoAfter
+    skill: MCSkillMedical
+    min: 1
+    doAfter: 5

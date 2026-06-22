@@ -1,4 +1,5 @@
-﻿using Robust.Shared.Map;
+﻿using Content.Shared._CE.ZLevels.Core;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
@@ -121,7 +122,6 @@ public sealed class MCLineSystem : EntitySystem
         RaiseNetworkEvent(new MCLineEffectEvent
         {
             Data = sprites,
-        },
-        Filter.Pvs(startCoords));
+        }, CEFilter.ZPvs(startCoords));
     }
 }

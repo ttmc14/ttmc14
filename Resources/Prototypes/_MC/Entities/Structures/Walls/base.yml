@@ -1,7 +1,6 @@
 - type: entity
   parent: BaseStructure
   id: MCWallInvincibleNoIcon
-  abstract: True
   description: A huge chunk of metal used to separate rooms.
   categories: [ MCContent ]
   placement:
@@ -273,6 +272,7 @@
   - type: ReceiverXenoClaws
     maxHealth: 100
   - type: RMCRepairable
+    skill: MCSkillEngineer
     delay: 3
   - type: RMCRepairableReplace
     prototype: MCGirder

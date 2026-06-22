@@ -60,6 +60,7 @@
   - type: RMCNameItemOnVend
     item: Sidearm
   - type: GunUnskilledPenalty
+    skill: MCSkillFirearms # mc-changes
     angleIncrease: 5
   - type: GunPointBlank
   - type: GunDualWielding

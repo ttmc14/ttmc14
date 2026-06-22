@@ -25,10 +25,18 @@
         points: 15
       - id: MCImplantSkillMedical
         points: 15
+      - id: MCImplantSkillSurgery
+        points: 15
       - id: MCImplantSkillEngineering
         points: 15
       - id: MCImplantSkillLeadership
         points: 20
+    - name: Beacons
+      entries:
+      - id: MCBeaconSupply
+        points: 5
+      - id: MCBeaconOrbital
+        points: 5
     - name: Materials
       entries:
       - id: MCSheetMetal10
@@ -40,12 +48,8 @@
       - id: CMSandbagEmpty25
         name: sandbags x25
         points: 3
-    - name: Utilities
+    - name: Explosive
       entries:
-      - id: MCBeaconSupply
-        points: 5
-      - id: MCBeaconOrbital
-        points: 5
       - id: RMCExplosivePlastic
         points: 2
     - name: Flamer
@@ -56,6 +60,8 @@
         points: 15
       - id: MCTankFlamer
         points: 5
+    - name: Smart gun
+      entries:
       - id: MCWeaponSmartGunSG29
         points: 23
       - id: MCMagazineSmartGunSG29
@@ -66,16 +72,35 @@
         points: 2
       - id: MCMagazineSmartGunSG25Extended
         points: 4
-    - name: Boxes
-      entries:
       - id: MCBoxBulletsSmartGunSG29
         points: 4
-    # Injectors
+    - name: BR-8 scout rifle
+      entries:
+      - id: MCWeaponRifleBR8
+        points: 23
+      - id: MCMagazineRifleBR8
+        points: 2
+      - id: MCMagazineRifleBR8Impact
+        points: 3
+      - id: MCMagazineRifleBR8Incendiary
+        points: 3
     - name: Auto Injector
       entries:
+      - id: MCAutoInjectorDexalinPlus
+        points: 1
+      - id: MCAutoInjectorSynaptizine
+        points: 2
       - id: MCAutoInjectorCombatAdv
         points: 2
-      - id: MCAutoInjectorSynaptizine
+    - name: Medical tools
+      entries:
+      - id: MCClothingHandsHealthScanner
+        points: 2
+    - name: Healing
+      entries:
+      - id: MCHealingTraumaKitCombat
+        points: 2
+      - id: MCHealingBurnKitCombat
         points: 2
 
 - type: entity

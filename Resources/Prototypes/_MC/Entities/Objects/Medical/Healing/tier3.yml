@@ -1,0 +1,98 @@
+- type: entity
+  id: MCHealingTraumaKitCombat
+  name: combat trauma kit
+  description: An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one.
+  suffix: MC
+  parent: MCHealingBrute
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingTraumaKitCombat
+  - type: Sprite
+    state: combat_traumakit
+  - type: Item
+    size: Normal
+    heldPrefix: combat_traumakit
+  - type: Stack
+    stackType: MCHealingTraumaKitCombat
+    count: 140
+  - type: WoundTreater
+    damage: -15
+    unskilledDamage: -7.5
+    skills:
+      MCSkillMedical: 2
+    treatBeginSound:
+      path: /Audio/_RMC14/Medical/bandage.ogg
+    treatEndSound:
+      path: /Audio/Items/Medical/brutepack_end.ogg
+    userPopup: cm-trauma-kit-user-popup
+    targetPopup: cm-trauma-kit-target-popup
+    othersPopup: cm-trauma-kit-others-popup
+    noneSelfPopup: cm-trauma-kit-none-self-popup
+    noneOtherPopup: cm-trauma-kit-none-other-popup
+    noWoundsOnUserPopup: cm-wounds-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-wounds-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 2
+    skilledDelay: 2
+    doAfter: 10
+
+- type: stack
+  id: MCHealingTraumaKitCombat
+  name: combat trauma kit
+  icon:
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
+    state: combat_traumakit
+  spawn: MCHealingTraumaKitCombat
+  maxCount: 140
+
+- type: Tag
+  id: MCHealingTraumaKitCombat
+
+- type: entity
+  id: MCHealingBurnKitCombat
+  name: combat burn kit
+  description: An expensive huge kit for prolonged combat conditions. Has more space and better medicine compared to a regular one.
+  parent: MCHealingBurn
+  components:
+  - type: Tag
+    tags:
+    - MCHealing
+    - MCHealingBurnKitCombat
+  - type: Stack
+    stackType: MCHealingBurnKitCombat
+    count: 140
+  - type: Sprite
+    state: combat_burnkit
+  - type: Item
+    size: Normal
+    heldPrefix: combat_burnkit
+  - type: WoundTreater
+    damage: -12
+    unskilledDamage: -6
+    skills:
+      MCSkillMedical: 2
+    userPopup: cm-burn-kit-user-popup
+    targetPopup: cm-burn-kit-target-popup
+    othersPopup: cm-burn-kit-others-popup
+    noneSelfPopup: cm-burn-kit-none-self-popup
+    noneOtherPopup: cm-burn-kit-none-other-popup
+    noWoundsOnUserPopup: cm-burns-already-treated-self-popup
+    noWoundsOnTargetPopup: cm-burns-already-treated-target-popup
+  - type: MedicallyUnskilledDoAfter
+    min: 2
+    skilledDelay: 2
+    doAfter: 10
+
+- type: stack
+  id: MCHealingBurnKitCombat
+  name: combat burn kit
+  icon:
+    sprite: "/Textures/_MC/Objects/Medical/medical.rsi"
+    state: combat_burnkit
+  spawn: MCHealingBurnKitCombat
+  maxCount: 140
+
+- type: Tag
+  id: MCHealingBurnKitCombat

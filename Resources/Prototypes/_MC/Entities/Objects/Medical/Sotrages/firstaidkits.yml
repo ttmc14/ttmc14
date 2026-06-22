@@ -34,7 +34,7 @@
       - MCSyringe
       - MCCaseSyringe
       - MCAutoInjector
-      - MCHealingItem
+      - MCHealing
       - MCDropper
       - MCSpray
       - CMSurgeryTool
@@ -46,8 +46,8 @@
     items:
       tags:
       - MCPillCanister
-      - MCBurnKit
-      - MCTraumaKit
+      - MCHealingBurnKit
+      - MCHealingTraumaKit
       - MCPacketPills
       - MCCaseSyringe
       - CMSurgeryTool
@@ -78,12 +78,12 @@
   - type: StorageFill
     contents:
     - id: MCHealthAnalyzer
-    - id: MCGauze
-    - id: MCOintment
+    - id: MCHealingGauze
+    - id: MCHealingOintment
     - id: MCAutoInjectorCombat
     - id: MCAutoInjectorTricordrazine
     - id: MCAutoInjectorTramadol
-    - id: MCSplint
+    - id: MCHealingSplint
 
 - type: entity
   parent: MCAidKitFirst
@@ -110,7 +110,7 @@
     - id: MCHealthAnalyzer
     - id: MCPillCanisterKelotane
     - id: MCPillCanisterTramadol
-    - id: MCBurnKit
+    - id: MCHealingBurnKit
       amount: 2
     - id: MCPacketPillsLeporazine
     - id: MCCaseSyringeFillBurn
@@ -226,12 +226,12 @@
   - type: StorageFill
     contents:
     - id: MCHealthAnalyzer
-    - id: MCTraumaKit
-    - id: MCBurnKit
+    - id: MCHealingTraumaKit
+    - id: MCHealingBurnKit
     - id: MCPillCanisterBicaridine
     - id: MCPillCanisterKelotane
     - id: MCPillCanisterTramadol
-    - id: MCSplint
+    - id: MCHealingSplint
 
 - type: entity
   parent: MCAidKitFirst
@@ -256,8 +256,8 @@
   - type: StorageFill
     contents:
     - id: MCHealthAnalyzerCombat
-    - id: MCTraumaKitCombat
-    - id: MCBurnKitCombat
+    - id: MCHealingTraumaKitCombat
+    - id: MCHealingBurnKitCombat
     - id: MCHyposprayBigFillCombatAdv
     - id: MCHyposprayFillQuickClotPlus
     - id: MCAutoInjectorCombatAdv

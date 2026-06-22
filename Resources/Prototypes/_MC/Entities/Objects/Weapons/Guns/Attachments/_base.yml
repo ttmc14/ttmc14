@@ -1,0 +1,129 @@
+- type: entity
+  parent: MCItem
+  id: MCAttachable
+  abstract: true
+  components:
+  - type: Item
+    size: Small
+  - type: Attachable
+  - type: Appearance
+
+- type: entity
+  parent: MCAttachable
+  id: MCAttachableToggleableBase
+  abstract: true
+  components:
+  - type: AttachableToggleable
+  - type: UseDelay
+    delay: 0
+
+- type: entity
+  parent: MCAttachable
+  id: MCAttachmentBarrel
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentBarrel
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/muzzle.rsi
+
+- type: Tag
+  id: MCAttachmentBarrel
+
+- type: entity
+  parent: MCAttachable
+  id: MCAttachmentRail
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentRail
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/rail.rsi
+
+- type: Tag
+  id: MCAttachmentRail
+
+- type: entity
+  parent: MCAttachable
+  id: MCAttachmentStock
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentStock
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/stock.rsi
+
+- type: Tag
+  id: MCAttachmentStock
+
+- type: entity
+  parent: MCAttachable
+  id: MCAttachmentUnderbarrel
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentUnderbarrel
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/underbarrel.rsi
+
+- type: Tag
+  id: MCAttachmentUnderbarrel
+
+- type: entity
+  parent:
+  - MCAttachmentStock
+  - MCAttachableToggleableBase
+  id: MCAttachmentCollapsibleStock
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentStock
+  - type: AttachableVisuals
+    showActive: true
+  - type: AttachableToggleable
+    activatePopupText: attachable-popup-activate-unfold
+    deactivatePopupText: attachable-popup-deactivate-collapse
+    actionDesc: Extend the stock.
+  - type: AttachableWieldDelayMods
+    modifiers: []
+
+- type: entity
+  parent:
+  - MCAttachmentRail
+  - MCAttachableToggleableBase
+  id: MCAttachmentScope
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+  - type: AttachableToggleable
+    needHand: true
+    heldOnlyActivate: true
+    userOnly: true
+    doInterrupt: true
+    attachedOnly: true
+    breakOnMove: true
+    breakOnRotate: true
+    wieldedOnly: true
+    useDelay: 0.5
+    showTogglePopup: false
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/scope.rsi
+      state: marine
+    actionName: Look through Scope
+    actionDesc: Scope in. If you're seeing this, someone forgot to set the description properly.
+  - type: AttachableToggleableSimpleActivate
+  - type: Scope
+    requireWielding: true
+    attachment: true
+    useInHand: true
+    zoomLevels:
+    - zoom: 1
+      offset: 15
+      allowMovement: false
+      doAfter: 0

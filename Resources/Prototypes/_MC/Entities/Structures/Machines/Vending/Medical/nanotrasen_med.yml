@@ -100,11 +100,26 @@
       entries:
       - id: MCToolResearcherXenoAnalyzer
       - id: MCToolResearcherExcavationTool
-      - id: MCPouchSurgeryFill
-      - id: MCWebbingSurgeryFill
       - id: MCSprayBottleSterilizingFill
       - id: MCSoap
       - id: MCGlassesHudHealth
         amount: 6
       - id: MCHealthAnalyzer
         amount: 6
+    - name: Storages
+      entries:
+      - id: MCPouchSurgeryFilled
+      - id: MCWebbingSurgeryFilled
+    - name: Surgery
+      entries:
+      - id: MCScalpelManager
+      - id: MCScalpel
+      - id: MCHemostat
+      - id: MCRetractor
+      - id: MCSurgicalMembrane
+      - id: MCCautery
+      - id: MCCircularSaw
+      - id: MCToolSurgerySuture
+      - id: MCBoneGel
+      - id: MCBonesetter
+      - id: MCFixOVein
