@@ -59,8 +59,8 @@
     state: mod_armor_lower
   - type: CMVendorBundle
     bundle:
-    - MCArmorModuleMark1Mimir
-    - MCArmorModuleMark1MimirHelmet
+    - MCArmorModuleMark1TyrArmor
+    - MCArmorModuleMark1TyrArmorHelmet
 
 - type: entity
   id: MCVendorBundleModuleMark2TyrArmor
@@ -72,8 +72,8 @@
     state: mod_armor
   - type: CMVendorBundle
     bundle:
-    - MCArmorModuleMark2Mimir
-    - MCArmorModuleMark2MimirHelmet
+    - MCArmorModuleMark2TyrArmor
+    - MCArmorModuleMark2TyrArmorHelmet
 
 - type: entity
   id: MCVendorBundleModuleBaldur

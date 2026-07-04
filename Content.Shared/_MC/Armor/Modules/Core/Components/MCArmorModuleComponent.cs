@@ -12,11 +12,17 @@ public sealed partial class MCArmorModuleComponent : Component
     public SpriteSpecifier.Rsi? Visuals;
 
     [DataField, AutoNetworkedField]
+    public string? VisualsLayer;
+
+    [DataField, AutoNetworkedField]
     public MCArmorDefinition Armor;
 
     [DataField]
-    public ComponentRegistry Components = new();
+    public TimeSpan DurationEquip = TimeSpan.FromSeconds(3.5);
 
     [DataField]
-    public ComponentRegistry UserComponents = new();
+    public TimeSpan DurationUnequip = TimeSpan.FromSeconds(3.5);
+
+    [DataField]
+    public ComponentRegistry Components = new();
 }

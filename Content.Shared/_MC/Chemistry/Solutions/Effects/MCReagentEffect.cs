@@ -70,7 +70,7 @@ public abstract partial class MCReagentEffect : EntityEffect
             if (TickProcess)
             {
                 tick = MCSolutionTicker.GetTick(reagentArgs.TargetEntity, solution, reagent);
-                if (tick == 0)
+                if (tick == 1)
                     OnEffectStarted(reagentArgs, solution, reagent);
             }
 

@@ -5,7 +5,18 @@
   id: MCArmorModuleBody
 
 - type: Tag
+  id: MCArmorModuleHead
+
+# Storage
+- type: Tag
   id: MCArmorModuleBodyStorage
 
+# Customization
 - type: Tag
-  id: MCArmorModuleHead
+  id: MCArmorModuleCustomization
+
+- type: Tag
+  id: MCArmorModuleCustomizationBody
+
+- type: Tag
+  id: MCArmorModuleCustomizationHead

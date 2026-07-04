@@ -7,7 +7,7 @@ namespace Content.Shared.Clothing;
 /// <summary>
 ///     Raised directed at a piece of clothing to get the set of layers to show on the wearer's sprite
 /// </summary>
-public sealed class GetEquipmentVisualsEvent : EntityEventArgs
+public sealed partial class GetEquipmentVisualsEvent : EntityEventArgs
 {
     /// <summary>
     ///     Entity that is wearing the item.

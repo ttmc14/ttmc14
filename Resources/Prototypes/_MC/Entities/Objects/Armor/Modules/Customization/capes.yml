@@ -1,0 +1,518 @@
+- type: entity
+  parent: MCArmorModuleCustomization
+  id: MCArmorModuleCustomizationCape
+  name: cape
+  description: WIP.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCArmorModule
+    - MCArmorModuleCustomization
+    - MCArmorModuleCustomizationBody
+  - type: Sprite
+    sprite: _MC/Clothing/Modules/Customization/capes.rsi
+    state: back_icon
+  - type: MCArmorModule
+    durationEquip: 0.25
+    durationUnequip: 0.25
+    visualsLayer: head
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: back
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeBack
+  name: cape back
+  components:
+  - type: Sprite
+    state: back_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: back
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeCover1
+  name: cape cover
+  components:
+  - type: Sprite
+    state: cover_1_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: cover_1
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeCover2
+  name: cape cover alt
+  components:
+  - type: Sprite
+    state: cover_2_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: cover_2
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeDrifter
+  name: cape drifter
+  components:
+  - type: Sprite
+    state: drifter_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: drifter
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeFull
+  name: cape full
+  components:
+  - type: Sprite
+    state: full_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: full
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeFullHide
+  name: cape hide
+  components:
+  - type: Sprite
+    state: full_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: full_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeGeist
+  name: cape geist
+  components:
+  - type: Sprite
+    state: geist_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: geist
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeGeistHide
+  name: cape geist hide
+  components:
+  - type: Sprite
+    state: geist_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: geist_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeGhille
+  name: cape ghille
+  components:
+  - type: Sprite
+    state: ghille_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: ghille
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeGhille2
+  name: cape ghille alt
+  components:
+  - type: Sprite
+    state: ghille_2_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: ghille_2
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeGhilleLeft
+  name: cape ghille left
+  components:
+  - type: Sprite
+    state: ghille_left_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: ghille_left
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeGhilleRight
+  name: cape ghille right
+  components:
+  - type: Sprite
+    state: ghille_right_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: ghille_right
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeHalf
+  name: cape half
+  components:
+  - type: Sprite
+    state: half_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: half
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeHalfHide
+  name: cape half hide
+  components:
+  - type: Sprite
+    state: half_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: half_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeJacket
+  name: cape jacket
+  components:
+  - type: Sprite
+    state: jacket_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: jacket
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeKama
+  name: cape kama
+  components:
+  - type: Sprite
+    state: kama_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: kama
+
+# --- НАЧАЛО ВТОРОЙ СТРОКИ ---
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeKilt
+  name: cape kilt
+  components:
+  - type: Sprite
+    state: kilt_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: kilt
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeKiltAlt
+  name: cape kilt alt
+  components:
+  - type: Sprite
+    state: kilt_alt_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: kilt_alt
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeNormal
+  name: cape normal
+  components:
+  - type: Sprite
+    state: normal_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: normal
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeNormalHide
+  name: cape normal hide
+  components:
+  - type: Sprite
+    state: normal_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: normal_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeOldShort
+  name: cape old short
+  components:
+  - type: Sprite
+    state: old_short_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: old_short
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeOldShortHide
+  name: cape old short hide
+  components:
+  - type: Sprite
+    state: old_short_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: old_short_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeOverlord
+  name: cape overlord
+  components:
+  - type: Sprite
+    state: overlord_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: overlord
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeOverlord2
+  name: cape overlord alt
+  components:
+  - type: Sprite
+    state: overlord_2_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: overlord_2
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeOverlord3
+  name: cape overlord alt 2
+  components:
+  - type: Sprite
+    state: overlord_3_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: overlord_3
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeRapierLeft
+  name: cape rapier left
+  components:
+  - type: Sprite
+    state: rapier_left_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: rapier_left
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeRapierRight
+  name: cape rapier right
+  components:
+  - type: Sprite
+    state: rapier_right_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: rapier_right
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeScarf
+  name: cape scarf
+  components:
+  - type: Sprite
+    state: scarf_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: scarf
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeScarfHide
+  name: cape scarf hide
+  components:
+  - type: Sprite
+    state: scarf_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: scarf_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeScarfRound
+  name: cape scarf round
+  components:
+  - type: Sprite
+    state: scarf_round_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: scarf_round
+
+# --- НАЧАЛО ТРЕТЬЕЙ СТРОКИ ---
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeScarfTied
+  name: cape scarf tied
+  components:
+  - type: Sprite
+    state: scarf_tied_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: scarf_tied
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShoal
+  name: cape shoal
+  components:
+  - type: Sprite
+    state: shoal_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: shoal
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShoal2
+  name: cape shoal alt
+  components:
+  - type: Sprite
+    state: shoal_2_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: shoal_2
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShoalBack
+  name: cape shoal back
+  components:
+  - type: Sprite
+    state: shoal_back_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: shoal_back
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShort
+  name: cape short
+  components:
+  - type: Sprite
+    state: short_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: short
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShortHide
+  name: cape short hide
+  components:
+  - type: Sprite
+    state: short_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: short_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShredded
+  name: cape shredded
+  components:
+  - type: Sprite
+    state: shredded_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: shredded
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeShreddedHide
+  name: cape shredded hide
+  components:
+  - type: Sprite
+    state: shredded_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: shredded_h
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeStar
+  name: cape star
+  components:
+  - type: Sprite
+    state: star_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: star
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeStriped
+  name: cape striped
+  components:
+  - type: Sprite
+    state: striped_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: striped
+
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeStripedHide
+  name: cape striped hide
+  components:
+  - type: Sprite
+    state: striped_h_icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/capes.rsi
+      state: striped_h

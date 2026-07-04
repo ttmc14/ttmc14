@@ -7,3 +7,12 @@
   - type: Sprite
     sprite: _MC/Actions/actions.rsi
     state: aim_mode
+
+- type: entity
+  parent: MCGuidebookActionMarine
+  id: MCGuidebookActionSelectReagent
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Interface/Actions/vali.rsi
+    state: icon

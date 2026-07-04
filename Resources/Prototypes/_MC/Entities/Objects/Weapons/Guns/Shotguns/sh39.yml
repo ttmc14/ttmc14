@@ -14,7 +14,7 @@
   - type: Gun
     shotsPerBurst: 1
   - type: ShootUseDelay
-  # - type: GunRequiresWield # Until "WieldDelay" and "ShootUseDelay" starts work normaly
+  - type: GunRequiresWield # Until "WieldDelay" and "ShootUseDelay" starts work normaly
   - type: RMCSelectiveFire
     recoilWielded: 2
     recoilUnwielded: 5

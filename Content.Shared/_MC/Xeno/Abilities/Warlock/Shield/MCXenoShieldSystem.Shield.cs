@@ -2,6 +2,7 @@
 using System.Numerics;
 using Content.Shared._MC.Popup;
 using Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
+using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Coordinates;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -144,5 +145,7 @@ public sealed partial class MCXenoShieldSystem
             projectileComponent.Weapon = entity.Comp.OwnerUid;
             Dirty(target, projectileComponent);
         }
+
+        RemComp<ProjectileIFFComponent>(target);
     }
 }

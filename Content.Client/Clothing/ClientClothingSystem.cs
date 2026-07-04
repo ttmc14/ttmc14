@@ -274,7 +274,7 @@ public sealed class ClientClothingSystem : ClothingSystem
 
         // temporary, until layer draw depths get added. Basically: a layer with the key "slot" is being used as a
         // bookmark to determine where in the list of layers we should insert the clothing layers.
-        var slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), slot, out var index, false);
+        // var slotLayerExists = _sprite.LayerMapTryGet((equipee, sprite), slot, out var index, false); // mc-changes-comment
 
         // Select displacement maps
         var displacementData = inventory.Displacements.GetValueOrDefault(slot); //Default unsexed map
@@ -298,11 +298,28 @@ public sealed class ClientClothingSystem : ClothingSystem
         // add the new layers
         foreach (var (key, layerData) in ev.Layers)
         {
+            // mc-changes-start
+            var mcDepth = ev.MCDepth.GetValueOrDefault(key);
+            // mc-changes-end
+
             if (!revealedLayers.Add(key))
             {
                 Log.Warning($"Duplicate key for clothing visuals: {key}. Are multiple components attempting to modify the same layer? Equipment: {ToPrettyString(equipment)}");
                 continue;
             }
+
+            // mc-changes-start
+            var mcTargetSlot = !string.IsNullOrEmpty(mcDepth) ? mcDepth : slot;
+
+            // Overwrite default slotLayerExists
+            var slotLayerExists = _sprite.LayerMapTryGet(
+                (equipee, sprite),
+                mcTargetSlot,
+                out var index,
+                false
+            );
+
+            // mc-changes-end
 
             if (slotLayerExists)
             {

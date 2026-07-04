@@ -1,0 +1,128 @@
+- type: entity
+  parent: MCXenoStructure
+  id: MCXenoStructureTurret
+  name: acid turret
+  description: A menacing looking construct of resin, it seems to be alive. It fires acid against intruders.
+  abstract: true
+  components:
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Actions
+  - type: Fixtures
+    fixtures:
+      fix1:
+        shape: !type:PhysShapeCircle
+          radius: 0.45
+        density: 20
+        layer:
+        - MidImpassable
+        - BulletImpassable
+        mask:
+        - MidImpassable
+        - BulletImpassable
+        hard: true
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/turrets.rsi
+    drawdepth: Mobs
+    noRot: true
+    state: acid
+  - type: Icon
+    sprite: _MC/Structures/Xeno/turrets.rsi
+    state: acid
+  - type: PointLight
+    enabled: true
+    radius: 1
+    energy: 2
+    color: "#02b005"
+  - type: CombatMode
+    toggleMouseRotator: false
+  - type: Gun
+    fireRate: 2
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/Weapons/Xeno/alien_spitacid.ogg
+      volume: -10
+  - type: BallisticAmmoProvider
+    proto: MCXenoProjectileHeavyScatter
+    capacity: 1000000
+  - type: HTN
+    rootTask:
+      task: RMCSentryCompound
+    blackboard:
+      VisionRadius: !type:Single "7.0"
+      AggroVisionRadius: !type:Single "7.0"
+  - type: MouseRotator
+    angleTolerance: 5
+    rotationSpeed: 180
+    simple4DirMode: false
+  - type: NoRotateOnInteract
+  - type: NoRotateOnMove
+  - type: MCIntegrity
+    thresholds:
+      Destruction: 1500
+  - type: MCIntegrityDestructible
+  - type: HealthExaminable
+    locPrefix: sentry
+    examinableTypes:
+    - MCBrute
+    - MCBurn
+  - type: ShortExamine
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Marine
+  - type: RequireProjectileTarget
+  - type: NpcFactionMember
+    factions:
+    - RMCXeno
+  - type: Flammable
+    fireSpread: false
+    maximumFireStacks: 0.5
+    damage:
+      types:
+        MCBurn: 2
+
+# Acid Turret
+- type: entity
+  parent: MCXenoStructureTurret
+  id: MCXenoStructureTurretAcid
+  name: acid turret
+  description: A menacing looking construct of resin, it seems to be alive. It fires acid against intruders.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/turrets.rsi
+    state: acid
+  - type: Icon
+    sprite: _MC/Structures/Xeno/turrets.rsi
+    state: acid
+  - type: BallisticAmmoProvider
+    proto: MCXenoProjectileHeavyScatter
+  - type: PointLight
+    enabled: true
+    radius: 1
+    energy: 2
+    color: "#02b005"
+
+# Sticky Resin Turret
+- type: entity
+  parent: MCXenoStructureTurret
+  id: MCXenoStructureTurretSticky
+  name: sticky resin turret
+  description: A menacing looking construct of resin, it seems to be alive. It fires resin against intruders.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/turrets.rsi
+    state: resin
+  - type: Icon
+    sprite: _MC/Structures/Xeno/turrets.rsi
+    state: resin
+  - type: BallisticAmmoProvider
+    proto: MCXenoProjectileStickyResin
+  - type: PointLight
+    enabled: true
+    radius: 1
+    energy: 2
+    color: "#840080"

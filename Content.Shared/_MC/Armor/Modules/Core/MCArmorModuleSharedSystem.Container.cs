@@ -17,11 +17,10 @@ public partial class MCArmorModuleSharedSystem
         if (entity.Comp.ContainerId != args.Container.ID)
             return;
 
-        if (!TryInsertModule(entity, args.Entity))
-        {
-            _container.Remove(args.Entity, args.Container, force: true);
+        if (TryInsertModule(entity, args.Entity))
             return;
-        }
+
+        _container.Remove(args.Entity, args.Container, force: true);
     }
 
     private void OnRemoved(Entity<MCArmorModularClothingComponent> entity, ref EntRemovedFromContainerMessage args)
