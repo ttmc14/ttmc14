@@ -1,0 +1,116 @@
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomTools
+  name: random tools spawner
+  description: This is a random tool.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _RMC14/Markers/landmarks.rsi
+          state: random_tool
+    - type: RandomSpawner
+      prototypes:
+        - CMScrewdriver
+        - CMWirecutter
+        - CMWelder
+        - CMCrowbar
+        - CMWrench
+        - RMCFlashlight
+      chance: 1
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomToolbox
+  name: random toolbox spawner
+  description: This is a random toolbox.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _RMC14/Markers/landmarks.rsi
+          state: random_toolbox
+    - type: RandomSpawner
+      prototypes:
+        - RMCToolboxMechanicalFilled # x3
+        - RMCToolboxMechanicalFilled
+        - RMCToolboxMechanicalFilled
+        - RMCToolboxElectricalFilled # x2
+        - RMCToolboxElectricalFilled
+        - RMCToolboxMechanicalGreenFilled # x2
+        - RMCToolboxMechanicalGreenFilled
+        - RMCToolboxEmergencyFilled
+      chance: 1
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomPowercell
+  name: random powercell spawner
+  description: This is a random powercell.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _RMC14/Markers/landmarks.rsi
+          state: random_cell_battery
+    - type: RandomSpawner
+      prototypes:
+        - MCPowerCellApc
+        - MCPowerCell # x4
+        - MCPowerCell
+        - MCPowerCell
+        - MCPowerCell
+        - MCPowerCellHigh # x4
+        - MCPowerCellHigh
+        - MCPowerCellHigh
+        - MCPowerCellHigh
+        - MCPowerCellSuper
+      chance: 0.99
+      rarePrototypes:
+        - MCPowerCellHyper
+      rareChance: 0.01
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomTechSupply
+  name: random tech supply spawner
+  description: This is a random piece of technology supplies.
+  categories: [ MCContent ]
+  suffix: MC 50%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _RMC14/Objects/Power/cells.rsi
+          state: cell
+    - type: RandomSpawner
+      prototypes:
+        # TODO:
+        # technology_scanner x2
+        # packageWrap x1
+        - MCSpawnerExplosiveSupply # x2
+        - MCSpawnerExplosiveSupply
+        - MCSpawnerRandomPowercell # x3
+        - MCSpawnerRandomPowercell
+        - MCSpawnerRandomPowercell
+        - CMFireExtinguisher
+        - MCHandsMarineInsulated
+        - RMCCableCoil # x3 MCTodo: New Cable Coil
+        - RMCCableCoil # MCTodo: New Cable Coil
+        - RMCCableCoil # MCTodo: New Cable Coil
+        - MCSpawnerRandomToolbox # x2
+        - MCSpawnerRandomToolbox
+        - MCClothingBeltTools # x2
+        - MCClothingBeltTools
+        - MCSpawnerRandomTools # x5
+        - MCSpawnerRandomTools
+        - MCSpawnerRandomTools
+        - MCSpawnerRandomTools
+        - MCSpawnerRandomTools
+      chance: 0.5
+      offset: 0

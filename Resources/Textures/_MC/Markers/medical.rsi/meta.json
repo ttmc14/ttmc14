@@ -1,0 +1,85 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "",
+            "delays": [
+                [
+                    0.120000005,
+                    0.120000005,
+                    0.120000005,
+                    0.120000005
+                ]
+            ]
+        },
+        {
+            "name": "rainbow_overlay"
+        },
+        {
+            "name": "random_bloodpack"
+        },
+        {
+            "name": "random_syringe"
+        },
+        {
+            "name": "random_medbelt"
+        },
+        {
+            "name": "random_medkit"
+        },
+        {
+            "name": "random_healpack"
+        },
+        {
+            "name": "random_burnkit"
+        },
+        {
+            "name": "random_brutekit"
+        },
+        {
+            "name": "random_healthanalyzer"
+        },
+        {
+            "name": "random_medbottle"
+        },
+        {
+            "name": "random_beaker"
+        },
+        {
+            "name": "random_largebeaker"
+        },
+        {
+            "name": "random_bluespace_beaker"
+        },
+        {
+            "name": "random_medicine"
+        },
+        {
+            "name": "random_medhud"
+        },
+        {
+            "name": "random_surgical"
+        },
+        {
+            "name": "random_organ"
+        },
+        {
+            "name": "random_rollerbed"
+        },
+        {
+            "name": "random_medsupplies"
+        },
+        {
+            "name": "random_ivdrip"
+        },
+        {
+            "name": "random_medical_closet"
+        }
+    ]
+}

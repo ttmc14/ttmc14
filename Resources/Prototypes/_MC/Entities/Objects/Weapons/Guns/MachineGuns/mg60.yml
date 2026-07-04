@@ -37,7 +37,7 @@
     recoilWielded: 0.85
     recoilUnwielded: 0.4
     scatterWielded: 7
-    scatterUnielded: 25
+    scatterUnwielded: 25
     baseFireRate: 6.7
   - type: WieldDelay
     baseDelay: 1.7
@@ -136,14 +136,16 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
-      falloff: 9999
+    - range: 16
+      falloff: 3
       ignoreModifiers: true
+    - range: 14
+      falloff: 3
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
-      falloff: 10
+    - range: 13
+      falloff: 12
 
 - type: Tag
   id: MCWeaponMachineGunMG60

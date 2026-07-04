@@ -1,0 +1,183 @@
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomWeapon
+  name: random weapon spawner
+  description: This is a random weapon spawner.
+  categories: [ MCContent ]
+  suffix: MC 100% ALL
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_rifle
+    - type: RandomSpawner
+      prototypes:
+        - MCWeaponRifleAR11
+        - MCWeaponRifleAR12
+        - MCWeaponRifleAR18
+        - MCWeaponRifleAR21
+        - MCWeaponMP19
+        - MCWeaponSMG45
+        - MCWeaponSMG90
+        - MCWeaponShotgunSH15
+        - MCWeaponShotgunSH34
+        - MCWeaponShotgunSH35
+        - MCWeaponShotgunSH39
+        - MCWeaponMachineGunMG42
+        - MCWeaponMachineGunMG60
+      chance: 0.99
+      rarePrototypes:
+        - MCWeaponShotgunLeicesterRepeater
+      rareChance: 0.01
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomWeaponFifty
+  name: random weapon spawner
+  description: This is a random Weapon spawner.
+  categories: [ MCContent ]
+  suffix: MC 50% ALL
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_rifle
+    - type: RandomSpawner
+      prototypes:
+        - MCWeaponRifleAR11
+        - MCWeaponRifleAR12
+        - MCWeaponRifleAR18
+        - MCWeaponRifleAR21
+        - MCWeaponMP19
+        - MCWeaponSMG45
+        - MCWeaponSMG90
+        - MCWeaponShotgunSH15
+        - MCWeaponShotgunSH34
+        - MCWeaponShotgunSH35
+        - MCWeaponShotgunSH39
+        - MCWeaponMachineGunMG42
+        - MCWeaponMachineGunMG60
+      chance: 0.49
+      rarePrototypes:
+        - MCWeaponShotgunLeicesterRepeater
+      rareChance: 0.01
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomWeaponSidearm
+  name: random Sidearm weapon spawner
+  description: This is a random Sidearm weapon spawner.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_sidearm
+    - type: RandomSpawner
+      prototypes:
+        - MCWeaponMK88
+        - MCWeaponP14
+        - MCWeaponP17
+        - MCWeaponP23
+        - MCWeaponRevolverR44
+        - MCWeaponRevolverR500
+      chance: 0.98
+      rarePrototypes:
+        - MCWeaponRevolverR312
+        - MCWeaponRevolverR500
+      rareChance: 0.02
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomWeaponSidearmFifty
+  name: random Sidearm weapon spawner
+  description: This is a random Sidearm weapon spawner.
+  categories: [ MCContent ]
+  suffix: MC 50%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_sidearm
+    - type: RandomSpawner
+      prototypes:
+        - MCWeaponMK88
+        - MCWeaponP14
+        - MCWeaponP17
+        - MCWeaponP23
+        - MCWeaponRevolverR44
+        - MCWeaponRevolverR500
+      chance: 0.48
+      rarePrototypes:
+        - MCWeaponRevolverR312
+        - MCWeaponRevolverR500
+      rareChance: 0.02
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomPlastiqueExplosive
+  name: random Plastique explosive spawner
+  description: This is a random Plastique explosive spawner.
+  categories: [ MCContent ]
+  suffix: MC 45%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_plastiqueexplosive
+    - type: RandomSpawner
+      prototypes:
+        - RMCExplosivePlastic # X7
+        - RMCExplosivePlastic
+        - RMCExplosivePlastic
+        - RMCExplosivePlastic
+        - RMCExplosivePlastic
+        - RMCExplosivePlastic
+        - RMCExplosivePlastic
+        # /obj/item/detpack X2
+        # /obj/item/assembly/signaler/receiver X1
+      chance: 0.45
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomPlastiqueExplosiveMultipleTwo
+  name: Two random Plastique explosive spawner
+  description: This is a random Plastique explosive spawner.
+  categories: [ MCContent ]
+  suffix: DONT WORKMC 20%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_plastiqueexplosive_multiple_two
+    - type: RandomSpawner
+      prototypes:
+        - RMCExplosivePlastic
+      amount: 2
+      chance: 0.2
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomPlastiqueExplosiveMultipleFour
+  name: Four random Plastique explosive spawner
+  description: This is a random Plastique explosive spawner.
+  categories: [ MCContent ]
+  suffix: DONT WORK MC 10%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/weaponry.rsi
+          state: random_plastiqueexplosive_multiple_four
+    - type: RandomSpawner
+      prototypes:
+        - RMCExplosivePlastic
+      amount: 4
+      chance: 0.1
+      offset: 0

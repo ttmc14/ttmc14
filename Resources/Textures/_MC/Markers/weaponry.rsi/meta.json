@@ -1,0 +1,85 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "",
+            "delays": [
+                [
+                    0.120000005,
+                    0.120000005,
+                    0.120000005,
+                    0.120000005
+                ]
+            ]
+        },
+        {
+            "name": "rainbow_overlay"
+        },
+        {
+            "name": "random_machinegun"
+        },
+        {
+            "name": "random_clothes"
+        },
+        {
+            "name": "random_sidearm"
+        },
+        {
+            "name": "random_melee"
+        },
+        {
+            "name": "random_shiv"
+        },
+        {
+            "name": "random_shotgun"
+        },
+        {
+            "name": "random_shotgun_ammo"
+        },
+        {
+            "name": "random_rifle"
+        },
+        {
+            "name": "random_egun"
+        },
+        {
+            "name": "random_ammo"
+        },
+        {
+            "name": "random_sidearm_ammo"
+        },
+        {
+            "name": "random_rifle_ammo"
+        },
+        {
+            "name": "random_machinegun_ammo"
+        },
+        {
+            "name": "random_plastiqueexplosive"
+        },
+        {
+            "name": "random_plastiqueexplosive_multiple_two"
+        },
+        {
+            "name": "random_plastiqueexplosive_multiple_four"
+        },
+        {
+            "name": "random_grenade"
+        },
+        {
+            "name": "random_grenade_multiple_four"
+        },
+        {
+            "name": "random_rocketlauncher"
+        },
+        {
+            "name": "random_wrecharger"
+        }
+    ]
+}

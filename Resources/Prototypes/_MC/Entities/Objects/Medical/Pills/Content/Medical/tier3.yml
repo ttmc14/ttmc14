@@ -1,0 +1,15 @@
+- type: entity
+  parent: MCPill
+  id: MCPillRussianRed
+  components:
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: MCRussianRed
+          Quantity: 10
+  - type: Sprite
+    layers:
+    - state: pill15
+      map: [ "enum.DamageStateVisualLayers.Base" ]

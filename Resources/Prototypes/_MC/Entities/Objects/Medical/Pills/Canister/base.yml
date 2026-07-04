@@ -3,6 +3,7 @@
   id: MCPillCanister
   name: pill bottle
   description: It's an airtight container for storing medication.
+  categories: [ MCContent ]
   components:
   - type: Tag
     tags:

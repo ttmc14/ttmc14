@@ -82,16 +82,16 @@
   id: MCWindowFrameColony
   components:
   - type: Sprite
-    sprite: _MC/Structures/Windows/col_frame.rsi
-    state: col_frame_window_0
+    sprite: _RMC14/Structures/Windows/Frames/colony_frame.rsi
+    state: col_frame0
   - type: Icon
-    sprite: _MC/Structures/Windows/col_frame.rsi
-    state: col_frame_window_0
+    sprite: _RMC14/Structures/Windows/Frames/colony_frame.rsi
+    state: col_frame0
   - type: IconSmooth
     key: mcWalls
     additionalKeys:
     - doors
-    base: col_frame_window_
+    base: col_frame
     mode: CardinalFlags
   - type: Construction
     graph: MCWindowColony
@@ -102,16 +102,16 @@
   id: MCWindowFrameColonyReinforced
   components:
   - type: Sprite
-    sprite: _MC/Structures/Windows/col_rframe.rsi
-    state: col_rwindow_frame_0
+    sprite: _RMC14/Structures/Windows/Frames/colony_rframe.rsi
+    state: col_rframe0
   - type: Icon
-    sprite: _MC/Structures/Windows/col_rframe.rsi
-    state: col_rwindow_frame_0
+    sprite: _RMC14/Structures/Windows/Frames/colony_rframe.rsi
+    state: col_rframe0
   - type: IconSmooth
     key: mcWalls
     additionalKeys:
     - doors
-    base: col_rwindow_frame_
+    base: col_rframe
     mode: CardinalFlags
   - type: Construction
     graph: MCWindowColonyReinforced

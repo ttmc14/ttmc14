@@ -8,8 +8,8 @@
     layers:
     - sprite: Markers/cross.rsi
       state: pink
-    - sprite: _MC/Objects/Tools/pinpointer.rsi
-      state: close
+    - sprite: _MC/Markers/landmarks.rsi
+      state: crash_site
 
 - type: entity
   parent: MCMarker

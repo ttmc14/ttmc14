@@ -28,8 +28,11 @@
     - FullAuto
     - Burst
     baseFireRate: 5
-    # Scatter
-    scatterWielded: 0
+    # Scatter and recoil
+    recoilWielded: 1
+    recoilUnwielded: 0.6
+    scatterWielded: 7
+    scatterUnwielded: 20
     # Modifiers
     modifiers:
       Burst:

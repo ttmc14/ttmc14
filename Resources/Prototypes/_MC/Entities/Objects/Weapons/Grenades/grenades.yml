@@ -233,9 +233,13 @@
     sprite: _MC/Objects/Items/case.rsi
     state: grenade_case
   - type: Storage
-    maxItemSize: Huge
+    maxItemSize: Small
     grid:
     - 0,0,11,1
+    whitelist:
+      tags:
+      - MCGrenade
+  - type: FixedItemSizeStorage
 
 - type: entity
   parent: MCCaseGrenade

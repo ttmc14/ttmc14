@@ -30,8 +30,11 @@
     - Burst
     baseFireRate: 5
     burstFireRateMultiplier: 2
-    # Scatter
-    scatterWielded: -2
+    # Scatter and recoil
+    recoilWielded: 1
+    recoilUnwielded: 0.6
+    scatterWielded: 7
+    scatterUnwielded: 20
     # Modifiers
     modifiers:
       Burst:
@@ -54,7 +57,8 @@
   - type: WieldDelay
     baseDelay: 0.7
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.1
+    accuracyMultiplier: 1
+    accuracyMultiplierUnwielded: 0.7
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
   # Attachable
@@ -181,13 +185,15 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
+    - range: 20
       falloff: 9999
       ignoreModifiers: true
+    - range: 17
+      falloff: 4
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
+    - range: 18
       falloff: 10
 
 - type: entity
@@ -204,11 +210,13 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
+    - range: 20
       falloff: 9999
       ignoreModifiers: true
+    - range: 17
+      falloff: 4
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
+    - range: 18
       falloff: 10

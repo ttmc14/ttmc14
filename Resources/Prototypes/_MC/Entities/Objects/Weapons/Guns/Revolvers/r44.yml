@@ -124,6 +124,18 @@
     damage:
       types:
         MCBrute: 45
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 10
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 10
+      falloff: 8
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 7
+      falloff: 15
   - type: CMArmorPiercing
     amount: 10
   - type: MCXenoSunderDamageOnHit
