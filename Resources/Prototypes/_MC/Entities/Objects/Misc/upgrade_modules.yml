@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCItem
+  id: MCMinerUpgradeModule
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/miner_modules.rsi
+  - type: Item
+    size: Tiny
+  - type: MCMinerModule
+
+- type: entity
+  parent: MCMinerUpgradeModule
+  id: MCMinerUpgradeModuleAutomatic
+  name: mining computer
+  description: A small computer that can automate mining wells, reducing the need for oversight.
+  components:
+  - type: Sprite
+    state: automatic
+  - type: MCMinerModuleAutomated
+
+- type: entity
+  parent: MCMinerUpgradeModule
+  id: MCMinerUpgradeModuleOverclocked
+  name: high-efficiency drill
+  description: A box with a few pumps and a big drill, meant to replace the standard drill used in normal mining wells for faster extraction.
+  components:
+  - type: Sprite
+    state: overclocked
+
+- type: entity
+  parent: MCMinerUpgradeModule
+  id: MCMinerUpgradeModuleReinforced
+  name: reinforced components box
+  description: A very folded box of reinforced components, meant to replace weak components used in normal mining wells.
+  components:
+  - type: Sprite
+    state: reinforced

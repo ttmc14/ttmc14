@@ -18,8 +18,6 @@
     blacklist:
       components:
       - Xeno
-  - type: MCMiner
-    state: Destroyed
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -30,6 +28,10 @@
           MediumDamage: { state: "mining_drill_" }
           Destroyed: { state: "mining_drill_error_" }
   - type: Speech
+  # Custom
+  - type: MCMiner
+    state: Destroyed
+  - type: MCMinerModuleContainer
   # Integrity
   - type: Damageable
     damageContainer: Inorganic

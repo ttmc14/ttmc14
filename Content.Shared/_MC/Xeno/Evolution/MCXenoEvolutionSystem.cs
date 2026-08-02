@@ -55,12 +55,31 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         ProcessEvolutionPoints();
     }
 
+    public List<EntProtoId> GetAvailable(Entity<XenoEvolutionComponent?> xeno)
+    {
+        var list = new List<EntProtoId>();
+
+        if (!Resolve(xeno, ref xeno.Comp))
+            return list;
+
+        foreach (var target in xeno.Comp.EvolvesTo)
+        {
+            if (CanEvolve((xeno, xeno.Comp), target, false))
+                list.Add(target);
+        }
+
+        return list;
+    }
+
     public bool CanEvolve(Entity<XenoEvolutionComponent> xeno, EntProtoId target, bool doPopup = true)
     {
         if (!_prototype.TryIndex(target, out var targetPrototype))
             return false;
 
         if (!TryGetHive(xeno, out var hive, doPopup))
+            return false;
+
+        if (!CheckEvoPointer(xeno, hive, target, targetPrototype, doPopup))
             return false;
 
         if (!CheckBlockedRequirement(xeno, hive, target, targetPrototype, doPopup))
@@ -112,6 +131,21 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         return true;
     }
 
+    private bool CheckEvoPointer(
+        Entity<XenoEvolutionComponent> xeno,
+        Entity<MCXenoHiveComponent> hive,
+        EntProtoId target,
+        EntityPrototype targetPrototype,
+        bool doPopup)
+    {
+        if (!targetPrototype.TryGetComponent<XenoEvolutionComponent>(out var targetComponent, _compFactory))
+            return false;
+
+        if (xeno.Comp.Points < targetComponent.Points)
+            return false;
+
+        return true;
+    }
 
     private bool CheckLeaderRequirement(
         EntityUid xeno,

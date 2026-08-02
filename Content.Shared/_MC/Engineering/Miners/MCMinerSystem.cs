@@ -28,6 +28,7 @@ public sealed class MCMinerSystem : EntitySystem
     [Dependency] private readonly SkillsSystem _rmcSkills = null!;
 
     [Dependency] private readonly MCASRSSystem _mcAsrs = null!;
+    [Dependency] private readonly MCMinerModuleSystem _mcMinerModule = null!;
     [Dependency] private readonly MCIntegritySystem _mcIntegrity = null!;
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
     [Dependency] private readonly MCSharedChatSystem _mcChat = null!;
@@ -48,19 +49,27 @@ public sealed class MCMinerSystem : EntitySystem
         base.Update(frameTime);
 
         var query = EntityQueryEnumerator<MCMinerComponent>();
-        while (query.MoveNext(out _, out var minerComponent))
+        while (query.MoveNext(out var uid,  out var component))
         {
-            if (minerComponent.State != MCMinerState.Running)
+            if (component.State != MCMinerState.Running)
                 continue;
 
-            if (minerComponent.MineralStored >= minerComponent.MineralStorage)
+            if (component.MineralStored >= component.MineralStorage)
                 continue;
 
-            if (minerComponent.NextMineralProduction > _timing.CurTime)
+            if (component.NextMineralProduction > _timing.CurTime)
                 continue;
 
-            minerComponent.MineralStored++;
-            minerComponent.NextMineralProduction = _timing.CurTime + minerComponent.MineralProductionTime;
+            component.MineralStored++;
+            component.NextMineralProduction = _timing.CurTime + component.MineralProductionTime;
+
+            var ev = new MCMinerModuleAutomatedEvent();
+            RaiseLocalEvent(uid, ref ev);
+
+            if (!ev.Automated)
+                continue;
+
+            Sale((uid, component));
         }
     }
 
@@ -90,22 +99,7 @@ public sealed class MCMinerSystem : EntitySystem
     private void OnInteractHand(Entity<MCMinerComponent> entity, ref InteractHandEvent args)
     {
         args.Handled = true;
-
-        if (entity.Comp.State != MCMinerState.Running)
-            return;
-
-        if (entity.Comp.MineralStored == 0)
-        {
-            _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-not-ready", ("miner", entity)));
-            return;
-        }
-
-        var value = entity.Comp.MineralStored * entity.Comp.MineralValue;
-
-        _mcAsrs.AddBalance(value);
-        _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-sold", ("value", value)));
-
-        entity.Comp.MineralStored = 0;
+        Sale(entity);
     }
 
     private void OnInteractUsing(Entity<MCMinerComponent> entity, ref InteractUsingEvent args)
@@ -115,9 +109,21 @@ public sealed class MCMinerSystem : EntitySystem
 
         args.Handled = true;
 
+        if (entity.Comp.State == MCMinerState.Running && HasComp<MCMinerModuleComponent>(used))
+        {
+            _mcMinerModule.StartInsertingModule(entity.Owner, used, user);
+            return;
+        }
+
         // Step 1.
         if (_tool.HasQuality(used, entity.Comp.WeldingQuality))
         {
+            if (entity.Comp.State == MCMinerState.Running)
+            {
+                _mcMinerModule.StartTakeModule(entity.Owner, user);
+                return;
+            }
+
             TryRepair(entity, user, used, MCMinerState.Destroyed);
             return;
         }
@@ -236,6 +242,25 @@ public sealed class MCMinerSystem : EntitySystem
 
         ensure.Icon = newIcon;
         Dirty(entity, ensure);
+    }
+
+    private void Sale(Entity<MCMinerComponent> entity)
+    {
+        if (entity.Comp.State != MCMinerState.Running)
+            return;
+
+        if (entity.Comp.MineralStored == 0)
+        {
+            _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-not-ready", ("miner", entity)));
+            return;
+        }
+
+        var value = entity.Comp.MineralStored * entity.Comp.MineralValue;
+
+        _mcAsrs.AddBalance(value);
+        _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-sold", ("value", value)));
+
+        entity.Comp.MineralStored = 0;
     }
 
     private void TryRepair(Entity<MCMinerComponent> entity, EntityUid user, EntityUid used, MCMinerState state)

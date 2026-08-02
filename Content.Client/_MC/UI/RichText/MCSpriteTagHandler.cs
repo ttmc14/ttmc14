@@ -23,23 +23,26 @@ public sealed class MCSpriteTagHandler : IMarkupTagHandler
     public bool TryCreateControl(MarkupNode node, [NotNullWhen(true)] out Control? control)
     {
         control = null;
+
         if (!node.Value.TryGetString(out var path))
             return false;
 
-        var size = new Vector2(32);
-        if (node.Attributes.TryGetValue("size", out var sizePara) && sizePara.TryGetLong(out var sizeValue))
-            size = new Vector2((int) sizeValue);
+        var size = 32;
+        if (node.Attributes.TryGetValue("size", out var sizeParam) && sizeParam.TryGetLong(out var sizeValue))
+            size = (int) sizeValue.Value;
 
         var spriteSystem = _entityManager.System<SpriteSystem>();
+
         control = new TextureRect
         {
             Name = $"__mcsprite_{_id++}",
-            SetSize = size,
-            Stretch = TextureRect.StretchMode.KeepAspectCentered,
-            HorizontalAlignment = Control.HAlignment.Left,
-            VerticalAlignment = Control.VAlignment.Center,
-            Margin = new Thickness(0, 0, 0, 8),
             Texture = spriteSystem.GetFrame(new SpriteSpecifier.Texture(new ResPath(path)), _timing.CurTime),
+            Stretch = TextureRect.StretchMode.Scale,
+            HorizontalAlignment = Control.HAlignment.Center,
+            VerticalAlignment = Control.VAlignment.Center,
+            MinSize = new Vector2(size, size),
+            CanShrink = true,
+            Margin = new Thickness(1, 2, 1, 2),
         };
 
         return true;
