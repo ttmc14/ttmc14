@@ -1,0 +1,14 @@
+- type: entity
+  id: MCPlanetIceCaves
+  name: Ледяные пещеры
+  components:
+  - type: RMCPlanetMapPrototype
+    map: /Maps/_MC/Planets/IceCaves/ice_caves0.yml
+    camouflage: Classic
+    announcement: ""
+  - type: MCPlanetMapPrototype
+    mapsBelow:
+    - /Maps/_MC/Planets/IceCaves/ice_caves-1.yml
+    - /Maps/_MC/Planets/IceCaves/ice_caves-2.yml
+    mapsAbove:
+    - /Maps/_MC/Planets/IceCaves/ice_caves1.yml

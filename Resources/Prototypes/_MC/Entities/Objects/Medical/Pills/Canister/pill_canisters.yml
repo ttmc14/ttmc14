@@ -381,3 +381,27 @@
       amount: 16
   - type: IconLabel
     labelTextLocId: mc-quickclot-container-label-text
+
+- type: entity
+  parent: MCPillCanister
+  id: MCPillCanisterRussianRed
+  name: russian red pill bottle
+  description: Contains pills that heal cuts and bruises, but cause slight pain. Take two to heal faster, but have slightly more pain.
+  suffix: Russian Red, 16, MC
+  components:
+  - type: Item
+    heldPrefix: 8
+  - type: Sprite
+    layers:
+    - state: pill_canister8
+      map: [ "bottleSurfaceLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: closed
+      map: [ "closedLayer" ]
+  - type: StorageFill
+    contents:
+    - id: MCPillRussianRed
+      amount: 16
+  - type: IconLabel
+    labelTextLocId: mc-russianred-container-label-text

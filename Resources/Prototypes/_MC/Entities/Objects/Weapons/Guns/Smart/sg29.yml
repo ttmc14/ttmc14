@@ -197,11 +197,16 @@
     amount: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 12
+    - range: 18
       falloff: 9999
       ignoreModifiers: true
+    - range: 12
+      falloff: 4
   - type: RMCProjectileAccuracy
-    minAccuracy: 100
+    accuracy: 100
+    thresholds:
+    - range: 12
+      falloff: 10
 
 - type: soundCollection
   id: MCWeaponSmartGunSG29Gunshot

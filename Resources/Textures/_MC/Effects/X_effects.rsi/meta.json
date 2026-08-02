@@ -1,0 +1,776 @@
+{
+    "version": 1,
+    "license": null,
+    "copyright": null,
+    "size": {
+        "x": 32,
+        "y": 32
+    },
+    "states": [
+        {
+            "name": "nest"
+        },
+        {
+            "name": "nest_overlay"
+        },
+        {
+            "name": "resin",
+            "directions": 4
+        },
+        {
+            "name": "resinclosing",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "resinopen",
+            "directions": 4
+        },
+        {
+            "name": "resinopening",
+            "directions": 4,
+            "delays": [
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ],
+                [
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "trap"
+        },
+        {
+            "name": "sticky"
+        },
+        {
+            "name": "egg_hugger1"
+        },
+        {
+            "name": "egg_hugger2"
+        },
+        {
+            "name": "egg opening",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "egg_hugger3"
+        },
+        {
+            "name": "egg exploding",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "egg_hugger4"
+        },
+        {
+            "name": "growth_door"
+        },
+        {
+            "name": "growth_wall"
+        },
+        {
+            "name": "egg gas exploding",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "egg gas emiting",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas",
+            "delays": [
+                [
+                    0.4,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas_h2",
+            "delays": [
+                [
+                    0.4,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas_t2",
+            "delays": [
+                [
+                    0.4,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas_a2",
+            "delays": [
+                [
+                    0.4,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas_o2",
+            "delays": [
+                [
+                    0.4,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas_n2",
+            "delays": [
+                [
+                    0.4,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.4
+                ]
+            ]
+        },
+        {
+            "name": "egg_gas4"
+        },
+        {
+            "name": "acid2-weak",
+            "delays": [
+                [
+                    0.5,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.5,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "acid2",
+            "delays": [
+                [
+                    0.4,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.4,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "acid2-strong",
+            "delays": [
+                [
+                    0.4,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.2
+                ]
+            ]
+        },
+        {
+            "name": "acid"
+        },
+        {
+            "name": "alienegg_fire",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "hole"
+        },
+        {
+            "name": "splatter",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "burst_stand",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "bursted_stand",
+            "directions": 4
+        },
+        {
+            "name": "headbite_stand",
+            "directions": 4
+        },
+        {
+            "name": "facehugger",
+            "directions": 4,
+            "delays": [
+                [
+                    1,
+                    0.3,
+                    1,
+                    0.3
+                ],
+                [
+                    1,
+                    0.3,
+                    1,
+                    0.3
+                ],
+                [
+                    1,
+                    0.3,
+                    1,
+                    0.3
+                ],
+                [
+                    1,
+                    0.3,
+                    1,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "facehugger_inactive",
+            "directions": 4
+        },
+        {
+            "name": "facehugger_dead"
+        },
+        {
+            "name": "facehugger_thrown",
+            "directions": 4
+        },
+        {
+            "name": "facehugger_impregnated"
+        },
+        {
+            "name": "alien_fire",
+            "directions": 4,
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ],
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "acidblob"
+        },
+        {
+            "name": "acid_weak",
+            "delays": [
+                [
+                    1,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "acid_weak_wall",
+            "delays": [
+                [
+                    1,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "acid_normal",
+            "delays": [
+                [
+                    0.5,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "acid_normal_wall",
+            "delays": [
+                [
+                    0.5,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "acid_strong",
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "acid_strong_wall",
+            "delays": [
+                [
+                    0.3,
+                    0.2,
+                    0.2,
+                    0.2,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "spiderling Walking",
+            "directions": 4
+        },
+        {
+            "name": "spiderling Sleeping"
+        },
+        {
+            "name": "spiderling Running",
+            "directions": 4
+        },
+        {
+            "name": "spiderling Knocked Down"
+        },
+        {
+            "name": "spiderling Dead",
+            "delays": [
+                [
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "aoe_leash"
+        },
+        {
+            "name": "spiderling Burrowed",
+            "directions": 4
+        },
+        {
+            "name": "crush_warning",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.1,
+                    0.3
+                ]
+            ]
+        },
+        {
+            "name": "spiderling Walking Guarding",
+            "directions": 4
+        },
+        {
+            "name": "spiderling Running Guarding",
+            "directions": 4
+        },
+        {
+            "name": "spiderling Walking Enraged",
+            "directions": 4
+        },
+        {
+            "name": "spiderling Running Enraged",
+            "directions": 4
+        },
+        {
+            "name": "spiderling Sleeping Enraged"
+        },
+        {
+            "name": "spiderling Sleeping Guarding"
+        },
+        {
+            "name": "spiderling Knocked Down Guarding"
+        },
+        {
+            "name": "spiderling Knocked Down Enraged"
+        },
+        {
+            "name": "generic_warning",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "warning_1",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "warning_2",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "warning_3",
+            "delays": [
+                [
+                    0.3,
+                    0.1,
+                    0.1,
+                    0.2,
+                    0.1,
+                    0.1
+                ]
+            ]
+        },
+        {
+            "name": "stickyweb1"
+        },
+        {
+            "name": "stickyweb2"
+        },
+        {
+            "name": "trap_hugger"
+        },
+        {
+            "name": "trap_hugger_acid"
+        },
+        {
+            "name": "trap_hugger_neuro"
+        },
+        {
+            "name": "trap_hugger_slash"
+        },
+        {
+            "name": "trap_hugger_resin"
+        },
+        {
+            "name": "trap_hugger_ozelomelyn"
+        },
+        {
+            "name": "trap_acid"
+        },
+        {
+            "name": "trap_acid_weak"
+        },
+        {
+            "name": "trap_acid_strong"
+        },
+        {
+            "name": "trap_acid_gas"
+        },
+        {
+            "name": "trap_neuro_gas"
+        }
+    ]
+}

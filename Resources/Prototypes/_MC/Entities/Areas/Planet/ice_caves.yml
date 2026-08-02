@@ -1,0 +1,645 @@
+# --- base ---
+
+- type: entity
+  parent: MCArea
+  id: MCAreaIceCaves
+  suffix: MC Ice Caves
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Areas/planet.rsi
+    state: unknown
+  - type: Area
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: true
+    lasing: false
+    medevac: true
+    OB: false
+    supplyDrop: false
+    powerNet: almayer
+    hijackEvacuationArea: false
+    hijackEvacuationWeight: 0
+    hijackEvacuationType: None
+  - type: IntelRescueSurvivorArea
+
+- type: entity
+  parent: MCAreaIceCaves
+  id: MCAreaIceCavesGround
+  components:
+  - type: Area
+    CAS: true
+    fulton: true
+    lasing: true
+    mortarPlacement: true
+    mortarFire: true
+    medevac: true
+    OB: true
+    supplyDrop: true
+
+- type: entity
+  parent: MCAreaIceCaves
+  id: MCAreaIceCavesUnderground
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: false
+    mortarPlacement: false
+    mortarFire: false
+    medevac: false
+    OB: true
+    supplyDrop: false
+
+- type: entity
+  parent: MCAreaIceCaves
+  id: MCAreaIceCavesBuilding
+  components:
+  - type: Area
+    CAS: true
+    fulton: false
+    lasing: true
+    mortarPlacement: true
+    mortarFire: true
+    medevac: false
+    OB: true
+    supplyDrop: false
+
+# --- Outside/Streets/Landing Zones ---
+
+- type: entity
+  parent: MCAreaIceCavesGround
+  id: MCAreaIceCavesLandingZone1
+  name: Первая зона посадки
+  components:
+  - type: Sprite
+    state: landingzone1
+  - type: Area
+    minimapColor: "#00640a"
+
+- type: entity
+  parent: MCAreaIceCavesGround
+  id: MCAreaIceCavesLandingZone2
+  name: Вторая зона посадки
+  components:
+  - type: Sprite
+    state: landingzone2
+  - type: Area
+    minimapColor: "#780000"
+
+- type: entity
+  parent: MCAreaIceCavesGround
+  id: MCAreaIceCavesOutpostOutside
+  name: Улица Колонии
+  components:
+  - type: Sprite
+    state: blue # Its Red
+  - type: Area
+    minimapColor: "#9e0000"
+
+- type: entity
+  parent: MCAreaIceCavesGround
+  id: MCAreaIceCavesOutpostOutsideCenter
+  name: Центральная улица Колонии
+  components:
+  - type: Sprite
+    state: blue # Its Red
+  - type: Area
+    minimapColor: "#b70000"
+
+# --- Caves ---
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesAway4Caves
+  name: Пещера
+  components:
+  - type: Sprite
+    state: away4
+  - type: Area
+    minimapColor: "#b77a00"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesEastCaves
+  name: Восточные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#704b00"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesNorthCaves
+  name: Северные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#704b00"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesWestCaves
+  name: Западные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#704b00"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSouthCaves
+  name: Южные пещеры
+  components:
+  - type: Sprite
+    state: cave
+  - type: Area
+    minimapColor: "#704b00"
+
+# --- Buildings ---
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesGarage
+  name: Гараж
+  components:
+  - type: Sprite
+    state: garage
+  - type: Area
+    minimapColor: "#4e3400"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesKitchen
+  name: Кухня
+  components:
+  - type: Sprite
+    state: kitchen
+  - type: Area
+    minimapColor: "#9e0000"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesDormitory
+  name: Спальня
+  components:
+  - type: Sprite
+    state: maint_dormitory # Its not Mainteinance of Dormitory
+  - type: Area
+    minimapColor: "#00778b"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesRefinery
+  name: Здание Переработки
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesMedbay
+  name: Медицинский блок
+  components:
+  - type: Sprite
+    state: Medbay
+  - type: Area
+    minimapColor: "#0d7f00"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesOffices
+  name: Офисы
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+    minimapColor: "#c1bd00"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesMiningWest
+  name: Западное здание шахтёров
+  components:
+  - type: Sprite
+    state: blue
+  - type: Area
+    minimapColor: "#9e0000"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesMiningEast
+  name: Восточное здание шахтёров
+  components:
+  - type: Sprite
+    state: blue
+  - type: Area
+    minimapColor: "#9e0000"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecurity
+  name: Здание охраны
+  components:
+  - type: Sprite
+    state: Security
+  - type: Area
+    minimapColor: "#dc3636"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesEngineering
+  name: Здание инженерного отдела
+  components:
+  - type: Sprite
+    state: engine_smes
+  - type: Area
+    minimapColor: "#949191"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesResearchPost
+  name: Научный Пост
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+# --- Caves buildings ---
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesCavesBrig
+  name: Пещерный Блок Охраны
+  components:
+  - type: Sprite
+    state: icy_cavesbrig
+  - type: Area
+    minimapColor: "#920086"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesCavesChapel
+  name: Пещерная Церковь Нар'Си
+  components:
+  - type: Sprite
+    state: icy_chapel
+  - type: Area
+    minimapColor: "#920086"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesCavesUndergroundCafe
+  name: Подземное кафе
+  components:
+  - type: Sprite
+    state: icy_undercaf
+  - type: Area
+    minimapColor: "#920086"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesCavesAlienStuff
+  name: Выставка «Внеземные организмы и растительная жизнь»
+  components:
+  - type: Sprite
+    state: icy_alienstuff
+  - type: Area
+    minimapColor: "#920086"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesCavesVault
+  name: Пещерное Хранилище Оружия
+  components:
+  - type: Sprite
+    state: icy_vault
+  - type: Area
+    minimapColor: "#920086"
+
+# --- Crashed Ship ---
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesCrashedShip
+  name: Разбитый корабль
+  components:
+  - type: Sprite
+    state: blue
+  - type: Area
+    minimapColor: "#9e0000"
+
+# --- MonoRail ---
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesNorthWesternStationMonoRail
+  name: Северо-западная станция монорельса
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesNorthWesternStationMonoRailHallway
+  name: Холл Северо-западной станции монорельса
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesNorthWesternStationMonoRailMedbay
+  name: Медицинский блок Северо-западной станции монорельса
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesNorthWesternStationMonoRailMorgue
+  name: Морг Северо-западной станции монорельса
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesNorthWesternStationMonoRailBreakRoom
+  name: Столовая Северо-западной станции монорельса
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+# --- Second Floor ---
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorMedbay
+  name: Медицинский блок второго этажа
+  components:
+  - type: Sprite
+    state: Medbay
+  - type: Area
+    minimapColor: "#0d7f00"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorMedbayChemLab
+  name: Химическая лаборатория второго этажа
+  components:
+  - type: Sprite
+    state: Medbay
+  - type: Area
+    minimapColor: "#0d7f00"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorMedbayOperationRoom
+  name: Операционная второго этажа
+  components:
+  - type: Sprite
+    state: Medbay
+  - type: Area
+    minimapColor: "#0d7f00"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorDormitoryHallway
+  name: Холл спален второго этажа
+  components:
+  - type: Sprite
+    state: maint_dormitory
+  - type: Area
+    minimapColor: "#00778b"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorDormitoryRoomOneTwo
+  name: Комната 1-2 второго этажа
+  components:
+  - type: Sprite
+    state: maint_dormitory
+  - type: Area
+    minimapColor: "#00778b"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorDormitoryRoomThreeFour
+  name: Комната 3-4 второго этажа
+  components:
+  - type: Sprite
+    state: maint_dormitory
+  - type: Area
+    minimapColor: "#00778b"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorSecurityOffice
+  name: Офис охраны Второго этажа
+  components:
+  - type: Sprite
+    state: Security
+  - type: Area
+    minimapColor: "#dc3636"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorRefinery
+  name: Второй этаж здания Переработки
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#670062"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorOffices
+  name: Офисы второго этажа
+  components:
+  - type: Sprite
+    state: yellow
+  - type: Area
+    minimapColor: "#c1bd00"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorEngineering
+  name: Инженерный отдел второго этажа
+  components:
+  - type: Sprite
+    state: engine_smes
+  - type: Area
+    minimapColor: "#949191"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorGarage
+  name: Складское помещение-Гараж второго этажа
+  components:
+  - type: Sprite
+    state: garage
+  - type: Area
+    minimapColor: "#4e3400"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesSecondFloorResearchSpecialPost
+  name: Наблюдательный пост Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+# --- Caves second floor ---
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchHallway
+  name: Холл Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchArtifactRoom
+  name: Комната с артефактами Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchDormitory
+  name: Спальня Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchResearchLab
+  name: Лаборатория Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchOfficeRD
+  name: Офис RD Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchServerRoom
+  name: Серверная Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchCheckpoint
+  name: Контрольно-пропускной пункт Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: blue # Its Red
+  - type: Area
+    minimapColor: "#a80000"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchCheckpointEmergency
+  name: Экстреный Контрольно-пропускной пункт Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: blue # Its Red
+  - type: Area
+    minimapColor: "#a80000"
+
+- type: entity
+  parent: MCAreaIceCavesUnderground
+  id: MCAreaIceCavesSecondFloorCavesResearchKitchen
+  name: Кухня Научного отдела второго этажа
+  components:
+  - type: Sprite
+    state: purple
+  - type: Area
+    minimapColor: "#8b0085"
+
+# --- Roofs ---
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesRoofOne
+  name: Крыша здания
+  components:
+  - type: Sprite
+    state: blue2
+  - type: Area
+    minimapColor: "#0011ca"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesRoofTwo
+  name: Крыша здания
+  components:
+  - type: Sprite
+    state: blue2
+  - type: Area
+    minimapColor: "#0011ca"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesRoofThree
+  name: Крыша здания
+  components:
+  - type: Sprite
+    state: blue2
+  - type: Area
+    minimapColor: "#0011ca"
+
+- type: entity
+  parent: MCAreaIceCavesBuilding
+  id: MCAreaIceCavesRoofFour
+  name: Крыша здания
+  components:
+  - type: Sprite
+    state: blue2
+  - type: Area
+    minimapColor: "#0011ca"

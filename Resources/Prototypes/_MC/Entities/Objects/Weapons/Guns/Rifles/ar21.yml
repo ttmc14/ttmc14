@@ -27,8 +27,11 @@
     baseFireModes:
     - FullAuto
     baseFireRate: 4
-    # Scatter
-    scatterWielded: -2
+    # Scatter and recoil
+    recoilWielded: 1
+    recoilUnwielded: 0.6
+    scatterWielded: 7
+    scatterUnwielded: 20
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -147,11 +150,13 @@
     amount: 1.25
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
+    - range: 20
       falloff: 9999
       ignoreModifiers: true
+    - range: 17
+      falloff: 5
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
+    - range: 18
       falloff: 10

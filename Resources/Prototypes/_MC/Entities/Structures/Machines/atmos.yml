@@ -1,0 +1,40 @@
+- type: entity
+  id: MCAirAlarm
+  name: air alarm
+  description: A control terminal for the area electrical systems.
+  suffix: MC Prop
+  categories: [ MCContent ]
+  placement:
+    mode: SnapgridCenter
+  components:
+  - type: Transform
+    anchored: true
+  - type: WallMount
+    arc: 360
+  - type: Clickable
+  - type: InteractionOutline
+  - type: Appearance
+  - type: Sprite
+    drawdepth: WallMountedItems
+    sprite: _MC/Structures/Power/air_alarm.rsi
+    offset: 0, -1
+    layers:
+    - state: alarm_powered.
+      map: [ "enum.VendingMachineVisualLayers.Base" ]
+    - state: alarm_powered_emissive.
+      map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
+  - type: Corrodible
+    isCorrodible: false
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 100
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Breakage" ]
+  - type: PointLight
+    enabled: true
+    castShadows: false
+    radius: 0.5

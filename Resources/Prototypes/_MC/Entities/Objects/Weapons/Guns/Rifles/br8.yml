@@ -29,8 +29,11 @@
     baseFireModes:
     - FullAuto
     baseFireRate: 2.5
-    # Scatter
-    scatterWielded: -3
+    # Scatter and recoil
+    recoilWielded: 1
+    recoilUnwielded: 0.6
+    scatterWielded: 6
+    scatterUnwielded: 24
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -212,13 +215,15 @@
     amount: 5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
+    - range: 20
       falloff: 9999
       ignoreModifiers: true
+    - range: 17
+      falloff: 7
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
+    - range: 18
       falloff: 10
 
 - type: entity
@@ -235,13 +240,15 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
+    - range: 20
       falloff: 9999
       ignoreModifiers: true
+    - range: 17
+      falloff: 7
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
+    - range: 18
       falloff: 10
   - type: IgniteOnProjectileHit
     intensity: 15
@@ -261,16 +268,18 @@
     amount: 3.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 24
+    - range: 20
       falloff: 9999
       ignoreModifiers: true
+    - range: 17
+      falloff: 7
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 16
+    - range: 18
       falloff: 10
   - type: MCStunOnHit
-    maxDistance: 12
+    maxDistance: 10
     paralyzeTime: 1.2
     staggerTime: 1
     knockback: 2

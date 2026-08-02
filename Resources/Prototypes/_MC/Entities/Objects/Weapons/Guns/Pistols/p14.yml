@@ -131,18 +131,20 @@
         MCBrute: 20
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 22
+    - range: 10
       falloff: 9999
       ignoreModifiers: true
-    - range: 6
-      falloff: 5
+    - range: 10
+      falloff: 4
   - type: CMArmorPiercing
     amount: 5
   - type: MCXenoSunderDamageOnHit
     amount: 1
   - type: RMCProjectileAccuracy
+    accuracy: 100
     thresholds:
-    - range: 5
+    - range: 7
+      falloff: 15
 
 - type: Tag
   id: MCMagazinePistolP14

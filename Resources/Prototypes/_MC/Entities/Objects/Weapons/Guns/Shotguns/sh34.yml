@@ -28,7 +28,7 @@
     scatterUnwielded: 15
     baseFireRate: 1.538 # 1 / 0.65 SECONDS
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 0.8
+    accuracyMultiplier: 1
     accuracyMultiplierUnwielded: 0.3
   - type: BallisticAmmoProvider
     cycleable: true

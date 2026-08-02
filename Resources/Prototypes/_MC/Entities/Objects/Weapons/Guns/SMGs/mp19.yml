@@ -21,10 +21,10 @@
     baseFireModes:
     - Burst
     - FullAuto
-    recoilWielded: 0.1
-    recoilUnwielded: 1
-    scatterWielded: 14
-    scatterUnwielded: 16
+    recoilWielded: 1
+    recoilUnwielded: 0.6
+    scatterWielded: 10
+    scatterUnwielded: 25
     baseFireRate: 5
     burstScatterMult: 3
     modifiers:

@@ -102,8 +102,8 @@
     - range: 4
       falloff: 9999
       ignoreModifiers: true
-    - range: 0
-      falloff: 4
+    - range: 1
+      falloff: 6
   - type: RMCProjectileAccuracy
     thresholds:
     - range: 4
@@ -188,13 +188,13 @@
     - range: 7
       falloff: 9999
       ignoreModifiers: true
-    - range: 0
+    - range: 1
       falloff: 10
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
     - range: 7
-      falloff: 30
+      falloff: 20
 
 # slug tx15
 - type: entity
@@ -329,8 +329,13 @@
     - range: 5
       falloff: 9999
       ignoreModifiers: true
-    - range: 0
-      falloff: 12
+    - range: 4
+      falloff: 8
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 5
+      falloff: 5
 
 - type: entity
   parent: MCBulletShotgunFlechette

@@ -31,7 +31,7 @@
     baseDelay: 0.7
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.05
-    accuracyMultiplierUnwielded: 0.85
+    accuracyMultiplierUnwielded: 0.5 #0.85 base, NOW TEST
   - type: RMCExtraProjectilesDamageMods
     damageMultiplier: 0.7
   - type: AttachableHolder

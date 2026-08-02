@@ -1,0 +1,64 @@
+# --- base ---
+
+- type: entity
+  parent: MCArea
+  id: MCAreaSpecial
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Areas/planet.rsi
+    state: unknown
+  - type: Area
+    CAS: false
+    fulton: false
+    mortarPlacement: false
+    mortarFire: true
+    lasing: false
+    medevac: true
+    OB: false
+    supplyDrop: false
+    powerNet: almayer
+    hijackEvacuationArea: false
+    hijackEvacuationWeight: 0
+    hijackEvacuationType: None
+  - type: IntelRescueSurvivorArea
+
+- type: entity
+  parent: MCAreaSpecial
+  id: MCAreaSpecialCaves
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: false
+    mortarPlacement: true
+    mortarFire: false
+    medevac: false
+    OB: true
+    supplyDrop: false
+
+- type: entity
+  parent: MCAreaSpecial
+  id: MCAreaSpecialSpace
+  components:
+  - type: Area
+    CAS: false
+    fulton: false
+    lasing: false
+    mortarPlacement: false
+    mortarFire: false
+    medevac: false
+    OB: false
+    supplyDrop: false
+
+# --- Base of the Base ---
+
+- type: entity
+  parent: MCAreaSpecialCaves
+  id: MCAreaCaves
+  name: Пещеры
+  components:
+  - type: Sprite
+    state: unknown
+  - type: Area
+    minimapColor: "#a05d00"

@@ -26,9 +26,11 @@
     - Burst
     - FullAuto
     baseFireRate: 4
-    # Scatter
-    scatterWielded: 2
-    scatterUnwielded: 11
+    # Scatter and recoil
+    recoilWielded: 1
+    recoilUnwielded: 0.6
+    scatterWielded: 9
+    scatterUnwielded: 20
     modifiers:
       Burst:
         fireDelay: 0.2
@@ -181,8 +183,16 @@
     amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 4
-      falloff: 1
+    - range: 6
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 6
+      falloff: 6
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 7
+      falloff: 5
 
 - type: entity
   parent: MCBullet
@@ -198,8 +208,16 @@
     amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 5
-      falloff: 2
+    - range: 6
+      falloff: 9999
+      ignoreModifiers: true
+    - range: 6
+      falloff: 6
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 7
+      falloff: 5
   - type: MCProjectileStatusEffectsOnHit
     statusEffects:
     - effectId: MCStatusEffectShatter

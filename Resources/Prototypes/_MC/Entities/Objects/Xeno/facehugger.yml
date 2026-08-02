@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCItem
+  id: MCXenoFacehuggerPropDead
+  name: Facehugger
+  description: A dead but before fast, flexible creature that wants to hug your head.
+  components:
+  - type: Sprite
+    sprite: _MC/Effects/X_effects.rsi
+    state: facehugger_dead
+  - type: Icon
+    sprite: _MC/Effects/X_effects.rsi
+    state: facehugger_dead
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - MCXenoFacehuggerPropDead
+
+- type: entity
+  parent: MCXenoFacehuggerPropDead
+  id: MCXenoFacehuggerPropPreganant
+  description: SOME ONE IS FUCKING PREGANENT BY A XENOMORPH!
+  components:
+  - type: Sprite
+    sprite: _MC/Effects/X_effects.rsi
+    state: facehugger_impregnated
+  - type: Icon
+    sprite: _MC/Effects/X_effects.rsi
+    state: facehugger_impregnated
+  - type: Tag
+    tags:
+    - MCXenoFacehuggerPropPreganant
+
+- type: Tag
+  id: MCXenoFacehuggerPropDead
+
+- type: Tag
+  id: MCXenoFacehuggerPropPreganant

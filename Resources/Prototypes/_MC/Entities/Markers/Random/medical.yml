@@ -1,0 +1,338 @@
+# Medical Clotch spawners
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomMedbelt
+  name: Random medical belt spawner
+  description: This is a random medical belt spawner.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_medbelt
+    - type: RandomSpawner
+      prototypes:
+        - MCBeltMedical
+        - MCBeltMedical
+        - MCBeltMedicBag
+        - MCSpawnerRandomPillBottles
+      chance: 0.95
+      rarePrototypes:
+        - MCBeltMedicBagFull
+      rareChance: 0.05
+      offset: 0
+
+# Surgical and Organs Spawners
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomSurgical
+  name: Random surgical instrument spawner
+  description: This is a random surgical instrument spawner.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_surgical
+    - type: RandomSpawner
+      prototypes:
+        - MCScalpel
+        - MCScalpelManager
+        - MCHemostat
+        - MCRetractor
+        - MCHealingTraumaKit # Or MCSurgicalMembrane, i don't sure
+        - MCCautery
+        - MCCircularSaw
+        # - suture
+        - MCBoneGel
+        - MCBonesetter
+        - MCFixOVein
+        - MCTubeNanopaste
+      chance: 1
+      offset: 0
+
+
+# /obj/effect/spawner/random/medical/organ
+# 	name = "Random surgical organ spawner"
+# 	icon_state = "random_organ"
+# 	loot = list(
+# 		/obj/item/organ/brain,
+# 		/obj/item/organ/heart,
+# 		/obj/item/organ/lungs,
+# 		/obj/item/organ/kidneys,
+# 		/obj/item/organ/eyes,
+# 		/obj/item/organ/liver,
+# 		/obj/item/organ/appendix,
+
+# Beaker spawners
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomBeakerSpawner
+  name: random Random beaker spawner
+  description: This is a random Random beaker spawner.
+  categories: [ MCContent ]
+  suffix: MC 85% SMALL
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_beaker #random_bluespace_beaker
+    - type: RandomSpawner
+      prototypes:
+        - MCBeaker # X3
+        - MCBeaker
+        - MCBeaker
+        - MCBeakerLarge # X2
+        - MCBeakerLarge
+      chance: 0.85
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomLargeBeakerSpawner
+  name: random Random large beaker spawner
+  description: This is a random Random large beaker spawner.
+  categories: [ MCContent ]
+  suffix: MC 100% LARGE
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_largebeaker
+    - type: RandomSpawner
+      prototypes:
+        - MCBeakerLarge # X8
+        - MCBeakerLarge
+        - MCBeakerLarge
+        - MCBeakerLarge
+        - MCBeakerLarge
+        - MCBeakerLarge
+        - MCBeakerLarge
+        - MCBeakerLarge
+        - MCBeaker # X2
+        - MCBeaker
+      chance: 1
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomBlueSpaceBeakerSpawner
+  name: random Random bluespace beaker spawner
+  description: This is a random Random bluespace beaker spawner.
+  categories: [ MCContent ]
+  suffix: MC 100% BLUESPACE
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_bluespace_beaker
+    - type: RandomSpawner
+      prototypes:
+        - MCBeakerBluespace # X8
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+        - MCBeakerBluespace
+        - MCBeaker # X2
+        - MCBeaker
+      chance: 1
+      offset: 0
+
+# Healing items spawners
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomHealpack
+  name: random healpack spawner
+  description: This is a random Healpack spawner.
+  categories: [ MCContent ]
+  suffix: MC 85% ALL
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_healpack
+    - type: RandomSpawner
+      prototypes:
+        - MCHealingTraumaKit
+        - MCHealingBurnKit
+      chance: 0.85
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomHealpackBrute
+  name: random healpack spawner
+  description: This is a random Healpack spawner.
+  categories: [ MCContent ]
+  suffix: MC 100% BRUTE
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_brutekit
+    - type: RandomSpawner
+      prototypes:
+        - MCHealingTraumaKit # X8
+        - MCHealingTraumaKit
+        - MCHealingTraumaKit
+        - MCHealingTraumaKit
+        - MCHealingTraumaKit
+        - MCHealingTraumaKit
+        - MCHealingTraumaKit
+        - MCHealingTraumaKit
+        - MCHealingBurnKit # X2
+        - MCHealingBurnKit
+      chance: 1
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomHealpackBurn
+  name: random healpack spawner
+  description: This is a random Healpack spawner.
+  categories: [ MCContent ]
+  suffix: MC 100% BURN
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_burnkit
+    - type: RandomSpawner
+      prototypes:
+        - MCHealingBurnKit # X8
+        - MCHealingBurnKit
+        - MCHealingBurnKit
+        - MCHealingBurnKit
+        - MCHealingBurnKit
+        - MCHealingBurnKit
+        - MCHealingBurnKit
+        - MCHealingBurnKit
+        - MCHealingTraumaKit # X2
+        - MCHealingTraumaKit
+      chance: 1
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomPillBottles
+  name: Random pill bottle spawner
+  description: This is a random pill bottle spawner.
+  categories: [ MCContent ]
+  suffix: MC 50%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_medicine
+    - type: RandomSpawner
+      prototypes:
+        # - alkysine # 30%
+        - MCPillCanisterImidazoline # 10%
+        - MCPillCanisterBicaridine # 30%
+        - MCPillCanisterBicaridine
+        - MCPillCanisterBicaridine
+        - MCPillCanisterKelotane # 30%
+        - MCPillCanisterKelotane
+        - MCPillCanisterKelotane
+        - MCPillCanisterTramadol # 10, But 15% Was needed
+        - MCPillCanisterInaprovaline # 10%
+        - MCPillCanisterDylovene # 10%, but 5% was needed
+        # - spaceacillin # 10%
+      chance: 0.50
+      offset: 0
+
+# First aid kits spawners
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomFirstAidKit
+  name: random first aid kit spawner
+  description: This is a random First Aid Kit spawner.
+  categories: [ MCContent ]
+  suffix: MC 35%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_medkit
+    - type: RandomSpawner
+      prototypes:
+        - MCAidKitFirstFilled #30%
+        - MCAidKitFirstFilled
+        - MCAidKitFirstFilled
+        - MCAidKitBurnFilled # 30%
+        - MCAidKitBurnFilled
+        - MCAidKitBurnFilled
+        - MCAidKitOxygenFilled
+        - MCAidKitOxygenFilled
+        - MCAidKitAntiToxFilled
+        - MCAidKitAntiToxFilled
+        - MCAidKitAdvancedFilled
+      chance: 0.34
+      rarePrototypes:
+        - MCAidKitCombatFilled
+      rareChance: 0.01
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomFirstAidKitEightyFive
+  name: random first aid kit spawner
+  description: This is a random First Aid Kit spawner.
+  categories: [ MCContent ]
+  suffix: MC 85%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_medkit
+    - type: RandomSpawner
+      prototypes:
+        - MCAidKitFirstFilled #20%
+        - MCAidKitFirstFilled
+        - MCAidKitBurnFilled # 20%
+        - MCAidKitBurnFilled
+        - MCAidKitOxygenFilled
+        - MCAidKitAntiToxFilled
+        - MCAidKitAdvancedFilled
+      chance: 0.84
+      rarePrototypes:
+        - MCAidKitCombatFilled
+      rareChance: 0.01
+      offset: 0
+
+- type: entity
+  parent: MarkerBase
+  id: MCSpawnerRandomFirstAidKitGranted
+  name: random first aid kit spawner
+  description: This is a random First Aid Kit spawner.
+  categories: [ MCContent ]
+  suffix: MC 100%
+  components:
+    - type: Sprite
+      layers:
+        - sprite: _MC/Markers/medical.rsi
+          state: random_medkit
+    - type: RandomSpawner
+      prototypes:
+        - MCAidKitFirstFilled #30%
+        - MCAidKitFirstFilled
+        - MCAidKitFirstFilled
+        - MCAidKitBurnFilled # 30%
+        - MCAidKitBurnFilled
+        - MCAidKitBurnFilled
+        - MCAidKitOxygenFilled
+        - MCAidKitOxygenFilled
+        - MCAidKitAntiToxFilled
+        - MCAidKitAntiToxFilled
+        - MCAidKitAdvancedFilled
+      chance: 0.99
+      rarePrototypes:
+        - MCAidKitCombatFilled
+      rareChance: 0.01
+      offset: 0

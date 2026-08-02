@@ -20,10 +20,10 @@
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
-    recoilWielded: 10
-    recoilUnwielded: 3
-    scatterWielded: 1
-    scatterUnwielded: 2
+    recoilWielded: 1
+    recoilUnwielded: 0.7
+    scatterWielded: 7
+    scatterUnwielded: 20
     baseFireRate: 7
     modifiers:
       FullAuto:
@@ -143,11 +143,16 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 8
-      falloff: 5
-    - range: 22
+    - range: 7
       falloff: 9999
       ignoreModifiers: true
+    - range: 7
+      falloff: 5
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 5
+      falloff: 5
 
 - type: Tag
   id: MCMagazineSMG90

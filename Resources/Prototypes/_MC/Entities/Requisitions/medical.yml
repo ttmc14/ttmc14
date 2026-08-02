@@ -61,7 +61,7 @@
           state: pill_canister10
         cost: 250
         entities:
-        - RMCPillCanisterRussianRed
+        - MCPillCanisterRussianRed
       # Injectors
       - icon:
           sprite: _RMC14/Objects/Medical/auto_injectors.rsi
