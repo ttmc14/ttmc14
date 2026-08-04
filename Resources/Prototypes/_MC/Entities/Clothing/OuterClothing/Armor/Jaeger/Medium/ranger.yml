@@ -55,11 +55,11 @@
       Hazrd:
         name: Hazrd
         group: Yellow
-        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Ranger/hazrd.rsi
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Ranger/hazard.rsi
       Iris:
         name: Iris
         group: Purple
-        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Ranger/iris.rsi
+        path: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Ranger/iris_purple.rsi
       KellyGreen:
         name: Kelly green
         group: Green

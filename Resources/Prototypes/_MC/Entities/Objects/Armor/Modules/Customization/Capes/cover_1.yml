@@ -1,0 +1,25 @@
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeCover1
+  name: cape cover
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Modules/Customization/Capes/Cover1/steel.rsi
+    state: icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/Capes/Cover1/steel.rsi
+      state: equipped
+  - type: MCCustomizationHolder
+    state: icon
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Cover1/black.rsi
+        state: equipped
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Cover1/charlie.rsi
+        state: equipped

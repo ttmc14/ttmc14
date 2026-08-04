@@ -11,51 +11,11 @@
     - MCArmorModuleCustomization
     - MCArmorModuleCustomizationBody
   - type: Sprite
-    sprite: _MC/Clothing/Modules/Customization/capes.rsi
-    state: back_icon
+    state: icon
   - type: MCArmorModule
     durationEquip: 0.25
     durationUnequip: 0.25
     visualsLayer: head
-    visuals:
-      sprite: _MC/Clothing/Modules/Customization/capes.rsi
-      state: back
-
-- type: entity
-  parent: MCArmorModuleCustomizationCape
-  id: MCArmorModuleCustomizationCapeBack
-  name: cape back
-  components:
-  - type: Sprite
-    state: back_icon
-  - type: MCArmorModule
-    visuals:
-      sprite: _MC/Clothing/Modules/Customization/capes.rsi
-      state: back
-
-- type: entity
-  parent: MCArmorModuleCustomizationCape
-  id: MCArmorModuleCustomizationCapeCover1
-  name: cape cover
-  components:
-  - type: Sprite
-    state: cover_1_icon
-  - type: MCArmorModule
-    visuals:
-      sprite: _MC/Clothing/Modules/Customization/capes.rsi
-      state: cover_1
-
-- type: entity
-  parent: MCArmorModuleCustomizationCape
-  id: MCArmorModuleCustomizationCapeCover2
-  name: cape cover alt
-  components:
-  - type: Sprite
-    state: cover_2_icon
-  - type: MCArmorModule
-    visuals:
-      sprite: _MC/Clothing/Modules/Customization/capes.rsi
-      state: cover_2
 
 - type: entity
   parent: MCArmorModuleCustomizationCape

@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Marine.Customization;
+﻿using Content.Shared._MC.Marine.Customization.Components;
 using Content.Shared.Clothing.Components;
 using Content.Shared.Item;
 using Robust.Client.GameObjects;

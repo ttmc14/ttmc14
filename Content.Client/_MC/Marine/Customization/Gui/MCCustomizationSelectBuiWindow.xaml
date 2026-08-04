@@ -1,13 +1,14 @@
 ﻿<gui:MCCustomizationSelectBuiWindow xmlns="https://spacestation14.io"
                                     xmlns:gui="clr-namespace:Content.Client._MC.Marine.Customization.Gui"
-                                    MinSize="400 120"
-                                    Title="Gay">
+                                    MinSize="450 400"
+                                    Title="Select Customization">
     <ScrollContainer HorizontalExpand="True"
                      VerticalExpand="True">
-        <BoxContainer Orientation="Vertical"
-                      Name="Container"
-                      HorizontalExpand="True"
-                      VerticalExpand="True"
-                      Access="Public"/>
+
+        <GridContainer Columns="3"
+                       Name="Container"
+                       HorizontalExpand="True"
+                       VerticalExpand="True"
+                       Access="Public"/>
     </ScrollContainer>
 </gui:MCCustomizationSelectBuiWindow>

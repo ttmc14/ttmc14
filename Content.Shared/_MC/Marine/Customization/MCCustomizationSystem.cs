@@ -1,6 +1,6 @@
-﻿using System.Linq;
+﻿using Content.Shared._MC.Marine.Customization.Components;
+using Content.Shared._MC.Marine.Customization.Events;
 using Content.Shared._MC.Marine.Customization.Gui;
-using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
 
 namespace Content.Shared._MC.Marine.Customization;
@@ -8,15 +8,14 @@ namespace Content.Shared._MC.Marine.Customization;
 public sealed class MCCustomizationSystem : EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedUserInterfaceSystem _userInterface = null!;
 
     public override void Initialize()
     {
         SubscribeLocalEvent<MCCustomizationHolderComponent, InteractUsingEvent>(OnInteractUsingEvent);
-        SubscribeLocalEvent<MCCustomizationHolderComponent, MCCustomizationDoAfterEvent>(OnDoAfter);
 
-        SubscribeLocalEvent<MCCustomizationPaintComponent, MCCustomizationSelectBuiMessage>(OnSelectMessage);
+        SubscribeLocalEvent<MCCustomizationHolderComponent, MCCustomizationApplyEvent>(OnApplyCustomization);
+        SubscribeLocalEvent<MCCustomizationHolderComponent, MCCustomizationApplyDoAfterEvent>(OnDoAfter);
     }
 
     private void OnInteractUsingEvent(Entity<MCCustomizationHolderComponent> entity, ref InteractUsingEvent args)
@@ -27,34 +26,37 @@ public sealed class MCCustomizationSystem : EntitySystem
         if (!HasComp<MCCustomizationPaintComponent>(args.Used))
             return;
 
+        var state = new MCCustomizationBuiState(entity.Comp.Variations, GetNetEntity(entity));
+
         _userInterface.TryOpenUi(args.Used, MCCustomizationUi.Key, args.User);
-        _userInterface.SetUiState(args.Used, MCCustomizationUi.Key, new MCCustomizationBuiState(
-            entity.Comp.Variations,
-            GetNetEntity(entity)
-        ));
+        _userInterface.SetUiState(args.Used, MCCustomizationUi.Key, state);
 
         args.Handled = true;
     }
 
-    private void OnSelectMessage(Entity<MCCustomizationPaintComponent> entity, ref MCCustomizationSelectBuiMessage args)
+    private void OnDoAfter(Entity<MCCustomizationHolderComponent> entity, ref MCCustomizationApplyDoAfterEvent args)
     {
-        var target = GetEntity(args.TargetUid);
-        var doAfter = new DoAfterArgs(EntityManager, args.Actor, entity.Comp.Delay, new MCCustomizationDoAfterEvent(args.Key), target, target, entity)
-        {
-            BreakOnDropItem = true,
-        };
-
-        _doAfter.TryStartDoAfter(doAfter);
-    }
-
-    private void OnDoAfter(Entity<MCCustomizationHolderComponent> entity, ref MCCustomizationDoAfterEvent args)
-    {
-        if (!TryComp<AppearanceComponent>(entity, out var appearanceComponent))
+        if (args.Cancelled || args.Handled)
             return;
 
-        entity.Comp.State = args.Variation;
+        if (!entity.Comp.Variations.TryGetValue(args.Variation, out var data))
+            return;
+
+        var ev = new MCCustomizationApplyEvent(args.Variation, data);
+        RaiseLocalEvent(entity, ref ev);
+
+        args.Handled = true;
+    }
+
+    private void OnApplyCustomization(Entity<MCCustomizationHolderComponent> entity, ref MCCustomizationApplyEvent args)
+    {
+        if (entity.Comp.State == args.Key)
+            return;
+
+        entity.Comp.State = args.Key;
         Dirty(entity);
 
-        _appearance.QueueUpdate(entity, appearanceComponent);
+        if (TryComp<AppearanceComponent>(entity, out var appearanceComponent))
+            _appearance.QueueUpdate(entity, appearanceComponent);
     }
 }

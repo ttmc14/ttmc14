@@ -1,0 +1,214 @@
+- type: entity
+  parent: MCArmorModuleCustomizationCape
+  id: MCArmorModuleCustomizationCapeBack
+  name: cape back
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Modules/Customization/Capes/Back/steel.rsi
+    state: icon
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/Modules/Customization/Capes/Back/steel.rsi
+      state: equipped
+  - type: MCCustomizationHolder
+    variations:
+      Brown:
+        name: Brown
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/brown.rsi
+        state: equipped
+      Charlie:
+        name: Charlie
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/charlie.rsi
+        state: equipped
+      Copper:
+        name: Copper
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/copper.rsi
+        state: equipped
+      Desert:
+        name: Desert
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/desert.rsi
+        state: equipped
+      Earth:
+        name: Earth
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/earth.rsi
+        state: equipped
+      Fall:
+        name: Fall
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/fall.rsi
+        state: equipped
+      Forest:
+        name: Forest
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/forest.rsi
+        state: equipped
+      Ginger:
+        name: Ginger
+        group: Orange
+        path: _MC/Clothing/Modules/Customization/Capes/Back/ginger.rsi
+        state: equipped
+      Grape:
+        name: Grape
+        group: Purple
+        path: _MC/Clothing/Modules/Customization/Capes/Back/grape.rsi
+        state: equipped
+      Green:
+        name: Green
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/green.rsi
+        state: equipped
+      Grey:
+        name: Grey
+        group: Grey
+        path: _MC/Clothing/Modules/Customization/Capes/Back/grey.rsi
+        state: equipped
+      Hazrd:
+        name: Hazrd
+        group: Yellow
+        path: _MC/Clothing/Modules/Customization/Capes/Back/hazard.rsi
+        state: equipped
+      Iris:
+        name: Iris
+        group: Purple
+        path: _MC/Clothing/Modules/Customization/Capes/Back/iris_purple.rsi
+        state: equipped
+      KellyGreen:
+        name: Kelly green
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/kelly_green.rsi
+        state: equipped
+      Leaf:
+        name: Leaf
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/leaf.rsi
+        state: equipped
+      LightBlue:
+        name: Light blue
+        group: Blue
+        path: _MC/Clothing/Modules/Customization/Capes/Back/light_blue.rsi
+        state: equipped
+      LightRed:
+        name: Light red
+        group: Red
+        path: _MC/Clothing/Modules/Customization/Capes/Back/light_red.rsi
+        state: equipped
+      Lilac:
+        name: Lilac
+        group: Purple
+        path: _MC/Clothing/Modules/Customization/Capes/Back/lilac.rsi
+        state: equipped
+      Lime:
+        name: Lime
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/lime.rsi
+        state: equipped
+      Magenta:
+        name: Magenta
+        group: Pink
+        path: _MC/Clothing/Modules/Customization/Capes/Back/magenta.rsi
+        state: equipped
+      Mint:
+        name: Mint
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/mint.rsi
+        state: equipped
+      Mountbatten:
+        name: Mountbatten
+        group: Purple
+        path: _MC/Clothing/Modules/Customization/Capes/Back/mountbatten.rsi
+        state: equipped
+      Navy:
+        name: Navy
+        group: Blue
+        path: _MC/Clothing/Modules/Customization/Capes/Back/navy.rsi
+        state: equipped
+      NightSlate:
+        name: Night slate
+        group: Grey
+        path: _MC/Clothing/Modules/Customization/Capes/Back/night_slate.rsi
+        state: equipped
+      Nightshade:
+        name: Nightshade
+        group: Purple
+        path: _MC/Clothing/Modules/Customization/Capes/Back/nightshade.rsi
+        state: equipped
+      Olive:
+        name: Olive
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/olive.rsi
+        state: equipped
+      Orange:
+        name: Orange
+        group: Orange
+        path: _MC/Clothing/Modules/Customization/Capes/Back/orange.rsi
+        state: equipped
+      PearlPink:
+        name: Pearl pink
+        group: Pink
+        path: _MC/Clothing/Modules/Customization/Capes/Back/pearl_pink.rsi
+        state: equipped
+      RifleGreen:
+        name: Rifle green
+        group: Green
+        path: _MC/Clothing/Modules/Customization/Capes/Back/rifle_green.rsi
+        state: equipped
+      SeaBlue:
+        name: Sea blue
+        group: Blue
+        path: _MC/Clothing/Modules/Customization/Capes/Back/sea_blue.rsi
+        state: equipped
+      Silver:
+        name: Silver
+        group: Grey
+        path: _MC/Clothing/Modules/Customization/Capes/Back/silver.rsi
+        state: equipped
+      Snow:
+        name: Snow
+        group: White
+        path: _MC/Clothing/Modules/Customization/Capes/Back/snow.rsi
+        state: equipped
+      SpaceCadet:
+        name: Space cadet
+        group: Blue
+        path: _MC/Clothing/Modules/Customization/Capes/Back/space_cadet.rsi
+        state: equipped
+      Steel:
+        name: Steel
+        group: Grey
+        path: _MC/Clothing/Modules/Customization/Capes/Back/steel.rsi
+        state: equipped
+      StoneBlue:
+        name: Stone blue
+        group: Blue
+        path: _MC/Clothing/Modules/Customization/Capes/Back/stone_blue.rsi
+        state: equipped
+      Storm:
+        name: Storm
+        group: Grey
+        path: _MC/Clothing/Modules/Customization/Capes/Back/storm.rsi
+        state: equipped
+      Teal:
+        name: Teal
+        group: Blue
+        path: _MC/Clothing/Modules/Customization/Capes/Back/teal.rsi
+        state: equipped
+      Violet:
+        name: Violet
+        group: Purple
+        path: _MC/Clothing/Modules/Customization/Capes/Back/violet.rsi
+        state: equipped
+      Wood:
+        name: Wood
+        group: Brown
+        path: _MC/Clothing/Modules/Customization/Capes/Back/wood.rsi
+        state: equipped
+      Yellow:
+        name: Yellow
+        group: Yellow
+        path: _MC/Clothing/Modules/Customization/Capes/Back/yellow.rsi
+        state: equipped
