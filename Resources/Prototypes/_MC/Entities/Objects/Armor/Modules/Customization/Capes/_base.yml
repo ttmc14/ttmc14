@@ -1,6 +1,6 @@
 - type: entity
-  parent: MCArmorModule
-  id: MCArmorModuleCustomization
+  parent: MCArmorModuleCustomization
+  id: MCArmorModuleCustomizationCape
   name: cape
   description: WIP.
   abstract: true
@@ -9,11 +9,15 @@
     tags:
     - MCArmorModule
     - MCArmorModuleCustomization
-  - type: Appearance
+    - MCArmorModuleCustomizationBody
   - type: Sprite
-    sprite: _MC/Clothing/Modules/Customization/capes.rsi
-    state: kilt_alt
+    state: icon
   - type: MCArmorModule
-    visuals:
-      sprite: _MC/Clothing/Modules/Customization/capes.rsi
-      state: back
+    durationEquip: 0.25
+    durationUnequip: 0.25
+    visualsLayer: head
+
+
+
+
+

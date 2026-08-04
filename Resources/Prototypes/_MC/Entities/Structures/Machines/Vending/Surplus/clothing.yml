@@ -74,7 +74,7 @@
       - id: MCArmorModuleCustomizationCapeFullHide
       - id: MCArmorModuleCustomizationCapeGeist
       - id: MCArmorModuleCustomizationCapeGeistHide
-      - id: MCArmorModuleCustomizationCapeGhille
+      - id: MCArmorModuleCustomizationCapeGhille1
       - id: MCArmorModuleCustomizationCapeGhille2
       - id: MCArmorModuleCustomizationCapeGhilleLeft
       - id: MCArmorModuleCustomizationCapeGhilleRight
@@ -82,8 +82,6 @@
       - id: MCArmorModuleCustomizationCapeHalfHide
       - id: MCArmorModuleCustomizationCapeJacket
       - id: MCArmorModuleCustomizationCapeKama
-      - id: MCArmorModuleCustomizationCapeKilt
-      - id: MCArmorModuleCustomizationCapeKiltAlt
       - id: MCArmorModuleCustomizationCapeNormal
       - id: MCArmorModuleCustomizationCapeNormalHide
       - id: MCArmorModuleCustomizationCapeOldShort

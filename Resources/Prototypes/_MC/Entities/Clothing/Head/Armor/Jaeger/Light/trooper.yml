@@ -52,7 +52,7 @@
         name: Grey
         group: Grey
         path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/grey.rsi
-      Hazrd:
+      Hazard:
         name: Hazrd
         group: Yellow
         path: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/hazard.rsi

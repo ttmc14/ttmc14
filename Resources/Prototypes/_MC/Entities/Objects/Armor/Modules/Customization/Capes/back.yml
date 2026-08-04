@@ -67,7 +67,7 @@
         group: Grey
         path: _MC/Clothing/Modules/Customization/Capes/Back/grey.rsi
         state: equipped
-      Hazrd:
+      Hazard:
         name: Hazrd
         group: Yellow
         path: _MC/Clothing/Modules/Customization/Capes/Back/hazard.rsi
