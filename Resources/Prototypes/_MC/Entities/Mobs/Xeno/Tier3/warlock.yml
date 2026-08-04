@@ -23,7 +23,7 @@
     id: MCXenoWarlock
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/warlock.rsi
+    sprite: _MC/Mobs/Xenos/Warlock/default.rsi
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
@@ -32,7 +32,8 @@
   # Skins
   - type: MCXenoSkin
     skins:
-      rouny: _MC/Mobs/Xenos/warlock_rouny.rsi
+      rouny: _MC/Mobs/Xenos/Warlock/rouny.rsi
+      honoredOne: _MC/Mobs/Xenos/Warlock/honored_one.rsi
   # Actions
   - type: Xeno
     tier: 3
