@@ -37,7 +37,11 @@ public sealed class MCProjectileInjectSystem : EntitySystem
 
     private float GetArmor(Entity<MCProjectileInjectComponent> entity, EntityUid targetUid)
     {
-        return entity.Comp.IgnoreArmor ? 1f : MCArmorSystem.ArmorToValue(_mcArmor.GetSoftArmor(targetUid, SlotFlags.HEAD)?.Bio ?? 0);
+        return entity.Comp.ArmorIgnore
+            ? 1f
+            : MCArmorSystem.ArmorToValue(
+                _mcArmor.GetSoftArmor(targetUid, entity.Comp.ArmorSlot)?.Bio ?? 0
+            );
     }
 
     private void RaiseEffect(Entity<MCProjectileInjectComponent> entity, EntityUid targetUid)

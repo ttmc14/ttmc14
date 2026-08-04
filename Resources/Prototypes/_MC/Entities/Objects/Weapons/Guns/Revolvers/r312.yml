@@ -579,7 +579,7 @@
   name: .500 EMB
   components:
   - type: MCProjectileInject
-    ignoreArmor: true
+    armorIgnore: true
     effect: true
     effectColor: "#ff8000"
   - type: MCProjectileIgnoreXeno

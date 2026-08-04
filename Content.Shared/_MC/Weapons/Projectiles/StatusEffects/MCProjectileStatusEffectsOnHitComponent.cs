@@ -2,7 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._MC.Weapon.StatusEffects;
+namespace Content.Shared._MC.Weapons.Projectiles.StatusEffects;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCProjectileStatusEffectsOnHitComponent : Component
