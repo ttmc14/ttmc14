@@ -3,6 +3,11 @@
   id: MCWeaponSMG
   abstract: true
   components:
+  - type: GunDualWielding
+    weaponGroup: None
+    scatterModifier: 0
+    accuracyAddMult: 0
+    recoilModifier: 0
   - type: Item
     size: Large
   - type: AmmoCounter
@@ -38,8 +43,6 @@
   - type: Tag
     tags:
     - RMCWeaponSMG
-  - type: GunDualWielding
-    weaponGroup: Submachinegun
   - type: GunPointBlank
   - type: GunGroupPenalty
   - type: WieldedCrosshair

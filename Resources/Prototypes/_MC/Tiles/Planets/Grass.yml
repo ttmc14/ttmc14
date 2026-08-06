@@ -1,3 +1,4 @@
+# RMC
 - type: tile
   parent: CMPlanetBase
   id: MCPlanetGrass1
@@ -17,3 +18,31 @@
     collection: FootstepAsteroid
   weedsSpreadable: true
   semiWeedable: true
+
+# MC
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetJungleGrass
+  name: tiles-mc-jungle-grass
+  weedsSpreadable: true
+  semiWeedable: true
+  minimapColor: "#aa5f44cc"
+
+- type: tile
+  parent: MCPlanetJungleGrass
+  id: MCPlanetJungleGrass1
+  name: tiles-mc-jungle-grass-1
+  sprite: /Textures/_MC/Tiles/Planet/Grass/grass1.png
+
+- type: tile
+  parent: MCPlanetJungleGrass
+  id: MCPlanetJungleGrass2
+  name: tiles-mc-jungle-grass-2
+  sprite: /Textures/_MC/Tiles/Planet/Grass/grass2.png
+
+- type: tile
+  parent: MCPlanetJungleGrass
+  id: MCPlanetJungleGrass3
+  name: tiles-mc-jungle-grass-3
+  sprite: /Textures/_MC/Tiles/Planet/Grass/grass3.png
+

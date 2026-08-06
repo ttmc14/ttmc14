@@ -1,0 +1,8 @@
+- type: tile
+  parent: CMPlanetBase
+  id: MCPlanetSand
+  name: tiles-mc-sand
+  weedsSpreadable: true
+  semiWeedable: true
+  sprite: /Textures/_MC/Tiles/Planet/Sand/sand.png
+  minimapColor: "#aa5f44cc"

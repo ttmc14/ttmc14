@@ -14,13 +14,12 @@
   - type: Gun
     shotsPerBurst: 1
   - type: ShootUseDelay
-  - type: GunRequiresWield # Until "WieldDelay" and "ShootUseDelay" starts work normaly
   - type: RMCSelectiveFire
     recoilWielded: 2
     recoilUnwielded: 5
     scatterWielded: 4
     scatterUnwielded: 10
-    baseFireRate: 0.714 # 1 / 1.4 seconds
+    baseFireRate: 0.75
     burstScatterMult: 5
   - type: BallisticAmmoProvider
     capacity: 10

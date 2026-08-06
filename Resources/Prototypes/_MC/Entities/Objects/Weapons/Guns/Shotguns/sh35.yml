@@ -14,15 +14,14 @@
   - type: Gun
     shotsPerBurst: 1
   - type: ShootUseDelay
-  - type: GunRequiresWield
   - type: WieldDelay
-    delay: 0.7
+    delay: 0.35
   - type: RMCSelectiveFire
     recoilWielded: 2
     recoilUnwielded: 5
     scatterWielded: 2
-    scatterUnwielded: 10
-    baseFireRate: 0.5 # 1 / 2 SECONDS
+    scatterUnwielded: 4.5
+    baseFireRate: 0.6
   - type: BallisticAmmoProvider
     capacity: 8
     whitelist:
