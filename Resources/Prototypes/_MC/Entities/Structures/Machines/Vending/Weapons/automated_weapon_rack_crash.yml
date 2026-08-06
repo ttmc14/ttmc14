@@ -45,7 +45,7 @@
       - id: MCBoxMartiniRoundsWhite
     - name: Shotgun
       entries:
-      - id: MCWeaponShotgunSH39
+      - id: MCWeaponShotgunSH35
       - id: MCWeaponShotgunSH34
       - id: MCBoxShotgunSlugs
       - id: MCBoxShotgunBuckshot
