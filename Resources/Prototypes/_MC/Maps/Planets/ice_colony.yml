@@ -6,6 +6,7 @@
     map: /Maps/_MC/Planets/IceColony/ice_colony0.yml
     camouflage: Classic
     announcement: ""
+    minPlayers: 45
   - type: MCPlanetMapPrototype
     mapsBelow:
     - /Maps/_MC/Planets/IceColony/ice_colony-1.yml
