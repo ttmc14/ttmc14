@@ -1,10 +1,13 @@
 - type: entity
-  parent: MCBaseMeleeWeapon
+  parent:
+  - MCBaseMeleeWeapon
+  - MCFireModeSelectionWeapon
   id: MCWeaponGun
   abstract: true
   categories: [ MCContent ]
   components:
   - type: MCWeaponZLevelsShoot
+  - type: MCWeaponSelectiveFire
   - type: RMCSelectiveFire
     # Scatter
     scatterWielded: 4
@@ -98,3 +101,40 @@
 
 - type: Tag
   id: MCMagazineHandful
+
+- type: entity
+  id: MCFireModeSelection
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCAttackModeSelection
+  - type: MCUserInterfaceEnsuring
+    interfaces:
+      enum.MCAttackModeSelectionUI.Key:
+        type: MCWeaponAttackModeSelectionBui
+
+- type: entity
+  parent: MCFireModeSelection
+  id: MCFireModeSelectionWeapon
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCAttackModeSelectionAutoFillSelectiveFire
+    icons:
+      SemiAuto:
+        sprite: _MC/Interface/Actions/Weapons/fire_mode.rsi
+        state: burst_auto
+      Burst:
+        sprite: _MC/Interface/Actions/Weapons/fire_mode.rsi
+        state: burst
+      FullAuto:
+        sprite: _MC/Interface/Actions/Weapons/fire_mode.rsi
+        state: single_auto
+
+- type: entity
+  parent: MCFireModeSelection
+  id: MCFireModeSelectionWeaponLaser
+  categories: [ MCContent ]
+  abstract: true
+  components:
+  - type: MCAttackModeSelectionAutoFillLaserFireMode

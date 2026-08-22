@@ -30,3 +30,4 @@
     maxFixedRange: 10
   - type: WieldDelay
     baseDelay: 0.2
+  - type: GunIgnorePrediction

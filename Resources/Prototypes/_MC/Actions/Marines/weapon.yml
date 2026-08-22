@@ -14,4 +14,19 @@
     useDelay: 0.25
     itemIconStyle: BigAction
   - type: InstantAction
-    event: !type:MCAimedShootActionEvent
+    event:
+
+      !type:MCAimedShootActionEvent
+- type: entity
+  id: MCActionSelectFireMode
+  name: Select Fire Mode
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Action
+    icon:
+      sprite: _MC/Interface/Actions/Weapons/fire_mode.rsi
+      state: icon
+    useDelay: 0.1
+    itemIconStyle: BigAction
+  - type: InstantAction
+    event: !type:MCAttackModeSelectionAction

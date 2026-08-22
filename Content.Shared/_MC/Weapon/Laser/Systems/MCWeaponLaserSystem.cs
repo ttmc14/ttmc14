@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Line;
 using Content.Shared._MC.Power.Systems.Providing;
 using Content.Shared._MC.Weapon.Laser.Components;
+using Content.Shared._MC.Weapons.AttackModeSelection.Core.Events;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Verbs;
@@ -38,7 +39,10 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         InitializeAppearance();
 
         SubscribeLocalEvent<MCWeaponLaserComponent, ComponentStartup>(OnStartup);
+
         SubscribeLocalEvent<MCWeaponLaserComponent, GetVerbsEvent<Verb>>(OnGetVerbs);
+        SubscribeLocalEvent<MCWeaponLaserComponent, MCAttackModeSelectionEvent>(OnModeSelect);
+
         SubscribeLocalEvent<MCWeaponLaserComponent, TakeAmmoEvent>(OnTakeAmmo);
         SubscribeLocalEvent<MCWeaponLaserComponent, GetAmmoCountEvent>(OnGetAmmoCount);
     }
@@ -67,6 +71,11 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
                 },
             });
         }
+    }
+
+    private void OnModeSelect(Entity<MCWeaponLaserComponent> entity, ref MCAttackModeSelectionEvent args)
+    {
+        SetMode(entity, args.Id);
     }
 
     private void OnTakeAmmo(Entity<MCWeaponLaserComponent> entity, ref TakeAmmoEvent args)

@@ -13,27 +13,21 @@ using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Utility;
 
-namespace Content.Client._MC.Weapons.Vali.Ui;
+namespace Content.Client._MC.Weapons.Vali.UI;
 
 public sealed partial class MCWeaponValiSelectedReagentBui : BoundUserInterface
 {
-    [Dependency] private readonly IClyde _displayManager = null!;
-    [Dependency] private readonly IInputManager _inputManager = null!;
-    [Dependency] private readonly IPlayerManager _player = null!;
-    [Dependency] private readonly IEyeManager _eye = null!;
-
     private readonly SpriteSystem _sprite;
-    private readonly TransformSystem _transform;
+    private readonly MCUserInterfaceUtilitiesSystem _utilities;
 
-    [ViewVariables]
-    private MCWeaponValiSelectedReagentMenu? _radialMenu;
+    [ViewVariables] private MCWeaponValiSelectedReagentMenu? _radialMenu;
 
     public MCWeaponValiSelectedReagentBui(EntityUid owner, Enum uiKey) : base(owner, uiKey)
     {
         IoCManager.InjectDependencies(this);
 
         _sprite = EntMan.System<SpriteSystem>();
-        _transform = EntMan.System<TransformSystem>();
+        _utilities = EntMan.System<MCUserInterfaceUtilitiesSystem>();
     }
 
     protected override void Open()
@@ -56,15 +50,7 @@ public sealed partial class MCWeaponValiSelectedReagentBui : BoundUserInterface
             }
         }
 
-        var screenSize = _displayManager.ScreenSize;
-        var position = _inputManager.MouseScreenPosition.Position / screenSize;
-
-        if (EntMan.TryGetComponent<EyeComponent>(Owner, out var eyeComp) && eyeComp.Target is not null)
-            position = _eye.WorldToScreen(_transform.GetMapCoordinates((EntityUid) eyeComp.Target).Position) / screenSize;
-        else if (_player.LocalEntity is { } ent)
-            position = _eye.WorldToScreen(_transform.GetMapCoordinates(ent).Position) / screenSize;
-
-        _radialMenu.OpenCenteredAt(position);
+        _radialMenu.OpenCenteredAt(_utilities.GetRadialPosition(Owner));
     }
 
     private void AddButton(RadialContainer parent, SpriteSpecifier.Rsi icon, Action onButtonDown)

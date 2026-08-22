@@ -1,5 +1,7 @@
 - type: entity
-  parent: RMCWeaponRevolverBase
+  parent:
+  - RMCWeaponRevolverBase
+  - MCFireModeSelectionWeapon
   id: MCWeaponRevolver
   categories: [ MCContent ]
   abstract: true

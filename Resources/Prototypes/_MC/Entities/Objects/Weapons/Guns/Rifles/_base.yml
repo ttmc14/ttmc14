@@ -1,5 +1,7 @@
 - type: entity
-  parent: CMBaseWeaponRifle
+  parent:
+  - MCWeaponGun
+  - CMBaseWeaponRifle
   id: MCWeaponRifle
   categories: [ MCContent ]
   abstract: true

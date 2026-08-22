@@ -38,6 +38,7 @@
     - MCActionXenoRest
     - MCActionXenoPsydrain
     # Abilities
+    - MCActionXenoRage
     - MCActionXenoRavage
     - MCActionXenoCharge
     - MCActionXenoEndure
@@ -46,8 +47,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Critical
-      425: Dead
+      400: Critical
+      500: Dead
   - type: XenoPlasma
     plasma: 800
     maxPlasma: 800
@@ -55,7 +56,7 @@
     plasmaRegenOnWeeds: 15
   - type: MCArmor
     soft:
-      melee: 35
+      melee: 50
       bullet: 55
       laser: 50
       energy: 50
@@ -64,11 +65,12 @@
       fire: 65
       acid: 40
   - type: MeleeWeapon
+    attackRate: 1.45
     damage:
       types:
         MCBrute: 25
-  # - type: CMArmorPiercing
-  #   amount: 15
+  - type: CMArmorPiercing
+    amount: 15
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.333
     baseSprintSpeed: 5
@@ -97,7 +99,11 @@
     multiplier: 1.5
   - type: MCXenoPlasmaOnAttacked
     multiplier: 0.5
+  # Rage
+  - type: MCXenoRageActivationAction
   - type: MCXenoRage
+  - type: MCXenoRageAura
+  - type: MCXenoRageEffectImmunity
 
 - type: entity
   parent: MCXenoRavagerBase

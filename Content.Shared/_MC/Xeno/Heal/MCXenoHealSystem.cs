@@ -147,6 +147,11 @@ public sealed class MCXenoHealSystem : MCEntitySystemSingleton<MCXenoHealSinglet
         _damageable.TryChangeDamage(uid, -damage, true);
     }
 
+    public bool CheckHealthThreshold(EntityUid uid, float threshold)
+    {
+        return GetHealth(uid) <= GetHealthAlive(uid) * threshold;
+    }
+
     public float GetHealth(EntityUid uid)
     {
         return _damageableQuery.TryComp(uid, out var damageableComponent)

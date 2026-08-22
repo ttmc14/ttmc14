@@ -1,3 +1,7 @@
+mc-ui-options-tab-ui = Интерфейс
+mc-ui-options-ui-slot-clipping = Обрезать изображения предмета больше слота руки
+mc-ui-options-ui-radial-position = Открывать круговые (радиальные) выборы в позиции мыши
+
 mc-ui-options-tab-chat = Чат
 mc-ui-options-chat-emoji = Отображение эмоций
 

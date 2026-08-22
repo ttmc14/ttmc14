@@ -3,6 +3,7 @@
   - MCItem
   - MCWeaponGun
   - MCAttachableHolder
+  - MCFireModeSelectionWeaponLaser
   id: MCWeaponEnergy
   abstract: true
   components:
@@ -20,6 +21,7 @@
     slots:
       gun_magazine:
         name: Magazine
+        startingItem: MCMagazineBatteryTerra
         insertSound: /Audio/Weapons/Guns/MagIn/batrifle_magin.ogg
         ejectSound: /Audio/Weapons/Guns/MagOut/batrifle_magout.ogg
         whitelist:

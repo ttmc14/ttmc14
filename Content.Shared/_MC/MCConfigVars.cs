@@ -16,8 +16,11 @@ public sealed class MCConfigVars : CVars
      * UI
      */
 
-    public static readonly CVarDef<bool> UiSlotControlClipping =
+    public static readonly CVarDef<bool> UISlotControlClipping =
         CVarDef.Create("mc.ui.slot_control_clipping", true, CVar.ARCHIVE | CVar.CLIENT);
+
+    public static readonly CVarDef<bool> UIRadialSpawnAtMouse =
+        CVarDef.Create("mc.ui.radial_mouse_coords", true, CVar.ARCHIVE | CVar.CLIENT);
 
     /**
      * Z-Levels

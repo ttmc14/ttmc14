@@ -56,7 +56,7 @@
     baseDelay: 1.7
   # Skills
   - type: MCGunSkilled
-    skill: RMCSkillSmartGun
+    skill: MCSkillSmartGun
   # Crosshair
   - type: WieldedCrosshair
     rsi:

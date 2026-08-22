@@ -1,5 +1,21 @@
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoRage
+  name: Rage
+  description: Use while at 50% health or lower to gain extra slash damage, resistances and speed in proportion to your missing hit points. This bonus is increased and you regain plasma while your HP is negative.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/ravager.rsi
+      state: rage
+    useDelay: 60
+  - type: InstantAction
+    event: !type:MCXenoRageActiveActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoRavage
   name: Ravage (200)
   description: Attacks and knockbacks enemies in the direction your facing.

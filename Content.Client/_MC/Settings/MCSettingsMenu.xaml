@@ -3,6 +3,7 @@
                Title="{Loc 'ui-options-title'}"
                MinSize="800 450">
     <TabContainer Name="Tabs" Access="Public">
+        <tabs:MCUITab Name="MCUI" />
         <tabs:MCChatTab Name="MCChat" />
         <tabs:MCQoLTab Name="MCQol" />
         <tabs:MCZLevelsTab Name="MCZLevels" />

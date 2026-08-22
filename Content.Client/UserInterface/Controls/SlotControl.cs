@@ -156,7 +156,7 @@ namespace Content.Client.UserInterface.Controls
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
                 OverrideDirection = Direction.South,
                 // MC Changes - No clip & Centered
-                RectClipContent = _configuration.GetCVar(MCConfigVars.UiSlotControlClipping),
+                RectClipContent = _configuration.GetCVar(MCConfigVars.UISlotControlClipping),
                 HorizontalAlignment = HAlignment.Center,
             });
 
@@ -166,7 +166,7 @@ namespace Content.Client.UserInterface.Controls
                 SetSize = new Vector2(DefaultButtonSize, DefaultButtonSize),
                 OverrideDirection = Direction.South,
                 // MC Changes - No clip & Centered
-                RectClipContent = _configuration.GetCVar(MCConfigVars.UiSlotControlClipping),
+                RectClipContent = _configuration.GetCVar(MCConfigVars.UISlotControlClipping),
                 HorizontalAlignment = HAlignment.Center,
             });
 

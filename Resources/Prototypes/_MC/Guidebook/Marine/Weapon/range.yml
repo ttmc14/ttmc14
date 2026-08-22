@@ -1,0 +1,6 @@
+- type: guideEntry
+  parent: MC
+  id: MCGuideMarineRangeWeapon
+  name: Weapon
+  priority: 1
+  text: "/ServerInfo/Guidebook/_MC/Guides/Marine/Weapons/Range/MCGuideWeaponRange.xml"

@@ -67,6 +67,14 @@ public sealed class MCXenoPlasmaSystem : EntitySystem
         _xenoPlasma.RegenPlasma(entity, amount);
     }
 
+    public void RegenPlasmaMax(EntityUid uid)
+    {
+        if (!_query.TryComp(uid, out var component))
+            return;
+
+        _xenoPlasma.RegenPlasma((uid, component), component.MaxPlasma);
+    }
+
     #endregion
 
     #region Remove

@@ -28,13 +28,13 @@
   - type: MCWeaponVali
     reagentCapacity: 45
     reagentDefaultIcon:
-      sprite: _MC/Interface/Actions/vali.rsi
+      sprite: _MC/Interface/Actions/Weapons/vali.rsi
       state: empty_backgrounded
     reagentData:
       # Bicaridine
       MCBicaridine:
         icon:
-          sprite: _MC/Interface/Actions/vali.rsi
+          sprite: _MC/Interface/Actions/Weapons/vali.rsi
           state: bicaridine_backgrounded
         effects:
         - !type:MCWeaponReagentDamageMultipliedEffect
@@ -44,7 +44,7 @@
       # Kelotane
       MCKelotane:
         icon:
-          sprite: _MC/Interface/Actions/vali.rsi
+          sprite: _MC/Interface/Actions/Weapons/vali.rsi
           state: kelotane_backgrounded
         effects:
         - !type:MCWeaponReagentDamageMultipliedEffect
@@ -54,7 +54,7 @@
       # Tricordrazine
       MCTricordrazine:
         icon:
-          sprite: _MC/Interface/Actions/vali.rsi
+          sprite: _MC/Interface/Actions/Weapons/vali.rsi
           state: tricordrazine_backgrounded
         effects:
         - !type:MCWeaponReagentDamageMultipliedEffect
@@ -64,7 +64,7 @@
       # Tramadol
       MCTramadol:
         icon:
-          sprite: _MC/Interface/Actions/vali.rsi
+          sprite: _MC/Interface/Actions/Weapons/vali.rsi
           state: tramadol_backgrounded
         effects:
         - !type:MCWeaponReagentDamageMultipliedEffect
@@ -74,7 +74,7 @@
       # Dexalin
       MCDexalin:
         icon:
-          sprite: _MC/Interface/Actions/vali.rsi
+          sprite: _MC/Interface/Actions/Weapons/vali.rsi
           state: dexalin_backgrounded
         effects:
         - !type:MCWeaponReagentDamageMultipliedEffect

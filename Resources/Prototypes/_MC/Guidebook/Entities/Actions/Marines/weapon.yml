@@ -14,5 +14,5 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Interface/Actions/vali.rsi
+    sprite: _MC/Interface/Actions/Weapons/vali.rsi
     state: icon

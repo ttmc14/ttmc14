@@ -61,9 +61,115 @@
   - type: RMCNightVisionVisibleOnIgnite
   - type: CartridgeAmmo
     deleteOnSpawn: true
-    proto: RMCFlareBullet
+    proto: MCBulletFlare
   - type: RMCAirProjectile
     prototype: RMCAirFlare
 
+- type: entity
+  parent: MCBullet
+  id: MCBulletFlare
+  name: flare projectile
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Grenades/fldp.rsi
+    layers:
+    - map: [ "enum.ExpendableLightVisualLayers.Overlay" ]
+      state: icon
+  - type: GunIFF
+    enabled: true
+  - type: Projectile
+    deleteOnCollide: false
+    impactEffect: BulletImpactEffect
+    damage:
+      types:
+        Piercing: 2.5
+    soundHit:
+      path: /Audio/Weapons/Guns/Hits/bullet_hit.ogg
+  - type: ContainerContainer
+    containers:
+      cluster-payload: !type:Container
+  - type: ScatteringGrenade
+    directHitTrigger: true
+    fillPrototype: MCFlare
+    capacity: 1
+    delayBeforeTriggerContents: 0
+    distance: 0
+    toggleContents: true
+  - type: PointLight
+    enabled: true
+    color: "#FFCCCC"
+    radius: 2.0
+    energy: 7.0
+  - type: IgniteOnProjectileHit
+    duration: 3
+  - type: TriggerOnFixedDistanceStop
+    delay: 0
+  - type: IgnoreArc
+  - type: IgnorePredictionHide
+  - type: Fixtures
+    fixtures:
+      projectile:
+        shape: !type:PhysShapeAabb
+          bounds: "-0.15,-0.9,0.15,0.15"
+        hard: false
+        mask:
+        - Impassable
+        - BulletImpassable
+
 - type: Tag
   id: MCFlare
+
+- type: entity
+  parent: MCItem
+  id: MCPackFlare
+  name: M94 marking flare pack
+  description: A packet of eight M94 Marking Flares. Carried by Marine soldiers to light dark areas that cannot be reached with the usual TNR Shoulder Lamp.
+  abstract: true
+  components:
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - MCFlarePack
+  - type: CMItemSlots
+    count: 8
+    slot:
+      name: Flare
+      whitelist:
+        tags:
+        - MCFlare
+  - type: Sprite
+    sprite: _RMC14/Objects/Storage/boxes.rsi
+    layers:
+    - state: m94_e
+      map: [ "emptyLayer" ]
+    - state: m94
+      map: [ "fullLayer" ]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.CMItemSlotsLayers.Fill:
+        fullLayer:
+          Empty: { visible: false }
+          Low: { visible: true }
+          Medium: { visible: true }
+          High: { visible: true }
+          Full: { visible: true }
+        emptyLayer:
+          Empty: { visible: true }
+          Low: { visible: false }
+          Medium: { visible: false }
+          High: { visible: false }
+          Full: { visible: false }
+
+- type: entity
+  parent: MCPackFlare
+  id: MCPackFlareFilled
+  suffix: Filled
+  components:
+  - type: CMItemSlots
+    startingItem: MCFlare
+
+- type: Tag
+  id: MCFlarePack

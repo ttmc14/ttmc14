@@ -11,7 +11,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities.Ravager.Endure;
 
-public sealed class MCXenoEndureSystem : MCXenoAbilitySystem
+public sealed partial class MCXenoEndureSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
@@ -20,9 +20,15 @@ public sealed class MCXenoEndureSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedAuraSystem _rmcAura = null!;
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmote = null!;
 
+    private EntityQuery<MCXenoEndureComponent> _query;
+    private EntityQuery<MCXenoEndureActiveComponent> _queryActive;
+
     public override void Initialize()
     {
         base.Initialize();
+
+        _query = GetEntityQuery<MCXenoEndureComponent>();
+        _queryActive = GetEntityQuery<MCXenoEndureActiveComponent>();
 
         SubscribeLocalEvent<MCXenoEndureComponent, MCXenoEndureActionEvent>(OnAction);
 

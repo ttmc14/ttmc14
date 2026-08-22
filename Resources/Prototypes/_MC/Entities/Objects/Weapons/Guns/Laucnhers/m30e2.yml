@@ -1,5 +1,8 @@
 - type: entity
-  parent: [ MCItem, RMCBaseSlideMagazineVisualsBallistic, MCWeaponGun, RMCBaseAttachableHolder ]
+  parent:
+  - MCWeaponGun
+  - MCAttachableHolder
+  - RMCBaseSlideMagazineVisualsBallistic
   id: MCWeaponFlareGunM30E2
   name: M30E2 flare gun
   description: A very tiny flaregun that fires flares equipped with long range irons, the mass amounts of markings on the back and barrel denote it as owned by the TGMC.
@@ -43,10 +46,7 @@
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - Flare
       - MCFlare
-      - RMCFlare
-      - RMCFlareCAS
     capacity: 1
     proto: MCFlare
     soundInsert:

@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/commit/e0b8cdd9fcc05bdac3fcd51e854143e29af2adf2",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "burst"
+    },
+    {
+      "name": "burst_auto"
+    },
+    {
+      "name": "icon"
+    },
+    {
+      "name": "single"
+    },
+    {
+      "name": "single_auto"
+    }
+  ]
+}

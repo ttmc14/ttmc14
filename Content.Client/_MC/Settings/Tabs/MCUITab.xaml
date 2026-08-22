@@ -1,0 +1,16 @@
+﻿<tabs:MCUITab xmlns="https://spacestation14.io"
+              xmlns:tabs="clr-namespace:Content.Client._MC.Settings.Tabs"
+              xmlns:ui="clr-namespace:Content.Client.Options.UI">
+    <BoxContainer Orientation="Vertical">
+        <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Orientation="Vertical" Margin="8">
+
+                <CheckBox Name="SlotClipping" Text="{Loc 'mc-ui-options-ui-slot-clipping'}" />
+                <CheckBox Name="RadialPosition" Text="{Loc 'mc-ui-options-ui-radial-position'}" />
+
+            </BoxContainer>
+        </ScrollContainer>
+
+        <ui:OptionsTabControlRow Name="Control" Access="Public" />
+    </BoxContainer>
+</tabs:MCUITab>

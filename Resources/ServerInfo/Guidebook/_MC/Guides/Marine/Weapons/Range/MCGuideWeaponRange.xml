@@ -1,0 +1,21 @@
+<Document>
+
+  ### Rifles
+
+  <GuideWeaponEmbed Weapon="MCWeaponRifleAR12"/>
+  <GuideWeaponEmbed Weapon="MCWeaponRifleAR21"/>
+
+  ### Energy Weapons
+
+  <GuideWeaponEmbed Weapon="MCWeaponEnergyRifle"/>
+  <GuideWeaponEmbed Weapon="MCWeaponEnergySniper"/>
+  <GuideWeaponEmbed Weapon="MCWeaponEnergyCarbine"/>
+  <GuideWeaponEmbed Weapon="MCWeaponEnergyPistol"/>
+  <GuideWeaponEmbed Weapon="MCWeaponEnergyMachineGun"/>
+
+  ### SMGs
+
+  <GuideWeaponEmbed Weapon="MCWeaponSMG90"/>
+  <GuideWeaponEmbed Weapon="MCWeaponSMG45"/>
+
+</Document>

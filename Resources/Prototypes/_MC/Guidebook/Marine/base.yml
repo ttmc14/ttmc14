@@ -10,6 +10,7 @@
   - MCGuideMarineMedicine
   - MCGuideMarineValiWeapon
   - MCGuideMarineArmor
+  - MCGuideMarineRangeWeapon
 
 - type: guideEntry
   parent: MC

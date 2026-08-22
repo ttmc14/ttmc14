@@ -28,3 +28,4 @@
       mc-slot-rail: -0.4375,0.21875
   - type: ShootAtFixedPoint
     maxFixedRange: 15
+  - type: GunIgnorePrediction
