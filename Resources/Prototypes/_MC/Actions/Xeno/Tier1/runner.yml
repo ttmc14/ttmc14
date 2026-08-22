@@ -49,7 +49,7 @@
     icon:
       sprite: _MC/Interface/Actions/Xeno/runner.rsi
       state: pounce
-    useDelay: 15
+    useDelay: 9.5
   - type: TargetAction
     range: 100
     checkCanAccess: false
