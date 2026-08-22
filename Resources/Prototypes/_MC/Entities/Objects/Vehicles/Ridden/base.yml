@@ -3,6 +3,12 @@
   categories: [ MCContent ]
   abstract: true
   components:
+  # ZPhysics
+  - type: CEZPhysics
+  - type: MCZLevelFallDamage
+    damage:
+      types:
+        MCBrute: 5
   - type: Tag
     tags:
     - DoorBumpOpener
@@ -23,7 +29,6 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
-  - type: CEZPhysics
   - type: Physics
     bodyType: KinematicController
   - type: Clickable

@@ -49,6 +49,7 @@ public abstract partial class CESharedZLevelsSystem : EntitySystem
     {
         base.Initialize();
 
+        _config.OnValueChanged(MCConfigVars.ZLevelsOffset, v => ZLevelOffset = v, true);
         _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsClientSimulation, i => _clientSimulation = i, true);
         _config.OnValueChanged(MCConfigVars.ZLevelsPhysicsTickRate, i => _fixedTimestep = TimeSpan.FromSeconds(1d / i), true);
 

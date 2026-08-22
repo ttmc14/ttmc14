@@ -5,6 +5,8 @@
         <ScrollContainer VerticalExpand="True" HScrollEnabled="False">
             <BoxContainer Orientation="Vertical" Margin="8">
 
+                <ui:OptionSlider Name="ZLevelsOffset" Title="{Loc 'mc-ui-options-zlevels-offset'}" />
+
                 <CheckBox Name="ZLevelsPhysicsClientSimulation" Text="{Loc 'mc-ui-options-zlevels-physics-client-simulation'}" />
                 <ui:OptionSlider Name="ZLevelsPhysicsFrameRate" Title="{Loc 'mc-ui-options-zlevels-physics-frame-rate'}" />
 

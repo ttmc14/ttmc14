@@ -26,6 +26,9 @@ public sealed class MCConfigVars : CVars
      * Z-Levels
      */
 
+    public static readonly CVarDef<float> ZLevelsOffset =
+        CVarDef.Create("mc.z_levels.offset", 0f, CVar.ARCHIVE | CVar.CLIENT);
+
     public static readonly CVarDef<int> ZLevelsPhysicsTickRate =
         CVarDef.Create("mc.z_levels.physics.tick_rate", 60, CVar.ARCHIVE);
 

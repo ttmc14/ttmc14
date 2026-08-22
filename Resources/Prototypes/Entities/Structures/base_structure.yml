@@ -33,6 +33,11 @@
   parent: BaseStructure
   abstract: true
   components:
+  - type: CEZPhysics # mc-changes [z-levels]
+  - type: MCZLevelFallDamage
+    damage:
+      types:
+        MCBrute: 20
 # These might/might not be a good idea
 #  - type: MovedByPressure
 #  - type: DamageOnHighSpeedImpact
@@ -63,6 +68,10 @@
   abstract: true
   components:
   - type: CEZPhysics # mc-changes [z-levels]
+  - type: MCZLevelFallDamage
+    damage:
+      types:
+        MCBrute: 20
   - type: TileFrictionModifier
     modifier: 0.4
 
