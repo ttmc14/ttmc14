@@ -62,8 +62,9 @@
   id: StructureWheeled
   abstract: true
   components:
-    - type: TileFrictionModifier
-      modifier: 0.4
+  - type: CEZPhysics # mc-changes [z-levels]
+  - type: TileFrictionModifier
+    modifier: 0.4
 
 - type: Tag
   id: Structure

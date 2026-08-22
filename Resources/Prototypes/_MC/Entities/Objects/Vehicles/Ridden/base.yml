@@ -23,6 +23,7 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3
     baseSprintSpeed: 6
+  - type: CEZPhysics
   - type: Physics
     bodyType: KinematicController
   - type: Clickable
