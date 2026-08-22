@@ -6,6 +6,8 @@
   abstract: true
   categories: [ MCContent ]
   components:
+  - type: Item
+    size: Large
   - type: MCWeaponZLevelsShoot
   - type: MCWeaponSelectiveFire
   - type: RMCSelectiveFire

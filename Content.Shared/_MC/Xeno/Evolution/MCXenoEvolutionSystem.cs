@@ -138,10 +138,7 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
         EntityPrototype targetPrototype,
         bool doPopup)
     {
-        if (!targetPrototype.TryGetComponent<XenoEvolutionComponent>(out var targetComponent, _compFactory))
-            return false;
-
-        if (xeno.Comp.Points < targetComponent.Points)
+        if (xeno.Comp.Points < xeno.Comp.Max)
             return false;
 
         return true;
