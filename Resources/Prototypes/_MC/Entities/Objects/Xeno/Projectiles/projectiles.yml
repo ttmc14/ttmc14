@@ -9,7 +9,7 @@
   - type: Projectile
     damage:
       types:
-        MCBurn: 20
+        MCBurn: 5
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
@@ -17,6 +17,10 @@
   - type: MCXenoSpawnAcidSprayOnTerminating
     spawn: MCXenoAcidSpraySpit
   - type: MCXenoProjectileTargetingTurf
+  - type: XenoSlowingSpitProjectile
+    superSlow: false
+    slow: 1
+    paralyze: 1
 
 - type: entity
   parent: MCXenoProjectile
