@@ -136,11 +136,11 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 16
-      falloff: 3
-      ignoreModifiers: true
     - range: 14
       falloff: 3
+    - range: 16
+      falloff: 9999
+      ignoreModifiers: true
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:

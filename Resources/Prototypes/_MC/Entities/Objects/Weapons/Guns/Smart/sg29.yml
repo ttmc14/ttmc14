@@ -104,8 +104,6 @@
       mc-slot-muzzle: 0.8125, 0.03125
       mc-slot-underbarrel: -0.25, -0.5625
 
-
-
 # Boxes SG-62
 - type: entity
   parent: MCBoxBullets
@@ -197,11 +195,11 @@
     amount: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 12
+      falloff: 4
     - range: 18
       falloff: 9999
       ignoreModifiers: true
-    - range: 12
-      falloff: 4
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:

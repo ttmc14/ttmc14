@@ -179,9 +179,6 @@
     amount: 30
   - type: MCXenoSunderDamageOnHit
     amount: 0
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - falloff: 0.25
   - type: MCStunOnHit
     slowdownTime: 1
     maxDistance: 17
@@ -203,9 +200,6 @@
     amount: 10
   - type: MCXenoSunderDamageOnHit
     amount: 10
-  - type: RMCProjectileDamageFalloff
-    thresholds:
-    - falloff: 0.25
   - type: MCStunOnHit
     staggerTime: 2
     knockback: 4

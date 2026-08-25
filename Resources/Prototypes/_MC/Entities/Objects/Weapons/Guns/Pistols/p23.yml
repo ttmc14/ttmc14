@@ -132,11 +132,11 @@
         MCBrute: 30
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 6
+      falloff: 5
     - range: 22
       falloff: 9999
       ignoreModifiers: true
-    - range: 6
-      falloff: 5
   - type: CMArmorPiercing
     amount: 5
   - type: MCXenoSunderDamageOnHit

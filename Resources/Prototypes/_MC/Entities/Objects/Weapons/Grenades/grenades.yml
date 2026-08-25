@@ -8,11 +8,10 @@
   - type: Sprite
     sprite: _MC/Objects/Weapons/Grenades/hedp.rsi
   - type: ExplodeOnTrigger
-  - type: Explosive
-    maxIntensity: 10 # max 100 brute, 100 burn
-    intensitySlope: 4
-    totalIntensity: 130
-    canCreateVacuum: false
+  - type: MCExplosive
+    power: 105
+    falloff: 30
+    explosionType: MC
   - type: Ammo
   - type: CMExplosionEffect
   - type: CMVocalizeTrigger
@@ -63,11 +62,10 @@
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Grenades/hefa.rsi
-  - type: Explosive
-    maxIntensity: 8 # max 40 brute 40 burn
-    intensitySlope: 4
-    totalIntensity: 110
-    deleteAfterExplosion: false
+  - type: MCExplosive
+    power: 125
+    falloff: 40
+    explosionType: MC
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
     capacity: 1 # TODO shrapnel lag 48
@@ -98,11 +96,6 @@
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Grenades/hefa_m15.rsi
-  - type: Explosive
-    maxIntensity: 10
-    intensitySlope: 4
-    totalIntensity: 160
-    deleteAfterExplosion: false
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
     capacity: 1 # TODO shrapnel lag 48
@@ -134,11 +127,10 @@
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Grenades/hefa_m25.rsi
-  - type: Explosive
-    maxIntensity: 10
-    intensitySlope: 4
-    totalIntensity: 160
-    deleteAfterExplosion: false
+  - type: MCExplosive
+    power: 35
+    falloff: 20
+    explosionType: MC
   - type: ProjectileGrenade
     fillPrototype: CMProjectileShrapnel
     capacity: 1 # TODO shrapnel lag 48

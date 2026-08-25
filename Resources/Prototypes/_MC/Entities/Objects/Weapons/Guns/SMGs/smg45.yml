@@ -183,11 +183,11 @@
     amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 5
+      falloff: 6
     - range: 6
       falloff: 9999
       ignoreModifiers: true
-    - range: 6
-      falloff: 6
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
@@ -208,11 +208,11 @@
     amount: 1
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 5
+      falloff: 6
     - range: 6
       falloff: 9999
       ignoreModifiers: true
-    - range: 6
-      falloff: 6
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:

@@ -126,11 +126,11 @@
         MCBrute: 45
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 9
+      falloff: 8
     - range: 10
       falloff: 9999
       ignoreModifiers: true
-    - range: 10
-      falloff: 8
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:

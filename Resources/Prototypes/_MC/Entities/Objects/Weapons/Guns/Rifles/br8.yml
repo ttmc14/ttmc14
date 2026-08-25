@@ -215,15 +215,15 @@
     amount: 5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 7
+      falloff: 7
     - range: 20
       falloff: 9999
       ignoreModifiers: true
-    - range: 17
-      falloff: 7
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 18
+    - range: 8
       falloff: 10
 
 - type: entity
@@ -240,15 +240,15 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 7
+      falloff: 7
     - range: 20
       falloff: 9999
       ignoreModifiers: true
-    - range: 17
-      falloff: 7
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 18
+    - range: 8
       falloff: 10
   - type: IgniteOnProjectileHit
     intensity: 15
@@ -268,15 +268,15 @@
     amount: 3.5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 7
+      falloff: 7
     - range: 20
       falloff: 9999
       ignoreModifiers: true
-    - range: 17
-      falloff: 7
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 18
+    - range: 8
       falloff: 10
   - type: MCStunOnHit
     maxDistance: 10

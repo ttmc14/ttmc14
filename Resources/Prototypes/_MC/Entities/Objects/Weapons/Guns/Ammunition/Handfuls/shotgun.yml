@@ -99,11 +99,11 @@
     spread: 4
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 1
+      falloff: 6
     - range: 4
       falloff: 9999
       ignoreModifiers: true
-    - range: 1
-      falloff: 6
   - type: RMCProjectileAccuracy
     thresholds:
     - range: 4
@@ -185,11 +185,11 @@
     maxDistance: 6
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 1
+      falloff: 10
     - range: 7
       falloff: 9999
       ignoreModifiers: true
-    - range: 1
-      falloff: 10
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
@@ -241,11 +241,11 @@
     slowdownTime: 1.5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 0
+      falloff: 8
     - range: 7
       falloff: 9999
       ignoreModifiers: true
-    - range: 0
-      falloff: 8
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
@@ -326,11 +326,11 @@
     spread: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 4
+      falloff: 8
     - range: 5
       falloff: 9999
       ignoreModifiers: true
-    - range: 4
-      falloff: 8
   - type: RMCProjectileAccuracy
     accuracy: 100
     thresholds:
@@ -392,11 +392,11 @@
     spread: 2
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 0
+      falloff: 1
     - range: 15
       falloff: 9999
       ignoreModifiers: true
-    - range: 0
-      falloff: 1
 
 - type: Tag
   id: MCShellShotgunFlechetteTx15

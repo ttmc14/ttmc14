@@ -185,15 +185,15 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 7
+      falloff: 4
     - range: 20
       falloff: 9999
       ignoreModifiers: true
-    - range: 17
-      falloff: 4
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 18
+    - range: 8
       falloff: 10
 
 - type: entity
@@ -210,13 +210,13 @@
     amount: 0.5
   - type: RMCProjectileDamageFalloff
     thresholds:
+    - range: 7
+      falloff: 4
     - range: 20
       falloff: 9999
       ignoreModifiers: true
-    - range: 17
-      falloff: 4
   - type: RMCProjectileAccuracy
     accuracy: 105
     thresholds:
-    - range: 18
+    - range: 8
       falloff: 10

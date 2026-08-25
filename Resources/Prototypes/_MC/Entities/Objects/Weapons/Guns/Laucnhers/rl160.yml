@@ -23,7 +23,12 @@
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/m5_shoot.ogg
   - type: Item
     size: Large
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 15
   - type: BallisticAmmoProvider
+    insertDelay: 6
     whitelist:
       tags:
       - MCRocketShell
@@ -51,6 +56,8 @@
     delay: 1
   - type: ShootAtFixedPoint
     maxFixedRange: 30
+  - type: WieldableSpeedModifiers
+    base: 0.75
 
 # Rocket shells
 - type: Tag
@@ -171,12 +178,10 @@
     - state: shell
   - type: CMExplosionEffect
   - type: ExplodeOnTrigger
-  - type: Explosive
+  - type: MCExplosive
+    power: 200
+    falloff: 70
     explosionType: MC
-    maxIntensity: 200
-    intensitySlope: 70
-    totalIntensity: 200
-    maxTileBreak: 0
   - type: RMCScorchEffect
   - type: PointLight
     radius: 3.5
@@ -218,10 +223,10 @@
     amount: 100
   - type: MCXenoSunderDamageOnHit
     amount: 50
-  - type: Explosive
-    maxIntensity: 50
-    intensitySlope: 25
-    totalIntensity: 50
+  - type: MCExplosive
+    power: 50
+    falloff: 25
+    explosionType: MC
 
 - type: entity
   parent: MCProjectileRocketShell
@@ -235,10 +240,10 @@
     amount: 50
   - type: MCXenoSunderDamageOnHit
     amount: 25
-  - type: Explosive
-    maxIntensity: 150
-    intensitySlope: 50
-    totalIntensity: 150
+  - type: MCExplosive
+    power: 150
+    falloff: 50
+    explosionType: MC
 
 - type: entity
   parent: MCProjectileRocketShell
@@ -257,6 +262,10 @@
   - type: SpawnOnTerminate
     spawn: MCSmokeRL160Smoke
     projectileAdjust: false
+  - type: MCExplosive
+    power: 50
+    falloff: 25
+    explosionType: MC
 
 - type: entity
   parent: MCProjectileRocketShellSmoke
@@ -268,6 +277,10 @@
     - state: shell_cloak
   - type: SpawnOnTerminate
     spawn: MCSmokeRL160Cloak
+  - type: MCExplosive
+    power: 50
+    falloff: 25
+    explosionType: MC
 
 - type: entity
   parent: MCProjectileRocketShellSmoke
@@ -279,6 +292,10 @@
     - state: shell_tanglefoot
   - type: SpawnOnTerminate
     spawn: MCSmokeRL160Tanglefoot
+  - type: MCExplosive
+    power: 50
+    falloff: 25
+    explosionType: MC
 
 # Smokes
 - type: entity

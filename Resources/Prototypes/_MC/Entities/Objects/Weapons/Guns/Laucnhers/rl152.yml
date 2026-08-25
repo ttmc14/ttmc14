@@ -23,13 +23,18 @@
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/m5_shoot.ogg
   - type: Item
     size: Large
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 15
   - type: BallisticAmmoProvider
+    insertDelay: 6
     whitelist:
       tags:
       - MCRocketSadar
     capacity: 1
     cycleable: true
-    proto: MCRocketShell
+    proto: MCRocketSadar
     # soundInsert:
     #   path: /Audio/_RMC14/Weapons/Guns/Cock/m5_ammo.ogg
   - type: AttachableHolder
@@ -51,6 +56,8 @@
     delay: 1
   - type: ShootAtFixedPoint
     maxFixedRange: 30
+  - type: WieldableSpeedModifiers
+    base: 0.75
 
 - type: Tag
   id: MCWeaponLauncherRL152
@@ -146,12 +153,10 @@
     maxFixedRange: 14
   - type: CMArmorPiercing
     amount: 100
-  - type: Explosive
+  - type: MCExplosive
+    power: 240
+    falloff: 65
     explosionType: MC
-    totalIntensity: 240
-    maxIntensity: 240
-    intensitySlope: 65
-    maxTileBreak: 0
 
 - type: entity
   parent: MCProjectileRockerSadar
@@ -161,6 +166,10 @@
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Rockets/rl152_rockets.rsi
     layers:
     - state: he_unguided
+  - type: MCExplosive
+    power: 240
+    falloff: 60
+    explosionType: MC
   - type: IgnoreArc
 
 - type: entity
@@ -179,12 +188,10 @@
     maxFixedRange: 14
   - type: CMArmorPiercing
     amount: 200
-  - type: Explosive
+  - type: MCExplosive
+    power: 50
+    falloff: 25
     explosionType: MC
-    totalIntensity: 50
-    maxIntensity: 50
-    intensitySlope: 25
-    maxTileBreak: 0
   - type: MCXenoSunderDamageOnHit
     amount: 50
 
@@ -204,12 +211,6 @@
     maxFixedRange: 20
   - type: CMArmorPiercing
     amount: 75
-  - type: Explosive
-    explosionType: MC
-    totalIntensity: 50
-    maxIntensity: 50
-    intensitySlope: 25
-    maxTileBreak: 0
   - type: MCXenoSunderDamageOnHit
     amount: 50
   - type: TileFireOnTrigger

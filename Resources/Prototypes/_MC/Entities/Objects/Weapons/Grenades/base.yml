@@ -44,8 +44,8 @@
   description: Duck and cover.
   abstract: true
   components:
-  - type: Explosive
-    explosionType: RMC
+  - type: MCExplosive
+    explosionType: MC
 
 - type: Tag
   id: MCGrenade
