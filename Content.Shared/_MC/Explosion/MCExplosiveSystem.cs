@@ -17,7 +17,7 @@ public sealed class MCExplosiveSystem : EntitySystem
         var comp = ent.Comp;
         if (comp.Falloff <= 0)
         {
-            Log.Error($"MCExplosiveComponent on entity {ent.Owner} has Falloff <= 0. Aborting calculation.");
+            Log.Error($"MCExplosiveComponent on entity {ent.Owner} ({MetaData(ent.Owner).EntityPrototype}) has Falloff <= 0. Aborting calculation.");
             return;
         }
 

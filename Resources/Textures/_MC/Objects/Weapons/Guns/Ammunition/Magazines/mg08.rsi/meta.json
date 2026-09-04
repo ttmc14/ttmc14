@@ -8,17 +8,16 @@
   },
   "states": [
     {
-      "name": "mg08_small",
-      "directions": 4
+      "name": "base"
     },
     {
-      "name": "mg08_small_e"
+      "name": "mag-1"
     },
     {
-      "name": "mg08"
+      "name": "small"
     },
     {
-      "name": "mg08_e"
+      "name": "small-mag-1"
     }
   ]
 }

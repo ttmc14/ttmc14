@@ -93,8 +93,8 @@
         # TODO:
         # technology_scanner x2
         # packageWrap x1
-        - MCSpawnerExplosiveSupply # x2
-        - MCSpawnerExplosiveSupply
+        # - MCSpawnerExplosiveSupply # x2
+        # - MCSpawnerExplosiveSupply
         - MCSpawnerRandomPowercell # x3
         - MCSpawnerRandomPowercell
         - MCSpawnerRandomPowercell

@@ -47,6 +47,8 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
       state: nuke_off
+  - type: WarpPoint
+    location: Nuke
 
 - type: entity
   parent: MCNuclearBomb

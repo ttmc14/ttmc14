@@ -208,7 +208,7 @@
   name: Медицинский блок
   components:
   - type: Sprite
-    state: Medbay
+    state: medbay
   - type: Area
     minimapColor: "#0d7f00"
 
@@ -248,7 +248,7 @@
   name: Здание охраны
   components:
   - type: Sprite
-    state: Security
+    state: security
   - type: Area
     minimapColor: "#dc3636"
 
@@ -396,7 +396,7 @@
   name: Медицинский блок второго этажа
   components:
   - type: Sprite
-    state: Medbay
+    state: medbay
   - type: Area
     minimapColor: "#0d7f00"
 
@@ -406,7 +406,7 @@
   name: Химическая лаборатория второго этажа
   components:
   - type: Sprite
-    state: Medbay
+    state: medbay
   - type: Area
     minimapColor: "#0d7f00"
 
@@ -416,7 +416,7 @@
   name: Операционная второго этажа
   components:
   - type: Sprite
-    state: Medbay
+    state: medbay
   - type: Area
     minimapColor: "#0d7f00"
 
@@ -456,7 +456,7 @@
   name: Офис охраны Второго этажа
   components:
   - type: Sprite
-    state: Security
+    state: security
   - type: Area
     minimapColor: "#dc3636"
 

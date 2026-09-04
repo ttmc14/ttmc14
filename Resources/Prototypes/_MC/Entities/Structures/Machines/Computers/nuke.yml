@@ -28,6 +28,8 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
       state: red_disk_off
+  - type: WarpPoint
+    location: Nuke disk generator
 
 - type: entity
   parent: MCComputerNukeDiskGenerator

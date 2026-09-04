@@ -1,6 +1,6 @@
 # hedp
 - type: entity
-  parent: MCGrenade
+  parent: MCGrenadeExplosive
   id: MCGrenadeHedp
   name: M40 HEDP grenade
   description: A small, but deceptively strong high explosive grenade that has been phasing out the M15 fragmentation grenades. Capable of being loaded in the any grenade launcher, or thrown by hand.

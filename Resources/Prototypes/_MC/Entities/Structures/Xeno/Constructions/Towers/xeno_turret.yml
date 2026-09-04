@@ -105,10 +105,10 @@
   description: A menacing looking construct of resin, it seems to be alive. It fires acid against intruders.
   components:
    - type: Sprite
-     sprite: _MC/Structures/Xeno/Towers/turrets.rsi
+     sprite: _MC/Structures/Xeno/turrets.rsi
      state: acid
    - type: Icon
-     sprite: _MC/Structures/Xeno/Towers/turrets.rsi
+     sprite: _MC/Structures/Xeno/turrets.rsi
      state: acid
    - type: Destructible
      thresholds:
@@ -127,10 +127,10 @@
   description: A menacing looking construct of resin, it seems to be alive. It fires resin against intruders.
   components:
    - type: Sprite
-     sprite: _MC/Structures/Xeno/Towers/turrets.rsi
+     sprite: _MC/Structures/Xeno/turrets.rsi
      state: resin
    - type: Icon
-     sprite: _MC/Structures/Xeno/Towers/turrets.rsi
+     sprite: _MC/Structures/Xeno/turrets.rsi
      state: resin
    - type: BallisticAmmoProvider
      proto: MCXenoProjectileStickyResin
@@ -156,10 +156,10 @@
 #   description: A menacing looking construct of resin, it seems to be alive. It fires huggers against intruders.
 #   components:
 #    - type: Sprite
-#      sprite: _MC/Structures/Xeno/Towers/turrets.rsi
+#      sprite: _MC/Structures/Xeno/turrets.rsi
 #      state: hugger
 #    - type: Icon
-#      sprite: _MC/Structures/Xeno/Towers/turrets.rsi
+#      sprite: _MC/Structures/Xeno/turrets.rsi
 #      state: hugger
 #    - type: BallisticAmmoProvider
 #      proto: MCXenoHuggerAI # TODO: Hugger projectile spawn hugger

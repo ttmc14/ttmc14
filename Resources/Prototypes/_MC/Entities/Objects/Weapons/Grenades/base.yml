@@ -41,7 +41,12 @@
   parent: MCGrenadePremade
   id: MCGrenade
   name: grenade
-  description: Duck and cover.
+  abstract: true
+
+- type: entity
+  parent: MCGrenade
+  id: MCGrenadeExplosive
+  name: grenade
   abstract: true
   components:
   - type: MCExplosive

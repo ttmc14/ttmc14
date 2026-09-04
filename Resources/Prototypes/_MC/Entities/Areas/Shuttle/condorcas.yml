@@ -4,8 +4,8 @@
   name: Condor - CAS Shuttle
   components:
   - type: Sprite
-    sprite: _MC/Areas/ship.rsi
-    state: condor
+    sprite: _MC/Areas/canterbury.rsi # sprite: _MC/Areas/ship.rsi
+    state: base # state: condor
   - type: Area
     zLevel: 4
   - type: MCAreaXenoBlinkBlock

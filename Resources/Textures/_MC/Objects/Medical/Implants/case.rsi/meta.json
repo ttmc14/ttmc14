@@ -11,37 +11,10 @@
       "name": "base"
     },
     {
-      "name": "base-black"
+      "name": "base-blue"
     },
     {
       "name": "base-red"
-    },
-    {
-      "name": "label-0"
-    },
-    {
-      "name": "label-1"
-    },
-    {
-      "name": "label-2"
-    },
-    {
-      "name": "label-3"
-    },
-    {
-      "name": "label-4"
-    },
-    {
-      "name": "label-5"
-    },
-    {
-      "name": "label-6"
-    },
-    {
-      "name": "label-7"
-    },
-    {
-      "name": "label-8"
     }
   ]
 }
