@@ -49,6 +49,7 @@
         MCSkillJtac: 1
         MCSkillFireman: 1
     - type: SquadArmorWearer
+    - type: CommandAccent
     - type: MCSendOrders
     - type: JobPrefix
       prefix: mc-job-prefix-squad-leader

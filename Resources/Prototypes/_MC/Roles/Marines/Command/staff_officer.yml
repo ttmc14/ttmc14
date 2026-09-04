@@ -34,6 +34,7 @@
     components:
     - type: MarineOrders
       skill: MCSkillLeadership
+    - type: CommandAccent
     - type: MCSendOrders
     - type: Skills
       skills:

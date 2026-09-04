@@ -8,6 +8,7 @@ using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Living;
 using Content.Shared._MC.Nuke.Bomb.Events;
+using Content.Shared._MC.Research.Tools.Excavator;
 using Content.Shared._MC.Rules.Crash;
 using Content.Shared._MC.Shuttle.Events;
 using Content.Shared._MC.Xeno.Hive.Events;
@@ -127,6 +128,7 @@ public sealed partial class MCCrashRuleSystem : MCRuleSystem<MCCrashRuleComponen
 
         SpawnAdminAreas(component.Thunderdome);
         SpawnNukeDiskGenerators();
+        DestroyExcavationSite();
 
         RefreshIFF(component.MarineFaction);
         RefreshFaxes();

@@ -121,9 +121,9 @@
     role: MCXenoSentinelRetrograde
     actionIds:
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoToggleSpitPassthrough
     - MCActionXenoToggleSpitToxin

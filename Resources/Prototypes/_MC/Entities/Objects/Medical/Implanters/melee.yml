@@ -1,0 +1,39 @@
+- type: entity
+  parent: MCImplantSkill
+  id: MCImplantSkillMelee
+  name: melee skill implanter
+  description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your CQC skills.
+  abstract: true
+  components:
+  - type: MCSkillInjector
+    skill: MCSkillMeleeWeapons
+
+- type: entity
+  parent: MCImplantSkillMelee
+  id: MCImplantSkillMeleeSimple
+  name: melee skill implanter
+  description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your CQC skills.
+  components:
+  - type: Sprite
+    layers:
+    - state: base-red
+    - state: label-7
+  - type: MCSkillInjector
+    level: 1
+    levelMax: 1
+
+- type: entity
+  parent: MCImplantSkillMelee
+  id: MCImplantSkillMeleeAdvanced
+  name: advanced melee skill implanter
+  description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your CQC skills.
+  components:
+  - type: Sprite
+    layers:
+    - state: base-red
+    - state: label-8
+  - type: MCSkillInjector
+    requirementSkill: MCSkillMeleeWeapons
+    requirementLevel: 1
+    level: 1
+    levelMax: 2

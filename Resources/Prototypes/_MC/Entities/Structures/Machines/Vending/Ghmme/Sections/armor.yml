@@ -1,0 +1,14 @@
+- type: entity
+  id: MCVendingSectionsArmor
+  abstract: true
+  components:
+  - type: CMAutomatedVendor
+    sections:
+    - name: Armor
+      choices:
+        MCArmour: 1
+      entries:
+      - id: MCVendorBundleArmorJaegerLight
+      - id: MCVendorBundleArmorJaegerMedium
+        recommended: true
+      - id: MCVendorBundleArmorJaegerHeavy

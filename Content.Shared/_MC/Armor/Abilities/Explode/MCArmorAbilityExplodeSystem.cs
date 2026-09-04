@@ -5,6 +5,7 @@ using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Explosion;
 using Content.Shared._RMC14.Gibbing;
 using Content.Shared.Actions;
+using Content.Shared.Explosion.Components;
 using Content.Shared.Gibbing.Systems;
 using Robust.Shared.Map;
 
@@ -42,13 +43,16 @@ public sealed class MCArmorAbilityExplodeSystem : EntitySystem
     {
         var mapCoordinates = _transform.GetMapCoordinates(entity);
 
+        if (!TryComp<ExplosiveComponent>(entity, out var explosiveComponent))
+            return;
+
         _rmcFlammable.SpawnFireDiamond(entity.Comp.FireProtoId, coordinates, entity.Comp.FireRadius);
         _rmcExplosion.QueueExplosion(
             mapCoordinates,
-            entity.Comp.ExplosionType,
-            entity.Comp.TotalIntensity,
-            entity.Comp.IntensitySlope,
-            entity.Comp.MaxIntensity,
+            explosiveComponent.ExplosionType,
+            explosiveComponent.TotalIntensity,
+            explosiveComponent.IntensitySlope,
+            explosiveComponent.MaxIntensity,
             null,
             0,
             0,

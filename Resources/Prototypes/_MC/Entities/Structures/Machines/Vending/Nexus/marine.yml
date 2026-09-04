@@ -17,12 +17,19 @@
     # Implanter
     - name: Implanter
       entries:
-      - id: MCImplantSkillMelee
+      - id: MCImplantSkillMeleeSimple
         points: 25
       - id: MCImplantSkillMedical
         points: 20
       - id: MCImplantSkillEngineering
         points: 20
+    # Ammo
+    - name: Ammo
+      entries:
+      - id: MCMagazineRifleAR12AP
+        points: 4
+      - id: MCMagazineSR127Flak
+        points: 4
     # Grenades
     - name: Grenades
       entries:
@@ -40,3 +47,16 @@
       entries:
       - id: MCVehicleRiddenMotorbike
         points: 30
+      - id: MCReagentContainerJerrycan
+        points: 15
+
+- type: entity
+  id: MCVendorBundleEssentialMarine
+  name: Essential Marine Set
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/firstaids.rsi
+    state: advfirstaid
+  - type: CMVendorBundle
+    bundle: []

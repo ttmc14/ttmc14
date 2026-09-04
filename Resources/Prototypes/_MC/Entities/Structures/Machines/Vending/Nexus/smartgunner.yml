@@ -72,7 +72,7 @@
 
 - type: entity
   id: MCVendorBundleEssentialSmartgunner
-  name: KLTD Smart Goggles
+  name: Essential Smartgunner Set
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite

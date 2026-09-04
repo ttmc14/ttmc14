@@ -196,10 +196,10 @@
   - type: MCMedevac
   - type: MCPairLinkInteractLinked
     whitelist:
-      components:
-      - MCBeacon
       tags:
+      - MCBeacon
       - MCBeaconMedevac
+  - type: MCExaminedLocalCoords
 
 - type: entity
   parent: MCMedevacStretcher

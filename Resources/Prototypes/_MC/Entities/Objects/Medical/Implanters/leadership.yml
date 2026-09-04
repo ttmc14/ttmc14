@@ -1,0 +1,14 @@
+- type: entity
+  parent: MCImplantSkill
+  id: MCImplantSkillLeadership
+  name: command leadership skill implanter
+  description: A sterile implant injector, that is usually used to implant skill increasing implants. This one will increase your leadership skills.
+  components:
+  - type: Sprite
+    layers:
+    - state: base-black
+    - state: label-1
+  - type: MCSkillInjector
+    skill: MCSkillLeadership
+    level: 1
+    levelMax: 5

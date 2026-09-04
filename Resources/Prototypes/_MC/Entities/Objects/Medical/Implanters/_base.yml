@@ -1,0 +1,14 @@
+- type: entity
+  parent: MCItem
+  id: MCImplantSkill
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Medical/Implants/implanter_skill.rsi
+    layers:
+    - state: base
+  - type: Item
+    size: Tiny
+  - type: GuideHelp
+    guides:
+    - MCGuideMarineSkills

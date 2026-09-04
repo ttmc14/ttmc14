@@ -1,7 +1,7 @@
 {
   "version": 1,
   "license": "CC-BY-SA-3.0",
-  "copyright": "Taken from https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/a6bbb2825bac3fa3e49b093364ee933f10adc270 (states: icon, icon-loaded), https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/487fa7aa568023fe3f3aa84ee87feb57bdc83d0a (states: inhand-left, inhand-left-loaded, inhand-right, inhand-right-loaded, wielded-inhand-left, wielded-inhand-left-loaded, wielded-inhand-right, wielded-inhand-right-loaded), https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/a0f548d628b8f810663b4eea88ef651b17414351 (states: equipped-BACKPACK, equipped-SUITSTORAGE)",
+  "copyright": "Made by TornadoTechnology (GitHub) (states: icon, icon-loaded), https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/487fa7aa568023fe3f3aa84ee87feb57bdc83d0a (states: inhand-left, inhand-left-loaded, inhand-right, inhand-right-loaded, wielded-inhand-left, wielded-inhand-left-loaded, wielded-inhand-right, wielded-inhand-right-loaded), https://github.com/PMC-Unga-Marines/UngaMarines-13/commit/a0f548d628b8f810663b4eea88ef651b17414351 (states: equipped-BACKPACK, equipped-SUITSTORAGE)",
   "size": {
     "x": 32,
     "y": 32

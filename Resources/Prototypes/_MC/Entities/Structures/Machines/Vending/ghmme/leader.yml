@@ -13,12 +13,6 @@
         MCStandardEquipment: 1
       entries:
       - id: MCVendorHeadsetSquadLeaderKit
-    # Paint
-    - name: Paint
-      choices:
-        MCPaint: 1
-      entries:
-      - id: MCCustomizationPaint
     # Jumpsuit
     - name: Jumpsuit
       choices:

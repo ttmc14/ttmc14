@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerGugnir
+  parent: MCArmorModularJaegerHeavy
   id: MCArmorModularJaegerAssault
   name: Jaeger Assault heavy exoskeleton
   description: A Assault-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.

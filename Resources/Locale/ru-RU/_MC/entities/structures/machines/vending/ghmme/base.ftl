@@ -1,0 +1,30 @@
+ent-MCMachineVendingGhmme = автоматизированный шкаф GHMME
+    .desc = Автоматизированный шкаф, подключенный к колоссальному хранилищу стандартной одежды и снаряжения.
+
+ent-MCVendorBundleStandardKit = стандартный набор
+    .desc = { "" }
+ent-MCVendorBundleStandardKitSmartgunner = стандартный набор
+    .desc = { "" }
+ent-MCVendorBundleStandardKitLeader = стандартный набор
+    .desc = { "" }
+ent-MCVendorBundleStandardKitEngineer = стандартный набор
+    .desc = { "" }
+ent-MCVendorBundleStandardKitCorpsman = стандартный набор
+    .desc = { "" }
+ent-MCVendorBundleEssentialJaegerKit = основной набор Jaeger
+    .desc = { "" }
+ent-MCVendorBundleEssentialJaegerKitSmartgunner = основной набор Jaeger
+    .desc = { "" }
+ent-MCVendorBundleEssentialJaegerKitLeader = основной набор Jaeger
+    .desc = { "" }
+ent-MCVendorBundleEssentialJaegerKitEngineer = основной набор Jaeger
+    .desc = { "" }
+ent-MCVendorBundleEssentialJaegerKitCorpsman = основной набор Jaeger
+    .desc = { "" }
+
+ent-MCVendorBundleArmorJaegerLight = комплект легкой брони Jaeger
+    .desc = Комплект легкой Jaeger брони образца "Скаут"
+ent-MCVendorBundleArmorJaegerMedium = комплект средней брони Jaeger
+    .desc = Комплект легкой Jaeger брони образца "Рейнджер"
+ent-MCVendorBundleArmorJaegerHeavy = комплект тяжёлой брони Jaeger
+    .desc = Комплект легкой Jaeger брони образца "Штурм"

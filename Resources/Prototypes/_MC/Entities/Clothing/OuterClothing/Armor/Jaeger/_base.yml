@@ -1,0 +1,91 @@
+- type: entity
+  parent: MCArmor
+  id: MCArmorModularJaeger
+  abstract: true
+  components:
+  - type: Sprite
+  - type: Clothing
+    clothingVisuals:
+      outerClothing:
+      - state: equipped-OUTERCLOTHING
+      - sprite: _RMC14/Objects/Clothing/OuterClothing/Armor/armor_overlays.rsi
+        state: lamp-off
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerLight
+  abstract: true
+  components:
+  - type: MCArmor
+    soft:
+      melee: 35
+      bullet: 55
+      laser: 55
+      energy: 50
+      bomb: 45
+      bio: 45
+      fire: 45
+      acid: 45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerMedium
+  abstract: true
+  components:
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 65
+      energy: 55
+      bomb: 50
+      bio: 50
+      fire: 50
+      acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  parent: MCArmorModularJaeger
+  id: MCArmorModularJaegerHeavy
+  abstract: true
+  components:
+  - type: MCArmor
+    soft:
+      melee: 55
+      bullet: 75
+      laser: 75
+      energy: 65
+      bomb: 60
+      bio: 60
+      fire: 60
+      acid: 65
+  - type: ClothingSpeedModifier
+    walkModifier: 0.5
+    sprintModifier: 0.5
+
+# Debug/Admin
+- type: entity
+  parent: MCArmorModularJaegerScout
+  id: MCArmorModularJaegerExt
+  name: Jaeger EXT light exoskeleton
+  description: A EOD-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
+  components:
+  - type: MCArmorModularClothing
+    slots:
+    - id: main
+      whitelist:
+        tags:
+        - MCArmorModuleBody
+    - id: main_secondary
+      whitelist:
+        tags:
+        - MCArmorModuleBody
+    - id: storage
+      whitelist:
+        tags:
+        - MCArmorModuleBodyStorage

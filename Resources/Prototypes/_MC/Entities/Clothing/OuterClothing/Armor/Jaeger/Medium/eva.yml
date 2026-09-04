@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerInfantry
+  parent: MCArmorModularJaegerMedium
   id: MCArmorModularJaegerEVA
   name: Jaeger EVA medium exoskeleton
   description: A EVA-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.

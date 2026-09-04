@@ -32,6 +32,8 @@
   special:
   - !type:AddComponentSpecial
     components:
+    - type: CommandAccent
+    - type: MCSendOrders
     - type: MarineOrders
       skill: MCSkillLeadership
     - type: CMVendorUser

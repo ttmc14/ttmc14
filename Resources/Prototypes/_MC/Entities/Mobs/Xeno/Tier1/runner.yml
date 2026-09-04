@@ -121,9 +121,9 @@
     role: MCXenoRunnerMelter
     actionIds:
     # Base
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    - MCActionXenoDevolve
     # Main
     - MCActionXenoMelterShroud
     - MCActionXenoMelterPounce

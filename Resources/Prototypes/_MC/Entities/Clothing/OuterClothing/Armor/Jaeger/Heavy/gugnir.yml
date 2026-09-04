@@ -1,22 +1,9 @@
 - type: entity
-  parent: MCArmorModularJaeger
+  parent: MCArmorModularJaegerHeavy
   id: MCArmorModularJaegerGugnir
   name: Jaeger Gugnir heavy exoskeleton
   description: A Gugnir-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a high amount of armor plating.
   components:
-  - type: MCArmor
-    soft:
-      melee: 50
-      bullet: 70
-      laser: 70
-      energy: 60
-      bomb: 55
-      bio: 55
-      fire: 55
-      acid: 60
-  - type: ClothingSpeedModifier
-    walkModifier: 0.65
-    sprintModifier: 0.65
   - type: Sprite
     sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Gugnir/steel.rsi
   - type: MCCustomizationHolder

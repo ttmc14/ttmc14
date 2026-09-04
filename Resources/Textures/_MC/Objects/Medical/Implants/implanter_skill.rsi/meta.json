@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/commit/4e2dc09a71442d0c82f5ef491afb8c9ee5868da9",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "base-black"
+    },
+    {
+      "name": "base-red"
+    },
+    {
+      "name": "label-0"
+    },
+    {
+      "name": "label-1"
+    },
+    {
+      "name": "label-2"
+    },
+    {
+      "name": "label-3"
+    },
+    {
+      "name": "label-4"
+    },
+    {
+      "name": "label-5"
+    },
+    {
+      "name": "label-6"
+    },
+    {
+      "name": "label-7"
+    },
+    {
+      "name": "label-8"
+    }
+  ]
+}

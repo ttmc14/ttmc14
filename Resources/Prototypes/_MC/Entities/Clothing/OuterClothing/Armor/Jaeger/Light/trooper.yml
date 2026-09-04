@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerScout
+  parent: MCArmorModularJaegerLight
   id: MCArmorModularJaegerTrooper
   name: Jaeger Trooper light exoskeleton
   description: A Trooper-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.

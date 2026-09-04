@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaeger
+  parent: MCArmorModularJaegerMedium
   id: MCArmorModularJaegerInfantry
   name: Jaeger Infantry medium exoskeleton
   description: A Infantry-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a moderate amount of armor plating.

@@ -46,6 +46,7 @@
     category: Supply
   - type: Sprite
     sprite: _MC/Objects/Items/beacon.rsi
+  - type: MCExaminedLocalCoords
 
 - type: Tag
   id: MCBeaconSupply
@@ -79,6 +80,7 @@
     whitelist:
       components:
       - MCMedevac
+  - type: MCExaminedLocalCoords
 
 - type: Tag
   id: MCBeaconMedevac
@@ -108,6 +110,7 @@
             state: motion_4
           Deployed:
             state: motion_1
+  - type: MCExaminedLocalCoords
 
 - type: Tag
   id: MCBeaconOrbital

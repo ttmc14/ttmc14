@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCArmorModularJaegerScout
+  parent: MCArmorModularJaegerLight
   id: MCArmorModularJaegerSkirmisher
   name: Jaeger Skirmisher light exoskeleton
   description: A Skirmisher-pattern Jaeger combat exoskeleton made to work with modular attachments for the ability to function in many enviroments. This one seems to have a light amount of armor plating.

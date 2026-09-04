@@ -26,10 +26,12 @@
     walkModifier: 1
     sprintModifier: 1
   - type: MCArmorAbilityExplode
+  - type: MCExplosive
+    power: 275
+    falloff: 65
+    explosionType: MC
   # RMC
   - type: CMHardArmor
-  - type: MoveOrderArmor
   - type: RMCBulkyArmor
-  - type: RMCMagneticArmor
   - type: RMCNameItemOnVend
     item: Armor

@@ -20,13 +20,13 @@
 
 # Bundles armor
 - type: entity
-  id: MCVendorBundleArmorJaegerScout
-  name: Jaeger Scout light armor kit
+  id: MCVendorBundleArmorJaegerLight
+  name: jaeger light armor kit
   description: A set of light scout pattern jaeger armor, including an armor suit and helmet.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Scout/drab.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Scout/steel.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -34,83 +34,13 @@
     - MCArmorHelmetModularJaegerScout
 
 - type: entity
-  id: MCVendorBundleArmorJaegerSkirmisher
-  name: Jaeger Skirmisher light armor kit
-  description: A set of light skirmisher pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Skirmisher/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerSkirmisher
-    - MCArmorHelmetModularJaegerSkirmisher
-
-- type: entity
-  id: MCVendorBundleArmorJaegerTrooper
-  name: Jaeger Trooper light armor kit
-  description: A set of light trooper pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Trooper/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerTrooper
-    - MCArmorHelmetModularJaegerTrooper
-
-- type: entity
-  id: MCVendorBundleArmorJaegerInfantry
-  name: Jaeger Infantry medium armor kit
-  description: A set of medium infantry pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Infantry/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerInfantry
-    - MCArmorHelmetModularJaegerInfantry
-
-- type: entity
-  id: MCVendorBundleArmorJaegerEVA
-  name: Jaeger EVA medium armor kit
-  description: A set of medium eva pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eva/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerEVA
-    - MCArmorHelmetModularJaegerEVA
-
-- type: entity
-  id: MCVendorBundleArmorJaegerHellJumper
-  name: Jaeger Hell Jumper medium armor kit
-  description: A set of medium hell jumper pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Helljumper/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerHellJumper
-    - MCArmorHelmetModularJaegerHellJumper
-
-- type: entity
-  id: MCVendorBundleArmorJaegerRanger
-  name: Jaeger Ranger medium armor kit
+  id: MCVendorBundleArmorJaegerMedium
+  name: jaeger medium armor kit
   description: A set of medium ranger pattern jaeger armor, including an armor suit and helmet.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Ranger/drab.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Ranger/steel.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
@@ -118,86 +48,15 @@
     - MCArmorHelmetModularJaegerRanger
 
 - type: entity
-  id: MCVendorBundleArmorJaegerGugnir
-  name: Jaeger Gugnir heavy armor kit
-  description: A set of heavy gugnir pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Gugnir/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerGugnir
-    - MCArmorHelmetModularJaegerGugnir
-
-- type: entity
-  id: MCVendorBundleArmorJaegerAssault
-  name: Jaeger Assault heavy armor kit
+  id: MCVendorBundleArmorJaegerHeavy
+  name: jaeger heavy armor kit
   description: A set of heavy assault pattern jaeger armor, including an armor suit and helmet.
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Assault/drab.rsi
+    sprite: _MC/Clothing/OuterClothing/Armor/Modular/MarkTwo/Assault/steel.rsi
     state: icon
   - type: CMVendorBundle
     bundle:
     - MCArmorModularJaegerAssault
     - MCArmorHelmetModularJaegerAssault
-
-- type: entity
-  id: MCVendorBundleArmorJaegerEOD
-  name: Jaeger EOD heavy armor kit
-  description: A set of heavy eod pattern jaeger armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Head/Armor/Modular/MarkTwo/Eod/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularJaegerEOD
-    - MCArmorHelmetModularJaegerEOD
-
-# Xenonauten
-- type: entity
-  id: MCVendorBundleArmorXenonautenL
-  name: Xenonauten light armor kit
-  description: A set of light Xenonauten pattern armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Xarmor/xenonauten_light/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularXenonautenL
-    - MCArmorHelmetModularXenonautenM10X
-
-- type: entity
-  id: MCVendorBundleArmorXenonautenM
-  name: Xenonauten medium armor kit
-  description: A set of medium Xenonauten pattern armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Xarmor/xenonauten_medium/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularXenonautenM
-    - MCArmorHelmetModularXenonautenM10X
-
-- type: entity
-  id: MCVendorBundleArmorXenonautenH
-  name: Xenonauten heavy armor kit
-  description: A set of heavy Xenonauten pattern armor, including an armor suit and helmet.
-  categories: [ HideSpawnMenu ]
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/OuterClothing/Armor/Xarmor/xenonauten_heavy/drab.rsi
-    state: icon
-  - type: CMVendorBundle
-    bundle:
-    - MCArmorModularXenonautenH
-    - MCArmorHelmetModularXenonautenM10X

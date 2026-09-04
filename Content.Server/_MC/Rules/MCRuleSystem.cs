@@ -10,6 +10,7 @@ using Content.Server.Players.PlayTimeTracking;
 using Content.Server.Station.Systems;
 using Content.Shared._MC;
 using Content.Shared._MC.Nuke.Generator.Components;
+using Content.Shared._MC.Research.Tools.Excavator;
 using Content.Shared._RMC14.Bioscan;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Light;
@@ -195,10 +196,19 @@ public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : ICom
         }
     }
 
-    protected int GetLiving<T>() where T : IComponent
+    protected void DestroyExcavationSite()
+    {
+        var query = EntityQueryEnumerator<MCExcavationSiteComponent>();
+        while (query.MoveNext(out var uid, out _))
+        {
+            QueueDel(uid);
+        }
+    }
+
+    protected int GetLiving<TComp>() where TComp : IComponent
     {
         var total = 0;
-        var query = EntityQueryEnumerator<T, MobStateComponent>();
+        var query = EntityQueryEnumerator<TComp, MobStateComponent>();
         while (query.MoveNext(out _, out _, out var mobStateComponent))
         {
             if (mobStateComponent.CurrentState == MobState.Dead)
