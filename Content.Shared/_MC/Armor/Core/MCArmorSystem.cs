@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Armor.Core.Components;
 using Content.Shared._MC.Armor.Core.Events;
 using Content.Shared._MC.Xeno.Sunder;
+using Content.Shared._RMC14.Armor;
 using Content.Shared.Damage;
 using Content.Shared.Examine;
 using Content.Shared.Explosion;
@@ -43,8 +44,12 @@ public sealed partial class MCArmorSystem : EntitySystem
         if (args.Tool is not { } tool)
             return;
 
+        var piercingEvent = new CMGetArmorPiercingEvent(tool);
+        RaiseLocalEvent(args.Tool.Value, ref piercingEvent);
+
         var sunder = _mcXenoSunder.GetSunder(entityUid);
         var (soft, hard) = GetArmorWithType(entityUid, tool);
-        args.Damage *= ArmorToValue(soft, hard, args.ArmorPiercing, sunder, args.Damage.GetTotal().Float());
+
+        args.Damage *= ArmorToValue(soft, hard, args.ArmorPiercing + piercingEvent.Piercing, sunder, args.Damage.GetTotal().Float());
     }
 }

@@ -25,13 +25,13 @@
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
-    baseFireRate: 0.8
+    baseFireRate: 0.5
     # Scatter
-    scatterWielded: -5
+    scatterWielded: -10
     scatterUnwielded: 20
     # Recoil
     recoilWielded: 0
-    recoilUnwielded: 4
+    recoilUnwielded: 5
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -44,11 +44,11 @@
           tags:
           - MCMagazineSR127
   - type: WieldDelay
-    baseDelay: 1.5
+    baseDelay: 2.5
   - type: WieldableSpeedModifiers
-    base: 0.75
+    base: 0.5
   - type: RMCWeaponAccuracy
-    accuracyMultiplier: 1.15
+    accuracyMultiplier: 1.2
     accuracyMultiplierUnwielded: 0.7
   # Attachable
   - type: AttachableHolder
@@ -60,15 +60,18 @@
           - MCAttachmentSuppressor
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
+          - MCAttachmentMuzzleCharger
       mc-slot-underbarrel:
         whitelist:
           tags:
           - MCAttachmentBipod
       mc-slot-rail:
-        locked: true
         startingAttachable: MCAttachmentRailScopeSR127
         whitelist:
           tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentRailFlashlight
+          - MCAttachmentRedDotSight
           - MCAttachmentRailScopeSR127
   - type: AttachableHolderVisuals
     offsets:
@@ -77,8 +80,8 @@
       mc-slot-rail: 0.062500, 0.218750
   # Specials
   - type: MCAimedShoot
-    aimSpeedModifier: 0.45
-    aimFireModifier: 0.5
+    aimSpeedModifier: 0.85
+    aimFireModifier: 0.85
   - type: PumpAction
     sound:
       path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
@@ -87,7 +90,7 @@
 - type: entity
   parent: MCMagazineRifle
   id: MCMagazineSR127
-  name: SR-127 bolt action rifle magazine
+  name: bolt action sr-127 rifle magazine
   description: A box magazine filled with 8.6x70mm rifle rounds for the SR-127.
   components:
   - type: Tag
@@ -100,7 +103,7 @@
       tags:
       - MCCartridgeSR127
     proto: MCCartridgeSR127
-    capacity: 10
+    capacity: 15
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127.rsi
     layers:
@@ -111,8 +114,24 @@
 
 - type: entity
   parent: MCMagazineSR127
+  id: MCMagazineSR127Incendiary
+  name: bolt action sr-127 rifle incendiary magazine
+  description: A box magazine filled with 8.6x70mm rifle flak rounds for the SR-127.
+  components:
+  - type: BallisticAmmoProvider
+    mayTransfer: True
+    whitelist:
+      tags:
+      - MCCartridgeSR127Incendiary
+    proto: MCCartridgeSR127Incendiary
+    capacity: 15
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127.rsi
+
+- type: entity
+  parent: MCMagazineSR127
   id: MCMagazineSR127Flak
-  name: SR-127 bolt action rifle flak magazine
+  name: bolt action sr-127 rifle flak magazine
   description: A box magazine filled with 8.6x70mm rifle flak rounds for the SR-127.
   components:
   - type: BallisticAmmoProvider
@@ -121,7 +140,7 @@
       tags:
       - MCCartridgeSR127Flak
     proto: MCCartridgeSR127Flak
-    capacity: 10
+    capacity: 15
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/sr127_flak.rsi
 
@@ -147,6 +166,22 @@
 
 - type: entity
   parent: CMBaseCartridgeRifle
+  id: MCCartridgeSR127Incendiary
+  name: cartridge incendiary (86x70mm)
+  description: A 86x70mm rifle cartridge
+  components:
+  - type: Tag
+    tags:
+    - Cartridge
+    - MCCartridgeSR127Incendiary
+  - type: CartridgeAmmo
+    proto: MCBulletSR127Incendiary
+
+- type: Tag
+  id: MCCartridgeSR127Incendiary
+
+- type: entity
+  parent: CMBaseCartridgeRifle
   id: MCCartridgeSR127Flak
   name: cartridge flak (86x70mm)
   description: A 86x70mm rifle cartridge
@@ -164,44 +199,59 @@
 # Bullets
 - type: entity
   parent: MCBullet
+  id: MCBulletSR127Base
+  components:
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 25
+      falloff: 999
+  - type: CMArmorPiercing
+    amount: 50
+  - type: MCStunOnHit
+    slowdownTime: 2
+    maxDistance: 20
+
+- type: entity
+  parent: MCBulletSR127Base
   id: MCBulletSR127
   name: high caliber rifle bullet
   components:
   - type: Projectile
     damage:
       types:
-        MCBrute: 80
-  - type: RMCProjectileAccuracy
-    thresholds:
-    - range: 25
-      falloff: 999
-  - type: CMArmorPiercing
-    amount: 30
-  - type: MCXenoSunderDamageOnHit
-    amount: 0
-  - type: MCStunOnHit
-    slowdownTime: 1
-    maxDistance: 17
+        MCBrute: 85
 
 - type: entity
-  parent: MCBullet
+  parent: MCBulletSR127Base
+  id: MCBulletSR127Incendiary
+  name: high caliber incendiary rifle bullet
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 15
+        MCBurn: 50
+  - type: IgniteOnProjectileHit
+    intensity: 50
+    duration: 5
+
+- type: entity
+  parent: MCBulletSR127Base
   id: MCBulletSR127Flak
   name: high caliber flak rifle bullet
   components:
   - type: Projectile
     damage:
       types:
-        MCBrute: 40
-  - type: RMCProjectileAccuracy
-    thresholds:
-    - range: 25
-      falloff: 999
-  - type: CMArmorPiercing
-    amount: 10
+        MCBrute: 65
   - type: MCXenoSunderDamageOnHit
-    amount: 10
+    amount: 15
   - type: MCStunOnHit
     staggerTime: 2
     knockback: 4
-    slowdownTime: 1.5
-    maxDistance: 17
+    slowdownTime: 3
+    maxDistance: 20
+  - type: MCProjectileStatusEffectsOnHit
+    statusEffects:
+    - effectId: MCStatusEffectShatter
+      duration: 5

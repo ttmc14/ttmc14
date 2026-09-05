@@ -16,14 +16,14 @@ public sealed partial class MCMicrowavedComponent : Component
     public int Stacks = 1;
 
     [DataField, AutoNetworkedField]
-    public int MaxStacks = 5;
+    public int MaxStacks = 7;
 
     [DataField, AutoNetworkedField]
     public DamageSpecifier Damage = new()
     {
         DamageDict =
         {
-            { "MCBurn", 2 },
+            { "MCBurn", 4 },
         },
     };
 }

@@ -385,6 +385,17 @@
   requireAdminNotify: true
   hidden: false
   supervisors: nobody
+  jobPreviewEntity: MCJobXenoQueenPreview
+
+- type: entity
+  id: MCJobXenoQueenPreview
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _RMC14/Mobs/Xenonids/Queen/queen.rsi
+    layers:
+    - state: alive
+      scale: 0.5, 0.5
 
 - type: playTimeTracker
   id: MCXenoQueen

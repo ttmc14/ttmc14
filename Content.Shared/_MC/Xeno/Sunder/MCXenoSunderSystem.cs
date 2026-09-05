@@ -4,6 +4,7 @@ using Content.Shared._RMC14.Xenonids.Rest;
 using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared.Alert;
 using Content.Shared.Projectiles;
+using Content.Shared.Rejuvenate;
 using Content.Shared.Rounding;
 using Robust.Shared.Timing;
 
@@ -30,6 +31,7 @@ public sealed class MCXenoSunderSystem : EntitySystem
 
         SubscribeLocalEvent<MCXenoSunderComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MCXenoSunderComponent, ComponentShutdown>(OnShutdown);
+        SubscribeLocalEvent<MCXenoSunderComponent, RejuvenateEvent>(OnRejuvenate);
 
         SubscribeLocalEvent<MCXenoSunderDamageOnHitComponent, ProjectileHitEvent>(OnProjectileHit);
     }
@@ -42,6 +44,11 @@ public sealed class MCXenoSunderSystem : EntitySystem
     private void OnShutdown(Entity<MCXenoSunderComponent> entity, ref ComponentShutdown args)
     {
         _alerts.ClearAlert(entity, entity.Comp.Alert);
+    }
+
+    private void OnRejuvenate(Entity<MCXenoSunderComponent> entity, ref RejuvenateEvent args)
+    {
+        SetSunder((entity, entity), 100);
     }
 
     public override void Update(float frameTime)
