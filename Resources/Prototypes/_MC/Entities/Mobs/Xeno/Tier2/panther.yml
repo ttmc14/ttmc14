@@ -83,9 +83,10 @@
     ventCrawlIcon: drone
   # Abilities
   - type: MCXenoAdrenalin
+    gainPlasma: 3.5
   - type: MCXenoPounceHeal
-    adjustPlasma: 35
-    adjustHealth: 25
+    adjustPlasma: 45
+    adjustHealth: 35
   - type: MCXenoPounce
     hitSound: /Audio/_RMC14/Xeno/alien_pounce.ogg
     hitDamage:
@@ -93,3 +94,5 @@
         MCBrute: 25
   - type: MCXenoEvasiveManeuvers
   - type: MCXenoTearingTail
+    plasmaGain: 35
+    targetReagentAmount: 10
