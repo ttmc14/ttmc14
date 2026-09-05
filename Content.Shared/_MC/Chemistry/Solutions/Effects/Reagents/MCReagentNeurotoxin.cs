@@ -57,7 +57,7 @@ public sealed partial class MCReagentNeurotoxin : MCReagentEffect
         PurgeGroups(solution, PurgedGroups, purgePower);
 
         var staminaLossLimit = 100;
-        var appliedDamage = float.Clamp(power, 0, staminaLossLimit - MCStamina.GetLoss(target));
+        var appliedDamage = float.Clamp(power, 0, float.Max(0, staminaLossLimit - MCStamina.GetLoss(target)));
         var damageOverflow = power - appliedDamage;
 
         MCStamina.ApplyDamage(target, appliedDamage, forceTimer: true); // No stamina regeneration
