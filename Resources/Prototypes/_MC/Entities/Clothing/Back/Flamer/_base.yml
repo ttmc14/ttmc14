@@ -4,6 +4,8 @@
   name: backpack fuel tank
   description: A specialized fuel tank for use with the FL-84 flamethrower and FL-240 incinerator unit.
   components:
+  - type: Item
+    size: Large
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/Back/tank.rsi
     layers:
