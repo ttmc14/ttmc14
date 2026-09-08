@@ -237,7 +237,7 @@
 - type: entity
   parent: MCBoxHandfulR500
   id: MCBoxHandfulR312
-  name: packet of .500 White Express revolver bullet
+  name: packet of .500 White Express revolver bullet (R-312)
   components:
   - type: Tag
     tags:
@@ -258,7 +258,7 @@
 
 - type: stack
   id: MCCartridgeRevolverR312Medical
-  name: handful of .500 EMB revolver bullet
+  name: handful of .500 EMB revolver bullet (R-312)
   icon:
     sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/base.rsi
     state: base-1
@@ -268,7 +268,7 @@
 - type: entity
   parent: MCCartridgeRevolverR312
   id: MCCartridgeRevolverR312Medical
-  name: .500 EMB revolver bullet
+  name: .500 EMB revolver bullet (R-312)
   components:
   - type: Tag
     tags:

@@ -150,7 +150,7 @@
 - type: entity
   parent: MCBoxHandful
   id: MCBoxHandfulR500
-  name: packet of .500 White Express revolver bullet
+  name: packet of .500 White Express revolver bullet (R-500)
   components:
   - type: Tag
     tags:
@@ -187,7 +187,7 @@
 
 - type: stack
   id: MCCartridgeRevolverR500Slavs
-  name: handful of .500 'Slavs' revolver bullet
+  name: handful of .500 'Slavs' revolver bullet (R-500)
   icon:
     sprite: /Textures/_MC/Objects/Weapons/Guns/Ammunition/Handful/r500/sv.rsi
     state: base-1
@@ -197,7 +197,7 @@
 - type: entity
   parent: MCCartridgeRevolverR500
   id: MCCartridgeRevolverR500Slavs
-  name: .500 'Slavs' revolver bullet
+  name: .500 'Slavs' revolver bullet (R-500)
   components:
   - type: Tag
     tags:
@@ -216,7 +216,7 @@
 - type: entity
   parent: MCBoxHandfulR500
   id: MCBoxHandfulR500Slavs
-  name: packet of .500 'Slavs' revolver bullet
+  name: packet of .500 'Slavs' revolver bullet (R-500)
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/sv.rsi
