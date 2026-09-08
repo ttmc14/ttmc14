@@ -61,6 +61,8 @@
     plasma: 150
     maxPlasma: 150
     plasmaRegenOnWeeds: 0
+  - type: MCXenoPlasma
+    canBeGivenPlasma: false
   - type: MCArmor
     soft:
       melee: 20
