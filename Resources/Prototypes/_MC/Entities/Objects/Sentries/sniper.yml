@@ -33,6 +33,14 @@
       AggroVisionRadius: !type:Single "14.0"
 
 - type: entity
+  parent: MCSentrySniper
+  id: MCSentrySniperDeployed
+  suffix: Deployed
+  components:
+  - type: MCDeploy
+    state: Deployed
+
+- type: entity
   parent: MCMagazine
   id: MCMagazineSentrySniper
   name: SST-574 box magazine (10x28mm Caseless)"\

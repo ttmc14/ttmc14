@@ -120,11 +120,6 @@
     duration: 15
   - type: IgnorePredictionHide
   - type: RMCFireProjectile
-  # Fucking fire spawn
-  - type: MCStunOnHit
-    knockback: 1.5
-    knockbackSpeed: 15
-    maxDistance: 12
 
 - type: entity
   parent: MCFire
