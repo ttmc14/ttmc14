@@ -25,6 +25,14 @@
           - MCMagazineSentryMini
 
 - type: entity
+  parent: MCSentryMini
+  id: MCSentryMiniDeployed
+  suffix: Deployed
+  components:
+  - type: MCDeploy
+    state: Deployed
+
+- type: entity
   parent: MCMagazine
   id: MCMagazineSentryMini
   name: "M30 box magazine (10x20mm Caseless)"

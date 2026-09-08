@@ -33,6 +33,14 @@
       AggroVisionRadius: !type:Single "5.0"
 
 - type: entity
+  parent: MCSentryShotgun
+  id: MCSentryShotgunDeployed
+  suffix: Deployed
+  components:
+  - type: MCDeploy
+    state: Deployed
+
+- type: entity
   parent: MCMagazine
   id: MCMagazineSentryShotgun
   name: SHT-573 drum magazine (12G Caseless)

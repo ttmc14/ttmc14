@@ -33,6 +33,14 @@
       AggroVisionRadius: !type:Single "8.0"
 
 - type: entity
+  parent: MCSentryBig
+  id: MCSentryBigDeployed
+  suffix: Deployed
+  components:
+  - type: MCDeploy
+    state: Deployed
+
+- type: entity
   parent: MCMagazine
   id: MCMagazineSentryBig
   name: M30 box magazine (10x28mm Caseless)
