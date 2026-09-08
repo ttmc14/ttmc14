@@ -79,7 +79,7 @@
     - 0,0,14,1
   - type: ThermalCloak
     opacity: 0.03
-    restrictWeapons: false
+    restrictWeapons: true
     uncloakWeaponLock: 0
     cloakedHideLayers:
     - Hair
