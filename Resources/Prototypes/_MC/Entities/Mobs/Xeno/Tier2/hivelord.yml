@@ -93,8 +93,8 @@
       types:
         MCBrute: 20
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.125
-    baseSprintSpeed: 4.545
+    baseWalkSpeed: 3.2
+    baseSprintSpeed: 4.5
   - type: RMCSize
     size: Big
   # Abilities
