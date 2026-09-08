@@ -6,7 +6,6 @@ namespace Content.Shared._MC.Xeno.Abilities.General.Explode;
 public sealed class MCXenoExplodeSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
-    [Dependency] private readonly MCXenoHealSystem _mcXenoHeal = null!;
 
     public override void Initialize()
     {
@@ -20,7 +19,7 @@ public sealed class MCXenoExplodeSystem : MCXenoAbilitySystem
         if (args.Handled || !RMCActions.TryUseAction(entity, args.Action, entity))
             return;
 
-        _mcDamageable.AdjustBruteLoss(entity, _mcXenoHeal.GetMaxHealth(entity) * 100f);
+        _mcDamageable.AdjustBruteLoss(entity, 1000000);
         args.Handled = true;
     }
 }
