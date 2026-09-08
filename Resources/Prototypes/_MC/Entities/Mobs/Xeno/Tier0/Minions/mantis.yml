@@ -17,6 +17,7 @@
     tier: -1
     role: MCXenoMinionMantis
     actionIds:
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     # Abilities
     - MCActionXenoRavage

@@ -17,6 +17,7 @@
     tier: -1
     role: MCXenoMinionBeetle
     actionIds:
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     # Abilities
     - MCActionXenoForwardChargeUnprecise

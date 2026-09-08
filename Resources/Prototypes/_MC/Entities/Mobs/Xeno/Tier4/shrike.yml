@@ -25,7 +25,7 @@
     id: MCXenoShrike
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/shrike.rsi
+    sprite: _MC/Mobs/Xenos/Shrike/base.rsi
     offset: 0, 0.2
   - type: TacticalMapIcon
     icon:
@@ -36,7 +36,8 @@
   # Skins
   - type: MCXenoSkin
     skins:
-      rouny: _MC/Mobs/Xenos/shrike_rouny.rsi
+      rouny: _MC/Mobs/Xenos/Shrike/rouny.rsi
+      joker: _MC/Mobs/Xenos/Shrike/joker.rsi
   # Actions
   - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno

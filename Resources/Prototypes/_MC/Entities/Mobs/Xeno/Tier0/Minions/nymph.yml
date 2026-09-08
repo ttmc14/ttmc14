@@ -18,6 +18,7 @@
     tier: -1
     role: MCXenoMinionNymph
     actionIds:
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     # Construction
     - MCActionXenoChooseStructure

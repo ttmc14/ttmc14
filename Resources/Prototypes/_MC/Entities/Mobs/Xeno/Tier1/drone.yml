@@ -25,7 +25,7 @@
     id: MCXenoDrone
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/drone.rsi
+    sprite: _MC/Mobs/Xenos/Drone/base.rsi
     offset: -0.075, 0.2
   - type: TacticalMapIcon
     icon:
@@ -36,7 +36,8 @@
   # Skins
   - type: MCXenoSkin
     skins:
-      rouny: _MC/Mobs/Xenos/drone_rouny.rsi
+      rouny: _MC/Mobs/Xenos/Drone/rouny.rsi
+      king: _MC/Mobs/Xenos/Drone/king.rsi
   # Actions
   - type: MCXenoEvolutionIgnoreRulerRequirement
   - type: Xeno

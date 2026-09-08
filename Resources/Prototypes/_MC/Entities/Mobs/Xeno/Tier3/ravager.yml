@@ -19,7 +19,7 @@
     name: mc-job-name-xeno-ravager
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/ravager.rsi
+    sprite: _MC/Mobs/Xenos/Ravager/base.rsi
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
@@ -27,7 +27,8 @@
   # Skins
   - type: MCXenoSkin
     skins:
-      rouny: _MC/Mobs/Xenos/ravager_rouny.rsi
+      rouny: _MC/Mobs/Xenos/Ravager/rouny.rsi
+      bone: _MC/Mobs/Xenos/Ravager/bone.rsi
   # Actions
   - type: Xeno
     tier: 3
@@ -134,7 +135,7 @@
     id: MCXenoRavagerBloodthirster
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/ravager_bloodthirster.rsi
+    sprite: _MC/Mobs/Xenos/Ravager/bloodthirster.rsi
   # Statistics
   - type: XenoPlasma
     plasma: 500

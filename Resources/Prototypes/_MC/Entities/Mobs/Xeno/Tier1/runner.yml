@@ -24,7 +24,7 @@
     id: MCXenoRunner
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/runner.rsi
+    sprite: _MC/Mobs/Xenos/Runner/base.rsi
     offset: 0, 0.65
   - type: TacticalMapIcon
     icon:
@@ -33,7 +33,12 @@
   # Skins
   - type: MCXenoSkin
     skins:
-      rouny: _MC/Mobs/Xenos/runner_rouny.rsi
+      rouny: _MC/Mobs/Xenos/Runner/rouny.rsi
+      cowboy: _MC/Mobs/Xenos/Runner/cowboy.rsi
+      cowboyRouny: _MC/Mobs/Xenos/Runner/cowboy_rouny.rsi
+      gold: _MC/Mobs/Xenos/Runner/gold.rsi
+      goldRouny: _MC/Mobs/Xenos/Runner/gold_rouny.rsi
+      tacticool: _MC/Mobs/Xenos/Runner/tacticool.rsi
   # Evolution
   - type: XenoEvolution
     strains:
@@ -110,7 +115,7 @@
     id: MCXenoRunnerMelter
   # Visuals
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/runner_melter.rsi
+    sprite: _MC/Mobs/Xenos/Runner/melter.rsi
     offset: 0, 0.65
   # Evolution
   - type: XenoEvolution

@@ -17,6 +17,7 @@
     tier: -1
     role: MCXenoMinionBaneling
     actionIds:
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoBanelingExplode
     hudOffset: -0.2, 0.3

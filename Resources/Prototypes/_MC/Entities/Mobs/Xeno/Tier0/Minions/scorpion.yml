@@ -7,8 +7,11 @@
   description: An alien.
   components:
   - type: Sprite
-    sprite: _MC/Mobs/Xenos/scorpion.rsi
+    sprite: _MC/Mobs/Xenos/Scorpion/base.rsi
     offset: 0,0.5
+  - type: MCXenoSkin
+    skins:
+      crab: _MC/Mobs/Xenos/Scorpion/crab.rsi
   - type: GhostRole
     name: mc-job-name-xeno-scorpion
   - type: FixedIdentity
@@ -17,6 +20,7 @@
     tier: -1
     role: MCXenoMinionScorpion
     actionIds:
+    - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoAcidWeak
     - MCActionXenoToggleSpitPassthrough
