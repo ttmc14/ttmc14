@@ -48,14 +48,12 @@
     thresholds:
       0: Alive
       400: Critical
-      575: Dead
+      500: Dead
   - type: XenoPlasma
     plasma: 800
     maxPlasma: 800
     plasmaRegenLimit: 400
     plasmaRegenOnWeeds: 15
-  - type: MCXenoPlasma
-    canBeGivenPlasma: false
   - type: MCArmor
     soft:
       melee: 50
@@ -74,7 +72,7 @@
   - type: CMArmorPiercing
     amount: 15
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.5
+    baseWalkSpeed: 3.333
     baseSprintSpeed: 5
   - type: RMCSize
     size: Big
@@ -139,13 +137,13 @@
     sprite: _MC/Mobs/Xenos/ravager_bloodthirster.rsi
   # Statistics
   - type: XenoPlasma
-    plasma: 600
-    maxPlasma: 600
+    plasma: 500
+    maxPlasma: 500
     plasmaRegenLimit: 0
     plasmaRegenOnWeeds: 0
   # Passive
   - type: MCXenoPlasmaOnAttack
-    multiplier: 2.5
+    multiplier: 2
   - type: MCXenoPlasmaOnAttacked
-    multiplier: 1
+    multiplier: 0.75
   - type: MCXenoBloodthirst
