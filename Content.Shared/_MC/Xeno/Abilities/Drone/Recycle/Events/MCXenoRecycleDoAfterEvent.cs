@@ -1,7 +1,7 @@
 using Content.Shared._MC.DoAfter;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._MC.Xeno.Abilities.Drone.Recycle;
+namespace Content.Shared._MC.Xeno.Abilities.Drone.Recycle.Events;
 
 [Serializable, NetSerializable]
 public sealed partial class MCXenoRecycleDoAfterEvent : MCActionSimpleDoAfterEvent
