@@ -53,8 +53,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      500: Critical
-      600: Dead
+      600: Critical
+      700: Dead
   - type: XenoPlasma
     plasma: 400
     maxPlasma: 400
@@ -80,7 +80,7 @@
     size: Big
   # Abilities
   - type: MCXenoZoom
-    zoom: 1.5,1.5
+    zoom: 1.5, 1.5
     offsetLength: 11
     doAfter: 1
   - type: MCXenoCrestToss
