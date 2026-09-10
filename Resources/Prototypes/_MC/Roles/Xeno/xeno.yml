@@ -72,6 +72,16 @@
   name: mc-job-name-selectable-xenonid
   playTimeTracker: MCXenoSelectableXeno
   hidden: false
+  jobPreviewEntity: MCJobXenoSelectablePreview
+
+- type: entity
+  id: MCJobXenoSelectablePreview
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/rafik.rsi
+    layers:
+    - state: alive
 
 - type: playTimeTracker
   id: MCXenoSelectableXeno
@@ -371,6 +381,16 @@
   playTimeTracker: MCXenoShrike
   requireAdminNotify: true
   hidden: false
+  jobPreviewEntity: MCJobXenoShrikePreview
+
+- type: entity
+  id: MCJobXenoShrikePreview
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Sprite
+    sprite: _MC/Mobs/Xenos/Shrike/base.rsi
+    layers:
+    - state: alive
 
 - type: playTimeTracker
   id: MCXenoShrike
@@ -392,10 +412,9 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: Sprite
-    sprite: _RMC14/Mobs/Xenonids/Queen/queen.rsi
+    sprite: _MC/Mobs/Xenos/queen.rsi
     layers:
     - state: alive
-      scale: 0.5, 0.5
 
 - type: playTimeTracker
   id: MCXenoQueen
