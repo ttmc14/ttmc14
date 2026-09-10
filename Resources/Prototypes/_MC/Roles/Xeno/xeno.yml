@@ -82,6 +82,7 @@
     sprite: _MC/Mobs/Xenos/rafik.rsi
     layers:
     - state: alive
+      scale: 0.5, 0.5
 
 - type: playTimeTracker
   id: MCXenoSelectableXeno
@@ -391,6 +392,7 @@
     sprite: _MC/Mobs/Xenos/Shrike/base.rsi
     layers:
     - state: alive
+      scale: 0.5, 0.5
 
 - type: playTimeTracker
   id: MCXenoShrike
@@ -415,6 +417,7 @@
     sprite: _MC/Mobs/Xenos/queen.rsi
     layers:
     - state: alive
+      scale: 0.5, 0.5
 
 - type: playTimeTracker
   id: MCXenoQueen
