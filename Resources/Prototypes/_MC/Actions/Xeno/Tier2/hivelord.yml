@@ -35,3 +35,23 @@
   - type: InstantAction
     event: !type:XenoDigTunnelActionEvent
   - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoHealingInfusion
+  name: Healing Infusion (200)
+  description: Psychically infuses a friendly xeno with regenerative energies, greatly improving its natural healing. Doesn't work if the target can't naturally heal.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/hivelord.rsi
+      state: healing_infusion
+    useDelay: 12.5
+  - type: TargetAction
+    range: 3
+  - type: EntityTargetAction
+    event: !type:MCXenoHealingInfusionActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 200

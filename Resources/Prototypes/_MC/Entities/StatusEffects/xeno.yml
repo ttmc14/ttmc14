@@ -1,0 +1,6 @@
+- type: entity
+  parent: MCStatusEffectMob
+  id: MCStatusEffectXenoHealingInfusion
+  components:
+  - type: StatusEffect
+  - type: MCXenoStatusEffectHealingInfusion

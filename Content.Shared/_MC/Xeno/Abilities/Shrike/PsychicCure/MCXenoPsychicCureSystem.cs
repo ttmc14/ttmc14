@@ -1,7 +1,6 @@
 ﻿using Content.Shared._MC.Xeno.Heal;
 using Content.Shared._MC.Xeno.Sunder;
 using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Coordinates;
 using Content.Shared.DoAfter;
 using Content.Shared.Interaction;
