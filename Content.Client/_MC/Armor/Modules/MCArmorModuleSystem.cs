@@ -10,7 +10,6 @@ public sealed class MCArmorModuleSystem : MCArmorModuleSharedSystem
     public override void Initialize()
     {
         base.Initialize();
-
         SubscribeLocalEvent<MCArmorModularClothingComponent, GetEquipmentVisualsEvent>(OnClothingEquipmentVisuals, after: [typeof(ClientClothingSystem)]);
     }
 

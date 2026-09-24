@@ -1,8 +1,5 @@
 ﻿using Content.Server.Administration;
-using Content.Server.Shuttles.Components;
-using Content.Server.Shuttles.Systems;
 using Content.Shared.Administration;
-using Content.Shared.Coordinates;
 using Content.Shared.Shuttles.Components;
 using Content.Shared.Timing;
 using Robust.Shared.Console;
