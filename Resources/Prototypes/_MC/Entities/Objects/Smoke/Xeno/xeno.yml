@@ -120,7 +120,10 @@
     damage:
       types:
         MCBurn: 25
-  - type: Occluder
+  - type: TimedDespawn
+    lifetime: 6
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 6
 
 - type: entity
   parent: MCSmokeXeno
@@ -139,10 +142,32 @@
       types:
         MCBurn: 25
   - type: TimedDespawn
-    lifetime: 1
+    lifetime: 3
   - type: MCTimedDespawnDisappearanceVisuals
-    lifetime: 1
-    maxAlpha: 0.36
+    lifetime: 3
+    maxAlpha: 0.4
+
+- type: entity
+  parent: MCSmokeXeno
+  id: MCSmokeXenoAcidLightPlus
+  name: smoke xeno acid light
+  components:
+  - type: Tag
+    tags:
+    - MCSmoke
+    - MCDamageAcid
+    - HideContextMenu
+  - type: Sprite
+    color: "#85b0285e"
+  - type: MCSmokeDamage
+    damage:
+      types:
+        MCBurn: 40
+  - type: TimedDespawn
+    lifetime: 2.5
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 2.5
+    maxAlpha: 0.2
 
 - type: entity
   parent: MCSmokeXenoAcidLight

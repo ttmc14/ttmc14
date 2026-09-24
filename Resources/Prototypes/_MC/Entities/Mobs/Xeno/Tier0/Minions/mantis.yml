@@ -46,8 +46,8 @@
       fire: 5
       acid: 0
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.941
-    baseSprintSpeed: 4.166
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.2
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi

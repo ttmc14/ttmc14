@@ -99,5 +99,5 @@
     maxDistance: 5
     strength: 40
     hitSelfParalyzeTime: 0
-    hitKnockdownTime: 0.1
+    hitKnockdownTime: 0
     stopOnHit: false

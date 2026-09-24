@@ -29,11 +29,11 @@
   - type: XenoPlasma
     plasma: 275
     maxPlasma: 275
-    plasmaRegenOnWeeds: 11
+    plasmaRegenOnWeeds: 10
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 16
+        MCBrute: 20
   - type: MCArmor
     soft:
       melee: 25
@@ -45,12 +45,12 @@
       fire: 15
       acid: 100
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.076
-    baseSprintSpeed: 4.444
+    baseWalkSpeed: 3.1
+    baseSprintSpeed: 4.5
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/xeno.rsi
       state: minion
   - type: XenoDeathcloud
-    spawn: MCSmokeXenoAcidLight
+    spawn: MCSmokeXenoAcidLightPlus
   - type: MCXenoExplode

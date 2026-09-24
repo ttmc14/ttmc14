@@ -80,7 +80,6 @@
     - MCActionXenoPheromones
     # Utilities
     - MCActionXenoLayEgg
-    - MCActionXenoPlaceTrap
     hudOffset: 0, 0.19
   # Statistics
   - type: MobThresholds

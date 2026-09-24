@@ -55,9 +55,9 @@
       275: Critical
       325: Dead
   - type: XenoPlasma
-    plasma: 380
-    maxPlasma: 380
-    plasmaRegenOnWeeds: 18
+    plasma: 400
+    maxPlasma: 400
+    plasmaRegenOnWeeds: 20
   - type: MCArmor
     soft:
       melee: 40
@@ -73,8 +73,8 @@
       types:
         MCBurn: 22
   - type: MovementSpeedModifier
-    baseWalkSpeed: 3.225
-    baseSprintSpeed: 4.761
+    baseWalkSpeed: 3.5
+    baseSprintSpeed: 4.8
   # Abilities
   - type: MCXenoInferno
     damage:
@@ -97,14 +97,14 @@
       types:
         MCBurn: 5
   - type: MCXenoPounce
-    maxDistance: 3
+    maxDistance: 5
     strength: 30
     hitSelfParalyzeTime: 0
     hitKnockdownTime: 0
     stopOnHit: false
     hitDamage:
       types:
-        MCBurn: 10
+        MCBurn: 15
   # Passive abilities
   - type: RMCImmuneToIgnition
   - type: RMCImmuneToFireTileDamage
