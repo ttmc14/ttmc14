@@ -17,7 +17,7 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Engineering.Miners;
 
-public sealed class MCMinerSystem : EntitySystem
+public sealed partial class MCMinerSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -33,15 +33,28 @@ public sealed class MCMinerSystem : EntitySystem
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
     [Dependency] private readonly MCSharedChatSystem _mcChat = null!;
 
+    private EntityQuery<MCMinerComponent> _query;
+    private EntityQuery<MCMinerModuleComponent> _moduleQuery;
+
     public override void Initialize()
     {
-        base.Initialize();
+        _query = GetEntityQuery<MCMinerComponent>();
+        _moduleQuery = GetEntityQuery<MCMinerModuleComponent>();
 
+        SubscribeLocalEvent<MCMinerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MCMinerComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<MCMinerComponent, InteractHandEvent>(OnInteractHand);
         SubscribeLocalEvent<MCMinerComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<MCMinerComponent, MCMinerRepairDoAfterEvent>(OnRepairDoAfter);
         SubscribeLocalEvent<MCMinerComponent, MCIntegrityTriggeredEvent>(OnIntegrityTriggered);
+    }
+
+    private void OnStartup(Entity<MCMinerComponent> entity, ref ComponentStartup args)
+    {
+        Refresh((entity.Owner, entity.Comp));
+
+        _appearance.SetData(entity, MCMinerLayers.State, MCMinerState.Destroyed);
+        _appearance.SetData(entity, MCMinerLayers.Module, string.Empty);
     }
 
     public override void Update(float frameTime)
@@ -61,12 +74,9 @@ public sealed class MCMinerSystem : EntitySystem
                 continue;
 
             component.MineralStored++;
-            component.NextMineralProduction = _timing.CurTime + component.MineralProductionTime;
+            component.NextMineralProduction = _timing.CurTime + component.MineralProductionTimeTotal;
 
-            var ev = new MCMinerModuleAutomatedEvent();
-            RaiseLocalEvent(uid, ref ev);
-
-            if (!ev.Automated)
+            if (!component.MineralStorageAutoSale)
                 continue;
 
             Sale((uid, component));
@@ -191,7 +201,7 @@ public sealed class MCMinerSystem : EntitySystem
 
         Dirty(entity);
 
-        UpdateIcon(entity);
+        UpdateMapIcon(entity);
         UpdateAppearance(entity);
     }
 
@@ -205,43 +215,8 @@ public sealed class MCMinerSystem : EntitySystem
             _ => throw new ArgumentOutOfRangeException(),
         };
 
-        UpdateIcon(entity);
+        UpdateMapIcon(entity);
         UpdateAppearance(entity);
-    }
-
-    private void UpdateAppearance(Entity<MCMinerComponent> entity)
-    {
-        switch (entity.Comp.State)
-        {
-            case MCMinerState.Running:
-                _appearance.SetData(entity, MCMinerLayers.Layer, MCMinerState.Running);
-                return;
-
-            case MCMinerState.Destroyed:
-                _appearance.SetData(entity, MCMinerLayers.Layer, MCMinerState.Destroyed);
-                return;
-
-            case MCMinerState.MediumDamage:
-                _appearance.SetData(entity, MCMinerLayers.Layer, MCMinerState.MediumDamage);
-                return;
-
-            case MCMinerState.SmallDamage:
-                _appearance.SetData(entity, MCMinerLayers.Layer, MCMinerState.SmallDamage);
-                return;
-        }
-    }
-
-    private void UpdateIcon(Entity<MCMinerComponent> entity)
-    {
-        if (!TryComp<TacticalMapIconComponent>(entity, out var iconComponent) || iconComponent.Icon is not { } icon)
-            return;
-
-        var ensure = EnsureComp<MapBlipIconOverrideComponent>(entity);
-        var state = entity.Comp.State == MCMinerState.Running ? "phoron-on" : "phoron";
-        var newIcon = new SpriteSpecifier.Rsi(icon.RsiPath, state);
-
-        ensure.Icon = newIcon;
-        Dirty(entity, ensure);
     }
 
     private void Sale(Entity<MCMinerComponent> entity)
@@ -255,7 +230,7 @@ public sealed class MCMinerSystem : EntitySystem
             return;
         }
 
-        var value = entity.Comp.MineralStored * entity.Comp.MineralValue;
+        var value = entity.Comp.MineralStored * entity.Comp.MineralValueTotal;
 
         _mcAsrs.AddBalance(value);
         _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-sold", ("value", value)));

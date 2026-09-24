@@ -1,21 +1,26 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Shared._MC.Engineering.Miners.Components;
 using Content.Shared._MC.Engineering.Miners.Events;
-using Content.Shared._MC.Engineering.Miners.Events.Equipment;
+using JetBrains.Annotations;
 
 namespace Content.Shared._MC.Engineering.Miners;
 
 public sealed partial class MCMinerModuleSystem
 {
+    [PublicAPI]
     public void RelayEvent<T>(Entity<MCMinerModuleContainerComponent> entity, ref T args)
+        where T : struct
     {
         var ev = new MCMinerModuleRelayedEvent<T>(args);
         if (entity.Comp.InstalledModule is not { } moduleUid)
             return;
 
-        RaiseLocalEvent(moduleUid, ev);
+        RaiseLocalEvent(moduleUid, ref ev);
+
+        args = ev.Args;
     }
 
+    [PublicAPI]
     public bool HasModule(Entity<MCMinerModuleContainerComponent?> entity)
     {
         if (!Resolve(entity, ref entity.Comp))
@@ -24,6 +29,7 @@ public sealed partial class MCMinerModuleSystem
         return entity.Comp.InstalledModule is not null;
     }
 
+    [PublicAPI]
     public bool CanInsert(
         Entity<MCMinerModuleContainerComponent?> entity,
         EntityUid module)
@@ -31,13 +37,14 @@ public sealed partial class MCMinerModuleSystem
         if (!Resolve(entity, ref entity.Comp))
             return false;
 
-        if (!HasComp<MCMinerModuleComponent>(module))
+        if (!_query.HasComp(module))
             return false;
 
         var container = EnsureContainer(entity);
         return container.ContainedEntities.Count == 0 && _container.CanInsert(module, container);
     }
 
+    [PublicAPI]
     public bool TryGetModule(
         Entity<MCMinerModuleContainerComponent?> entity,
         [NotNullWhen(true)] out EntityUid? module)
@@ -55,6 +62,7 @@ public sealed partial class MCMinerModuleSystem
         return true;
     }
 
+    [PublicAPI]
     public bool TryInsertModule(
         Entity<MCMinerModuleContainerComponent?> entity,
         EntityUid module)
@@ -63,17 +71,15 @@ public sealed partial class MCMinerModuleSystem
             return false;
 
         var container = EnsureContainer(entity);
-
         if (!_container.Insert(module, container))
             return false;
 
-        var ev = new MCMinerModuleAttachedEvent((entity, entity.Comp!), module);
-        RaiseLocalEvent(module, ref ev);
-
         Dirty(entity);
+
         return true;
     }
 
+    [PublicAPI]
     public bool TryRemoveModule(
         Entity<MCMinerModuleContainerComponent?> entity,
         [NotNullWhen(true)] out EntityUid? module)
@@ -91,10 +97,8 @@ public sealed partial class MCMinerModuleSystem
 
         module = uid;
 
-        var ev = new MCMinerModuleDeattachedEvent((entity, entity.Comp), uid.Value);
-        RaiseLocalEvent(uid.Value, ref ev);
-
         Dirty(entity);
+
         return true;
     }
 }

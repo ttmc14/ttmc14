@@ -2,5 +2,9 @@
 
 namespace Content.Shared._MC.Engineering.Miners.Components;
 
-[RegisterComponent, NetworkedComponent]
-public sealed partial class MCMinerModuleComponent : Component;
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+public sealed partial class MCMinerModuleComponent : Component
+{
+    [DataField, AutoNetworkedField]
+    public string Appearance;
+}

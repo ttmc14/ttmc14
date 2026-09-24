@@ -4,7 +4,7 @@
   abstract: true
   components:
   - type: Sprite
-    sprite: _MC/Objects/Items/miner_modules.rsi
+    sprite: _MC/Structures/Machines/mining_drill.rsi
   - type: Item
     size: Tiny
   - type: MCMinerModule
@@ -16,7 +16,9 @@
   description: A small computer that can automate mining wells, reducing the need for oversight.
   components:
   - type: Sprite
-    state: automatic
+    state: module-automatic
+  - type: MCMinerModule
+    appearance: automatic
   - type: MCMinerModuleAutomated
 
 - type: entity
@@ -26,7 +28,11 @@
   description: A box with a few pumps and a big drill, meant to replace the standard drill used in normal mining wells for faster extraction.
   components:
   - type: Sprite
-    state: overclocked
+    state: module-overclocked
+  - type: MCMinerModule
+    appearance: overclocked
+  - type: MCMinerModuleMinerProductionTime
+    replaceTime: 120
 
 - type: entity
   parent: MCMinerUpgradeModule
@@ -35,4 +41,6 @@
   description: A very folded box of reinforced components, meant to replace weak components used in normal mining wells.
   components:
   - type: Sprite
-    state: reinforced
+    state: module-reinforced
+  - type: MCMinerModule
+    appearance: reinforced

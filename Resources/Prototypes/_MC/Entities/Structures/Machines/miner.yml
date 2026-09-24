@@ -9,7 +9,7 @@
     offset: 0, 0.25
     layers:
     - map: [ "base" ]
-      state: mining_drill_error
+      state: base-error
   - type: Clickable
   - type: Corrodible
     isCorrodible: false
@@ -19,18 +19,12 @@
       components:
       - Xeno
   - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.MCMinerLayers.Layer:
-        base:
-          Running: { state: "mining_drill_active_" }
-          SmallDamage: { state: "mining_drill_braced_" }
-          MediumDamage: { state: "mining_drill_" }
-          Destroyed: { state: "mining_drill_error_" }
   - type: Speech
   # Custom
   - type: MCMiner
     state: Destroyed
+  - type: MCMinerVisualizer
+    sprite: _MC/Structures/Machines/mining_drill.rsi
   - type: MCMinerModuleContainer
   # Integrity
   - type: Damageable

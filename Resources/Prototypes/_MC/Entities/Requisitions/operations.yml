@@ -19,6 +19,31 @@
         cost: 50
         entities:
         - MCBeaconOrbital
+      - icon:
+          sprite: _MC/Objects/Items/beacon.rsi
+          state: med_0
+        cost: 50
+        entities:
+        - MCBeaconMedevac
+      # Miner modules
+      - icon:
+          sprite: _MC/Structures/Machines/mining_drill.rsi
+          state: module-automatic
+        cost: 50
+        entities:
+        - MCMinerUpgradeModuleAutomatic
+      # - icon:
+      #     sprite: _MC/Structures/Machines/mining_drill.rsi
+      #     state: module-reinforced
+      #   cost: 50
+      #   entities:
+      #   - MCMinerUpgradeModuleReinforced
+      - icon:
+          sprite: _MC/Structures/Machines/mining_drill.rsi
+          state: module-overclocked
+        cost: 50
+        entities:
+        - MCMinerUpgradeModuleOverclocked
       # Utilities
       - icon:
           sprite: _MC/Objects/Devices/binoculars.rsi

@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Engineering.Miners.Components;
+using Content.Shared._MC.Engineering.Miners.Events.Equipment;
 using Content.Shared.DoAfter;
 
 namespace Content.Shared._MC.Engineering.Miners;
@@ -14,7 +15,7 @@ public sealed partial class MCMinerModuleSystem
             return;
 
         var duration = GetDurationInsert((entity.Owner, entity.Comp), user);
-        var ev = new Events.Equipment.MCMinerModuleAttachedDoAfterEvent();
+        var ev = new MCMinerModuleAttachedDoAfterEvent();
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, duration, ev, entity, entity, module)
         {
@@ -34,7 +35,7 @@ public sealed partial class MCMinerModuleSystem
             return;
 
         var duration = GetDurationTake((entity.Owner, entity.Comp), user);
-        var ev = new Events.Equipment.MCMinerModuleDeattachedDoAfterEvent();
+        var ev = new MCMinerModuleDeattachedDoAfterEvent();
 
         _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, duration, ev, entity, entity)
         {

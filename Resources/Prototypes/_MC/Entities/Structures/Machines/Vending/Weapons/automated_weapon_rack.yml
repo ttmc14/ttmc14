@@ -26,19 +26,11 @@
       entries:
       - id: MCWeaponRifleAR12
       - id: MCMagazineRifleAR12
-      - id: MCWeaponRifleAR18
-      - id: MCMagazineRifleAR18
       - id: MCWeaponRifleAR21
       - id: MCMagazineRifleAR21
-      - id: MCWeaponRifleAR11
-      - id: MCMagazineRifleAR11
-      - id: MCWeaponShotgunLeicesterRepeater
-      - id: MCBoxGovernmentRounds
     - name: Energy Weapons
       entries:
       - id: MCMagazineBatteryTerra
-      # TE powerpack
-      # TE powerbackpack
       - id: MCWeaponEnergyRifle
       - id: MCWeaponEnergySniper
       - id: MCWeaponEnergyCarbine
@@ -48,19 +40,19 @@
       entries:
       - id: MCWeaponSMG90
       - id: MCMagazineSMG90
-      - id: MCWeaponMP19
-      - id: MCMagazineMP19
       - id: MCWeaponSMG45
       - id: MCMagazineSMG45
       - id: MCMagazineSMG45SH
-    - name: Marksman
+    - name: Sniper
       entries:
       - id: MCWeaponSniperDMR37
       - id: MCMagazineDMR37
-      - id: MCWeaponSniperBR64
-      - id: MCMagazineBR64
       - id: MCWeaponSniperSR127
       - id: MCMagazineSR127
+    - name: Marksman
+      entries:
+      - id: MCWeaponShotgunLeicesterRepeater
+      - id: MCBoxGovernmentRounds
       - id: MCWeaponShotgunMosin
       - id: MCCartridgeMosin
       - id: MCWeaponShotgunMartini
@@ -69,7 +61,6 @@
     - name: Shotgun
       entries:
       - id: MCWeaponShotgunSH35
-      - id: MCWeaponShotgunSH39
       - id: MCWeaponShotgunSH34
       - id: MCBoxShotgunSlugs
       - id: MCBoxShotgunBuckshot
@@ -83,57 +74,65 @@
       - id: MCMagazineMG42
       - id: MCWeaponMachineGunMG60
       - id: MCMagazineMG60
+      #- id: MC08Mount Until TDP Fix the gun
+      #  amount: 2
+      #- id: MCMagazineMG08
+      #  amount: 4
     - name: Melee
       entries:
       - id: MCKnifeCombat
       - id: MCKnifeBayonet
-      - id: MCScabbardMacheteFilled
+      - id: MCMachete
+      - id: MCMacheteAlt
       - id: MCSpear
+      - id: MCScabbardMachete
     - name: Vali
       entries:
-      - id: MCScabbardMachete
       - id: MCMeleeWeaponValiClaymore
       - id: MCMeleeWeaponValiKnife
       - id: MCMeleeWeaponValiSpear
       - id: MCMeleeWeaponValiSword
+      - id: MCScabbardMachete
     - name: Sidearm
       entries:
-      - id: MCWeaponP14
-      - id: MCMagazinePistolP14
-      - id: MCWeaponP23
-      - id: MCMagazinePistolP23
+      # R-44
       - id: MCWeaponRevolverR44
       - id: MCSpeedLoaderR44
-      - id: MCWeaponP17
-      - id: MCMagazinePistolP17
+      # R-500
+      - id: MCWeaponRevolverR500
+        amount: 10
+      - id: MCSpeedloaderR500
+      - id: MCSpeedloaderR500Slavs
+      # R-312
+      - id: MCSpeedloaderR312
+      - id: MCBoxHandfulR312
+      # Other
+      - id: MCWeaponP14
+      - id: MCMagazinePistolP14
       - id: MCWeaponMK88
       - id: MCMagazinePistolMK88
+    - name: Utilities
+      entries:
+      - id: MCWeaponFlareGunM30E2
+      - id: MCPackFlareFilled
+      - id: RMCPackFlareCAS
+        amount: 30
     - name: Grenades
       entries:
       - id: MCWeaponLauncherGl81
+        amount: 4
       - id: MCWeaponLauncherGl70
+        amount: 2
       - id: MCGrenadeHedp
-        amount: 200
+        amount: 50
       - id: MCGrenadeHefaM15
-        amount: 30
-      # M40 adhesive charge grenade
-      # M45 Trailblazer grenade
+        amount: 10
       - id: MCGrenadeHidp
         amount: 50
       - id: MCGrenadeHsdp
         amount: 25
       - id: MCGrenadePGas
         amount: 10
-      # M40-2 SCDP smoke grenade
-      # M40-AG smoke grenade
-      # M45 Cloaker grenade
-      # mirage grenade
-      # M80 lasburster grenade
-      # M25 HEFA grenade
-      - id: CMPackFlare
-        amount: 200
-      - id: RMCPackFlareCAS
-        amount: 30
     - name: Specialized
       entries:
       - id: MCWeaponPepperball
@@ -142,14 +141,12 @@
       - id: MCWeaponFlamerUnloadedNoMag
         amount: 4
       - id: MCTankFlamer
-        amount: 16
+        amount: 30
       - id: MCTankFlamerGreen
-        amount: 8
+        amount: 15
       - id: MCBackpackFlamer
         amount: 4
       - id: MCAttachmentUnderslungHydrocannon
-    #- name: Heavy Weapons
-    #  entries: []
     - name: Attachments
       entries:
       - id: MCAttachmentBayonet
@@ -157,12 +154,10 @@
       - id: MCAttachmentExtendedMuzzle
       - id: MCAttachmentSuppressor
       - id: MCAttachmentMuzzleCharger
-      # pistol lace
       - id: MCAttachmentRailFlashlight
       - id: MCAttachmentUnderbarrelFlashlight
       - id: MCAttachmentMagneticHarness
       - id: MCAttachmentRedDotSight
-      # tactical sensor
       - id: MCAttachmentT47RailScope
       - id: MCAttachmentMiniScope
       - id: MCAttachmentAngledGrip
@@ -175,12 +170,6 @@
       - id: MCAttachmentGrenadeLauncher
       - id: MCAttachmentMiniFlamethrower
       - id: MCMiniTankFlamer
-      # mini pepperball gun
-      # mall pepperball canister (SAN balls)
-      # T-76 magnum stock
-      # standard flamer nozzle
-      #- name: Boxes
-      # entries: []
     - name: Utility
       entries:
       - id: RMCFlashlight

@@ -105,10 +105,13 @@
       - id: MCBeaconSupply
         points: 5
     - name: Mining
-      entries: []
-      # Mining well overclock upgrade 5 points
-      # Mining well reinforcement upgrade 5 points
-      # Mining well automation upgrade 5 points
+      entries:
+      - id: MCMinerUpgradeModuleOverclocked
+        points: 5
+      # - id: MCMinerUpgradeModuleReinforced
+      #   points: 5
+      - id: MCMinerUpgradeModuleAutomatic
+        points: 5
     - name: Vehicle
       entries: []
       # Iguana Unmanned Vehicle

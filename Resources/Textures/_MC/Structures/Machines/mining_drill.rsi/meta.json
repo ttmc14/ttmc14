@@ -1,166 +1,157 @@
 {
-    "version": 1,
-    "license": null,
-    "copyright": null,
-    "size": {
-        "x": 32,
-        "y": 48
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/commit/628245f25f398dd884b907d73ec453dbe80d554f",
+  "size": {
+    "x": 32,
+    "y": 48
+  },
+  "states": [
+    {
+      "name": "automatic",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
     },
-    "states": [
-        {
-            "name": "mining_drill_",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_reinforced components",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_braced_"
-        },
-        {
-            "name": "mining_drill_braced_reinforced components"
-        },
-        {
-            "name": "mining_drill_active_reinforced components",
-            "delays": [
-                [
-                    0.05,
-                    0.05
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_active_",
-            "delays": [
-                [
-                    0.05,
-                    0.05
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_error_",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_brace",
-            "directions": 4
-        },
-        {
-            "name": "mining_drill_reinforceddisplay"
-        },
-        {
-            "name": "mining_drill_error_reinforced components",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_brace_active",
-            "directions": 4
-        },
-        {
-            "name": "mining_drill_mining computer",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_braced_mining computer"
-        },
-        {
-            "name": "mining_drill_active_mining computer",
-            "delays": [
-                [
-                    0.05,
-                    0.05
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_error_mining computer",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_automaticdisplay"
-        },
-        {
-            "name": "mining_drill_high-efficiency drill",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_braced_high-efficiency drill"
-        },
-        {
-            "name": "mining_drill_active_high-efficiency drill",
-            "delays": [
-                [
-                    0.05,
-                    0.05
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_overclockeddisplay"
-        },
-        {
-            "name": "mining_drill_error_high-efficiency drill",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_active_platinum_upgraded crystalizer module",
-            "delays": [
-                [
-                    0.05,
-                    0.05
-                ]
-            ]
-        },
-        {
-            "name": "mining_drill_error",
-            "delays": [
-                [
-                    0.5,
-                    0.5
-                ]
-            ]
-        }
-    ]
+    {
+      "name": "automatic-active",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "automatic-braced"
+    },
+    {
+      "name": "automatic-error",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "base",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "base-active",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "base-braced"
+    },
+    {
+      "name": "base-error",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "brace",
+      "directions": 4
+    },
+    {
+      "name": "brace-active",
+      "directions": 4
+    },
+    {
+      "name": "module-automatic"
+    },
+    {
+      "name": "module-overclocked"
+    },
+    {
+      "name": "module-reinforced"
+    },
+    {
+      "name": "overclocked",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "overclocked-active",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "overclocked-braced"
+    },
+    {
+      "name": "overclocked-error",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "platinum-active",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "reinforced",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    },
+    {
+      "name": "reinforced-active",
+      "delays": [
+        [
+          0.05,
+          0.05
+        ]
+      ]
+    },
+    {
+      "name": "reinforced-braced"
+    },
+    {
+      "name": "reinforced-error",
+      "delays": [
+        [
+          0.5,
+          0.5
+        ]
+      ]
+    }
+  ]
 }
