@@ -26,23 +26,24 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      150: Critical
-      250: Dead
+      200: Critical
+      300: Dead
   - type: XenoPlasma
     plasma: 275
     maxPlasma: 275
-    plasmaRegenOnWeeds: 11
+    plasmaRegenOnWeeds: 25
   - type: MCArmor
     soft:
-      melee: 0
-      bullet: 0
-      laser: 0
-      energy: 0
+      melee: 15
+      bullet: 15
+      laser: 15
+      energy: 15
       bomb: 0
       bio: 0
       fire: 0
       acid: 0
   - type: MeleeWeapon
+    attackRate: 1.7
     damage:
       types:
         MCBrute: 20
@@ -60,8 +61,8 @@
     cost: 0
   # TODO: gib
   - type: TimedDespawn
-    lifetime: 7
+    lifetime: 10
   - type: MCTimedDespawnDisappearanceVisuals
-    lifetime: 7
+    lifetime: 10
   - type: RMCGibOnDeath
     gibChance: 1

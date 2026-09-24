@@ -53,8 +53,8 @@
   - type: MobThresholds
     thresholds:
       0: Alive
-      350: Critical
-      450: Dead
+      400: Critical
+      500: Dead
   - type: XenoPlasma
     plasma: 500
     maxPlasma: 500
@@ -70,6 +70,7 @@
       fire: 0
       acid: 50
   - type: MeleeWeapon
+    attackRate: 1.7
     damage:
       types:
         MCBrute: 25
@@ -86,6 +87,7 @@
   - type: MCXenoWarpBlast
     range: 2.5
   - type: MCXenoPhantom
+  # Pounce
   - type: MCXenoPounceAbduct
   - type: MCXenoPounce
     hitSelfParalyzeTime: 0
