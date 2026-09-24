@@ -43,7 +43,7 @@
   - type: UncloakOnHit
   - type: ExtinguishFire
   - type: SprayExtinguishTileFire
-    extinguishAmount: 20
+    extinguishAmount: 6
   - type: IgnorePredictionHit
 
 - type: Tag

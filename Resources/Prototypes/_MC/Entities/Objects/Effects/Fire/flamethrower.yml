@@ -20,7 +20,7 @@
     id: MCFireFlamethrower
     duration: 17
     extinguishInstantly: false
-    sprayExtinguishMultiplier: 10
+    sprayExtinguishMultiplier: 3
 
 - type: entity
   parent: MCFire
@@ -43,7 +43,7 @@
     id: MCFireFlamethrowerGreen
     duration: 20
     extinguishInstantly: false
-    sprayExtinguishMultiplier: 10
+    sprayExtinguishMultiplier: 3
   - type: GenericVisualizer
     visuals:
       enum.TileFireLayers.Base:
@@ -78,7 +78,7 @@
     duration: 40
     extinguishInstantly: false
     patExtinguishMultiplier: 2
-    sprayExtinguishMultiplier: 10
+    sprayExtinguishMultiplier: 3
   - type: GenericVisualizer
     visuals:
       enum.TileFireLayers.Base:
