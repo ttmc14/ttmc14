@@ -9,22 +9,20 @@
         Resting: false
       preconditions:
         Resting: true
-        HightPlasma: true
+        HighPlasma: true
       priority: 50
 
     - desiredState:
-        WeaponAcidApplied: true
+        WeaponGunHasAcid: true
       preconditions:
         WeaponGun: true
-        WeaponGunHasAcid: false
         LowPlasma: false
       priority: 40
 
     - desiredState:
-        BarricadeAcidApplied: true
+        BarricadeHasAcid: true
       preconditions:
         Barricade: true
-        BarricadeHasAcid: false
         LowPlasma: false
       priority: 39
 
@@ -47,14 +45,19 @@
       priority: 10
 
     sensors:
+
     - !type:MCAISensorNearestHostile
       conditionKey: Enemy
       outputTargetKey: hostile
 
+    - !type:MCAISensorTargetDead
+      conditionKey: EnemyDead
+      targetKey: hostile
+
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRange
       targetKey: hostile
-      range: 1.5
+      range: 1.3
 
     - !type:MCAISensorNearestGun
       conditionKey: WeaponGun
@@ -63,7 +66,7 @@
     - !type:MCAISensorRangeToTarget
       conditionKey: WeaponGunInRange
       targetKey: weaponGun
-      range: 1.5
+      range: 1.3
 
     - !type:MCAISensorNearestBarricade
       conditionKey: Barricade
@@ -72,7 +75,7 @@
     - !type:MCAISensorRangeToTarget
       conditionKey: BarricadeInRange
       targetKey: barricade
-      range: 1.5
+      range: 1.3
 
     - !type:MCAISensorAcidOnTarget
       conditionKey: WeaponGunHasAcid
@@ -92,9 +95,9 @@
       direction: Less
 
     - !type:MCAISensorCheckPlasmaLevel
-      conditionKey: HightPlasma
+      conditionKey: HighPlasma
       threshold: 0.95
-      direction: Grater
+      direction: Greater
 
     - !type:MCAISensorXenoResting
       conditionKey: Resting
@@ -124,12 +127,12 @@
       effects:
         PlasmaFull: true
       targetStates:
-        HightPlasma: true
+        HighPlasma: true
 
     - !type:MCAIActionUse
       preconditions:
         Resting: true
-        HightPlasma: true
+        HighPlasma: true
       effects:
         Resting: false
       actionPrototype: MCActionXenoRest
@@ -157,7 +160,7 @@
         WeaponGun: true
         WeaponGunInRange: true
       effects:
-        WeaponAcidApplied: true
+        WeaponGunHasAcid: true
       actionPrototype: MCActionXenoAcidWeak
       cost: 0.4
 
@@ -167,7 +170,7 @@
         Barricade: true
         BarricadeInRange: true
       effects:
-        BarricadeAcidApplied: true
+        BarricadeHasAcid: true
       actionPrototype: MCActionXenoAcidWeak
       cost: 0.4
 
@@ -182,6 +185,7 @@
     - !type:MCAIActionMeleeAttack
       targetKey: hostile
       preconditions:
+        Enemy: true
         EnemyInRange: true
       effects:
         EnemyDead: true

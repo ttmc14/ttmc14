@@ -101,7 +101,7 @@ public sealed partial class MCAIActionUseSystem : MCAIActionSystem<MCAIActionUse
         var attemptEvRmc = new RMCActionUseAttemptEvent(entity, null);
         RaiseLocalEvent(actionEntity, ref attemptEvRmc);
 
-        if (attemptEv.Cancelled)
+        if (attemptEvRmc.Cancelled)
             return false;
 
         return true;

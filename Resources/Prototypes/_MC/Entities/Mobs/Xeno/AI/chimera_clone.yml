@@ -3,7 +3,6 @@
   components:
   - type: InputMover
   - type: MCAIAgent
-    # Goals
     goals:
 
     - desiredState:
@@ -16,17 +15,20 @@
         Explore: true
       priority: 1
 
-    # Sensors
     sensors:
 
     - !type:MCAISensorNearestHostile
       conditionKey: Enemy
       outputTargetKey: hostile
 
+    - !type:MCAISensorTargetDead
+      conditionKey: EnemyDead
+      targetKey: hostile
+
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRange
       targetKey: hostile
-      range: 1.5
+      range: 1.3
 
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRangeClose
@@ -47,10 +49,9 @@
       threshold: 0.25
 
     - !type:MCAISensorCheckPlasmaLevel
-      conditionKey: HightPlasma
+      conditionKey: HighPlasma
       threshold: 0.95
 
-    # Actions
     actions:
 
     - !type:MCAIActionMoveToTarget
@@ -63,9 +64,11 @@
     - !type:MCAIActionMeleeAttack
       targetKey: hostile
       preconditions:
+        Enemy: true
         EnemyInRange: true
       effects:
         EnemyDead: true
+      cost: 1.0
 
     - !type:MCAIActionFindExplorePoint
       outputTargetKey: ExplorePoint

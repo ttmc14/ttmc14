@@ -6,6 +6,8 @@ using Content.Shared._MC.AI;
 using Content.Shared._MC.AI.Events;
 using Content.Shared._MC.AI.Modules;
 using Content.Shared.Mobs.Systems;
+using Content.Shared.MouseRotator;
+using Content.Shared.Movement.Components;
 using Robust.Server.GameObjects;
 
 namespace Content.Server._MC.AI.Actions;
@@ -41,6 +43,9 @@ public sealed partial class MCAIActionMeleeAttackSystem : MCAIActionSystem<MCAIA
 
     protected override void OnActionStartup(Entity<MCAIAgentComponent> entity, ref MCAIActionStartupEvent<MCAIActionMeleeAttack> args)
     {
+        RemComp<MouseRotatorComponent>(entity);
+        RemComp<NoRotateOnMoveComponent>(entity);
+
         _combatMode.SetInCombatMode(entity, true);
 
         if (!entity.Comp.Memory.ContainerTryGet<EntityUid>(args.Action.TargetKey, out var target))

@@ -7,7 +7,7 @@ namespace Content.Server._MC.AI.Sensors.Xeno;
 
 public sealed partial class MCAISensorXenoResting : MCAISensor<MCAISensorXenoResting>
 {
-    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.1f);
+    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.05f);
 
     [DataField]
     public string TargetKey = string.Empty;

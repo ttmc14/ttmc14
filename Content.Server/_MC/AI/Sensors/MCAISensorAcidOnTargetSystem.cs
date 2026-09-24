@@ -7,7 +7,7 @@ namespace Content.Server._MC.AI.Sensors;
 
 public sealed partial class MCAISensorAcidOnTarget : MCAISensor<MCAISensorAcidOnTarget>
 {
-    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.1f);
+    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.05f);
 
     [DataField(required: true)]
     public string TargetKey = string.Empty;

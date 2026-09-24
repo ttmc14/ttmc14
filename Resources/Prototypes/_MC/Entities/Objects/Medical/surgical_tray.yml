@@ -1,9 +1,9 @@
 - type: entity
   parent: CMSurgicalCase
   id: MCSurgicalTrayEmpty
-  suffix: MC
   name: surgical tray
   description: A small metallic tray covered in sterile tarp. Intended to store surgical tools in a neat and clean fashion.
+  categories: [ MCContent ]
   components:
   - type: Sprite
     sprite: _RMC14/Objects/Storage/surgical_tray.rsi
@@ -25,14 +25,14 @@
     grid:
     - 0,0,13,3
     whitelist:
-      components:
-      - CMSurgeryTool
+      tags:
+      - MCToolSurgery
 
 - type: entity
   parent: MCSurgicalTrayEmpty
   id: MCSurgicalTray
   name: surgical tray
-  suffix: Filled, All Tools MC
+  suffix: Filled
   components:
   - type: StorageFill
     contents:

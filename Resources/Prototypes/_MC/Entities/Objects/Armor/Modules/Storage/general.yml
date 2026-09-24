@@ -49,10 +49,10 @@
         - Screwdriver
         - Wrench
         - Multitool
-        - Welder
         - MCPowerCell
         - C4
         components:
+        - Welder
         - BarbedWire
         - EntrenchingTool
         - EmptySandbag
@@ -73,9 +73,9 @@
       - Screwdriver
       - Wrench
       - Multitool
-      - Welder
       - MCPowerCell
       components:
+      - Welder
       - BarbedWire
       - EntrenchingTool
       - EmptySandbag

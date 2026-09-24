@@ -9,7 +9,7 @@ namespace Content.Server._MC.AI.Sensors;
 
 public sealed partial class MCAISensorCheckPlasmaLevel : MCAISensor<MCAISensorCheckPlasmaLevel>
 {
-    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.05);
+    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.05f);
 
     [DataField]
     public float Threshold = 0.5f;
@@ -20,7 +20,7 @@ public sealed partial class MCAISensorCheckPlasmaLevel : MCAISensor<MCAISensorCh
     public enum Directions : byte
     {
         Less,
-        Grater,
+        Greater,
     }
 }
 
@@ -33,7 +33,7 @@ public sealed class MCAISensorCheckPlasmaLevelSystem : MCAISensorSystem<MCAISens
         return args.Sensor.Direction switch
         {
             MCAISensorCheckPlasmaLevel.Directions.Less => _mcXenoPlasma.GetPlasmaNormalized(entity) < args.Sensor.Threshold,
-            MCAISensorCheckPlasmaLevel.Directions.Grater => _mcXenoPlasma.GetPlasmaNormalized(entity) > args.Sensor.Threshold,
+            MCAISensorCheckPlasmaLevel.Directions.Greater => _mcXenoPlasma.GetPlasmaNormalized(entity) > args.Sensor.Threshold,
             _ => throw new ArgumentOutOfRangeException()
         };
     }

@@ -244,6 +244,15 @@
     - MCBoxHandfulR312
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/r500/base.rsi
+    layers:
+    - state: base-full
+      map: [ "base" ]
+  - type: GenericVisualizer
+    visuals:
+      enum.ToggleableVisuals.Enabled:
+        base:
+          True: { state: base-full }
+          False: { state: base-empty }
   - type: Storage
     whitelist:
       tags:

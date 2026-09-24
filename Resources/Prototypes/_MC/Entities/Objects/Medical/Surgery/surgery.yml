@@ -4,10 +4,12 @@
 - type: entity
   parent: MCToolSurgery
   id: MCRetractor
-  suffix: MC
   name: retractor
   description: Retracts stuff.
   components:
+  - type: Tag
+    tags:
+    - MCToolSurgery
   - type: CMSurgeryTool
     startSound:
       path: /Audio/_RMC14/Medical/Surgery/retractor1.ogg
@@ -24,7 +26,6 @@
 - type: entity
   parent: MCRetractor
   id: MCRetractorPredator
-  suffix: MC
   name: opener
   components:
   - type: Sprite
@@ -33,7 +34,6 @@
 # Hemostat
 - type: entity
   parent: MCToolSurgery
-  suffix: MC
   id: MCHemostat
   name: hemostat
   description: You think you have seen this before.
@@ -52,7 +52,6 @@
 - type: entity
   parent: MCHemostat
   id: MCHemostatPredator
-  suffix: MC
   name: pincher
   components:
   - type: Sprite
@@ -133,7 +132,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCScalpel
-  suffix: MC
   name: scalpel
   description: Cut, cut, and once more cut
   components:
@@ -163,15 +161,11 @@
     soundHit:
       path: /Audio/Weapons/bladeslice.ogg
   - type: CMScalpel
-  - type: Tag
-    tags:
-    - RMCScalpel
 
 # - Predator
 - type: entity
   parent: MCScalpel
   id: MCScalpelPredator
-  suffix: MC
   name: cutter
   components:
   - type: Sprite
@@ -181,7 +175,6 @@
 - type: entity
   parent: MCScalpel
   id: MCScalpelLaser
-  suffix: MC
   name: laser scalpel
   description: A scalpel augmented with a directed laser, for more precise cutting without blood entering the field. This one looks to be the pinnacle of precision energy cutlery!
   components:
@@ -200,7 +193,6 @@
 - type: entity
   parent: MCScalpel
   id: MCScalpelManager
-  suffix: MC
   name: incision management system
   description: A true extension of the surgeon's body, this marvel instantly and completely prepares an incision allowing for the immediate commencement of therapeutic steps.
   components:
@@ -211,7 +203,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCCircularSaw
-  suffix: MC
   name: circular saw
   description: For heavy duty cutting.
   components:
@@ -239,7 +230,6 @@
 - type: entity
   parent: MCCircularSaw
   id: MCCircularSawPredator
-  suffix: MC
   name: bone saw
   components:
   - type: Sprite
@@ -249,7 +239,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCBonesetter
-  suffix: MC
   name: bone setter
   description: Used for setting bones back into place.
   components:
@@ -264,7 +253,6 @@
 - type: entity
   parent: MCBonesetter
   id: MCBonesetterPredator
-  suffix: MC
   name: bone placer
   components:
   - type: Sprite
@@ -274,7 +262,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCBoneGel
-  suffix: MC
   name: bottle of bone gel
   description: A container for bone gel.
   components:
@@ -287,7 +274,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCSurgicalMembrane
-  suffix: MC
   name: surgical membrane
   description: ""
   components:
@@ -299,7 +285,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCFixOVein
-  suffix: MC
   name: FixOVein
   description: ""
   components:
@@ -318,7 +303,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCMedicalTweezers
-  suffix: MC
   name: medical tweezers
   description: Medical tweezers intended to remove shrapnel from patients.
   components:
@@ -336,7 +320,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCTubeNanopaste
-  suffix: MC
   name: nanopaste
   description: A tube of paste containing swarms of repair nanites. Very effective in repairing robotic machinery.
   components:
@@ -378,7 +361,6 @@
 - type: entity
   parent: MCToolSurgery
   id: MCAutopsyScanner
-  suffix: MC
   name: autopsy scanner
   description: Extracts information on wounds.
   components:

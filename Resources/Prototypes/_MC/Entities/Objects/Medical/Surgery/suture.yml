@@ -10,7 +10,7 @@
     sprite: _MC/Objects/Medical/Surgery/healing.rsi
     state: suture
   - type: Item
-    size: Small
+    size: Tiny
   - type: WoundTreater
     woundGroups:
       Brute: MCBrute

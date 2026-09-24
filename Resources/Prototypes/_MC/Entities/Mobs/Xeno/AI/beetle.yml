@@ -2,7 +2,6 @@
   id: MCAIXenoBeetle
   components:
   - type: MCAIAgent
-    # Goals
     goals:
 
     - desiredState:
@@ -14,17 +13,21 @@
     - desiredState:
         Explore: true
       priority: 1
-    # Sensors
+
     sensors:
 
     - !type:MCAISensorNearestHostile
       conditionKey: Enemy
       outputTargetKey: hostile
 
+    - !type:MCAISensorTargetDead
+      conditionKey: EnemyDead
+      targetKey: hostile
+
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRange
       targetKey: hostile
-      range: 1.5
+      range: 1.3
 
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRangeClose
@@ -34,7 +37,7 @@
     - !type:MCAISensorRangeToTarget
       conditionKey: EnemyInRangeFar
       targetKey: hostile
-      range: 4.75
+      range: 3.25
 
     - !type:MCAISensorCheckHealthLevel
       conditionKey: LowHealth
@@ -45,9 +48,9 @@
       threshold: 0.25
 
     - !type:MCAISensorCheckPlasmaLevel
-      conditionKey: HightPlasma
+      conditionKey: HighPlasma
       threshold: 0.95
-    # Actions
+
     actions:
 
     - !type:MCAIActionMoveToTarget
@@ -70,9 +73,11 @@
     - !type:MCAIActionMeleeAttack
       targetKey: hostile
       preconditions:
+        Enemy: true
         EnemyInRange: true
       effects:
         EnemyDead: true
+      cost: 1.0
 
     - !type:MCAIActionFindExplorePoint
       outputTargetKey: ExplorePoint

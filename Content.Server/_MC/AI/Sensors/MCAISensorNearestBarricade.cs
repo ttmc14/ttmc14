@@ -5,7 +5,7 @@ namespace Content.Server._MC.AI.Sensors;
 
 public sealed partial class MCAISensorNearestBarricade : MCAISensorNearestComponent<MCAISensorNearestBarricade>
 {
-    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.5f);
+    public override TimeSpan UpdateInterval => TimeSpan.FromSeconds(0.05f);
 }
 
 public sealed partial class MCAISensorNearestBarricadeSystem : MCAISensorNearestWithComponentSystem<MCAISensorNearestBarricade, BarricadeComponent>;
