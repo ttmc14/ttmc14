@@ -42,6 +42,8 @@
       - Xeno
   - type: UncloakOnHit
   - type: ExtinguishFire
+  - type: SprayExtinguishTileFire
+    extinguishAmount: 20
   - type: IgnorePredictionHit
 
 - type: Tag

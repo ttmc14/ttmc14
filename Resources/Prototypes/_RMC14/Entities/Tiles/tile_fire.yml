@@ -348,7 +348,7 @@
           Two: { state: red_3 }
           Three: { state: red_3 }
           Four: { state: red_3 }
-
+F
 - type: entity
   parent: RMCTileFireForever
   id: RMCTileFireForeverNormal

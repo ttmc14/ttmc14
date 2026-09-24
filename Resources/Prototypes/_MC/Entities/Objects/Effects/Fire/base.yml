@@ -1,10 +1,12 @@
 - type: entity
   id: MCFirePreMade
   abstract: true
+  categories: [ MCContent ]
   components:
   - type: Tag
     tags:
-    - MCDamageFire
+    - MCDamageFir
+    - HideContextMenu
   - type: Transform
     anchored: true
   - type: Physics
@@ -12,11 +14,13 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape: !type:PhysShapeAabb
-          bounds: "-0.25,-0.25,0.25,0.40"
-        density: 1
+        shape:
+          !type:PhysShapeAabb
+          bounds: "-0.35,-0.35,0.35,0.35"
+        density: 100
         mask:
-        - ItemMask
+        - MobMask
+        hard: false
   - type: Sprite
     sprite: _MC/Effects/fire.rsi
     noRot: true
@@ -43,7 +47,8 @@
         MCBurn: 45
   - type: TileFire
     id: MCFire
-    extinguishInstantly: false
+    extinguishInstantly: true
+    sprayExtinguishMultiplier: 3
   - type: Appearance
   - type: GenericVisualizer
     visuals:
@@ -56,11 +61,9 @@
   - type: RMCScorchEffectOnSpawn
     decalTag: burnt
     tileLimit: 3
+  - type: BlockWeeds
 
 - type: entity
   parent: MCFirePreMade
   id: MCFire
   name: fire
-  categories: [ MCContent ]
-  components:
-  - type: BlockWeeds

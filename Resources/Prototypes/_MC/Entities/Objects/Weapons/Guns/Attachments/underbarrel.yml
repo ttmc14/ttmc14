@@ -463,7 +463,7 @@
   - type: ShootUseDelay
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot ""
+      gun_magazine: !type:ContainerSlot
   - type: RMCAmmoEject
   - type: AttachableToggleable
     userOnly: true
@@ -490,9 +490,10 @@
   - type: Spray
     transferAmount: 5
     sprayedPrototype: RMCExtinguisherSpray
-    vaporAmount: 1
+    vaporAmount: 3
     sprayDistance: 6
     sprayVelocity: 8
+    pushbackAmount: 0
     spraySound:
       path: /Audio/Effects/extinguish.ogg
   - type: RefillableSolution
