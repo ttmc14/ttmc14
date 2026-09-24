@@ -22,27 +22,29 @@ public sealed partial class MCSlowdownStacksSystem : EntitySystem
         var query = EntityQueryEnumerator<MCSlowdownStacksComponent, StatusEffectComponent>();
         while (query.MoveNext(out var uid, out var component, out var statusEffectComponent))
         {
+            if (statusEffectComponent.AppliedTo is not { } targetUid)
+                continue;
+
             if (component.UpdateNext > _timing.CurTime)
                 continue;
 
-            Update((uid, component), 1f /  (float) component.UpdateDelay.TotalSeconds, statusEffectComponent.AppliedTo);
+            Update((uid, component), 1f /  (float) component.UpdateDelay.TotalSeconds, targetUid);
 
             component.UpdateNext = _timing.CurTime + component.UpdateDelay;
             DirtyField(uid, component, nameof(MCSlowdownStacksComponent.UpdateNext));
         }
     }
 
-    private void Update(Entity<MCSlowdownStacksComponent> entity, float scale, EntityUid? targetUid)
+    private void Update(Entity<MCSlowdownStacksComponent> entity, float scale, EntityUid targetUid)
     {
         entity.Comp.Stacks -= entity.Comp.Regeneration * scale;
 
-        if (targetUid is not null)
-            _movementSpeedModifier.RefreshMovementSpeedModifiers(targetUid.Value);
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(targetUid);
 
         if (entity.Comp.Stacks > 0)
             return;
 
-        PredictedQueueDel(entity.Owner);
+        _statusEffects.TryRemoveStatusEffect(targetUid, MetaData(targetUid).EntityPrototype!);
     }
 
     private static void OnRefreshMovementSpeedModifiers(Entity<MCSlowdownStacksComponent> entity, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
