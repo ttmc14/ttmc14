@@ -109,6 +109,7 @@
   - type: MCXenoCreateResinJelly
   - type: MCXenoRecycle
   - type: MCXenoPlaceStructure
+  - type: MCXenoAcidWellFiller
   - type: MCXenoHealingInfusion
   - type: XenoConstruction # TODO: Make MC component
     buildRange: 2.75

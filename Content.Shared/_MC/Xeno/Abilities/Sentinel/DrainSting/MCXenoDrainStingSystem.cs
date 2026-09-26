@@ -1,6 +1,7 @@
 ﻿using Content.Shared._MC.Armor.Core.Events;
 using Content.Shared._MC.Damage;
 using Content.Shared._MC.Popup;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Abilities.Sentinel.ToxicStacks;
 using Content.Shared._MC.Xeno.Heal;

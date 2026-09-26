@@ -1,4 +1,5 @@
 ﻿using Content.Shared._CE.ZLevels.Core.EntitySystems;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.ZLevels.Components;
 using Content.Shared._MC.ZLevels.Events;

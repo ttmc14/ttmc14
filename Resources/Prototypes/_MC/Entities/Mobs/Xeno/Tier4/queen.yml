@@ -109,9 +109,6 @@
   - type: MCXenoZoom
     zoom: 1.5,1.5
     doAfter: 1
-  - type: MCXenoPlaceStructure
-  - type: XenoConstruction
-    buildDelay: 2
   - type: MCXenoNeurotoxinSting
     reagents:
     - ReagentId: MCOzelomelyn
@@ -121,3 +118,8 @@
   # Passive
   - type: MCXenoSunder
     multiplier: 0.7
+  # Construction
+  - type: MCXenoPlaceStructure
+  - type: MCXenoAcidWellFiller
+  - type: XenoConstruction
+    buildDelay: 2

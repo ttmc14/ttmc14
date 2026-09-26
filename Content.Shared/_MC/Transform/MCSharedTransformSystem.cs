@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 
@@ -7,27 +8,26 @@ namespace Content.Shared._MC.Transform;
 public sealed class MCSharedTransformSystem : EntitySystem
 {
     [Dependency] private readonly IMapManager _mapManager = null!;
-
     [Dependency] private readonly SharedMapSystem _map = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
 
-    private EntityQuery<TransformComponent> _xformQuery;
+    private EntityQuery<TransformComponent> _query;
     private EntityQuery<MapGridComponent> _gridQuery;
 
     public override void Initialize()
     {
-        base.Initialize();
-
-        _xformQuery = GetEntityQuery<TransformComponent>();
+        _query = GetEntityQuery<TransformComponent>();
         _gridQuery = GetEntityQuery<MapGridComponent>();
     }
 
+    [PublicAPI]
     public void SetMapCoordinates(EntityUid entity, MapCoordinates coordinates, bool unanchor = true)
     {
-        var xform = _xformQuery.GetComponent(entity);
+        var xform = _query.GetComponent(entity);
         SetMapCoordinates((entity, xform), coordinates, unanchor);
     }
 
+    [PublicAPI]
     public void SetMapCoordinates(Entity<TransformComponent> entity, MapCoordinates coordinates, bool unanchor = true)
     {
         var mapUid = _map.GetMap(coordinates.MapId);

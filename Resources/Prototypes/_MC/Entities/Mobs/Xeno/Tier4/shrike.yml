@@ -105,8 +105,6 @@
   - type: XenoDevolve
     devolvesTo:
     - MCXenoDrone
-  # Utilities
-  - type: MCXenoPlaceStructure
   # Abilities
   - type: XenoPheromones
     pheromonesMultiplier: 4.5
@@ -123,3 +121,8 @@
     reagents:
     - ReagentId: MCOzelomelyn
       Quantity: 5
+  # Construction
+  - type: MCXenoPlaceStructure
+  - type: MCXenoAcidWellFiller
+  - type: XenoConstruction
+    buildDelay: 2

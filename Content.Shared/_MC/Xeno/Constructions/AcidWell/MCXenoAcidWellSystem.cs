@@ -1,23 +1,24 @@
 ﻿using Content.Shared._MC.Fire;
 using Content.Shared._MC.Smoke.Systems;
+using Content.Shared._MC.Xeno.Abilities;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Construction;
+using Content.Shared.Coordinates;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
-using Content.Shared.Mobs.Components;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Xeno.Constructions.AcidWell;
 
-public sealed class MCXenoAcidWellSystem : EntitySystem
+public sealed class MCXenoAcidWellSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly INetManager _net = null!;
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
@@ -30,12 +31,12 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
 
     public override void Initialize()
     {
-        base.Initialize();
+        SubscribeLocalEvent<MCXenoAcidWellComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MCXenoAcidWellComponent, EntityTerminatingEvent>(OnTerminating);
 
         SubscribeLocalEvent<MCXenoAcidWellComponent, InteractHandEvent>(OnInteractHand);
-        SubscribeLocalEvent<MCXenoAcidWellComponent, MCXenoAcidWellFillDoAfter>(OnInteractDoAfter);
-        SubscribeLocalEvent<MCXenoAcidWellComponent, ComponentStartup>(OnStartup);
-        SubscribeLocalEvent<MCXenoAcidWellComponent, EntityTerminatingEvent>(OnShutdown);
+        SubscribeLocalEvent<MCXenoAcidWellComponent, MCXenoAcidWellFillDoAfterEvent>(OnInteractDoAfter);
+
         SubscribeLocalEvent<MCXenoAcidWellComponent, StartCollideEvent>(OnCollideStart);
         SubscribeLocalEvent<MCXenoAcidWellComponent, ExaminedEvent>(OnExamined);
 
@@ -45,8 +46,6 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
-
         var query = EntityQueryEnumerator<MCXenoAcidWellComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
@@ -59,22 +58,35 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
             component.TimeAutoChargeNext = component.TimeAutoChargeDelay + _timing.CurTime;
             component.Charges++;
 
-            ChargeUpdate((uid, component));
+            AppearanceRefresh((uid, component));
         }
+    }
+
+    private void OnStartup(Entity<MCXenoAcidWellComponent> entity, ref ComponentStartup args)
+    {
+        entity.Comp.TimeAutoChargeNext = entity.Comp.TimeAutoChargeDelay + _timing.CurTime;
+        AppearanceRefresh(entity);
+    }
+
+    private void OnTerminating(Entity<MCXenoAcidWellComponent> entity, ref EntityTerminatingEvent args)
+    {
+        const int rangeMin = 0;
+        const int rangeMax = 3;
+
+        var range = int.Clamp((int) float.Ceiling(entity.Comp.Charges / 2f), rangeMin, rangeMax);
+
+        _mcSmoke.Setup(entity.Owner.ToCoordinates(), range, entity.Comp.SmokeProtoId, origin: entity);
     }
 
     private void OnInteractHand(Entity<MCXenoAcidWellComponent> entity, ref InteractHandEvent args)
     {
-        if (!HasComp<XenoConstructionComponent>(args.User))
-            return;
-
-        if (!_mcXenoPlasma.HasPlasma(args.User, entity.Comp.FillCost))
+        if (!HasComp<MCXenoAcidWellFillerComponent>(args.User) || !_mcXenoPlasma.HasPlasma(args.User, entity.Comp.FillCost))
             return;
 
         if (entity.Comp.Charges >= entity.Comp.ChargesMax)
             return;
 
-        var ev = new MCXenoAcidWellFillDoAfter();
+        var ev = new MCXenoAcidWellFillDoAfterEvent();
         var doAfter = new DoAfterArgs(EntityManager, args.User, entity.Comp.FillDelay, ev, entity, target: entity)
         {
             BreakOnMove = true,
@@ -84,12 +96,14 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfter);
     }
 
-    private void OnInteractDoAfter(Entity<MCXenoAcidWellComponent> entity, ref MCXenoAcidWellFillDoAfter args)
+    private void OnInteractDoAfter(Entity<MCXenoAcidWellComponent> entity, ref MCXenoAcidWellFillDoAfterEvent args)
     {
-        if (args.Cancelled || args.Handled)
+        if (args.Handled || args.Cancelled)
             return;
 
-        if (!_mcXenoPlasma.HasPlasma(args.User, entity.Comp.FillCost))
+        args.Handled = true;
+
+        if (!HasComp<MCXenoAcidWellFillerComponent>(args.User) || !_mcXenoPlasma.HasPlasma(args.User, entity.Comp.FillCost))
             return;
 
         if (entity.Comp.Charges >= entity.Comp.ChargesMax)
@@ -98,26 +112,15 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         _mcXenoPlasma.RemovePlasma(args.User, entity.Comp.FillCost);
         entity.Comp.Charges++;
 
-        ChargeUpdate(entity);
-    }
-
-    private void OnStartup(Entity<MCXenoAcidWellComponent> entity, ref ComponentStartup args)
-    {
-        entity.Comp.TimeAutoChargeNext = entity.Comp.TimeAutoChargeDelay + _timing.CurTime;
-    }
-
-    private void OnShutdown(Entity<MCXenoAcidWellComponent> entity, ref EntityTerminatingEvent args)
-    {
-        var transform = Transform(entity);
-        _mcSmoke.Setup(transform.Coordinates, int.Clamp((int) float.Ceiling(entity.Comp.Charges / 2f), 0, 3), entity.Comp.SmokeProtoId, origin: entity);
+        AppearanceRefresh(entity);
     }
 
     private void OnCollideStart(Entity<MCXenoAcidWellComponent> entity, ref StartCollideEvent args)
     {
-        if (!HasComp<MobStateComponent>(args.OtherEntity))
+        if (!IsMob(args.OtherEntity))
             return;
 
-        if (HasComp<XenoComponent>(args.OtherEntity))
+        if (IsXeno(args.OtherEntity))
         {
             OnStepXeno(entity, args.OtherEntity);
             return;
@@ -126,7 +129,7 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         OnStep(entity, args.OtherEntity);
     }
 
-    private void OnExamined(Entity<MCXenoAcidWellComponent> entity, ref ExaminedEvent args)
+    private static void OnExamined(Entity<MCXenoAcidWellComponent> entity, ref ExaminedEvent args)
     {
         // TODO: Add creator to string
 
@@ -136,12 +139,10 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         args.AddMessage(message);
     }
 
-    private void OnIgniteAttempt(Entity<MCXenoAcidWellComponent> entity, ref RMCIgniteAttemptEvent args)
+    private static void OnIgniteAttempt(Entity<MCXenoAcidWellComponent> entity, ref RMCIgniteAttemptEvent args)
     {
-        if (entity.Comp.Charges == 0)
-            return;
-
-        args.Cancel();
+        if (entity.Comp.Charges > 0)
+            args.Cancel();
     }
 
     private void OnGetFireImmunity(Entity<MCXenoAcidWellComponent> entity, ref RMCGetFireImmunityEvent args)
@@ -149,10 +150,10 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
         if (!ChargeUse(entity, 1))
             return;
 
-        Del(args.Fire);
-
         args.Ignite = false;
         args.Immune = true;
+
+        QueueDel(args.Fire);
     }
 
     private void OnStepXeno(Entity<MCXenoAcidWellComponent> entity, EntityUid targetUid)
@@ -169,7 +170,7 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
 
     private void OnStep(Entity<MCXenoAcidWellComponent> entity, EntityUid targetUid)
     {
-        var damage = entity.Comp.StepDamage * entity.Comp.Charges;
+        var damage = entity.Comp.ChargeDamage * entity.Comp.Charges;
 
         if (!ChargeUse(entity, entity.Comp.Charges))
             return;
@@ -179,26 +180,23 @@ public sealed class MCXenoAcidWellSystem : EntitySystem
 
     private bool ChargeUse(Entity<MCXenoAcidWellComponent> entity, int amount)
     {
-        if (amount <= 0)
-            return false;
-
-        if (entity.Comp.Charges == 0)
-            return false;
-
-        if (entity.Comp.Charges < amount)
+        if (amount <= 0 || entity.Comp.Charges == 0 || entity.Comp.Charges < amount)
             return false;
 
         entity.Comp.Charges -= amount;
-        ChargeUpdate(entity);
 
-        var transform = Transform(entity);
-        _mcSmoke.Setup(transform.Coordinates, 0, entity.Comp.SmokeProtoId, origin: entity);
+        AppearanceRefresh(entity);
 
+        _mcSmoke.Setup(entity.Owner.ToCoordinates(), entity.Comp.SmokeRange, entity.Comp.SmokeProtoId, origin: entity);
         return true;
     }
 
-    private void ChargeUpdate(Entity<MCXenoAcidWellComponent> entity)
+    private void AppearanceRefresh(Entity<MCXenoAcidWellComponent> entity)
     {
+        // Miss predict go BRRRR
+        if (_net.IsClient)
+            return;
+
         _pointLight.SetRadius(entity, entity.Comp.Charges);
         _pointLight.SetEnergy(entity, entity.Comp.Charges / 2f);
         _appearance.SetData(entity, MCXenoAcidWellVisuals.Fill, entity.Comp.Charges);

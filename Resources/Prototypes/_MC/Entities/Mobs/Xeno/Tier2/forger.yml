@@ -106,6 +106,7 @@
       types:
         MCBurn: 15
   # Passive abilities
+  - type: MCFireImmunity
   - type: RMCImmuneToIgnition
   - type: RMCImmuneToFireTileDamage
   - type: PointLight

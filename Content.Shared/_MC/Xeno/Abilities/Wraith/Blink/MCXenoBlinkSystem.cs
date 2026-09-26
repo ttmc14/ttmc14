@@ -2,6 +2,7 @@
 using Content.Shared._MC.Areas;
 using Content.Shared._MC.Areas.Components;
 using Content.Shared._MC.StatusEffects.SlowdownStacks;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Slow;

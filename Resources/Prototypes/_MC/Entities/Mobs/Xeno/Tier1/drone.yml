@@ -107,6 +107,7 @@
   - type: MCXenoCreateResinJelly
   - type: MCXenoRecycle
   - type: MCXenoPlaceStructure
+  - type: MCXenoAcidWellFiller
   - type: XenoAcid # TODO: Make MC component
   - type: VentCrawler
     ventCrawlIcon: drone

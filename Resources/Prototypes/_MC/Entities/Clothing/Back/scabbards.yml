@@ -53,7 +53,6 @@
 - type: entity
   parent: RMCScabbardBase
   id: MCScabbardMachete
-  suffix: MC
   name: H5 pattern M2132 machete scabbard
   description: A large leather scabbard used to carry a M2132 machete. It can be strapped to the back, waist or armor.
   components:
@@ -66,7 +65,7 @@
     slots:
     - back
     - belt
-    - suitstorage
+    - suitStorage
   - type: ItemSlots
     slots:
       item:

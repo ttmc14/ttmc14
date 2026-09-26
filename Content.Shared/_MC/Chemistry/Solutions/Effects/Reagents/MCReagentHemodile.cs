@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Stun;
+﻿using Content.Shared._MC.StatusEffects.Stun;
+using Content.Shared._MC.Stun;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.EntityEffects;

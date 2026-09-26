@@ -188,7 +188,6 @@
   parent: MCClaymore
   id: MCMachete
   name: M2132 machete
-  suffix: MC
   description: Latest issue of the TGMC Machete. Great for clearing out jungle or brush on outlying colonies. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit.
   components:
   - type: Tag
@@ -211,7 +210,6 @@
   parent: MCMachete
   id: MCMacheteAlt
   name: machete
-  suffix: MC, Alt
   description: A nice looking machete. Great for clearing out jungle or brush on outlying colonies. Found commonly in the hands of scouts and trackers, but difficult to carry with the usual kit.
   components:
   - type: Tag
@@ -230,7 +228,6 @@
   parent: MCMachete
   id: MCMacheteAntiPlasma
   name: energy machete
-  suffix: MC
   description: A sleek energy machete. Specially designed for large-scale battles against Xenomorphs by the TerraGov Marine Corps. However, it is difficult to carry along with the standard kit.
   components:
   - type: PointLight

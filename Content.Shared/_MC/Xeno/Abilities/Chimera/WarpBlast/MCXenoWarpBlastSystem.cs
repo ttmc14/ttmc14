@@ -2,6 +2,7 @@
 using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Map;
 using Content.Shared._MC.Mob.Stamina;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Robust.Shared.Audio.Systems;
 

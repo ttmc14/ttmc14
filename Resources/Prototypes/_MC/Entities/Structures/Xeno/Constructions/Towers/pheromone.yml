@@ -39,6 +39,7 @@
   - type: XenoStructureMapTracked
   - type: TacticalMapTracked
   - type: MCXenoStructurePheromoneTower
+    selected: Frenzy
   - type: UserInterface
     interfaces:
       enum.MCXenoStructurePheromoneTowerSelectUI.Key:
@@ -47,13 +48,13 @@
 - type: entity
   parent: MCXenoPheromoneTower
   id: MCXenoPheromoneTowerTier1
+  suffix: Tier 1, Frenzy
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t1.rsi
-  - type: XenoPheromones
-    pheromones: Frenzy
-    pheromonesMultiplier: 3.5
-    pheromonesRange: 32
+  - type: PointLight
+    radius: 2
+    energy: 2
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
@@ -61,30 +62,84 @@
 
 - type: entity
   parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerTier1Warding
+  suffix: Tier 1, Warding
+  components:
+  - type: MCXenoStructurePheromoneTower
+    selected: Warding
+
+- type: entity
+  parent: MCXenoPheromoneTower
+  id: MCXenoPheromoneTowerTier1Recovery
+  suffix: Tier 1, Recovery
+  components:
+  - type: MCXenoStructurePheromoneTower
+    selected: Recovery
+
+- type: entity
+  parent: MCXenoPheromoneTower
   id: MCXenoPheromoneTowerTier2
+  suffix: Tier 2, Frenzy
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t2.rsi
   - type: XenoPheromones
-    pheromones: Frenzy
-    pheromonesMultiplier: 5.5
+    pheromonesMultiplier: 6.5
     pheromonesRange: 32
+  - type: PointLight
+    radius: 2
+    energy: 3
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
       state: tower_pheromone_tier_2
 
 - type: entity
+  parent: MCXenoPheromoneTowerTier2
+  id: MCXenoPheromoneTowerTier2Warding
+  suffix: Tier 2, Warding
+  components:
+  - type: MCXenoStructurePheromoneTower
+    selected: Warding
+
+- type: entity
+  parent: MCXenoPheromoneTowerTier2
+  id: MCXenoPheromoneTowerTier2Recovery
+  suffix: Tier 2, Recovery
+  components:
+  - type: MCXenoStructurePheromoneTower
+    selected: Recovery
+
+- type: entity
   parent: MCXenoPheromoneTower
   id: MCXenoPheromoneTowerTier3
+  suffix: Tier 3, Frenzy
   components:
   - type: Sprite
     sprite: _MC/Structures/Xeno/Towers/pheromone_t3.rsi
   - type: XenoPheromones
-    pheromones: Frenzy
     pheromonesMultiplier: 7.5
     pheromonesRange: 32
+  - type: PointLight
+    radius: 2
+    energy: 4
   - type: TacticalMapIcon
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/Xeno/structure.rsi
       state: tower_pheromone_tier_3
+
+- type: entity
+  parent: MCXenoPheromoneTowerTier3
+  id: MCXenoPheromoneTowerTier3Warding
+  suffix: Tier 3, Warding
+  components:
+  - type: MCXenoStructurePheromoneTower
+    selected: Warding
+
+- type: entity
+  parent: MCXenoPheromoneTowerTier3
+  id: MCXenoPheromoneTowerTier3Recovery
+  suffix: Tier 3, Recovery
+  components:
+  - type: MCXenoStructurePheromoneTower
+    selected: Recovery

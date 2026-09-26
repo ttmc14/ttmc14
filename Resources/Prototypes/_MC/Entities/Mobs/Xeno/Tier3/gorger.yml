@@ -41,33 +41,34 @@
     - MCActionXenoHiveStatus
     - MCActionXenoRest
     - MCActionXenoPsydrain
-    hudOffset: -0.1,0.1
+    hudOffset: -0.1, 0.1
   # Statistics
   - type: MobThresholds
     thresholds:
       0: Alive
-      700: Critical
-      800: Dead
+      600: Critical
+      700: Dead
   - type: XenoPlasma
-    plasma: 575 # TODO: Not valid, check ss13 when developing
-    maxPlasma: 575 # TODO: Not valid, check ss13 when developing
-    plasmaRegenOnWeeds: 35 # TODO: Not valid, check ss13 when developing
+    plasma: 400
+    maxPlasma: 400
+    plasmaRegenLimit: 40
+    plasmaRegenOnWeeds: 5
   - type: MCArmor
     soft:
       melee: 20
-      bullet: 20
-      laser: 20
+      bullet: 15
+      laser: 15
       energy: 20
       bomb: 10
       bio: 20
-      fire: 20
+      fire: 10
       acid: 20
   - type: MeleeWeapon
     damage:
       types:
-        MCBrute: 30
+        MCBrute: 20
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.631
-    baseSprintSpeed: 3.571
+    baseWalkSpeed: 2.8
+    baseSprintSpeed: 3.8
   - type: RMCSize
     size: Big

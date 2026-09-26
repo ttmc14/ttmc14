@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Xeno.Abilities.Forger.Inferno.Events;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.DoAfter;
@@ -52,7 +53,7 @@ public sealed class MCXenoInfernoSystem : MCXenoAbilitySystem
         if (!RMCActions.CanUseActionPopup(entity.Owner, entity))
             return;
 
-        var ev = new MCXenoInfernoDoAfterEvent(GetNetEntity(args.Action));
+        var ev = new MCXenoInfernoDoAfterEvent(args.Action, EntityManager);
         var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.InfernoDelay, ev, entity, entity)
         {
             BreakOnMove = true,
@@ -70,7 +71,7 @@ public sealed class MCXenoInfernoSystem : MCXenoAbilitySystem
         if (args.Handled || args.Cancelled)
             return;
 
-        var action = GetEntity(args.Action);
+        var action = GetEntity(args.ActionUid);
         if (!RMCActions.TryUseAction(entity, action, entity))
             return;
 

@@ -2992,29 +2992,21 @@ entities:
     - type: Transform
       pos: 31.282816,45.50244
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 337
     components:
     - type: Transform
       pos: 34.025,49.06494
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 338
     components:
     - type: Transform
       pos: 34.30625,49.06494
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 339
     components:
     - type: Transform
       pos: 34.89219,49.06494
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMDrinkCanFruitBeer
   entities:
   - uid: 502
@@ -3022,22 +3014,16 @@ entities:
     - type: Transform
       pos: 33.428352,25.54548
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 503
     components:
     - type: Transform
       pos: 33.443977,25.186106
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 504
     components:
     - type: Transform
       pos: 34.725227,25.76423
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMOverheadPipe
   entities:
   - uid: 391
@@ -3072,8 +3058,6 @@ entities:
     - type: Transform
       pos: 64.4794,22.626604
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
     - type: Paper
       content: Cake is...
 - proto: CMPaperBin30
@@ -3103,8 +3087,6 @@ entities:
     - type: Transform
       pos: 34.5,45.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMPortableSurgicalBedSpawnFolded
   entities:
   - uid: 479
@@ -3112,15 +3094,11 @@ entities:
     - type: Transform
       pos: 35.5,28.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 480
     components:
     - type: Transform
       pos: 33.5,26.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMPottedPlantRandom
   entities:
   - uid: 2162
@@ -3365,32 +3343,24 @@ entities:
     - type: Transform
       pos: 25.5,45.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 228
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 22.5,42.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 511
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,28.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 512
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 46.5,23.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMVentScrubber
   entities:
   - uid: 216
@@ -3398,22 +3368,16 @@ entities:
     - type: Transform
       pos: 25.5,48.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 543
     components:
     - type: Transform
       pos: 34.5,21.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 547
     components:
     - type: Transform
       pos: 25.5,48.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMVinesLight
   entities:
   - uid: 645
@@ -3575,15 +3539,11 @@ entities:
     - type: Transform
       pos: 28.747496,28.675837
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 438
     components:
     - type: Transform
       pos: 30.091246,28.785212
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: CMWindoorSecure
   entities:
   - uid: 362
@@ -3656,29 +3616,21 @@ entities:
     - type: Transform
       pos: 62.526276,15.634662
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2071
     components:
     - type: Transform
       pos: 66.57315,16.587788
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2072
     components:
     - type: Transform
       pos: 65.57315,15.415912
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2073
     components:
     - type: Transform
       pos: 63.44815,16.728413
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: FoodCakeBlackForest
   entities:
   - uid: 2069
@@ -3686,8 +3638,6 @@ entities:
     - type: Transform
       pos: 64.4169,16.218117
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: FoodPlate
   entities:
   - uid: 2068
@@ -3695,8 +3645,6 @@ entities:
     - type: Transform
       pos: 64.4169,16.280617
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: FoodPlateSmall
   entities:
   - uid: 2074
@@ -3704,77 +3652,57 @@ entities:
     - type: Transform
       pos: 62.51065,15.634662
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2075
     components:
     - type: Transform
       pos: 65.526276,15.447162
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2076
     components:
     - type: Transform
       pos: 66.6044,16.619038
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2077
     components:
     - type: Transform
       pos: 63.4169,16.759663
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2163
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 71.48892,29.562895
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2164
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 71.52017,29.250395
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2165
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 71.4733,29.45352
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2166
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 70.48892,29.562895
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2167
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 70.5983,29.344145
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2168
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 70.55142,29.54727
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: FoodPlateSmallTrash
   entities:
   - uid: 2066
@@ -3782,69 +3710,51 @@ entities:
     - type: Transform
       pos: 62.495026,16.858742
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2067
     components:
     - type: Transform
       pos: 66.588776,15.483742
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2078
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 62.276276,13.275287
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2079
     components:
     - type: Transform
       pos: 60.682526,16.290913
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2080
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 66.651276,13.181537
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2081
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 68.13565,14.900287
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2082
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 67.963776,17.322163
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2083
     components:
     - type: Transform
       pos: 64.2919,18.244038
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2170
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 71.45767,28.70352
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: FoodPlateTrash
   entities:
   - uid: 2169
@@ -3853,8 +3763,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 69.48892,29.10977
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: GasPipeBendAlt1
   entities:
   - uid: 270
@@ -3863,23 +3771,17 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 41.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 532
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 533
     components:
     - type: Transform
       pos: 36.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: GasPipeManifold
   entities:
   - uid: 254
@@ -3888,16 +3790,12 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 32.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 536
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 36.5,26.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: GasPipeStraightAlt1
   entities:
   - uid: 96
@@ -3905,229 +3803,169 @@ entities:
     - type: Transform
       pos: 33.5,28.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 167
     components:
     - type: Transform
       pos: 33.5,30.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 170
     components:
     - type: Transform
       pos: 33.5,35.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 171
     components:
     - type: Transform
       pos: 33.5,37.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 172
     components:
     - type: Transform
       pos: 33.5,32.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 179
     components:
     - type: Transform
       pos: 33.5,34.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 193
     components:
     - type: Transform
       pos: 33.5,39.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 195
     components:
     - type: Transform
       pos: 33.5,38.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 198
     components:
     - type: Transform
       pos: 33.5,31.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 199
     components:
     - type: Transform
       pos: 33.5,29.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 200
     components:
     - type: Transform
       pos: 33.5,33.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 201
     components:
     - type: Transform
       pos: 33.5,36.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 256
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,40.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 257
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 258
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,42.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 259
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,43.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 260
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,44.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 261
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,45.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 262
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 263
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 34.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 264
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 35.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 265
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 36.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 266
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 37.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 267
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 38.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 268
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 39.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 269
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 40.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 271
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 41.5,48.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 272
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 41.5,49.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 534
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 535
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 35.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: GasPipeTJunctionAlt1
   entities:
   - uid: 255
@@ -4135,8 +3973,6 @@ entities:
     - type: Transform
       pos: 33.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: GasPort
   entities:
   - uid: 273
@@ -4145,24 +3981,18 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 38.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 274
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 38.5,40.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 275
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 38.5,39.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCApc
   entities:
   - uid: 87
@@ -4218,15 +4048,11 @@ entities:
     - type: Transform
       pos: 33.5,17.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 510
     components:
     - type: Transform
       pos: 33.5,17.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCBeltMedicalHyposprayCorpsmanFull
   entities:
   - uid: 507
@@ -4234,8 +4060,6 @@ entities:
     - type: Transform
       pos: 35.5,19.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCGeneratorFusionColony
   entities:
   - uid: 1318
@@ -6122,58 +5946,42 @@ entities:
     - type: Transform
       pos: 23.16746,42.16112
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1965
     components:
     - type: Transform
       pos: 24.339334,41.957996
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1966
     components:
     - type: Transform
       pos: 23.245584,40.56737
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1967
     components:
     - type: Transform
       pos: 25.44871,41.25487
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1968
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 21.545202,41.739246
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1970
     components:
     - type: Transform
       pos: 22.717077,43.34862
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1971
     components:
     - type: Transform
       pos: 22.513952,39.31737
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1972
     components:
     - type: Transform
       pos: 21.498327,39.50487
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCSheetMetal20
   entities:
   - uid: 95
@@ -6181,15 +5989,11 @@ entities:
     - type: Transform
       pos: 23.55315,39.5177
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 220
     components:
     - type: Transform
       pos: 21.663424,42.7552
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCSheetPlasteel15
   entities:
   - uid: 217
@@ -6197,15 +6001,11 @@ entities:
     - type: Transform
       pos: 23.5,43.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 218
     components:
     - type: Transform
       pos: 24.475924,43.6927
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: MCSpawnNukeDiskGenerator
   entities:
   - uid: 396
@@ -8502,79 +8302,59 @@ entities:
     - type: Transform
       pos: 33.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 206
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 25.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 214
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 25.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 227
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 22.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 284
     components:
     - type: Transform
       pos: 37.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 300
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 37.5,39.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 524
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 525
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 46.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 527
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 33.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 541
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 36.5,21.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCGasPipeStraight
   entities:
   - uid: 60
@@ -8582,597 +8362,441 @@ entities:
     - type: Transform
       pos: 33.5,35.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 77
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 97
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 158
     components:
     - type: Transform
       pos: 33.5,32.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 159
     components:
     - type: Transform
       pos: 33.5,34.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 163
     components:
     - type: Transform
       pos: 33.5,43.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 164
     components:
     - type: Transform
       pos: 33.5,37.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 168
     components:
     - type: Transform
       pos: 33.5,30.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 173
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 32.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 174
     components:
     - type: Transform
       pos: 33.5,28.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 177
     components:
     - type: Transform
       pos: 33.5,45.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 178
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 30.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 180
     components:
     - type: Transform
       pos: 33.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 181
     components:
     - type: Transform
       pos: 33.5,40.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 182
     components:
     - type: Transform
       pos: 33.5,33.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 183
     components:
     - type: Transform
       pos: 33.5,36.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 185
     components:
     - type: Transform
       pos: 33.5,38.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 188
     components:
     - type: Transform
       pos: 33.5,31.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 190
     components:
     - type: Transform
       pos: 33.5,29.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 192
     components:
     - type: Transform
       pos: 33.5,42.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 194
     components:
     - type: Transform
       pos: 33.5,44.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 197
     components:
     - type: Transform
       pos: 33.5,39.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 203
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 28.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 205
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 229
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 23.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 230
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 24.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 231
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 25.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 232
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 26.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 234
     components:
     - type: Transform
       pos: 27.5,45.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 235
     components:
     - type: Transform
       pos: 27.5,44.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 236
     components:
     - type: Transform
       pos: 27.5,43.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 237
     components:
     - type: Transform
       pos: 27.5,42.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 238
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 28.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 239
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 240
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 30.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 241
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 242
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 32.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 243
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 244
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 245
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 35.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 246
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 36.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 247
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 37.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 248
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 26.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 249
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 27.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 250
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 28.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 251
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 29.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 252
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 30.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 253
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 31.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 276
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 33.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 277
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 278
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 35.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 283
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 36.5,47.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 286
     components:
     - type: Transform
       pos: 37.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 287
     components:
     - type: Transform
       pos: 37.5,45.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 288
     components:
     - type: Transform
       pos: 37.5,44.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 289
     components:
     - type: Transform
       pos: 37.5,43.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 290
     components:
     - type: Transform
       pos: 37.5,42.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 291
     components:
     - type: Transform
       pos: 37.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 513
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 38.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 514
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 37.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 515
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 36.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 516
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 35.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 517
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 34.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 518
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 45.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 519
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 44.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 520
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 43.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 521
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 42.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 522
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 41.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 523
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 40.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 528
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,24.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 529
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,25.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 530
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,26.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 531
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 39.5,23.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 537
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 36.5,25.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 538
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 36.5,24.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 539
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 36.5,23.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 540
     components:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 36.5,22.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 542
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 35.5,21.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCGasPipeTJunction
   entities:
   - uid: 204
@@ -9181,31 +8805,23 @@ entities:
       rot: 3.141592653589793 rad
       pos: 27.5,41.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 233
     components:
     - type: Transform
       pos: 27.5,46.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 299
     components:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 37.5,40.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 526
     components:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 39.5,27.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCGrassa1
   entities:
   - uid: 716
@@ -9909,15 +9525,11 @@ entities:
     - type: Transform
       pos: 35.5,14.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 459
     components:
     - type: Transform
       pos: 38.5,20.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCLadder
   entities:
   - uid: 1319
@@ -9968,8 +9580,6 @@ entities:
     - type: Transform
       pos: 31.259378,45.87744
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCLampTripod
   entities:
   - uid: 334
@@ -9977,36 +9587,26 @@ entities:
     - type: Transform
       pos: 26.5,43.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 335
     components:
     - type: Transform
       pos: 26.5,39.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1962
     components:
     - type: Transform
       pos: 28.506693,28.512762
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1963
     components:
     - type: Transform
       pos: 36.157776,37.54072
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 1964
     components:
     - type: Transform
       pos: 37.91389,37.587597
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCLockerPoliceSoro
   entities:
   - uid: 345
@@ -11877,15 +11477,11 @@ entities:
     - type: Transform
       pos: 24.5,64.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 750
     components:
     - type: Transform
       pos: 23.5,65.5
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCPropTurbine
   entities:
   - uid: 1313
@@ -11927,8 +11523,6 @@ entities:
     - type: Transform
       pos: 65.50455,27.094145
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCRackSoro
   entities:
   - uid: 157
@@ -12262,64 +11856,46 @@ entities:
     - type: Transform
       pos: 63.645172,26.844145
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2153
     components:
     - type: Transform
       pos: 66.5358,27.10977
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2171
     components:
     - type: Transform
       pos: 63.426422,29.70352
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2172
     components:
     - type: Transform
       pos: 64.48892,29.60977
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2173
     components:
     - type: Transform
       pos: 64.5983,29.437895
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2174
     components:
     - type: Transform
       pos: 63.363922,29.469145
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2175
     components:
     - type: Transform
       pos: 66.37955,29.57852
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2176
     components:
     - type: Transform
       pos: 66.44205,29.594145
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
   - uid: 2179
     components:
     - type: Transform
       pos: 63.410797,27.219145
       parent: 1
-    - type: CEZPhysics
-      sleeping: True
 - proto: RMCTablePrisonBrown
   entities:
   - uid: 312

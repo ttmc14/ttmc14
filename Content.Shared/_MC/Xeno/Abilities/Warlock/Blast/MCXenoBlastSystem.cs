@@ -4,6 +4,7 @@ using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Line;
 using Content.Shared._MC.Map;
 using Content.Shared._MC.Physics;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Hive.Systems;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;

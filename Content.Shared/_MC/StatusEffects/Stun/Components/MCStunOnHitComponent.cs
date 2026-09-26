@@ -1,8 +1,7 @@
 ﻿using System.Numerics;
 using Robust.Shared.GameStates;
-using Robust.Shared.Map;
 
-namespace Content.Shared._MC.Stun;
+namespace Content.Shared._MC.StatusEffects.Stun.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCStunOnHitComponent : Component

@@ -5,9 +5,9 @@ using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 
-namespace Content.Shared._MC.Weapon.Aimed;
+namespace Content.Shared._MC.Weapons.Range.Aimed;
 
-public sealed class MCAimedShootSystem : EntitySystem
+public sealed partial class MCAimedShootSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = null!;
     [Dependency] private readonly GunIFFSystem _gunIFF = null!;
@@ -20,10 +20,12 @@ public sealed class MCAimedShootSystem : EntitySystem
 
         SubscribeLocalEvent<MCAimedShootComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<MCAimedShootComponent, MCAimedShootActionEvent>(OnToggleAction);
-        SubscribeLocalEvent<MCAimedShootComponent, AmmoShotEvent>(OnAmmoShot);
-        SubscribeLocalEvent<MCAimedShootComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
+
+        SubscribeLocalEvent<MCAimedShootComponent, AmmoShotEvent>(OnAmmoShotModifiers);
         SubscribeLocalEvent<MCAimedShootComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<MCAimedShootComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
+
+        SubscribeLocalEvent<MCAimedShootComponent, GunRefreshModifiersEvent>(OnRefreshModifiers);
         SubscribeLocalEvent<MCAimedShootComponent, HeldRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
     }
 
@@ -33,7 +35,7 @@ public sealed class MCAimedShootSystem : EntitySystem
             return;
 
         args.AddAction(ref entity.Comp.Action, entity.Comp.ActionId);
-        Dirty(entity);
+        _actions.SetToggled(entity.Comp.Action, entity.Comp.Active);
     }
 
     private void OnToggleAction(Entity<MCAimedShootComponent> entity, ref MCAimedShootActionEvent args)
@@ -44,50 +46,18 @@ public sealed class MCAimedShootSystem : EntitySystem
         args.Handled = true;
 
         entity.Comp.Active = !entity.Comp.Active;
-        Dirty(entity);
-
         _actions.SetToggled(entity.Comp.Action, entity.Comp.Active);
 
-        _gun.RefreshModifiers(entity.Owner);
-        _movementSpeed.RefreshMovementSpeedModifiers(args.Performer);
-    }
-
-    private void OnAmmoShot(Entity<MCAimedShootComponent> entity, ref AmmoShotEvent args)
-    {
-        if (!entity.Comp.Active)
-            return;
-
-        _gunIFF.GiveAmmoIFF(entity, ref args, false, true);
+        RefreshModifiers(entity, args.Performer);
     }
 
     private void OnGotEquippedHand(Entity<MCAimedShootComponent> entity, ref GotEquippedHandEvent args)
     {
-        _gun.RefreshModifiers(entity.Owner);
-        _movementSpeed.RefreshMovementSpeedModifiers(args.User);
+        RefreshModifiers(entity, args.User);
     }
 
     private void OnGotUnequippedHand(Entity<MCAimedShootComponent> entity, ref GotUnequippedHandEvent args)
     {
-        entity.Comp.Active = false;
-        Dirty(entity);
-
-        _gun.RefreshModifiers(entity.Owner);
-        _movementSpeed.RefreshMovementSpeedModifiers(args.User);
-    }
-
-    private void OnRefreshMovementSpeedModifiers(Entity<MCAimedShootComponent> entity, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
-    {
-        if (!entity.Comp.Active)
-            return;
-
-        args.Args.ModifySpeed(entity.Comp.AimSpeedModifier, entity.Comp.AimSpeedModifier);
-    }
-
-    private void OnRefreshModifiers(Entity<MCAimedShootComponent> entity, ref GunRefreshModifiersEvent args)
-    {
-        if (!entity.Comp.Active)
-            return;
-
-        args.FireRate *= entity.Comp.AimFireModifier;
+        RefreshModifiers(entity, args.User);
     }
 }

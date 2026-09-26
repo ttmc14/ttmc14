@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.CameraShake;
 using Content.Shared._MC.Knockback;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared.Coordinates;
 using Content.Shared.Damage;

@@ -6,20 +6,20 @@ using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Xeno.Constructions.AcidWell;
 
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCXenoAcidWellComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public float FillCost = 150;
 
-    [DataField, AutoNetworkedField]
+    [DataField,]
     public TimeSpan FillDelay = TimeSpan.FromSeconds(2);
 
-    [DataField, AutoNetworkedField]
-    public TimeSpan TimeAutoChargeNext = TimeSpan.Zero;
+    [DataField]
+    public TimeSpan TimeAutoChargeDelay = TimeSpan.FromSeconds(45);
 
     [DataField, AutoNetworkedField]
-    public TimeSpan TimeAutoChargeDelay = TimeSpan.FromSeconds(45);
+    public int Charges = 1;
 
     [DataField, AutoNetworkedField]
     public int ChargesMax = 5;
@@ -27,20 +27,23 @@ public sealed partial class MCXenoAcidWellComponent : Component
     [DataField, AutoNetworkedField]
     public int ChargesAutoMax = 3;
 
-    [DataField, AutoNetworkedField]
-    public int Charges = 1;
+    [ViewVariables, AutoNetworkedField]
+    public TimeSpan TimeAutoChargeNext = TimeSpan.Zero;
 
-    [DataField, AutoNetworkedField]
-    public EntProtoId SmokeProtoId = "MCSmokeXenoAcidExtuingishing";
-
-    [DataField, AutoNetworkedField]
-    public DamageSpecifier StepDamage = new()
+    [DataField]
+    public DamageSpecifier ChargeDamage = new()
     {
         DamageDict =
         {
             { "MCBurn", 20 },
         },
     };
+
+    [DataField]
+    public EntProtoId SmokeProtoId = "MCSmokeXenoAcidExtuingishing";
+
+    [DataField]
+    public int SmokeRange = 1;
 }
 
 [Serializable, NetSerializable, UsedImplicitly]

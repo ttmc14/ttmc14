@@ -5,7 +5,7 @@ namespace Content.Shared._MC;
 
 public sealed class MCForkFilteredSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = null!;
 
     public override void Initialize()
     {

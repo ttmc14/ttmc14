@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Mob.Stamina;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Abilities.Warrior.Agility;
 using Content.Shared._MC.Xeno.Abilities.Warrior.Momentum;

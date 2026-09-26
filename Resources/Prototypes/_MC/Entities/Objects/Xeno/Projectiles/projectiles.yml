@@ -105,6 +105,9 @@
     damage:
       types:
         MCBurn: 50
+  - type: IgniteOnProjectileHit
+    intensity: 30
+    duration: 20
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange

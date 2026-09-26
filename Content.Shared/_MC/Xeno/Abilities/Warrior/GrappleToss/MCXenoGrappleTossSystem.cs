@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Knockback;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Abilities.Warrior.Agility;
 using Content.Shared.Movement.Pulling.Components;

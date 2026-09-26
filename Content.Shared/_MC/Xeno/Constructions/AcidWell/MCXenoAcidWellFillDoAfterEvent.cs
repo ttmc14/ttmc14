@@ -4,4 +4,4 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._MC.Xeno.Constructions.AcidWell;
 
 [Serializable, NetSerializable]
-public sealed partial class MCXenoAcidWellFillDoAfter : SimpleDoAfterEvent;
+public sealed partial class MCXenoAcidWellFillDoAfterEvent : SimpleDoAfterEvent;

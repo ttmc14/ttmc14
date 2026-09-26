@@ -19,7 +19,7 @@
     slots:
     - belt
     - back
-    - suitstorage
+    - suitStorage
   - type: MeleeWeapon
     angle: 0
     wideAnimationRotation: -135
@@ -50,7 +50,8 @@
         - !type:MCWeaponReagentDamageMultipliedEffect
           multiplier: 0.6
         - !type:MCWeaponReagentFireEffect
-          stacks: 10
+          intensity: 30
+          duration: 5
       # Tricordrazine
       MCTricordrazine:
         icon:
@@ -60,7 +61,11 @@
         - !type:MCWeaponReagentDamageMultipliedEffect
           multiplier: 0.6
         - !type:MCWeaponReagentSunderEffect
-          amount: -6.5
+          amount: -7.5
+        - !type:MCWeaponReagentStatusEffect
+          statusEffects:
+          - effectId: MCStatusEffectShatter
+            duration: 3
       # Tramadol
       MCTramadol:
         icon:

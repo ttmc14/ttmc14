@@ -1,4 +1,5 @@
 using Content.Shared._MC.Mob.Stamina.Components;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared.Alert;
 using Content.Shared.Damage;

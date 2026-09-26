@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.Flammable;
+﻿using System.Linq;
+using Content.Shared._MC.Flammable;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
@@ -12,6 +13,7 @@ using Content.Shared.Effects;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee;
+using JetBrains.Annotations;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
@@ -30,18 +32,19 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     /// Reference to the central actions system used for validating and consuming ability actions.
     /// Automatically injected by dependency resolution.
     /// </summary>
-    [Dependency] protected readonly SharedRMCActionsSystem RMCActions = null!;
-    [Dependency] protected readonly SharedRMCMeleeWeaponSystem RMCMelee = null!;
+    [Dependency, PublicAPI] protected readonly SharedRMCActionsSystem RMCActions = null!;
+    [Dependency, PublicAPI] protected readonly SharedRMCMeleeWeaponSystem RMCMelee = null!;
 
-    [Dependency] protected readonly SharedActionsSystem Actions = null!;
-    [Dependency] protected readonly SharedColorFlashEffectSystem ColorFlash = null!;
-    [Dependency] protected readonly SharedMeleeWeaponSystem MeleeWeapon = null!;
+    [Dependency, PublicAPI] protected readonly SharedActionsSystem Actions = null!;
+    [Dependency, PublicAPI] protected readonly SharedColorFlashEffectSystem ColorFlash = null!;
+    [Dependency, PublicAPI] protected readonly SharedMeleeWeaponSystem MeleeWeapon = null!;
 
-    [Dependency] protected readonly MCSharedXenoHiveSystem MCXenoHive = null!;
-    [Dependency] protected readonly MCSharedFlammableSystem MCFlammable = null!;
+    [Dependency, PublicAPI] protected readonly MCSharedXenoHiveSystem MCXenoHive = null!;
+    [Dependency, PublicAPI] protected readonly MCSharedFlammableSystem MCFlammable = null!;
 
-    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency, PublicAPI] private readonly MobStateSystem _mobState = null!;
 
+    [PublicAPI]
     protected bool TryUseAction(EntityUid uid, EntityUid actionUid, EntityUid? targetUid = null, bool affectOnStructures = false, bool affectOnDead = false, bool allowUseOnFire = true)
     {
         if (!ValidateTarget(uid, targetUid, affectOnStructures, affectOnDead))
@@ -53,6 +56,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         return RMCActions.TryUseAction(uid, actionUid, uid);
     }
 
+    [PublicAPI]
     protected bool CanUseAction(EntityUid uid, EntityUid actionUid, EntityUid? targetUid = null, bool affectOnStructures = false, bool affectOnDead = false, bool allowUseOnFire = true)
     {
         if (!ValidateTarget(uid, targetUid, affectOnStructures, affectOnDead))
@@ -64,6 +68,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         return RMCActions.CanUseActionPopup(uid, actionUid, uid);
     }
 
+    [PublicAPI]
     protected bool ValidateTarget(EntityUid uid, EntityUid? targetUid, bool affectOnStructures = false, bool affectOnDead = false)
     {
         if (targetUid is null)
@@ -78,11 +83,13 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         return !MCXenoHive.FromSameHive(uid, targetUid.Value);
     }
 
+    [PublicAPI]
     protected bool IsOnMap(EntityUid uid)
     {
         return HasComp<MapGridComponent>(Transform(uid).ParentUid);
     }
 
+    [PublicAPI]
     protected bool IsDamageable(EntityUid uid)
     {
         return HasComp<DamageableComponent>(uid);
@@ -90,17 +97,20 @@ public abstract class MCXenoAbilitySystem : EntitySystem
 
     #region Effects
 
+    [PublicAPI]
     protected void AnimateHit(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
     {
         RMCMelee.DoLunge(ownerUid, targetUid);
         RaiseEffect(ownerUid, targetUid, color);
     }
 
+    [PublicAPI]
     protected void RaiseEffect(EntityUid uid, Color? color = null)
     {
         RaiseEffect(uid, uid, color);
     }
 
+    [PublicAPI]
     protected void RaiseEffect(EntityUid ownerUid, EntityUid targetUid, Color? color = null)
     {
         var filter = Filter.Pvs(targetUid, entityManager: EntityManager).RemoveWhereAttachedEntity(uid => uid == ownerUid);
@@ -111,6 +121,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
 
     #region Actions
 
+    [PublicAPI]
     protected void ActionClearUseDelay<T>(EntityUid uid) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -120,6 +131,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionStartUseDelay<T>(EntityUid uid) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -129,6 +141,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionStartUseDelay<T>(EntityUid uid, EntityUid actionUid) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -141,6 +154,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetUseDelay<T>(EntityUid uid, TimeSpan? delay) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -150,6 +164,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetUseDelay<T>(EntityUid uid, EntityUid actionUid, TimeSpan? delay) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -162,6 +177,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetCooldown<T>(EntityUid uid, TimeSpan cooldown) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -171,6 +187,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetCooldown<T>(EntityUid uid, EntityUid actionUid, TimeSpan cooldown) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -183,6 +200,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetToggled<T>(EntityUid uid, bool toggled) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -192,6 +210,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetToggled<T>(EntityUid uid, EntityUid actionUid, bool toggled) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -204,6 +223,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected void ActionSetState<T>(EntityUid uid, string state) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -216,7 +236,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
-
+    [PublicAPI]
     protected void ActionSetIcon<T>(EntityUid uid, SpriteSpecifier? icon) where T : BaseActionEvent
     {
         foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
@@ -226,25 +246,23 @@ public abstract class MCXenoAbilitySystem : EntitySystem
         }
     }
 
+    [PublicAPI]
     protected SpriteSpecifier? ActionGetIcon<T>(EntityUid uid) where T : BaseActionEvent
     {
-        foreach (var action in RMCActions.GetActionsWithEvent<T>(uid))
-        {
-            return action.Comp.Icon;
-        }
-
-        return null;
+        return RMCActions.GetActionsWithEvent<T>(uid).Select(action => action.Comp.Icon).FirstOrDefault();
     }
 
     #endregion
 
     #region Utilities
 
+    [PublicAPI]
     protected DamageSpecifier GetDamage(EntityUid uid)
     {
         return MeleeWeapon.GetDamage(uid, uid);
     }
 
+    [PublicAPI]
     protected int GetArmorPiercing(EntityUid uid)
     {
         return TryComp<CMArmorPiercingComponent>(uid, out var comp)
@@ -252,26 +270,31 @@ public abstract class MCXenoAbilitySystem : EntitySystem
             : 0;
     }
 
+    [PublicAPI]
     protected bool IsDead(EntityUid uid)
     {
         return _mobState.IsDead(uid);
     }
 
+    [PublicAPI]
     protected bool IsMob(EntityUid uid)
     {
         return HasComp<MobStateComponent>(uid);
     }
 
+    [PublicAPI]
     protected bool IsXeno(EntityUid uid)
     {
         return HasComp<XenoComponent>(uid);
     }
 
+    [PublicAPI]
     protected bool IsBig(EntityUid uid)
     {
         return TryComp<RMCSizeComponent>(uid, out var sizeComponent) && sizeComponent.Size == RMCSizes.Big;
     }
 
+    [PublicAPI]
     protected float GetDistance(EntityUid fromUid, EntityUid destinationUid)
     {
         return (Transform(fromUid).Coordinates - Transform(destinationUid).Coordinates).Position.Length();

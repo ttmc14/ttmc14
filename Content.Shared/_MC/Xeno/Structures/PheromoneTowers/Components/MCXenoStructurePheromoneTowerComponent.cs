@@ -8,7 +8,15 @@ namespace Content.Shared._MC.Xeno.Structures.PheromoneTowers.Components;
 public sealed partial class MCXenoStructurePheromoneTowerComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public XenoPheromones SelectedType = XenoPheromones.Frenzy;
+    public XenoPheromones Selected = XenoPheromones.Frenzy;
+
+    [DataField, AutoNetworkedField]
+    public Dictionary<XenoPheromones, Color> TypeColor = new()
+    {
+        { XenoPheromones.Frenzy, Color.FromHex("#ff3b3b") },
+        { XenoPheromones.Warding, Color.FromHex("#64C864") },
+        { XenoPheromones.Recovery, Color.FromHex("#6496FA") },
+    };
 }
 
 [Serializable, NetSerializable]

@@ -74,4 +74,6 @@
     range: 15
   - type: WorldTargetAction
     event: !type:MCXenoWhirlwindActionEvent
+  - type: XenoActionPlasma
+    cost: 50
   - type: ActionBlockIfResting

@@ -20,7 +20,7 @@ public sealed class MCXenoWhirlwindSystem : MCXenoAbilitySystem
 
     private void OnAction(Entity<MCXenoWhirlwindComponent> entity, ref MCXenoWhirlwindActionEvent args)
     {
-        if (!CanUseAction(entity.Owner, args.Action))
+        if (!RMCActions.CanUseActionPopup(entity, args.Action))
             return;
 
         var ev = new MCXenoWhirlwindDoAfterEvent(args.Action, args.Target, EntityManager);
@@ -38,19 +38,21 @@ public sealed class MCXenoWhirlwindSystem : MCXenoAbilitySystem
         args.Handled = true;
 
         var actionUid = GetEntity(args.ActionUid);
-        var targetCoordinates = GetCoordinates(args.Coordinates);
+        var coordinates = GetCoordinates(args.Coordinates);
 
-        if (!TryUseAction(entity.Owner, actionUid))
+        if (!RMCActions.TryUseAction(entity, actionUid, entity))
             return;
 
         _mcXenoSpit.Shoot(
             entity,
-            targetCoordinates,
+            coordinates,
             entity.Comp.ProjectileId,
             1,
             Angle.Zero,
             entity.Comp.ProjectileSpeed,
             entity.Comp.Sound
         );
+
+        ActionStartUseDelay<MCXenoWhirlwindActionEvent>(entity, actionUid);
     }
 }

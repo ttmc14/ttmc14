@@ -192,6 +192,7 @@
   - type: MCXenoMelterShroud
     shroudId: MCSmokeXenoAcidMelter
   - type: MCXenoPlaceStructure
+  - type: MCXenoAcidWellFiller
 
 - type: entity
   parent:

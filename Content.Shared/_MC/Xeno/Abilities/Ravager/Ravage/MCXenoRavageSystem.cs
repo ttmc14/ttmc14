@@ -1,5 +1,6 @@
 ﻿using System.Numerics;
 using Content.Shared._MC.Knockback;
+using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.CameraShake;

@@ -1,6 +1,5 @@
-using Content.Shared._MC.Stun;
+using Content.Shared._MC.StatusEffects.Stun;
 using Robust.Shared.GameStates;
-using Robust.Shared.Serialization;
 
 namespace Content.Shared.Stunnable;
 

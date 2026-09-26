@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.StatusEffects.Stun.Components;
 using Content.Shared._MC.Stun.Events;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Pulling;
@@ -12,7 +13,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Throwing;
 using Robust.Shared.Physics.Systems;
 
-namespace Content.Shared._MC.Stun;
+namespace Content.Shared._MC.StatusEffects.Stun;
 
 public sealed class MCStunSystem : EntitySystem
 {
