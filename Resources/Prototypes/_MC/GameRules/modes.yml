@@ -15,3 +15,12 @@
   - type: GameRule
     minPlayers: 20
   - type: MCDistressSignalRule
+
+- type: entity
+  parent: BaseGameRule
+  id: MCDistressSignal2
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+    minPlayers: 20
+  - type: MCPVELowPop
