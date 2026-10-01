@@ -2,7 +2,9 @@ using Content.Server.GameTicking; // Нужен для доступа к соб�
 using Content.Server.GameTicking.Rules; // Базовый класс для игровых правил
 using Content.Server.Spawners.Components; // Для работы с точками спавна
 using Content.Server.Mind; // Для проверки, является ли сущность игроком
+using Content.Shared.NPC.Components; // Для проверки вражеской фракции NPC
 using Content.Shared._MC.Rules.MCPVEDefendLowPopComponent; // Подключаем наш компонент
+using Content.Shared.Mind.Components; // Для проверки, есть ли у сущности разум и является ли она игроком
 using Robust.Shared.Random; // Для выбора случайных врагов и точек спавна
 using Robust.Shared.Timing; // Для отслеживания времени
 using System.Linq; // Для удобной работы со списками
@@ -31,8 +33,8 @@ public sealed class PVEDefendLowPopRuleSystem : GameRuleSystem<PVEDefendLowPopRu
     {
         base.Initialize();
 
-        // Подписываемся на событие "начало раунда". Наш метод OnRoundStart будет вызван, когда раунд начнется.
-        SubscribeLocalEvent<RoundStartingEvent>(OnRoundStart);
+        // Initialize the round timers when this game rule starts.
+        SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
     }
 
     /// <summary>
@@ -67,10 +69,7 @@ public sealed class PVEDefendLowPopRuleSystem : GameRuleSystem<PVEDefendLowPopRu
         // 2. Условие поражения: все ли морпехи мертвы?
         // Мы ищем всех живых игроков с ролью морпеха.
         var query = EntityQuery<MindContainerComponent>(true);
-        var marinesAlive = query.Any(mc =>
-            mc.HasMind && // У сущности есть разум (это игрок)
-            !HasComp<GhostComponent>(mc.Owner) // И он не призрак
-        );
+        var marinesAlive = query.Any(mc => mc.HasMind);
 
         if (!marinesAlive)
         {
@@ -90,12 +89,22 @@ public sealed class PVEDefendLowPopRuleSystem : GameRuleSystem<PVEDefendLowPopRu
 
     // --- МЕТОДЫ-ПОМОЩНИКИ ---
 
-    private void OnRoundStart(RoundStartingEvent ev)
+    private bool TryGetActiveRule(out EntityUid uid, out PVEDefendLowPopRuleComponent rule)
     {
-        // Если наше правило не активно в этом раунде, ничего не делаем.
-        if (!RuleAdded)
-            return;
+        foreach (var candidate in EntityQuery<PVEDefendLowPopRuleComponent>(true))
+        {
+            uid = candidate.Owner;
+            rule = candidate;
+            return true;
+        }
 
+        uid = default;
+        rule = default!;
+        return false;
+    }
+
+    private void OnRoundStart(RoundStartAttemptEvent ev)
+    {
         // Ищем компонент правила и устанавливаем начальное состояние
         if (!TryGetActiveRule(out _, out var rule))
             return;

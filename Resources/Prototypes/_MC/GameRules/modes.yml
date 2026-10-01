@@ -24,7 +24,7 @@
   - type: GameRule
     minPlayers: 1
   - type: MCPVELowPop
-  - type: MCP
+  - type:
     allowedMarineJobs:
     - MCFC
     - MCSquadLeader
