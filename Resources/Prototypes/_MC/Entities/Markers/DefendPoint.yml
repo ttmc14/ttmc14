@@ -1,0 +1,12 @@
+- type: entity
+  parent: MCMarker
+  id: MCMarineDefendPoint
+  name: marine defend point
+  components:
+  - type: Sprite
+    layers:
+    - sprite: Markers/cross.rsi
+      state: red
+    - sprite: _MC/Structures/Machines/computer.rsi
+      state: defendpoint
+  - type: MCDefendPoint
