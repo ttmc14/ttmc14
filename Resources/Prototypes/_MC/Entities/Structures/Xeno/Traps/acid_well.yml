@@ -38,3 +38,4 @@
     enabled: true
     castShadows: false
     color: "#64C864"
+  - type: RequireProjectileTarget

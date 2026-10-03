@@ -22,6 +22,7 @@ public sealed class MCXenoAcidWellSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedPointLightSystem _pointLight = null!;
 
@@ -75,7 +76,7 @@ public sealed class MCXenoAcidWellSystem : MCXenoAbilitySystem
 
         var range = int.Clamp((int) float.Ceiling(entity.Comp.Charges / 2f), rangeMin, rangeMax);
 
-        _mcSmoke.Setup(entity.Owner.ToCoordinates(), range, entity.Comp.SmokeProtoId, origin: entity);
+        _mcSmoke.Setup(_transform.GetMapCoordinates(entity), range, entity.Comp.SmokeProtoId, origin: entity);
     }
 
     private void OnInteractHand(Entity<MCXenoAcidWellComponent> entity, ref InteractHandEvent args)

@@ -18,14 +18,14 @@
   - type: Fixtures
     fixtures:
       fix1:
-        shape: !type:PhysShapeAabb
+        shape:
+          !type:PhysShapeAabb
           bounds: "-0.25,-0.25,0.25,0.25"
         density: 20
-        hard: false
-        layer:
-        - SmallMobLayer
         mask:
-        - MobLayer
+        - ItemMask
+        layer:
+        - BulletImpassable
         restitution: 0.3
         friction: 0.2
   - type: CollisionWake
@@ -34,7 +34,7 @@
     fireSpread: false
     damage:
       types:
-        MCBurn: 50
+        MCBurn: 501
   - type: Damageable
     damageContainer: StructuralXeno
   - type: Destructible
