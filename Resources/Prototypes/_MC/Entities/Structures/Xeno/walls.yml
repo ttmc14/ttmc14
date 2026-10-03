@@ -14,7 +14,6 @@
   - type: Appearance
   - type: Damageable
     damageContainer: StructuralXeno
-    damageModifierSet: Resin
   - type: MeleeReceivedMultiplier
     xenoDamage:
       types:
@@ -61,14 +60,14 @@
   components:
   - type: MCArmor
     soft:
-      melee: 45
-      bullet: 45
-      laser: 45
-      energy: 45
-      bomb: 30
-      bio: 30
-      fire: 40
-      acid: 30
+      melee: 50
+      bullet: 50
+      laser: 50
+      energy: 50
+      bomb: 35
+      bio: 35
+      fire: 45
+      acid: 35
   - type: XenoConstructionPlasmaCost
     plasma: 50
 
