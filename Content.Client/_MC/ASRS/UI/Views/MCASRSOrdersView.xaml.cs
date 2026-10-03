@@ -10,21 +10,54 @@ public sealed partial class MCASRSOrdersView : MCASRSView
 {
     public event Action<MCASRSEntry, int>? OrderCountChanged;
 
+    private MCASRSBui? _bui;
+
     public MCASRSOrdersView()
     {
         RobustXamlLoader.Load(this);
+
+        SearchBar.OnTextChanged += _ => Refresh();
     }
 
     public override void Open(MCASRSBui bui)
     {
         base.Open(bui);
 
+        _bui = bui;
+
         CategoryNameLabel.SetMessage(Loc.GetString(bui.Category.Name));
 
+        SearchBar.Text = string.Empty;
+
+        Refresh();
+    }
+
+    private void Refresh()
+    {
+        if (_bui == null)
+            return;
+
         Container.Children.Clear();
-        foreach (var entry in bui.Category.Entries)
+        var searchText = SearchBar.Text?.ToLowerInvariant() ?? string.Empty;
+
+        foreach (var entry in _bui.Category.Entries)
         {
-            Container.Children.Add(new MCASRSOrderButton(entry, bui.Store.GetValueOrDefault(entry), OnCountChanged, bui.SettingShowIcons));
+            if (!string.IsNullOrEmpty(searchText))
+            {
+                var name = entry.Name;
+
+                if (string.IsNullOrEmpty(name) && entry.Entities.Count > 0)
+                {
+                    var locManager = IoCManager.Resolve<ILocalizationManager>();
+                    if (locManager.GetEntityData(entry.Entities[0]).Name is { } entityName)
+                        name = entityName;
+                }
+
+                if (name is null || !Loc.GetString(name).Contains(searchText, StringComparison.InvariantCultureIgnoreCase))
+                    continue;
+            }
+
+            Container.Children.Add(new MCASRSOrderButton(entry, _bui.Store.GetValueOrDefault(entry), OnCountChanged, _bui.SettingShowIcons));
         }
     }
 

@@ -29,6 +29,21 @@ public sealed partial class MCSmokeSystem
         return uid;
     }
 
+    public EntityUid Setup(MapCoordinates coordinates, int range, EntProtoId protoId, EntityUid? origin = null)
+    {
+        if (_net.IsClient)
+            return EntityUid.Invalid;
+
+        var uid = Spawn(protoId, coordinates);
+        SetupSpreader(uid, range);
+
+        if (origin is null)
+            return uid;
+
+        _mcXenoHive.SetSameHive(origin.Value, uid);
+        return uid;
+    }
+
     private void SetupSpreader(EntityUid smokeUid, int range)
     {
         if (range == 0)
