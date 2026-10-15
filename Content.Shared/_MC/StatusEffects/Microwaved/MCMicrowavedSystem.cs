@@ -27,8 +27,6 @@ public sealed class MCMicrowavedSystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
-
         var query = EntityQueryEnumerator<MCMicrowavedComponent, StatusEffectComponent>();
         while (query.MoveNext(out _, out var component, out var effectComponent))
         {

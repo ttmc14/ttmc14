@@ -26,6 +26,7 @@ using Robust.Shared.Network;
 using Robust.Shared.Random;
 using Robust.Shared.Utility;
 using System.Numerics;
+using Content.Shared._MC.TacticalMap.TacticalMapIconSwitcher;
 using static Content.Shared.Popups.PopupType;
 
 namespace Content.Shared._RMC14.Power;
@@ -49,6 +50,10 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
     [Dependency] private readonly SharedRMCSpriteSystem _sprite = default!;
     [Dependency] private readonly SharedToolSystem _tool = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+
+    // mc-changes-blip-start
+    [Dependency] private readonly MCTacticalMapIconSwitcherSystem _mcTacticalMapIconSwitcher = null!;
+    // mc-changes-blip-end
 
     protected readonly HashSet<EntityUid> ToUpdate = new();
     // mc-changes-start
@@ -638,6 +643,10 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
 
     private void UpdateAppearance(Entity<RMCFusionReactorComponent> ent)
     {
+        // mc-changes-blip-start
+        _mcTacticalMapIconSwitcher.ResetIcon(ent.Owner);
+        // mc-changes-blip-end
+
         switch (ent.Comp.State)
         {
             case RMCFusionReactorState.Weld:
@@ -662,6 +671,10 @@ public abstract partial class SharedRMCPowerSystem : EntitySystem
         // TODO RMC14 overloaded
         // TODO RMC14 fuel use
         _appearance.SetData(ent, RMCFusionReactorLayers.Layer, RMCFusionReactorVisuals.Hundred);
+
+        // mc-changes-blip-start
+        _mcTacticalMapIconSwitcher.SetIcon(ent.Owner, "on");
+        // mc-changes-blip-end
     }
 
     private void TryRepair(

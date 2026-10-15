@@ -5,6 +5,7 @@ using Content.Server._RMC14.Marines;
 using Content.Server._RMC14.Rules.DistressSignal;
 using Content.Server.Administration.Logs;
 using Content.Server.GameTicking.Events;
+using Content.Shared._MC.TacticalMap.TacticalMapIconSwitcher;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Dropship.Weapon;
 using Content.Shared._RMC14.Marines.Skills;
@@ -115,6 +116,10 @@ public sealed class TacticalMapSystem : SharedTacticalMapSystem
         SubscribeLocalEvent<ActiveTacticalMapTrackedComponent, MobStateChangedEvent>(OnActiveMobStateChanged);
         SubscribeLocalEvent<ActiveTacticalMapTrackedComponent, HiveLeaderStatusChangedEvent>(OnHiveLeaderStatusChanged);
 
+        // mc-fix-map-icons-start
+        SubscribeLocalEvent<MCTacticalMapIconSwitcherComponent, MCTacticalMapIconSwitcherUpdateEvent>(OnTacticalMapIconSwitcherHandleState);
+        // mc-fix-map-icons-end
+
         SubscribeLocalEvent<MapBlipIconOverrideComponent, MapInitEvent>(OnMapBlipOverrideMapInit);
 
 
@@ -159,6 +164,17 @@ public sealed class TacticalMapSystem : SharedTacticalMapSystem
             v => _forceMapUpdateEvery = TimeSpan.FromSeconds(v),
             true);
     }
+
+    // mc-fix-map-icons-start
+    private void OnTacticalMapIconSwitcherHandleState(Entity<MCTacticalMapIconSwitcherComponent> entity, ref MCTacticalMapIconSwitcherUpdateEvent args)
+    {
+        if (!TryComp<ActiveTacticalMapTrackedComponent>(entity, out var component))
+            return;
+
+        UpdateIcon((entity, component));
+        _toUpdate.Add((entity, component));
+    }
+    // mc-fix-map-icons-end
 
     private void OnOvipositorChanged(ref XenoOvipositorChangedEvent ev)
     {

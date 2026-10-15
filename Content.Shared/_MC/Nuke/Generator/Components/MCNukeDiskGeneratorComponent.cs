@@ -1,6 +1,7 @@
 ﻿using Content.Shared.FixedPoint;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
+using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Nuke.Generator.Components;
 
@@ -27,4 +28,7 @@ public sealed partial class MCNukeDiskGeneratorComponent : Component
 
     [DataField, AutoNetworkedField]
     public TimeSpan StepDuration = TimeSpan.FromSeconds(90);
+
+    [DataField, AutoNetworkedField]
+    public SpriteSpecifier.Rsi? MapIconOn;
 }

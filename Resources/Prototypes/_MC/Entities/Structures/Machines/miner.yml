@@ -42,6 +42,11 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
       state: phoron
+  - type: MCTacticalMapIconSwitcher
+    icons:
+      on:
+        sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
+        state: phoron-on
 
 - type: entity
   parent: MCMiner
@@ -53,3 +58,8 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
       state: platinum
+  - type: MCTacticalMapIconSwitcher
+    icons:
+      on:
+        sprite: /Textures/_MC/Interface/MapIcons/miner.rsi
+        state: platinum-on

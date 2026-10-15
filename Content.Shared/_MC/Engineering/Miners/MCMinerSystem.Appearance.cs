@@ -1,6 +1,4 @@
 ﻿using Content.Shared._MC.Engineering.Miners.Components;
-using Content.Shared._RMC14.TacticalMap;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Engineering.Miners;
 
@@ -13,15 +11,12 @@ public sealed partial class MCMinerSystem
 
     private void UpdateMapIcon(Entity<MCMinerComponent> entity)
     {
-        if (!TryComp<TacticalMapIconComponent>(entity, out var iconComponent) || iconComponent.Icon is not { } icon)
+        if (entity.Comp.State != MCMinerState.Running)
+        {
+            _mcTacticalMapIconSwitcher.ResetIcon(entity.Owner);
             return;
+        }
 
-        var ensure = EnsureComp<MapBlipIconOverrideComponent>(entity);
-        var state = entity.Comp.State == MCMinerState.Running ? "phoron-on" : "phoron";
-        var newIcon = new SpriteSpecifier.Rsi(icon.RsiPath, state);
-
-        ensure.Icon = newIcon;
-
-        Dirty(entity, ensure);
+        _mcTacticalMapIconSwitcher.SetIcon(entity.Owner, "on");
     }
 }

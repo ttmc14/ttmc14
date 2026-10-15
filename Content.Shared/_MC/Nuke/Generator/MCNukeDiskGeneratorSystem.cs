@@ -1,6 +1,7 @@
 using Content.Shared._MC.Nuke.Generator.Components;
 using Content.Shared._MC.Nuke.Generator.Events;
 using Content.Shared._MC.Nuke.Generator.UI;
+using Content.Shared._MC.TacticalMap.TacticalMapIconSwitcher;
 using Content.Shared.DoAfter;
 using Content.Shared.FixedPoint;
 using Content.Shared.Power;
@@ -11,15 +12,21 @@ namespace Content.Shared._MC.Nuke.Generator;
 
 public sealed class MCNukeDiskGeneratorSystem : EntitySystem
 {
-    [Dependency] private readonly INetManager _net = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
-    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = default!;
+    [Dependency] private readonly INetManager _net = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
+    [Dependency] private readonly SharedUserInterfaceSystem _userInterface = null!;
+
+    [Dependency] private readonly MCTacticalMapIconSwitcherSystem _mcTacticalMapIconSwitcher = null!;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        SubscribeLocalEvent<MCNukeDiskGeneratorRunningComponent, ComponentStartup>(OnRunningStart);
+        SubscribeLocalEvent<MCNukeDiskGeneratorRunningComponent, ComponentRemove>(OnRunningEnd);
 
         SubscribeLocalEvent<MCNukeDiskGeneratorComponent, MCNukeDiskGeneratorRunBuiMessage>(OnRunMessage);
         SubscribeLocalEvent<MCNukeDiskGeneratorComponent, MCNukeDiskGeneratorRunDoAfterEvent>(OnRunDoAfter);
@@ -42,6 +49,16 @@ public sealed class MCNukeDiskGeneratorSystem : EntitySystem
             generator.CheckpointProgress += generator.StepSize;
             RemCompDeferred<MCNukeDiskGeneratorRunningComponent>(uid);
         }
+    }
+
+    private void OnRunningStart(Entity<MCNukeDiskGeneratorRunningComponent> entity, ref ComponentStartup args)
+    {
+        _mcTacticalMapIconSwitcher.SetIcon(entity.Owner, "on");
+    }
+
+    private void OnRunningEnd(Entity<MCNukeDiskGeneratorRunningComponent> entity, ref ComponentRemove args)
+    {
+        _mcTacticalMapIconSwitcher.ResetIcon(entity.Owner);
     }
 
     private void OnRunMessage(Entity<MCNukeDiskGeneratorComponent> entity, ref MCNukeDiskGeneratorRunBuiMessage args)

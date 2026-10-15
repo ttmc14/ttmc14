@@ -69,3 +69,8 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/power.rsi
       state: generator_off
+  - type: MCTacticalMapIconSwitcher
+    icons:
+      on:
+        sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
+        state: generator_on

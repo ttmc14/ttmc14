@@ -1,30 +1,18 @@
 ﻿using System.Diagnostics.CodeAnalysis;
-using Content.Server._RMC14.MapInsert;
 using Content.Server._RMC14.Xenonids.Hive;
-using Content.Server.Administration.Logs;
-using Content.Server.Administration.Managers;
 using Content.Server.Fax;
 using Content.Server.GameTicking.Rules;
-using Content.Server.Mind;
-using Content.Server.Players.PlayTimeTracking;
-using Content.Server.Station.Systems;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Content.Shared._MC.Nuke.Generator.Components;
 using Content.Shared._MC.Research.Tools.Excavator;
 using Content.Shared._RMC14.Bioscan;
 using Content.Shared._RMC14.CCVar;
-using Content.Shared._RMC14.Light;
-using Content.Shared._RMC14.Rules;
 using Content.Shared._RMC14.Thunderdome;
 using Content.Shared._RMC14.Weapons.Ranged.IFF;
-using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Construction.Tunnel;
-using Content.Shared._RMC14.Xenonids.Parasite;
 using Content.Shared.Fax.Components;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Robust.Server.GameObjects;
-using Robust.Server.Player;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
 using Robust.Shared.Map;
@@ -37,14 +25,14 @@ namespace Content.Server._MC.Rules;
 // TODO: I HATE THIS SHIIIT
 public abstract partial class MCRuleSystem<T> : GameRuleSystem<T> where T : IComponent
 {
-    [Dependency] protected readonly XenoHiveSystem Hive = default!;
-    [Dependency] private readonly IRobustRandom _random = default!;
-    [Dependency] private readonly MapLoaderSystem _mapLoader = default!;
-    [Dependency] private readonly MapSystem _mapSystem = default!;
-    [Dependency] private readonly IConfigurationManager _config = default!;
-    [Dependency] private readonly SharedTransformSystem _transform = default!;
-    [Dependency] private readonly FaxSystem _fax = default!;
-    [Dependency] private readonly GunIFFSystem _gunIFF = default!;
+    [Dependency] protected readonly XenoHiveSystem Hive = null!;
+    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
+    [Dependency] private readonly MapSystem _mapSystem = null!;
+    [Dependency] private readonly IConfigurationManager _config = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
+    [Dependency] private readonly FaxSystem _fax = null!;
+    [Dependency] private readonly GunIFFSystem _gunIFF = null!;
 
     [ViewVariables] public string? OperationName { get; protected set; }
 

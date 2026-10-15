@@ -1,7 +1,7 @@
 using System.Numerics;
 using Content.Client.Cooldown;
 using Content.Client.UserInterface.Systems.Inventory.Controls;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Content.Shared._RMC14.IconLabel;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;

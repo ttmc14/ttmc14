@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Atmos;
+﻿using Content.Shared._MC._Config;
+using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Atmos.Components;
 using Content.Shared.Mobs;

@@ -1,6 +1,6 @@
 using System.Diagnostics.CodeAnalysis;
 using Content.Shared._CE.ZLevels.Core.Components;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Popups;
 using JetBrains.Annotations;

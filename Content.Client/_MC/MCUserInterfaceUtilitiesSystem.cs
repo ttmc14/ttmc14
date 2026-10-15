@@ -1,5 +1,5 @@
 ﻿using System.Numerics;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using JetBrains.Annotations;
 using Robust.Client.Graphics;
 using Robust.Client.Input;

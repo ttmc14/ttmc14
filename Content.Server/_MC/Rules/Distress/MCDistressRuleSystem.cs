@@ -3,7 +3,7 @@ using Content.Server._MC.Xeno.Hive;
 using Content.Server._MC.Xeno.Spawn;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Operation;
 using Content.Shared._MC.Rules;

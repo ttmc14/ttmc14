@@ -1,4 +1,5 @@
-﻿using Content.Shared._MC.ASRS.Events;
+﻿using Content.Shared._MC._Config;
+using Content.Shared._MC.ASRS.Events;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
 

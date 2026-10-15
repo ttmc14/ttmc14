@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC;
+﻿using Content.Shared._MC._Config;
 using Content.Shared.Alert;
 using Content.Shared.CCVar;
 using Content.Shared.Movement.Components;

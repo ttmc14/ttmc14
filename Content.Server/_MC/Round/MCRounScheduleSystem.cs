@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using Content.Server.GameTicking;
 using Content.Server.RoundEnd;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Robust.Shared.Configuration;
 using Robust.Shared.Timing;
 
@@ -9,10 +9,11 @@ namespace Content.Server._MC.Round;
 
 public sealed class MCRoundScheduleSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _configuration = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
-    [Dependency] private readonly GameTicker _ticker = default!;
-    [Dependency] private readonly RoundEndSystem _roundEnd = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly GameTicker _ticker = null!;
+
+    [Dependency] private readonly RoundEndSystem _roundEnd = null!;
 
     #region Config
 

@@ -3,7 +3,7 @@ using System.Text;
 using Content.Server.Chat.Managers;
 using Content.Server.Voting;
 using Content.Server.Voting.Managers;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Content.Shared._RMC14.Rules;
 using Content.Shared.GameTicking;
 using Robust.Shared.Prototypes;

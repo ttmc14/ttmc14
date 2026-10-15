@@ -36,7 +36,7 @@ public partial struct MCWeaponLaserFireMode()
     public int CollisionMask = (int) CollisionGroup.Opaque;
 
     [DataField]
-    public float MaxLength = 20f;
+    public float MaxLength = 100f;
 
     [DataField]
     public EntProtoId EffectId = "MCEffectLaser";

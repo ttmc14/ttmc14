@@ -5,15 +5,14 @@ using Content.Shared._MC.Damage.Integrity.Events;
 using Content.Shared._MC.Damage.Integrity.Systems;
 using Content.Shared._MC.Engineering.Miners.Components;
 using Content.Shared._MC.Engineering.Miners.Events;
+using Content.Shared._MC.TacticalMap.TacticalMapIconSwitcher;
 using Content.Shared._RMC14.Marines.Skills;
-using Content.Shared._RMC14.TacticalMap;
 using Content.Shared.DoAfter;
 using Content.Shared.Examine;
 using Content.Shared.Interaction;
 using Content.Shared.Popups;
 using Content.Shared.Tools.Systems;
 using Robust.Shared.Timing;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Engineering.Miners;
 
@@ -32,6 +31,7 @@ public sealed partial class MCMinerSystem : EntitySystem
     [Dependency] private readonly MCIntegritySystem _mcIntegrity = null!;
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
     [Dependency] private readonly MCSharedChatSystem _mcChat = null!;
+    [Dependency] private readonly MCTacticalMapIconSwitcherSystem _mcTacticalMapIconSwitcher = null!;
 
     private EntityQuery<MCMinerComponent> _query;
     private EntityQuery<MCMinerModuleComponent> _moduleQuery;
@@ -192,7 +192,6 @@ public sealed partial class MCMinerSystem : EntitySystem
 
                 if (damage > integrity)
                     _mcIntegrity.SetIntegrity(entity.Owner, integrityId, _mcDamageable.DamageBrute);
-
                 break;
 
             default:

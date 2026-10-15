@@ -23,7 +23,7 @@ public sealed partial class MCMicrowavedComponent : Component
     {
         DamageDict =
         {
-            { "MCBurn", 4 },
+            { "MCBurn", 2 },
         },
     };
 }

@@ -4,63 +4,64 @@ using Content.Server.Popups;
 using Content.Shared._MC.Respawn;
 using Content.Shared.Popups;
 using Content.Shared.Mind;
-using Content.Shared._MC;
-using Robust.Server.GameObjects;
+using Content.Shared._MC._Config;
+using Content.Shared.Ghost;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 using Robust.Shared.Configuration;
 
 namespace Content.Server._MC.Respawn;
 
-public sealed partial class MCRespawnActionSystem : EntitySystem
+public sealed class MCRespawnActionSystem : EntitySystem
 {
-    [Dependency] private readonly IConfigurationManager _cfg = default!;
-    [Dependency] private readonly GameTicker _gameTicker = default!;
-    [Dependency] private readonly PopupSystem _popup = default!;
-    [Dependency] private readonly SharedMindSystem _mind = default!;
-    [Dependency] private readonly IGameTiming _timing = default!;
+    [Dependency] private readonly IConfigurationManager _configuration = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+
+    [Dependency] private readonly GameTicker _gameTicker = null!;
+    [Dependency] private readonly PopupSystem _popup = null!;
+    [Dependency] private readonly SharedMindSystem _mind = null!;
+    [Dependency] private readonly SharedActionsSystem _actions = null!;
+
+    private TimeSpan _respawnCooldown;
 
     public override void Initialize()
     {
-        base.Initialize();
+        _configuration.OnValueChanged(MCConfigVars.RespawnMarinesActionCooldownMinutes, value => _respawnCooldown = TimeSpan.FromMinutes(value), true);
+
+        SubscribeLocalEvent<MCRespawnActionComponent, MapInitEvent>(OnRespawnMapInit);
         SubscribeLocalEvent<MCRespawnActionComponent, MCRespawnActionEvent>(OnRespawnAction);
-            SubscribeLocalEvent<MCRespawnActionComponent, MapInitEvent>(OnRespawnMapInit);
     }
 
-    private void OnRespawnAction(Entity<MCRespawnActionComponent> ent, ref MCRespawnActionEvent args)
+    private void OnRespawnMapInit(Entity<MCRespawnActionComponent> entity, ref MapInitEvent args)
     {
-        var player = ent.Owner;
-        if (!TryComp<ActorComponent>(player, out var actor) || actor.PlayerSession == null)
+        _actions.AddAction(entity, ref entity.Comp.Action, entity.Comp.ActionId);
+    }
+
+    private void OnRespawnAction(Entity<MCRespawnActionComponent> entity, ref MCRespawnActionEvent args)
+    {
+        if (!TryComp<ActorComponent>(entity, out var actor))
             return;
 
         var userId = actor.PlayerSession.UserId;
+        var deathTime = TryComp<GhostComponent>(entity, out var ghost)
+            ? ghost.TimeOfDeath
+            : _mind.TryGetMind(userId, out _, out var mind)
+                ? mind.TimeOfDeath
+                : null;
 
-            TimeSpan? deathTime = null;
-            if (TryComp<Content.Shared.Ghost.GhostComponent>(player, out var ghost))
-                deathTime = ghost.TimeOfDeath;
-            else if (_mind.TryGetMind(userId, out var mindId, out var mind) && mind != null)
-                deathTime = mind.TimeOfDeath;
+        if (deathTime is null || deathTime == TimeSpan.Zero)
+            return;
 
-            if (deathTime == null || deathTime == TimeSpan.Zero)
-                return;
+        var deathDelta = _timing.CurTime - deathTime.Value;
+        var cooldownDelta = _respawnCooldown - deathDelta;
 
-            var timeSinceDeath = _timing.CurTime - deathTime.Value;
-            var minutes = _cfg.GetCVar(MCConfigVars.RespawnMarinesActionCooldownMinutes);
-            var required = TimeSpan.FromMinutes(minutes);
-            if (timeSinceDeath < required)
-            {
-                var left = required - timeSinceDeath;
-                var msg = Loc.GetString("respawn-action-popup", ("minutes", left.Minutes.ToString("D2")), ("seconds", left.Seconds.ToString("D2")));
-                _popup.PopupEntity(msg, player, player, PopupType.LargeCaution);
-                return;
-            }
-
-            _gameTicker.Respawn(actor.PlayerSession);
-    }
-
-        private void OnRespawnMapInit(Entity<MCRespawnActionComponent> ent, ref MapInitEvent args)
+        if (cooldownDelta > TimeSpan.Zero)
         {
-            var actions = EntitySystem.Get<SharedActionsSystem>();
-            actions.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionId);
+            var msg = Loc.GetString("respawn-action-popup", ("minutes", cooldownDelta.Minutes.ToString("D2")), ("seconds", cooldownDelta.Seconds.ToString("D2")));
+            _popup.PopupEntity(msg, entity, entity, PopupType.LargeCaution);
+            return;
         }
+
+        _gameTicker.Respawn(actor.PlayerSession);
+    }
 }

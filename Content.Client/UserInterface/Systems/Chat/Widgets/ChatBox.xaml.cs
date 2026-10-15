@@ -1,7 +1,7 @@
 using System.Linq;
 using Content.Client._RMC14.Chat;
 using Content.Client.UserInterface.Systems.Chat.Controls;
-using Content.Shared._MC;
+using Content.Shared._MC._Config;
 using Content.Shared.Chat;
 using Content.Shared.Input;
 using Robust.Client.Audio;
