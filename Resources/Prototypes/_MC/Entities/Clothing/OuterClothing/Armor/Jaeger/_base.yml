@@ -65,8 +65,8 @@
       fire: 60
       acid: 65
   - type: ClothingSpeedModifier
-    walkModifier: 0.5
-    sprintModifier: 0.5
+    walkModifier: 0.65
+    sprintModifier: 0.65
 
 # Debug/Admin
 - type: entity
