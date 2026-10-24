@@ -4,6 +4,7 @@ using Content.Shared._MC.Living;
 using Content.Shared._MC.Rules.EndRound;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Rules;
+using Content.Shared._RMC14.Thunderdome;
 using Content.Shared.Mobs;
 
 namespace Content.Server._MC.Rules.EndRound;
@@ -50,7 +51,7 @@ public sealed class MCRuleEndRoundMarinesDeadSystem : GameRuleSystem<MCRuleEndRo
         if (!_mcRuleXenoMarinesSpawn.Spawned)
             return;
 
-        var alive = _mcLiving.Get<MarineComponent>(_ => true);
+        var alive = _mcLiving.Get<MarineComponent>(uid => !HasComp<ThunderdomeMapComponent>(Transform(uid).MapUid));
         if (alive > 0)
             return;
 
