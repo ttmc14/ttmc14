@@ -50,7 +50,7 @@ public sealed class MCRuleEndRoundMarinesDeadSystem : GameRuleSystem<MCRuleEndRo
         if (!_mcRuleXenoMarinesSpawn.Spawned)
             return;
 
-        var alive = _mcLiving.Get<MarineComponent>(uid => !HasComp<RMCPlanetComponent>(Transform(uid).MapUid));
+        var alive = _mcLiving.Get<MarineComponent>(_ => true);
         if (alive > 0)
             return;
 
