@@ -35,6 +35,14 @@ public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXen
         Inst.Comp.Enabled = true;
     }
 
+    public void Disable()
+    {
+        if (!Inst.Comp.Enabled)
+            return;
+
+        Inst.Comp.Enabled = false;
+    }
+
     private void OnUpdate()
     {
         if (!_mcRuleXenoMarinesSpawn.Spawned)

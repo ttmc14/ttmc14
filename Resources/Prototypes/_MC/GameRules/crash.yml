@@ -5,7 +5,15 @@
   components:
   - type: GameRule
     minPlayers: 1
+  - type: MCRuleCrashShuttle
+    time: 600
+  - type: MCRuleXenoMarinesSpawn
+  - type: MCRuleSpawnNukeDiskGenerators
+  - type: MCRuleRecalculatePower
+  - type: MCRuleRefreshIFF
+  # xeno
   - type: MCRuleXenoMap
+  - type: MCRuleXenoAutoSpawnBalance
   - type: MCRuleXenoSetupHive
     configuration:
       general:
@@ -23,12 +31,6 @@
       Strategic: 0
       Tactical: 0
     autoSpawnBalance: true
-  - type: MCRuleCrashShuttle
-    time: 600
-  - type: MCRuleXenoMarinesSpawn
-  - type: MCRuleSpawnNukeDiskGenerators
-  - type: MCRuleRecalculatePower
-  - type: MCRuleRefreshIFF
   # round end
   - type: MCRuleEndRound
     resultTextPrefix: mc-crash-
