@@ -84,14 +84,14 @@
   # Attachments
   - type: AttachableHolder
     slots:
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentT47RailScope
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         locked: true
         startingAttachable: MCAttachmentUnderbarrelSG62
         whitelist:
@@ -99,8 +99,8 @@
           - MCAttachmentUnderbarrelSG62
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-underbarrel: 0.437500, 0.031250
-      mc-slot-rail: 0.093750, 0.218750
+      mc-attachment-underbarrel: 0.437500, 0.031250
+      mc-attachment-rail: 0.093750, 0.218750
 
 - type: entity
   parent: [ MCAttachmentUnderbarrel, RMCAttachableToggleableBase ]

@@ -9,6 +9,12 @@
 # Table: null
 
 # 24-10-2026
+MCCartridgeMartiniWhite: MCCartridgeRifleVGRWhite
+MCBoxMartiniRoundsWhite: MCBoxRoundsRifleVGRWhite
+MCBoxMartiniRounds: MCBoxRoundsRifleVGR
+MCCartridgeMartini: MCCartridgeRifleVGR
+MCWeaponRifleVGR: MCWeaponRifleVGR
+MCCartridgeMosin: MCCartridgeRifleSFR7
 MCWeaponShotgunMosin: MCWeaponRifleSFR7
 
 # 30-05-2026
@@ -566,7 +572,7 @@ BookChefGaming: BookHowToCookForFortySpaceman
 IntercomAssesmbly: IntercomAssembly
 
 # 2024-07-1
-CMDispenserChem : RMCChemDispenserGround
+CMDispenserChem: RMCChemDispenserGround
 
 # 2024-07-7
 SignScience1: SignScience
@@ -1081,7 +1087,6 @@ CheapLighter: RMCLighter
 # 2024-11-28
 ClosetLegal: RMCClosetBlue
 
-
 # 2024-12-14
 #WeaponRifleM54C: WeaponRifleM54CCamo
 #WeaponRifleM54CE2: WeaponRifleM54CE2Camo
@@ -1476,7 +1481,7 @@ SignSmoking: CMPosterNoSmoking2
 CMLightReplacerEmpty: RMCLightReplacerEmpty
 CMLightReplacer: RMCLightReplacer
 CMLightFixture: RMCLightFixture
-CMLightFixtureSmall:  RMCLightFixtureSmall
+CMLightFixtureSmall: RMCLightFixtureSmall
 CMLightFixtureAlwaysPowered: RMCLightFixtureAlwaysPowered
 CMLightFixtureSmallAlwaysPowered: RMCLightFixtureSmallAlwaysPowered
 CMLightFixtureSmallOffset: RMCLightFixtureSmallOffset

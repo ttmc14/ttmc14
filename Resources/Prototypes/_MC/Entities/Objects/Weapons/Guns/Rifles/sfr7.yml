@@ -1,18 +1,18 @@
 - type: entity
   parent: MCWeaponShotgun
-  id: MCWeaponShotgunMosin
-  name: Mosin Nagant rifle
+  id: MCWeaponRifleSFR7
+  name: steel-force rifle
   description: A mosin nagant rifle, even just looking at it you can feel the cosmoline already. Commonly known by its slang, \"Moist Nugget\", by downbrained colonists and outlaws.
   components:
   # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/mosin/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/sfr7/inhands.rsi
     layers:
     - state: base
-      sprite: _MC/Objects/Weapons/Guns/Rifles/mosin/icon.rsi
+      sprite: _MC/Objects/Weapons/Guns/Rifles/sfr7/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/mosin/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/sfr7/inhands.rsi
   # Statistics
   - type: Gun
     shotsPerBurst: 1
@@ -41,7 +41,7 @@
       path: /Audio/_MC/Weapons/Guns/Reload/mosin_reload.ogg
     whitelist:
       tags:
-      - MCCartridgeMosin
+      - MCCartridgeRifleSFR7
   - type: ShootUseDelay
   - type: WieldableSpeedModifiers
     base: 0.95
@@ -50,11 +50,11 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-barrel:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentRailFlashlight
@@ -63,8 +63,8 @@
           - MCAttachmentT47RailScope
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-barrel: 1.0, 0.03
-      mc-slot-rail: 0.1, 0.0
+      mc-attachment-barrel: 1.0, 0.03
+      mc-attachment-rail: 0.1, 0.0
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.8
@@ -73,15 +73,27 @@
     sound:
       path: /Audio/_MC/Weapons/Guns/Pump/working_the_bolt.ogg
 
+# Cartridge
+- type: stack
+  id: MCCartridgeRifleSFR7
+  name: stack-MCCartridgeRifleSFR7
+  # handful of Steel Force high-velocity sniper cartridges (5.9x44mm SF-HV/SC)
+  icon:
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
+    state: base-1
+  spawn: MCCartridgeRifleSFR7
+  maxCount: 5
+
 - type: entity
   parent: CMShellShotgunBase
-  id: MCCartridgeMosin
-  name: handful of heavy crude sniper bullet (7.62x54mmR)
+  id: MCCartridgeRifleSFR7
+  name: 5.9x44mm SF-HV/SC penetrator sniper cartridge
+  description: A 5.9x44mm sniper cartridge with a partially telescoped design (SF-HV/SC type). Each round combines a dense tungsten-alloy core and a brittle reactive element; on impact, the element shatters, causing micro-cracks in armor and temporarily reducing its protective properties.
   components:
   - type: Tag
     tags:
     - MCCartridge
-    - MCCartridgeMosin
+    - MCCartridgeRifleSFR7
     - MCHandful
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
@@ -89,10 +101,10 @@
     - state: base
       map: [ "base" ]
   - type: CartridgeAmmo
-    proto: MCBulletMosin
+    proto: MCBulletRifleSFR7
   - type: Stack
     count: 5
-    stackType: MCCartridgeMosin
+    stackType: MCCartridgeRifleSFR7
     baseLayer: base
     layerStates:
     - base-1
@@ -103,11 +115,14 @@
     - base-5
 
 - type: Tag
-  id: MCCartridgeMosin
+  id: MCCartridgeRifleSFR7
 
+# Bullet
 - type: entity
   parent: MCBullet
-  id: MCBulletMosin
+  id: MCBulletRifleSFR7
+  name: 5.9mm SF-HV/SC penetrator bullet
+  description: A heavy 5.9mm SF-HV/SC bullet with a reactive core. Its high-velocity dense core penetrates armor, while the shattered core causes micro-fractures that reduce armor effectiveness for a short time.
   components:
   - type: Projectile
     damage:
@@ -118,17 +133,8 @@
     # base 35
     # xeno additional +15
   - type: MCXenoSunderDamageOnHit
-    amount: 0
+    amount: 1
   - type: MCProjectileStatusEffectsOnHit
     statusEffects:
     - effectId: MCStatusEffectShatter
       duration: 8
-
-- type: stack
-  id: MCCartridgeMosin
-  name: handful of heavy crude sniper bullet (7.62x54mmR)
-  icon:
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
-    state: base-1
-  spawn: MCCartridgeMosin
-  maxCount: 5

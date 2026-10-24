@@ -53,7 +53,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -61,11 +61,11 @@
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
           - MCAttachmentMuzzleCharger
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentBipod
-      mc-slot-rail:
+      mc-attachment-rail:
         startingAttachable: MCAttachmentRailScopeSR127
         whitelist:
           tags:
@@ -75,9 +75,9 @@
           - MCAttachmentRailScopeSR127
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.906250, 0.125000
-      mc-slot-underbarrel: 0.500000, 0.000000
-      mc-slot-rail: 0.062500, 0.218750
+      mc-attachment-barrel: 0.906250, 0.125000
+      mc-attachment-underbarrel: 0.500000, 0.000000
+      mc-attachment-rail: 0.062500, 0.218750
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.85

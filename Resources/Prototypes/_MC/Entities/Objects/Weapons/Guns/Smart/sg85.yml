@@ -65,13 +65,13 @@
   # Attachments
   - type: AttachableHolder
     slots:
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-rail: 0, 0
+      mc-attachment-rail: 0, 0
 
 # Magazine
 - type: entity

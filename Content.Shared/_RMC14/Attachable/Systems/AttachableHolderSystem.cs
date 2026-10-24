@@ -94,6 +94,11 @@ public sealed class AttachableHolderSystem : EntitySystem
                     {
                         if (session?.AttachedEntity is { } userUid)
                             ToggleAttachable(userUid, "rmc-aslot-barrel");
+
+                        // mc-attached-id-change-start
+                        if (session?.AttachedEntity is { } mcUserUid)
+                            ToggleAttachable(mcUserUid, "mc-attachment-barrel");
+                        // mc-attached-id-change-end
                     },
                     handle: false))
             .Bind(CMKeyFunctions.RMCActivateAttachableRail,
@@ -101,6 +106,11 @@ public sealed class AttachableHolderSystem : EntitySystem
                     {
                         if (session?.AttachedEntity is { } userUid)
                             ToggleAttachable(userUid, "rmc-aslot-rail");
+
+                        // mc-attached-id-change-start
+                        if (session?.AttachedEntity is { } mcUserUid)
+                            ToggleAttachable(mcUserUid, "mc-attachment-rail");
+                        // mc-attached-id-change-end
                     },
                     handle: false))
             .Bind(CMKeyFunctions.RMCActivateAttachableStock,
@@ -108,6 +118,11 @@ public sealed class AttachableHolderSystem : EntitySystem
                     {
                         if (session?.AttachedEntity is { } userUid)
                             ToggleAttachable(userUid, "rmc-aslot-stock");
+
+                        // mc-attached-id-change-start
+                        if (session?.AttachedEntity is { } mcUserUid)
+                            ToggleAttachable(mcUserUid, "mc-attachment-stock");
+                        // mc-attached-id-change-end
                     },
                     handle: false))
             .Bind(CMKeyFunctions.RMCActivateAttachableUnderbarrel,
@@ -115,6 +130,11 @@ public sealed class AttachableHolderSystem : EntitySystem
                     {
                         if (session?.AttachedEntity is { } userUid)
                             ToggleAttachable(userUid, "rmc-aslot-underbarrel");
+
+                        // mc-attached-id-change-start
+                        if (session?.AttachedEntity is { } mcUserUid)
+                            ToggleAttachable(mcUserUid, "mc-attachment-underbarrel");
+                        // mc-attached-id-change-end
                     },
                     handle: false))
             .Bind(CMKeyFunctions.RMCFieldStripHeldItem,

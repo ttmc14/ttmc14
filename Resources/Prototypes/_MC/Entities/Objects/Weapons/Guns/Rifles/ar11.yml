@@ -61,11 +61,11 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -73,15 +73,15 @@
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
           # - TODO: Tactical Sensor
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.656250, 0.093750
-      mc-slot-rail: -0.093750, 0.250000
-      mc-slot-underbarrel: 0.343750, -0.031250
+      mc-attachment-barrel: 0.656250, 0.093750
+      mc-attachment-rail: -0.093750, 0.250000
+      mc-attachment-underbarrel: 0.343750, -0.031250
 
 - type: entity
   parent: MCMagazineRifle

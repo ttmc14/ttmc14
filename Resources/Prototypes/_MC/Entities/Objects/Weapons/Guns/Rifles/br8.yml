@@ -54,7 +54,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -63,7 +63,7 @@
           - MCAttachmentRecoilCompensator
           # - TODO: M22
           # - TODO: Heavy Barrel
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -73,7 +73,7 @@
           # - TODO: BuildSentryKit
           # - TODO: MotionDetector
           # - TODO: ShoulderGun
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentUnderbarrelFlashlight
@@ -89,9 +89,9 @@
           # - TODO: PepperBall mini
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.718750, 0.125000
-      mc-slot-underbarrel: 0.375000, 0.000000
-      mc-slot-rail: 0.000000, 0.312500
+      mc-attachment-barrel: 0.718750, 0.125000
+      mc-attachment-underbarrel: 0.375000, 0.000000
+      mc-attachment-rail: 0.000000, 0.312500
 
 - type: entity
   parent: MCMagazineRifle

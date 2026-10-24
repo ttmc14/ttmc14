@@ -68,7 +68,7 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -76,7 +76,7 @@
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
           # - TODO: Heavy barrel
-      mc-slot-rail:
+      mc-attachment-rail:
         startingAttachable: MCAttachmentMiniScope
         whitelist:
           tags:
@@ -85,7 +85,7 @@
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
           # - TODO: Tactical sensor
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentVerticalGrip
@@ -95,9 +95,9 @@
           - MCAttachmentLaserSight
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.750000, 0.062500
-      mc-slot-underbarrel: 0.218750, -0.125000
-      mc-slot-rail: 0.250000, 0.156250
+      mc-attachment-barrel: 0.750000, 0.062500
+      mc-attachment-underbarrel: 0.218750, -0.125000
+      mc-attachment-rail: 0.250000, 0.156250
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.5

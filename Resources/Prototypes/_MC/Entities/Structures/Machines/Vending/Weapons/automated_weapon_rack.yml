@@ -53,11 +53,11 @@
       entries:
       - id: MCWeaponShotgunLeicesterRepeater
       - id: MCBoxGovernmentRounds
-      - id: MCWeaponShotgunMosin
-      - id: MCCartridgeMosin
-      - id: MCWeaponShotgunMartini
-      - id: MCBoxMartiniRounds
-      - id: MCBoxMartiniRoundsWhite
+      - id: MCWeaponRifleSFR7
+      - id: MCCartridgeRifleSFR7
+      - id: MCWeaponRifleVGR
+      - id: MCBoxRoundsRifleVGR
+      - id: MCBoxRoundsRifleVGRWhite
     - name: Shotgun
       entries:
       - id: MCWeaponShotgunSH35

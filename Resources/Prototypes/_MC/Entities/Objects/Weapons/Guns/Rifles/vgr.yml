@@ -1,7 +1,7 @@
 - type: entity
   parent: MCWeaponShotgun
-  id: MCWeaponShotgunMartini
-  name: Martini Henry lever action rifle
+  id: MCWeaponRifleVGR
+  name: vanguard rifle
   description: A lever action with room for a single round of .557/440 ball. Perfect for any kind of hunt, be it elephant or xeno with how quick to the draw it is.
   components:
   # Visuals
@@ -36,7 +36,7 @@
       path: /Audio/_MC/Weapons/Guns/Reload/martini_reload.ogg
     whitelist:
       tags:
-      - MCCartridgeMartini
+      - MCCartridgeRifleVGR
   - type: ShootUseDelay
   - type: WieldableSpeedModifiers
     base: 1
@@ -46,11 +46,11 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -62,24 +62,25 @@
           # - TODO: Tactical sensor
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.937500, 0.125000
-      mc-slot-underbarrel: 0.343750, -0.031250
-      mc-slot-rail: 0.468750, 0.156250
+      mc-attachment-barrel: 0.937500, 0.125000
+      mc-attachment-underbarrel: 0.343750, -0.031250
+      mc-attachment-rail: 0.468750, 0.156250
   # Specials
   - type: PumpAction
     sound:
       path: /Audio/_MC/Weapons/Guns/Pump/martini_cocked.ogg
 
+# Box
 - type: entity
   parent: MCStorageItem
-  id: MCBoxMartiniRounds
-  name: box of .557/440 rifle rounds
-  description: A box filled with rifle bullets.
+  id: MCBoxRoundsRifleVGR
+  name: box of Vanguard heavy sniper cartridges (8.4x49mm VG-HE)
+  description: A box filled with Vanguard heavy sniper cartridges (8.4x49mm VG-HE).
   categories: [ MCContent ]
   components:
   - type: Tag
     tags:
-    - MCBoxMartiniRounds
+    - MCBoxRoundsRifleVGR
   - type: Appearance
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/martini.rsi
@@ -103,10 +104,10 @@
     - 0,0,7,1 # 4 slots
     whitelist:
       tags:
-      - MCCartridgeMartini
+      - MCCartridgeRifleVGR
   - type: StorageFill
     contents:
-    - id: MCCartridgeMartini
+    - id: MCCartridgeRifleVGR
       amount: 4
   - type: InteractedBlacklist
     blacklist:
@@ -114,29 +115,42 @@
       - Xeno
 
 - type: entity
-  parent: MCBoxMartiniRounds
-  id: MCBoxMartiniRoundsWhite
-  name: box of .557/440 white rifle rounds
+  parent: MCBoxRoundsRifleVGR
+  id: MCBoxRoundsRifleVGRWhite
+  name: box of Vanguard white-tipped heavy sniper cartridges (8.4x49mm VG-HE)
+  description: A box filled with Vanguard white-tipped heavy sniper cartridges (8.4x49mm VG-HE).
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Boxes/martini_white.rsi
   - type: StorageFill
     contents:
-    - id: MCCartridgeMartiniWhite
+    - id: MCCartridgeRifleVGRWhite
       amount: 4
 
 - type: Tag
-  id: MCBoxMartiniRounds
+  id: MCBoxRoundsRifleVGR
+
+# Cartridge
+- type: stack
+  id: MCCartridgeRifleVGR
+  name: stack-MCCartridgeRifleVGR
+  # handful of Vanguard heavy sniper cartridges (8.4x49mm VG-HE)
+  icon:
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini.rsi
+    state: base-1
+  spawn: MCCartridgeRifleVGR
+  maxCount: 5
 
 - type: entity
   parent: CMShellShotgunBase
-  id: MCCartridgeMartini
-  name: handful of crude heavy sniper bullet (.557/440)
+  id: MCCartridgeRifleVGR
+  name: heavy 8.4x49mm VG-HE sniper cartridge
+  description: An 8.4x49mm VG-HE sniper cartridge with a partially telescoped design. Each round combines a dense tungsten-alloy core and a high-energy charge, giving a single shot crushing power.
   components:
   - type: Tag
     tags:
     - MCCartridge
-    - MCCartridgeMartini
+    - MCCartridgeRifleVGR
     - MCHandful
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini.rsi
@@ -144,10 +158,10 @@
     - state: base
       map: [ "base" ]
   - type: CartridgeAmmo
-    proto: MCBulletMartini
+    proto: MCBulletRifleVGR
   - type: Stack
     count: 5
-    stackType: MCCartridgeMartini
+    stackType: MCCartridgeRifleVGR
     baseLayer: base
     layerStates:
     - base-1
@@ -157,24 +171,38 @@
     - base-4
     - base-5
 
-- type: Tag
-  id: MCCartridgeMartini
+- type: stack
+  id: MCCartridgeRifleVGRWhite
+  name: stack-MCCartridgeRifleVGRWhite
+  # handful of Vanguard white-tipped heavy sniper cartridges (8.4x49mm VG-HE)
+  icon:
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini_white.rsi
+    state: base-1
+  spawn: MCCartridgeRifleVGRWhite
+  maxCount: 5
 
 - type: entity
-  parent: MCCartridgeMartini
-  id: MCCartridgeMartiniWhite
-  name: handful of crude heavy sniper bullet white (.557/440)
+  parent: MCCartridgeRifleVGR
+  id: MCCartridgeRifleVGRWhite
+  name: heavy 8.4x49mm VG-HE white-tipped sniper cartridge
+  description: A white-tipped 8.4x49mm VG-HE sniper cartridge with a heavy bullet. Each round contains a crushing core that fragments on impact; the cartridge is designed to disable armored targets.
   components:
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini_white.rsi
   - type: CartridgeAmmo
-    proto: MCBulletMartiniWhite
+    proto: MCBulletRifleVGRWhite
   - type: Stack
-    stackType: MCCartridgeMartiniWhite
+    stackType: MCCartridgeRifleVGRWhite
 
+- type: Tag
+  id: MCCartridgeRifleVGR
+
+# Bullet
 - type: entity
   parent: MCBullet
-  id: MCBulletMartini
+  id: MCBulletRifleVGR
+  name: 8.4mm VG-HE heavy bullet
+  description: A heavy 8.4mm bullet fired from a VG-HE cartridge. Its high-energy charge and dense core provide severe stopping power.
   components:
   - type: Projectile
     damage:
@@ -195,7 +223,9 @@
 
 - type: entity
   parent: MCBullet
-  id: MCBulletMartiniWhite
+  id: MCBulletRifleVGRWhite
+  name: 8.4mm VG-HE white-tipped fragmenting bullet
+  description: A heavy white-tipped 8.4mm bullet with an explosive filler, fired from a VG-HE cartridge. Its destructive charge fragments on impact, damaging armored targets.
   components:
   - type: Projectile
     damage:
@@ -211,21 +241,3 @@
     statusEffects:
     - effectId: MCStatusEffectShatter
       duration: 8
-
-- type: stack
-  id: MCCartridgeMartini
-  name: handful of crude heavy sniper bullet (.557/440)
-  icon:
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini.rsi
-    state: base-1
-  spawn: MCCartridgeMartini
-  maxCount: 5
-
-- type: stack
-  id: MCCartridgeMartiniWhite
-  name: handful of crude heavy sniper bullet white (.557/440)
-  icon:
-    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/martini_white.rsi
-    state: base-1
-  spawn: MCCartridgeMartiniWhite
-  maxCount: 5

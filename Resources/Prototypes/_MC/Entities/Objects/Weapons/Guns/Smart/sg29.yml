@@ -87,13 +87,13 @@
   # Attachments
   - type: AttachableHolder
     slots:
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRedDotSight
           - MCAttachmentRailFlashlight
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
@@ -101,8 +101,8 @@
           - MCAttachmentBipod
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.8125, 0.03125
-      mc-slot-underbarrel: -0.25, -0.5625
+      mc-attachment-barrel: 0.8125, 0.03125
+      mc-attachment-underbarrel: -0.25, -0.5625
 
 # Boxes SG-62
 - type: entity

@@ -18,14 +18,14 @@
     capacity: 1
   - type: AttachableHolder
     slots:
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-rail: 0,0.15625
+      mc-attachment-rail: 0,0.15625
   - type: ShootAtFixedPoint
     maxFixedRange: 10
   - type: WieldDelay

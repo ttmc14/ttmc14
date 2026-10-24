@@ -21,7 +21,7 @@
       - id: MCVendorBundleEssentialEngineer
     - name: Implanter
       entries:
-      - id: MCImplantSkillMelee
+      - id: MCImplantSkillMeleeSimple
         points: 25
       - id: MCImplantSkillMedical
         points: 15

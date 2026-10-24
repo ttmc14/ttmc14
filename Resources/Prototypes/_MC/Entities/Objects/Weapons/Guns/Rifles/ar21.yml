@@ -57,14 +57,14 @@
   # Attachable
   - type: AttachableHolder
     slots:
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
           - MCAttachmentSuppressor
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -73,7 +73,7 @@
           - MCAttachmentRedDotSight
           - MCAttachmentT47RailScope
           # - TODO: Tactical Sensor
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentAngledGrip
@@ -89,9 +89,9 @@
           # - TODO: PP-7 Plasma Pistol
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.750000, 0.062500
-      mc-slot-underbarrel: 0.375000, -0.062500
-      mc-slot-rail: 0.093750, 0.156250
+      mc-attachment-barrel: 0.750000, 0.062500
+      mc-attachment-underbarrel: 0.375000, -0.062500
+      mc-attachment-rail: 0.093750, 0.156250
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.95

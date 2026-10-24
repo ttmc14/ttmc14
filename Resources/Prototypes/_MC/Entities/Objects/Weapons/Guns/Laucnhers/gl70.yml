@@ -17,7 +17,7 @@
     capacity: 6
   - type: AttachableHolder
     slots:
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -25,7 +25,7 @@
           - MCAttachmentMiniScope
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-rail: -0.4375,0.21875
+      mc-attachment-rail: -0.4375,0.21875
   - type: ShootAtFixedPoint
     maxFixedRange: 15
   - type: GunIgnorePrediction

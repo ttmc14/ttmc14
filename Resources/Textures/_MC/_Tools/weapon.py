@@ -24,10 +24,9 @@ class SpriteApp:
 
         # слоты с дефолтными позициями (в пикселях, из /32)
         self.slots = {
-            "muzzle": [26, 1],
+            "barrel": [26, 1],
             "underbarrel": [-8, -18],
             "stock": [-20, 0],
-            "barrel": [13, 7],
             "rail": [-11, 7]
         }
         self.active_slot = "muzzle"
@@ -279,7 +278,7 @@ class SpriteApp:
         for name, (x, y) in self.slots.items():
             tx = x / 32
             ty = -y / 32  # inverted Y for export
-            lines.append(f"    mc-slot-{name}: {tx:.6f}, {ty:.6f}")
+            lines.append(f"    mc-attachment-{name}: {tx:.6f}, {ty:.6f}")
 
         result = "\r\n".join(lines)
 

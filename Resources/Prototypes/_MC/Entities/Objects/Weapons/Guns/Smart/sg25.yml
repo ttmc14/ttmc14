@@ -86,13 +86,13 @@
   # Attachments
   - type: AttachableHolder
     slots:
-      mc-slot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRedDotSight
           - MCAttachmentRailFlashlight
-      mc-slot-muzzle:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentExtendedMuzzle
@@ -100,7 +100,7 @@
           - MCAttachmentBayonet
           - MCAttachmentRecoilCompensator
           - MCAttachmentMiniFlamethrower
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
@@ -108,9 +108,9 @@
           - MCAttachmentBipod
   - type: AttachableHolderVisuals
     offsets:
-      mc-slot-muzzle: 0.531250, 0.062500
-      mc-slot-underbarrel: 0.031250, -0.093750
-      mc-slot-rail: -0.093750, 0.156250
+      mc-attachment-barrel: 0.531250, 0.062500
+      mc-attachment-underbarrel: 0.031250, -0.093750
+      mc-attachment-rail: -0.093750, 0.156250
 
 # Magazine
 - type: entity

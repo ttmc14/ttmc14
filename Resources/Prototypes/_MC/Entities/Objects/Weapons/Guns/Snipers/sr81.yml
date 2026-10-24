@@ -61,13 +61,13 @@
     baseDelay: 1.5
   - type: AttachableHolder
     slots:
-      mc-slot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
           - MCAttachmentVerticalGrip
           - MCAttachmentBipod
-      mc-slot-rail:
+      mc-attachment-rail:
         locked: true
         startingAttachable: MCAttachmentRailScopeSR81
         whitelist:
