@@ -1,17 +1,14 @@
 ﻿using System.Linq;
 using Content.Server._MC.Xeno.Hive;
 using Content.Server._RMC14.MapInsert;
-using Content.Server._RMC14.Xenonids.Hive;
 using Content.Shared._MC.Map;
-using Content.Shared._MC.Rules.Base;
-using Content.Shared._RMC14.CCVar;
-using Content.Shared._RMC14.Light;
 using Content.Shared._RMC14.Rules;
 using Content.Shared._RMC14.TacticalMap;
 using Content.Shared._RMC14.Xenonids;
 using Robust.Server.GameObjects;
 using Robust.Shared.Configuration;
 using Robust.Shared.EntitySerialization.Systems;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -26,10 +23,7 @@ public sealed partial class MCXenoSpawnSystem : EntitySystem
     [Dependency] private readonly MapInsertSystem _mapInsert = null!;
     [Dependency] private readonly MapLoaderSystem _mapLoader = null!;
 
-    [Dependency] private readonly RMCAmbientLightSystem _rmcAmbientLight = null!;
     [Dependency] private readonly RMCPlanetSystem _rmcPlanet = null!;
-    [Dependency] private readonly XenoHiveSystem _rmcXenoHive = null!;
-
     [Dependency] private readonly MCXenoHiveSystem _mcXenoHive = null!;
 
     [ViewVariables]
@@ -38,112 +32,77 @@ public sealed partial class MCXenoSpawnSystem : EntitySystem
     [ViewVariables]
     private RMCPlanet? _selectedPlanetMap;
 
-    [ViewVariables]
-    private string? _activeNightmareScenario;
-
-    private TimeSpan _sunsetDuration;
-    private TimeSpan _sunriseDuration;
-
     public override void Initialize()
     {
-        base.Initialize();
-
         InitializeVote();
-
-        Subs.CVar(_config, RMCCVars.RMCSunsetDuration, v => _sunsetDuration = TimeSpan.FromSeconds(v), true);
-        Subs.CVar(_config, RMCCVars.RMCSunriseDuration, v => _sunriseDuration = TimeSpan.FromSeconds(v), true);
     }
 
-    public bool SpawnXenoMap<T>(Entity<T> rule) where T : Component, IRulePlanet
+    private void SetFriendlyHives(EntityUid? hiveUid)
     {
-        var planet = SelectRandomPlanet();
+        if (!Exists(hiveUid))
+            return;
 
-        _lastPlanetMaps.Enqueue(planet.Proto.ID);
-        while (_lastPlanetMaps.Count > 0 && _lastPlanetMaps.Count > _voteExcludeLast)
+        var query = EntityQueryEnumerator<XenoFriendlyComponent>();
+        while (query.MoveNext(out var uid, out _))
         {
-            _lastPlanetMaps.Dequeue();
+            _mcXenoHive.SetHive(uid, hiveUid);
         }
+    }
+
+    private bool TryLoadAndInitializeMap(RMCPlanet planet, out Entity<MapComponent> entity, out EntityUid gridUid)
+    {
+        entity = default;
+        gridUid = default;
 
         if (!_mapLoader.TryLoadMap(planet.Comp.Map, out var mapNullable, out var grids))
         {
-            Log.Error("Failed to load xeno map");
+            Log.Error("MapLoader failed to load the planet map prototype.");
             return false;
         }
 
-        var map = mapNullable.Value;
-        EnsureComp<RMCPlanetComponent>(map);
-        EnsureComp<TacticalMapComponent>(map);
+        entity = mapNullable.Value;
 
         switch (grids.Count)
         {
             case 0:
-                Log.Error("Failed to load xeno map");
+                Log.Error("Loaded map contains no grids.");
                 return false;
-
             case > 1:
-                Log.Error("Multiple planet-side grids found");
+                Log.Warning($"Multiple grids found for planet {planet.Proto.Name}. Using the first one.");
                 break;
         }
 
-        rule.Comp.XenoMap = grids.First();
+        gridUid = grids.First();
 
-        _map.InitializeMap((map, map));
+        EnsureComp<RMCPlanetComponent>(entity);
+        EnsureComp<TacticalMapComponent>(entity);
 
-        _activeNightmareScenario = string.Empty;
-        if (_selectedPlanetMap?.Comp.NightmareScenarios is not null)
-            _activeNightmareScenario = _mapInsert.SelectMapScenario(_selectedPlanetMap.Value.Comp.NightmareScenarios);
-
-        var mapInsertQuery = EntityQueryEnumerator<MapInsertComponent>();
-        while (mapInsertQuery.MoveNext(out var uid, out var mapInsert))
-        {
-            _mapInsert.ProcessMapInsert((uid, mapInsert));
-        }
-
-        var xenoMap = rule.Comp.XenoMap.Value;
-
-        var rmcAmbientComp = EnsureComp<RMCAmbientLightComponent>(xenoMap);
-        var rmcAmbientEffectComp = EnsureComp<RMCAmbientLightEffectsComponent>(xenoMap);
-
-        var colorSequence = _rmcAmbientLight.ProcessPrototype(rmcAmbientEffectComp.Sunset);
-        _rmcAmbientLight.SetColor((xenoMap, rmcAmbientComp), colorSequence, _sunsetDuration);
-
-        var ev = new MCPlanetMapSpawnEvent(map, planet.Proto);
-        RaiseLocalEvent(ref ev);
-
-        SetFriendlyHives(_mcXenoHive.DefaultHive);
+        _map.InitializeMap((entity, entity));
 
         return true;
     }
 
-    public RMCPlanet SelectRandomPlanet()
+    private void ProcessMapInsertions()
     {
-        if (_selectedPlanetMap is not null)
-            return _selectedPlanetMap.Value;
-
-        var planet = _random.Pick(_rmcPlanet.GetCandidatesInRotation());
-        _selectedPlanetMap = planet;
-        return planet;
-    }
-
-    private void ResetSelectedPlanet()
-    {
-        _selectedPlanetMap = null;
-    }
-
-    public void SetPlanet(RMCPlanet planet)
-    {
-        _selectedPlanetMap = planet;
-    }
-
-    private void SetFriendlyHives(EntityUid? uid)
-    {
-        if (!Exists(uid))
-            return;
-
-        var query = EntityQueryEnumerator<XenoFriendlyComponent>();
-        while (query.MoveNext(out var weeds, out _))
+        var query = EntityQueryEnumerator<MapInsertComponent>();
+        while (query.MoveNext(out var uid, out var component))
         {
-            _rmcXenoHive.SetHive(weeds, uid);
+            _mapInsert.ProcessMapInsert((uid, component));
+        }
+    }
+
+    private void RaisePlanetSpawnEvent(Entity<MapComponent> map, RMCPlanet planet)
+    {
+        var ev = new MCPlanetMapSpawnEvent(map, planet.Proto);
+        RaiseLocalEvent(ref ev);
+    }
+
+    private void UpdatePlanetHistory(EntProtoId<RMCPlanetMapPrototypeComponent> planetId)
+    {
+        _lastPlanetMaps.Enqueue(planetId);
+        while (_lastPlanetMaps.Count > _voteExcludeLast)
+        {
+            _lastPlanetMaps.Dequeue();
         }
     }
 }

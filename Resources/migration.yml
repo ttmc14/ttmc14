@@ -8,6 +8,9 @@
 # WallSolid: Window
 # Table: null
 
+# 24-10-2026
+MCWeaponShotgunMosin: MCWeaponRifleSFR7
+
 # 30-05-2026
 MCTraumaKit: MCHealingTraumaKit
 MCBurnKit: MCHealingBurnKit

@@ -21,7 +21,11 @@ public sealed partial class MCAimedShootSystem : EntitySystem
         SubscribeLocalEvent<MCAimedShootComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<MCAimedShootComponent, MCAimedShootActionEvent>(OnToggleAction);
 
-        SubscribeLocalEvent<MCAimedShootComponent, AmmoShotEvent>(OnAmmoShotModifiers);
+        SubscribeLocalEvent<MCAimedShootComponent, AmmoShotEvent>(
+            OnAmmoShotModifiers,
+            after: new[] { typeof(GunIFFSystem) }
+        );
+
         SubscribeLocalEvent<MCAimedShootComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<MCAimedShootComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
 

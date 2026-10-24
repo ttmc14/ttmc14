@@ -8,6 +8,18 @@ namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
 public abstract partial class MCSharedXenoHiveSystem
 {
     [PublicAPI]
+    public void AddPsypoints(Entity<MCXenoHiveComponent?> entity, Dictionary<ProtoId<MCXenoHivePsypointTypePrototype>, int> values)
+    {
+        if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
+            return;
+
+        foreach (var (id, amount) in values)
+        {
+            SetPsypoints(entity, id, GetPsypoints(entity, id) + amount);
+        }
+    }
+
+    [PublicAPI]
     public void AddPsypoints(Entity<MCXenoHiveComponent?> entity, ProtoId<MCXenoHivePsypointTypePrototype> id, int value)
     {
         if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))

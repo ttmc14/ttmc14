@@ -1,0 +1,38 @@
+- type: entity
+  parent: BaseGameRule
+  id: MCCrash
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+    minPlayers: 1
+  - type: MCRuleXenoMap
+  - type: MCRuleXenoSetupHive
+    configuration:
+      general:
+        allowCollapse: false
+        allowHarvestLarvaPoints: false
+        allowGenerateLarvaPoint: false
+        additionalSlots:
+          3: 0 # Why -1, why?
+      evolution:
+        withoutRuler: true
+        requiredCasteCount:
+          MCXenoQueen: 6
+          MCXenoKing: 12
+    psypoints:
+      Strategic: 0
+      Tactical: 0
+    autoSpawnBalance: true
+  - type: MCRuleCrashShuttle
+    time: 600
+  - type: MCRuleXenoMarinesSpawn
+  - type: MCRuleSpawnNukeDiskGenerators
+  - type: MCRuleRecalculatePower
+  - type: MCRuleRefreshIFF
+  # round end
+  - type: MCRuleEndRound
+    resultTextPrefix: mc-crash-
+  - type: MCRuleEndRoundHiveCollapse
+  - type: MCRuleEndRoundMarinesDead
+  - type: MCRuleEndRoundNukeExploded
+  - type: MCRuleEndRoundShuttleEvacuation

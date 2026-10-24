@@ -20,7 +20,7 @@ public sealed class MCTacticalMapIconSwitcherSystem : EntitySystem
 
     public void ResetIcon(Entity<MCTacticalMapIconSwitcherComponent?> entity)
     {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, false))
             return;
 
         if (!TryComp<TacticalMapIconComponent>(entity, out var component))
@@ -35,7 +35,7 @@ public sealed class MCTacticalMapIconSwitcherSystem : EntitySystem
 
     public void SetIcon(Entity<MCTacticalMapIconSwitcherComponent?> entity, string state)
     {
-        if (!Resolve(entity, ref entity.Comp))
+        if (!Resolve(entity, ref entity.Comp, false))
             return;
 
         if (!TryComp<TacticalMapIconComponent>(entity, out var component))

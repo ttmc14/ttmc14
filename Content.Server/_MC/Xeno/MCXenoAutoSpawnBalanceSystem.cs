@@ -1,8 +1,8 @@
-﻿using Content.Server._MC.Xeno.Hive;
+﻿using Content.Server._MC.Rules.Common;
+using Content.Server._MC.Xeno.Hive;
 using Content.Shared._MC;
 using Content.Shared._MC.Living;
 using Content.Shared._RMC14.Marines;
-using Robust.Shared.GameStates;
 using Robust.Shared.Timing;
 
 namespace Content.Server._MC.Xeno;
@@ -10,6 +10,8 @@ namespace Content.Server._MC.Xeno;
 public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXenoAutoSpawnBalanceSingletonComponent>
 {
     [Dependency] private readonly IGameTiming _timing = null!;
+
+    [Dependency] private readonly MCRuleXenoMarinesSpawnSystem _mcRuleXenoMarinesSpawn = null!;
     [Dependency] private readonly MCXenoHiveSystem _hive = null!;
     [Dependency] private readonly MCLivingSystem _living = null!;
 
@@ -35,7 +37,10 @@ public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXen
 
     private void OnUpdate()
     {
-        if (_hive.DefaultHive is not {} hive)
+        if (!_mcRuleXenoMarinesSpawn.Spawned)
+            return;
+
+        if (_hive.DefaultHive is not { } hive)
             return;
 
         var diff = GetPointDifference(hive);

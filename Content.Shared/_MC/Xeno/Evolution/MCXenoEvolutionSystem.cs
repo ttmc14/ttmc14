@@ -8,6 +8,7 @@ using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Climbing.Systems;
 using Content.Shared.Popups;
 using Content.Shared.Prototypes;
+using JetBrains.Annotations;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing;
@@ -170,6 +171,15 @@ public sealed partial class MCXenoEvolutionSystem : EntitySystem
             _popup.PopupEntity(Loc.GetString("mc-xeno-evolution-no-hive-leader"), xeno, xeno, PopupType.MediumCaution);
 
         return false;
+    }
+
+    [PublicAPI]
+    public int GetLivingRequirement(Entity<MCXenoHiveComponent?> entity, EntProtoId target)
+    {
+        if (!Resolve(entity, ref entity.Comp, false))
+            return -1;
+
+        return entity.Comp.Configuration.Evolution.RequiredCasteCount.GetValueOrDefault(target, -1);
     }
 
     private bool CheckLivingRequirement(
