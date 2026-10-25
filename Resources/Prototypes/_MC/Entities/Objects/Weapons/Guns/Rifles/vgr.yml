@@ -6,13 +6,13 @@
   components:
   # Visuals
   - type: Sprite
-    sprite: _MC/Objects/Weapons/Guns/Rifles/martini/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/vgr/inhands.rsi
     layers:
     - state: base
-      sprite: _MC/Objects/Weapons/Guns/Rifles/martini/icon.rsi
+      sprite: _MC/Objects/Weapons/Guns/Rifles/vgr/icon.rsi
       map: [ "enum.GunVisualLayers.Base" ]
   - type: Clothing
-    sprite: _MC/Objects/Weapons/Guns/Rifles/martini/inhands.rsi
+    sprite: _MC/Objects/Weapons/Guns/Rifles/vgr/inhands.rsi
   # Statistics
   - type: Gun
     shotsPerBurst: 1
