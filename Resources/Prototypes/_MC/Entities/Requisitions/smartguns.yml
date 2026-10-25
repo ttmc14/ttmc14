@@ -53,7 +53,7 @@
       # SG-85
       - name: SG-85 smart gatling gun
         icon:
-          sprite: _MC/Objects/Weapons/Guns/Smartguns/SG85/icon.rsi
+          sprite: _MC/Objects/Weapons/Guns/Smartguns/sg85/icon.rsi
           state: base
         cost: 400
         entities:
