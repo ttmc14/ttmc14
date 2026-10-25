@@ -32,16 +32,6 @@
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Attachments/muzzle.rsi
     state: bayonet
-  - type: MeleeWeapon
-    wideAnimationRotation: -135
-    attackRate: 1
-    damage:
-      types:
-        MCBrute: 40
-  - type: DamageOtherOnHit
-    damage:
-      types:
-        MCBrute: 50
   - type: Item
     size: Small
     sprite: _MC/Objects/Weapons/Guns/Attachments/muzzle.rsi
@@ -59,7 +49,7 @@
     modifiers:
     - conditions:
         wieldedOnly: true
-      accuracyAddMult: -0.5
+      accuracyAddMult: 0
     - conditions:
         unwieldedOnly: true
       accuracyAddMult: -0.1
