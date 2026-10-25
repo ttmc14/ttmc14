@@ -401,7 +401,7 @@
       params:
         volume: -2
   - type: OnShootTriggerAmmoTimer
-    delay: 1.5
+    delay: 1
     beepInterval: 2
     initialBeepDelay: 0
     beepSound:
