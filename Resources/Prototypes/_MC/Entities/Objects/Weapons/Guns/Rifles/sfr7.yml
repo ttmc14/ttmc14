@@ -63,8 +63,10 @@
           - MCAttachmentT47RailScope
   - type: AttachableHolderVisuals
     offsets:
-      mc-attachment-barrel: 1.0, 0.03
-      mc-attachment-rail: 0.1, 0.0
+      mc-attachment-barrel: 0.906250, 0.125000
+      mc-attachment-underbarrel: 0.625000, 0.000000
+      mc-attachment-stock: -0.625000, -0.031250
+      mc-attachment-rail: 0.187500, 0.156250
   # Specials
   - type: MCAimedShoot
     aimSpeedModifier: 0.8

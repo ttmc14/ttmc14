@@ -63,8 +63,9 @@
   - type: AttachableHolderVisuals
     offsets:
       mc-attachment-barrel: 0.937500, 0.125000
-      mc-attachment-underbarrel: 0.343750, -0.031250
-      mc-attachment-rail: 0.468750, 0.156250
+      mc-attachment-underbarrel: 0.343750, -0.062500
+      mc-attachment-stock: -0.656250, -0.031250
+      mc-attachment-rail: 0.187500, 0.156250
   # Specials
   - type: PumpAction
     sound:
