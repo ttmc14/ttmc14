@@ -32,7 +32,5 @@
     blacklist:
       components:
       - Xeno
-  - type: CMStorageVisualizer
-    storageEmpty: empty
   - type: RMCStorageEjectHand
     state: Last

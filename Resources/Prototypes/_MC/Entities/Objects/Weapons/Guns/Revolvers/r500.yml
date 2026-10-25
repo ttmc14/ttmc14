@@ -160,12 +160,6 @@
     layers:
     - state: base-full
       map: [ "base" ]
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableVisuals.Enabled:
-        base:
-          True: { state: base-full }
-          False: { state: base-empty }
   - type: Item
     size: Small
   - type: RMCStorageEjectHand
