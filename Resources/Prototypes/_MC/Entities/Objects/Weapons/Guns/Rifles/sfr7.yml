@@ -57,6 +57,7 @@
       mc-attachment-rail:
         whitelist:
           tags:
+          - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
