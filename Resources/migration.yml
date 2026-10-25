@@ -13,7 +13,7 @@ MCCartridgeMartiniWhite: MCCartridgeRifleVGRWhite
 MCBoxMartiniRoundsWhite: MCBoxRoundsRifleVGRWhite
 MCBoxMartiniRounds: MCBoxRoundsRifleVGR
 MCCartridgeMartini: MCCartridgeRifleVGR
-MCWeaponRifleVGR: MCWeaponRifleVGR
+MCWeaponShotgunMartini: MCWeaponRifleVGR
 MCCartridgeMosin: MCCartridgeRifleSFR7
 MCWeaponShotgunMosin: MCWeaponRifleSFR7
 

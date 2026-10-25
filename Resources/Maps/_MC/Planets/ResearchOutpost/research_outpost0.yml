@@ -86860,7 +86860,7 @@ entities:
     - type: Physics
       canCollide: False
     - type: InsideEntityStorage
-- proto: MCWeaponShotgunMartini
+- proto: MCWeaponRifleVGR
   entities:
   - uid: 4651
     components:
