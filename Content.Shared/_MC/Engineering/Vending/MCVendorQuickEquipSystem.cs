@@ -2,6 +2,7 @@
 using System.Linq;
 using Content.Shared._MC.Engineering.Vending.Components;
 using Content.Shared._MC.Engineering.Vending.UI.Messages;
+using Content.Shared._MC.Serialization.Loadout;
 using Content.Shared._MC.Serialization.Loadout.Data;
 using Content.Shared.Inventory;
 using Content.Shared.Storage.EntitySystems;
@@ -53,6 +54,12 @@ public sealed class MCVendorQuickEquipSystem : EntitySystem
         var itemUid = VendItem(targetUid, slot.Item, vendors);
         if (itemUid is null)
             return;
+
+        foreach (var module in MCLoadoutModuleRegistry.Modules)
+        {
+            if (module.TryApplySlot(targetUid, slot, itemUid.Value))
+                return;
+        }
 
         _inventory.TryEquip(targetUid, itemUid.Value, slot.SlotName, force: true);
     }

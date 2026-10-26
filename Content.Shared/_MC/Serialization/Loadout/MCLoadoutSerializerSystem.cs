@@ -6,6 +6,7 @@ using Content.Shared.Storage;
 using Content.Shared.Storage.Components;
 using JetBrains.Annotations;
 using Robust.Shared;
+using Robust.Shared.Containers;
 using Robust.Shared.Configuration;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
@@ -21,6 +22,15 @@ public sealed class MCLoadoutSerializerSystem : EntitySystem
     [Dependency] private readonly ISerializationManager _serialization = null!;
 
     [Dependency] private readonly InventorySystem _inventory = null!;
+    [Dependency] private readonly SharedContainerSystem _container = null!;
+
+    public override void Initialize()
+    {
+        base.Initialize();
+
+        MCLoadoutModuleRegistry.Register(new AttachableHolderLoadoutModule(EntityManager, _container));
+        MCLoadoutModuleRegistry.Register(new MCArmorModularClothingLoadoutModule(EntityManager, _container));
+    }
 
     [PublicAPI]
     public MCLoadout LoadoutFromStream(Stream stream)
@@ -52,6 +62,15 @@ public sealed class MCLoadoutSerializerSystem : EntitySystem
         while (query.NextItem(out var itemUid, out var definition))
         {
             result.Slots.Add(BuildSlot(itemUid, definition));
+        }
+
+        foreach (var module in MCLoadoutModuleRegistry.Modules)
+        {
+            var moduleSlots = module.TryBuildSlots(targetUid, buildItem => BuildItem(buildItem));
+            if (moduleSlots is null)
+                continue;
+
+            result.Slots.AddRange(moduleSlots);
         }
 
         return result;
