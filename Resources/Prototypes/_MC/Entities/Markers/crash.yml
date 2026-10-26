@@ -3,13 +3,19 @@
   id: MCMarkerCrash
   name: marker crash
   components:
-  - type: MCCrashPoint
+  - type: Tag
+    tags:
+    - MCMarkerCrash
+  - type: MCShuttlePoint
   - type: Sprite
     layers:
     - sprite: Markers/cross.rsi
       state: pink
     - sprite: _MC/Markers/landmarks.rsi
       state: crash_site
+
+- type: Tag
+  id: MCMarkerCrash
 
 - type: entity
   parent: MCMarker

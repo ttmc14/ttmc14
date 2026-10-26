@@ -9,6 +9,16 @@
   - MCCrash
 
 - type: gamePreset
+  id: MCWarfare
+  alias:
+  - mcwarfare
+  name: mc-warfare-title
+  description: mc-warfare-description
+  showInVote: true
+  rules:
+  - MCWarfare
+
+- type: gamePreset
   id: MCDistressSignal
   alias:
   - mcdistresssignal

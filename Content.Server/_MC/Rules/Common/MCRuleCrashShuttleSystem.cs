@@ -4,8 +4,9 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Rules.Common;
-using Content.Shared._MC.Rules.Crash;
+using Content.Shared._MC.Shuttle;
 using Content.Shared._RMC14.Marines;
+using Content.Shared.Whitelist;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -16,6 +17,7 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
     [Dependency] private readonly IPrototypeManager _prototype = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
 
+    [Dependency] private readonly EntityWhitelistSystem _whitelist = null!;
     [Dependency] private readonly ShuttleSystem _shuttle = null!;
 
     [Dependency] private readonly MCRelayedSystem _relayed = null!;
@@ -56,13 +58,13 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
     {
         _relayed.Relay(() =>
         {
-            Crash(entity.Comp.Time);
+            Crash(entity);
         });
     }
 
-    private void Crash(TimeSpan time)
+    private void Crash(Entity<MCRuleCrashShuttleComponent> entity)
     {
-        var crashPoints = GetPoints();
+        var crashPoints = GetPoints(entity);
         if (crashPoints.Count == 0)
         {
             Log.Fatal("Fuck!");
@@ -80,17 +82,20 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
                 shuttle,
                 coordinates,
                 Angle.Zero,
-                hyperspaceTime: (float) time.TotalSeconds);
+                hyperspaceTime: (float) entity.Comp.Time.TotalSeconds);
         }
     }
 
-    private List<Entity<MCCrashPointComponent>> GetPoints()
+    private List<Entity<MCShuttlePointComponent>> GetPoints(Entity<MCRuleCrashShuttleComponent> entity)
     {
-        var list = new List<Entity<MCCrashPointComponent>>();
-        var query = AllEntityQuery<MCCrashPointComponent>();
+        var list = new List<Entity<MCShuttlePointComponent>>();
+        var query = EntityQueryEnumerator<MCShuttlePointComponent>();
 
         while (query.MoveNext(out var uid, out var component))
         {
+            if (!_whitelist.IsWhitelistPassOrNull(entity.Comp.PointWhitelist, uid))
+                continue;
+
             list.Add((uid, component));
         }
 

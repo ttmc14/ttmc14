@@ -9,6 +9,7 @@
   - type: Sprite
     state: green
   - type: FTLBeacon
+  - type: MCShuttlePoint
   - type: DropshipDestination
   - type: FTLSmashImmune
   - type: NoFTL

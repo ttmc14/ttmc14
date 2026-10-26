@@ -7,6 +7,9 @@
     minPlayers: 1
   - type: MCRuleCrashShuttle
     time: 600
+    pointWhitelist:
+      tags:
+      - MCMarkerCrash
   - type: MCRuleXenoMarinesSpawn
   - type: MCRuleSpawnNukeDiskGenerators
   - type: MCRuleRecalculatePower

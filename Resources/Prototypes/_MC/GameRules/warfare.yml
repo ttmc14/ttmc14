@@ -1,0 +1,42 @@
+- type: entity
+  parent: BaseGameRule
+  id: MCWarfare
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: GameRule
+    minPlayers: 1
+  - type: MCRuleCrashShuttle
+    time: 600
+    pointWhitelist:
+      components:
+      - DropshipDestination
+  - type: MCRuleXenoMarinesSpawn
+  - type: MCRuleSpawnNukeDiskGenerators
+  - type: MCRuleRecalculatePower
+  - type: MCRuleRefreshIFF
+  # xeno
+  - type: MCRuleXenoMap
+  - type: MCRuleXenoSetupHive
+    configuration:
+      general:
+        allowCollapse: true
+        allowHarvestLarvaPoints: true
+        allowGenerateLarvaPoint: true
+        additionalSlots:
+          3: 0 # Why -1, why?
+      evolution:
+        withoutRuler: true
+        requiredCasteCount:
+          MCXenoQueen: 6
+          MCXenoKing: 12
+    psypoints:
+      Strategic: 800
+      Tactical: 400
+    autoSpawnBalance: true
+  # round end
+  - type: MCRuleEndRound
+    resultTextPrefix: mc-warfare-
+  - type: MCRuleEndRoundHiveCollapse
+  - type: MCRuleEndRoundMarinesDead
+  - type: MCRuleEndRoundNukeExploded
+  - type: MCRuleEndRoundShuttleEvacuation
