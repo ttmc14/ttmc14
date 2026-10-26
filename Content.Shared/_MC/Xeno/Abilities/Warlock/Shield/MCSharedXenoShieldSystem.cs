@@ -2,15 +2,19 @@
 using Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Coordinates;
+using Content.Shared.Mobs;
 using Content.Shared.Movement.Events;
 using Content.Shared.Popups;
 using Robust.Shared.Audio.Systems;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
+using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Abilities.Warlock.Shield;
 
-public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
+public abstract partial class MCSharedXenoShieldSystem : MCXenoAbilitySystem
 {
+    [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
@@ -23,11 +27,13 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
         base.Initialize();
 
         InitializeShield();
+        InitializeProjectile();
 
         SubscribeLocalEvent<MCXenoShieldComponent, MCXenoShieldActionEvent>(OnAction);
 
         SubscribeLocalEvent<MCXenoShieldActiveComponent, UpdateCanMoveEvent>(OnActiveCanMove);
         SubscribeLocalEvent<MCXenoShieldActiveComponent, MoveEvent>(OnActiveMove);
+        SubscribeLocalEvent<MCXenoShieldActiveComponent, MobStateChangedEvent>(OnActiveMobStateChanged);
     }
 
     private void OnAction(Entity<MCXenoShieldComponent> entity, ref MCXenoShieldActionEvent args)
@@ -64,6 +70,14 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
         _transform.SetLocalRotation(entity, entity.Comp.LocalRotation);
     }
 
+    private void OnActiveMobStateChanged(Entity<MCXenoShieldActiveComponent> entity, ref MobStateChangedEvent args)
+    {
+        if (args.NewMobState == MobState.Alive)
+            return;
+
+        EndAbility(entity);
+    }
+
     private void StartAbility(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config)
     {
         _audio.PlayPredicted(config.EffectSoundAction, entity, entity);
@@ -89,6 +103,13 @@ public sealed partial class MCXenoShieldSystem : MCXenoAbilitySystem
             return;
 
         EndAbility((entity.Comp.OwnerUid, activeComponent), configComponent, forced);
+    }
+
+    private void EndAbility(Entity<MCXenoShieldActiveComponent> entity,
+        bool forced = false)
+    {
+        if (TryComp<MCXenoShieldComponent>(entity, out var shieldComponent))
+            EndAbility(entity, shieldComponent, forced);
     }
 
     private void EndAbility(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config, bool forced = false)

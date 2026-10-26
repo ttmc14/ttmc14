@@ -1,5 +1,4 @@
-﻿using System.Numerics;
-using Robust.Shared.GameStates;
+﻿using Robust.Shared.GameStates;
 
 namespace Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
 
@@ -7,7 +6,7 @@ namespace Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
 public sealed partial class MCXenoShieldInstanceComponent : Component
 {
     [ViewVariables]
-    public List<MCXenoShieldFrozenProjectilePayload> Payloads = new();
+    public List<EntityUid> Projectiles = new();
 
     [ViewVariables, AutoNetworkedField]
     public EntityUid OwnerUid;
@@ -21,6 +20,3 @@ public sealed partial class MCXenoShieldInstanceComponent : Component
     [DataField, AutoNetworkedField]
     public float IntegrityMax = 350f;
 }
-
-[Serializable]
-public readonly record struct MCXenoShieldFrozenProjectilePayload(EntityUid ProjectileUid, Vector2 LinearVelocity, float AngularVelocity, float? Lifetime);

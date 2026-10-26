@@ -2,18 +2,16 @@
 using System.Numerics;
 using Content.Shared._MC.Popup;
 using Content.Shared._MC.Xeno.Abilities.Warlock.Shield.Components;
-using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Coordinates;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Robust.Shared.Physics;
-using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Spawners;
 
 namespace Content.Shared._MC.Xeno.Abilities.Warlock.Shield;
 
-public sealed partial class MCXenoShieldSystem
+public partial class MCSharedXenoShieldSystem
 {
     private void InitializeShield()
     {
@@ -22,10 +20,10 @@ public sealed partial class MCXenoShieldSystem
 
     private void OnShieldStartCollide(Entity<MCXenoShieldInstanceComponent> entity, ref StartCollideEvent args)
     {
-        if (TerminatingOrDeleted(entity) || entity.Comp.Terminating)
+        if (Net.IsClient)
             return;
 
-        if (!TryComp<PhysicsComponent>(args.OtherEntity, out var physicsComponent))
+        if (TerminatingOrDeleted(entity) || entity.Comp.Terminating)
             return;
 
         if (TryComp<ProjectileComponent>(args.OtherEntity, out var projectileComponent))
@@ -43,7 +41,7 @@ public sealed partial class MCXenoShieldSystem
             }
         }
 
-        CatchProjectile(entity, (args.OtherEntity, physicsComponent));
+        ShieldFreezeProjectile(entity, args.OtherEntity);
     }
 
     private void CreateShield(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config)
@@ -77,20 +75,7 @@ public sealed partial class MCXenoShieldSystem
         shieldInstanceComponent.Terminating = true;
         DirtyField(entity, shieldInstanceComponent,  nameof(MCXenoShieldInstanceComponent.Terminating));
 
-        var shieldEntity = (shieldUid, shieldInstanceComponent);
-        foreach (var payload in shieldInstanceComponent.Payloads)
-        {
-            if (TerminatingOrDeleted(payload.ProjectileUid))
-                continue;
-
-            if (!TryComp<PhysicsComponent>(payload.ProjectileUid, out var projectilePhysicsComponent))
-                continue;
-
-            ResolveProjectile(shieldEntity, (payload.ProjectileUid, projectilePhysicsComponent), payload, force);
-        }
-
-        shieldInstanceComponent.Payloads.Clear();
-        // DirtyField(entity, shieldInstanceComponent, nameof(MCXenoShieldInstanceComponent.Payloads));
+        ShieldResolveProjectiles((entity, shieldInstanceComponent), force);
 
         _transform.SetParent(shieldUid, Transform(entity).ParentUid);
 
@@ -101,51 +86,5 @@ public sealed partial class MCXenoShieldSystem
         _mcKnockback.Knockback(shieldUid, (Transform(shieldUid).LocalRotation - double.Pi / 2).ToVec() * -force, 5f, 30f);
 
         Dirty(entity, shieldTimedDespawn);
-    }
-
-    private void CatchProjectile(Entity<MCXenoShieldInstanceComponent> entity, Entity<PhysicsComponent> target)
-    {
-        var payload = new MCXenoShieldFrozenProjectilePayload(
-            target,
-            target.Comp.LinearVelocity,
-            target.Comp.AngularVelocity,
-            CompOrNull<TimedDespawnComponent>(target)?.Lifetime
-        );
-
-        entity.Comp.Payloads.Add(payload);
-        // DirtyField(entity, entity.Comp, nameof(MCXenoShieldInstanceComponent.Payloads));
-
-        // Stop projectile
-        _physics.SetAngularVelocity(target, 0f);
-        _physics.SetLinearVelocity(target, Vector2.Zero);
-
-        // Remove despawn shit
-        RemComp<TimedDespawnComponent>(target);
-    }
-
-    private void ResolveProjectile(Entity<MCXenoShieldInstanceComponent> entity, Entity<PhysicsComponent> target, MCXenoShieldFrozenProjectilePayload payload, float force = 1f)
-    {
-        // Stop projectile
-        _physics.SetAngularVelocity(target, payload.AngularVelocity * force);
-        _physics.SetLinearVelocity(target, payload.LinearVelocity * force);
-
-        // Remove despawn shit
-        if (payload.Lifetime is { } lifetime)
-        {
-            var timedDespawnComponent = EnsureComp<TimedDespawnComponent>(target);
-            timedDespawnComponent.Lifetime = lifetime;
-
-            Dirty(target, timedDespawnComponent);
-        }
-
-        // Change shooter
-        if (TryComp<ProjectileComponent>(target, out var projectileComponent) && force < 0f)
-        {
-            projectileComponent.Shooter = entity.Comp.OwnerUid;
-            projectileComponent.Weapon = entity.Comp.OwnerUid;
-            Dirty(target, projectileComponent);
-        }
-
-        RemComp<ProjectileIFFComponent>(target);
     }
 }
