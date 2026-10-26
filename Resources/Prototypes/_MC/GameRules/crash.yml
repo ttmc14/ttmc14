@@ -33,7 +33,6 @@
     psypoints:
       Strategic: 0
       Tactical: 0
-    autoSpawnBalance: true
   # round end
   - type: MCRuleEndRound
     resultTextPrefix: mc-crash-

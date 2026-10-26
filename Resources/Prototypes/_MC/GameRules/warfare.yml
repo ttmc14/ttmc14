@@ -22,8 +22,6 @@
         allowCollapse: true
         allowHarvestLarvaPoints: true
         allowGenerateLarvaPoint: true
-        additionalSlots:
-          3: 0 # Why -1, why?
       evolution:
         withoutRuler: true
         requiredCasteCount:
@@ -32,7 +30,6 @@
     psypoints:
       Strategic: 800
       Tactical: 400
-    autoSpawnBalance: true
   # round end
   - type: MCRuleEndRound
     resultTextPrefix: mc-warfare-

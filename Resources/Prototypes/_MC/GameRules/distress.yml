@@ -1,5 +1,3 @@
-
-
 - type: entity
   parent: BaseGameRule
   id: MCDistressSignal
@@ -7,4 +5,30 @@
   components:
   - type: GameRule
     minPlayers: 20
-  # - type: MCDistressSignalRule
+  - type: MCRuleXenoMarinesSpawn
+  - type: MCRuleSpawnNukeDiskGenerators
+  - type: MCRuleRecalculatePower
+  - type: MCRuleRefreshIFF
+  # xeno
+  - type: MCRuleXenoMap
+  - type: MCRuleXenoSetupHive
+    configuration:
+      general:
+        allowCollapse: true
+        allowHarvestLarvaPoints: true
+        allowGenerateLarvaPoint: true
+      evolution:
+        withoutRuler: false
+        requiredCasteCount:
+          MCXenoQueen: 6
+          MCXenoKing: 12
+    psypoints:
+      Strategic: 800
+      Tactical: 400
+  # round end
+  - type: MCRuleEndRound
+    resultTextPrefix: mc-warfare-
+  - type: MCRuleEndRoundHiveCollapse
+  - type: MCRuleEndRoundMarinesDead
+  - type: MCRuleEndRoundNukeExploded
+  - type: MCRuleEndRoundShuttleEvacuation
