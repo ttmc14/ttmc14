@@ -16,13 +16,11 @@ public sealed class MCXenoStructurePheromoneTowerSystem : EntitySystem
 
     private EntityQuery<XenoPheromonesObjectComponent> _xenoPheromonesObjectQuery;
     private EntityQuery<XenoActivePheromonesComponent> _xenoPheromonesActiveQuery;
-    private EntityQuery<SharedPointLightComponent> _pointLightQuery;
 
     public override void Initialize()
     {
         _xenoPheromonesObjectQuery = GetEntityQuery<XenoPheromonesObjectComponent>();
         _xenoPheromonesActiveQuery = GetEntityQuery<XenoActivePheromonesComponent>();
-        _pointLightQuery = GetEntityQuery<SharedPointLightComponent>();
 
         SubscribeLocalEvent<MCXenoStructurePheromoneTowerComponent, ComponentStartup>(OnStartup);
         SubscribeLocalEvent<MCXenoStructurePheromoneTowerComponent, InteractHandEvent>(OnInteractHand);
