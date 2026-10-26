@@ -11,7 +11,6 @@
       components:
       - DropshipDestination
   - type: MCRuleXenoMarinesSpawn
-  - type: MCRuleSpawnNukeDiskGenerators
   - type: MCRuleRecalculatePower
   - type: MCRuleRefreshIFF
   # xeno
@@ -35,5 +34,4 @@
     resultTextPrefix: mc-warfare-
   - type: MCRuleEndRoundHiveCollapse
   - type: MCRuleEndRoundMarinesDead
-  - type: MCRuleEndRoundNukeExploded
   - type: MCRuleEndRoundShuttleEvacuation
