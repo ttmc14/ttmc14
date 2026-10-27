@@ -28,7 +28,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
     public List<AirlockStyle> Styles { get; private set; } = new();
     public List<AirlockGroupPrototype> Groups { get; private set; } = new();
 
-    private static readonly ProtoId<AirlockDepartmentsPrototype> Departments = "Departments";
+    // private static readonly ProtoId<AirlockDepartmentsPrototype> Departments = "Departments";
 
     public override void Initialize()
     {
@@ -178,6 +178,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
             }
         }
 
+        /*
         // get their department ids too for the final style list
         var departments = Proto.Index(Departments);
         Styles.Capacity = names.Count;
@@ -186,6 +187,7 @@ public abstract class SharedSprayPainterSystem : EntitySystem
             departments.Departments.TryGetValue(name, out var department);
             Styles.Add(new AirlockStyle(name, department));
         }
+        */
     }
 
     #endregion
