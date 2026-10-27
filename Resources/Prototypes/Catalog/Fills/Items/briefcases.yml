@@ -24,7 +24,6 @@
       - id: WeaponSniperHristov
       - id: MagazineBoxAntiMateriel
       - id: ClothingNeckTieRed
-      - id: ClothingUniformJumpsuitLawyerBlack
       - id: BarberScissors
 
 - type: entity
@@ -39,7 +38,6 @@
       - id: EncryptionKeySyndie
       - id: RubberStampTrader
       - id: PhoneInstrumentSyndicate
-      - id: ClothingUniformJumpsuitTacticool
       - id: ClothingOuterCoatJensen
       - id: ClothingMaskNeckGaiter
       - id: SyndieHandyFlag

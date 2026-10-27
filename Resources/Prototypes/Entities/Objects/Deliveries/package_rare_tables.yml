@@ -71,7 +71,6 @@
     children:
     - !type:GroupSelector
       children:
-      - id: ClothingUniformJumpskirtMedicalDoctor
       - id: ClothingUniformJumpsuitMedicalDoctor
     - !type:AllSelector
       prob: 0.5
@@ -139,10 +138,7 @@
     children:
     - !type:GroupSelector
       children:
-      - id: ClothingUniformJumpskirtEngineering
       - id: ClothingUniformJumpsuitEngineering
-      - id: ClothingUniformJumpsuitAtmos
-      - id: ClothingUniformJumpskirtAtmos
     - !type:AllSelector
       prob: 0.5
       children:

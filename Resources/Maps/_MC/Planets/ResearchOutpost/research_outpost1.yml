@@ -4926,13 +4926,6 @@ entities:
     - type: Transform
       pos: 58.523125,-99.760254
       parent: 1
-- proto: ClothingUniformJumpsuitClownBanana
-  entities:
-  - uid: 6517
-    components:
-    - type: Transform
-      pos: 58.47625,-99.572754
-      parent: 1
 - proto: CMAirlock
   entities:
   - uid: 7113
@@ -76976,22 +76969,6 @@ entities:
     components:
     - type: Transform
       pos: 98.81206,-39.181286
-      parent: 1
-- proto: StatueBananiumClown
-  entities:
-  - uid: 3942
-    components:
-    - type: MetaData
-      name: TornadoTech bananium statue
-    - type: Transform
-      pos: 63.5,-3.5
-      parent: 1
-- proto: VendingMachineCoffee
-  entities:
-  - uid: 67
-    components:
-    - type: Transform
-      pos: 88.5,-87.5
       parent: 1
 - proto: WoodenSupportWall
   entities:

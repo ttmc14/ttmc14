@@ -213,7 +213,6 @@
   - type: StorageFill
     contents:
       - id: ClothingShoesBootsPerformer
-      - id: ClothingUniformJumpskirtPerformer
       - id: ClothingHeadPerformerWig
       - id: FoodMealMemoryleek
         amount: 2

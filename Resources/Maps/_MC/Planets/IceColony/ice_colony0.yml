@@ -33814,42 +33814,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 95.74975,-172.40807
       parent: 1
-- proto: ClosetJanitor
-  entities:
-  - uid: 18753
-    components:
-    - type: Transform
-      pos: 105.5,-44.5
-      parent: 1
-  - uid: 19727
-    components:
-    - type: Transform
-      pos: 57.5,-198.5
-      parent: 1
-- proto: ClothingHandsGlovesColorBlack
-  entities:
-  - uid: 22274
-    components:
-    - type: Transform
-      pos: 96.003494,-136.46353
-      parent: 1
-  - uid: 22275
-    components:
-    - type: Transform
-      pos: 96.46183,-136.46353
-      parent: 1
-- proto: ClothingHandsGlovesColorYellowBudget
-  entities:
-  - uid: 19301
-    components:
-    - type: Transform
-      pos: 35.586678,-103.445366
-      parent: 1
-  - uid: 19302
-    components:
-    - type: Transform
-      pos: 36.281124,-103.38981
-      parent: 1
 - proto: ClothingOuterApronBotanist
   entities:
   - uid: 20560
@@ -45439,23 +45403,6 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 32.5,-20.5
-      parent: 1
-- proto: CrateCoffin
-  entities:
-  - uid: 19427
-    components:
-    - type: Transform
-      pos: 54.5,-153.5
-      parent: 1
-  - uid: 19428
-    components:
-    - type: Transform
-      pos: 53.5,-153.5
-      parent: 1
-  - uid: 19429
-    components:
-    - type: Transform
-      pos: 52.5,-153.5
       parent: 1
 - proto: CryoPod
   entities:
@@ -158495,18 +158442,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: 118.5,-199.5
       parent: 1
-- proto: MopBucket
-  entities:
-  - uid: 19256
-    components:
-    - type: Transform
-      pos: 54.5,-95.5
-      parent: 1
-  - uid: 19740
-    components:
-    - type: Transform
-      pos: 57.5,-203.5
-      parent: 1
 - proto: MopItem
   entities:
   - uid: 19257
@@ -158577,13 +158512,6 @@ entities:
     components:
     - type: Transform
       pos: 197.51663,-124.54693
-      parent: 1
-- proto: PowerCellRecharger
-  entities:
-  - uid: 22308
-    components:
-    - type: Transform
-      pos: 80.5,-136.5
       parent: 1
 - proto: RandomSpawner100
   entities:
@@ -181632,33 +181560,12 @@ entities:
     - type: Transform
       pos: 57.553013,-34.440205
       parent: 1
-- proto: VendingMachineBooze
-  entities:
-  - uid: 23409
-    components:
-    - type: Transform
-      pos: 108.5,-99.5
-      parent: 1
-- proto: VendingMachineSnack
-  entities:
-  - uid: 19402
-    components:
-    - type: Transform
-      pos: 35.5,-142.5
-      parent: 1
 - proto: WardrobeChapel
   entities:
   - uid: 19420
     components:
     - type: Transform
       pos: 43.5,-153.5
-      parent: 1
-- proto: WardrobeChapelFilled
-  entities:
-  - uid: 19419
-    components:
-    - type: Transform
-      pos: 44.5,-153.5
       parent: 1
 - proto: WardrobeGreen
   entities:

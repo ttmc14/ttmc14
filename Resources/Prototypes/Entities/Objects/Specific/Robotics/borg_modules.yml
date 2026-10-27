@@ -1230,19 +1230,3 @@
     - ChameleonProjector
   - type: BorgModuleIcon
     icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-projector-module }
-
-- type: entity
-  parent: [ BaseXenoborgModuleStealth, BaseProviderBorgModule, BaseXenoborgContraband ]
-  id: XenoborgModuleCloakDevice
-  name: cloaking device xenoborg module
-  description: Module with a device that allows xenoborgs to become invisible for some time.
-  components:
-  - type: Sprite
-    layers:
-    - state: xenoborg_stealth
-    - state: icon-xenoborg-cloak
-  - type: ItemBorgModule
-    items:
-    - CloakingDevice
-  - type: BorgModuleIcon
-    icon: { sprite: Interface/Actions/actions_borg.rsi, state: xenoborg-eye-module }

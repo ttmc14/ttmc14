@@ -146,3 +146,9 @@
         whitelist:
           tags:
           - MCWeaponIncineratorFL84
+
+- type: Tag
+  id: MCTankFuel
+
+- type: Tag
+  id: MCTankReagent

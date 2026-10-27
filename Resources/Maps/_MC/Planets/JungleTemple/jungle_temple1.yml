@@ -18169,18 +18169,6 @@ entities:
     - type: Transform
       pos: 36.34684,58.524563
       parent: 1
-- proto: RMCFloraTreeLarge05
-  entities:
-  - uid: 298
-    components:
-    - type: Transform
-      pos: 32.339027,59.981796
-      parent: 1
-  - uid: 487
-    components:
-    - type: Transform
-      pos: 27.112467,70.71617
-      parent: 1
 - proto: RMCFlowersy4
   entities:
   - uid: 2820

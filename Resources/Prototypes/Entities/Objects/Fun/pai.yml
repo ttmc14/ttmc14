@@ -148,37 +148,6 @@
     price: 5000
 
 - type: entity
-  parent: PersonalAI
-  id: PotatoAI
-  name: potato artificial intelligence
-  description: It's a potato. You forced it to be sentient, you monster.
-  components:
-  - type: Sprite
-    sprite: Objects/Fun/pai.rsi
-    layers:
-    - state: potato-base
-    - state: potato-off-overlay
-      shader: unshaded
-      map: ["screen"]
-  - type: ToggleableGhostRole
-    roleName: pai-system-role-name-potato
-    roleDescription: pai-system-role-description-potato
-    roleRules: ghost-role-information-familiar-rules
-    mindRoles:
-    - MindRoleGhostRoleFamiliar
-  - type: Appearance
-  - type: GenericVisualizer
-    visuals:
-      enum.ToggleableGhostRoleVisuals.Status:
-        screen:
-          Off: { state: potato-off-overlay }
-          Searching: { state: potato-searching-overlay }
-          On: { state: potato-on-overlay }
-  - type: Construction
-    graph: PotatoAI
-    node: potatoai
-
-- type: entity
   parent: BaseMentalAction
   id: ActionPAIOpenShop
   name: Software Catalog

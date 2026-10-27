@@ -21,13 +21,6 @@
     back:
     - ClothingHeadHatHairflower
 
-# Headphones
-- type: loadout
-  id: Headphones
-  storage:
-    back:
-    - ClothingMultipleHeadphones
-
 # Toys
 - type: loadout
   id: PlushieLizard

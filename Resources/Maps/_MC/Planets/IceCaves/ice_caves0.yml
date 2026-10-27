@@ -99286,13 +99286,6 @@ entities:
     - type: Transform
       pos: 117.47476,53.54555
       parent: 1
-- proto: PowerCellRecharger
-  entities:
-  - uid: 2966
-    components:
-    - type: Transform
-      pos: 86.5,48.5
-      parent: 1
 - proto: RCMPlushieRounyLizard
   entities:
   - uid: 9627
@@ -108870,75 +108863,6 @@ entities:
     components:
     - type: Transform
       pos: 59.5,32.5
-      parent: 1
-- proto: Thruster
-  entities:
-  - uid: 10357
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 78.5,128.5
-      parent: 1
-  - uid: 10358
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 84.5,128.5
-      parent: 1
-  - uid: 11408
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 97.5,139.5
-      parent: 1
-  - uid: 11409
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 98.5,139.5
-      parent: 1
-  - uid: 11410
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 100.5,139.5
-      parent: 1
-  - uid: 11411
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 101.5,139.5
-      parent: 1
-  - uid: 11412
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 110.5,139.5
-      parent: 1
-  - uid: 11413
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 109.5,139.5
-      parent: 1
-  - uid: 11414
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 112.5,139.5
-      parent: 1
-  - uid: 11415
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 113.5,139.5
-      parent: 1
-- proto: VendingMachineTankDispenserEVA
-  entities:
-  - uid: 2960
-    components:
-    - type: Transform
-      pos: 90.5,44.5
       parent: 1
 - proto: XenoTunnel
   entities:

@@ -364,18 +364,6 @@
   conditions:
     - !type:TileNotBlocked
 
-- type: construction
-  id: Dresser
-  graph: Dresser
-  startNode: start
-  targetNode: dresser
-  category: construction-category-furniture
-  objectType: Structure
-  placementMode: SnapgridCenter
-  canBuildInImpassable: false
-  conditions:
-    - !type:TileNotBlocked
-
 #racks
 - type: construction
   id: Rack

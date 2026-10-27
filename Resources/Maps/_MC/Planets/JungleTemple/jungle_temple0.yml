@@ -19797,15 +19797,6 @@ entities:
     - type: Transform
       pos: 40.5,22.5
       parent: 1
-- proto: CMPackFlare
-  entities:
-  - uid: 9202
-    components:
-    - type: Transform
-      parent: 9201
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: CMPaper
   entities:
   - uid: 1568
@@ -42404,16 +42395,6 @@ entities:
     - type: Transform
       pos: 45.5,15.5
       parent: 1
-- proto: MCMachineVendingNanoMed
-  entities:
-  - uid: 1511
-    components:
-    - type: Transform
-      rot: 3.141592653589793 rad
-      pos: 44.5,24.5
-      parent: 1
-    - type: Physics
-      canCollide: False
 - proto: MCMachineVendingNanotrasenMed
   entities:
   - uid: 1518
@@ -44304,13 +44285,6 @@ entities:
     - type: Transform
       pos: 99.5,48.5
       parent: 1
-  - uid: 9203
-    components:
-    - type: Transform
-      parent: 9201
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
 - proto: MCSheetMetal20
   entities:
   - uid: 456
@@ -44374,20 +44348,6 @@ entities:
     components:
     - type: Transform
       pos: 71.5,30.5
-      parent: 1
-- proto: MCSheetPlasteel20
-  entities:
-  - uid: 6938
-    components:
-    - type: Transform
-      parent: 6937
-    - type: Physics
-      canCollide: False
-    - type: InsideEntityStorage
-  - uid: 9204
-    components:
-    - type: Transform
-      pos: 70.58877,116.526596
       parent: 1
 - proto: MCSpawnExcavationMoney
   entities:
@@ -52935,112 +52895,6 @@ entities:
     components:
     - type: Transform
       pos: 100.5,63.5
-      parent: 1
-- proto: RandomVending
-  entities:
-  - uid: 1575
-    components:
-    - type: Transform
-      pos: 44.5,28.5
-      parent: 1
-  - uid: 3057
-    components:
-    - type: Transform
-      pos: 57.5,24.5
-      parent: 1
-  - uid: 3370
-    components:
-    - type: Transform
-      pos: 67.5,10.5
-      parent: 1
-  - uid: 6915
-    components:
-    - type: Transform
-      pos: 51.5,97.5
-      parent: 1
-  - uid: 6916
-    components:
-    - type: Transform
-      pos: 61.5,110.5
-      parent: 1
-  - uid: 7869
-    components:
-    - type: Transform
-      pos: 91.5,47.5
-      parent: 1
-  - uid: 8796
-    components:
-    - type: Transform
-      pos: 8.5,26.5
-      parent: 1
-- proto: RandomVendingDrinks
-  entities:
-  - uid: 6913
-    components:
-    - type: Transform
-      pos: 51.5,98.5
-      parent: 1
-  - uid: 6917
-    components:
-    - type: Transform
-      pos: 63.5,110.5
-      parent: 1
-  - uid: 7856
-    components:
-    - type: Transform
-      pos: 93.5,57.5
-      parent: 1
-  - uid: 7862
-    components:
-    - type: Transform
-      pos: 91.5,48.5
-      parent: 1
-  - uid: 8797
-    components:
-    - type: Transform
-      pos: 7.5,26.5
-      parent: 1
-  - uid: 8853
-    components:
-    - type: Transform
-      pos: 35.5,15.5
-      parent: 1
-- proto: RandomVendingSnacks
-  entities:
-  - uid: 1574
-    components:
-    - type: Transform
-      pos: 41.5,28.5
-      parent: 1
-  - uid: 3079
-    components:
-    - type: Transform
-      pos: 6.5,26.5
-      parent: 1
-  - uid: 3367
-    components:
-    - type: Transform
-      pos: 61.5,10.5
-      parent: 1
-  - uid: 3369
-    components:
-    - type: Transform
-      pos: 71.5,24.5
-      parent: 1
-  - uid: 6914
-    components:
-    - type: Transform
-      pos: 49.5,98.5
-      parent: 1
-  - uid: 7868
-    components:
-    - type: Transform
-      pos: 93.5,56.5
-      parent: 1
-  - uid: 8852
-    components:
-    - type: Transform
-      pos: 36.5,15.5
       parent: 1
 - proto: RMCAirlockHybrisaPersonal
   entities:
