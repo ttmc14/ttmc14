@@ -6,13 +6,13 @@
   - type: Sprite
     state: icon
   - type: Clothing
-    slots: [eyes]
+    slots: [ eyes ]
   - type: Item
     size: Small
     storedRotation: -90
 
 - type: entity
-  parent: [ClothingEyesBase, BaseFoldable]
+  parent: [ ClothingEyesBase, BaseFoldable ]
   id: ClothingHeadEyeBaseFlippable
   abstract: true
   components:

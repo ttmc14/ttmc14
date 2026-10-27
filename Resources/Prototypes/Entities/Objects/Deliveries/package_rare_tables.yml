@@ -73,24 +73,11 @@
       children:
       - id: ClothingUniformJumpskirtMedicalDoctor
       - id: ClothingUniformJumpsuitMedicalDoctor
-    - !type:GroupSelector
-      children:
-      - id: ClothingBackpackMedical
-      - id: ClothingBackpackDuffelMedical
-      - id: ClothingBackpackSatchelMedical
-    - !type:GroupSelector
-      children:
-      - id: ClothingHandsGlovesNitrile
-      - id: ClothingHandsGlovesLatex
     - !type:AllSelector
       prob: 0.5
       children:
       - id: ClothingShoesBootsWinterMed
       - id: ClothingOuterWinterMed
-    - !type:GroupSelector
-      children:
-      - id: ClothingEyesHudMedical
-      - id: ClothingEyesEyepatchHudMedical
     - id: ClothingBeltMedical
     - id: ClothingShoesColorWhite
 
@@ -156,14 +143,6 @@
       - id: ClothingUniformJumpsuitEngineering
       - id: ClothingUniformJumpsuitAtmos
       - id: ClothingUniformJumpskirtAtmos
-    - !type:GroupSelector
-      children:
-      - id: ClothingBackpackAtmospherics
-      - id: ClothingBackpackEngineering
-      - id: ClothingBackpackDuffelAtmospherics
-      - id: ClothingBackpackDuffelEngineering
-      - id: ClothingBackpackSatchelAtmospherics
-      - id: ClothingBackpackSatchelEngineering
     - !type:AllSelector
       prob: 0.5
       children:
@@ -175,8 +154,6 @@
     - !type:GroupSelector
       children:
       - id: ClothingBeltUtility
-      - id: ClothingBeltUtilityEngineering
     - id: ClothingShoesBootsMag
       prob: 0.5
-    - id: ClothingHandsGlovesColorYellow
     - id: ClothingShoesColorYellow

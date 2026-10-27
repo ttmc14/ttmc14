@@ -24,7 +24,6 @@
       - id: WeaponSniperHristov
       - id: MagazineBoxAntiMateriel
       - id: ClothingNeckTieRed
-      - id: ClothingHandsGlovesLatex
       - id: ClothingUniformJumpsuitLawyerBlack
       - id: BarberScissors
 
@@ -35,7 +34,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesSunglasses
       - id: SpaceCash30000
         amount: 1
       - id: EncryptionKeySyndie
@@ -43,7 +41,6 @@
       - id: PhoneInstrumentSyndicate
       - id: ClothingUniformJumpsuitTacticool
       - id: ClothingOuterCoatJensen
-      - id: ClothingHandsGlovesCombat
       - id: ClothingMaskNeckGaiter
       - id: SyndieHandyFlag
 
@@ -54,8 +51,6 @@
   components:
   - type: StorageFill
     contents:
-      - id: ClothingEyesGlassesSunglasses
       - id: SpaceCash20000
         amount: 1
       - id: ClothingOuterCoatJensen
-      - id: ClothingHandsGlovesColorBlack

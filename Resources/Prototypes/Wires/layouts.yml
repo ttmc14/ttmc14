@@ -71,16 +71,6 @@
   - !type:SpeechWireAction
 
 - type: wireLayout
-  id: AirAlarm
-  wires:
-  - !type:AiInteractWireAction
-  - !type:PowerWireAction
-  - !type:AccessWireAction
-  - !type:LogWireAction
-  - !type:AirAlarmPanicWire
-  - !type:AtmosMonitorDeviceNetWire
-
-- type: wireLayout
   id: Intercom
   wires:
   - !type:PowerWireAction

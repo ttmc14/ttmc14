@@ -38660,25 +38660,6 @@ entities:
     - type: Transform
       pos: 3.5,3.5
       parent: 1
-- proto: SmartFridge
-  entities:
-  - uid: 5028
-    components:
-    - type: Transform
-      pos: -6.5,11.5
-      parent: 1
-- proto: SodaDispenser
-  entities:
-  - uid: 5029
-    components:
-    - type: Transform
-      pos: -21.5,18.5
-      parent: 1
-  - uid: 5030
-    components:
-    - type: Transform
-      pos: -26.5,7.5
-      parent: 1
 - proto: SpaceVillainArcade
   entities:
   - uid: 5031
@@ -38860,17 +38841,5 @@ entities:
     components:
     - type: Transform
       pos: 35.5,3.5
-      parent: 1
-- proto: VendingMachineBooze
-  entities:
-  - uid: 5063
-    components:
-    - type: Transform
-      pos: -27.5,2.5
-      parent: 1
-  - uid: 5064
-    components:
-    - type: Transform
-      pos: -24.5,3.5
       parent: 1
 ...

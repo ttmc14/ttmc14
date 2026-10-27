@@ -4,9 +4,6 @@
   id: AccessBreakerImmune
 
 - type: Tag
-  id: AirAlarm
-
-- type: Tag
   id: AirAlarmElectronics
 
 - type: Tag

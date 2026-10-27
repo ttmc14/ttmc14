@@ -107,31 +107,6 @@
       tableId: RandomInstrumentTable
 
 - type: entityTable
-  id: SalvageTreasureUncommon
-  table: !type:GroupSelector
-    children:
-    - id: IngotSilver1
-      amount: !type:RangeNumberSelector
-        range: 1, 5
-    - id: IngotGold1
-      amount: !type:RangeNumberSelector
-        range: 3, 5
-    - id: TreasureDatadiskEncrypted
-    - !type:GroupSelector
-      children:
-      - id: TreasureCDDrive
-      - id: TreasureHardDiskDrive
-      - id: TreasureFlopDiskDrive
-    - !type:NestedSelector
-      tableId: TreasureCoinPile
-      rolls: !type:RangeNumberSelector
-        range: 4, 7
-    - id: SpaceCash1000
-    - id: WristwatchGold
-    - !type:NestedSelector
-      tableId: RingTableCommon
-
-- type: entityTable
   id: SalvageTreasureRare
   table: !type:GroupSelector
     children:
@@ -240,7 +215,6 @@
     - id: HandHeldMassScanner
     - id: WeaponCrusherDagger
     - id: MiningDrill
-    - id: ClothingEyesGlassesMeson
     - id: ClothingBeltSalvageWebbing
     - id: SeismicCharge
     - id: MineralScanner
@@ -260,7 +234,6 @@
     - id: BlueprintFulton
     - id: BlueprintSeismicCharge
     - id: WeaponCrusherGlaive
-    - id: ClothingOuterHardsuitSalvage
     - id: ChemistryBottleOmnizine
     - !type:GroupSelector
       children:

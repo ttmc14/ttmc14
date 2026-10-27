@@ -1132,34 +1132,6 @@
       Glass: 1
 
 - type: entity
-  id: SurveillanceWirelessCameraMovableCircuitboard
-  parent: BaseMachineCircuitboard
-  name: movable wireless camera board
-  description: A machine printed circuit board for a movable wireless camera.
-  components:
-  - type: Sprite
-    state: service
-  - type: MachineBoard
-    prototype: SurveillanceWirelessCameraMovableConstructed
-    stackRequirements:
-      Glass: 2
-      Cable: 2
-
-- type: entity
-  id: SurveillanceWirelessCameraAnchoredCircuitboard
-  parent: BaseMachineCircuitboard
-  name: wireless camera board
-  description: A machine printed circuit board for a wireless camera.
-  components:
-  - type: Sprite
-    state: service
-  - type: MachineBoard
-    prototype: SurveillanceWirelessCameraAnchoredConstructed
-    stackRequirements:
-      Cable: 2
-      Glass: 1
-
-- type: entity
   id: GasRecyclerMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: gas recycler board

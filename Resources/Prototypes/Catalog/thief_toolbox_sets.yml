@@ -6,7 +6,6 @@
     sprite: Objects/Devices/chameleon_projector.rsi
     state: icon
   content:
-  - ClothingBackpackChameleonFill
   - ChameleonProjector
   - FakeMindShieldImplanter
   - AgentIDCard
@@ -21,7 +20,6 @@
   content:
   - WelderIndustrialAdvanced
   - ClothingEyesGlassesMeson
-  - ClothingHandsGlovesColorYellow
   - JawsOfLife
   - RemoteSignaller
   - Multitool

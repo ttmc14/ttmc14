@@ -11,9 +11,6 @@
     equipDelay: 3
     unequipDelay: 3
   - type: Blindfold
-  - type: Construction
-    graph: Blindfold
-    node: blindfold
   - type: FlashImmunity
 
 - type: entity
@@ -30,6 +27,6 @@
     protectionTime: 5
 
 - type: entity
-  parent: [ClothingEyesEyepatch, ClothingHeadEyeBaseFlipped]
+  parent: [ ClothingEyesEyepatch, ClothingHeadEyeBaseFlipped ]
   id: ClothingEyesEyepatchFlipped
   suffix: flipped

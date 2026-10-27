@@ -40,10 +40,9 @@
     materialComposition:
       Cloth: 50
 
-# stuff common to all military boots
 - type: entity
   abstract: true
-  parent: [ClothingShoesBase, ClothingSlotBase]
+  parent: [ ClothingShoesBase, ClothingSlotBase ]
   id: ClothingShoesMilitaryBase
   components:
   - type: Matchbox
@@ -55,16 +54,6 @@
           tags:
           - Knife
           - Sidearm
-
-- type: entity
-  abstract: true
-  id: ClothingShoesBootsSecFilled
-  suffix: Filled
-  components:
-  - type: ContainerFill
-    containers:
-      item:
-      - CombatKnife
 
 - type: entity
   abstract: true

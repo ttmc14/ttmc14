@@ -16,15 +16,6 @@
   price: 0.025
 
 - type: material
-  id: Cloth
-  stackEntity: MaterialCloth1
-  name: materials-cloth
-  unit: materials-unit-roll
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cloth }
-  color: "#e7e7de"
-  price: 0.05
-
-- type: material
   id: Durathread
   stackEntity: MaterialDurathread1
   name: materials-durathread

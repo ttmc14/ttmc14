@@ -145,21 +145,6 @@
       - state: pda
 
 - type: entity
-  name: headset box
-  parent: BoxCardboard
-  id: BoxHeadset
-  description: A box of spare passenger headsets.
-  components:
-  - type: StorageFill
-    contents:
-      - id: ClothingHeadsetGrey
-        amount: 4
-  - type: Sprite
-    layers:
-      - state: box
-      - state: headset
-
-- type: entity
   name: meson box
   parent: BoxCardboard
   id: BoxMesonScanners

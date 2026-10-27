@@ -77,29 +77,6 @@
               amount: 1
               doAfter: 1
 
-    - node: Curtains
-      entity: HospitalCurtains
-      edges:
-        - to: start
-          completed:
-            - !type:GivePrototype
-              prototype: MaterialCloth1
-              amount: 2
-          steps:
-            - tool: Cutting
-              doAfter: 1
-    - node: CurtainsOpen
-      entity: HospitalCurtainsOpen
-      edges:
-        - to: start
-          completed:
-            - !type:GivePrototype
-              prototype: MaterialCloth1
-              amount: 2
-          steps:
-            - tool: Cutting
-              doAfter: 1
-
     - node: CurtainsBlack
       entity: CurtainsBlack
       edges:
