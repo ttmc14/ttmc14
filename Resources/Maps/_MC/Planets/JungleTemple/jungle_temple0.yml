@@ -54321,39 +54321,6 @@ entities:
     - type: Transform
       pos: 70.5,114.5
       parent: 1
-  - uid: 6937
-    components:
-    - type: Transform
-      pos: 72.5,107.5
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 6938
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
-  - uid: 9201
-    components:
-    - type: Transform
-      pos: -10.355898,50.357193
-      parent: 1
-    - type: ContainerContainer
-      containers:
-        entity_storage: !type:Container
-          showEnts: False
-          occludes: True
-          ents:
-          - 9202
-          - 9203
-        paper_label: !type:ContainerSlot
-          showEnts: False
-          occludes: True
-          ent: null
 - proto: RMCCrateWoodenBuildable
   entities:
   - uid: 2208

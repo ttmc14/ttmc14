@@ -13,7 +13,6 @@
   - type: RMCAdminGhost
 
 - type: startingGear
-  parent: MobAghostGear
   id: RMCMobAghostGear
   equipment:
     back: ClothingBackpackSatchelHolding
@@ -25,7 +24,6 @@
     - RMCAdminHealthAnalyzer
     - DoorRemoteAll
     - AdminHypo
-    - MeleeDebug200
     - ToolDebug
     - RMCTabletCO
     - RMCWelderAdmin

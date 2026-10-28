@@ -264,10 +264,6 @@
         requireInputValidation: false
   - type: ComplexInteraction
   - type: Actions
-  - type: Access
-    groups:
-    - AllAccess
-    - Silicon
   - type: Eye
     drawFov: false
   - type: Examiner
@@ -351,25 +347,6 @@
   - type: StationAiVision
     range: 20
 
-# Borgs
-- type: entity
-  id: PlayerBorgBattery
-  parent: BorgChassisSelectable
-  suffix: Battery
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-      - PositronicBrain
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellMedium
-  - type: StartingMindRole
-    mindRole: "MindRoleSiliconBrain"
-    silent: true
-
 - type: entity
   id: PlayerBorgSyndicateAssaultBattery
   parent: BorgChassisSyndicateAssault
@@ -451,36 +428,3 @@
     - PlayerBorgSyndicateAssaultGhostRole
     - PlayerBorgSyndicateAssaultGhostRole # Saboteurs are kinda like cyborg medics, we want less.
     - PlayerBorgSyndicateSaboteurGhostRole
-
-- type: entity
-  id: PlayerBorgDerelict
-  parent: BorgChassisDerelict
-  suffix: Battery, Module
-  components:
-  - type: ContainerFill
-    containers:
-      borg_brain:
-        - PositronicBrain
-      borg_module:
-        - BorgModuleTool
-        - BorgModuleFireExtinguisher
-  - type: ItemSlots
-    slots:
-      cell_slot:
-        name: power-cell-slot-component-slot-name-default
-        startingItem: PowerCellHigh
-  - type: RandomMetadata
-    nameSegments: [NamesBorg]
-
-- type: entity
-  id: PlayerBorgDerelictGhostRole
-  parent: PlayerBorgDerelict
-  suffix: Ghost role
-  components:
-    - type: GhostRole
-      name: ghost-role-information-derelict-cyborg-name
-      description: ghost-role-information-derelict-cyborg-description
-      rules: ghost-role-information-silicon-rules
-      raffle:
-        settings: default
-    - type: GhostTakeoverAvailable

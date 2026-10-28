@@ -343,18 +343,6 @@
       - Radio
 
 - type: cargoBounty
-  id: BountyShiv
-  reward: 4000
-  description: bounty-description-shiv
-  idPrefix: SYN
-  entries:
-  - name: bounty-item-shiv
-    amount: 5
-    whitelist:
-      tags:
-      - Shiv
-
-- type: cargoBounty
   id: BountySoap
   reward: 4000
   description: bounty-description-soap
@@ -375,17 +363,6 @@
     whitelist:
       tags:
       - Soup
-
-- type: cargoBounty
-  id: BountySpear
-  reward: 8000
-  description: bounty-description-spear
-  entries:
-  - name: bounty-item-spear
-    amount: 5
-    whitelist:
-      tags:
-      - Spear
 
 - type: cargoBounty
   id: BountySyringe

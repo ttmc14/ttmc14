@@ -18,7 +18,6 @@
     groups:
     - MCSpatialAgent
     - MCCaptain
-    - AllAccess
     - ShipMasterAccess
     - Colony
     - Corp

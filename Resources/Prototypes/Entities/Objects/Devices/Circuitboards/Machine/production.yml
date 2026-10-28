@@ -542,25 +542,6 @@
           defaultPrototype: Beaker
 
 - type: entity
-  id: BiomassReclaimerMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: biomass reclaimer machine board
-  description: A machine printed circuit board for a biomass reclaimer.
-  components:
-  - type: Sprite
-    state: medical
-  - type: MachineBoard
-    prototype: BiomassReclaimer
-    stackRequirements:
-      Manipulator: 3
-      Steel: 5
-    tagRequirements:
-      Knife:
-        amount: 2
-        defaultPrototype: KitchenKnife
-        examineName: construction-insert-info-examine-name-knife
-
-- type: entity
   id: HydroponicsTrayMachineCircuitboard
   parent: BaseMachineCircuitboard
   name: hydroponics tray machine board

@@ -4,9 +4,6 @@
   id: AccessBreakerImmune
 
 - type: Tag
-  id: AirAlarmElectronics
-
-- type: Tag
   id: Airlock
 
 - type: Tag
@@ -157,9 +154,6 @@
   id: BoxCardboard
 
 - type: Tag
-  id: BoxHug
-
-- type: Tag
   id: Brain
 
 - type: Tag
@@ -187,9 +181,6 @@
   id: Burger
 
 - type: Tag
-  id: BulletFoam
-
-- type: Tag
   id: Burnt
 
 - type: Tag
@@ -214,19 +205,10 @@
   id: Chili
 
 - type: Tag
-  id: CaneBlade
-
-- type: Tag
-  id: CannonBall
-
-- type: Tag
   id: CannotSuicide
 
 - type: Tag
   id: CanPilot
-
-- type: Tag
-  id: CaptainSabre
 
 - type: Tag
   id: Carpet
@@ -243,37 +225,6 @@
 - type: Tag
   id: Cartridge
 
-- type: Tag
-  id: CartridgeAntiMateriel
-
-- type: Tag
-  id: CartridgeCap
-
-- type: Tag
-  id: CartridgeCaselessRifle
-
-- type: Tag
-  id: CartridgeCHIMP
-
-- type: Tag
-  id: CartridgeHeavyRifle
-
-- type: Tag
-  id: CartridgeLightRifle
-
-- type: Tag
-  id: CartridgeMagnum
-
-- type: Tag
-  id: CartridgePistol
-
-- type: Tag
-  id: CartridgeRifle
-
-- type: Tag
-  id: CartridgeRocket
-
-# Allows you to walk over tile entities such as lava without steptrigger
 - type: Tag
   id: Catwalk
 
@@ -342,16 +293,10 @@
   id: Coldsauce
 
 - type: Tag
-  id: CombatKnife
-
-- type: Tag
   id: ComputerTelevisionCircuitboard
 
 - type: Tag
   id: ConveyorAssembly
-
-- type: Tag
-  id: CoordinatesDisk
 
 - type: Tag # designed to let corgis wear things; at present only for SmartCorgi.  View PR 33737 on upstream for more dog wearables
   id: CorgiWearable
@@ -553,12 +498,6 @@
 
 - type: Tag
   id: Figurine
-
-- type: Tag
-  id: FireAlarm
-
-- type: Tag
-  id: FireAlarmElectronics
 
 - type: Tag
   id: FireAxe
@@ -808,9 +747,6 @@
   id: InvalidForSurvivorAntag
 
 - type: Tag
-  id: JawsOfLife
-
-- type: Tag
   id: Kangaroo
 
 - type: Tag
@@ -821,9 +757,6 @@
 
 - type: Tag
   id: KeyedInstrument
-
-- type: Tag
-  id: KitchenKnife
 
 - type: Tag
   id: Knife
@@ -845,64 +778,6 @@
 
 - type: Tag
   id: MacroBomb
-
-# Magazines ordered by slot then caliber
-
-- type: Tag
-  id: MagazineCalico
-
-- type: Tag
-  id: MagazineCaselessRifle
-
-- type: Tag
-  id: MagazineHeavyRifle
-
-- type: Tag
-  id: MagazineHeavyRifleBox
-
-- type: Tag
-  id: MagazineLightRifle
-
-- type: Tag
-  id: MagazineLightRifleBox
-
-- type: Tag
-  id: MagazineLightRiflePan
-
-- type: Tag
-  id: MagazineMagnum
-
-- type: Tag
-  id: MagazinePistol
-
-- type: Tag
-  id: MagazinePistolCaselessRifle
-
-- type: Tag
-  id: MagazinePistolHighCapacity
-
-- type: Tag
-  id: MagazinePistolSubMachineGunTopMounted
-
-- type: Tag
-  id: MagazineRifle
-
-- type: Tag
-  id: MagazineShotgun
-
-- type: Tag
-  id: MagazineMagnumSubMachineGun
-
-- type: Tag
-  id: MagazinePistolSubMachineGun
-
-- type: Tag
-  id: MagazineGrenade
-
-# Magazines end
-
-- type: Tag
-  id: MailingUnitElectronics
 
 - type: Tag
   id: Maints
@@ -1233,9 +1108,6 @@
   id: ShellShotgunLight # shotgun shells that are compatible with the flare gun.
 
 - type: Tag
-  id: Shiv
-
-- type: Tag
   id: Shovel
 
 - type: Tag
@@ -1279,9 +1151,6 @@
 
 - type: Tag
   id: Soup
-
-- type: Tag
-  id: Spear
 
 - type: Tag
   id: SpeedLoaderCap
@@ -1398,9 +1267,6 @@
   id: TrashBag
 
 - type: Tag
-  id: Truncheon
-
-- type: Tag
   id: TurretCompatibleWeapon # Used in the construction of sentry turrets
 
 - type: Tag
@@ -1441,15 +1307,6 @@
 
 - type: Tag
   id: WallmountSubstationElectronics
-
-- type: Tag
-  id: WeaponAntiqueLaser
-
-- type: Tag
-  id: WeaponPistolCHIMPUpgradeKit
-
-- type: Tag
-  id: WeaponShotgunKammerer
 
 - type: Tag
   id: WeldingMask

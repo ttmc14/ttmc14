@@ -39,8 +39,6 @@
     bodyType: Kinematic
   - type: Access
     groups:
-    - AllAccess
-    - Silicon
     - ShipMasterAccess # RMC14 Start
     - Corp
     - Colony
@@ -118,8 +116,8 @@
   - type: ShowContrabandDetails
   - type: Inventory
     templateId: aghost
-  - type: Loadout
-    prototypes: [ MobAghostGear ]
+#  - type: Loadout
+#    prototypes: [ MobAghostGear ]
   - type: BypassInteractionChecks
   - type: ParalyzeOnPullAttemptImmune
   - type: BypassSkillChecks
@@ -128,7 +126,7 @@
     marines: true
     xenos: true
     liveUpdate: true
-  
+
 
 - type: entity
   abstract: true

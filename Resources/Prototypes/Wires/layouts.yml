@@ -78,14 +78,6 @@
   - !type:ListenWireAction
 
 - type: wireLayout
-  id: FireAlarm
-  wires:
-  - !type:AiInteractWireAction
-  - !type:PowerWireAction
-  - !type:AtmosMonitorDeviceNetWire
-    alarmOnPulse: true
-
-- type: wireLayout
   id: Arcade
   wires:
   - !type:PowerWireAction

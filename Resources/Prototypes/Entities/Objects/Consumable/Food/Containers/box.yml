@@ -570,8 +570,6 @@
         orGroup: GiftPool
       - id: ClothingHeadHatBunny
         orGroup: GiftPool
-      - id: PersonalAI
-        orGroup: GiftPool
       - id: CrayonBox
         orGroup: GiftPool
       - id: ToySword
@@ -770,8 +768,6 @@
         orGroup: GiftPool
       - id: ClothingHeadHatBunny
         orGroup: GiftPool
-      - id: PersonalAI
-        orGroup: GiftPool
       - id: CrayonBox
         orGroup: GiftPool
       - id: ToySword
@@ -846,8 +842,6 @@
       - id: FoamBlade
         orGroup: GiftPool
       - id: ClothingHeadHatBunny
-        orGroup: GiftPool
-      - id: PersonalAI
         orGroup: GiftPool
       - id: ToySword
         orGroup: GiftPool

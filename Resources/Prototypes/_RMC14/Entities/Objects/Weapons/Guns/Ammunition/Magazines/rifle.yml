@@ -1,21 +1,25 @@
 - type: entity
-  id: BaseMagazineHeavyRifle
+  id: BaseMagazineRifle
   name: "magazine (.20 rifle)"
   parent: [ BaseItem, BaseSecurityContraband ]
   abstract: true
   components:
   - type: Tag
     tags:
-      - MagazineHeavyRifle
+      - MagazineRifle
   - type: Item
     size: Small
   - type: BallisticAmmoProvider
     mayTransfer: true
-    capacity: 100
+    whitelist:
+      tags:
+        - CartridgeRifle
+    capacity: 25
   - type: ContainerContainer
     containers:
       ballistic-ammo: !type:Container
   - type: Sprite
+    sprite: Objects/Weapons/Guns/Ammunition/Magazine/Rifle/rifle_mag.rsi
     layers:
     - state: base
       map: ["enum.GunVisualLayers.Base"]

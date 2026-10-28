@@ -27,7 +27,6 @@
         - FlashlightLantern
         - Lighter
         - ClothingMaskGas
-        - HandheldGPSBasic
       chance: 0.85
       offset: 0.0
 
@@ -66,7 +65,6 @@
         - trayScanner
         - FlashlightLantern
         - ClothingMaskGas
-        - HandheldGPSBasic
         - FireExtinguisher
         - PowerCellMedium
         - SheetSteel10

@@ -46,9 +46,6 @@
       color: "#767e82"
     - state: bench_solo_cover
       color: "#8c4141"
-  - type: Construction
-    graph: Seat
-    node: redComfBench
 
 - type: entity
   id: BenchBlueComfy
@@ -61,6 +58,3 @@
       color: "#767e82"
     - state: bench_solo_cover
       color: "#334e6d"
-  - type: Construction
-    graph: Seat
-    node: blueComfBench
