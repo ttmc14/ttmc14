@@ -77,9 +77,9 @@
   id: MCWeaponShotgun
 
 - type: entity
-  abstract: true
   parent: MCWeaponShotgun
   id: MCWeaponShotgunBreechloader
+  abstract: true
   components:
   - type: Sprite
     sprite: Objects/Weapons/Guns/Shotguns/db_shotgun.rsi
@@ -94,7 +94,6 @@
           True: { state: bolt-open }
           False: { state: base }
   - type: BallisticAmmoProvider
-    cycleable: true
     capacity: 2
     soundInsert:
       path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg

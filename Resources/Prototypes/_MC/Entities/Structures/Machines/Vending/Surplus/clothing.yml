@@ -19,8 +19,12 @@
     - name: Standard
       entries:
       - id: MCJumpsuitMarineSquad
+      - id: MCJumpsuitMarineJaeger
       - id: MCClothingHandsMarineCombat
+      - id: MCClothingHandsMarineCombatBlack
+      - id: MCClothingHandsMarineCombatFingerless
       - id: MCBootsBlackFilled
+      - id: MCBootsBrownFilled
     - name: Webbing
       entries:
       - id: MCWebbingBlackVest

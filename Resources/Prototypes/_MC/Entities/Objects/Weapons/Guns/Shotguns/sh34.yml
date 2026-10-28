@@ -1,5 +1,5 @@
 - type: entity
-  parent: [ MCWeaponShotgunBreechloader, RMCBaseAttachableHolder ]
+  parent: MCWeaponShotgunBreechloader
   id: MCWeaponShotgunSH34
   name: SH-34 double barrel shotgun
   description: A double barreled shotgun of archaic, but sturdy design used by the TGMC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time.
@@ -31,12 +31,9 @@
     accuracyMultiplier: 1
     accuracyMultiplierUnwielded: 0.3
   - type: BallisticAmmoProvider
-    cycleable: true
     whitelist:
       tags:
       - MCShellShotgun
-    proto: CMShellShotgunSlugs
-    capacity: 2
     soundInsert:
       path: /Audio/_RMC14/Weapons/Guns/Reload/gun_mou_reload.ogg
   - type: RMCAmmoEject

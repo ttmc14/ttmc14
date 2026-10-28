@@ -7,47 +7,51 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadLeader ]
     sections:
-    # Headset
     - name: Standard Equipment
       choices:
         MCStandardEquipment: 1
       entries:
       - id: MCVendorHeadsetSquadLeaderKit
-    # Jumpsuit
+        recommended: true
     - name: Jumpsuit
       choices:
         MCJumpsuit: 1
       entries:
-      - id: MCJumpsuitMarineJaeger
       - id: MCJumpsuitMarineSquad
-    # Boots
+        recommended: true
     - name: Boots
       choices:
         MCBoots: 1
       entries:
       - id: MCBootsBlackFilled
-      - id: MCBootsBrownFilled
-    # Gloves
+        recommended: true
     - name: Gloves
       choices:
         MCGloves: 1
       entries:
       - id: MCClothingHandsMarineCombat
-      - id: MCClothingHandsMarineCombatBlack
-      - id: MCClothingHandsMarineCombatFingerless
-    # Other ...
+        recommended: true
+    - name: Glasses
+      choices:
+        MCGlasses: 1
+      entries:
+      - id: RMCWeldingGoggles
+      - id: MCGlassesHudHealth
+        recommended: true
     - name: Backpack
       choices:
         MCBackpack: 1
       entries:
       - id: MCBackpackMarineStandard
       - id: MCSatchelMarineStandard
+        recommended: true
     - name: Webbing
       choices:
         MCWebbing: 1
       entries:
       - id: MCWebbingBlackVest
         recommended: true
+      - id: MCWebbingWhiteVest
       - id: MCWebbingBrown
       - id: MCWebbingHolster
     - name: Belt
@@ -57,32 +61,29 @@
       - id: MCClothingBeltMarine
         recommended: true
       - id: MCClothingBeltShotgun
-        recommended: true
-      # Knives belt
-      # Pistol belt
+      - id: MCClothingBeltGrenade
+      - id: MCBeltMedical
+      - id: MCBeltMedicalHypospray
       - id: MCClothingBeltUtility
         recommended: true
-      # Belt harness
+      - id: MCClothingBeltToolsFill
     - name: Pouches
       choices:
         MCPouch: 2
       entries:
-      - id: MCPouchShotgunShell
-      # General pouch
       - id: MCPouchMagazineLarge
-      # Flare pouch
-      # Combat injector pouch
-      # First aid pouch
-      - id: MCPouchToolsFill
-        name: Tool pouch (tools included)
-      - id: MCPouchGrenadeFill
-        name: Grenade pouch (grenades included)
-      - id: MCPouchConstructionFill
-        name: Construction pouch (materials included)
+        recommended: true
       - id: MCPouchPistolMagazineLarge
-      # Sidearm pouch
+      - id: MCPouchShotgunShell
+      - id: MCPouchFlareFill
+        recommended: true
+      - id: MCPouchGrenadeFill
       - id: MCPouchExplosive
       - id: MCPouchMedkitSquadBaseFilled
-        name: Medical pouch (chems included)
+        recommended: true
       - id: MCPouchMedicalInjectorBaseFull
-        name: Auto-injector's medical pouch (chems included)
+        recommended: true
+      - id: MCPouchConstructionFill
+      - id: MCPouchElectronics
+      - id: MCPouchToolsFill
+      - id: MCPouchFieldUtility

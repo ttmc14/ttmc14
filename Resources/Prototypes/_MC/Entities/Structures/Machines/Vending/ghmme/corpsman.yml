@@ -13,60 +13,78 @@
         MCStandardEquipment: 1
       entries:
       - id: MCVendorHeadsetSquadMedicKit
-    # Jumpsuit
+        recommended: true
     - name: Jumpsuit
       choices:
         MCJumpsuit: 1
       entries:
-      - id: MCJumpsuitMarineJaeger
       - id: MCJumpsuitMarineSquadMedic
-    # Boots
+        recommended: true
     - name: Boots
       choices:
         MCBoots: 1
       entries:
       - id: MCBootsBlackFilled
-      - id: MCBootsBrownFilled
-    # Gloves
+        recommended: true
     - name: Gloves
       choices:
         MCGloves: 1
       entries:
-      - id: MCClothingHandsMarineCombat
-      - id: MCClothingHandsMarineCombatBlack
-      - id: MCClothingHandsMarineCombatFingerless
       - id: MCClothingHandsLatex
-    # Other ...
+        recommended: true
+    - name: Glasses
+      choices:
+        MCGlasses: 1
+      entries:
+      - id: RMCWeldingGoggles
+      - id: MCGlassesHudHealth
+        recommended: true
     - name: Backpack
       choices:
         MCBackpack: 1
       entries:
+      - id: MCBackpackMarineStandard
       - id: MCSatchelMarineCorpsman
         recommended: true
-      - id: MCBackpackMarineCorpsman
-      # Corspman Backpack
     - name: Webbing
       choices:
         MCWebbing: 1
       entries:
-      - id: MCWebbingBrownVest
-        recommended: true
+      - id: MCWebbingBlackVest
       - id: MCWebbingWhiteVest
+        recommended: true
       - id: MCWebbingBrown
       - id: MCWebbingHolster
     - name: Belt
       choices:
         MCBelt: 1
       entries:
+      - id: MCClothingBeltMarine
+      - id: MCClothingBeltShotgun
+      - id: MCClothingBeltGrenade
       - id: MCBeltMedicBagFull
+        recommended: true
       - id: MCBeltMedicalFilledMedical
+        recommended: true
       - id: MCBeltMedicalHyposprayCorpsmanFull
+        recommended: true
+      - id: MCClothingBeltUtility
+      - id: MCClothingBeltToolsFill
     - name: Pouches
       choices:
         MCPouch: 2
       entries:
-      - id: MCPouchMedicalInjectorMedicFull
+      - id: MCPouchMagazineLarge
+      - id: MCPouchPistolMagazineLarge
+      - id: MCPouchShotgunShell
+      - id: MCPouchFlareFill
+      - id: MCPouchGrenadeFill
+      - id: MCPouchExplosive
       - id: MCPouchMedkitCorpsmanFilled
-      - id: MCPouchR312Filled
+        recommended: true
+      - id: MCPouchMedicalInjectorMedicFull
+        recommended: true
       - id: MCPouchConstructionFill
-        name: Construction pouch (materials included)
+      - id: MCPouchElectronics
+      - id: MCPouchToolsFill
+      - id: MCPouchFieldUtility

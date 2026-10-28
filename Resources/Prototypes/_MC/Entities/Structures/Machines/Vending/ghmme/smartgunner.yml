@@ -7,41 +7,37 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadSmartgunner ]
     sections:
-    # Headset
     - name: Standard Equipment
       choices:
         MCStandardEquipment: 1
       entries:
       - id: MCVendorHeadsetSquadKit
-    # Jumpsuit
+        recommended: true
     - name: Jumpsuit
       choices:
         MCJumpsuit: 1
       entries:
-      - id: MCJumpsuitMarineJaeger
       - id: MCJumpsuitMarineSquad
-    # Boots
+        recommended: true
     - name: Boots
       choices:
         MCBoots: 1
       entries:
       - id: MCBootsBlackFilled
-      - id: MCBootsBrownFilled
-    # Gloves
+        recommended: true
     - name: Gloves
       choices:
         MCGloves: 1
       entries:
       - id: MCClothingHandsMarineCombat
-      - id: MCClothingHandsMarineCombatBlack
-      - id: MCClothingHandsMarineCombatFingerless
-    # Other ...
+        recommended: true
     - name: Backpack
       choices:
         MCBackpack: 1
       entries:
       - id: MCBackpackMarineStandard
       - id: MCSatchelMarineStandard
+        recommended: true
     - name: Webbing
       choices:
         MCWebbing: 1
@@ -54,21 +50,32 @@
       choices:
         MCBelt: 1
       entries:
+      - id: MCClothingBeltMarine
+        recommended: true
+      - id: MCClothingBeltShotgun
+      - id: MCClothingBeltGrenade
+      - id: MCBeltMedical
+      - id: MCBeltMedicalHypospray
       - id: MCClothingBeltUtility
+        recommended: true
+      - id: MCClothingBeltToolsFill
     - name: Pouches
       choices:
         MCPouch: 2
       entries:
-      - id: MCPouchShotgunShell
       - id: MCPouchMagazineLarge
-      - id: MCPouchToolsFill
-        name: Tool pouch (tools included)
-      - id: MCPouchGrenadeFill
-        name: Grenade pouch (grenades included)
-      - id: MCPouchConstructionFill
-        name: Construction pouch (materials included)
+        recommended: true
       - id: MCPouchPistolMagazineLarge
+      - id: MCPouchShotgunShell
+      - id: MCPouchFlareFill
+        recommended: true
+      - id: MCPouchGrenadeFill
+      - id: MCPouchExplosive
       - id: MCPouchMedkitSquadBaseFilled
-        name: Medical pouch (chems included)
+        recommended: true
       - id: MCPouchMedicalInjectorBaseFull
-        name: Auto-injector's medical pouch (chems included)
+        recommended: true
+      - id: MCPouchConstructionFill
+      - id: MCPouchElectronics
+      - id: MCPouchToolsFill
+      - id: MCPouchFieldUtility

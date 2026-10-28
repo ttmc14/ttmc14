@@ -158,7 +158,6 @@
     state: advfirstaid
   - type: CMVendorBundle
     bundle:
-    - MCGlassesHudHealth
     - MCDefibrillator
     - MCStasisBagFolded
     - MCRollerBedSpawnFolded

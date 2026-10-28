@@ -82,7 +82,8 @@
   - type: MCAimedShoot
     aimSpeedModifier: 0.85
     aimFireModifier: 0.85
-  - type: PumpAction
+  - type: RMCGunChamber
+    enabled: false
     sound:
       path: /Audio/_MC/Weapons/Guns/Pump/ak47_cocked.ogg
 
