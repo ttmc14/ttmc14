@@ -1,9 +1,8 @@
-﻿- type: entity
+- type: entity
   parent: MCPillCanister
   id: MCPillCanisterBicaridine
   name: bicaridine pill bottle
   description: Contains pills that heal cuts and bruises, but cause slight pain. Take two to heal faster, but have slightly more pain.
-  suffix: Bicaridine, 16, MC
   components:
   - type: Item
     heldPrefix: 11
@@ -27,7 +26,6 @@
   id: MCPillCanisterKelotane
   name: kelotane pill bottle
   description: Contains pills that heal burns, but cause slight pain. Take two to heal faster, but have slightly more pain.
-  suffix: Kelotane, 16, MC
   components:
   - type: Item
     heldPrefix: 2
@@ -48,58 +46,9 @@
 
 - type: entity
   parent: MCPillCanister
-  id: MCPillCanisterDexalin
-  name: dexalin pill bottle
-  description: Contains pills that heal oxygen damage. They can suppress bloodloss symptoms as well.
-  suffix: Dexalin, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 1
-  - type: Sprite
-    layers:
-    - state: pill_canister1
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillDexalin
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-dexalin-container-label-text
-
-- type: entity
-  parent: MCPillCanister
-  id: MCPillCanisterTricordrazine
-  name: tricordrazine pill bottle
-  description: Contains pills capable of minorly healing all main types of damages.
-  suffix: Tricordrazine, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 5
-  - type: Sprite
-    layers:
-    - state: pill_canister5
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillTricordrazine
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-tricordrazine-container-label-text
-
-- type: entity
-  parent: MCPillCanister
   id: MCPillCanisterDylovene
   name: dylovene pill bottle
   description: Contains pills that heal toxic damage and purge toxins and neurotoxins of all kinds.
-  suffix: Dylovene, 16, MC
   components:
   - type: Item
     heldPrefix: 6
@@ -120,10 +69,32 @@
 
 - type: entity
   parent: MCPillCanister
+  id: MCPillCanisterTricordrazine
+  name: tricordrazine pill bottle
+  description: Contains pills capable of minorly healing all main types of damages.
+  components:
+  - type: Item
+    heldPrefix: 5
+  - type: Sprite
+    layers:
+    - state: pill_canister5
+      map: [ "bottleSurfaceLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: closed
+      map: [ "closedLayer" ]
+  - type: StorageFill
+    contents:
+    - id: MCPillTricordrazine
+      amount: 16
+  - type: IconLabel
+    labelTextLocId: mc-tricordrazine-container-label-text
+
+- type: entity
+  parent: MCPillCanister
   id: MCPillCanisterInaprovaline
   name: inaprovaline pill bottle
   description: Contains pills that prevent wounds from getting worse on their own.
-  suffix: Inaprovaline, 16, MC
   components:
   - type: Item
     heldPrefix: 3
@@ -144,10 +115,32 @@
 
 - type: entity
   parent: MCPillCanister
+  id: MCPillCanisterDexalin
+  name: dexalin pill bottle
+  description: Contains pills that heal oxygen damage. They can suppress bloodloss symptoms as well.
+  components:
+  - type: Item
+    heldPrefix: 1
+  - type: Sprite
+    layers:
+    - state: pill_canister1
+      map: [ "bottleSurfaceLayer" ]
+    - state: open
+      map: [ "openLayer" ]
+    - state: closed
+      map: [ "closedLayer" ]
+  - type: StorageFill
+    contents:
+    - id: MCPillDexalin
+      amount: 16
+  - type: IconLabel
+    labelTextLocId: mc-dexalin-container-label-text
+
+- type: entity
+  parent: MCPillCanister
   id: MCPillCanisterImidazoline
   name: imidazoline pill bottle
   description: Contains pills that heal eye damage.
-  suffix: Imidazoline, 16, MC
   components:
   - type: Item
     heldPrefix: 2
@@ -171,7 +164,6 @@
   id: MCPillCanisterHypervene
   name: hypervene pill bottle
   description: A purge medication used to treat overdoses and rapidly remove toxins. Causes pain and vomiting.
-  suffix: Hypervene, 16, MC
   components:
   - type: Item
     heldPrefix: 12
@@ -195,7 +187,6 @@
   id: MCPillCanisterTramadol
   name: tramadol pill bottle
   description: Contains pills that numb pain. Take two for a stronger effect at the cost of a toxic effect.
-  suffix: Tramadol, 16, MC
   components:
   - type: Item
     heldPrefix: 4
@@ -219,7 +210,6 @@
   id: MCPillCanisterParacetamol
   name: paracetamol pill bottle
   description: Contains pills that mildly numb pain. Take two for a slightly stronger effect.
-  suffix: Paracetamol, 16, MC
   components:
   - type: Item
     heldPrefix: 5
@@ -243,7 +233,6 @@
   id: MCPillCanisterSugar
   name: sugar pill bottle
   description: Contains pills used to prevent hunger, yum!
-  suffix: full
   components:
   - type: Item
     heldPrefix: 5
@@ -267,7 +256,6 @@
   id: MCPillCanisterDoctorDelight
   name: doctor's delight pill bottle
   description: Contains pills used to heal slowly.
-  suffix: full
   components:
   - type: Item
     heldPrefix: 5
@@ -285,123 +273,3 @@
       amount: 16
   - type: IconLabel
     labelTextLocId: mc-doctor-delight-container-label-text
-
-- type: entity
-  parent: MCPillCanister
-  id: MCPillCanisterMeralyne
-  name: meralyne pill bottle
-  description: Contains pills that heal cuts and bruises, but cause slight pain. Take two to heal faster, but have slightly more pain.
-  suffix: Meralyne, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 8
-  - type: Sprite
-    layers:
-    - state: pill_canister8
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillMeralyne
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-meralyne-container-label-text
-
-- type: entity
-  parent: MCPillCanister
-  id: MCPillCanisterDermaline
-  name: dermaline pill bottle
-  description: Contains pills that heal burns, but cause slight pain. Take two to heal faster, but have slightly more pain.
-  suffix: Dermaline, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 2
-  - type: Sprite
-    layers:
-    - state: pill_canister2
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillDermaline
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-dermaline-container-label-text
-
-- type: entity
-  parent: MCPillCanister
-  id: MCPillCanisterIsotonic
-  name: isotonic pill bottle
-  description: Contains pills that stimulate the regeneration of lost blood.
-  suffix: Isotonic, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 10
-  - type: Sprite
-    layers:
-    - state: pill_canister10
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillSalineGlucose
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-isotonic-container-label-text
-
-- type: entity
-  parent: MCPillCanister
-  id: MCPillCanisterQuickClot
-  name: quick-clot pill bottle
-  description: Contains pills that suppress internal bleeding while waiting for full treatment.
-  suffix: Quick-Clot, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 3
-  - type: Sprite
-    layers:
-    - state: pill_canister3
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillQuickClot
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-quickclot-container-label-text
-
-- type: entity
-  parent: MCPillCanister
-  id: MCPillCanisterRussianRed
-  name: russian red pill bottle
-  description: Contains pills that heal cuts and bruises, but cause slight pain. Take two to heal faster, but have slightly more pain.
-  suffix: Russian Red, 16, MC
-  components:
-  - type: Item
-    heldPrefix: 8
-  - type: Sprite
-    layers:
-    - state: pill_canister8
-      map: [ "bottleSurfaceLayer" ]
-    - state: open
-      map: [ "openLayer" ]
-    - state: closed
-      map: [ "closedLayer" ]
-  - type: StorageFill
-    contents:
-    - id: MCPillRussianRed
-      amount: 16
-  - type: IconLabel
-    labelTextLocId: mc-russianred-container-label-text

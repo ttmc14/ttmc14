@@ -14,11 +14,26 @@
   - type: CMAutomatedVendor
     jobs: [ MCCMO, MCDoctor, MCResearcher ]
     sections:
-    - name: Essentials
+    - name: mc-section-nexus-essentials
       choices:
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialMedical
+    # Injectors
+    - name: Auto Injector
+      entries:
+      - id: MCAutoInjectorMeralyne
+        points: 3
+      - id: MCAutoInjectorDermaline
+        points: 3
+      - id: MCAutoInjectorMeraderm
+        points: 3
+      - id: MCAutoInjectorQuickClot
+        points: 2
+      - id: MCAutoInjectorCombatAdv
+        points: 3
+      - id: MCAutoInjectorSynaptizine
+        points: 2
     - name: Pills
       entries:
       - id: MCPillCanisterMeralyne
@@ -47,21 +62,6 @@
       - id: MCHyposprayBigFillRussianRed
         name: hypospray (120u Russian Red)
         points: 14
-    # Injectors
-    - name: Auto Injector
-      entries:
-      - id: MCAutoInjectorMeralyne
-        points: 3
-      - id: MCAutoInjectorDermaline
-        points: 3
-      - id: MCAutoInjectorMeraderm
-        points: 3
-      - id: MCAutoInjectorQuickClot
-        points: 2
-      - id: MCAutoInjectorCombatAdv
-        points: 3
-      - id: MCAutoInjectorSynaptizine
-        points: 2
     - name: Syringe Cases
       entries:
       - id: MCCaseSyringeFillMeralyne

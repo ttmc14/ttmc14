@@ -14,28 +14,52 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadCorpsman ]
     sections:
-    - name: Essentials
+    - name: mc-section-nexus-essentials
       choices:
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialCorpsman
-    - name: Implanter
+        recommended: true
+    - name: mc-section-nexus-implanter
       entries:
       - id: MCImplantSkillMeleeSimple
         points: 25
+        name: mc-section-nexus-implanter-melee-only-one
       - id: MCImplantSkillMedical
         points: 20
+        recommended: true
+        name: mc-section-nexus-implanter-medical-only-one
       - id: MCImplantSkillSurgery
         points: 20
+        recommended: true
+        name: mc-section-nexus-implanter-surgery-only-one
       - id: MCImplantSkillEngineering
         points: 15
-    - name: Healing
+    - name: mc-section-nexus-auto-injectors
+      entries:
+      - id: MCAutoInjectorMeralyne
+        points: 3
+      - id: MCAutoInjectorDermaline
+        points: 3
+      - id: MCAutoInjectorMeraderm
+        points: 3
+      - id: MCAutoInjectorQuickClot
+        points: 2
+      - id: MCAutoInjectorCombatAdv
+        points: 3
+      - id: MCAutoInjectorSynaptizine
+        points: 2
+      - id: MCAutoInjectorOxycodone
+        points: 2
+      - id: MCAutoInjectorNeuraline
+        points: 14
+    - name: mc-section-nexus-healing
       entries:
       - id: MCHealingTraumaKitCombat
         points: 3
       - id: MCHealingBurnKitCombat
         points: 3
-    - name: Pills
+    - name: mc-section-nexus-corpsman-pills
       entries:
       - id: MCPillCanisterMeralyne
         points: 14
@@ -43,7 +67,7 @@
         points: 14
       - id: MCPillCanisterMeraderm
         points: 14
-    - name: Hyposprays
+    - name: mc-section-nexus-corpsman-hyposprays
       entries:
       - id: MCHyposprayFillMeralyne
         name: hypospray (60u Meralyne)
@@ -63,26 +87,7 @@
       - id: MCHyposprayBigFillRussianRed
         name: hypospray (120u Russian Red)
         points: 14
-    # Injectors
-    - name: Auto Injector
-      entries:
-      - id: MCAutoInjectorMeralyne
-        points: 3
-      - id: MCAutoInjectorDermaline
-        points: 3
-      - id: MCAutoInjectorMeraderm
-        points: 3
-      - id: MCAutoInjectorQuickClot
-        points: 2
-      - id: MCAutoInjectorCombatAdv
-        points: 3
-      - id: MCAutoInjectorSynaptizine
-        points: 2
-      - id: MCAutoInjectorOxycodone
-        points: 2
-      - id: MCAutoInjectorNeuraline
-        points: 14
-    - name: Syringe Cases
+    - name: mc-section-nexus-corpsman-syringe-cases
       entries:
       - id: MCCaseSyringeFillMeralyne
         name: syringe Case (120u Meralyne)
@@ -96,7 +101,7 @@
       - id: MCCaseSyringeFillNanoblood
         name: syringe Case (120u Nanoblood)
         points: 5
-    - name: Albedo
+    - name: mc-section-nexus-corpsman-albedo
       entries:
       - id: MCWeaponRevolverR312
         points: 10
@@ -114,8 +119,6 @@
         points: 7
       - id: MCBoxHandfulR312MedicalCombat
         points: 3
-      - id: MCSpeedloaderR312
-        points: 0
       - id: MCSpeedloaderR312MedicalAdrenaline
         points: 1
       - id: MCSpeedloaderR312MedicalRussianRed
@@ -130,10 +133,9 @@
         points: 1
       - id: MCPouchR312
         points: 1
-    - name: Tools
+    - name: mc-section-nexus-corpsman-tools
       entries:
       - id: MCHyposprayBig
-        name: Big hypospray
         points: 10
       - id: MCHypospray
         points: 1

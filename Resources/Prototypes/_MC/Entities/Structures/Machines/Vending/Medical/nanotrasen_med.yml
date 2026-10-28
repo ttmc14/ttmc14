@@ -15,56 +15,16 @@
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     sections:
-    - name: Pill Bottles
+    - name: Misc
       entries:
-      - id: MCPillCanisterBicaridine
-      - id: MCPillCanisterKelotane
-      - id: MCPillCanisterTramadol
-      - id: MCPillCanisterTricordrazine
-      - id: MCPillCanisterDylovene
-      - id: MCPillCanisterInaprovaline
-      - id: MCPillCanisterIsotonic
-      - id: MCPillCanisterParacetamol
-      - id: MCPillCanisterDexalin
+      - id: MCRollerBedSpawnFolded
         amount: 6
-      # spaceacillin = 6
-      # alkysine = 6
-      - id: MCPillCanisterImidazoline
-        amount: 6
-      - id: MCPillCanisterQuickClot
-        amount: 6
-      - id: MCPillCanisterHypervene
-        amount: 6
-    - name: Hypospray
-      entries:
-      - id: MCAutoInjectorDexalinPlus
-        amount: 10
-      - id: MCAutoInjectorSleepToxin
-        amount: 10
-      - id: MCHypospray
-        amount: 30
-    - name: Reagent Bottle
-      entries:
-      - id: MCBottleBicaridine
-      - id: MCBottleKelotane
-      - id: MCBottleTramadol
-      - id: MCBottleTricordrazine
-      - id: MCBottleDylovene
-      - id: MCBottleInaprovaline
-      - id: MCBottleParacetamol
-      - id: MCBottleSalineGlucose
-      - id: MCBottleLeporazine
-      - id: MCBottleDexalin
-        amount: 6
-      - id: MCBottleImidazoline
-        amount: 6
-      # spaceacillin = 6
-      - id: MCBottleOxycodone
-        amount: 6
-      - id: MCBottleSleepToxin
-        amount: 6
-      - id: MCBottleSteralizine
-        amount: 6
+      - id: MCDefibrillator
+        amount: 8
+      - id: MCHealthAnalyzer
+        amount: 16
+      - id: CMStasisBagFolded
+        amount: 24
     - name: Chemistry Equipment
       entries:
       - id: MCSyringe
@@ -98,6 +58,9 @@
         amount: 1
     - name: Misc
       entries:
+      - id: MCHypospray
+        amount: 30
+      - id: MCPillCanister
       - id: MCToolResearcherXenoAnalyzer
       - id: MCToolResearcherExcavationTool
       - id: MCSprayBottleSterilizingFill

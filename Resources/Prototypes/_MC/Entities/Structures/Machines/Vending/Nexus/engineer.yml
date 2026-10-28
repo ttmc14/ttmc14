@@ -14,49 +14,69 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadEngineer ]
     sections:
-    - name: Essentials
+    - name: mc-section-nexus-essentials
       choices:
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialEngineer
-    - name: Implanter
+    - name: mc-section-nexus-implanter
       entries:
       - id: MCImplantSkillMeleeSimple
         points: 25
+        name: mc-section-nexus-implanter-melee-only-one
       - id: MCImplantSkillMedical
         points: 15
       - id: MCImplantSkillEngineering
         points: 15
-    - name: Materials
+        recommended: true
+        name: mc-section-nexus-implanter-engineering-only-one
+    - name: mc-section-nexus-materials
       entries:
       - id: MCSheetMetal10
-        name: Metal x10
         points: 2
         recommended: true
+        name: mc-section-nexus-materials-metal-10
       - id: MCSheetPlasteel10
-        name: Plasteel x10
         points: 4
         recommended: true
+        name: mc-section-nexus-materials-plasteel-10
       - id: CMSandbagEmpty25
-        name: sandbags x25
         points: 5
         recommended: true
+        name: mc-section-nexus-materials-sandbags-25
       # TL-182 deployable shield 3 points
       # Deployable floodlight 2 points
-      # Pack of Razorburn grenades 11 points
       - id: MCRazorburnGrenadeLarge
         name: Razorburn Canister
         points: 7
       - id: MCRazorburnGrenade
         name: Razorburn grenade
         points: 3
-    - name: Tools
+    - name: mc-section-nexus-engineer-sentries
+      entries:
+      - id: MCCaseSentryST571
+        points: 35
+        recommended: true
+      - id: MCCaseSentrySHT573
+        points: 45
+        recommended: true
+      - id: MCCaseSentrySST574
+        points: 45
+      - id: MCCaseSentrySMT580
+        points: 45
+        recommended: true
+      - id: MCCaseSentryFlamer
+        points: 45
+      - id: RMCTesla
+        points: 30
+    - name: mc-section-nexus-engineer-tools
       entries:
       - id: MCVendorBundleASRSTeleporter
         points: 25
       # Plasma cutter
       - id: RMCWelderIndustrial
         points: 5
+        recommended: true
       # Hand-held cell charger
       # Large recharger powercell
       # Recharger powercell
@@ -64,7 +84,9 @@
         points: 2
       - id: RMCVisorWelding
         points: 2
-    - name: Power cells
+      - id: MCBeaconSupply
+        points: 5
+    - name: mc-section-nexus-engineer-power-cells
       entries:
       - id: MCPowerCellHigh
         points: 1
@@ -72,7 +94,7 @@
         points: 5
       - id: MCPowerCellHyper
         points: 8
-    - name: Explosives
+    - name: mc-section-nexus-engineer-explosives
       entries:
       # EX-62 Genghis incendiary charge
       # Detonation pack
@@ -81,42 +103,32 @@
       # Large M20 mine box
       # M20 mine box
       # M21 APRDS "Minelayer"
-    - name: Sentries
+    - name: mc-section-nexus-flamer
       entries:
-      - id: MCCaseSentryST571
-        points: 35
-      - id: MCCaseSentrySHT573
-        points: 45
-      - id: MCCaseSentrySST574
-        points: 45
-      - id: MCCaseSentrySMT580
-        points: 45
-      - id: MCCaseSentryFlamer
-        points: 45
-      - id: RMCTesla
-        points: 30
-      # Build-A-Sentry Attachment
-    - name: Flamer
-      entries:
-      - id: MCTankFlamerGreen
-        points: 4
+      - id: MCWeaponFlamer
+        points: 10
       - id: MCTankFlamer
         points: 2
-      - id: MCBeaconSupply
-        points: 5
-    - name: Mining
+      - id: MCBackpackFlamer
+        points: 10
+      - id: MCTankFlamerGreen
+        points: 4
+      - id: MCBackpackFlamerG
+        points: 20
+    - name: mc-section-nexus-engineer-mining
       entries:
       - id: MCMinerUpgradeModuleOverclocked
         points: 5
+        recommended: true
       # - id: MCMinerUpgradeModuleReinforced
       #   points: 5
       - id: MCMinerUpgradeModuleAutomatic
         points: 5
-    - name: Vehicle
-      entries: []
+    # - name: Vehicle
+    #   entries: []
       # Iguana Unmanned Vehicle
       # Skink Unmanned Vehicle
-    - name: Artillery
+    - name: mc-section-nexus-engineer-artillery
       entries:
       - id: MCCrateMortarKit
         points: 45
@@ -133,6 +145,12 @@
         points: 1
       - id: MCMortarShellFlare
         points: 1
+    - name: mc-section-nexus-vehicles
+      entries:
+      - id: MCVehicleRiddenMotorbike
+        points: 30
+      - id: MCReagentContainerJerrycan
+        points: 15
 
 # Bundles
 - type: entity

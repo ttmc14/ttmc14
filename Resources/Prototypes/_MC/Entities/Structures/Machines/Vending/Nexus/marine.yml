@@ -14,36 +14,42 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadMarine ]
     sections:
-    # Implanter
-    - name: Implanter
+    - name: mc-section-nexus-implanter
       entries:
       - id: MCImplantSkillMeleeSimple
         points: 25
+        name: mc-section-nexus-implanter-melee-only-one
       - id: MCImplantSkillMedical
         points: 20
+        recommended: true
       - id: MCImplantSkillEngineering
         points: 20
-    # Ammo
-    - name: Ammo
+        recommended: true
+    - name: mc-section-nexus-auto-injectors
+      entries:
+      - id: MCAutoInjectorCombatAdv
+        points: 5
+        recommended: true
+      - id: MCAutoInjectorSynaptizine
+        points: 5
+    - name: mc-section-nexus-ammo
       entries:
       - id: MCMagazineRifleAR12AP
         points: 4
       - id: MCMagazineSR127Flak
         points: 4
-    # Grenades
-    - name: Grenades
+    - name: mc-section-nexus-grenades
       entries:
       - id: MCGrenadeHedp
         points: 2
+        recommended: true
       - id: MCGrenadeHidp
         points: 2
-      - id: MCGrenadeHefaM15
-        points: 3
+        recommended: true
       - id: MCGrenadePGas
-        points: 25
-    # Injectors
-    # Vehicles
-    - name: Vehicles
+        points: 2
+        recommended: true
+    - name: mc-section-nexus-vehicles
       entries:
       - id: MCVehicleRiddenMotorbike
         points: 30

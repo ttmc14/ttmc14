@@ -38,8 +38,9 @@
     textColor: White
     storedOffset: 0, 12
   - type: RMCSmartFridgeInsertable
-  - type: ExaminableSolution
-    solution: pen
+# Fuck it
+#  - type: ExaminableSolution
+#    solution: pen
 
 - type: Tag
   id: MCAutoInjector

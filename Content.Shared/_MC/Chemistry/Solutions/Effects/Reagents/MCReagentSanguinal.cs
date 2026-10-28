@@ -14,7 +14,7 @@ public sealed partial class MCReagentSanguinal : MCReagentEffect
     {
         return
         $"""
-        Наносит {Damage} [color=#ea0e4d]физический[/color] и {BleedDamage} [color=#ff0000]кровотечение[/color] за тик.
+        Наносит {Damage} [color=#ea0e4d]ушибов[/color] и {BleedDamage} [color=#ff0000]кровотечение[/color] за тик.
 
         Наносит {Damage} [color=#64d1fc]выносливости[/color] за тик, если есть [color=#602cff]хемодайл[/color].
         Наносит {Damage} [color=#759a27]токсины[/color] за тик, если есть [color=#CF3600]нейротоксин[/color].

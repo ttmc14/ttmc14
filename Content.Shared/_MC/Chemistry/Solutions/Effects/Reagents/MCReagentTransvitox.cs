@@ -31,7 +31,7 @@ public sealed partial class MCReagentTransvitox : MCReagentEffect
         return
         $"""
         Наносит {ToxinDamagePerTick} [color=#759a27]токсины[/color] за тик.
-        При получении [color=#ea0e4d]физический[/color], наносит дополнительно {TakeDamageMultiplier} [color=#759a27]токсины[/color] от полученого урона.
+        При получении [color=#ea0e4d]ушибов[/color], наносит дополнительно {TakeDamageMultiplier} [color=#759a27]токсины[/color] от полученого урона.
         Каждый яд токсин увеличивает урон на {ExtraToxPerMultiplier * 100}% (Включая данный)
         Конвертирует [color=#da841d]ожоги[/color] в [color=#759a27]токсины[/color] в соотношении {BurnConversionAmount}:{BurnConversionRate}
         """;

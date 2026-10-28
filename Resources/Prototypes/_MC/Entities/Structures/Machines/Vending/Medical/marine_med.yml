@@ -15,6 +15,15 @@
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
     sections:
+    - name: Heal Pack
+      entries:
+      - id: MCHealingGauze
+      - id: MCHealingOintment
+      - id: MCHealingSplint
+      - id: MCHealingTraumaKit
+        amount: 50
+      - id: MCHealingBurnKit
+        amount: 50
     - name: Pill Bottles
       entries:
       - id: MCPillCanisterBicaridine
@@ -23,11 +32,19 @@
       - id: MCPillCanisterTricordrazine
       - id: MCPillCanisterCombatMix
       - id: MCPillCanisterDylovene
+      - id: MCPillCanisterInaprovaline
       - id: MCPillCanisterParacetamol
-      - id: MCPillCanisterIsotonic # isotonic
+      - id: MCPillCanisterIsotonic
       - id: MCPillCanisterSugar
       - id: MCPillCanisterDoctorDelight
-      - id: MCPillCanister
+      - id: MCPillCanisterDexalin
+        amount: 6
+      - id: MCPillCanisterImidazoline
+        amount: 6
+      - id: MCPillCanisterQuickClot
+        amount: 6
+      - id: MCPillCanisterHypervene
+        amount: 6
     - name: Auto Injector
       entries:
       - id: MCAutoInjectorBicaridine
@@ -40,32 +57,36 @@
       - id: MCAutoInjectorInaprovaline
       - id: MCAutoInjectorOxycodone
         amount: 30
-      # spaceacillin = 20
       - id: MCAutoInjectorHypervene
         amount: 20
-      # alkysine = 20
       - id: MCAutoInjectorImidazoline
         amount: 20
       - id: MCAutoInjectorQuickClot
         amount: 20
       - id: MCAutoInjectorNanoMachines
         amount: 20
-    - name: Heal Pack
+      - id: MCAutoInjectorDexalinPlus
+        amount: 10
+      - id: MCAutoInjectorSleepToxin
+        amount: 10
+    - name: Reagent Bottle
       entries:
-      - id: MCHealingGauze
-      - id: MCHealingOintment
-      - id: MCHealingSplint
-      - id: MCHealingTraumaKit
-        amount: 50
-      - id: MCHealingBurnKit
-        amount: 50
-    - name: Misc
-      entries:
-      - id: MCRollerBedSpawnFolded
+      - id: MCBottleBicaridine
+      - id: MCBottleKelotane
+      - id: MCBottleTramadol
+      - id: MCBottleTricordrazine
+      - id: MCBottleDylovene
+      - id: MCBottleInaprovaline
+      - id: MCBottleParacetamol
+      - id: MCBottleSalineGlucose
+      - id: MCBottleLeporazine
+      - id: MCBottleDexalin
         amount: 6
-      - id: MCDefibrillator
-        amount: 8
-      - id: MCHealthAnalyzer
-        amount: 16
-      - id: CMStasisBagFolded
-        amount: 24
+      - id: MCBottleImidazoline
+        amount: 6
+      - id: MCBottleOxycodone
+        amount: 6
+      - id: MCBottleSleepToxin
+        amount: 6
+      - id: MCBottleSteralizine
+        amount: 6

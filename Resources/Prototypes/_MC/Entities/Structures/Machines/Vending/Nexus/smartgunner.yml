@@ -14,17 +14,20 @@
   - type: CMAutomatedVendor
     jobs: [ MCSquadSmartgunner ]
     sections:
-    - name: Essentials
+    - name: mc-section-nexus-essentials
       choices:
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialSmartgunner
+        recommended: true
     - name: Machinegun
       entries:
       - id: MCWeaponSmartGunSG29
         points: 29
+        recommended: true
       - id: MCMagazineSmartGunSG29
         points: 4
+        recommended: true
     - name: Rifle
       entries:
       - id: MCWeaponSmartGunSG25
@@ -37,8 +40,10 @@
       entries:
       - id: MCWeaponSmartGunSG85
         points: 27
+        recommended: true
       - id: MCPowerpackSG85
         points: 10
+        recommended: true
     - name: Target Rifle
       entries:
       - id: MCWeaponSmartGunSG62
@@ -63,10 +68,12 @@
       entries:
       - id: MCBoxBulletsSmartGunSG29
         points: 4
+        recommended: true
       - id: MCBoxBulletsSmartGunSG62
         points: 4
       - id: MCBoxBulletsSmartGunSG85
         points: 4
+        recommended: true
       - id: MCBoxBulletsSmartGunSG153
         points: 4
 

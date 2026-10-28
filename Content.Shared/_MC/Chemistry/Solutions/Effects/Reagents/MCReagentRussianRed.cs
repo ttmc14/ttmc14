@@ -26,8 +26,8 @@ public sealed partial class MCReagentRussianRed : MCReagentEffect
     {
         return
         $"""
-        Восстанавливает 7 [color=#ea0e4d]физический[/color] за тик.
-        Восстанавливает 7 [color=#da841d]ожоги[/color] за тик.
+        Восстанавливает 7 [color=#ea0e4d]ушибов[/color] за тик.
+        Восстанавливает 7 [color=#da841d]ожогов[/color] за тик.
         Восстанавливает 2.5 [color=#759a27]токсинов[/color] за тик.
         Наносит 0.7 [color=#b38bff]клон[/color] урона за тик.
 
@@ -40,7 +40,7 @@ public sealed partial class MCReagentRussianRed : MCReagentEffect
         - Наносит 1 [color=#759a27]токсинов[/color] урона за тик.
 
         При введении в [color=#d12d2d]критическом состоянии[/color] и объёме выше или равному {SpecialEffectVolume}u:
-        - Мгновенно восстанавливает {SpecialEffectHealMultiplier * 100}% всех [color=#ea0e4d]физический[/color] и [color=#da841d]ожоги[/color] повреждений.
+        - Мгновенно восстанавливает {SpecialEffectHealMultiplier * 100}% всех [color=#ea0e4d]ушибов[/color] и [color=#da841d]ожоги[/color] повреждений.
         - Вызывает сильную дрожь на 5 секунд.
         - Эффект срабатывает не чаще одного раза в {SpecialEffectCooldown.TotalMinutes:0} минут
         """;

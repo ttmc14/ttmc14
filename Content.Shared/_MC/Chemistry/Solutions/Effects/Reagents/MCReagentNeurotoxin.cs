@@ -41,7 +41,7 @@ public sealed partial class MCReagentNeurotoxin : MCReagentEffect
         - Выводит 6.75u всех [color=#55ff81]медикаментов[/color] за тик.
 
         Если урон по [color=#64d1fc]выносливости[/color] превышает доступную выносливость:
-        - Избыточный урон делится между [color=#759a27]токсинами[/color] и [color=#1f75d1]удушьем[/color].
+        - Избыточный урон делится между [color=#759a27]токсинами[/color] и [color=#1f75d1]асфиксиией[/color].
         - Вызывает остановку дыхания.
         """;
     }

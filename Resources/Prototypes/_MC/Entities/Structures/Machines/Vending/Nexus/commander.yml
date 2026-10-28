@@ -14,12 +14,13 @@
   - type: CMAutomatedVendor
     jobs: [ MCFC ]
     sections:
-    - name: Essentials
+    - name: mc-section-nexus-essentials
       choices:
         MCEssentials: 1
       entries:
       - id: MCVendorBundleEssentialFieldCommander
-    - name: Implanter
+        recommended: true
+    - name: mc-section-nexus-implanter
       entries:
       - id: MCImplantSkillMeleeSimple
         points: 15
@@ -31,28 +32,28 @@
         points: 15
       - id: MCImplantSkillLeadership
         points: 20
-    - name: Beacons
+    - name: mc-section-nexus-materials
+      entries:
+      - id: MCSheetMetal10
+        points: 2
+        name: mc-section-nexus-materials-metal-10
+      - id: MCSheetPlasteel10
+        points: 4
+        name: mc-section-nexus-materials-plasteel-10
+      - id: CMSandbagEmpty25
+        points: 5
+        name: mc-section-nexus-materials-sandbags-25
+    - name: Explosive
+      entries:
+      - id: RMCExplosivePlastic
+        points: 2
+    - name: mc-section-nexus-beacons
       entries:
       - id: MCBeaconSupply
         points: 5
       - id: MCBeaconOrbital
         points: 5
-    - name: Materials
-      entries:
-      - id: MCSheetMetal10
-        name: Metal x10
-        points: 2
-      - id: MCSheetPlasteel10
-        name: Plasteel x10
-        points: 4
-      - id: CMSandbagEmpty25
-        name: sandbags x25
-        points: 3
-    - name: Explosive
-      entries:
-      - id: RMCExplosivePlastic
-        points: 2
-    - name: Flamer
+    - name: mc-section-nexus-flamer
       entries:
       - id: MCWeaponFlamer
         points: 10
@@ -78,13 +79,15 @@
       entries:
       - id: MCWeaponRifleBR8
         points: 23
+        recommended: true
       - id: MCMagazineRifleBR8
         points: 2
+        recommended: true
       - id: MCMagazineRifleBR8Impact
         points: 3
       - id: MCMagazineRifleBR8Incendiary
         points: 3
-    - name: Auto Injector
+    - name: mc-section-nexus-auto-injectors
       entries:
       - id: MCAutoInjectorDexalinPlus
         points: 1
@@ -92,15 +95,16 @@
         points: 2
       - id: MCAutoInjectorCombatAdv
         points: 2
-    - name: Medical tools
-      entries:
-      - id: MCClothingHandsHealthScanner
-        points: 2
-    - name: Healing
+        recommended: true
+    - name: mc-section-nexus-healing
       entries:
       - id: MCHealingTraumaKitCombat
         points: 2
       - id: MCHealingBurnKitCombat
+        points: 2
+    - name: mc-section-nexus-corpsman-tools
+      entries:
+      - id: MCClothingHandsHealthScanner
         points: 2
 
 - type: entity
