@@ -54,13 +54,3 @@
           tags:
           - Knife
           - Sidearm
-
-- type: entity
-  abstract: true
-  parent: ClothingShoesBaseButcherable
-  id: ClothingShoesBaseWinterBoots
-  description: Fluffy boots to help survive even the coldest of winters.
-  components:
-  - type: TemperatureProtection
-    heatingCoefficient: 1.025
-    coolingCoefficient: 0.5

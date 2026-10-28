@@ -937,35 +937,6 @@
           prob: 0.03
 
 - type: entity
-  id: XenoArtifactCashSpawn
-  parent: BaseXenoArtifactEffect
-  description: Create money
-  components:
-  - type: XenoArtifactNode
-    maxDurability: 2
-    maxDurabilityCanDecreaseBy:
-      min: 0
-      max: 1
-  - type: XAEApplyComponents
-    applyIfAlreadyHave: true
-    refreshOnReactivate: true
-    components:
-    - type: EntityTableSpawner
-      deleteSpawnerAfterSpawn: false
-      table: !type:GroupSelector
-        rolls: !type:RangeNumberSelector
-          range: 2, 4
-        children:
-        - id: SpaceCash10
-          weight: 0.75
-        - id: SpaceCash100
-          weight: 0.5
-        - id: SpaceCash500
-          weight: 0.25
-        - id: SpaceCash1000
-          weight: 0.1
-
-- type: entity
   id: XenoArtifactShatterWindows
   parent: BaseXenoArtifactEffect
   description: Break windows
@@ -1266,21 +1237,6 @@
       table: !type:AllSelector
         children:
         - id: TeslaEnergyBall
-
-- type: entity
-  id: XenoArtifactExplosionScary
-  parent: BaseOneTimeXenoArtifactEffect
-  description: Small scale high-speed nuclear reaction
-  components:
-  - type: XAETriggerExplosives
-  - type: Explosive
-    deleteAfterExplosion: false
-    explosionType: Radioactive
-    totalIntensity: 300
-    intensitySlope: 2
-    maxIntensity: 1.5
-    canCreateVacuum: false
-    repeatable: true
 
 - type: entity
   id: XenoArtifactBoom

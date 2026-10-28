@@ -78,19 +78,6 @@
       tableId: RandomAllSodaTable
 
 - type: entityTable # TODO: Add more variety!
-  id: LetterUncommonEntityTable # Some more varied things, should never be more expensive than 100 spesos
-  table: !type:GroupSelector
-    children:
-    - !type:NestedSelector
-      tableId: RandomSafePillTable
-    - !type:NestedSelector
-      tableId: RandomSafeSyringeTable
-    - !type:NestedSelector
-      tableId: UncommonLetterBundleTable
-    - id: SpaceCash100
-    - id: Joint
-
-- type: entityTable # TODO: Add more variety!
   id: LetterRareEntityTable # Interesting things that can actually be of use, should never be more expensive than 500 spesos
   table: !type:GroupSelector
     children:

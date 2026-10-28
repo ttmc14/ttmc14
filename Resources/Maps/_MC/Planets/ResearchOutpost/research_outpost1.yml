@@ -4885,18 +4885,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 110.5,-96.5
       parent: 1
-- proto: BiomassReclaimer
-  entities:
-  - uid: 4361
-    components:
-    - type: Transform
-      pos: 38.5,-28.5
-      parent: 1
-  - uid: 4364
-    components:
-    - type: Transform
-      pos: 50.5,-28.5
-      parent: 1
 - proto: ChessBoard
   entities:
   - uid: 2568
@@ -4904,27 +4892,6 @@ entities:
     - type: Transform
       rot: -1.5707963267948966 rad
       pos: 98.440765,-36.4512
-      parent: 1
-- proto: ClothingHeadHatPartyWaterCup
-  entities:
-  - uid: 2652
-    components:
-    - type: Transform
-      pos: 100.48395,-47.430176
-      parent: 1
-- proto: ClothingMaskClownBanana
-  entities:
-  - uid: 6518
-    components:
-    - type: Transform
-      pos: 58.491875,-99.072754
-      parent: 1
-- proto: ClothingShoesClownBanana
-  entities:
-  - uid: 5649
-    components:
-    - type: Transform
-      pos: 58.523125,-99.760254
       parent: 1
 - proto: CMAirlock
   entities:

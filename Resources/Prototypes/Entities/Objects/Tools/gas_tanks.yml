@@ -35,9 +35,9 @@
       volume: 5
       temperature: 293.15
     tankLowPressure: 30.0
-  - type: Explosive
-    explosionType: MicroBomb
-    maxIntensity: 20
+# - type: Explosive
+#   explosionType: MicroBomb
+#   maxIntensity: 20
   - type: MeleeWeapon
     wideAnimationRotation: 45
     attackRate: 0.8

@@ -8,7 +8,7 @@
   - type: Item
     size: Small
   - type: Clothing
-    slots: [mask]
+    slots: [ mask ]
   - type: StaticPrice
     price: 25
 

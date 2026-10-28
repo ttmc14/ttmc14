@@ -13006,13 +13006,6 @@ entities:
     - type: Transform
       pos: 62.5,-71.5
       parent: 1
-- proto: BiomassReclaimer
-  entities:
-  - uid: 870
-    components:
-    - type: Transform
-      pos: 45.5,-39.5
-      parent: 1
 - proto: BookshelfFilled
   entities:
   - uid: 19
@@ -15913,20 +15906,6 @@ entities:
     components:
     - type: Transform
       pos: 51.5,-66.5
-      parent: 1
-- proto: ClothingHeadHatBeretWarden
-  entities:
-  - uid: 28
-    components:
-    - type: Transform
-      pos: 93.5,-40.5
-      parent: 1
-- proto: ClothingHeadHatPaper
-  entities:
-  - uid: 29
-    components:
-    - type: Transform
-      pos: 90.501205,-84.407974
       parent: 1
 - proto: CMAirlockEngineer
   entities:
@@ -91392,20 +91371,6 @@ entities:
     components:
     - type: Transform
       pos: 83.5,-30.5
-      parent: 1
-- proto: SpawnMobBandito
-  entities:
-  - uid: 11651
-    components:
-    - type: Transform
-      pos: 34.5,-33.5
-      parent: 1
-- proto: SpawnMobCatGeneric
-  entities:
-  - uid: 11652
-    components:
-    - type: Transform
-      pos: 106.5,-60.5
       parent: 1
 - proto: Table
   entities:

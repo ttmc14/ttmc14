@@ -22,9 +22,6 @@
   id: AnomalyHost
 
 - type: Tag
-  id: AppraisalTool
-
-- type: Tag
   id: Apron
 
 - type: Tag
@@ -801,9 +798,6 @@
   id: Metal
 
 - type: Tag
-  id: MicroBomb
-
-- type: Tag
   id: MicrowaveMachineBoard
 
 - type: Tag
@@ -1250,9 +1244,6 @@
 
 - type: Tag
   id: ToothSpaceCarp
-
-- type: Tag
-  id: Torch
 
 - type: Tag
   id: ToyRubberDuck

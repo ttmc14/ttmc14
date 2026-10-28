@@ -44,8 +44,8 @@ public sealed partial class CargoBountyPrototype : IPrototype
     /// <summary>
     /// A group used for categorizing this bounty.
     /// </summary>
-    [DataField]
-    public ProtoId<CargoBountyGroupPrototype> Group = "StationBounty";
+    // [DataField]
+    // public ProtoId<CargoBountyGroupPrototype> Group = "StationBounty";
 
     /// <summary>
     /// Optional sprite representing this bounty.

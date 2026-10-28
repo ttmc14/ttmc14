@@ -28,18 +28,6 @@
     spawned:
       - id: FoodMeatSpider
         amount: 5
-  - type: Reactive
-    reactions:
-    - reagents: [Water]
-      methods: [Touch]
-      effects:
-      - !type:WearableReaction
-        slot: head
-        prototypeID: WaterDropletHat
-    - reagents: [Water, SpaceCleaner]
-      methods: [Touch]
-      effects:
-      - !type:WashCreamPieReaction
   # Damage (Self)
   - type: Bloodstream
     bloodReagent: CopperBlood

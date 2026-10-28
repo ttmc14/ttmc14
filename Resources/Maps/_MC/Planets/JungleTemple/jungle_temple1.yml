@@ -3935,18 +3935,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 38.5,39.5
       parent: 1
-- proto: ClothingHeadHatPartyWaterCup
-  entities:
-  - uid: 2453
-    components:
-    - type: Transform
-      pos: 6.8010664,34.466976
-      parent: 1
-  - uid: 2454
-    components:
-    - type: Transform
-      pos: 6.592733,34.75077
-      parent: 1
 - proto: CMAirlockCommand
   entities:
   - uid: 119

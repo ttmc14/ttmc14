@@ -6,7 +6,7 @@
   - type: Sprite
     state: icon
   - type: Clothing
-    slots: [innerclothing]
+    slots: [ innerclothing ]
     equipSound:
       path: /Audio/Items/jumpsuit_equip.ogg
   - type: Butcherable
@@ -61,7 +61,7 @@
   id: ClothingUniformSkirtBase
   components:
   - type: Clothing
-    slots: [innerclothing]
+    slots: [ innerclothing ]
     femaleMask: UniformTop
 
 

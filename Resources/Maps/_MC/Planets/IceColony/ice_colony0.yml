@@ -33579,18 +33579,6 @@ entities:
     - type: Transform
       pos: 82.5,-149.5
       parent: 1
-- proto: BoxInflatable
-  entities:
-  - uid: 20025
-    components:
-    - type: Transform
-      pos: 111.62962,-147.3803
-      parent: 1
-  - uid: 20026
-    components:
-    - type: Transform
-      pos: 112.12962,-147.35252
-      parent: 1
 - proto: CarpetChapel
   entities:
   - uid: 813
@@ -33813,13 +33801,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: 95.74975,-172.40807
-      parent: 1
-- proto: ClothingOuterApronBotanist
-  entities:
-  - uid: 20560
-    components:
-    - type: Transform
-      pos: 57.51382,-71.54941
       parent: 1
 - proto: CMAirlock
   entities:
@@ -53138,23 +53119,6 @@ entities:
     - type: Transform
       pos: 103.585205,-96.43627
       parent: 1
-- proto: ForensicScanner
-  entities:
-  - uid: 20261
-    components:
-    - type: Transform
-      pos: 96.459816,-185.34886
-      parent: 1
-  - uid: 20262
-    components:
-    - type: Transform
-      pos: 96.50148,-185.39053
-      parent: 1
-  - uid: 20325
-    components:
-    - type: Transform
-      pos: 116.37678,-191.48727
-      parent: 1
 - proto: Fork
   entities:
   - uid: 19911
@@ -53984,13 +53948,6 @@ entities:
     components:
     - type: Transform
       pos: 101.5,-99.5
-      parent: 1
-- proto: KitchenKnife
-  entities:
-  - uid: 22256
-    components:
-    - type: Transform
-      pos: 108.541534,-131.5
       parent: 1
 - proto: KitchenMicrowave
   entities:

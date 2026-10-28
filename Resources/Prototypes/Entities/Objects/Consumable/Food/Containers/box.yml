@@ -276,18 +276,6 @@
     - id: FoodPizzaWorldpeas
       prob: 0.05
       orGroup: Pizza
-    - id: KnifePlastic
-
-- type: entity
-  name: pizza box
-  parent: FoodBoxPizzaFilled
-  id: FoodBoxPizzaCotton
-  suffix: Cotton Pizza
-  components:
-  - type: StorageFill
-    contents:
-    - id: FoodPizzaCotton
-    - id: KnifePlastic
 
 # Nugget
 
@@ -568,8 +556,6 @@
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
-      - id: ClothingHeadHatBunny
-        orGroup: GiftPool
       - id: CrayonBox
         orGroup: GiftPool
       - id: ToySword
@@ -766,8 +752,6 @@
         orGroup: GiftPool
       - id: FoamBlade
         orGroup: GiftPool
-      - id: ClothingHeadHatBunny
-        orGroup: GiftPool
       - id: CrayonBox
         orGroup: GiftPool
       - id: ToySword
@@ -840,8 +824,6 @@
       - id: ToySkeleton
         orGroup: GiftPool
       - id: FoamBlade
-        orGroup: GiftPool
-      - id: ClothingHeadHatBunny
         orGroup: GiftPool
       - id: ToySword
         orGroup: GiftPool

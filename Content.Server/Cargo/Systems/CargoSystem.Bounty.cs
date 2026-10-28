@@ -395,10 +395,13 @@ public sealed partial class CargoSystem
     [PublicAPI]
     public bool TryAddBounty(EntityUid uid, StationCargoBountyDatabaseComponent? component = null)
     {
+        return false;
+
         if (!Resolve(uid, ref component))
             return false;
 
         // todo: consider making the cargo bounties weighted.
+        /*
         var allBounties = _protoMan.EnumeratePrototypes<CargoBountyPrototype>()
             .Where(p => p.Group == component.Group)
             .ToList();
@@ -413,6 +416,7 @@ public sealed partial class CargoSystem
         var pool = filteredBounties.Count == 0 ? allBounties : filteredBounties;
         var bounty = _random.Pick(pool);
         return TryAddBounty(uid, bounty, component);
+        */
     }
 
     [PublicAPI]
