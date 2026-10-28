@@ -1,22 +1,8 @@
-# If you add a new trait, make sure to add the corresponding component to the whitelist in \Resources\Prototypes\Entities\Mobs\Player\clone.yml so it gets copied to clones correctly!
-
-- type: trait
-  id: Blindness
-  name: trait-blindness-name
-  description: trait-blindness-desc
-  traitGear: WhiteCane
-  category: Disabilities
-  whitelist:
-    components:
-      - Blindable
-  components:
-    - type: PermanentBlindness
 
 - type: trait
   id: PoorVision
   name: trait-poor-vision-name
   description: trait-poor-vision-desc
-  traitGear: ClothingEyesGlasses
   category: Disabilities
   whitelist:
     components:

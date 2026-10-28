@@ -1,5 +1,4 @@
 - type: entity
-  parent: BaseGameRule
   id: MCDistressSignal
   categories: [ HideSpawnMenu ]
   components:

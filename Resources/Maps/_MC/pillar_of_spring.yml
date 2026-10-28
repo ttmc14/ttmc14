@@ -9659,13 +9659,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 30.5,-20.5
       parent: 1
-- proto: ClothingMaskMuzzle
-  entities:
-  - uid: 23
-    components:
-    - type: Transform
-      pos: 35.5,4.5
-      parent: 1
 - proto: CMAdvFirstAidKitFilled
   entities:
   - uid: 24
@@ -11904,7 +11897,7 @@ entities:
     - type: Transform
       pos: -3.5,26.5
       parent: 1
-- proto: CMLightReplacer
+- proto: RMCLightReplacer
   entities:
   - uid: 406
     components:
@@ -38660,25 +38653,6 @@ entities:
     - type: Transform
       pos: 3.5,3.5
       parent: 1
-- proto: SmartFridge
-  entities:
-  - uid: 5028
-    components:
-    - type: Transform
-      pos: -6.5,11.5
-      parent: 1
-- proto: SodaDispenser
-  entities:
-  - uid: 5029
-    components:
-    - type: Transform
-      pos: -21.5,18.5
-      parent: 1
-  - uid: 5030
-    components:
-    - type: Transform
-      pos: -26.5,7.5
-      parent: 1
 - proto: SpaceVillainArcade
   entities:
   - uid: 5031
@@ -38686,25 +38660,6 @@ entities:
     - type: Transform
       rot: 3.141592653589793 rad
       pos: -20.5,10.5
-      parent: 1
-- proto: SpawnMobCat
-  entities:
-  - uid: 5032
-    components:
-    - type: Transform
-      pos: -24.5,-8.5
-      parent: 1
-- proto: SpawnMobCleanBot
-  entities:
-  - uid: 5033
-    components:
-    - type: Transform
-      pos: -15.5,13.5
-      parent: 1
-  - uid: 5034
-    components:
-    - type: Transform
-      pos: -9.5,22.5
       parent: 1
 - proto: SpawnPointLatejoin
   entities:
@@ -38860,17 +38815,5 @@ entities:
     components:
     - type: Transform
       pos: 35.5,3.5
-      parent: 1
-- proto: VendingMachineBooze
-  entities:
-  - uid: 5063
-    components:
-    - type: Transform
-      pos: -27.5,2.5
-      parent: 1
-  - uid: 5064
-    components:
-    - type: Transform
-      pos: -24.5,3.5
       parent: 1
 ...

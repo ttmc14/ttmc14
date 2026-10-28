@@ -309,15 +309,6 @@
           BaseUnshaded: glow
         Dead:
           Base: dead_spacecobra
-    - type: Butcherable
-      spawned:
-        - id: FoodMeatSnake
-          amount: 2
-        - id: UraniumOre1
-          amount: 1
-        - id: ClothingShoesSnakeskinBoots
-          amount: 1
-          prob: 0.3
     - type: Bloodstream
       bloodMaxVolume: 200
       bloodReagent: Cryoxadone

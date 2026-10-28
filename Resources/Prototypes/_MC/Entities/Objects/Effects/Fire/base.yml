@@ -5,7 +5,7 @@
   components:
   - type: Tag
     tags:
-    - MCDamageFir
+    - MCDamageFire
     - HideContextMenu
   - type: Transform
     anchored: true

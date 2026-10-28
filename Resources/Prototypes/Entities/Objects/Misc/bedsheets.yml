@@ -326,20 +326,6 @@
     sprite: Clothing/Neck/Bedsheets/USA.rsi
 
 - type: entity
-  id: BedsheetWhite
-  parent: BedsheetBase
-  name: white bedsheet
-  components:
-  - type: Butcherable
-    spawned:
-    - id: ClothingOuterGhostSheet #ghostly!
-      amount: 1
-  - type: Sprite
-    state: sheetwhite
-  - type: Clothing
-    sprite: Clothing/Neck/Bedsheets/white.rsi
-
-- type: entity
   id: BedsheetWiz
   parent: BedsheetBase
   name: wizard's bedsheet

@@ -78,6 +78,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
             availableGroups.Add(rank.BountyGroup.Value);
         }
 
+        /*
         foreach (var bounty in _prototypeManager.EnumeratePrototypes<CargoBountyPrototype>())
         {
             if (ent.Comp.CompletedJobs.Contains(bounty))
@@ -86,6 +87,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
             if (availableGroups.Contains(bounty.Group))
                 outJobs.Add(bounty);
         }
+        */
 
         return outJobs;
     }
@@ -107,6 +109,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
             if (completedCount < low)
                 continue;
 
+            /*
             // don't worry abooouuuuut it (it'll be O K !)
             var high = i != ent.Comp.RankThresholds.Count - 1
                 ? ent.Comp.RankThresholds.Keys.ElementAt(i + 1)
@@ -116,6 +119,7 @@ public sealed class SalvageJobBoardSystem : EntitySystem
                     .Contains(p.Group));
 
             return (completedCount - low) / (float)(high - low);
+            */
         }
 
         return 1f;

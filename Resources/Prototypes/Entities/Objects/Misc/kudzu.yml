@@ -147,22 +147,6 @@
       - AnomalyFloraBulb
 
 - type: entity
-  id: KudzuFlowerAngry
-  suffix: Angry, Floral Anomaly
-  parent: KudzuFlowerFriendly
-  components:
-    - type: Kudzu
-      spreadChance: 0.2
-    - type: RandomSpawner
-      chance: 0.05
-      rarePrototypes:
-      - AnomalyFloraBulb
-      - AnomalyFloraBulb
-      - MobLuminousEntity
-      - MobLuminousObject
-      - MobLuminousPerson
-
-- type: entity
   id: FleshKudzu
   name: tendons
   parent: BaseKudzu

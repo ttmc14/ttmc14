@@ -20,13 +20,6 @@
   maxCount: 30
 
 - type: stack
-  id: Cloth
-  name: stack-cloth
-  icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: cloth }
-  spawn: MaterialCloth1
-  maxCount: 30
-
-- type: stack
   id: Durathread
   name: stack-durathread
   icon: { sprite: /Textures/Objects/Materials/materials.rsi, state: durathread }

@@ -29,7 +29,6 @@
 - type: startingGear
   id: RMCGearCorpseChef
   equipment:
-    jumpsuit: ClothingUniformJumpsuitChef
     back: CMSatchel
     shoes: RMCShoesBlack
     head: ClothingHeadHatChef

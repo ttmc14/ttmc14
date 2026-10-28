@@ -25,10 +25,8 @@
         - GeigerCounter
         - trayScanner
         - FlashlightLantern
-        - ClothingHandsGlovesColorBlack
         - Lighter
         - ClothingMaskGas
-        - HandheldGPSBasic
       chance: 0.85
       offset: 0.0
 
@@ -50,7 +48,6 @@
         - WelderIndustrial
         - PowerCellHigh
         - PowerCellSmall
-        - ClothingHandsGlovesColorYellowBudget
       rareChance: 0.2
       prototypes:
         - ClothingHeadHatWelding
@@ -67,9 +64,7 @@
         - Multitool
         - trayScanner
         - FlashlightLantern
-        - ClothingHandsGlovesColorBlack
         - ClothingMaskGas
-        - HandheldGPSBasic
         - FireExtinguisher
         - PowerCellMedium
         - SheetSteel10

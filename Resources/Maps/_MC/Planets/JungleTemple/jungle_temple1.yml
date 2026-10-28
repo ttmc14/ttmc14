@@ -3935,18 +3935,6 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 38.5,39.5
       parent: 1
-- proto: ClothingHeadHatPartyWaterCup
-  entities:
-  - uid: 2453
-    components:
-    - type: Transform
-      pos: 6.8010664,34.466976
-      parent: 1
-  - uid: 2454
-    components:
-    - type: Transform
-      pos: 6.592733,34.75077
-      parent: 1
 - proto: CMAirlockCommand
   entities:
   - uid: 119
@@ -18168,18 +18156,6 @@ entities:
     components:
     - type: Transform
       pos: 36.34684,58.524563
-      parent: 1
-- proto: RMCFloraTreeLarge05
-  entities:
-  - uid: 298
-    components:
-    - type: Transform
-      pos: 32.339027,59.981796
-      parent: 1
-  - uid: 487
-    components:
-    - type: Transform
-      pos: 27.112467,70.71617
       parent: 1
 - proto: RMCFlowersy4
   entities:

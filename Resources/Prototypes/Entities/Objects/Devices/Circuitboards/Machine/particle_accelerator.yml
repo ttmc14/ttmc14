@@ -13,24 +13,6 @@
         Steel: 15
 
 - type: entity
-  id: MachineParticleAcceleratorFuelChamberCircuitboard
-  parent: BaseMachineCircuitboard
-  name: PA fuel chamber board
-  description: A machine board for a particle accelerator fuel chamber.
-  components:
-    - type: Sprite
-      state: engineering
-    - type: MachineBoard
-      prototype: ParticleAcceleratorFuelChamberUnfinished
-      componentRequirements:
-        AmeFuelContainer:
-          amount: 1
-          defaultPrototype: AmeJar
-      stackRequirements:
-        Glass: 10
-        Steel: 10
-
-- type: entity
   id: MachineParticleAcceleratorPowerBoxCircuitboard
   parent: BaseMachineCircuitboard
   name: PA power box board

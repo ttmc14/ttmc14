@@ -216,11 +216,6 @@
               amount: 1
               doAfter: 1
 
-        - to: TableFancyBlack
-          steps:
-            - material: FloorCarpetBlack
-              amount: 1
-
         - to: TableFancyBlue
           steps:
             - material: FloorCarpetBlue
@@ -260,30 +255,6 @@
           steps:
             - material: FloorCarpetWhite
               amount: 1
-
-    - node: TableCarpet
-      entity: TableCarpet
-      edges:
-        - to: TableWood
-          completed:
-            - !type:SpawnPrototype
-              prototype: MaterialCloth1
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 1
-
-    - node: TableFancyBlack
-      entity: TableFancyBlack
-      edges:
-        - to: TableWood
-          completed:
-            - !type:SpawnPrototype
-              prototype: FloorCarpetItemBlack
-              amount: 1
-          steps:
-            - tool: Prying
-              doAfter: 1
 
     - node: TableFancyBlue
       entity: TableFancyBlue

@@ -178,20 +178,6 @@
     guides:
     - Robotics
 
-# yes i know this prototype name is long i'm just following conventions
-- type: entity
-  id: ResearchAndDevelopmentServerMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: R&D server machine board
-  description: A machine printed circuit board for the R&D server.
-  components:
-  - type: Sprite
-    state: science
-  - type: MachineBoard
-    prototype: ResearchAndDevelopmentServer
-    stackRequirements:
-      Plasma: 5
-
 - type: entity
   id: BiogeneratorMachineCircuitboard
   parent: BaseMachineCircuitboard
@@ -554,25 +540,6 @@
         GlassBeaker:
           amount: 2
           defaultPrototype: Beaker
-
-- type: entity
-  id: BiomassReclaimerMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: biomass reclaimer machine board
-  description: A machine printed circuit board for a biomass reclaimer.
-  components:
-  - type: Sprite
-    state: medical
-  - type: MachineBoard
-    prototype: BiomassReclaimer
-    stackRequirements:
-      Manipulator: 3
-      Steel: 5
-    tagRequirements:
-      Knife:
-        amount: 2
-        defaultPrototype: KitchenKnife
-        examineName: construction-insert-info-examine-name-knife
 
 - type: entity
   id: HydroponicsTrayMachineCircuitboard
@@ -1063,23 +1030,6 @@
         Cable: 2
 
 - type: entity
-  id: FatExtractorMachineCircuitboard
-  parent: BaseMachineCircuitboard
-  name: lipid extractor machine board
-  components:
-    - type: Sprite
-      state: service
-    - type: MachineBoard
-      prototype: FatExtractor
-      stackRequirements:
-        Manipulator: 1
-      componentRequirements:
-        Utensil:
-          amount: 1
-          defaultPrototype: ForkPlastic
-          examineName: construction-insert-info-examine-name-utensil
-
-- type: entity
   parent: BaseMachineCircuitboard
   id: FlatpackerMachineCircuitboard
   name: Flatpacker 1001 machine board
@@ -1127,34 +1077,6 @@
     state: service
   - type: MachineBoard
     prototype: SurveillanceCameraWirelessRouterConstructed
-    stackRequirements:
-      Cable: 2
-      Glass: 1
-
-- type: entity
-  id: SurveillanceWirelessCameraMovableCircuitboard
-  parent: BaseMachineCircuitboard
-  name: movable wireless camera board
-  description: A machine printed circuit board for a movable wireless camera.
-  components:
-  - type: Sprite
-    state: service
-  - type: MachineBoard
-    prototype: SurveillanceWirelessCameraMovableConstructed
-    stackRequirements:
-      Glass: 2
-      Cable: 2
-
-- type: entity
-  id: SurveillanceWirelessCameraAnchoredCircuitboard
-  parent: BaseMachineCircuitboard
-  name: wireless camera board
-  description: A machine printed circuit board for a wireless camera.
-  components:
-  - type: Sprite
-    state: service
-  - type: MachineBoard
-    prototype: SurveillanceWirelessCameraAnchoredConstructed
     stackRequirements:
       Cable: 2
       Glass: 1

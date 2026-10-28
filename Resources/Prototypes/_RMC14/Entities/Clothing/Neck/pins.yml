@@ -1,182 +1,183 @@
-- type: entity
-  abstract: true
-  parent: RMCBaseUniformAccessory
-  id: RMCPridePinBase
-  name: pride pin
-  description: An abstract pride pin.
-  components:
-  - type: UniformAccessory
-    category: PridePin
-    limit: 2
-    hiddenByJacketRolling: true
-  - type: Corrodible
-    isCorrodible: false
-
-- type: entity
-  parent: [ ClothingNeckLGBTPin, RMCPridePinBase ]
-  id: RMCClothingNeckLGBTPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: lgbt
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: lgbt-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckAromanticPin, RMCPridePinBase ]
-  id: RMCClothingNeckAromanticPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: aro
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: aro-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckAsexualPin, RMCPridePinBase ]
-  id: RMCClothingNeckAsexualPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: ace
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: asex-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckBisexualPin, RMCPridePinBase ]
-  id: RMCClothingNeckBisexualPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: bi
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: bi-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckGayPin, RMCPridePinBase ]
-  id: RMCClothingNeckGayPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: gay
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: gay-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckIntersexPin, RMCPridePinBase ]
-  id: RMCClothingNeckIntersexPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: inter
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: inter-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckLesbianPin, RMCPridePinBase ]
-  id: RMCClothingNeckLesbianPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: les
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: les-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckNonBinaryPin, RMCPridePinBase ]
-  id: RMCClothingNeckNonBinaryPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: non
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: non-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckPansexualPin, RMCPridePinBase ]
-  id: RMCClothingNeckPansexualPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: pan
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: pan-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckOmnisexualPin, RMCPridePinBase ]
-  id: RMCClothingNeckOmnisexualPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: omni
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: omni-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckTransPin, RMCPridePinBase ]
-  id: RMCClothingNeckTransPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: trans
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: trans-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckAutismPin, RMCPridePinBase ]
-  id: RMCClothingNeckAutismPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: autism
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: autism-equipped-NECK
-
-- type: entity
-  parent: [ClothingNeckGoldAutismPin, RMCPridePinBase ]
-  id: RMCClothingNeckGoldAutismPin
-  components:
-  - type: HelmetAccessory
-    rsi:
-      sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
-      state: gold_autism
-  - type: UniformAccessory
-    playerSprite:
-      sprite: Clothing/Neck/Misc/pins.rsi
-      state: goldautism-equipped-NECK
+# ype: entity
+# bstract: true
+# arent: RMCBaseUniformAccessory
+# d: RMCPridePinBase
+# ame: pride pin
+# escription: An abstract pride pin.
+# omponents:
+#  type: UniformAccessory
+#  category: PridePin
+#  limit: 2
+#  hiddenByJacketRolling: true
+#  type: Corrodible
+#  isCorrodible: false
+# 
+# ype: entity
+# arent: [ ClothingNeckLGBTPin, RMCPridePinBase ]
+# d: RMCClothingNeckLGBTPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: lgbt
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: lgbt-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckAromanticPin, RMCPridePinBase ]
+# d: RMCClothingNeckAromanticPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: aro
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: aro-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckAsexualPin, RMCPridePinBase ]
+# d: RMCClothingNeckAsexualPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: ace
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: asex-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckBisexualPin, RMCPridePinBase ]
+# d: RMCClothingNeckBisexualPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: bi
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: bi-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckGayPin, RMCPridePinBase ]
+# d: RMCClothingNeckGayPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: gay
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: gay-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckIntersexPin, RMCPridePinBase ]
+# d: RMCClothingNeckIntersexPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: inter
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: inter-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckLesbianPin, RMCPridePinBase ]
+# d: RMCClothingNeckLesbianPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: les
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: les-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckNonBinaryPin, RMCPridePinBase ]
+# d: RMCClothingNeckNonBinaryPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: non
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: non-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckPansexualPin, RMCPridePinBase ]
+# d: RMCClothingNeckPansexualPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: pan
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: pan-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckOmnisexualPin, RMCPridePinBase ]
+# d: RMCClothingNeckOmnisexualPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: omni
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: omni-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckTransPin, RMCPridePinBase ]
+# d: RMCClothingNeckTransPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: trans
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: trans-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckAutismPin, RMCPridePinBase ]
+# d: RMCClothingNeckAutismPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: autism
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: autism-equipped-NECK
+# 
+# ype: entity
+# arent: [ClothingNeckGoldAutismPin, RMCPridePinBase ]
+# d: RMCClothingNeckGoldAutismPin
+# omponents:
+#  type: HelmetAccessory
+#  rsi:
+#    sprite: _RMC14/Objects/Clothing/HelmetGarb/HelmetCovers/pride_pins.rsi
+#    state: gold_autism
+#  type: UniformAccessory
+#  playerSprite:
+#    sprite: Clothing/Neck/Misc/pins.rsi
+#    state: goldautism-equipped-NECK
+# 

@@ -1,12 +1,4 @@
 - type: construction
-  id: LightTorch
-  graph: LightTorch
-  startNode: start
-  targetNode: torch
-  category: construction-category-tools
-  objectType: Item
-
-- type: construction
   id: LogicGate
   graph: LogicGate
   startNode: start

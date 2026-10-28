@@ -1,30 +1,4 @@
 - type: reagent
-  id: Bleach
-  name: reagent-name-bleach
-  desc: reagent-desc-bleach
-  physicalDesc: reagent-physical-desc-strong-smelling
-  flavor: bitter
-  color: "#a1000b"
-  boilingPoint: 111.0
-  meltingPoint: -5.0
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: 2
-            Caustic: 2
-      - !type:PopupMessage
-        type: Local
-        visualType: MediumCaution
-        messages: [ "generic-reagent-effect-burning-insides" ]
-        probability: 0.33
-      - !type:Emote
-        emote: Scream
-        probability: 0.15
-
-- type: reagent
   id: SpaceCleaner
   name: reagent-name-space-cleaner
   desc: reagent-desc-space-cleaner

@@ -5,11 +5,3 @@
   targetNode: plushie
   category: construction-category-misc
   objectType: Item
-
-- type: construction
-  id: ClothingOuterSuitIan
-  graph: ClothingOuterSuitIan
-  startNode: start
-  targetNode: suit
-  category: construction-category-misc
-  objectType: Item
