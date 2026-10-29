@@ -19343,18 +19343,6 @@ entities:
     - type: Transform
       pos: 46.435757,-36.15772
       parent: 1
-- proto: filingCabinetTallRandom
-  entities:
-  - uid: 4596
-    components:
-    - type: Transform
-      pos: 54.5,-67.5
-      parent: 1
-  - uid: 4597
-    components:
-    - type: Transform
-      pos: 54.5,-69.5
-      parent: 1
 - proto: FoodCornTrash
   entities:
   - uid: 4598
@@ -89794,34 +89782,12 @@ entities:
     - type: Transform
       pos: 11.5,-41.5
       parent: 1
-- proto: MiniSyringe
-  entities:
-  - uid: 4876
-    components:
-    - type: Transform
-      rot: 1.5707963267948966 rad
-      pos: 49.55962,-27.575401
-      parent: 1
 - proto: PlantBGoneSpray
   entities:
   - uid: 4877
     components:
     - type: Transform
       pos: 85.5,-30.5
-      parent: 1
-- proto: RandomDrinkGlass
-  entities:
-  - uid: 4904
-    components:
-    - type: Transform
-      pos: 102.5,-42.5
-      parent: 1
-- proto: RandomFoodBreakfast
-  entities:
-  - uid: 4906
-    components:
-    - type: Transform
-      pos: 74.5,-62.5
       parent: 1
 - proto: RandomPosterContraband
   entities:
@@ -89835,13 +89801,6 @@ entities:
     components:
     - type: Transform
       pos: 101.5,-39.5
-      parent: 1
-- proto: RandomSmokables
-  entities:
-  - uid: 4909
-    components:
-    - type: Transform
-      pos: 67.5,-60.5
       parent: 1
 - proto: RMCAirlockGlassSecurityLockedTSEPA
   entities:
@@ -91359,18 +91318,6 @@ entities:
     components:
     - type: Transform
       pos: 84.5,-24.5
-      parent: 1
-- proto: SeedExtractor
-  entities:
-  - uid: 11648
-    components:
-    - type: Transform
-      pos: 83.5,-24.5
-      parent: 1
-  - uid: 11649
-    components:
-    - type: Transform
-      pos: 83.5,-30.5
       parent: 1
 - proto: Table
   entities:

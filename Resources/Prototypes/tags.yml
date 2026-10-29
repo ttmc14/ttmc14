@@ -449,9 +449,6 @@
   id: Duck
 
 - type: Tag
-  id: Ectoplasm
-
-- type: Tag
   id: Egg
 
 - type: Tag
@@ -792,9 +789,6 @@
   id: Medal
 
 - type: Tag
-  id: Medkit
-
-- type: Tag
   id: Metal
 
 - type: Tag
@@ -964,9 +958,6 @@
 
 - type: Tag
   id: PlushieGhost
-
-- type: Tag
-  id: PlushieLizard
 
 - type: Tag
   id: PlushieSharkBlue

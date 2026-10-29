@@ -251,8 +251,6 @@
       weight: 6
     - id: CigaretteSodiumPolyacrylate
       weight: 6
-    - id: CigaretteRobustHarvest
-      weight: 6
     - id: CigaretteBanana
       weight: 7
     - id: CigaretteBlackPepper

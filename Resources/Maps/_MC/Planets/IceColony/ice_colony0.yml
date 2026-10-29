@@ -158470,44 +158470,6 @@ entities:
     - type: Transform
       pos: 197.51663,-124.54693
       parent: 1
-- proto: RandomSpawner100
-  entities:
-  - uid: 23233
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 182.5,-58.5
-      parent: 1
-  - uid: 23234
-    components:
-    - type: Transform
-      pos: 184.5,-57.5
-      parent: 1
-  - uid: 23235
-    components:
-    - type: Transform
-      pos: 182.5,-57.5
-      parent: 1
-  - uid: 23236
-    components:
-    - type: Transform
-      pos: 185.5,-58.5
-      parent: 1
-  - uid: 23237
-    components:
-    - type: Transform
-      pos: 186.5,-57.5
-      parent: 1
-  - uid: 23238
-    components:
-    - type: Transform
-      pos: 183.5,-58.5
-      parent: 1
-  - uid: 23239
-    components:
-    - type: Transform
-      pos: 183.5,-57.5
-      parent: 1
 - proto: ReagentContainerFlour
   entities:
   - uid: 20670
@@ -181509,13 +181471,6 @@ entities:
     components:
     - type: Transform
       pos: 113.5,-200.5
-      parent: 1
-- proto: TechnologyDisk
-  entities:
-  - uid: 18559
-    components:
-    - type: Transform
-      pos: 57.553013,-34.440205
       parent: 1
 - proto: WardrobeChapel
   entities:

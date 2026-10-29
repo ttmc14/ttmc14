@@ -104,58 +104,6 @@
           type: Plant
 
 - type: reagent
-  id: RobustHarvest
-  name: reagent-name-robust-harvest
-  group: Botanical
-  desc: reagent-desc-robust-harvest
-  flavor: bitter
-  color: "#3e901c"
-  physicalDesc: reagent-physical-desc-robust
-  plantMetabolism:
-    - !type:PlantAdjustNutrition
-      amount: 0.05
-    - !type:PlantAdjustWeeds
-      probability: 0.025
-      amount: 1
-    - !type:PlantAdjustPests
-      probability: 0.025
-      amount: 1
-    - !type:RobustHarvest {}
-  metabolisms:
-    Poison:
-      effects:
-      - !type:HealthChange
-        damage:
-          types:
-            Poison: -2
-            Blunt: -3
-            Slash: -3
-            Piercing: -3
-        conditions:
-        - !type:OrganType
-          type: Plant
-      - !type:HealthChange
-        conditions:
-        - !type:OrganType
-          type: Plant
-        - !type:ReagentThreshold
-          min: 30
-        damage:
-          types:
-            Asphyxiation: 1
-            Heat: 2
-            Poison: 1
-    Medicine:
-      effects:
-      - !type:Polymorph
-        prototype: TreeMorph
-        conditions:
-          - !type:OrganType
-            type: Plant
-          - !type:ReagentThreshold
-            min: 80
-
-- type: reagent
   id: Sedin
   name: reagent-name-sedin
   group: Botanical

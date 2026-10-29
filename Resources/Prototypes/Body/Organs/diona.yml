@@ -108,7 +108,7 @@
   - type: Item
     size: Small
     heldPrefix: lungs
-  - type: Lung 
+  - type: Lung
   - type: Metabolizer
     removeEmpty: true
     solutionOnBody: false
@@ -137,19 +137,9 @@
   description: "The source of incredible, unending intelligence. Honk."
   components:
   - type: Brain
-  - type: Nymph # This will make the organs turn into a nymph when they're removed. 
+  - type: Nymph # This will make the organs turn into a nymph when they're removed.
     entityPrototype: OrganDionaNymphBrain
     transferMind: true
-
-- type: entity
-  id: OrganDionaStomachNymph
-  parent: OrganDionaStomach
-  categories: [ HideSpawnMenu ]
-  name: stomach
-  description: "Gross. This is hard to stomach."
-  components:
-  - type: Nymph
-    entityPrototype: OrganDionaNymphStomach
 
 - type: entity
   id: OrganDionaLungsNymph
@@ -173,27 +163,3 @@
   - type: IsDeadIC
   - type: Body
     prototype: AnimalNymphBrain
-
-- type: entity
-  id: OrganDionaNymphStomach
-  parent: MobDionaNymphAccent 
-  categories: [ HideSpawnMenu ]
-  name: diona nymph
-  suffix: Stomach
-  description: Contains the stomach of a formerly fully-formed Diona. It doesn't taste any better for it. 
-  components:
-  - type: IsDeadIC
-  - type: Body
-    prototype: AnimalNymphStomach
-
-- type: entity
-  id: OrganDionaNymphLungs
-  parent: MobDionaNymphAccent
-  categories: [ HideSpawnMenu ]
-  name: diona nymph
-  suffix: Lungs
-  description: Contains the lungs of a formerly fully-formed Diona. Breathtaking. 
-  components:
-  - type: IsDeadIC
-  - type: Body
-    prototype: AnimalNymphLungs

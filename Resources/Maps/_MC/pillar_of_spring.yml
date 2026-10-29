@@ -9537,18 +9537,6 @@ entities:
       rot: 3.141592653589793 rad
       pos: -18.5,10.5
       parent: 1
-- proto: Bloodpack
-  entities:
-  - uid: 3
-    components:
-    - type: Transform
-      pos: -15.5,26.5
-      parent: 1
-  - uid: 4
-    components:
-    - type: Transform
-      pos: -3.5,26.5
-      parent: 1
 - proto: BoozeDispenser
   entities:
   - uid: 5
@@ -35530,13 +35518,6 @@ entities:
     - type: Transform
       pos: -5.5,-4.5
       parent: 1
-- proto: PlushieLizard
-  entities:
-  - uid: 4558
-    components:
-    - type: Transform
-      pos: -15.5,4.5
-      parent: 1
 - proto: PlushieRouny
   entities:
   - uid: 4559
@@ -35562,14 +35543,6 @@ entities:
     components:
     - type: Transform
       pos: 21.5,-16.5
-      parent: 1
-- proto: Recycler
-  entities:
-  - uid: 4563
-    components:
-    - type: Transform
-      rot: -1.5707963267948966 rad
-      pos: 37.5,2.5
       parent: 1
 - proto: RMCAttachmentExtendedBarrel
   entities:

@@ -122,23 +122,3 @@
     deleteSpawnerAfterSpawn: false
     table: !type:NestedSelector
       tableId: AnomalyFloraLootTable
-
-- type: entityTable
-  id: AnomalyFloraLootTable
-  table: !type:GroupSelector
-    children:
-    - id: FoodAmbrosiaVulgaris
-    - id: FoodAloe
-    - id: FoodCabbage
-    - id: FoodGalaxythistle
-    - id: FoodLemon
-    - id: FoodLime
-    - id: FoodPeaPod
-    - id: FoodPineapple
-    - id: FoodOnionRed
-    - id: FoodWatermelon
-    - id: FoodCherry
-    - id: MobTomatoKiller
-    - id: MobLuminousObject
-    - id: FoodGatfruit # 0.007% spawn chance. 1 / 141
-      weight: 0.10
