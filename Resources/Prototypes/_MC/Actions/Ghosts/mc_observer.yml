@@ -11,3 +11,16 @@
   - type: InstantAction
     event: !type:MCRespawnActionEvent
 
+- type: entity
+  id: MCJoinXenoAction
+  name: Join as Xeno
+  description: Find burrowed larva to join as.
+  components:
+  - type: Action
+    checkCanInteract: false
+    icon:
+      sprite: _RMC14/Actions/observer_actions.rsi
+      state: join_xeno
+    useDelay: 0.5
+  - type: InstantAction
+    event: !type:MCXenoHiveQueueJoinActionEvent

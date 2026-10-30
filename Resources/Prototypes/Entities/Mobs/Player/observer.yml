@@ -75,6 +75,7 @@
   - type: FindParasite
   - type: JoinXeno
   # MC - RespawnAction Event
+  - type: MCXenoHiveQueueJoin
   - type: MCRespawnAction
   - type: UserInterface
     interfaces:
