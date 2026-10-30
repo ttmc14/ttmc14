@@ -45,7 +45,7 @@
     # Main
     - MCActionXenoCrestToss
     - MCActionXenoStomp
-    - MCActionXenoToggleChargingCrusher
+    - MCActionXenoCrusherForwardCharge
     # Utilities
     - MCActionXenoZoom
     hudOffset: -0.15, 0.25
@@ -74,8 +74,8 @@
       types:
         MCBrute: 25
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.564
-    baseSprintSpeed: 3.448
+    baseWalkSpeed: 2.5
+    baseSprintSpeed: 3.5
   - type: RMCSize
     size: Big
   # Abilities
@@ -89,9 +89,33 @@
         MCBrute: 36 # distance * 6 (36)
     speed: 10
   - type: MCXenoStomp
+    distance: 1.75
+    extraAffectDistance: 1.25
     damage:
       types:
         MCBrute: 60
+    throwEntry:
+      distance: 2
   # Passive
   - type: MCXenoSunder
     multiplier: 0.5
+  # Pounce (Dash)
+  - type: MCXenoPounce
+    delay: 1
+    maxDistance: 7
+    strength: 45
+    hitSelfParalyzeTime: 0
+    hitKnockdownTime: 1
+    stopOnHit: false
+    hitSound: /Audio/_MC/Effects/alien_bite2.ogg
+    hitDamage:
+      types:
+        MCBrute: 60
+  - type: MCXenoPounceKnockback
+    entry:
+      distance: 2
+      speed: 5
+  # It's need?
+  - type: MCXenoPounceHeal
+    adjustPlasma: 45
+    adjustHealth: 0

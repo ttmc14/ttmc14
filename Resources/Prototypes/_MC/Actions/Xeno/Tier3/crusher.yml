@@ -37,6 +37,27 @@
 
 - type: entity
   parent: ActionXenoBase
+  id: MCActionXenoCrusherForwardCharge
+  name: Forward Charge (150)
+  description: WIP.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/defender.rsi
+      state: forward_charge
+    useDelay: 7.5
+  - type: TargetAction
+    range: 100
+    checkCanAccess: false
+  - type: WorldTargetAction
+    event: !type:MCXenoPounceActionEvent
+  - type: XenoActionPlasma
+    cost: 150
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
   id: MCActionXenoToggleChargingCrusher
   name: Toggle Charging
   description: Toggles the movement-based charge on and off.
