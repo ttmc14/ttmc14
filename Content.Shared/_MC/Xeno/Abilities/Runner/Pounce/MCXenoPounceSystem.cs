@@ -1,8 +1,7 @@
-﻿using System.Numerics;
+﻿using System.Linq;
+using System.Numerics;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
-using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Pulling;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Damage;
 using Content.Shared.DoAfter;
 using Content.Shared.Mobs.Systems;
@@ -11,6 +10,7 @@ using Content.Shared.Stunnable;
 using Content.Shared.Tag;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Map;
+using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Physics.Systems;
@@ -22,6 +22,14 @@ namespace Content.Shared._MC.Xeno.Abilities.Runner.Pounce;
 public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
 {
     private static readonly ProtoId<TagPrototype> AcidSprayTag = "MCAcidSpray";
+
+    private const CollisionGroup SolidCollisionLayers =
+        CollisionGroup.Impassable |
+        CollisionGroup.MidImpassable |
+        CollisionGroup.HighImpassable |
+        CollisionGroup.LowImpassable |
+        CollisionGroup.BarbedBarricade |
+        CollisionGroup.BarricadeImpassable;
 
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -39,12 +47,14 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
     [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
     private EntityQuery<PhysicsComponent> _physicsQuery;
+    private EntityQuery<FixturesComponent> _fixturesQuery;
 
     public override void Initialize()
     {
         base.Initialize();
 
         _physicsQuery = GetEntityQuery<PhysicsComponent>();
+        _fixturesQuery = GetEntityQuery<FixturesComponent>();
 
         SubscribeLocalEvent<MCXenoPounceComponent, MCXenoPounceActionEvent>(OnAction);
         SubscribeLocalEvent<MCXenoPounceComponent, MCXenoPounceDoAfterEvent>(OnDoAfter);
@@ -162,7 +172,11 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         }
 
         entity.Comp.Hit.Add(args.OtherEntity);
-        Hit(entity, args.OtherEntity);
+
+        var isMob = IsMob(args.OtherEntity);
+        var isSolid = IsSolid(args.OtherEntity);
+
+        Hit(entity, args.OtherEntity, isMob, isSolid);
 
         if (!IsMob(args.OtherEntity))
             return;
@@ -170,9 +184,12 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         args.Cancelled = true;
     }
 
-    private void Hit(Entity<MCXenoPouncingComponent> entity, EntityUid target)
+    private void Hit(Entity<MCXenoPouncingComponent> entity, EntityUid target, bool isMob, bool isSolid)
     {
-        if (!IsMob(target))
+        if (!isMob && !isSolid)
+            return;
+
+        if (!isMob)
         {
             Stop(entity);
             return;
@@ -222,5 +239,13 @@ public sealed class MCXenoPounceSystem : MCXenoAbilitySystem
         _physics.SetBodyStatus(entityUid, physics, BodyStatus.OnGround);
 
         RemCompDeferred<MCXenoPouncingComponent>(entityUid);
+    }
+
+    private bool IsSolid(EntityUid uid)
+    {
+        return _fixturesQuery.TryComp(uid, out var fixtures) &&
+               fixtures.Fixtures.Values
+                   .Where(fixture => fixture.Hard)
+                   .Any(fixture => (fixture.CollisionLayer & (int) SolidCollisionLayers) != 0);
     }
 }
