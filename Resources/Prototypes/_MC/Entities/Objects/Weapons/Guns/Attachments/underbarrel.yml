@@ -323,7 +323,7 @@
   - type: ShootUseDelay
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot ""
+      gun_magazine: !type:ContainerSlot
   - type: ItemSlots
     slots:
       gun_magazine:
@@ -355,7 +355,6 @@
       sprite: _MC/Objects/Weapons/Guns/Attachments/flamer.rsi
       state: flamethrower-on
   - type: AttachableVisuals
-    offset: -0.125, 0.245
 
 - type: entity
   parent: [ MCAttachmentUnderbarrel, MCAttachableToggleableBase ]

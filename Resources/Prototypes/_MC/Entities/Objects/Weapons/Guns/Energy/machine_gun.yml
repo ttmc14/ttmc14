@@ -38,11 +38,11 @@
     baseDelay: 1
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      rmc-aslot-rail:
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
@@ -52,16 +52,17 @@
           - MCAttachmentT47RailScope
           # - TODO: Tactical Sensor
           # - TODO: Build a Sentry
-      rmc-aslot-underbarrel:
+      mc-attachment-underbarrel:
         whitelist:
           tags:
           - MCAttachmentLaserSight
           - MCAttachmentMiniFlamethrower
-  - type: AttachableHolderVisuals # I dont wanna do that :(
+  - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.46875, 0.03125
-      rmc-aslot-rail: -0.3125, 0.125
-      rmc-aslot-underbarrel: 0.125, -0.125
+      mc-attachment-barrel: 0.656250, 0.062500
+      mc-attachment-underbarrel: 0.218750, -0.218750
+      mc-attachment-stock: -0.468750, 0.062500
+      mc-attachment-rail: 0.156250, 0.312500
   - type: MCWeaponLaser
     modes:
       Standard:

@@ -39,28 +39,29 @@
     baseDelay: 0.4
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
           # - TODO: Pistol Lace
-      rmc-aslot-rail:
+      mc-attachment-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentLaserSight
+          - MCAttachmentMiniFlamethrower
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentMiniScope
           - MCAttachmentRedDotSight
-      rmc-aslot-underbarrel:
-        whitelist:
-          tags:
-          - MCAttachmentLaserSight
-          - MCAttachmentMiniFlamethrower
-  - type: AttachableHolderVisuals # I dont wanna do that :(
+  - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.46875, 0.03125
-      rmc-aslot-rail: -0.3125, 0.125
-      rmc-aslot-underbarrel: 0.125, -0.125
+      mc-attachment-barrel: 0.312500, 0.125000
+      mc-attachment-underbarrel: 0.250000, -0.218750
+      mc-attachment-stock: -0.562500, 0.125000
+      mc-attachment-rail: 0.031250, 0.218750
   - type: MCWeaponLaser
     modes:
       Standard:
