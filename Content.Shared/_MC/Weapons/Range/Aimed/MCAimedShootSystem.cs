@@ -1,4 +1,5 @@
-﻿using Content.Shared._RMC14.Weapons.Ranged.IFF;
+﻿using Content.Shared._RMC14.Attachable.Systems;
+using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Actions;
 using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
@@ -23,7 +24,7 @@ public sealed partial class MCAimedShootSystem : EntitySystem
 
         SubscribeLocalEvent<MCAimedShootComponent, AmmoShotEvent>(
             OnAmmoShotModifiers,
-            after: new[] { typeof(GunIFFSystem) }
+            after: new[] { typeof(GunIFFSystem), typeof(AttachableIFFSystem) }
         );
 
         SubscribeLocalEvent<MCAimedShootComponent, GotEquippedHandEvent>(OnGotEquippedHand);
