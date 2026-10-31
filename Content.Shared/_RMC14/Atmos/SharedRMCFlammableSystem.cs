@@ -973,12 +973,22 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             {
                 foreach (var contact in _physics.GetEntitiesIntersectingBody(uid, (int)apply.Collision))
                 {
+                    // mc-changes-fix-ignite-start
+                    if (TerminatingOrDeleted(contact))
+                        continue;
+                    // mc-changes-fix-ignite-end
+
                     TryIgnite((uid, apply), contact, true);
                 }
 
                 var enumerator = _rmcMap.GetAnchoredEntitiesEnumerator(uid);
                 while (enumerator.MoveNext(out var contact))
                 {
+                    // mc-changes-fix-ignite-start
+                    if (TerminatingOrDeleted(contact))
+                        continue;
+                    // mc-changes-fix-ignite-end
+
                     TryIgnite((uid, apply), contact, true);
                 }
 

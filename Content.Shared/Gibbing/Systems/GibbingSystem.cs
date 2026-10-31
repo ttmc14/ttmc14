@@ -5,6 +5,7 @@ using Content.Shared.Gibbing.Events;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
 using Robust.Shared.Map;
+using Robust.Shared.Physics.Components;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
@@ -320,6 +321,14 @@ public sealed class GibbingSystem : EntitySystem
     private void FlingDroppedEntity(EntityUid target, Vector2? direction, float impulse, float impulseVariance,
         Angle scatterConeAngle)
     {
+        // mc-changes-fix-gib-start
+        // [ERRO] resolve: Can't resolve "Robust.Shared.Physics.Components.PhysicsComponent" on entity <uid>!
+        //    at System.Environment.get_StackTrace()
+        //    at Robust.Shared.Physics.Systems.SharedPhysicsSystem.ApplyLinearImpulse(EntityUid uid, Vector2 impulse, FixturesComponent manager, PhysicsComponent body) in <Path>\RobustToolbox\Robust.Shared\Physics\Systems\SharedPhysicsSystem.Components.cs:line 221
+        if (!HasComp<PhysicsComponent>(target))
+            return;
+        // mc-changes-fix-gib-end
+
         var scatterAngle = direction?.ToAngle() ?? _random.NextAngle();
         var scatterVector = _random.NextAngle(scatterAngle - scatterConeAngle / 2, scatterAngle + scatterConeAngle / 2)
             .ToVec() * (impulse + _random.NextFloat(impulseVariance));

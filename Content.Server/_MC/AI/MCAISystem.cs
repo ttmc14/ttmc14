@@ -12,11 +12,17 @@ public sealed partial class MCAISystem : EntitySystem
 
     [Dependency] private readonly IGameTiming _timing = null!;
 
-    private readonly List<EntityUid> _activeAgents = new(MaxUpdates);
+    [ViewVariables] private readonly List<EntityUid> _activeAgents = new(MaxUpdates);
+    [ViewVariables] private readonly List<EntityUid> _toAdd = [];
+    [ViewVariables] private readonly List<EntityUid> _toRemove = [];
+
+    private EntityQuery<MCAIAgentComponent> _query;
 
     public override void Initialize()
     {
         base.Initialize();
+
+        _query = GetEntityQuery<MCAIAgentComponent>();
 
         SubscribeLocalEvent<MCAIAgentComponent, MapInitEvent>(OnAgentMapInit);
         SubscribeLocalEvent<MCAIAgentComponent, ComponentShutdown>(OnAgentShutdown);
@@ -28,7 +34,6 @@ public sealed partial class MCAISystem : EntitySystem
 
     public override void Update(float frameTime)
     {
-        base.Update(frameTime);
         var count = 0;
 
         foreach (var uid in _activeAgents)
@@ -36,12 +41,27 @@ public sealed partial class MCAISystem : EntitySystem
             if (count >= MaxUpdates)
                 break;
 
-            if (!TryComp<MCAIAgentComponent>(uid, out var component))
+            if (!_query.TryComp(uid, out var component))
                 continue;
 
             UpdateAgent((uid, component), frameTime);
             count++;
         }
+
+
+        foreach (var uid in _toRemove)
+            _activeAgents.Remove(uid);
+
+        _toRemove.Clear();
+
+        // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
+        foreach (var uid in _toAdd)
+        {
+            if (!_activeAgents.Contains(uid))
+                _activeAgents.Add(uid);
+        }
+
+        _toAdd.Clear();
     }
 
     private void UpdateAgent(Entity<MCAIAgentComponent> entity, float frameTime)
