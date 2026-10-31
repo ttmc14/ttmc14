@@ -100,7 +100,7 @@
     magState: adrenaline
   - type: Sprite
     layers:
-    - state: adrenaline
+    - state: adrenaline-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: adrenaline-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -119,7 +119,7 @@
     magState: russian_red
   - type: Sprite
     layers:
-    - state: russian_red
+    - state: russian_red-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: russian_red-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -138,7 +138,7 @@
     magState: meraderm
   - type: Sprite
     layers:
-    - state: meraderm
+    - state: meraderm-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: meraderm-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -157,7 +157,7 @@
     magState: neuraline
   - type: Sprite
     layers:
-    - state: neuraline
+    - state: neuraline-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: neuraline-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -176,7 +176,7 @@
     magState: hypervene
   - type: Sprite
     layers:
-    - state: hypervene
+    - state: hypervene-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: hypervene-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -195,7 +195,7 @@
     magState: combat
   - type: Sprite
     layers:
-    - state: combat
+    - state: combat-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: combat-1
       map: [ "enum.GunVisualLayers.Mag" ]

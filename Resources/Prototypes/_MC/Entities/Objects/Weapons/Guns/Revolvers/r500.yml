@@ -67,12 +67,12 @@
   - type: MagazineVisuals
     magState: base
     steps: 1
-    zeroVisible: false
+    zeroVisible: true
     zeroOnlyOnEmpty: true
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Speedloaders/r500.rsi
     layers:
-    - state: base
+    - state: base-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: base-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -96,7 +96,7 @@
     magState: sv
   - type: Sprite
     layers:
-    - state: sv
+    - state: sv-0
       map: [ "enum.GunVisualLayers.Base" ]
     - state: sv-1
       map: [ "enum.GunVisualLayers.Mag" ]
@@ -117,7 +117,7 @@
   maxCount: 5
 
 - type: entity
-  parent: MCCartridge
+  parent: MCCartridgeNoVisuals
   id: MCCartridgeRevolverR500
   name: .500 White Express revolver bullet
   components:

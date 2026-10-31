@@ -39,7 +39,7 @@
 
 - type: entity
   parent: MCItem
-  id: MCCartridge
+  id: MCCartridgeNoVisuals
   name: cartridge
   abstract: true
   components:
@@ -85,6 +85,12 @@
       params:
         volume: -1
   - type: Appearance
+
+- type: entity
+  parent: MCCartridgeNoVisuals
+  id: MCCartridge
+  abstract: true
+  components:
   - type: SpentAmmoVisuals
 
 - type: Tag

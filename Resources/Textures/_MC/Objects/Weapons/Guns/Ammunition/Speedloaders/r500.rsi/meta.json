@@ -8,49 +8,49 @@
   },
   "states": [
     {
-      "name": "base"
+      "name": "base-0"
     },
     {
       "name": "base-1"
     },
     {
-      "name": "adrenaline"
+      "name": "adrenaline-0"
     },
     {
       "name": "adrenaline-1"
     },
     {
-      "name": "combat"
+      "name": "combat-0"
     },
     {
       "name": "combat-1"
     },
     {
-      "name": "hypervene"
+      "name": "hypervene-0"
     },
     {
       "name": "hypervene-1"
     },
     {
-      "name": "meraderm"
+      "name": "meraderm-0"
     },
     {
       "name": "meraderm-1"
     },
     {
-      "name": "neuraline"
+      "name": "neuraline-0"
     },
     {
       "name": "neuraline-1"
     },
     {
-      "name": "russian_red"
+      "name": "russian_red-0"
     },
     {
       "name": "russian_red-1"
     },
     {
-      "name": "sv"
+      "name": "sv-0"
     },
     {
       "name": "sv-1"
