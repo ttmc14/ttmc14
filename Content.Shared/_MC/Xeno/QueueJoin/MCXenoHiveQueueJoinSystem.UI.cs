@@ -12,12 +12,13 @@ public sealed partial class MCXenoHiveQueueJoinSystem
 {
     private void OnJoinAction(Entity<MCXenoHiveQueueJoinComponent> entity, ref MCXenoHiveQueueJoinActionEvent args)
     {
+        if (_net.IsClient)
+            return;
+
         if (!TryComp<ActorComponent>(entity, out var actorComponent))
             return;
 
         var userId = actorComponent.PlayerSession.UserId;
-
-
         var options = new List<DialogOption>();
 
         var query = EntityQueryEnumerator<MCXenoHiveComponent>();

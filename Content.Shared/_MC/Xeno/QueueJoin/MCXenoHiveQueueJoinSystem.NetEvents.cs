@@ -16,15 +16,13 @@ public sealed partial class MCXenoHiveQueueJoinSystem
 
         }
 
-        _hiveJoin.JoinBurrowedLarva(args.SenderSession, offer.HiveEntity);
-    }
-
-    private void OnOfferReject(MCXenoHiveQueueJoinOfferRejectEvent message, EntitySessionEventArgs args)
-    {
-        var userId = args.SenderSession.UserId;
-
-        if (!Offers.Remove(userId, out var offer))
+        TryRemoveFromQueue(userId, offer.HiveEntity);
+        if (!_hiveJoin.JoinBurrowedLarva(args.SenderSession, offer.HiveEntity))
             return;
 
+        // TODO: fuck....
     }
+
+    private void OnOfferReject(MCXenoHiveQueueJoinOfferRejectEvent message, EntitySessionEventArgs args) =>
+        ExpireOffer(args.SenderSession.UserId, true);
 }

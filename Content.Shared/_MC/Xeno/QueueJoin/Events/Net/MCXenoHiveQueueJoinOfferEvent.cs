@@ -9,6 +9,5 @@ public sealed class MCXenoHiveQueueJoinOfferEvent : EntityEventArgs
     public string TargetEntityName = string.Empty;
     public TimeSpan Expires;
     public string HiveName = string.Empty;
-    public string OfferType = string.Empty;
     public int QueuePosition;
 }

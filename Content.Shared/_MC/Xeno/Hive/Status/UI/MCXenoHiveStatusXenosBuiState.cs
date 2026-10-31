@@ -2,7 +2,7 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
-namespace Content.Shared._MC.Xeno.Hive.UI.Status;
+namespace Content.Shared._MC.Xeno.Hive.Status.UI;
 
 [Serializable, NetSerializable]
 public sealed partial class MCXenoHiveStatusXenosBuiState : BoundUserInterfaceState

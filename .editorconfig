@@ -73,7 +73,7 @@ csharp_style_expression_bodied_constructors = false:suggestion
 #csharp_style_expression_bodied_indexers = true:silent
 #csharp_style_expression_bodied_lambdas = true:silent
 #csharp_style_expression_bodied_local_functions = false:silent
-csharp_style_expression_bodied_methods = false:suggestion
+csharp_style_expression_bodied_methods = true:suggestion
 #csharp_style_expression_bodied_operators = false:silent
 csharp_style_expression_bodied_properties = true:suggestion
 
@@ -92,7 +92,7 @@ csharp_style_namespace_declarations = file_scoped:suggestion
 csharp_preferred_modifier_order = public, private, protected, internal, new, abstract, virtual, sealed, override, static, readonly, extern, unsafe, volatile, async:suggestion
 
 # Code-block preferences
-#csharp_prefer_braces = true:silent
+csharp_prefer_braces = true:silent
 #csharp_prefer_simple_using_statement = true:suggestion
 
 # Expression-level preferences
@@ -119,7 +119,7 @@ csharp_new_line_before_finally = true
 csharp_new_line_before_members_in_object_initializers = false
 csharp_new_line_before_open_brace = all
 csharp_new_line_between_query_expression_clauses = true
-resharper_csharp_place_simple_embedded_statement_on_same_line = never
+resharper_csharp_place_simple_embedded_statement_on_same_line = true
 resharper_csharp_keep_existing_embedded_arrangement = false
 
 # Indentation preferences
@@ -340,7 +340,13 @@ dotnet_naming_symbols.type_parameters_symbols.applicable_accessibilities = *
 dotnet_naming_symbols.type_parameters_symbols.applicable_kinds = type_parameter
 
 # ReSharper properties
-resharper_braces_for_ifelse = required_for_multiline
+resharper_braces_for_for = not_required
+resharper_braces_for_foreach = not_required
+resharper_braces_for_while = not_required
+resharper_braces_for_ifelse = not_required
+resharper_braces_for_using = not_required
+resharper_braces_for_lock = not_required
+resharper_braces_for_fixed = not_required
 resharper_csharp_wrap_arguments_style = chop_if_long
 resharper_csharp_wrap_parameters_style = chop_if_long
 resharper_keep_existing_attribute_arrangement = true

@@ -1,11 +1,11 @@
-﻿using Content.Shared._MC.Xeno.Hive.Components;
+﻿using Content.Shared._MC.Xeno.Hive.Announce;
+using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
-using Content.Shared._MC.Xeno.Hive.Systems.Annonuce;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Bioscan;
 using Robust.Shared.Timing;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems.Collapse;
+namespace Content.Shared._MC.Xeno.Hive.Collapse;
 
 public sealed class MCXenoHiveCollapseSystem : EntitySystem
 {

@@ -4,7 +4,7 @@ using Content.Shared.Popups;
 using Robust.Shared.Audio;
 using Robust.Shared.Player;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems.Annonuce;
+namespace Content.Shared._MC.Xeno.Hive.Announce;
 
 public sealed class MCXenoAnnounceSystem : EntitySystem
 {

@@ -1,6 +1,6 @@
 ﻿using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
-using Content.Shared._RMC14.Xenonids.Hive;
+using Content.Shared._MC.Xeno.Hive.Main.Events;
 using JetBrains.Annotations;
 
 namespace Content.Shared._MC.Xeno.Hive.Systems.Main;
@@ -10,10 +10,8 @@ public abstract partial class MCSharedXenoHiveSystem
     #region Burrowed larvas
 
     [PublicAPI]
-    public void AddBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value)
-    {
+    public void AddBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value) =>
         SetBurrowedLarva(entity, GetBurrowedLarva(entity) + value);
-    }
 
     [PublicAPI]
     public void SetBurrowedLarva(Entity<MCXenoHiveComponent?> entity, int value)
@@ -21,20 +19,18 @@ public abstract partial class MCSharedXenoHiveSystem
         if (!_mcHiveQuery.Resolve(entity, ref entity.Comp))
             return;
 
-        // entity.Comp.BurrowedLarva = value;
+        var previous = entity.Comp.BurrowedLarva;
+
+        entity.Comp.BurrowedLarva = value;
         Dirty(entity);
 
-        // TODO Remove shit
-        var rmcComp = EnsureComp<HiveComponent>(entity);
-        rmcComp.BurrowedLarva = value;
+        var ev = new MCXenoHiveBurrowedLarvaChangedEvent((entity, entity.Comp), previous, value);
+        RaiseLocalEvent(ref ev);
     }
 
     [PublicAPI]
-    public int GetBurrowedLarva(Entity<MCXenoHiveComponent?> entity)
-    {
-        // return !_mcHiveQuery.Resolve(entity, ref entity.Comp) ? 0 : entity.Comp.BurrowedLarva;
-        return EnsureComp<HiveComponent>(entity).BurrowedLarva;
-    }
+    public int GetBurrowedLarva(Entity<MCXenoHiveComponent?> entity) =>
+        !_mcHiveQuery.Resolve(entity, ref entity.Comp) ? 0 : entity.Comp.BurrowedLarva;
 
     #endregion
 

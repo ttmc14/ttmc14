@@ -4,11 +4,10 @@ using Content.Shared._MC.Xeno.Construction;
 using Content.Shared._MC.Xeno.Construction.Blessings.UI;
 using Content.Shared._MC.Xeno.Heal;
 using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Status.Events;
+using Content.Shared._MC.Xeno.Hive.Status.UI;
+using Content.Shared._MC.Xeno.Hive.Status.UI.Messages;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
-using Content.Shared._MC.Xeno.Hive.Systems.Status.Events;
-using Content.Shared._MC.Xeno.Hive.UI;
-using Content.Shared._MC.Xeno.Hive.UI.Messages;
-using Content.Shared._MC.Xeno.Hive.UI.Status;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared._RMC14.TacticalMap;
 using Content.Shared._RMC14.Xenonids;
@@ -18,7 +17,7 @@ using Content.Shared._RMC14.Xenonids.Watch;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 
-namespace Content.Shared._MC.Xeno.Hive.Systems.Status;
+namespace Content.Shared._MC.Xeno.Hive.Status;
 
 public sealed class MCXenoHiveStatusSystem : EntitySystem
 {
