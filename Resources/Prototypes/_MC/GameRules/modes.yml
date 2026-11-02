@@ -34,8 +34,7 @@
     - MCSquadMarine
     marineRespawnTime: "00:08:00"
     xenoPrototypes:
-    - MobXenoRunnerHostile
-    - MobXenoDroneHostile
+    - MCAIXenoDefender
     spawnInterval: "00:01:30"
     maxAiCount: 20
     defendTime: "00:50:00"

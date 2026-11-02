@@ -55,11 +55,7 @@
       conditionKey: BarricadeInRange
       targetKey: barricade
       range: 1.3
-# Added
-    - !type:MCAISensorDefendPoint
-      conditionKey: DefendPoint
-      outputTargetKey: defendPoint
-# Ended
+
     - !type:MCAISensorCheckHealthLevel
       conditionKey: LowHealth
       threshold: 0.5
@@ -71,6 +67,10 @@
     - !type:MCAISensorCheckPlasmaLevel
       conditionKey: HightPlasma
       threshold: 0.95
+
+    - !type:MCAISensorDefendPoint
+      conditionKey: DefendPoint
+      outputTargetKey: defendPoint
 
     # Actions
     actions:

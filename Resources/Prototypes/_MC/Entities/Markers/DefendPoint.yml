@@ -5,8 +5,6 @@
   components:
   - type: Sprite
     layers:
-    - sprite: Markers/cross.rsi
-      state: red
-    - sprite: _MC/Structures/Machines/computer.rsi
-      state: defendpoint
+    - sprite: _MC/Markers/landmarks.rsi
+      state: ai_node
   - type: MCDefendPoint

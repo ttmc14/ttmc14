@@ -81,7 +81,7 @@ public sealed partial class PVEDefendLowPopRuleComponent : Component
     /// Основная цель: сколько времени морпехам нужно продержаться для победы.
     /// </summary>
     [DataField, AutoNetworkedField]
-    public TimeSpan DefendTime = TimeSpan.FromMinutes(20);
+    public TimeSpan DefendTime = TimeSpan.FromMinutes(35);
 
     /// <summary>
     /// Текущее состояние игрового режима. Помогает системе понимать,
