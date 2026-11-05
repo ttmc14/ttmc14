@@ -23,7 +23,7 @@
   components:
   - type: GameRule
     minPlayers: 1
-  - type: MCPVELowPop
+  - type: MC
   - type:
     allowedMarineJobs:
     - MCFC

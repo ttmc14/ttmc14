@@ -3,8 +3,8 @@
   id: MCMarineDefendPoint
   name: marine defend point
   components:
+  - type: MCDefendPoint
   - type: Sprite
     layers:
     - sprite: _MC/Markers/landmarks.rsi
       state: ai_node
-  - type: MCDefendPoint

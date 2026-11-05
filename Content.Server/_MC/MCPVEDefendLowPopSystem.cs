@@ -3,19 +3,19 @@ using Content.Server.GameTicking.Rules; // Базовый класс для иг
 using Content.Server.Spawners.Components; // Для работы с точками спавна
 using Content.Server.Mind; // Для проверки, является ли сущность игроком
 using Content.Shared.NPC.Components; // Для проверки вражеской фракции NPC
-using Content.Shared._MC.Rules.MCPVEDefendLowPopComponent; // Подключаем наш компонент
 using Content.Shared.Mind.Components; // Для проверки, есть ли у сущности разум и является ли она игроком
+using Content.Shared._MC.Rules.MCPVEDefendLowPopComponent; // Подключаем наш компонент
 using Robust.Shared.Random; // Для выбора случайных врагов и точек спавна
 using Robust.Shared.Timing; // Для отслеживания времени
 using System.Linq; // Для удобной работы со списками
 
-namespace Content.Server._MC.Rules.MCPVEDefendLowPopRuleSystem;
+namespace Content.Server._MC.Rules.MCPVEDefendLowPopRule;
 
 /// <summary>
 /// Это СИСТЕМА, которая управляет логикой игрового режима PVEDefendLowPop.
 /// Она использует данные из компонента PVEDefendLowPopRuleComponent для своей работы.
 /// </summary>
-public sealed class PVEDefendLowPopRuleSystem : GameRuleSystem<PVEDefendLowPopRuleComponent>
+public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<PVEDefendLowPopRuleComponent>
 {
     // --- ИНЪЕКЦИЯ ЗАВИСИМОСТЕЙ ---
     // Движок автоматически подставит сюда нужные системы, чтобы мы могли ими пользоваться.

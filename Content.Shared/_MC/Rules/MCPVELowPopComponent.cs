@@ -15,7 +15,7 @@ namespace Content.Shared._MC.Rules.MCPVEDefendLowPopComponent;
 /// будет находиться в парном ему файле-системе (PVEDefendLowPopRuleSystem.cs).
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
-public sealed partial class PVEDefendLowPopRuleComponent : Component
+public sealed partial class MCPVEDefendLowPopRuleComponent : Component
 {
     // --- СЕКЦИЯ МОРПЕХОВ (ИГРОКОВ) ---
 

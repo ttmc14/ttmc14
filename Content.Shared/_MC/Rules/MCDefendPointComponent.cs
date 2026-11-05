@@ -7,6 +7,6 @@ namespace Content.Shared._MC.AI.Components;
 /// чтобы ИИ распознавал ее как точку, которую нужно защищать или к которой нужно двигаться.
 /// </summary>
 [RegisterComponent]
-public sealed partial class MCMarineDefendPointComponent : Component
+public sealed partial class MCDefendPointComponent : Component
 {
 }
