@@ -57,6 +57,8 @@ public sealed partial class MCPVEDefendLowPopRuleComponent : Component, IRulePla
 public enum MCPVEDefendLowPopRuleState
 {
     NotStarted,
+    InProgress,
+    Finished
 }
 
 public interface IRuleRecalculatePower
