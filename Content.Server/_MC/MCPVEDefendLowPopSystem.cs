@@ -4,18 +4,18 @@ using Content.Server.Spawners.Components; // Для работы с точкам
 using Content.Server.Mind; // Для проверки, является ли сущность игроком
 using Content.Shared.NPC.Components; // Для проверки вражеской фракции NPC
 using Content.Shared.Mind.Components; // Для проверки, есть ли у сущности разум и является ли она игроком
-using Content.Shared._MC.Rules.MCPVEDefendLowPopRuleComponent; // Подключаем наш компонент
+using Content.Shared._MC.Rules; // Подключаем компонент правила
 using Robust.Shared.Random; // Для выбора случайных врагов и точек спавна
 using Robust.Shared.Timing; // Для отслеживания времени
 using System.Linq; // Для удобной работы со списками
 
-namespace Content.Server._MC.Rules.MCPVEDefendLowPopRule;
+namespace Content.Server._MC.Rules.PVEDefendLowPopRule;
 
 /// <summary>
 /// Это СИСТЕМА, которая управляет логикой игрового режима PVEDefendLowPop.
 /// Она использует данные из компонента MCPVEDefendLowPopComponent для своей работы.
 /// </summary>
-public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowPopRuleComponent>
+public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowPopComponent>
 {
     // --- ИНЪЕКЦИЯ ЗАВИСИМОСТЕЙ ---
     // Движок автоматически подставит сюда нужные системы, чтобы мы могли ими пользоваться.
@@ -49,7 +49,7 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
             return;
 
         // Если раунд еще не начался или уже закончился - выходим.
-        if (rule.RoundState != PVEDefendLowPopState.InProgress)
+        if (rule.RoundState != MCPVEDefendLowPopState.InProgress)
             return;
 
         // Обновляем таймеры
@@ -89,9 +89,9 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
 
     // --- МЕТОДЫ-ПОМОЩНИКИ ---
 
-    private bool TryGetActiveRule(out EntityUid uid, out PVEDefendLowPopRuleComponent rule)
+    private bool TryGetActiveRule(out EntityUid uid, out MCPVEDefendLowPopComponent rule)
     {
-        foreach (var candidate in EntityQuery<PVEDefendLowPopRuleComponent>(true))
+        foreach (var candidate in EntityQuery<MCPVEDefendLowPopComponent>(true))
         {
             uid = candidate.Owner;
             rule = candidate;
@@ -109,7 +109,7 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
         if (!TryGetActiveRule(out _, out var rule))
             return;
 
-        rule.RoundState = PVEDefendLowPopState.InProgress;
+        rule.RoundState = MCPVEDefendLowPopState.InProgress;
         _roundTime = TimeSpan.Zero;
         _spawnCheckTime = TimeSpan.Zero;
 
@@ -117,7 +117,7 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
     }
 
 
-    private void TrySpawnEnemy(PVEDefendLowPopRuleComponent rule)
+    private void TrySpawnEnemy(MCPVEDefendLowPopComponent rule)
     {
         // Если прототипы врагов не заданы, выходим.
         if (rule.XenoPrototypes.Count == 0)
@@ -138,7 +138,7 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
 
         if (spawnPoints.Count == 0)
         {
-            Logger.Warning("PVEDefendLowPop: No enemy spawn points found on the map!");
+            Logger.Warning("MCPVEDefendLowPop: No enemy spawn points found on the map!");
             return;
         }
 
@@ -151,26 +151,26 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
         Logger.Info($"Spawned '{enemyPrototype}' at {Transform(spawnPoint.Owner).MapPosition}");
     }
 
-    private void DoVictory(EntityUid uid, PVEDefendLowPopRuleComponent rule)
+    private void DoVictory(EntityUid uid, MCPVEDefendLowPopComponent rule)
     {
-        if (rule.Result != PVEDefendLowPopResult.None)
+        if (rule.Result != MCPVEDefendLowPopResult.None)
             return; // Предотвращаем двойное завершение раунда
 
-        rule.Result = PVEDefendLowPopResult.MarinesWin;
-        rule.RoundState = PVEDefendLowPopState.Finished;
+        rule.Result = MCPVEDefendLowPopResult.MarinesWin;
+        rule.RoundState = MCPVEDefendLowPopState.Finished;
 
         // Завершаем раунд и показываем сообщение всем игрокам
         _gameTicker.EndRound("Морпехи успешно продержались и отразили атаку!");
         Logger.Info("PVEDefendLowPop: Marines win!");
     }
 
-    private void DoDefeat(EntityUid uid, PVEDefendLowPopRuleComponent rule)
+    private void DoDefeat(EntityUid uid, MCPVEDefendLowPopComponent rule)
     {
-        if (rule.Result != PVEDefendLowPopResult.None)
+        if (rule.Result != MCPVEDefendLowPopResult.None)
             return;
 
-        rule.Result = PVEDefendLowPopResult.MarinesLose;
-        rule.RoundState = PVEDefendLowPopState.Finished;
+        rule.Result = MCPVEDefendLowPopResult.MarinesLose;
+        rule.RoundState = MCPVEDefendLowPopState.Finished;
 
         _gameTicker.EndRound("Все морпехи пали. Миссия провалена.");
         Logger.Info("PVEDefendLowPop: Marines lose!");
