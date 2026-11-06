@@ -6,7 +6,7 @@ using Content.Shared._RMC14.Weapons.Ranged.IFF; // Для системы рас�
 using Content.Shared.Roles; // Для работы с профессиями (JobPrototype)
 
 // Создаем новое, чистое пространство имен для нашего режима
-namespace Content.Shared._MC.Rules.MCPVEDefendLowPopComponent;
+namespace Content.Shared._MC.Rules.MCPVEDefendLowPopRuleComponent;
 
 /// <summary>
 /// Компонент для PVE-режима "PVEDefendLowPop".
