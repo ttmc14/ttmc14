@@ -28589,38 +28589,6 @@ entities:
     - type: Transform
       pos: -43.5,13.5
       parent: 1
-- proto: filingCabinetDrawerRandom
-  entities:
-  - uid: 4649
-    components:
-    - type: Transform
-      pos: 7.5,19.5
-      parent: 1
-  - uid: 4650
-    components:
-    - type: Transform
-      pos: 5.5,19.5
-      parent: 1
-  - uid: 4651
-    components:
-    - type: Transform
-      pos: 6.5,19.5
-      parent: 1
-  - uid: 4652
-    components:
-    - type: Transform
-      pos: 5.5,17.5
-      parent: 1
-  - uid: 4653
-    components:
-    - type: Transform
-      pos: 6.5,17.5
-      parent: 1
-  - uid: 4654
-    components:
-    - type: Transform
-      pos: 7.5,17.5
-      parent: 1
 - proto: GasPipeSensor
   entities:
   - uid: 329
@@ -44085,17 +44053,5 @@ entities:
     - type: Transform
       rot: 1.5707963267948966 rad
       pos: 53.5,19.5
-      parent: 1
-- proto: ToolboxMechanicalFilledAllTools
-  entities:
-  - uid: 5324
-    components:
-    - type: Transform
-      pos: 34.502815,-1.6770184
-      parent: 1
-  - uid: 5325
-    components:
-    - type: Transform
-      pos: 34.516705,-1.3714623
       parent: 1
 ...
