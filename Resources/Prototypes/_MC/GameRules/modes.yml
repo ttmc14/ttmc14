@@ -23,7 +23,7 @@
   components:
   - type: GameRule
     minPlayers: 1
-  - type: MCPVEDefendLowPopRule
+  - type: MCPVELowPopRule
     allowedMarineJobs:
     - MCFC
     - MCSquadLeader

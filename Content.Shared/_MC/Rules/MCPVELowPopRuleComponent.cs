@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Roles;
 
-namespace Content.Shared._MC.Rules.PVEDefendLowPopRuleComponent;
+namespace Content.Shared._MC.Rules.PVEDefendLowPopRule;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCPVEDefendLowPopRuleComponent : Component, IRulePlanet, IRuleRecalculatePower

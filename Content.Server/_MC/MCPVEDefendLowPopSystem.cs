@@ -5,14 +5,14 @@ using Content.Server.Mind;
 using Content.Shared.NPC.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared._MC.Rules;
-using Content.Shared._MC.Rules.PVEDefendLowPopRuleComponent;
+using Content.Shared._MC.Rules.PVEDefendLowPopRule;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Chemistry.Components;
 
-namespace Content.Server._MC.Rules.PVEDefendLowPopRule;
+namespace Content.Server._MC.Rules.PVEDefendLowPopRuleSystem;
 
 public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowPopRuleComponent>
 {

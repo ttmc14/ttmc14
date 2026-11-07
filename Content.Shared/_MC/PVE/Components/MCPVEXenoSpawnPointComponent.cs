@@ -1,7 +1,8 @@
 using Robust.Shared.Prototypes;
 using Robust.Shared.GameStates;
+using Robust.Shared.GameObjects;
 
-namespace Content.Shared._MC.Spawners;
+namespace Content.Shared._MC.PVE.Components.PVEXenoSpawnPoint;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCPVEXenoSpawnPointComponent : Component

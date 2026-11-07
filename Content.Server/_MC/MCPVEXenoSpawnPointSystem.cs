@@ -1,10 +1,10 @@
-using Content.Shared._MC.Spawners;
 using Content.Server.Fluids.EntitySystems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Components;
+using Content.Shared._MC.PVE.Components.PVEXenoSpawnPoint;
 using Robust.Shared.Timing;
 
-namespace Content.Server._MC.Spawners;
+namespace Content.Server._MC.PVEXenoSpawnPointSystem;
 
 public sealed class MCPVEXenoSpawnPointSystem : EntitySystem
 {
