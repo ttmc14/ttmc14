@@ -11,14 +11,12 @@ namespace Content.Shared._MC.Weapons.Range.Aimed;
 public sealed partial class MCAimedShootSystem : EntitySystem
 {
     [Dependency] private readonly SharedActionsSystem _actions = null!;
-    [Dependency] private readonly GunIFFSystem _gunIFF = null!;
     [Dependency] private readonly SharedGunSystem _gun = null!;
+    [Dependency] private readonly GunIFFSystem _gunIff = null!;
     [Dependency] private readonly MovementSpeedModifierSystem _movementSpeed = null!;
 
     public override void Initialize()
     {
-        base.Initialize();
-
         SubscribeLocalEvent<MCAimedShootComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<MCAimedShootComponent, MCAimedShootActionEvent>(OnToggleAction);
 
@@ -56,13 +54,9 @@ public sealed partial class MCAimedShootSystem : EntitySystem
         RefreshModifiers(entity, args.Performer);
     }
 
-    private void OnGotEquippedHand(Entity<MCAimedShootComponent> entity, ref GotEquippedHandEvent args)
-    {
+    private void OnGotEquippedHand(Entity<MCAimedShootComponent> entity, ref GotEquippedHandEvent args) =>
         RefreshModifiers(entity, args.User);
-    }
 
-    private void OnGotUnequippedHand(Entity<MCAimedShootComponent> entity, ref GotUnequippedHandEvent args)
-    {
+    private void OnGotUnequippedHand(Entity<MCAimedShootComponent> entity, ref GotUnequippedHandEvent args) =>
         RefreshModifiers(entity, args.User);
-    }
 }

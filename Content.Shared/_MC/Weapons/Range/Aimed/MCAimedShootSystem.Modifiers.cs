@@ -1,5 +1,4 @@
-﻿using Content.Shared._RMC14.Weapons.Ranged.IFF;
-using Content.Shared.Hands;
+﻿using Content.Shared.Hands;
 using Content.Shared.Movement.Systems;
 using Content.Shared.Weapons.Ranged.Events;
 
@@ -18,15 +17,7 @@ public sealed partial class MCAimedShootSystem
         if (!entity.Comp.Active)
             return;
 
-        foreach (var projectile in args.FiredProjectiles)
-        {
-            var iff = EnsureComp<ProjectileIFFComponent>(projectile);
-            if (iff.Factions.Count == 0)
-                continue;
-
-            iff.Enabled = true;
-            Dirty(projectile, iff);
-        }
+        _gunIff.GiveAmmoIFF(entity, ref args, false, true);
     }
 
     private static void OnRefreshMovementSpeedModifiers(Entity<MCAimedShootComponent> entity, ref HeldRelayedEvent<RefreshMovementSpeedModifiersEvent> args)

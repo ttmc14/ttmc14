@@ -6,7 +6,7 @@ namespace Content.Shared._MC.Weapons.Range.Aimed;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCAimedShootComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [DataField]
     public EntProtoId ActionId = "MCActionToggleAimedShoot";
 
     [DataField, AutoNetworkedField]
