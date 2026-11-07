@@ -5,7 +5,7 @@ using Robust.Shared.Serialization;
 using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Roles;
 
-namespace Content.Shared._MC.Rules.PVEDefendLowPopComponent;
+namespace Content.Shared._MC.Rules.PVEDefendLowPopRuleComponent;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCPVEDefendLowPopRuleComponent : Component, IRulePlanet, IRuleRecalculatePower
@@ -34,6 +34,26 @@ public sealed partial class MCPVEDefendLowPopRuleComponent : Component, IRulePla
 
     [DataField, AutoNetworkedField]
     public int MaxAiCount = 20;
+
+    // === СЕКЦИЯ ДЫМА ПРИ СПАВНЕ КСЕНОМОРФОВ ===
+
+    [DataField, AutoNetworkedField]
+    public bool SpawnSmokeOnSpawn = true;
+
+    [DataField, AutoNetworkedField]
+    public EntProtoId SmokePrototype = "Foam";
+
+    [DataField, AutoNetworkedField]
+    public string SmokeReagent = "MCSmokeXenoAcidBoiler";
+
+    [DataField, AutoNetworkedField]
+    public float SmokeReagentAmount = 10f;
+
+    [DataField, AutoNetworkedField]
+    public float SmokeDuration = 10f;
+
+    [DataField, AutoNetworkedField]
+    public int SmokeSpread = 6;
 
     // --- УСЛОВИЯ И СОСТОЯНИЕ РАУНДА ---
 
@@ -70,7 +90,7 @@ public interface IRuleRecalculatePower
 public enum MCPVEDefendLowPopRuleResult
 {
     None,
-    MajorMarineVictory,
-    MajorXenoVictory,
 
+    MarinesWin,
+    MarinesLose
 }

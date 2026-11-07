@@ -1,10 +1,10 @@
 - type: entity
   parent: MCMarker
-  id: MCMarineDefendPoint
   name: marine defend point
+  id: MCMarineDefendPoint
+  categories: [ MCContent ]
   components:
   - type: MCDefendPoint
   - type: Sprite
-    layers:
-    - sprite: _MC/Markers/landmarks.rsi
-      state: ai_node
+    sprite: _MC/Markers/landmarks.rsi
+    state: ai_node

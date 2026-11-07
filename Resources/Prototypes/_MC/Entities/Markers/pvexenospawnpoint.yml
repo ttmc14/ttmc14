@@ -1,0 +1,19 @@
+- type: entity
+  name: PVE Xeno Spawn Point
+  id: MCPVEXenoSpawnPointMarker
+  parent: MarkerBase
+  suffix: MC
+  components:
+  - type: Sprite
+    sprite: _MC/Markers/landmarks.rsi
+    state: ai_node
+  - type: MCPVEXenoSpawnPoint
+    spawnPrototype: MCAIXenoDefender
+    spawnInterval: 30
+    enemyFaction: FactionXeno
+    spawnSmokeOnSpawn: true
+    smokePrototype: Foam
+    smokeReagent: MCSmokeXenoAcidBoiler
+    smokeReagentAmount: 15
+    smokeDuration: 12
+    smokeSpread: 4
