@@ -20,10 +20,12 @@ public sealed partial class MCAimedShootSystem : EntitySystem
         SubscribeLocalEvent<MCAimedShootComponent, GetItemActionsEvent>(OnGetItemActions);
         SubscribeLocalEvent<MCAimedShootComponent, MCAimedShootActionEvent>(OnToggleAction);
 
+        /*
         SubscribeLocalEvent<MCAimedShootComponent, AmmoShotEvent>(
             OnAmmoShotModifiers,
             after: new[] { typeof(GunIFFSystem), typeof(AttachableIFFSystem) }
         );
+        */
 
         SubscribeLocalEvent<MCAimedShootComponent, GotEquippedHandEvent>(OnGotEquippedHand);
         SubscribeLocalEvent<MCAimedShootComponent, GotUnequippedHandEvent>(OnGotUnequippedHand);
@@ -50,6 +52,8 @@ public sealed partial class MCAimedShootSystem : EntitySystem
 
         entity.Comp.Active = !entity.Comp.Active;
         _actions.SetToggled(entity.Comp.Action, entity.Comp.Active);
+
+        EnsureComp<GunIFFComponent>(entity).Enabled = entity.Comp.Active;
 
         RefreshModifiers(entity, args.Performer);
     }
