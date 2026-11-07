@@ -20,9 +20,6 @@ public partial class MCSharedXenoShieldSystem
 
     private void OnShieldStartCollide(Entity<MCXenoShieldInstanceComponent> entity, ref StartCollideEvent args)
     {
-        if (Net.IsClient)
-            return;
-
         if (TerminatingOrDeleted(entity) || entity.Comp.Terminating)
             return;
 
@@ -46,10 +43,7 @@ public partial class MCSharedXenoShieldSystem
 
     private void CreateShield(Entity<MCXenoShieldActiveComponent> entity, MCXenoShieldComponent config)
     {
-        if (Net.IsClient)
-            return;
-
-        var shieldUid = SpawnAttachedTo(config.ShieldEntProtoId, entity.Owner.ToCoordinates().Offset(new Vector2(0, -1)));
+        var shieldUid = PredictedSpawnAttachedTo(config.ShieldEntProtoId, entity.Owner.ToCoordinates().Offset(new Vector2(0, -1)));
         var shieldComponent = EnsureComp<MCXenoShieldInstanceComponent>(shieldUid);
 
         // Link shield to owner
