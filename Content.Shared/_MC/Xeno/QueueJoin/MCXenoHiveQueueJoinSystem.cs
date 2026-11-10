@@ -138,14 +138,16 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
             return;
 
         var hiveUid = GetEntity(args.HiveUid);
-        if (!TryComp<MCXenoHiveComponent>(hiveUid, out var hiveComponent))
+        if (!HasComp<MCXenoHiveComponent>(hiveUid))
             return;
+
+        var hiveEntity = (hiveUid, Comp<MCXenoHiveComponent>(hiveUid));
 
         var deathDeltaTime = _timing.CurTime - ghostComponent.TimeOfDeath;
         if (deathDeltaTime < _joinDelay)
         {
             var timeLeft = _joinDelay - deathDeltaTime;
-            _popup.PopupEntity($"You died too recently, and will be added to the queue in {timeLeft.TotalSeconds:F0} seconds.", entity, entity);
+            _popup.PopupEntity($"You died too recently. You can join the queue in {timeLeft.TotalSeconds:F0} seconds.", entity, entity);
             return;
         }
 
@@ -154,17 +156,21 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         var queue = Queue.GetOrNew(hiveUid);
         if (queue.Contains(userId))
         {
-            Queue.GetOrNew(hiveUid).Remove(userId);
+            queue.Remove(userId);
+
             _popup.PopupEntity("You have been removed from the queue.", entity, entity);
+
+            NotifyQueuePositions(hiveEntity);
+            TryOffer(hiveEntity);
             return;
         }
 
-        Queue.GetOrNew(hiveUid).AddLast(userId);
+        queue.AddLast(userId);
 
         var position = queue.PositionOf(userId);
         _popup.PopupEntity($"You have been added to the queue at position {position}.", entity, entity);
 
-        TryOffer((hiveUid, hiveComponent));
+        TryOffer(hiveEntity);
     }
 
     private void SendOffer(ICommonSession session, Entity<MCXenoHiveComponent> hive, EntityUid? targetUid, int position)
@@ -249,9 +255,14 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         nextSession = null;
         position = 0;
 
-        Queue.TryGetValue(hive, out var queue);
+        if (!Queue.TryGetValue(hive, out var queue))
+            return false;
 
-        return queue is not null && TryPopFromList(queue, 0, out nextSession, out position);
+        var result = TryPopFromList(queue, 0, out nextSession, out position);
+        if (result)
+            NotifyQueuePositions(hive);
+
+        return result;
     }
 
     private bool TryPopFromList(
@@ -263,15 +274,13 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         session = null;
         absolutePosition = 0;
 
-        var indexInList = 0;
-
         var node = list.First;
+        var validIndex = 0;
+
         while (node is not null)
         {
             var next = node.Next;
             var netId = node.Value;
-
-            indexInList++;
 
             if (Offers.ContainsKey(netId))
             {
@@ -279,10 +288,9 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
                 continue;
             }
 
-            if (!_player.TryGetSessionById(netId, out var commonSession) || commonSession.AttachedEntity == null)
+            if (!_player.TryGetSessionById(netId, out var commonSession) || commonSession.AttachedEntity is null)
             {
-                // if (!_disconnectExpiresAt.ContainsKey(netId))
-                //    _disconnectExpiresAt[netId] = _gameTiming.CurTime + _disconnectGracePeriod;
+                list.Remove(node);
                 node = next;
                 continue;
             }
@@ -294,8 +302,11 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
                 continue;
             }
 
-            absolutePosition = offset + indexInList;
+            validIndex++;
+            absolutePosition = offset + validIndex;
             session = commonSession;
+
+            list.Remove(node);
             return true;
         }
 
@@ -335,11 +346,10 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         var position = 0;
         foreach (var userId in netUserIds)
         {
-            position++;
-
             if (!_player.TryGetSessionById(userId, out var session) || session.AttachedEntity is not { } attachedEntity)
                 continue;
 
+            position++;
             _popup.PopupEntity($"You are now in position {position} of the larva queue for ({Name(hive)}).", attachedEntity, attachedEntity);
         }
     }

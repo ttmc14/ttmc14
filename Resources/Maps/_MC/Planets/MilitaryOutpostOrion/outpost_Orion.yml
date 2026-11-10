@@ -73606,7 +73606,7 @@ entities:
       rot: 1.5707963267948966 rad
       pos: 94.5,-63.5
       parent: 1
-- proto: MCWindowGray
+- proto: MCWindowColony
   entities:
   - uid: 2730
     components:
@@ -74133,7 +74133,7 @@ entities:
     - type: Transform
       pos: 62.5,-76.5
       parent: 1
-- proto: MCWindowGrayReinforced
+- proto: MCWindowColonyReinforced
   entities:
   - uid: 2581
     components:

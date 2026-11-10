@@ -1,0 +1,75 @@
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowShipIndestructible
+  name: hull ship window
+  description: A ship window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/ship.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/ship.rsi
+
+- type: entity
+  parent: MCWindowColony
+  id: MCWindowShip
+  name: ship window
+  description: A ship window.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/ship.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/ship.rsi
+  - type: Construction
+    graph: MCWindowShip
+    node: window
+
+- type: entity
+  parent: MCWindowFrameColony
+  id: MCWindowFrameShip
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/ship_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/ship_frame.rsi
+  - type: Construction
+    graph: MCWindowShip
+    node: frame
+
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowShipGrayIndestructible
+  name: hull gray ship window
+  description: A gray ship window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/ship_gray.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/ship_gray.rsi
+
+- type: entity
+  parent: MCWindowShip
+  id: MCWindowShipGray
+  name: gray ship window
+  description: A gray ship window.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/ship_gray.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/ship_gray.rsi
+  - type: Construction
+    graph: MCWindowShipGray
+    node: window
+
+- type: entity
+  parent: MCWindowFrameShip
+  id: MCWindowFrameShipGray
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/ship_gray_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/ship_gray_frame.rsi
+  - type: Construction
+    graph: MCWindowShipGray
+    node: frame

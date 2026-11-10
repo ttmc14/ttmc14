@@ -64,7 +64,7 @@ public sealed class JoinXenoSystem : EntitySystem
 
     private void OnJoinXenoMapInit(Entity<JoinXenoComponent> ent, ref MapInitEvent args)
     {
-        _actions.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionId);
+        // _actions.AddAction(ent, ref ent.Comp.Action, ent.Comp.ActionId); // mc-clear-ghost
     }
 
     private void OnJoinXenoAction(Entity<JoinXenoComponent> ent, ref JoinXenoActionEvent args)

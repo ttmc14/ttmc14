@@ -1,0 +1,83 @@
+- type: entity
+  parent: MCWindowColonyReinforcedIndestructible
+  id: MCWindowCellReinforcedIndestructible
+  name: hull reinforced cell window
+  description: A reinforced cell window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/cell_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/cell_reinforced.rsi
+
+- type: entity
+  parent: MCWindowColonyReinforcedIndestructible
+  id: MCWindowPrisonReinforcedIndestructible
+  name: hull reinforced prison window
+  description: A reinforced prison window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/prison_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/prison_reinforced.rsi
+
+- type: entity
+  parent: MCWindowColonyReinforced
+  id: MCWindowCellReinforced
+  name: reinforced cell window
+  description: A reinforced cell window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/cell_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/cell_reinforced.rsi
+  - type: Construction
+    graph: MCWindowCellReinforced
+    node: window
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: MCWindowFrameCellReinforced
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: MCWindowColonyReinforced
+  id: MCWindowPrisonReinforced
+  name: reinforced prison window
+  description: A reinforced prison window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/prison_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/prison_reinforced.rsi
+  - type: Construction
+    graph: MCWindowPrisonReinforced
+    node: window
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: MCWindowFramePrisonReinforced
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: MCWindowFrameColonyReinforced
+  id: MCWindowFrameCellReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/prison_reinforced_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/prison_reinforced_frame.rsi
+  - type: Construction
+    graph: MCWindowCellReinforced
+    node: frame
+
+- type: entity
+  parent: MCWindowFrameColonyReinforced
+  id: MCWindowFramePrisonReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/prison_reinforced_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/prison_reinforced_frame.rsi
+  - type: Construction
+    graph: MCWindowPrisonReinforced
+    node: frame

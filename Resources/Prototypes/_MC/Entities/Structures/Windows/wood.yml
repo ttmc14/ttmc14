@@ -1,0 +1,69 @@
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowWoodIndestructible
+  name: hull wooden window
+  description: A wooden window. Something tells you this one is somehow indestructible.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/wood.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/wood.rsi
+
+- type: entity
+  parent: MCWindowColony
+  id: MCWindowWood
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/wood.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/wood.rsi
+  - type: Construction
+    graph: MCWindowWood
+    node: window
+
+- type: entity
+  parent: MCWindowFrameColony
+  id: MCWindowFrameWood
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/wood_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/wood_frame.rsi
+  - type: Construction
+    graph: MCWindowWood
+    node: frame
+
+- type: entity
+  parent: MCWindowColonyReinforcedIndestructible
+  id: MCWindowWoodReinforcedIndestructible
+  name: hull reinforced wooden window
+  description: A wooden window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it. Something tells you this one is somehow indestructible.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/wood_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/wood_reinforced.rsi
+
+- type: entity
+  parent: MCWindowColonyReinforced
+  id: MCWindowWoodReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/wood_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/wood_reinforced.rsi
+  - type: Construction
+    graph: MCWindowWoodReinforced
+    node: window
+
+- type: entity
+  parent: MCWindowFrameColonyReinforced
+  id: MCWindowFrameWoodReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/wood_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/wood_frame.rsi
+  - type: Construction
+    graph: MCWindowWoodReinforced
+    node: frame

@@ -72,6 +72,15 @@
 
 - type: entity
   parent: MCSheetGlassReinforced
+  id: MCGlassReinforced1
+  suffix: 1
+  components:
+  - type: Stack
+    stackType: MCGlassReinforced
+    count: 1
+
+- type: entity
+  parent: MCSheetGlassReinforced
   id: MCSheetGlassReinforced1
   suffix: 1
   components:

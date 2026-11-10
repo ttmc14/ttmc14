@@ -1,0 +1,135 @@
+
+- type: entity
+  parent: MCWindowIndestructibleSmooth
+  id: MCWindowColonyIndestructible
+  name: hull window
+  description: A glass window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/colony.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/colony.rsi
+
+- type: entity
+  parent: MCWindowSmooth
+  id: MCWindowColony
+  name: window
+  description: A glass window inside a wall frame.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/colony.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/colony.rsi
+  - type: Repairable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600 # excessive damage destroys window and frame
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+      - trigger:
+          !type:DamageTrigger
+          damage: 40
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CMShardGlass:
+                min: 1
+                max: 1
+          - !type:ChangeConstructionNodeBehavior
+            node: frame
+  - type: RMCWallExplosionDeletable
+  - type: DestroyedByExplosionType
+  - type: Construction
+    graph: MCWindowColony
+    node: window
+
+- type: entity
+  parent: MCWindowFrame
+  id: MCWindowFrameColony
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/colony_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/colony_frame.rsi
+  - type: Construction
+    graph: MCWindowColony
+    node: frame
+
+- type: entity
+  parent: MCWindowIndestructibleSmooth
+  id: MCWindowColonyReinforcedIndestructible
+  name: hull reinforced window
+  description: A glass window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/colony_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/colony_reinforced.rsi
+
+- type: entity
+  parent: MCWindowSmooth
+  id: MCWindowColonyReinforced
+  name: reinforced window
+  description: A glass window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/colony_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/colony_reinforced.rsi
+  - type: Repairable
+  - type: Destructible
+    thresholds:
+      - trigger:
+          !type:DamageTrigger
+          damage: 600
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:DoActsBehavior
+            acts: ["Destruction"]
+      - trigger:
+          !type:DamageTrigger
+          damage: 100
+        behaviors:
+          - !type:PlaySoundBehavior
+            sound:
+              collection: WindowShatter
+          - !type:SpawnEntitiesBehavior
+            spawn:
+              CMShardGlass:
+                min: 1
+                max: 1
+              MCRodMetal:
+                min: 1
+                max: 1
+          - !type:ChangeConstructionNodeBehavior
+            node: frame
+  - type: RMCWallExplosionDeletable
+  - type: DestroyedByExplosionType
+  - type: Construction
+    graph: MCWindowColonyReinforced
+    node: window
+
+- type: entity
+  parent: MCWindowFrame
+  id: MCWindowFrameColonyReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/colony_reinforced_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/colony_reinforced_frame.rsi
+  - type: Construction
+    graph: MCWindowColonyReinforced
+    node: frame

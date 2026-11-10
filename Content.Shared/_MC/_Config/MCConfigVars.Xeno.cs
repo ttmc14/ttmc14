@@ -8,5 +8,5 @@ public sealed partial class MCConfigVars
         CVarDef.Create("mc.xeno.queue_join.offer_timeout_seconds", 30, CVar.REPLICATED | CVar.SERVER);
 
     public static readonly CVarDef<int> XenoQueueJoinWaitSeconds =
-        CVarDef.Create("mc.xeno.queue_join.wait_seconds", 300, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("mc.xeno.queue_join.wait_seconds", 120, CVar.REPLICATED | CVar.SERVER);
 }

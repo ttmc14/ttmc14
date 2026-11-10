@@ -12,15 +12,18 @@ public sealed partial class MCXenoHiveQueueJoinSystem
             return;
 
         if (offer.TargetUid is { } targetUid)
-        {
-
-        }
+            Reserved.Remove(targetUid);
+        else
+            DecrementPendingBurrowed(offer.HiveEntity);
 
         TryRemoveFromQueue(userId, offer.HiveEntity);
-        if (!_hiveJoin.JoinBurrowedLarva(args.SenderSession, offer.HiveEntity))
+
+        if (_hiveJoin.JoinBurrowedLarva(args.SenderSession, offer.HiveEntity))
             return;
 
-        // TODO: fuck....
+        _popup.PopupCursor("Failed to join the hive. The larva might no longer be available.", args.SenderSession);
+
+        TryOffer(offer.HiveEntity);
     }
 
     private void OnOfferReject(MCXenoHiveQueueJoinOfferRejectEvent message, EntitySessionEventArgs args) =>

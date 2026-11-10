@@ -87,12 +87,12 @@
     graph: MCGirder
     node: mcwall
 
-- type: entity
-  parent: CMWindowWhiteColonyReinforced
-  id: MCWindow
-  components:
-  - type: IconSmooth
-    key: mcWalls
+# - type: entity
+#   parent: CMWindowWhiteColonyReinforced
+#   id: MCWindow
+#   components:
+#   - type: IconSmooth
+#     key: mcWalls
 
 - type: entity
   parent: RMCWindowHangar

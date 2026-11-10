@@ -1,0 +1,123 @@
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowKutjevoIndestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_blue.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_blue.rsi
+
+- type: entity
+  parent: MCWindowKutjevoIndestructible
+  id: MCWindowKutjevoOrangeIndestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_orange.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_orange.rsi
+
+- type: entity
+  parent: MCWindowColonyReinforcedIndestructible
+  id: MCWindowKutjevoReinforcedIndestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_blue_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_blue_reinforced.rsi
+
+- type: entity
+  parent: MCWindowKutjevoReinforcedIndestructible
+  id: MCWindowKutjevoOrangeReinforcedIndestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_orange_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_orange_reinforced.rsi
+
+- type: entity
+  parent: MCWindowColony
+  id: MCWindowKutjevo
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_blue.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_blue.rsi
+  - type: Construction
+    graph: MCWindowKutjevo
+    node: window
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: MCWindowFrameKutjevo
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: MCWindowKutjevo
+  id: MCWindowKutjevoOrange
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_orange.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_orange.rsi
+  - type: Construction
+    graph: MCWindowKutjevo
+    node: window
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: MCWindowFrameKutjevo
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: MCWindowColonyReinforced
+  id: MCWindowKutjevoReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_blue_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_blue_reinforced.rsi
+  - type: Construction
+    graph: MCWindowKutjevoReinforced
+    node: window
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: MCWindowFrameKutjevoReinforced
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: MCWindowKutjevoReinforced
+  id: MCWindowKutjevoOrangeReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_orange_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_orange_reinforced.rsi
+  - type: Construction
+    graph: MCWindowKutjevoReinforced
+    node: window
+  - type: DestroyOnXenoPierceScissor
+    spawnPrototype: MCWindowFrameKutjevoReinforced
+    sound:
+      collection: WindowShatter
+
+- type: entity
+  parent: MCWindowFrameColony
+  id: MCWindowFrameKutjevo
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_frame.rsi
+  - type: Construction
+    graph: MCWindowKutjevo
+    node: frame
+
+- type: entity
+  parent: MCWindowFrameColonyReinforced
+  id: MCWindowFrameKutjevoReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/kutjevo_frame_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/kutjevo_frame_reinforced.rsi
+  - type: Construction
+    graph: MCWindowKutjevoReinforced
+    node: frame

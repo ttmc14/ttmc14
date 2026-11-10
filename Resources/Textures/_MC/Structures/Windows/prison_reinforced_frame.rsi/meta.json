@@ -1,0 +1,152 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/blob/6b0be1ccffe1fdfc99e833909a3f20204ec3219e/icons/obj/smooth_objects/prison_rwindow_frame.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base-0"
+    },
+    {
+      "name": "base-1"
+    },
+    {
+      "name": "base-2"
+    },
+    {
+      "name": "base-3"
+    },
+    {
+      "name": "base-4"
+    },
+    {
+      "name": "base-5"
+    },
+    {
+      "name": "base-6"
+    },
+    {
+      "name": "base-7"
+    },
+    {
+      "name": "base-8"
+    },
+    {
+      "name": "base-9"
+    },
+    {
+      "name": "base-10"
+    },
+    {
+      "name": "base-11"
+    },
+    {
+      "name": "base-12"
+    },
+    {
+      "name": "base-13"
+    },
+    {
+      "name": "base-14"
+    },
+    {
+      "name": "base-15"
+    },
+    {
+      "name": "base-21"
+    },
+    {
+      "name": "base-23"
+    },
+    {
+      "name": "base-29"
+    },
+    {
+      "name": "base-31"
+    },
+    {
+      "name": "base-38"
+    },
+    {
+      "name": "base-39"
+    },
+    {
+      "name": "base-46"
+    },
+    {
+      "name": "base-47"
+    },
+    {
+      "name": "base-55"
+    },
+    {
+      "name": "base-63"
+    },
+    {
+      "name": "base-74"
+    },
+    {
+      "name": "base-75"
+    },
+    {
+      "name": "base-78"
+    },
+    {
+      "name": "base-79"
+    },
+    {
+      "name": "base-95"
+    },
+    {
+      "name": "base-110"
+    },
+    {
+      "name": "base-111"
+    },
+    {
+      "name": "base-127"
+    },
+    {
+      "name": "base-137"
+    },
+    {
+      "name": "base-139"
+    },
+    {
+      "name": "base-141"
+    },
+    {
+      "name": "base-143"
+    },
+    {
+      "name": "base-157"
+    },
+    {
+      "name": "base-159"
+    },
+    {
+      "name": "base-175"
+    },
+    {
+      "name": "base-191"
+    },
+    {
+      "name": "base-203"
+    },
+    {
+      "name": "base-207"
+    },
+    {
+      "name": "base-223"
+    },
+    {
+      "name": "base-239"
+    },
+    {
+      "name": "base-255"
+    }
+  ]
+}
