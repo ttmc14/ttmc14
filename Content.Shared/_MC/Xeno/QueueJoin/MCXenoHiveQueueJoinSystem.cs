@@ -1,0 +1,356 @@
+﻿using System.Diagnostics.CodeAnalysis;
+using Content.Shared._MC._Config;
+using Content.Shared._MC.Utilities;
+using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Join;
+using Content.Shared._MC.Xeno.Hive.Main.Events;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._MC.Xeno.QueueJoin.Components;
+using Content.Shared._MC.Xeno.QueueJoin.Events;
+using Content.Shared._MC.Xeno.QueueJoin.Events.Net;
+using Content.Shared._RMC14.Dialog;
+using Content.Shared._RMC14.Xenonids.Hive;
+using Content.Shared.Actions;
+using Content.Shared.Ghost;
+using Content.Shared.Popups;
+using Robust.Shared.Configuration;
+using Robust.Shared.GameStates;
+using Robust.Shared.Network;
+using Robust.Shared.Player;
+using Robust.Shared.Timing;
+using Robust.Shared.Utility;
+
+namespace Content.Shared._MC.Xeno.QueueJoin;
+
+[RegisterComponent, NetworkedComponent]
+public sealed partial class MCXenoHiveQueueJoinSingletonComponent : Component
+{
+    // NOTE: Key is hive entity.
+    [ViewVariables]
+    public readonly Dictionary<EntityUid, LinkedList<NetUserId>> Queue = new();
+
+    [ViewVariables]
+    public readonly Dictionary<NetUserId,  MCXenoHiveQueueJoinOffer> Offers = new();
+
+    [ViewVariables]
+    public readonly HashSet<EntityUid> Reserved = new();
+
+    [ViewVariables]
+    public readonly Dictionary<EntityUid, int> PendingBurrowedCount = new();
+}
+
+public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<MCXenoHiveQueueJoinSingletonComponent>
+{
+    [Dependency] private readonly IConfigurationManager _configuration = null!;
+    [Dependency] private readonly ISharedPlayerManager _player = null!;
+    [Dependency] private readonly IGameTiming _timing = null!;
+    [Dependency] private readonly INetManager _net = null!;
+
+    [Dependency] private readonly SharedActionsSystem _actions = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly DialogSystem _dialog = null!;
+
+    [Dependency] private readonly MCSharedXenoHiveSystem _hive = null!;
+    [Dependency] private readonly MCXenoHiveJoinSystem _hiveJoin = null!;
+
+    private TimeSpan _joinDelay = TimeSpan.Zero;
+    private TimeSpan _offerTimeout = TimeSpan.Zero;
+
+    public NetEntity NetEntityContainer => GetNetEntity(Inst);
+
+    private Dictionary<EntityUid, LinkedList<NetUserId>> Queue => Inst.Comp.Queue;
+    private Dictionary<NetUserId, MCXenoHiveQueueJoinOffer> Offers => Inst.Comp.Offers;
+    private HashSet<EntityUid> Reserved => Inst.Comp.Reserved;
+    private Dictionary<EntityUid, int> PendingBurrowedCount => Inst.Comp.PendingBurrowedCount;
+
+    public override void Initialize()
+    {
+        _configuration.OnValueChanged(MCConfigVars.XenoQueueJoinWaitSeconds, e => _joinDelay = TimeSpan.FromSeconds(e), true);
+        _configuration.OnValueChanged(MCConfigVars.XenoQueueJoinOfferTimeoutSeconds, e => _offerTimeout = TimeSpan.FromSeconds(e), true);
+
+        SubscribeLocalEvent<MCXenoHiveBurrowedLarvaChangedEvent>(OnBurrowedLarvaChanged);
+
+        SubscribeLocalEvent<MCXenoHiveQueueJoinComponent, ComponentStartup>(OnJoinStartup);
+        SubscribeLocalEvent<MCXenoHiveQueueJoinComponent, ComponentRemove>(OnJoinRemove);
+
+        SubscribeLocalEvent<MCXenoHiveQueueJoinComponent, MCXenoHiveQueueJoinActionEvent>(OnJoinAction);
+
+        SubscribeLocalEvent<MCXenoHiveQueueJoinComponent, MCXenoHiveQueueJoinEvent>(OnJoinQueue);
+
+        if (_net.IsClient)
+            return;
+
+        SubscribeNetworkEvent<MCXenoHiveQueueJoinOfferAcceptEvent>(OnOfferAccept);
+        SubscribeNetworkEvent<MCXenoHiveQueueJoinOfferRejectEvent>(OnOfferReject);
+    }
+
+     public override void Update(float frameTime)
+    {
+        if (_net.IsClient)
+            return;
+
+        var expiredOffers = new List<NetUserId>();
+        foreach (var (userId, offer) in Offers)
+        {
+            if (_timing.CurTime < offer.Expires)
+                continue;
+
+            expiredOffers.Add(userId);
+        }
+
+        foreach (var userId in expiredOffers)
+        {
+            _player.TryGetSessionById(userId, out var expiredSession);
+
+            var notifyPlayer = false;
+            var removeFromQueue = false;
+            if (expiredSession?.AttachedEntity is not null)
+            {
+                notifyPlayer = true;
+                removeFromQueue = true;
+            }
+
+            ExpireOffer(userId, notifyPlayer, removeFromQueue);
+        }
+    }
+
+    private void OnBurrowedLarvaChanged(ref MCXenoHiveBurrowedLarvaChangedEvent args)
+    {
+        if (args.Count == 0)
+            return;
+
+        TryOffer(args.HiveEntity);
+    }
+
+    private void OnJoinStartup(Entity<MCXenoHiveQueueJoinComponent> entity, ref ComponentStartup args) =>
+        _actions.AddAction(entity, ref entity.Comp.Action, entity.Comp.ActionId);
+
+    private void OnJoinRemove(Entity<MCXenoHiveQueueJoinComponent> entity, ref ComponentRemove args) =>
+        _actions.RemoveAction(entity.Comp.Action);
+
+    private void OnJoinQueue(Entity<MCXenoHiveQueueJoinComponent> entity, ref MCXenoHiveQueueJoinEvent args)
+    {
+        if (_net.IsClient)
+            return;
+
+        if (!TryComp<GhostComponent>(entity, out var ghostComponent) ||
+            !TryComp<ActorComponent>(entity, out var actorComponent))
+            return;
+
+        var hiveUid = GetEntity(args.HiveUid);
+        if (!HasComp<MCXenoHiveComponent>(hiveUid))
+            return;
+
+        var hiveEntity = (hiveUid, Comp<MCXenoHiveComponent>(hiveUid));
+
+        var deathDeltaTime = _timing.CurTime - ghostComponent.TimeOfDeath;
+        if (deathDeltaTime < _joinDelay)
+        {
+            var timeLeft = _joinDelay - deathDeltaTime;
+            _popup.PopupEntity($"You died too recently. You can join the queue in {timeLeft.TotalSeconds:F0} seconds.", entity, entity);
+            return;
+        }
+
+        var userId = actorComponent.PlayerSession.UserId;
+
+        var queue = Queue.GetOrNew(hiveUid);
+        if (queue.Contains(userId))
+        {
+            queue.Remove(userId);
+
+            _popup.PopupEntity("You have been removed from the queue.", entity, entity);
+
+            NotifyQueuePositions(hiveEntity);
+            TryOffer(hiveEntity);
+            return;
+        }
+
+        queue.AddLast(userId);
+
+        var position = queue.PositionOf(userId);
+        _popup.PopupEntity($"You have been added to the queue at position {position}.", entity, entity);
+
+        TryOffer(hiveEntity);
+    }
+
+    private void SendOffer(ICommonSession session, Entity<MCXenoHiveComponent> hive, EntityUid? targetUid, int position)
+    {
+        RevokePendingOffer(session);
+
+        var expires = _timing.CurTime + _offerTimeout;
+
+        Offers[session.UserId] = new MCXenoHiveQueueJoinOffer
+        {
+            TargetUid = null,
+            HiveEntity = hive,
+            Expires = expires,
+        };
+
+        RaiseNetworkEvent(new MCXenoHiveQueueJoinOfferEvent
+        {
+            TargetEntity = targetUid.HasValue ? GetNetEntity(targetUid.Value) : null,
+            TargetEntityName = targetUid.HasValue ? Name(targetUid.Value) : "Burrowed Larva",
+            Expires = expires,
+            HiveName = Name(hive),
+            QueuePosition = position,
+        },
+        session);
+    }
+
+    private void TryOffer(Entity<MCXenoHiveComponent> hive)
+    {
+        if (!HasAnyQueued(hive.Owner))
+            return;
+
+        var available = hive.Comp.BurrowedLarva - PendingBurrowedCount.GetValueOrDefault(hive, 0);
+        for (var i = 0; i < available; i++)
+        {
+            if (!HasAnyQueued(hive.Owner))
+                break;
+
+            if (!TryPopNextSessionForOffer(hive, out var session, out var pos))
+                break;
+
+            PendingBurrowedCount[hive] = PendingBurrowedCount.GetValueOrDefault(hive, 0) + 1;
+            SendOffer(session, hive, null, pos);
+        }
+    }
+
+    private void RevokePendingOffer(ICommonSession session)
+    {
+        if (!Offers.TryGetValue(session.UserId, out var existingOffer))
+            return;
+
+        if (existingOffer.TargetUid is { } existingUid)
+        {
+            Reserved.Remove(existingUid);
+            return;
+        }
+
+        DecrementPendingBurrowed(existingOffer.HiveEntity);
+    }
+
+    private void DecrementPendingBurrowed(Entity<MCXenoHiveComponent> hive)
+    {
+        var current = PendingBurrowedCount.GetValueOrDefault(hive, 0);
+        if (current <= 1)
+        {
+            PendingBurrowedCount.Remove(hive);
+            return;
+        }
+
+        PendingBurrowedCount[hive] = current - 1;
+    }
+
+    private bool HasAnyQueued(EntityUid hive)
+    {
+        return Queue.TryGetValue(hive, out var list) && list.Count > 0;
+    }
+
+    private bool TryPopNextSessionForOffer(
+        Entity<MCXenoHiveComponent> hive,
+        [NotNullWhen(true)] out ICommonSession? nextSession,
+        out int position)
+    {
+        nextSession = null;
+        position = 0;
+
+        if (!Queue.TryGetValue(hive, out var queue))
+            return false;
+
+        var result = TryPopFromList(queue, 0, out nextSession, out position);
+        if (result)
+            NotifyQueuePositions(hive);
+
+        return result;
+    }
+
+    private bool TryPopFromList(
+        LinkedList<NetUserId> list,
+        int offset,
+        [NotNullWhen(true)] out ICommonSession? session,
+        out int absolutePosition)
+    {
+        session = null;
+        absolutePosition = 0;
+
+        var node = list.First;
+        var validIndex = 0;
+
+        while (node is not null)
+        {
+            var next = node.Next;
+            var netId = node.Value;
+
+            if (Offers.ContainsKey(netId))
+            {
+                node = next;
+                continue;
+            }
+
+            if (!_player.TryGetSessionById(netId, out var commonSession) || commonSession.AttachedEntity is null)
+            {
+                list.Remove(node);
+                node = next;
+                continue;
+            }
+
+            if (!HasComp<GhostComponent>(commonSession.AttachedEntity.Value))
+            {
+                list.Remove(node);
+                node = next;
+                continue;
+            }
+
+            validIndex++;
+            absolutePosition = offset + validIndex;
+            session = commonSession;
+
+            list.Remove(node);
+            return true;
+        }
+
+        return false;
+    }
+
+    private void ExpireOffer(NetUserId userId, bool notifyPlayer, bool removeFromQueue = true)
+    {
+        if (!Offers.Remove(userId, out var offer))
+            return;
+
+        if (offer.TargetUid is { } uid)
+            Reserved.Remove(uid);
+        else
+            DecrementPendingBurrowed(offer.HiveEntity);
+
+        if (removeFromQueue)
+            TryRemoveFromQueue(userId, offer.HiveEntity);
+
+        TryOffer(offer.HiveEntity);
+    }
+
+    private bool TryRemoveFromQueue(NetUserId netUserId, Entity<MCXenoHiveComponent> hive)
+    {
+        if (!Queue.TryGetValue(hive, out var userIds) || !userIds.Remove(netUserId))
+            return false;
+
+        NotifyQueuePositions(hive);
+        return true;
+    }
+
+    private void NotifyQueuePositions(Entity<MCXenoHiveComponent> hive)
+    {
+        if (!Queue.TryGetValue(hive, out var netUserIds))
+            return;
+
+        var position = 0;
+        foreach (var userId in netUserIds)
+        {
+            if (!_player.TryGetSessionById(userId, out var session) || session.AttachedEntity is not { } attachedEntity)
+                continue;
+
+            position++;
+            _popup.PopupEntity($"You are now in position {position} of the larva queue for ({Name(hive)}).", attachedEntity, attachedEntity);
+        }
+    }
+}

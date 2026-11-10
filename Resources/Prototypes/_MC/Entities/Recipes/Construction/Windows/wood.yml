@@ -1,0 +1,96 @@
+- type: constructionGraph
+  parent: MC
+  id: MCWindowWood
+  start: start
+  graph:
+  - node: start # not currently buildable
+  - node: frame
+    entity: MCWindowFrameWood
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 2
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+    - to: window
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: MCGlass
+        amount: 2
+        doAfter: 2
+  - node: window
+    entity: MCWindowWood
+    edges:
+    - to: frame
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: MCSheetGlass1
+        amount: 2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+      - tool: Prying
+      - tool: Screwing
+
+- type: constructionGraph
+  parent: MC
+  id: MCWindowWoodReinforced
+  start: start
+  graph:
+  - node: start # not currently buildable
+  - node: frame
+    entity: MCWindowFrameWoodReinforced
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 2
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+    - to: window
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: MCGlassReinforced
+        amount: 2
+        doAfter: 2
+  - node: window
+    entity: MCWindowWoodReinforced
+    edges:
+    - to: frame
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: MCGlassReinforced1
+        amount: 2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+      - tool: Prying
+      - tool: Screwing
+

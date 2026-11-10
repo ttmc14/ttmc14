@@ -1,0 +1,32 @@
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowWhiteIndestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/white.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/white.rsi
+
+- type: entity
+  parent: MCWindowColony
+  id: MCWindowWhite
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/white.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/white.rsi
+  - type: Construction
+    graph: MCWindowWhite
+    node: window
+
+- type: entity
+  parent: MCWindowFrameColony
+  id: MCWindowFrameWhite
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/white_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/white_frame.rsi
+  - type: Construction
+    graph: MCWindowWhite
+    node: frame

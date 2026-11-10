@@ -1,5 +1,5 @@
-﻿using Content.Shared._MC.Xeno.Hive.UI.Messages;
-using Content.Shared._MC.Xeno.Hive.UI.Status;
+﻿using Content.Shared._MC.Xeno.Hive.Status.UI;
+using Content.Shared._MC.Xeno.Hive.Status.UI.Messages;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
 

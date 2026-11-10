@@ -73944,10 +73944,7 @@ entities:
     - type: Transform
       pos: 89.827034,-96.37541
       parent: 1
-    - type: ContainerContainer
-      containers:
-        gun_magazine: !type:ContainerSlot {}
-- proto: MCWindow
+- proto: MCWindowColony
   entities:
   - uid: 51
     components:

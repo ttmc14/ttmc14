@@ -5,6 +5,7 @@
   suffix: Phoron
   components:
   - type: Sprite
+    drawdepth: Mobs
     sprite: _MC/Structures/Machines/mining_drill.rsi
     offset: 0, 0.25
     layers:

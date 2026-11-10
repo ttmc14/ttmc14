@@ -1,0 +1,37 @@
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowChigusaIndestructible
+  name: hull chigusa window
+  description: A chigusa window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/chigusa.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/chigusa.rsi
+
+- type: entity
+  parent: MCWindowColony
+  id: MCWindowChigusa
+  name: chigusa window
+  description: A chigusa window.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/chigusa.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/chigusa.rsi
+  - type: Construction
+    graph: MCWindowChigusa
+    node: window
+
+- type: entity
+  parent: MCWindowFrameColony
+  id: MCWindowFrameChigusa
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/chigusa_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/chigusa_frame.rsi
+  - type: Construction
+    graph: MCWindowChigusa
+    node: frame

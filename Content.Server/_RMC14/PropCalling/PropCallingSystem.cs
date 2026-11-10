@@ -28,12 +28,12 @@ public sealed class PropCallingSystem : SharedPropCallingSystem
 
     private void OnPropCallingComponentInit(EntityUid uid, PropCallingComponent comp, ComponentInit args)
     {
-        _actions.AddAction(uid, ref comp.TogglePropCallingEntity, comp.TogglePropCalling, uid);
+        // _actions.AddAction(uid, ref comp.TogglePropCallingEntity, comp.TogglePropCalling, uid);
     }
 
     private void OnPropCallerComponentInit(EntityUid uid, PropCallerComponent comp, ComponentInit args)
     {
-        _actions.AddAction(uid, ref comp.CallPropsEntity, comp.CallProps, uid);
+        // _actions.AddAction(uid, ref comp.CallPropsEntity, comp.CallProps, uid);
     }
 
     private void OnPropCallingShutdown(EntityUid uid, PropCallingComponent comp, ComponentShutdown args)

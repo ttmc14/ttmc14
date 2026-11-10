@@ -42,7 +42,7 @@ namespace Content.Server._RMC14.Mobs
         {
             _actions.AddAction(uid, ref comp.ToggleMarineHudEntity, comp.ToggleMarineHud);
             _actions.AddAction(uid, ref comp.ToggleXenoHudEntity, comp.ToggleXenoHud);
-            _actions.AddAction(uid, ref comp.FindParasiteEntity, comp.FindParasite);
+            // _actions.AddAction(uid, ref comp.FindParasiteEntity, comp.FindParasite); // mc-clear-ghost
 
             EnsureComp<ShowMarineIconsComponent>(uid);
             var bars = EnsureComp<ShowHealthBarsComponent>(uid);

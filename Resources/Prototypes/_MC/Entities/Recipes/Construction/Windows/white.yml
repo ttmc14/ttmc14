@@ -1,0 +1,47 @@
+- type: constructionGraph
+  parent: MC
+  id: MCWindowWhite
+  start: start
+  graph:
+  - node: start # not currently buildable
+  - node: frame
+    entity: MCWindowFrameWhite
+    edges:
+    - to: start
+      completed:
+      - !type:SpawnPrototype
+        prototype: MCSheetMetal1
+        amount: 2
+      - !type:DeleteEntity
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Anchoring
+        doAfter: 2
+        duplicateConditions: All
+    - to: window
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - material: MCGlass
+        amount: 2
+        doAfter: 2
+  - node: window
+    entity: MCWindowWhite
+    edges:
+    - to: frame
+      completed:
+      - !type:SnapToGrid
+        southRotation: true
+      - !type:SpawnPrototype
+        prototype: MCSheetGlass1
+        amount: 2
+      conditions:
+      - !type:EntityAnchored {}
+      steps:
+      - tool: Screwing
+      - tool: Prying
+      - tool: Screwing

@@ -1,0 +1,75 @@
+- type: entity
+  parent: MCWindowColonyIndestructible
+  id: MCWindowAltShipIndestructible
+  name: hull alt ship window
+  description: An alt ship window. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/alt_ship.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/alt_ship.rsi
+
+- type: entity
+  parent: MCWindowColonyReinforcedIndestructible
+  id: MCWindowAltShipReinforcedIndestructible
+  name: hull reinforced alt ship window
+  description: An alt ship window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it. Something tells you this one is somehow indestructible.
+  suffix: Indestructible
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/alt_ship_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/alt_ship_reinforced.rsi
+
+- type: entity
+  parent: MCWindowColony
+  id: MCWindowAltShip
+  name: alt ship window
+  description: An alt ship window.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/alt_ship.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/alt_ship.rsi
+  - type: Construction
+    graph: MCWindowAltShip
+    node: window
+
+- type: entity
+  parent: MCWindowColonyReinforced
+  id: MCWindowAltShipReinforced
+  name: reinforced alt ship window
+  description: An alt ship window. The inside is reinforced with a few tempered matrix rods along the base. It looks rather strong. Might take a few good hits to shatter it.
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/alt_ship_reinforced.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/alt_ship_reinforced.rsi
+  - type: Construction
+    graph: MCWindowAltShipReinforced
+    node: window
+
+- type: entity
+  parent: MCWindowFrameColony
+  id: MCWindowFrameAltShip
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/alt_ship_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/alt_ship_frame.rsi
+  - type: Construction
+    graph: MCWindowAltShip
+    node: frame
+
+- type: entity
+  parent: MCWindowFrameColonyReinforced
+  id: MCWindowFrameAltShipReinforced
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Windows/alt_ship_frame.rsi
+  - type: Icon
+    sprite: _MC/Structures/Windows/alt_ship_frame.rsi
+  - type: Construction
+    graph: MCWindowAltShipReinforced
+    node: frame

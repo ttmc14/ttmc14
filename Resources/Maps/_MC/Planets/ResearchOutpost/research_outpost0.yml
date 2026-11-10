@@ -86414,7 +86414,7 @@ entities:
     - type: Transform
       pos: 94.5,-38.5
       parent: 1
-- proto: MCWindow
+- proto: MCWindowColony
   entities:
   - uid: 4473
     components:
