@@ -47,6 +47,7 @@
       entries:
       - id: MCWeaponShotgunSH35
       - id: MCWeaponShotgunSH34
+      - id: MCClothingBeltSH34Filled
       - id: MCBoxShotgunSlugs
       - id: MCBoxShotgunBuckshot
       - id: MCBoxShotgunFlechette
