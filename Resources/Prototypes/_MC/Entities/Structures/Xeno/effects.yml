@@ -7,6 +7,7 @@
   - type: Tag
     tags:
     - MCXenoIgnoreBanish
+    - Structure
   - type: XenoFriendly
   - type: MCXenoIgnoreFriendlyCollision
   - type: MCAIPathfindingIgnore # ALERT

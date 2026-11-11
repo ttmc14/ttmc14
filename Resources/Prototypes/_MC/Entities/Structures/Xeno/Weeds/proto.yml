@@ -1,0 +1,37 @@
+- type: entity
+  parent: MCXenoWeedsNodeBase
+  id: MCXenoWeedsNodeProto
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Weeds/purple.rsi
+  - type: XenoWeeds
+    spawns: MCXenoWeedsProto
+    range: 7
+    level: 10
+
+- type: entity
+  parent: MCXenoWeedsBase
+  id: MCXenoWeedsProto
+  components:
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Weeds/purple.rsi
+  - type: XenoWeeds
+    spawns: MCXenoWeedsProto
+    level: 10
+    speedMultiplierXeno: 1.5
+    speedMultiplierOutsider: 0.5
+    speedMultiplierOutsiderArmor: 0.5
+  - type: MCXenoWeedsRegeneration
+    healthModifier: 1.5
+    plasmaModifier: 1.5
+    sunderModifier: 4
+  - type: RMCImmuneToIgnition
+  - type: RMCImmuneToFireTileDamage
+
+- type: entity
+  parent: MCXenoWeedsProto
+  id: MCXenoWeedsProtoSilo
+  components:
+  - type: XenoWeeds
+    spawns: MCXenoWeedsProtoSilo
+    range: 10

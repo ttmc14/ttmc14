@@ -30,8 +30,8 @@
           MCXenoQueen: 6
           MCXenoKing: 12
     psypoints:
-      Strategic: 0
-      Tactical: 0
+      Strategic: 100
+      Tactical: 400
   # round end
   - type: MCRuleEndRound
     resultTextPrefix: mc-crash-

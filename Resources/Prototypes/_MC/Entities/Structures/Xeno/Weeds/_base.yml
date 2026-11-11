@@ -190,6 +190,7 @@
     sprite: _MC/Structures/Xeno/Weeds/green.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsSticky
+    level: 3
     speedMultiplierOutsider: 0.6
     speedMultiplierOutsiderArmor: 0.6
 
@@ -201,6 +202,7 @@
     sprite: _MC/Structures/Xeno/Weeds/green.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsSticky
+    level: 3
     speedMultiplierOutsider: 0.6
     speedMultiplierOutsiderArmor: 0.6
 
@@ -212,6 +214,7 @@
     sprite: _MC/Structures/Xeno/Weeds/white.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsResting
+    level: 3
   - type: MCXenoWeedsRegeneration
     healthModifier: 1.2
     plasmaModifier: 1.2
@@ -225,6 +228,7 @@
     sprite: _MC/Structures/Xeno/Weeds/white.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsResting
+    level: 3
   - type: MCXenoWeedsRegeneration
     healthModifier: 1.2
     plasmaModifier: 1.2
@@ -238,6 +242,7 @@
     sprite: _MC/Structures/Xeno/Weeds/red.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsFireproof
+    level: 3
   - type: RMCImmuneToIgnition
   - type: RMCImmuneToFireTileDamage
 
@@ -249,5 +254,6 @@
     sprite: _MC/Structures/Xeno/Weeds/red.rsi
   - type: XenoWeeds
     spawns: MCXenoWeedsFireproof
+    level: 3
   - type: RMCImmuneToIgnition
   - type: RMCImmuneToFireTileDamage

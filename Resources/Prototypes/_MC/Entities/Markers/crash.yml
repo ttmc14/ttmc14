@@ -46,4 +46,4 @@
     gameRules:
     - MCCrash
     prototypes:
-    - MCXenoStructureSilo
+    - MCXenoStructureSiloProto
