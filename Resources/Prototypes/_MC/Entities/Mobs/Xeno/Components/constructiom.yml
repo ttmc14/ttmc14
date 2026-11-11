@@ -27,6 +27,7 @@
     # - AcidPool
     # - AcidJaws
     # - AcidMaw
+    - ProtoWeedNode
     - AcidTurret
     - StickyResinTurret
     # - Gargoyle

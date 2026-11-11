@@ -1,22 +1,27 @@
 - type: entity
-  parent: MCXenoWeedsNodeBase
-  id: MCXenoWeedsNodeProto
+  id: MCXenoWeedProtoStats
+  abstract: true
   components:
-  - type: Sprite
-    sprite: _MC/Structures/Xeno/Weeds/purple.rsi
+  - type: MCArmor
+    soft:
+      melee: 80
+      bullet: 0
+      laser: 0
+      energy: 80
+      bomb: 80
+      bio: 200
+      fire: 200
+      acid: 200
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 250
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
   - type: XenoWeeds
     spawns: MCXenoWeedsProto
     range: 7
-    level: 10
-
-- type: entity
-  parent: MCXenoWeedsBase
-  id: MCXenoWeedsProto
-  components:
-  - type: Sprite
-    sprite: _MC/Structures/Xeno/Weeds/purple.rsi
-  - type: XenoWeeds
-    spawns: MCXenoWeedsProto
     level: 10
     speedMultiplierXeno: 1.5
     speedMultiplierOutsider: 0.5
@@ -27,6 +32,28 @@
     sunderModifier: 4
   - type: RMCImmuneToIgnition
   - type: RMCImmuneToFireTileDamage
+  - type: Sprite
+    sprite: _MC/Structures/Xeno/Weeds/purple.rsi
+
+- type: entity
+  parent:
+  - MCXenoWeedProtoStats
+  - MCXenoWeedsNodeBase
+  id: MCXenoWeedsNodeProto
+  components:
+  - type: Destructible
+    thresholds:
+    - trigger: !type:DamageTrigger
+        damage: 150
+      behaviors:
+      - !type:DoActsBehavior
+        acts: [ "Destruction" ]
+
+- type: entity
+  parent:
+  - MCXenoWeedProtoStats
+  - MCXenoWeedsBase
+  id: MCXenoWeedsProto
 
 - type: entity
   parent: MCXenoWeedsProto

@@ -89,6 +89,19 @@
 
 # Defences
 - type: MCXenoBlessingsEntry
+  id: ProtoWeedNode
+  name: Proto weed node
+  description: Strong resin.
+  icon:
+    sprite: _MC/Structures/Xeno/Weeds/purple.rsi
+    state: weednode
+  group: Defences
+  costType: Tactical
+  entity: MCXenoWeedsNodeProto
+  cost: 45
+  time: 1
+
+- type: MCXenoBlessingsEntry
   id: AcidTurret
   name: Acid Turret
   description: Places a acid spitting resin turret under you. Must be at least 6 tiles away from other turrets, not near fog, and on a weeded area.
