@@ -1,0 +1,39 @@
+- type: entity
+  parent:
+  - MCPouchStorage
+  id: MCPouchSidearm
+  name: sidearm pouch
+  description: It can contain a pistol or revolver. Useful for emergencies.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Pouches/pistol.rsi
+    layers:
+    - state: base
+    - state: full
+      map: [ "enum.CMHolsterLayers.Fill" ]
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,5,1 # 3 slots
+    whitelist:
+      tags:
+      - MCWeaponSidearm
+      - MCMagazineSidearm
+      - MCBatteryTerra
+  - type: FixedItemSizeStorage
+  - type: LimitedStorage
+    limits:
+    - popup: mc-storage-limit-one-gun
+      whitelist:
+        tags:
+        - MCWeaponSidearm
+    - popup: mc-storage-limit-max-ammo
+      count: 2
+      whitelist:
+        tags:
+        - MCMagazineSidearm
+        - MCBatteryTerra
+  - type: CMHolster
+    whitelist:
+      components:
+      - Gun

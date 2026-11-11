@@ -176,6 +176,22 @@
       - MCMagazineSidearm
       - MCBatteryTerra
   - type: FixedItemSizeStorage
+  - type: LimitedStorage
+    limits:
+    - popup: mc-storage-limit-one-gun
+      whitelist:
+        tags:
+        - MCWeaponSidearm
+    - popup: mc-storage-limit-max-ammo
+      count: 4
+      whitelist:
+        tags:
+        - MCMagazineSidearm
+        - MCBatteryTerra
+  - type: CMHolster
+    whitelist:
+      components:
+      - Gun
   - type: Webbing
     playerSprite:
       sprite: _MC/Clothing/Webbing/holster.rsi
@@ -191,6 +207,22 @@
         - MCMagazineSidearm
         - MCBatteryTerra
     - type: FixedItemSizeStorage
+    - type: LimitedStorage
+      limits:
+      - popup: mc-storage-limit-one-gun
+        whitelist:
+          tags:
+          - MCWeaponSidearm
+      - popup: mc-storage-limit-max-ammo
+        count: 4
+        whitelist:
+          tags:
+          - MCMagazineSidearm
+          - MCBatteryTerra
+    - type: CMHolster
+      whitelist:
+        components:
+        - Gun
     - type: RMCStorageEjectHand
       state: Open
     - type: ExplosionResistance

@@ -63,6 +63,7 @@
       choices:
         MCPouch: 2
       entries:
+      - id: MCPouchSidearm
       - id: MCPouchMagazineLarge
         recommended: true
       - id: MCPouchPistolMagazineLarge

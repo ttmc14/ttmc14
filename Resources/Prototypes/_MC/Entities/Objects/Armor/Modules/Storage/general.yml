@@ -6,6 +6,14 @@
   components:
   - type: Sprite
     state: mod_general_bag
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,3,1 # 2 slots
+  - type: CMHolster
+    whitelist:
+      components:
+      - Gun
   - type: MCArmorModule
     visuals:
       sprite: _MC/Clothing/modular.rsi
@@ -15,10 +23,10 @@
       maxItemSize: Normal
       grid:
       - 0,0,3,1 # 2 slots
-  - type: Storage
-    maxItemSize: Normal
-    grid:
-    - 0,0,3,1 # 2 slots
+    - type: CMHolster
+      whitelist:
+        components:
+        - Gun
 
 - type: entity
   parent: MCArmorModuleStorage

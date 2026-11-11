@@ -43,7 +43,7 @@
       - id: MCClothingBeltToolsFill
     - name: Pouches
       entries:
-      # sidearm pouch
+      - id: MCPouchSidearm
       - id: MCPouchMagazineLarge
       - id: MCPouchPistolMagazineLarge
       - id: MCPouchShotgunShell
