@@ -7,8 +7,8 @@
   - type: MCRuleCrashShuttle
     time: 600
     pointWhitelist:
-      tags:
-      - MCMarkerCrash
+      components:
+      - DropshipDestination
   - type: MCRuleXenoMarinesSpawn
   - type: MCRuleSpawnNukeDiskGenerators
   - type: MCRuleRecalculatePower
