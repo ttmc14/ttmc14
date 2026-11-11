@@ -7,7 +7,7 @@ namespace Content.Server.Objectives.Components;
 /// <summary>
 /// Requires that you steal a certain item (or several)
 /// </summary>
-[RegisterComponent, Access(typeof(StealConditionSystem))]
+[RegisterComponent, Access]
 public sealed partial class StealConditionComponent : Component
 {
     /// <summary>

@@ -11,7 +11,6 @@ using Content.Shared.Chemistry.Components.SolutionManager;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Database;
 using Content.Shared.Destructible;
-using Content.Shared.Emag.Components;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
@@ -56,7 +55,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
         SubscribeLocalEvent<MaterialReclaimerComponent, SuicideByEnvironmentEvent>(OnSuicideByEnvironment);
         SubscribeLocalEvent<ActiveMaterialReclaimerComponent, PowerChangedEvent>(OnActivePowerChanged);
 
-        SubscribeLocalEvent<MaterialReclaimerComponent, BreakageEventArgs>(OnBreakage);
         SubscribeLocalEvent<MaterialReclaimerComponent, RepairedEvent>(OnRepaired);
     }
 
@@ -121,13 +119,6 @@ public sealed class MaterialReclaimerSystem : SharedMaterialReclaimerSystem
     {
         if (!args.Powered)
             TryFinishProcessItem(entity, null, entity.Comp);
-    }
-
-    private void OnBreakage(Entity<MaterialReclaimerComponent> ent, ref BreakageEventArgs args)
-    {
-        //un-emags itself when it breaks
-        RemComp<EmaggedComponent>(ent);
-        SetBroken(ent, true);
     }
 
     private void OnRepaired(Entity<MaterialReclaimerComponent> ent, ref RepairedEvent args)

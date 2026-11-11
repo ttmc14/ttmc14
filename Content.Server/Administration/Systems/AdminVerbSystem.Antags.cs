@@ -92,21 +92,6 @@ public sealed partial class AdminVerbSystem
         };
         args.Verbs.Add(zombie);
 
-        var nukeOpName = Loc.GetString("admin-verb-text-make-nuclear-operative");
-        Verb nukeOp = new()
-        {
-            Text = nukeOpName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Hardsuits/syndicate.rsi"), "icon"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<NukeopsRuleComponent>(targetPlayer, DefaultNukeOpRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", nukeOpName, Loc.GetString("admin-verb-make-nuclear-operative")),
-        };
-        args.Verbs.Add(nukeOp);
-
         var pirateName = Loc.GetString("admin-verb-text-make-pirate");
         Verb pirate = new()
         {
@@ -122,21 +107,6 @@ public sealed partial class AdminVerbSystem
             Message = string.Join(": ", pirateName, Loc.GetString("admin-verb-make-pirate")),
         };
         args.Verbs.Add(pirate);
-
-        var headRevName = Loc.GetString("admin-verb-text-make-head-rev");
-        Verb headRev = new()
-        {
-            Text = headRevName,
-            Category = VerbCategory.Antag,
-            Icon = new SpriteSpecifier.Rsi(new("/Textures/Interface/Misc/job_icons.rsi"), "HeadRevolutionary"),
-            Act = () =>
-            {
-                _antag.ForceMakeAntag<RevolutionaryRuleComponent>(targetPlayer, DefaultRevsRule);
-            },
-            Impact = LogImpact.High,
-            Message = string.Join(": ", headRevName, Loc.GetString("admin-verb-make-head-rev")),
-        };
-        args.Verbs.Add(headRev);
 
         var thiefName = Loc.GetString("admin-verb-text-make-thief");
         Verb thief = new()

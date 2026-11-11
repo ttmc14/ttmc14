@@ -7,7 +7,6 @@ using Content.Shared.Dataset;
 using Content.Shared.Maps;
 using Content.Shared.Parallax.Biomes;
 using Content.Shared.Procedural;
-using Content.Shared.Salvage;
 using Robust.Shared.Configuration;
 using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
@@ -33,7 +32,6 @@ public sealed class GatewayGeneratorSystem : EntitySystem
     [Dependency] private readonly GatewaySystem _gateway = default!;
     [Dependency] private readonly MetaDataSystem _metadata = default!;
     [Dependency] private readonly SharedMapSystem _maps = default!;
-    [Dependency] private readonly SharedSalvageSystem _salvage = default!;
     [Dependency] private readonly TileSystem _tile = default!;
 
     private static readonly ProtoId<LocalizedDatasetPrototype> PlanetNames = "NamesBorer";
@@ -102,15 +100,7 @@ public sealed class GatewayGeneratorSystem : EntitySystem
         var random = new Random(seed);
         var mapUid = _maps.CreateMap();
 
-        var gatewayName = _salvage.GetFTLName(_protoManager.Index(PlanetNames), seed);
-        _metadata.SetEntityName(mapUid, gatewayName);
-
         var origin = new Vector2i(random.Next(-MaxOffset, MaxOffset), random.Next(-MaxOffset, MaxOffset));
-        var restricted = new RestrictedRangeComponent
-        {
-            Origin = origin
-        };
-        AddComp(mapUid, restricted);
 
         _biome.EnsurePlanet(mapUid, _protoManager.Index(BiomeTemplate), seed);
 
@@ -127,7 +117,6 @@ public sealed class GatewayGeneratorSystem : EntitySystem
         // Clear area nearby as a sort of landing pad.
         _maps.SetTiles(mapUid, grid, tiles);
 
-        _metadata.SetEntityName(mapUid, gatewayName);
         var originCoords = new EntityCoordinates(mapUid, origin);
 
         var genDest = AddComp<GatewayGeneratorDestinationComponent>(mapUid);
@@ -138,7 +127,7 @@ public sealed class GatewayGeneratorSystem : EntitySystem
         // Create the gateway.
         var gatewayUid = SpawnAtPosition(generator.Proto, originCoords);
         var gatewayComp = Comp<GatewayComponent>(gatewayUid);
-        _gateway.SetDestinationName(gatewayUid, FormattedMessage.FromMarkupOrThrow($"[color=#D381C996]{gatewayName}[/color]"), gatewayComp);
+        _gateway.SetDestinationName(gatewayUid, FormattedMessage.FromMarkupOrThrow($"[color=#D381C996][/color]"), gatewayComp);
         _gateway.SetEnabled(gatewayUid, true, gatewayComp);
         generator.Generated.Add(mapUid);
     }

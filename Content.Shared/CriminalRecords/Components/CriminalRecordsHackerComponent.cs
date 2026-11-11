@@ -9,7 +9,7 @@ namespace Content.Shared.CriminalRecords.Components;
 /// Lets the user hack a criminal records console, once.
 /// Everyone is set to wanted with a randomly picked reason.
 /// </summary>
-[RegisterComponent, NetworkedComponent, Access(typeof(SharedCriminalRecordsHackerSystem))]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class CriminalRecordsHackerComponent : Component
 {
     /// <summary>

@@ -2,7 +2,6 @@ using Content.Server.Chemistry.Components;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.FixedPoint;
-using Content.Shared.Vapor;
 using Content.Shared.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Map;
@@ -68,12 +67,6 @@ public sealed partial class GunSystem
 
         if (newSolution.Volume <= FixedPoint2.Zero)
             return (ent, shootable);
-
-        if (TryComp<AppearanceComponent>(ent, out var appearance))
-        {
-            Appearance.SetData(ent, VaporVisuals.Color, newSolution.GetColor(ProtoManager).WithAlpha(1f), appearance);
-            Appearance.SetData(ent, VaporVisuals.State, true, appearance);
-        }
 
         // Add the solution to the vapor and actually send the thing
         if (_solutionContainer.TryGetSolution(ent, VaporComponent.SolutionName, out var vaporSolution, out _))

@@ -3,7 +3,6 @@ using Content.Shared.Access.Systems;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Construction.Components;
 using Content.Shared.DoAfter;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.IdentityManagement;
 using Content.Shared.Interaction;
@@ -29,7 +28,6 @@ public sealed class LockSystem : EntitySystem
     [Dependency] private readonly AccessReaderSystem _accessReader = default!;
     [Dependency] private readonly ActionBlockerSystem _actionBlocker = default!;
     [Dependency] private readonly ActivatableUISystem _activatableUI = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly SharedAudioSystem _audio = default!;
     [Dependency] private readonly SharedPopupSystem _sharedPopupSystem = default!;
@@ -45,7 +43,6 @@ public sealed class LockSystem : EntitySystem
         SubscribeLocalEvent<LockComponent, StorageOpenAttemptEvent>(OnStorageOpenAttempt);
         SubscribeLocalEvent<LockComponent, ExaminedEvent>(OnExamined);
         SubscribeLocalEvent<LockComponent, GetVerbsEvent<AlternativeVerb>>(AddToggleLockVerb);
-        SubscribeLocalEvent<LockComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<LockComponent, LockDoAfter>(OnDoAfterLock);
         SubscribeLocalEvent<LockComponent, UnlockDoAfter>(OnDoAfterUnlock);
         SubscribeLocalEvent<LockComponent, StorageInteractAttemptEvent>(OnStorageInteractAttempt);
@@ -299,27 +296,6 @@ public sealed class LockSystem : EntitySystem
                 : new SpriteSpecifier.Texture(new("/Textures/Interface/VerbIcons/unlock.svg.192dpi.png")),
         };
         args.Verbs.Add(verb);
-    }
-
-    private void OnEmagged(EntityUid uid, LockComponent component, ref GotEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
-            return;
-
-        if (!component.Locked || !component.BreakOnAccessBreaker)
-            return;
-
-        _audio.PlayPredicted(component.UnlockSound, uid, args.UserUid);
-
-        component.Locked = false;
-        _appearanceSystem.SetData(uid, LockVisuals.Locked, false);
-        Dirty(uid, component);
-
-        var ev = new LockToggledEvent(false);
-        RaiseLocalEvent(uid, ref ev, true);
-
-        args.Repeatable = true;
-        args.Handled = true;
     }
 
     private void OnDoAfterLock(EntityUid uid, LockComponent component, LockDoAfter args)

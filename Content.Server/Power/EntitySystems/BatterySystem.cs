@@ -1,6 +1,5 @@
 using Content.Server.Emp;
 using Content.Server.Power.Components;
-using Content.Shared.Cargo;
 using Content.Shared.Examine;
 using Content.Shared.Rejuvenate;
 using JetBrains.Annotations;
@@ -21,7 +20,6 @@ namespace Content.Server.Power.EntitySystems
             SubscribeLocalEvent<ExaminableBatteryComponent, ExaminedEvent>(OnExamine);
             SubscribeLocalEvent<PowerNetworkBatteryComponent, RejuvenateEvent>(OnNetBatteryRejuvenate);
             SubscribeLocalEvent<BatteryComponent, RejuvenateEvent>(OnBatteryRejuvenate);
-            SubscribeLocalEvent<BatteryComponent, PriceCalculationEvent>(CalculateBatteryPrice);
             SubscribeLocalEvent<BatteryComponent, EmpPulseEvent>(OnEmpPulse);
             SubscribeLocalEvent<BatteryComponent, ChangeChargeEvent>(OnChangeCharge);
             SubscribeLocalEvent<BatteryComponent, GetChargeEvent>(OnGetCharge);
@@ -99,14 +97,6 @@ namespace Content.Server.Power.EntitySystems
 
                 SetCharge(uid, batt.CurrentCharge + comp.AutoRechargeRate * frameTime, batt);
             }
-        }
-
-        /// <summary>
-        /// Gets the price for the power contained in an entity's battery.
-        /// </summary>
-        private void CalculateBatteryPrice(EntityUid uid, BatteryComponent component, ref PriceCalculationEvent args)
-        {
-            args.Price += component.CurrentCharge * component.PricePerJoule;
         }
 
         private void OnEmpPulse(EntityUid uid, BatteryComponent component, ref EmpPulseEvent args)

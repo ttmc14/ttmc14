@@ -1,7 +1,6 @@
 ﻿using System.Numerics;
 using System.Runtime.InteropServices;
 using Content.Server.Administration.Logs;
-using Content.Server.Cargo.Components;
 using Content.Server.Chat.Systems;
 using Content.Server.Storage.EntitySystems;
 using Content.Shared._RMC14.CCVar;
@@ -372,9 +371,6 @@ public sealed partial class RequisitionsSystem : SharedRequisitionsSystem
         foreach (var entity in entities)
         {
             if (entity == elevator.Comp.Audio)
-                continue;
-
-            if (HasComp<CargoSellBlacklistComponent>(entity))
                 continue;
 
             rewards += SubmitInvoices(entity);

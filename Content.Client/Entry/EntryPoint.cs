@@ -21,12 +21,10 @@ using Content.Client.Playtime;
 using Content.Client.Radiation.Overlays;
 using Content.Client.Replay;
 using Content.Client.Screenshot;
-using Content.Client.Singularity;
 using Content.Client.Stylesheets;
 using Content.Client.UserInterface;
 using Content.Client.Viewport;
 using Content.Client.Voting;
-using Content.Shared.Ame.Components;
 using Content.Shared.Gravity;
 using Content.Shared.Localizations;
 using Robust.Client;
@@ -99,7 +97,6 @@ namespace Content.Client.Entry
 
             // Do not add to these, they are legacy.
             _componentFactory.RegisterClass<SharedGravityGeneratorComponent>();
-            _componentFactory.RegisterClass<SharedAmeControllerComponent>();
             // Do not add to the above, they are legacy
             _componentFactory.RegisterIgnore(MCIgnoredComponents.Value); // marine-corps-changes
 
@@ -169,7 +166,6 @@ namespace Content.Client.Entry
 
             _parallaxManager.LoadDefaultParallax();
 
-            _overlayManager.AddOverlay(new SingularityOverlay());
             _overlayManager.AddOverlay(new RMCExplosionShockWaveOverlay());
             _overlayManager.AddOverlay(new RMCXenoScreechShockWaveOverlay());
             _overlayManager.AddOverlay(new RadiationPulseOverlay());

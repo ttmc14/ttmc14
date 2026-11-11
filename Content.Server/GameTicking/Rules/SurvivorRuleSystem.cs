@@ -6,7 +6,6 @@ using Content.Server.Shuttles.Systems;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Mind;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Survivor.Components;
 using Content.Shared.Tag;
 using Robust.Server.GameObjects;
 using Robust.Shared.Prototypes;
@@ -47,10 +46,6 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
             var mind = humanMind.Owner;
             var ent = humanMind.Comp.OwnedEntity.Value;
 
-            if (HasComp<SurvivorComponent>(mind) || _tag.HasTag(mind, InvalidForSurvivorAntagTag))
-                continue;
-
-            EnsureComp<SurvivorComponent>(mind);
             _role.MindAddRole(mind, "MindRoleSurvivor");
             _antag.SendBriefing(ent, Loc.GetString("survivor-role-greeting"), Color.Olive, null);
         }
@@ -69,14 +64,14 @@ public sealed class SurvivorRuleSystem : GameRuleSystem<SurvivorRuleComponent>
         base.AppendRoundEndText(uid, component, gameRule, ref args);
 
         // Using this instead of alive antagonists to make checking for shuttle & if the ent is alive easier
-        var existingSurvivors = AllEntityQuery<SurvivorComponent, MindComponent>();
+        var existingSurvivors = AllEntityQuery<MindComponent>();
 
         var deadSurvivors = 0;
         var aliveMarooned = 0;
         var aliveOnShuttle = 0;
         var eShuttle = _eShuttle.GetShuttle();
 
-        while (existingSurvivors.MoveNext(out _, out _, out var mindComp))
+        while (existingSurvivors.MoveNext(out _, out var mindComp))
         {
             // If their brain is gone or they respawned/became a ghost role
             if (mindComp.CurrentEntity is null)

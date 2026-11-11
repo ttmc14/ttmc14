@@ -12,7 +12,6 @@ using Content.Shared.FixedPoint;
 using Content.Shared.Fluids;
 using Content.Shared.Interaction;
 using Content.Shared.Timing;
-using Content.Shared.Vapor;
 using Robust.Server.GameObjects;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Configuration;
@@ -151,12 +150,6 @@ public sealed class SpraySystem : EntitySystem
             var vaporXform = xformQuery.GetComponent(vapor);
 
             _transform.SetWorldRotation(vaporXform, rotation);
-
-            if (TryComp(vapor, out AppearanceComponent? appearance))
-            {
-                _appearance.SetData(vapor, VaporVisuals.Color, solution.GetColor(_proto).WithAlpha(1f), appearance);
-                _appearance.SetData(vapor, VaporVisuals.State, true, appearance);
-            }
 
             // Add the solution to the vapor and actually send the thing
             var vaporComponent = Comp<VaporComponent>(vapor);

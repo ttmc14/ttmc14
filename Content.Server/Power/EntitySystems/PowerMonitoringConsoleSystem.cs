@@ -4,7 +4,6 @@ using Content.Server.NodeContainer.Nodes;
 using Content.Server.Power.Components;
 using Content.Server.Power.Nodes;
 using Content.Server.Power.NodeGroups;
-using Content.Server.StationEvents.Components;
 using Content.Shared.GameTicking.Components;
 using Content.Shared.Pinpointer;
 using Content.Shared.Station.Components;
@@ -50,10 +49,6 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         SubscribeLocalEvent<CableComponent, CableAnchorStateChangedEvent>(OnCableAnchorStateChanged);
         SubscribeLocalEvent<PowerMonitoringDeviceComponent, AnchorStateChangedEvent>(OnDeviceAnchoringChanged);
         SubscribeLocalEvent<PowerMonitoringDeviceComponent, NodeGroupsRebuilt>(OnNodeGroupRebuilt);
-
-        // Game rule events
-        SubscribeLocalEvent<GameRuleStartedEvent>(OnPowerGridCheckStarted);
-        SubscribeLocalEvent<GameRuleEndedEvent>(OnPowerGridCheckEnded);
     }
 
     #region EventHandling
@@ -233,38 +228,6 @@ internal sealed partial class PowerMonitoringConsoleSystem : SharedPowerMonitori
         {
             if (entConsole.Focus == uid)
                 entCableNetworks.FocusChunks.Clear(); // Component is dirtied when these chunks are rebuilt
-        }
-    }
-
-    private void OnPowerGridCheckStarted(ref GameRuleStartedEvent ev)
-    {
-        if (!TryComp<PowerGridCheckRuleComponent>(ev.RuleEntity, out var rule))
-            return;
-
-        var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var console, out var xform))
-        {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station == rule.AffectedStation)
-            {
-                console.Flags |= PowerMonitoringFlags.PowerNetAbnormalities;
-                Dirty(uid, console);
-            }
-        }
-    }
-
-    private void OnPowerGridCheckEnded(ref GameRuleEndedEvent ev)
-    {
-        if (!TryComp<PowerGridCheckRuleComponent>(ev.RuleEntity, out var rule))
-            return;
-
-        var query = AllEntityQuery<PowerMonitoringConsoleComponent, TransformComponent>();
-        while (query.MoveNext(out var uid, out var console, out var xform))
-        {
-            if (CompOrNull<StationMemberComponent>(xform.GridUid)?.Station == rule.AffectedStation)
-            {
-                console.Flags &= ~PowerMonitoringFlags.PowerNetAbnormalities;
-                Dirty(uid, console);
-            }
         }
     }
 

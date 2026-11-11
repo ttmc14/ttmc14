@@ -10,7 +10,7 @@ using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
 
 namespace Content.Server.GameTicking.Rules.Components;
 
-[RegisterComponent, Access(typeof(TraitorRuleSystem))]
+[RegisterComponent]
 public sealed partial class TraitorRuleComponent : Component
 {
     public readonly List<EntityUid> TraitorMinds = new();

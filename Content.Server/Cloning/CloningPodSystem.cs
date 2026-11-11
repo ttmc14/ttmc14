@@ -13,8 +13,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Cloning;
 using Content.Shared.Damage;
 using Content.Shared.DeviceLinking.Events;
-using Content.Shared.Emag.Components;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Examine;
 using Content.Shared.GameTicking;
 using Content.Shared.Mind;
@@ -52,7 +50,6 @@ public sealed class CloningPodSystem : EntitySystem
     [Dependency] private readonly PopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedMindSystem _mindSystem = default!;
     [Dependency] private readonly CloningSystem _cloning = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
 
     public readonly Dictionary<MindComponent, EntityUid> ClonesWaitingForMind = new();
     public readonly ProtoId<CloningSettingsPrototype> SettingsId = "CloningPod";
@@ -68,7 +65,6 @@ public sealed class CloningPodSystem : EntitySystem
         SubscribeLocalEvent<CloningPodComponent, PortDisconnectedEvent>(OnPortDisconnected);
         SubscribeLocalEvent<CloningPodComponent, AnchorStateChangedEvent>(OnAnchor);
         SubscribeLocalEvent<CloningPodComponent, ExaminedEvent>(OnExamined);
-        SubscribeLocalEvent<CloningPodComponent, GotEmaggedEvent>(OnEmagged);
     }
 
     private void OnComponentInit(Entity<CloningPodComponent> ent, ref ComponentInit args)
@@ -246,24 +242,6 @@ public sealed class CloningPodSystem : EntitySystem
         }
     }
 
-    /// <summary>
-    /// On emag, spawns a failed clone when cloning process fails which attacks nearby crew.
-    /// </summary>
-    private void OnEmagged(Entity<CloningPodComponent> ent, ref GotEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-            return;
-
-        if (_emag.CheckFlag(ent.Owner, EmagType.Interaction))
-            return;
-
-        if (!this.IsPowered(ent.Owner, EntityManager))
-            return;
-
-        _popupSystem.PopupEntity(Loc.GetString("cloning-pod-component-upgrade-emag-requirement"), ent.Owner);
-        args.Handled = true;
-    }
-
     public void Eject(EntityUid uid, CloningPodComponent? clonePod)
     {
         if (!Resolve(uid, ref clonePod))
@@ -289,12 +267,6 @@ public sealed class CloningPodSystem : EntitySystem
         var indices = _transformSystem.GetGridTilePositionOrDefault((uid, transform));
         var tileMix = _atmosphereSystem.GetTileMixture(transform.GridUid, null, indices, true);
 
-        if (HasComp<EmaggedComponent>(uid))
-        {
-            _audio.PlayPvs(clonePod.ScreamSound, uid);
-            Spawn(clonePod.MobSpawnId, transform.Coordinates);
-        }
-
         Solution bloodSolution = new();
 
         var i = 0;
@@ -306,11 +278,6 @@ public sealed class CloningPodSystem : EntitySystem
                 i++;
         }
         _puddleSystem.TrySpillAt(uid, bloodSolution, out _);
-
-        if (!HasComp<EmaggedComponent>(uid))
-        {
-            _material.SpawnMultipleFromMaterial(_robustRandom.Next(1, (int)(clonePod.UsedBiomass / 2.5)), clonePod.RequiredMaterial, Transform(uid).Coordinates);
-        }
 
         clonePod.UsedBiomass = 0;
         RemCompDeferred<ActiveCloningPodComponent>(uid);

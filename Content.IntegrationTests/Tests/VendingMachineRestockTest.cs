@@ -1,8 +1,7 @@
 #nullable enable
 using System.Collections.Generic;
+using Content.Client.Wires;
 using Content.Server.VendingMachines;
-using Content.Server.Wires;
-using Content.Shared.Cargo.Prototypes;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.Prototypes;
@@ -148,20 +147,6 @@ namespace Content.IntegrationTests.Tests
 
                     if (restockStore.Count > 0)
                         restockStores.Add(proto.ID, restockStore);
-                }
-
-                // Iterate through every CargoProduct and make sure each
-                // prototype with a restock component is referenced in a
-                // purchaseable entity with a StorageFill.
-                foreach (var proto in prototypeManager.EnumeratePrototypes<CargoProductPrototype>())
-                {
-                    if (restockStores.ContainsKey(proto.Product))
-                    {
-                        foreach (var entry in restockStores[proto.Product])
-                            restocks.Remove(entry);
-
-                        restockStores.Remove(proto.Product);
-                    }
                 }
 
                 Assert.Multiple(() =>

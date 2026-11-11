@@ -177,8 +177,5 @@ public sealed class CriminalRecordsSystem : SharedCriminalRecordsSystem
                 _records.TryGetRecord(key, out GeneralStationRecord? generalRecord);
                 return new WantedRecord(generalRecord!, r.Status, r.Reason, r.InitiatorName, r.History);
             });
-        var state = new WantedListUiState(records.ToList());
-
-        _cartridge.UpdateCartridgeUiState(loaderUid, state);
     }
 }

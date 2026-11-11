@@ -5,7 +5,6 @@ using Content.Shared.Robotics;
 using Content.Shared.Silicons.Borgs.Components;
 using Content.Shared.DeviceNetwork.Components;
 using Content.Shared.DeviceNetwork.Events;
-using Content.Shared.Emag.Systems;
 using Robust.Shared.Utility;
 
 namespace Content.Server.Silicons.Borgs;
@@ -13,8 +12,6 @@ namespace Content.Server.Silicons.Borgs;
 /// <inheritdoc/>
 public sealed partial class BorgSystem
 {
-    [Dependency] private readonly EmagSystem _emag = default!;
-
     private void InitializeTransponder()
     {
         SubscribeLocalEvent<BorgTransponderComponent, DeviceNetworkPacketEvent>(OnPacketReceived);
@@ -99,41 +96,19 @@ public sealed partial class BorgSystem
         ent.Comp1.NextBroadcast = _timing.CurTime;
 
         // pretend the borg is being disabled forever now
-        if (CheckEmagged(ent, "disabled"))
-            ent.Comp1.FakeDisabling = true;
-        else
-            Popup.PopupEntity(Loc.GetString(ent.Comp1.DisablingPopup), ent);
+        Popup.PopupEntity(Loc.GetString(ent.Comp1.DisablingPopup), ent);
 
         ent.Comp1.NextDisable = _timing.CurTime + ent.Comp1.DisableDelay;
     }
 
     private void Destroy(Entity<BorgTransponderComponent> ent)
     {
-        // this is stealthy until someone realises you havent exploded
-        if (CheckEmagged(ent, "destroyed"))
-        {
-            // prevent reappearing on the console a few seconds later
-            RemComp<BorgTransponderComponent>(ent);
-            return;
-        }
-
         var message = Loc.GetString(ent.Comp.DestroyingPopup, ("name", Name(ent)));
         Popup.PopupEntity(message, ent);
         _trigger.StartTimer(ent.Owner, user: null);
 
         // prevent a shitter borg running into people
         RemComp<InputMoverComponent>(ent);
-    }
-
-    private bool CheckEmagged(EntityUid uid, string name)
-    {
-        if (_emag.CheckFlag(uid, EmagType.Interaction))
-        {
-            Popup.PopupEntity(Loc.GetString($"borg-transponder-emagged-{name}-popup"), uid, uid, PopupType.LargeCaution);
-            return true;
-        }
-
-        return false;
     }
 
     /// <summary>

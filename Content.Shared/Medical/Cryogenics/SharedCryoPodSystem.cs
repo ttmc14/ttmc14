@@ -3,7 +3,6 @@ using Content.Shared.Body.Components;
 using Content.Shared.Database;
 using Content.Shared.DoAfter;
 using Content.Shared.DragDrop;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Popups;
@@ -19,7 +18,6 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
 {
     [Dependency] private readonly SharedAppearanceSystem _appearanceSystem = default!;
     [Dependency] private readonly StandingStateSystem _standingStateSystem = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly MobStateSystem _mobStateSystem = default!;
     [Dependency] private readonly SharedPopupSystem _popupSystem = default!;
     [Dependency] private readonly SharedContainerSystem _containerSystem = default!;
@@ -151,22 +149,6 @@ public abstract partial class SharedCryoPodSystem: EntitySystem
                 Act = () => TryEjectBody(uid, args.User, cryoPodComponent)
             });
         }
-    }
-
-    protected void OnEmagged(EntityUid uid, CryoPodComponent? cryoPodComponent, ref GotEmaggedEvent args)
-    {
-        if (!Resolve(uid, ref cryoPodComponent))
-            return;
-
-        if (!_emag.CompareFlag(args.Type, EmagType.Interaction))
-            return;
-
-        if (cryoPodComponent.PermaLocked && cryoPodComponent.Locked)
-            return;
-
-        cryoPodComponent.PermaLocked = true;
-        cryoPodComponent.Locked = true;
-        args.Handled = true;
     }
 
     protected void OnCryoPodPryFinished(EntityUid uid, CryoPodComponent cryoPodComponent, CryoPodPryFinished args)

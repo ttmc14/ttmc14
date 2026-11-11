@@ -2,7 +2,6 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Content.Shared.Access.Components;
 using Content.Shared.DeviceLinking.Events;
-using Content.Shared.Emag.Systems;
 using Content.Shared.GameTicking;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.IdentityManagement;
@@ -25,7 +24,6 @@ public sealed class AccessReaderSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = default!;
     [Dependency] private readonly InventorySystem _inventorySystem = default!;
     [Dependency] private readonly IGameTiming _gameTiming = default!;
-    [Dependency] private readonly EmagSystem _emag = default!;
     [Dependency] private readonly TagSystem _tag = default!;
     [Dependency] private readonly SharedGameTicker _gameTicker = default!;
     [Dependency] private readonly SharedHandsSystem _handsSystem = default!;
@@ -38,7 +36,6 @@ public sealed class AccessReaderSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeLocalEvent<AccessReaderComponent, GotEmaggedEvent>(OnEmagged);
         SubscribeLocalEvent<AccessReaderComponent, LinkAttemptEvent>(OnLinkAttempt);
 
         SubscribeLocalEvent<AccessReaderComponent, ComponentGetState>(OnGetState);
@@ -78,27 +75,6 @@ public sealed class AccessReaderSystem : EntitySystem
             return;
         if (!IsAllowed(args.User.Value, uid, component))
             args.Cancel();
-    }
-
-    private void OnEmagged(EntityUid uid, AccessReaderComponent reader, ref GotEmaggedEvent args)
-    {
-        if (!_emag.CompareFlag(args.Type, EmagType.Access))
-            return;
-
-        if (!reader.BreakOnAccessBreaker)
-            return;
-
-        if (!GetMainAccessReader(uid, out var accessReader))
-            return;
-
-        if (accessReader.Value.Comp.AccessLists.Count < 1)
-            return;
-
-        args.Repeatable = true;
-        args.Handled = true;
-        accessReader.Value.Comp.AccessLists.Clear();
-        accessReader.Value.Comp.AccessLog.Clear();
-        Dirty(uid, reader);
     }
 
     /// <summary>

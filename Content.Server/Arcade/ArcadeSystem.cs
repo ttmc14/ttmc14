@@ -1,5 +1,4 @@
 using System.Linq;
-using Content.Server.UserInterface;
 using Content.Shared.Arcade;
 using Robust.Shared.Utility;
 using Robust.Server.GameObjects;

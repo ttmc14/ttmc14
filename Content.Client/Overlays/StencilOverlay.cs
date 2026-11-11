@@ -1,7 +1,6 @@
 using System.Numerics;
 using Content.Client.Parallax;
 using Content.Client.Weather;
-using Content.Shared.Salvage;
 using Content.Shared.Weather;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
@@ -84,10 +83,12 @@ public sealed partial class StencilOverlay : Overlay
             }
         }
 
+        /*
         if (_entManager.TryGetComponent<RestrictedRangeComponent>(mapUid, out var restrictedRangeComponent))
         {
             DrawRestrictedRange(args, restrictedRangeComponent, invMatrix);
         }
+        */
 
         args.WorldHandle.UseShader(null);
         args.WorldHandle.SetTransform(Matrix3x2.Identity);

@@ -14,7 +14,6 @@ using Content.Shared.Chemistry.Components;
 using Content.Shared.Chemistry.EntitySystems;
 using Content.Shared.Chemistry.Reagent;
 using Content.Shared.Database;
-using Content.Shared.Emag.Systems;
 using Content.Shared.Item;
 using Content.Shared.Lathe;
 using Content.Shared.Lathe.Prototypes;
@@ -45,7 +44,6 @@ namespace Content.Server.Lathe
         [Dependency] private readonly SharedAppearanceSystem _appearance = default!;
         [Dependency] private readonly SharedAudioSystem _audio = default!;
         [Dependency] private readonly ContainerSystem _container = default!;
-        [Dependency] private readonly EmagSystem _emag = default!;
         [Dependency] private readonly UserInterfaceSystem _uiSys = default!;
         [Dependency] private readonly MaterialStorageSystem _materialStorage = default!;
         [Dependency] private readonly PopupSystem _popup = default!;
@@ -317,7 +315,7 @@ namespace Content.Server.Lathe
             if (uid != args.Lathe)
                 return;
 
-            if (!args.GetUnavailable && !_emag.CheckFlag(uid, EmagType.Interaction))
+            if (!args.GetUnavailable)
                 return;
 
             AddRecipesFromPacks(args.Recipes, component.EmagStaticPacks);

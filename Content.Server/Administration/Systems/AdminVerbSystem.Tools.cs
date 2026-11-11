@@ -4,7 +4,7 @@ using System.Numerics;
 using Content.Server.Administration.Components;
 using Content.Server.Atmos;
 using Content.Server.Atmos.Components;
-using Content.Server.Cargo.Components;
+
 using Content.Server.Doors.Systems;
 using Content.Server.Hands.Systems;
 using Content.Server.Power.Components;
@@ -518,26 +518,6 @@ public sealed partial class AdminVerbSystem
                 };
                 args.Verbs.Add(barJobSlots);
             }
-
-            Verb locateCargoShuttle = new()
-            {
-                Text = "Locate Cargo Shuttle",
-                Category = VerbCategory.Tricks,
-                Icon = new SpriteSpecifier.Rsi(new("/Textures/Clothing/Head/Soft/cargosoft.rsi"), "icon"),
-                Act = () =>
-                {
-                    var shuttle = Comp<StationCargoOrderDatabaseComponent>(args.Target).Shuttle;
-
-                    if (shuttle is null)
-                        return;
-
-                    _transformSystem.SetCoordinates(args.User, new EntityCoordinates(shuttle.Value, Vector2.Zero));
-                },
-                Impact = LogImpact.Low,
-                Message = Loc.GetString("admin-trick-locate-cargo-shuttle-description"),
-                Priority = (int) TricksVerbPriorities.LocateCargoShuttle,
-            };
-            args.Verbs.Add(locateCargoShuttle);
         }
 
         if (TryGetGridChildren(args.Target, out var childEnum))
