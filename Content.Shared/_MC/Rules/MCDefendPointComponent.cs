@@ -1,8 +1,9 @@
 using Robust.Shared.GameObjects;
+using Robust.Shared.GameStates;
 
-namespace Content.Shared._MC.AI.Components.DefendPoint;
+namespace Content.Shared._MC.Rules.DefendPoint;
 
-[RegisterComponent, AutoGenerateComponentState]
+[RegisterComponent, NetworkedComponent]
 public sealed partial class MCDefendPointComponent : Component
 {
 }
