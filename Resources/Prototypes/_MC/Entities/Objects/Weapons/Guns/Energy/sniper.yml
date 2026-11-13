@@ -115,13 +115,13 @@
   components:
   - type: MCLine
     tail:
-      sprite: _MC/Effects/Beams/microwave.rsi
+      sprite: _MC/Effects/Beams/weakening.rsi
       state: impact_beam
     body:
-      sprite: _MC/Effects/Beams/microwave.rsi
+      sprite: _MC/Effects/Beams/weakening.rsi
       state: beam
     head:
-      sprite: _MC/Effects/Beams/microwave.rsi
+      sprite: _MC/Effects/Beams/weakening.rsi
       state: muzzle_beam
   - type: Projectile
     damage:
