@@ -380,7 +380,7 @@
       path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
   - type: AmmoCounter
   - type: Gun
-    projectileSpeed: 20
+    projectileSpeed: 50
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_ugl.ogg
     resetOnHandSelected: false
@@ -400,7 +400,7 @@
       params:
         volume: -2
   - type: OnShootTriggerAmmoTimer
-    delay: 1
+    delay: 0.5
     beepInterval: 2
     initialBeepDelay: 0
     beepSound:

@@ -17,15 +17,11 @@ public sealed class MCWeaponLaserCounterSystem : EntitySystem
         SubscribeLocalEvent<MCWeaponLaserComponent, GunSystem.UpdateAmmoCounterEvent>(OnAmmoCountUpdate);
     }
 
-    private void OnHandle(Entity<MCWeaponLaserComponent> entity, ref AfterAutoHandleStateEvent args)
-    {
+    private void OnHandle(Entity<MCWeaponLaserComponent> entity, ref AfterAutoHandleStateEvent args) =>
         _gun.UpdateAmmoCount(entity);
-    }
 
-    private static void OnControl(Entity<MCWeaponLaserComponent> entity, ref GunSystem.AmmoCounterControlEvent args)
-    {
+    private static void OnControl(Entity<MCWeaponLaserComponent> entity, ref GunSystem.AmmoCounterControlEvent args) =>
         args.Control = new GunSystem.DefaultStatusControl();
-    }
 
     private static void OnAmmoCountUpdate(Entity<MCWeaponLaserComponent> entity, ref GunSystem.UpdateAmmoCounterEvent args)
     {

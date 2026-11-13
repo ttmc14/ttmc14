@@ -176,3 +176,57 @@
     popup: cm-defib-take-off-armor
     showOnExamine: false
   - type: NoHandsInteractionBlocked
+
+- type: entity
+  id: MCArmorPresetLight
+  abstract: true
+  components:
+  - type: MCArmor
+    soft:
+      melee: 35
+      bullet: 55
+      laser: 55
+      energy: 50
+      bomb: 45
+      bio: 45
+      fire: 45
+      acid: 45
+  - type: ClothingSpeedModifier
+    walkModifier: 0.85
+    sprintModifier: 0.85
+
+- type: entity
+  id: MCArmorPresetMedium
+  abstract: true
+  components:
+  - type: MCArmor
+    soft:
+      melee: 45
+      bullet: 65
+      laser: 65
+      energy: 55
+      bomb: 50
+      bio: 50
+      fire: 50
+      acid: 55
+  - type: ClothingSpeedModifier
+    walkModifier: 0.75
+    sprintModifier: 0.75
+
+- type: entity
+  id: MCArmorPresetHeavy
+  abstract: true
+  components:
+  - type: MCArmor
+    soft:
+      melee: 55
+      bullet: 75
+      laser: 75
+      energy: 65
+      bomb: 60
+      bio: 60
+      fire: 60
+      acid: 65
+  - type: ClothingSpeedModifier
+    walkModifier: 0.65
+    sprintModifier: 0.65

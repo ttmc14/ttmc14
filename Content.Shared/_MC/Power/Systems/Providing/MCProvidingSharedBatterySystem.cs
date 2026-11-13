@@ -11,13 +11,7 @@ public abstract class MCProvidingSharedBatterySystem : EntitySystem
     {
     }
 
-    public virtual float GetCharge(EntityUid uid)
-    {
-        return 0f;
-    }
+    public virtual float GetCharge(EntityUid uid) => 0f;
 
-    public virtual float GetMaxCharge(EntityUid uid)
-    {
-        return 0f;
-    }
+    public virtual float GetMaxCharge(EntityUid uid) => 0f;
 }

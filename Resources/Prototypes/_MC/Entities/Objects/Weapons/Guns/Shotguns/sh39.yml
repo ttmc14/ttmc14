@@ -25,7 +25,7 @@
     capacity: 10
     whitelist:
       tags:
-      - MCShellShotgun
+      - MCCartridgeShotgun
   - type: WieldDelay
     baseDelay: 0.7
   - type: RMCWeaponAccuracy

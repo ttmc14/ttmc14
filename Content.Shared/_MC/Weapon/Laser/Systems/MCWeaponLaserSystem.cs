@@ -17,7 +17,7 @@ namespace Content.Shared._MC.Weapon.Laser.Systems;
 
 public sealed partial class MCWeaponLaserSystem : EntitySystem
 {
-    public static readonly VerbCategory Modes =
+    private static readonly VerbCategory Modes =
         new("mc-verb-categories-weapon-laser-modes", "/Textures/Interface/AdminActions/tricks.png", iconsOnly: false) { Columns = 1 };
 
     [Dependency] private readonly SharedAudioSystem _audio = null!;
@@ -50,6 +50,7 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
     private void OnStartup(Entity<MCWeaponLaserComponent> entity, ref ComponentStartup args)
     {
         SetMode(entity, entity.Comp.StartingMode);
+        UpdateShots(entity);
         UpdateAppearance(entity);
     }
 
@@ -73,15 +74,11 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         }
     }
 
-    private void OnModeSelect(Entity<MCWeaponLaserComponent> entity, ref MCAttackModeSelectionEvent args)
-    {
+    private void OnModeSelect(Entity<MCWeaponLaserComponent> entity, ref MCAttackModeSelectionEvent args) =>
         SetMode(entity, args.Id);
-    }
 
-    private void OnTakeAmmo(Entity<MCWeaponLaserComponent> entity, ref TakeAmmoEvent args)
-    {
+    private void OnTakeAmmo(Entity<MCWeaponLaserComponent> entity, ref TakeAmmoEvent args) =>
         args.Ammo.Add((entity, entity.Comp));
-    }
 
     private void OnGetAmmoCount(Entity<MCWeaponLaserComponent> entity, ref GetAmmoCountEvent args)
     {
@@ -114,6 +111,9 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         }
 
         entity.Comp.Mode = mode;
+        DirtyField(entity, entity.Comp, nameof(MCWeaponLaserComponent.Mode));
+
+        UpdateShots(entity);
 
         if (!TryComp<GunComponent>(entity, out var gunComponent))
         {
@@ -122,6 +122,7 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         }
 
         gunComponent.FireRate = mode.FireRate;
+        Dirty(entity, gunComponent);
 
         _gun.RefreshModifiers(entity.Owner);
     }
@@ -137,11 +138,9 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         if (!_mcProvidingBattery.Supported)
             return;
 
-        var count = _mcProvidingBattery.GetCharge(ammoEntity) / mode.Shots;
-        var capacity = _mcProvidingBattery.GetMaxCharge(ammoEntity) / mode.Shots;
-
-        entity.Comp.Shots = (int) count;
-        entity.Comp.Capacity = (int) capacity;
+        var shotCost = _mcProvidingBattery.GetMaxCharge(ammoEntity) / mode.Shots;
+        entity.Comp.Shots = (int) (_mcProvidingBattery.GetCharge(ammoEntity) / shotCost);
+        entity.Comp.Capacity = mode.Shots;
 
         DirtyFields(entity, entity.Comp, null, nameof(MCWeaponLaserComponent.Shots), nameof(MCWeaponLaserComponent.Capacity));
     }

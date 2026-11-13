@@ -7,36 +7,43 @@
   - type: Tag
     tags:
     - MCClothingBeltSH34
+  - type: Appearance
   - type: Sprite
     sprite: _MC/Clothing/Belt/Holsters/sh34.rsi
     layers:
     - state: icon
     - state: icon-full
-      map: [ "enum.CMHolsterLayers.Fill" ]
+      visible: false
   - type: Clothing
     sprite: _MC/Clothing/Belt/Holsters/sh34.rsi
   - type: Storage
     maxItemSize: Ginormous
     grid:
-    - 0,0,5,1 # 3 slots
+    - 0,0,11,3 # 12 slots
     whitelist:
       tags:
       - MCWeaponShotgunSH34
       - MCHandful
-      - MCBoxShotgunShells
   - type: FixedItemSizeStorage
   - type: LimitedStorage
     limits:
     - popup: mc-storage-limit-one-gun
+      count: 1
       whitelist:
         tags:
         - MCWeaponShotgunSH34
     - popup: mc-storage-limit-max-ammo
-      count: 2
+      count: 10
       whitelist:
         tags:
         - MCHandful
-        - MCBoxShotgunShells
+  - type: ItemMapper
+    mapLayers:
+      icon-full:
+        minCount: 1
+        whitelist:
+          tags:
+          - MCWeaponShotgunSH34
   - type: CMHolster
     whitelist:
       tags:
@@ -54,5 +61,5 @@
   - type: StorageFill
     contents:
     - id: MCWeaponShotgunSH34
-    - id: MCBoxShotgunBuckshot
-    - id: MCBoxShotgunBuckshot
+    - id: MCCartridgeShotgunBuckshot
+      amount: 10

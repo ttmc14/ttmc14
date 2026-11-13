@@ -82,6 +82,9 @@
   - type: MCAimedShoot
     aimSpeedModifier: 0.85
     aimFireModifier: 0.85
+  - type: PumpAction
+    sound:
+      path: /Audio/_MC/Weapons/Guns/Pump/working_the_bolt.ogg
   - type: RMCGunChamber
     enabled: false
     sound:

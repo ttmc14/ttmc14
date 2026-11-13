@@ -6,6 +6,9 @@
   id: MCWeaponShotgun
   abstract: true
   components:
+  - type: Tag
+    tags:
+    - MCWeaponShotgun
   - type: Item
     size: Large
   - type: Sprite
@@ -58,9 +61,6 @@
     ejectSound: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg
   - type: RMCNameItemOnVend
     item: PrimaryGun
-  - type: Tag
-    tags:
-    - MCWeaponShotgun
   - type: RMCFireGroup
     group: MCShotgun
     delay: 2.5

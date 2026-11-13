@@ -6,12 +6,43 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Pouches/shotshells.rsi
-    state: open
+    layers:
+    - state: open
+    - state: open_1
+      visible: false
+    - state: open_2
+      visible: false
+    - state: open_3
+      visible: false
+    - state: base
+      visible: false
   - type: Storage
     maxItemSize: Normal
     grid:
-    - 0,0,7,1 # 4 slots
+    - 0,0,9,1 # 5 slots
     whitelist:
       tags:
       - MCHandful
   - type: FixedItemSizeStorage
+  - type: ItemMapper
+    mapLayers:
+      open_1:
+        minCount: 1
+        whitelist:
+          tags:
+          - MCHandful
+      open_2:
+        minCount: 2
+        whitelist:
+          tags:
+          - MCHandful
+      open_3:
+        minCount: 4
+        whitelist:
+          tags:
+          - MCHandful
+      base:
+        minCount: 5
+        whitelist:
+          tags:
+          - MCHandful

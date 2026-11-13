@@ -1,0 +1,87 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCClothingBeltShotgun
+  name: shotgun shell load rig
+  description: An ammunition belt designed to hold shotgun shells or individual bullets.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/Shotgun/base.rsi
+    layers:
+    - state: base
+    - state: filler-0
+      visible: false
+    - state: filler-1
+      visible: false
+    - state: filler-2
+      visible: false
+    - state: filler-3
+      visible: false
+    - state: filler-4
+      visible: false
+    - state: filler-5
+      visible: false
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/Shotgun/base.rsi
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,13,3 # 14 slots
+    whitelist:
+      tags:
+      - MCHandful
+  - type: FixedItemSizeStorage
+  - type: ItemMapper
+    mapLayers:
+      filler-0:
+        minCount: 1
+        whitelist:
+          tags:
+          - MCHandful
+      filler-1:
+        minCount: 3
+        whitelist:
+          tags:
+          - MCHandful
+      filler-2:
+        minCount: 6
+        whitelist:
+          tags:
+          - MCHandful
+      filler-3:
+        minCount: 9
+        whitelist:
+          tags:
+          - MCHandful
+      filler-4:
+        minCount: 12
+        whitelist:
+          tags:
+          - MCHandful
+      filler-5:
+        minCount: 14
+        whitelist:
+          tags:
+          - MCHandful
+
+- type: entity
+  parent: MCClothingBeltShotgun
+  id: MCClothingBeltShotgunSom
+  name: shotgun shell load rig
+  description: An ammunition belt designed to hold shotgun shells or individual bullets. Made with traditional SOM leather.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/Shotgun/som.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/Shotgun/som.rsi
+
+- type: entity
+  parent: MCClothingBeltShotgun
+  id: MCClothingBeltShotgunIcc
+  name: modelle/121 shell load rig
+  description: An ammunition belt designed to hold shotgun shells or individual bullets, made with a synthetic tan fibre.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/Shotgun/icc.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/Shotgun/icc.rsi

@@ -20,7 +20,7 @@
       params:
         volume: -2
   - type: RMCFireGroup
-    group: MCShotgun
+    group: MCMasterkey
     delay: 2.5
   - type: RMCSelectiveFire
     baseFireRate: 0.476

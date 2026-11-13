@@ -12,7 +12,7 @@
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Launchers/gl70.rsi
   - type: RMCSelectiveFire
-    baseFireRate: 0.833
+    baseFireRate: 0.8
   - type: BallisticAmmoProvider
     capacity: 6
   - type: AttachableHolder

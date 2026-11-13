@@ -122,3 +122,5 @@
   - MCAIXenoNymph
   id: MCXenoDroneAI
   suffix: AI
+  components:
+  - type: XenoHidden

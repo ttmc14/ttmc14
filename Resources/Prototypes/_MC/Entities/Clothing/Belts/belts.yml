@@ -80,48 +80,6 @@
   - type: Clothing
     sprite: _MC/Clothing/Belt/icc.rsi
 
-# shotgun
-- type: entity
-  parent: MCClothingBelt
-  id: MCClothingBeltShotgun
-  name: shotgun shell load rig
-  description: An ammunition belt designed to hold shotgun shells or individual bullets.
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Belt/shotgun.rsi
-  - type: Clothing
-    sprite: _MC/Clothing/Belt/shotgun.rsi
-  - type: Storage
-    maxItemSize: Small
-    grid:
-    - 0,0,13,3 # 14 slots
-    whitelist:
-      tags:
-      - MCHandful
-  - type: FixedItemSizeStorage
-
-- type: entity
-  parent: MCClothingBeltShotgun
-  id: MCClothingBeltShotgunSom
-  name: shotgun shell load rig
-  description: An ammunition belt designed to hold shotgun shells or individual bullets. Made with traditional SOM leather.
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Belt/shotgun_som.rsi
-  - type: Clothing
-    sprite: _MC/Clothing/Belt/shotgun_som.rsi
-
-- type: entity
-  parent: MCClothingBeltShotgun
-  id: MCClothingBeltShotgunIcc
-  name: Modelle/121 shell load rig
-  description: An ammunition belt designed to hold shotgun shells or individual bullets, made with a synthetic tan fibre.
-  components:
-  - type: Sprite
-    sprite: _MC/Clothing/Belt/shotgun_icc.rsi
-  - type: Clothing
-    sprite: _MC/Clothing/Belt/shotgun_icc.rsi
-
 # grenade
 - type: entity
   parent: MCClothingBelt

@@ -45,6 +45,9 @@ public partial struct MCWeaponLaserFireMode()
     public EntProtoId ProjectileId;
 
     [DataField]
+    public int? Consumption;
+
+    [DataField]
     public int Shots = 50;
 
     [DataField]

@@ -18,11 +18,14 @@
     sprite: _MC/Objects/Weapons/Guns/Energy/rifle.rsi
   # Statistics
   - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Fire/Laser/rifle_standard.ogg
   - type: RMCSelectiveFire
     baseFireModes:
-    - SemiAuto
+    - FullAuto
     baseFireRate: 5
     # Scatter
     scatterWielded: 0

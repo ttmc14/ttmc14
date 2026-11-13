@@ -1,16 +1,6 @@
-﻿using Content.Shared._MC.Line;
-using Content.Shared._MC.Power.Systems.Providing;
-using Content.Shared._MC.Weapon.Laser.Components;
-using Content.Shared.Popups;
-using Content.Shared.Projectiles;
-using Content.Shared.Verbs;
-using Content.Shared.Weapons.Ranged.Components;
-using Content.Shared.Weapons.Ranged.Events;
+﻿using Content.Shared._MC.Weapon.Laser.Components;
 using Content.Shared.Weapons.Ranged.Systems;
-using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
-using Robust.Shared.Physics.Systems;
-using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Weapon.Laser.Systems;
 

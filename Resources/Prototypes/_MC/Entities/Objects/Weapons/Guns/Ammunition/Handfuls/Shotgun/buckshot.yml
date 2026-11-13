@@ -1,0 +1,89 @@
+- type: entity
+  parent: MCCartridgeShotgun
+  id: MCCartridgeShotgunBuckshot
+  name: handful of buckshot shells
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridge
+    - MCCartridgeShotgun
+    - MCCartridgeShotgunBuckshot
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: buckshot_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunBuckshot
+  - type: Stack
+    count: 5
+    stackType: MCCartridgeShotgunBuckshot
+    baseLayer: base
+    layerStates:
+    - buckshot_shell_1
+    - buckshot_shell_1
+    - buckshot_shell_2
+    - buckshot_shell_3
+    - buckshot_shell_4
+    - buckshot_shell_5
+
+- type: Tag
+  id: MCCartridgeShotgunBuckshot
+
+- type: entity
+  parent: MCCartridgeShotgunBuckshot
+  id: MCCartridgeShotgunBuckshot1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: MCCartridgeShotgunBuckshot
+  name: handful of buckshot shells
+  icon:
+    sprite: /Textures/_RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    state: buckshot_shell_1
+  spawn: MCCartridgeShotgunBuckshot
+  maxCount: 5
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunBuckshot
+  name: buckshot
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: buckshot
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 40
+  - type: CMArmorPiercing
+    amount: 0
+  - type: MCXenoSunderDamageOnHit
+    amount: 0
+  - type: MCStunOnHit
+    paralyzeTime: 2
+    staggerTime: 2
+    knockback: 2
+    slowdownTime: 0.5
+    maxDistance: 3
+  - type: ProjectileSpread
+    proto: MCBulletShotgunBuckshot
+    count: 6
+    spread: 4
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 2
+      falloff: 15
+    - range: 7
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    thresholds:
+    - range: 4
+      falloff: 20

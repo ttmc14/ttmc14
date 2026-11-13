@@ -5,7 +5,7 @@
   abstract: true
   components:
   - type: Item
-    size: Large
+    size: Normal
   - type: Storage
     grid:
     - 0,0,9,1 # 5 slots
@@ -41,10 +41,10 @@
   - type: Storage
     whitelist:
       tags:
-      - MCShellShotgunBuckshot
+      - MCCartridgeShotgunBuckshot
   - type: StorageFill
     contents:
-    - id: MCShellShotgunBuckshot
+    - id: MCCartridgeShotgunBuckshot
       amount: 5
   - type: Sprite
     layers:
@@ -62,10 +62,10 @@
   - type: Storage
     whitelist:
       tags:
-      - MCShellShotgunSlug
+      - MCCartridgeShotgunSlug
   - type: StorageFill
     contents:
-    - id: MCShellShotgunSlug
+    - id: MCCartridgeShotgunSlug
       amount: 5
   - type: Sprite
     layers:
@@ -83,10 +83,10 @@
   - type: Storage
     whitelist:
       tags:
-      - MCShellShotgunFlechette
+      - MCCartridgeShotgunFlechette
   - type: StorageFill
     contents:
-    - id: MCShellShotgunFlechette
+    - id: MCCartridgeShotgunFlechette
       amount: 5
   - type: Sprite
     layers:

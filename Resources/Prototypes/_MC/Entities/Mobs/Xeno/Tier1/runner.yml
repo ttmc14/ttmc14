@@ -94,6 +94,10 @@
       types:
         MCBrute: 25
   - type: MCXenoEvasion
+    effectEvadeBlur:
+      blurRadius: 12
+      blurIntensity: 0.85
+      overlayOpacity: 0.95
   - type: XenoHide # TODO: Make MC component
   - type: VentCrawler
     ventCrawlIcon: drone
@@ -120,6 +124,9 @@
   # Evolution
   - type: XenoEvolution
     strains: []
+  # Skins
+  - type: MCXenoSkin
+    skins: {}
   # Actions
   - type: Xeno
     tier: 1
@@ -200,6 +207,8 @@
   - MCAIXenoRunner
   id: MCXenoRunnerAI
   suffix: AI
+  components:
+  - type: XenoHidden
 
 # Components (Separated for ease of editing/reading)
 - type: entity

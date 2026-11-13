@@ -1,0 +1,143 @@
+- type: entity
+  parent: MCCartridgeShotgun
+  id: MCCartridgeShotgunSlug
+  name: handful of shotgun slugs
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridge
+    - MCCartridgeShotgun
+    - MCCartridgeShotgunSlug
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: slug_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunSlug
+  - type: Stack
+    count: 5
+    stackType: MCCartridgeShotgunSlug
+    baseLayer: base
+    layerStates:
+    - slug_shell_1
+    - slug_shell_1
+    - slug_shell_2
+    - slug_shell_3
+    - slug_shell_4
+    - slug_shell_5
+
+- type: Tag
+  id: MCCartridgeShotgunSlug
+
+- type: entity
+  parent: MCCartridgeShotgunSlug
+  id: MCCartridgeShotgunSlug1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: MCCartridgeShotgunSlug
+  name: handful of shotgun slugs
+  icon:
+    sprite: /Textures/_RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    state: slug_shell_1
+  spawn: MCCartridgeShotgunSlug
+  maxCount: 5
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunSlug
+  name: slug
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: beanbag
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+  - type: MCXenoSunderDamageOnHit
+    amount: 7.5
+  - type: CMArmorPiercing
+    amount: 10
+  - type: MCStunOnHit
+    paralyzeTime: 1
+    staggerTime: 1
+    knockback: 1
+    slowdownTime: 1.5
+    maxDistance: 6
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 1
+      falloff: 10
+    - range: 7
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 7
+      falloff: 20
+
+# SH-15
+- type: entity
+  parent: MCCartridgeShotgun
+  id: MCCartridgeShotgunSlugSH15
+  name: handful of shotgun slugs
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridge
+    - MCCartridgeShotgun
+    - MCCartridgeShotgunSlugSH15
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: slug_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunSlugSH15
+
+- type: Tag
+  id: MCCartridgeShotgunSlugSH15
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunSlugSH15
+  name: slug
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: beanbag
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 60
+  - type: MCXenoSunderDamageOnHit
+    amount: 3.5
+  - type: CMArmorPiercing
+    amount: 30
+  - type: MCStunOnHit
+    knockback: 2
+    slowdownTime: 1.5
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 0
+      falloff: 8
+    - range: 7
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 7
+      falloff: 30

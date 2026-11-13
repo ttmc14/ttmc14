@@ -4,13 +4,13 @@
   name: SH-34 double barrel shotgun
   description: A double barreled shotgun of archaic, but sturdy design used by the TGMC. Due to reports of barrel bursting, the abiility to fire both barrels has been disabled. Uses 12 gauge shells, but can only hold 2 at a time.
   components:
+  - type: Tag
+    tags:
+    - MCWeaponShotgunSH34
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Shotguns/sh34.rsi
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Shotguns/sh34.rsi
-  - type: Tag
-    tags:
-    - MCWeaponShotgunSH34
   - type: Gun
     soundGunshot:
       path: /Audio/_RMC14/Weapons/Guns/Gunshots/gun_mou53.ogg
@@ -18,7 +18,7 @@
   - type: Appearance
   - type: ShootUseDelay
   - type: WieldDelay
-    delay: 0.7
+    delay: 0.5
   - type: UseDelay
   - type: GunRequiresWield
   - type: RMCSelectiveFire
@@ -26,14 +26,14 @@
     recoilUnwielded: 4
     scatterWielded: 6
     scatterUnwielded: 15
-    baseFireRate: 1.5
+    baseFireRate: 3
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1
-    accuracyMultiplierUnwielded: 0.3
+    accuracyMultiplierUnwielded: 0.7
   - type: BallisticAmmoProvider
     whitelist:
       tags:
-      - MCShellShotgun
+      - MCCartridgeShotgun
     soundInsert:
       path: /Audio/_RMC14/Weapons/Guns/Reload/gun_mou_reload.ogg
   - type: RMCAmmoEject
@@ -48,27 +48,28 @@
     toggleDelay: 1.1
   - type: AttachableHolder
     slots:
-      rmc-aslot-barrel:
+      mc-attachment-barrel:
         whitelist:
           tags:
           - MCAttachmentBayonet
-      rmc-aslot-rail:
+      mc-attachment-underbarrel:
+        whitelist:
+          tags:
+          - MCAttachmentUnderbarrelFlashlight
+          - MCAttachmentAngledGrip
+          - MCAttachmentVerticalGrip
+      mc-attachment-rail:
         whitelist:
           tags:
           - MCAttachmentMagneticHarness
           - MCAttachmentRailFlashlight
           - MCAttachmentRedDotSight
-      rmc-aslot-underbarrel:
-        whitelist:
-          tags:
-          - MCAttachmentUnderbarrelFlashlight
-          - MCAttachmentVerticalGrip
   - type: AttachableHolderVisuals
     offsets:
-      rmc-aslot-barrel: 0.7, 0.02
-      rmc-aslot-rail: 0.0, 0.05
-      rmc-aslot-underbarrel: 0.3, -0.3
-      rmc-aslot-stock: -0.59375, -0.5
+      mc-attachment-barrel: 0.500000, 0.031250
+      mc-attachment-underbarrel: 0.312500, -0.062500
+      mc-attachment-stock: -0.406250, -0.062500
+      mc-attachment-rail: 0.093750, 0.093750
 
 - type: Tag
   id: MCWeaponShotgunSH34

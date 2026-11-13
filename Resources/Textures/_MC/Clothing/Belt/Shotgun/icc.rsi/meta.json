@@ -8,11 +8,29 @@
   },
   "states": [
     {
-      "name": "icon"
+      "name": "base"
     },
     {
       "name": "equipped-BELT",
       "directions": 4
+    },
+    {
+      "name": "filler-0"
+    },
+    {
+      "name": "filler-1"
+    },
+    {
+      "name": "filler-2"
+    },
+    {
+      "name": "filler-3"
+    },
+    {
+      "name": "filler-4"
+    },
+    {
+      "name": "filler-5"
     }
   ]
 }

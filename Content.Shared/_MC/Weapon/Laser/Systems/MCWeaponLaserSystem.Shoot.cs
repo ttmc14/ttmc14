@@ -16,13 +16,13 @@ public sealed partial class MCWeaponLaserSystem
     {
         if (!TryGetAmmo(entity, out var ammoEntity))
         {
-            Popup(Loc.GetString("mc-weapon-laser-failed-no-ammo"));
+            // Popup(Loc.GetString("mc-weapon-laser-failed-no-ammo"));
             return;
         }
 
         if (entity.Comp.Mode is not { } mode)
         {
-            Popup(Loc.GetString("mc-weapon-laser-failed-no-mode"));
+            // Popup(Loc.GetString("mc-weapon-laser-failed-no-mode"));
             return;
         }
 
@@ -31,7 +31,7 @@ public sealed partial class MCWeaponLaserSystem
 
         // For the sake of simplicity, instead of the cost per shot,
         // we'll specify the total number of shots and calculate the cost ourselves
-        var fireCost = _mcProvidingBattery.GetMaxCharge(ammoEntity) / mode.Shots;
+        var fireCost = mode.Consumption ?? _mcProvidingBattery.GetMaxCharge(ammoEntity) / mode.Shots;
         var charge = _mcProvidingBattery.GetCharge(ammoEntity);
 
         if (charge < fireCost)
@@ -80,7 +80,7 @@ public sealed partial class MCWeaponLaserSystem
             if (user is null)
                 return;
 
-            _popup.PopupPredicted(message, user.Value, user, PopupType.MediumCaution);
+            _popup.PopupClient(message, user.Value, user, PopupType.MediumCaution);
         }
     }
 

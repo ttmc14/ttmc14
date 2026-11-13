@@ -1,0 +1,41 @@
+- type: entity
+  parent: MCBullet
+  id: MCBulletShotgun
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/bullet_projectiles.rsi
+    layers:
+    - state: bullet
+      shader: unshaded
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeShotgun
+  name: handful of shotgun shell
+  description: A handful of rounds to reload on the go.
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridge
+    - MCCartridgeShotgun
+  - type: Appearance
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: buckshot_shell_1
+      map: [ "base" ]
+  - type: Item
+    size: Small
+  - type: CartridgeAmmo
+    proto: CMPelletShotgunBuckshot
+    deleteOnSpawn: true
+    soundEject:
+      collection: ShellEject
+    soundInsert:
+      collection: CMShotgunLoad
+
+- type: Tag
+  id: MCCartridgeShotgun

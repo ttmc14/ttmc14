@@ -17,8 +17,8 @@
       state: o2
       shader: unshaded
   - type: Battery
-    maxCharge: 10000
-    startingCharge: 10000
+    maxCharge: 50000
+    startingCharge: 50000
   - type: PowerCell
     powerCellVisualsLevels: 4
   - type: Appearance

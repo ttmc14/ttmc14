@@ -1,0 +1,150 @@
+- type: entity
+  parent: MCCartridgeShotgun
+  id: MCCartridgeShotgunFlechette
+  name: handful of flechette shells
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridge
+    - MCCartridgeShotgun
+    - MCCartridgeShotgunFlechette
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: flechette_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunFlechette
+  - type: Stack
+    count: 5
+    stackType: MCCartridgeShotgunFlechette
+    baseLayer: base
+    layerStates:
+    - flechette_shell_1
+    - flechette_shell_1
+    - flechette_shell_2
+    - flechette_shell_3
+    - flechette_shell_4
+    - flechette_shell_5
+
+- type: Tag
+  id: MCCartridgeShotgunFlechette
+
+- type: entity
+  parent: MCCartridgeShotgunFlechette
+  id: MCCartridgeShotgunFlechette1
+  suffix: 1
+  components:
+  - type: Stack
+    count: 1
+
+- type: stack
+  id: MCCartridgeShotgunFlechette
+  name: handful of flechette shells
+  icon:
+    sprite: /Textures/_RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    state: flechette_shell_1
+  spawn: MCCartridgeShotgunFlechette
+  maxCount: 5
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunFlechette
+  name: flechette shell
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: flechette
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 17
+  - type: CMArmorPiercing
+    amount: 15
+  - type: MCXenoSunderDamageOnHit
+    amount: 1.5
+  - type: ProjectileSpread
+    proto: MCBulletShotgunFlechetteSpread
+    count: 4
+    spread: 2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 4
+      falloff: 8
+    - range: 5
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+    thresholds:
+    - range: 5
+      falloff: 5
+
+- type: entity
+  parent: MCBulletShotgunFlechette
+  id: MCBulletShotgunFlechetteSpread
+  name: flechette shell
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 40
+  - type: MCXenoSunderDamageOnHit
+    amount: 5
+
+# SH-15
+- type: entity
+  parent: MCCartridgeShotgun
+  id: MCCartridgeShotgunFlechetteSH15
+  name: handful of flechette shells
+  components:
+  - type: Tag
+    tags:
+    - MCHandful
+    - MCCartridge
+    - MCCartridgeShotgun
+    - MCCartridgeShotgunFlechetteSH15
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Handfuls/shotgun_handfuls.rsi
+    layers:
+    - state: flechette_shell_1
+      map: [ "base" ]
+  - type: CartridgeAmmo
+    proto: MCBulletShotgunFlechetteSH15
+
+- type: Tag
+  id: MCCartridgeShotgunFlechetteSH15
+
+- type: entity
+  parent: MCBulletShotgun
+  id: MCBulletShotgunFlechetteSH15
+  name: flechette shell
+  components:
+  - type: Sprite
+    sprite: _RMC14/Objects/Weapons/Guns/Ammunition/Projectiles/shotgun_projectiles.rsi
+    layers:
+    - state: flechette
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 20
+  - type: CMArmorPiercing
+    amount: 20
+  - type: MCXenoSunderDamageOnHit
+    amount: 1.5
+  - type: ProjectileSpread
+    proto: MCBulletShotgunFlechetteSH15
+    count: 4
+    spread: 2
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 0
+      falloff: 1
+    - range: 15
+      falloff: 9999
+      ignoreModifiers: true
+
