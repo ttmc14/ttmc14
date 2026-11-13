@@ -6,6 +6,12 @@
     categories:
     - name: mc-asrs-category-operations
       entries:
+      - icon:
+          sprite: _MC/Objects/Flags/tgmc.rsi
+          state: icon
+        cost: 25
+        entities:
+        - MCFlagTerraGov
       # Beacons
       - icon:
           sprite: _MC/Objects/Items/beacon.rsi

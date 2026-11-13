@@ -54,21 +54,21 @@
         points: 3
     - name: mc-section-nexus-engineer-sentries
       entries:
-      - id: MCCaseSentryST571
+      - id: MCStorageCaseSentryFilledBase
         points: 35
         recommended: true
-      - id: MCCaseSentrySHT573
+      - id: MCStorageCaseSentryFilledShotgun
         points: 45
         recommended: true
-      - id: MCCaseSentrySST574
+      - id: MCStorageCaseSentryFilledSniper
         points: 45
-      - id: MCCaseSentrySMT580
+      - id: MCStorageCaseSentryFilledMini
         points: 45
         recommended: true
-      - id: MCCaseSentryFlamer
+      - id: MCStorageCaseSentryFilledFlamer
         points: 45
-      - id: RMCTesla
-        points: 30
+#      - id: RMCTesla
+#        points: 30
     - name: mc-section-nexus-engineer-tools
       entries:
       - id: MCVendorBundleASRSTeleporter

@@ -100,8 +100,8 @@
     - name: Utilities
       entries:
       - id: MCWeaponFlareGunM30E2
-      - id: MCPackFlareFilled
-      - id: RMCPackFlareCAS
+      - id: MCStorageCaseFlareFilledM40
+      - id: MCStorageCaseFlareFilledM50
         amount: 30
     - name: Grenades
       entries:

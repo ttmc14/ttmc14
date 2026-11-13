@@ -1,0 +1,107 @@
+- type: entity
+  parent: MCStorageCase
+  id: MCStorageCaseGrenade
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Items/Cases/box.rsi
+    state: base-grenades
+  - type: Icon
+    sprite: _MC/Objects/Items/Cases/box.rsi
+    state: base-grenades
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,13,7 # 25 slots
+    whitelist:
+      tags:
+      - MCGrenade
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeHedp
+  name: hedp grenade case
+  description: A secure box holding 25 M40 HEDP grenades. High explosive, don't store near the flamer fuel.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHedp
+      amount: 25
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeHsdp
+  name: hsdp grenade box
+  description: A secure box holding 25 M40 HSDP smoke grenades. Don't blindly shoot into the smoke.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHsdp
+      amount: 25
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeHefa
+  name: hefa grenade box
+  description: A secured box containing all you need to set up a supply of M40 HEFA grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHefa
+      amount: 25
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeHefaM15
+  name: hefa M15 grenade box
+  description: A secure box holding 25 M15 fragmentation grenades.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHefaM15
+      amount: 15
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeHidp
+  name: hidp grenade box
+  description: A secure box holding 25 M40 HIDP incendiary grenades. Warning - highly flammable!!
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadeHidp
+      amount: 25
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeTGas
+  name: tanglefoot grenade box
+  description: A secure box holding 25 M40-T gas grenades. 100% safe to use around masked marines.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCGrenadePGas
+      amount: 25
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeRazorburn
+  name: razorburn grenade box
+  description: A secure box holding 15 razor burn grenades. Used for quick flank coverage.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCRazorburnGrenade
+      amount: 15
+
+- type: entity
+  parent: MCStorageCaseGrenade
+  id: MCStorageCaseGrenadeRazorburnLarge
+  name: razorburn canister box
+  description: A secure box holding 10 razor burn canisters. Used for quick flank coverage.
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCRazorburnGrenadeLarge
+      amount: 10

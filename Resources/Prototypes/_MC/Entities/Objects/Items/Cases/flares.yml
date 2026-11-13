@@ -1,0 +1,84 @@
+- type: entity
+  parent: MCStorageCase
+  id: MCStorageCaseFlare
+  abstract: true
+  components:
+  - type: Tag
+    tags:
+    - MCStorageCaseFlare
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Items/Case/sm40.rsi
+    layers:
+    - state: base
+    - state: base-empty
+      visible: false
+  - type: Icon
+    sprite: _MC/Objects/Items/Case/m40.rsi
+    state: base
+  - type: Item
+    size: Small
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,9,5 # 15 slots
+    whitelist:
+      tags:
+      - MCFlare
+  - type: FixedItemSizeStorage
+  - type: RMCStorageEjectHand
+    state: Last
+  - type: ItemMapper
+    mapLayers:
+      base-empty:
+        minCount: 0
+        maxCount: 0
+        whitelist:
+          tags:
+          - MCFlare
+
+- type: Tag
+  id: MCStorageCaseFlare
+
+- type: entity
+  parent: MCStorageCaseFlare
+  id: MCStorageCaseFlareFilledM40
+  name: m40 FLDP flare pack
+  description: A packet of seven M40 FLDP Flares. Carried by TGMC marines to light dark areas that cannot be reached with the usual TNR Shoulder Lamp. Can be launched from an underslung grenade launcher.
+  suffix: Filled
+  components:
+  - type: Tag
+    tags:
+    - MCStorageCaseFlare
+    - MCStorageCaseFlareFilledM40
+  - type: Sprite
+    sprite: _MC/Objects/Items/Cases/m40.rsi
+  - type: Icon
+    sprite: _MC/Objects/Items/Cases/m40.rsi
+  - type: StorageFill
+    contents:
+    - id: MCFlare
+      amount: 15
+
+- type: entity
+  parent: MCStorageCaseFlare
+  id: MCStorageCaseFlareFilledM50
+  name: m50 CFDP signal pack
+  description: A packet of seven M40 CFPD signal Flares. Used to mark locations for fire support. Can be launched from an underslung grenade launcher.
+  suffix: Filled
+  components:
+  - type: Tag
+    tags:
+    - MCStorageCaseFlare
+    - MCStorageCaseFlareFilledM50
+  - type: Sprite
+    sprite: _MC/Objects/Items/Cases/m50.rsi
+  - type: Icon
+    sprite: _MC/Objects/Items/Cases/m50.rsi
+  - type: StorageFill
+    contents:
+    - id: MCFlare # todo
+      amount: 15
+
+- type: Tag
+  id: MCStorageCaseFlareFilledM50

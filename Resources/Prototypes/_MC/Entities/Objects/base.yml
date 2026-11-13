@@ -5,10 +5,19 @@
   categories: [ MCContent ]
 
 - type: entity
-  parent: BaseStorageItem
+  parent: MCItem
   id: MCStorageItem
   abstract: true
-  categories: [ MCContent ]
+  components:
+  - type: Storage
+  - type: UserInterface
+    interfaces:
+      enum.StorageUiKey.Key:
+        type: StorageBoundUserInterface
+  - type: ContainerContainer
+    containers:
+      storagebase: !type:Container
+        ents: []
 
 - type: Tag
   id: MCIconLabelAllow

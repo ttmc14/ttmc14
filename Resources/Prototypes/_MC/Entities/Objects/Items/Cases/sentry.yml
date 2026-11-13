@@ -1,33 +1,42 @@
 - type: entity
-  parent: MCCase
-  id: MCCaseSentry
+  parent: MCStorageCase
+  id: MCStorageCaseSentry
   abstract: true
   components:
   - type: Sprite
-    sprite: _MC/Objects/Items/case.rsi
-    layers:
-    - map: [ "full" ]
-      state: sentry_case
-    - map: [ "empty" ]
-      state: empty_case
-      visible: false
+    sprite: _MC/Objects/Items/Cases/box.rsi
+    state: base-sentry
   - type: Icon
-    sprite: _MC/Objects/Items/case.rsi
-    state: sentry_case
+    sprite: _MC/Objects/Items/Cases/box.rsi
+    state: base-sentry
   - type: Storage
     maxItemSize: Huge
     grid:
-    - 0,0,11,1
+    - 0,0,3,1 # 2 slots
     whitelist:
       tags:
       - MCSentry
       - MCMagazineSentry
+  - type: FixedItemSizeStorage
+  - type: LimitedStorage
+    limits:
+    - popup: mc-storage-limit-one-sentry
+      count: 1
+      whitelist:
+        components:
+        - MCSentry
+    - popup: mc-storage-limit-magazines
+      count: 1
+      whitelist:
+        tags:
+        - MCMagazineSentry
 
 - type: entity
-  parent: MCCaseSentry
-  id: MCCaseSentryST571
+  parent: MCStorageCaseSentry
+  id: MCStorageCaseSentryFilledBase
   name: ST-571 sentry case
   description: A large case containing all you need to set up an automated sentry.
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
@@ -35,10 +44,11 @@
     - id: MCMagazineSentryBig
 
 - type: entity
-  parent: MCCaseSentry
-  id: MCCaseSentrySHT573
+  parent: MCStorageCaseSentry
+  id: MCStorageCaseSentryFilledShotgun
   name: SHT-573 sentry case
   description: A large case containing all you need to set up an automated sentry.
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
@@ -46,10 +56,11 @@
     - id: MCMagazineSentryShotgun
 
 - type: entity
-  parent: MCCaseSentry
-  id: MCCaseSentrySST574
+  parent: MCStorageCaseSentry
+  id: MCStorageCaseSentryFilledSniper
   name: SST-574 sentry case
   description: A large case containing all you need to set up an automated sentry.
+  suffix: Filled
   components:
   - type: StorageFill
     contents:
@@ -57,31 +68,44 @@
     - id: MCMagazineSentrySniper
 
 - type: entity
-  parent: MCCaseSentry
-  id: MCCaseSentrySMT580
+  parent: MCStorageCaseSentry
+  id: MCStorageCaseSentryFilledMini
   name: SMT-580 sentry case
   description: A large case containing all you need to set up an ST-580 point defense sentry.
+  suffix: Filled
   components:
   - type: Sprite
-    layers:
-    - map: [ "full" ]
-      state: sentry_mini_case
-    - map: [ "empty" ]
-      state: empty_case
-      visible: false
+    state: base-sentry-mini
   - type: Icon
-    state: sentry_mini_case
+    state: base-sentry-mini
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,5,1 # 3 slots
   - type: StorageFill
     contents:
     - id: MCSentryMini
     - id: MCMagazineSentryMini
       amount: 2
+  - type: LimitedStorage
+    limits:
+    - popup: mc-storage-limit-one-sentry
+      count: 1
+      whitelist:
+        components:
+        - MCSentry
+    - popup: mc-storage-limit-magazines
+      count: 2
+      whitelist:
+        tags:
+        - MCMagazineSentry
 
 - type: entity
-  parent: MCCaseSentry
-  id: MCCaseSentryFlamer
+  parent: MCStorageCaseSentry
+  id: MCStorageCaseSentryFilledFlamer
   name: SFT-575 sentry gun
   description: A large case containing all you need to set up an automated sentry.
+  suffix: Filled
   components:
   - type: StorageFill
     contents:

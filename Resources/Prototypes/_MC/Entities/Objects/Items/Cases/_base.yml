@@ -1,0 +1,21 @@
+- type: entity
+  parent: MCStorageItem
+  id: MCStorageCase
+  name: case
+  abstract: true
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Objects/Items/Cases/box.rsi
+    state: base
+    noRot: true
+  - type: Item
+    size: Huge
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,27,1
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno

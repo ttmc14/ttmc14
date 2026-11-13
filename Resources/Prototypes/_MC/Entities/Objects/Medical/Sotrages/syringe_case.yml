@@ -1,5 +1,5 @@
 - type: entity
-  parent: MCCase
+  parent: MCStorageCase
   id: MCCaseSyringe
   suffix: MC
   name: syringe case

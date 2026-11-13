@@ -1,0 +1,38 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/blob/9ea0ce35dda1cb48ff199a4f8581e2b46660b56c/icons/obj/items/storage/box.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    },
+    {
+      "name": "base-armor"
+    },
+    {
+      "name": "base-grenades"
+    },
+    {
+      "name": "base-rocket"
+    },
+    {
+      "name": "base-sentry"
+    },
+    {
+      "name": "base-sentry-mini"
+    },
+    {
+      "name": "base-smartgun"
+    },
+    {
+      "name": "base-sniper"
+    },
+    {
+      "name": "base-empty"
+    }
+  ]
+}

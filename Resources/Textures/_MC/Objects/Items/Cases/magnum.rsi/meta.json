@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/blob/66b2a2e34a66119e616ad4038d98f7ec9d00a838/icons/obj/items/storage/briefcase.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "base"
+    }
+  ]
+}
