@@ -61,7 +61,7 @@
   - type: Projectile
     damage:
       types:
-        MCBrute: 40
+        MCBrute: 35
   - type: CMArmorPiercing
     amount: 0
   - type: MCXenoSunderDamageOnHit
@@ -78,9 +78,9 @@
     spread: 4
   - type: RMCProjectileDamageFalloff
     thresholds:
-    - range: 2
-      falloff: 15
-    - range: 7
+    - range: 1
+      falloff: 10
+    - range: 4
       falloff: 9999
       ignoreModifiers: true
   - type: RMCProjectileAccuracy
