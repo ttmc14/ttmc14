@@ -7,12 +7,12 @@
   # Armor
   - type: MCArmor
     soft:
-      melee: 10
+      melee: 0
       bullet: 30
       laser: 30
       energy: 30
-      bomb: 20
-      bio: 100
+      bomb: 0
+      bio: 0
       fire: 80
       acid: 40
   - type: Sprite
@@ -31,15 +31,10 @@
     heal: 60
     delay: 10
     fuelUsed: 2
-  # repairableDamageLimit: 340 - !!MC-TODO: At TGMC You can heal cades with Metal at 1 hand, and blowtorch at second.!!
-  # - type: NailgunRepairable
-    # cm13 max_health%: 0.3, 0.45
-    # repairMetal: 135
-    # repairPlasteel: 200
   - type: Destructible
     thresholds:
     - trigger: !type:DamageTrigger
-        damage: 200
+        damage: 375 # TODO: wire bonus separate (+50), also skill bonus (+75)
       behaviors:
       - !type:SpawnEntitiesBehavior
         spawn:
@@ -60,7 +55,7 @@
   - type: Barbed
     thornsDamage:
       types:
-        MCBrute: 10
+        MCBrute: 15
   - type: Construction
     graph: MCBarricadeMetalGraph
     node: mcnodeMetal
@@ -83,18 +78,18 @@
   id: MCBarricadeBurn
   suffix: Biohazard
   components:
-  # TODO: resistance_flags |= UNACIDABLE
-  # Armor
+  - type: Corrodible
+    isCorrodible: false
   - type: MCArmor
     soft:
       melee: 0
       bullet: 30
       laser: 30
       energy: 30
-      bomb: 20
-      bio: 100
+      bomb: 0
+      bio: 0
       fire: 80
-      acid: 80
+      acid: 115
   - type: Sprite
     sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
     layers:
@@ -116,14 +111,14 @@
   # Armor
   - type: MCArmor
     soft:
-      melee: 50
+      melee: 30
       bullet: 80
       laser: 80
       energy: 80
-      bomb: 20
-      bio: 100
+      bomb: 0
+      bio: 0
       fire: 80
-      acid: 30
+      acid: 40
   - type: Sprite
     sprite: _RMC14/Structures/Walls/Barricades/barricade.rsi
     layers:
@@ -145,12 +140,12 @@
   # Armor
   - type: MCArmor
     soft:
-      melee: 10
+      melee: 0
       bullet: 30
       laser: 30
       energy: 30
-      bomb: 100
-      bio: 100
+      bomb: 80
+      bio: 0
       fire: 80
       acid: 40
   - type: Sprite

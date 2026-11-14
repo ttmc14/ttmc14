@@ -7,6 +7,7 @@ using Robust.Shared.Serialization;
 namespace Content.Shared._MC.Engineering.Deploy.Components;
 
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(MCDeploySystem))]
 public sealed partial class MCDeployComponent : Component
 {
     /// <summary>

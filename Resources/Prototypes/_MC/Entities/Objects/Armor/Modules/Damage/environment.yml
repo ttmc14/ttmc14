@@ -16,11 +16,8 @@
       state: mod_biohazard_a
   - type: MCArmor
     soft:
-      bio: 15
-      acid: 15
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
+      bio: 20
+      acid: 20
 
 - type: entity
   parent: MCArmorModule
@@ -40,8 +37,8 @@
       state: mimir_head_a
   - type: MCArmor
     soft:
-      bio: 5
-      acid: 10
+      bio: 15
+      acid: 15
 
 - type: entity
   parent: MCArmorModule
@@ -62,7 +59,7 @@
   - type: MCArmor
     soft:
       bio: 40
-      acid: 30
+      acid: 40
 
 - type: entity
   parent: MCArmorModule
@@ -82,5 +79,5 @@
       state: mimir_head_a
   - type: MCArmor
     soft:
-      bio: 10
-      acid: 25
+      bio: 30
+      acid: 30

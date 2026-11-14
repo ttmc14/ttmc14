@@ -18,9 +18,6 @@
     soft:
       bullet: 40
       laser: 40
-  - type: ClothingSpeedModifier
-    walkModifier: 0.95
-    sprintModifier: 0.95
 
 - type: entity
   parent: MCArmorModule

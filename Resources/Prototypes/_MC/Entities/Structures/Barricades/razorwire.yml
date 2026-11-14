@@ -8,11 +8,11 @@
 
 # TODO: Xeno acid smoke x2 damage
 - type: entity
+  parent: MCItem
   id: MCRazorwire
   name: razorwire obstacle
   description: A bundle of barbed wire supported by metal rods. Used to deny access to areas under (literal) pain of entanglement and injury. A classic fortification since the 1900s.
   suffix: Full (10)
-  parent: MCItem
   components:
   # Visuals
   - type: Tag

@@ -21,12 +21,12 @@
       laser: 10
       energy: 10
       bomb: 10
-      bio: 10
-      fire: 10
-      acid: 10
+      bio: 0
+      fire: 0
+      acid: 0
   - type: ClothingSpeedModifier
-    walkModifier: 0.85
-    sprintModifier: 0.85
+    walkModifier: 0.9
+    sprintModifier: 0.9
 
 - type: entity
   parent: MCArmorModule
@@ -66,14 +66,14 @@
       state: mod_armor_a
   - type: MCArmor
     soft:
-      melee: 15
-      bullet: 15
-      laser: 15
-      energy: 15
-      bomb: 15
-      bio: 15
-      fire: 15
-      acid: 15
+      melee: 20
+      bullet: 20
+      laser: 20
+      energy: 20
+      bomb: 20
+      bio: 20
+      fire: 0
+      acid: 0
   - type: ClothingSpeedModifier
     walkModifier: 0.9
     sprintModifier: 0.9
@@ -97,5 +97,4 @@
   - type: MCArmor
     soft:
       melee: 10
-      bio: -5
-      acid: -5
+

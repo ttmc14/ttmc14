@@ -3,6 +3,7 @@ using Content.Shared._MC.Engineering.Deploy.Events;
 using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.NPC;
 using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
 using Content.Shared.Interaction.Events;
 using Content.Shared.Item;
 using Content.Shared.Maps;
@@ -45,6 +46,7 @@ public sealed class MCDeploySystem : EntitySystem
 
         SubscribeLocalEvent<MCDeployComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MCDeployComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
+        SubscribeLocalEvent<MCDeployComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<MCDeployComponent, PickupAttemptEvent>(OnPickupAttempt);
         SubscribeLocalEvent<MCDeployComponent, AttemptShootEvent>(OnAttemptShoot);
         SubscribeLocalEvent<MCDeployComponent, UseInHandEvent>(OnUseInHand);
@@ -103,7 +105,16 @@ public sealed class MCDeploySystem : EntitySystem
 
     }
 
-    private void OnPickupAttempt(Entity<MCDeployComponent> entity, ref PickupAttemptEvent args)
+    private void OnInteractUsing(Entity<MCDeployComponent> entity, ref InteractUsingEvent args)
+    {
+        if (entity.Comp.State != MCDeployState.Deployed)
+            return;
+
+        if (HasComp<StackComponent>(entity) && HasComp<StackComponent>(args.Used))
+            args.Handled = true;
+    }
+
+    private static void OnPickupAttempt(Entity<MCDeployComponent> entity, ref PickupAttemptEvent args)
     {
         if (args.Cancelled)
             return;
