@@ -1635,7 +1635,7 @@ entities:
       parent: 1
     - type: Fixtures
       fixtures: {}
-- proto: MCCaseSentryST571
+- proto: MCStorageCaseSentryFilledBase
   entities:
   - uid: 103
     components:

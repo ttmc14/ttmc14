@@ -7654,7 +7654,7 @@ entities:
     - type: Transform
       pos: 89.50564,-100.41483
       parent: 1
-- proto: MCCaseSentrySST574
+- proto: MCStorageCaseSentryFilledSniper
   entities:
   - uid: 1553
     components:

@@ -69954,7 +69954,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 81.76247,-23.641697
       parent: 1
-- proto: MCWindowGrayReinforced
+- proto: MCStorageCaseSentryFilledSniper
   entities:
   - uid: 12384
     components:

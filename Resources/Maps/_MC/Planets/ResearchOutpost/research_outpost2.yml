@@ -460,7 +460,7 @@ entities:
     - type: Transform
       pos: 112.5,-98.5
       parent: 1
-- proto: MCCaseSentryFlamer
+- proto: MCStorageCaseSentryFilledFlamer
   entities:
   - uid: 89
     components:

@@ -5859,7 +5859,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 77.6163,-14.287058
       parent: 1
-- proto: MCWindowGrayReinforced
+- proto: MCWindowColonyReinforced
   entities:
   - uid: 630
     components:
