@@ -86,6 +86,8 @@
   - type: MovementSpeedModifier
     baseWalkSpeed: 3.5
     baseSprintSpeed: 5
+  - type: RMCSize
+    size: Big
   # Abilities
   - type: XenoPheromones
     pheromonesMultiplier: 2.5

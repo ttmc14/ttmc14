@@ -61,7 +61,7 @@
     plasmaRegenOnWeeds: 30
   - type: MCArmor
     soft:
-      melee: 50
+      melee: 65
       bullet: 80
       laser: 65
       energy: 75

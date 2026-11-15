@@ -29,7 +29,7 @@ class SpriteApp:
             "stock": [-20, 0],
             "rail": [-11, 7]
         }
-        self.active_slot = "muzzle"
+        self.active_slot = list(self.slots.keys())[0]
 
         self.setup_ui()
         self.load_library_recursive(DEFAULT_ATTACHMENTS_DIR)
