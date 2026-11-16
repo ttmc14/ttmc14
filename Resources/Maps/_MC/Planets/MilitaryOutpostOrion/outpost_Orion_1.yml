@@ -4893,7 +4893,7 @@ entities:
   entities:
   - uid: 14749
     components:
-    - type: Transform
+    - type: Transforme
       pos: 36.5,-52.5
       parent: 1
 - proto: CMVendorSnack
@@ -69954,7 +69954,7 @@ entities:
       rot: -1.5707963267948966 rad
       pos: 81.76247,-23.641697
       parent: 1
-- proto: MCStorageCaseSentryFilledSniper
+- proto: MCWindowColonyReinforced
   entities:
   - uid: 12384
     components:
