@@ -23,6 +23,9 @@
         whitelist:
           tags:
           - MCMagazineSentryMini
+  - type: MCSentryRadial
+    radius: 8
+    radiusReduced: 6
 
 - type: entity
   parent: MCSentryMini

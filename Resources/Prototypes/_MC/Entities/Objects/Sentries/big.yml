@@ -23,14 +23,9 @@
         whitelist:
           tags:
           - MCMagazineSentryBig
-  - type: HTN
-    rootTask:
-      task: RMCSentryCompound
-    blackboard:
-      SoundTargetInLOS: !type:SoundPathSpecifier
-        path: /Audio/Effects/double_beep.ogg
-      VisionRadius: !type:Single "8.0"
-      AggroVisionRadius: !type:Single "8.0"
+  - type: MCSentryRadial
+    radius: 8
+    radiusReduced: 6
 
 - type: entity
   parent: MCSentryBig

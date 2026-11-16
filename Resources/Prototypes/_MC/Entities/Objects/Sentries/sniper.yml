@@ -23,14 +23,9 @@
         whitelist:
           tags:
           - MCMagazineSentrySniper
-  - type: HTN
-    rootTask:
-      task: RMCSentryCompound
-    blackboard:
-      SoundTargetInLOS: !type:SoundPathSpecifier
-        path: /Audio/Effects/double_beep.ogg
-      VisionRadius: !type:Single "14.0"
-      AggroVisionRadius: !type:Single "14.0"
+  - type: MCSentryRadial
+    radius: 14
+    radiusReduced: 12
 
 - type: entity
   parent: MCSentrySniper

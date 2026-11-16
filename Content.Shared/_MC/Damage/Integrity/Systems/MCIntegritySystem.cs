@@ -51,10 +51,8 @@ public sealed class MCIntegritySystem : EntitySystem
         return value;
     }
 
-    public FixedPoint2 GetTotalDamage(EntityUid entity)
-    {
-        return !_damageableQuery.TryGetComponent(entity, out var damageableComponent) ? FixedPoint2.Zero : damageableComponent.TotalDamage;
-    }
+    public FixedPoint2 GetTotalDamage(EntityUid entity) =>
+        !_damageableQuery.TryGetComponent(entity, out var damageableComponent) ? FixedPoint2.Zero : damageableComponent.TotalDamage;
 
     public string GetDamageMessage(Entity<MCIntegrityComponent?> entity, ProtoId<MCIntegrityPrototype> integrityId)
     {
@@ -88,5 +86,20 @@ public sealed class MCIntegritySystem : EntitySystem
 
         var ev = new MCIntegrityTriggeredEvent(selectedId);
         RaiseLocalEvent(entity, ref ev);
+    }
+
+    public float GetIntegrityPercentage(Entity<MCIntegrityComponent?> entity, ProtoId<MCIntegrityPrototype> integrityId)
+    {
+        if (!Resolve(entity, ref entity.Comp) || !_damageableQuery.TryGetComponent(entity, out var damageableComponent))
+            return 0f;
+
+        if (!entity.Comp.Thresholds.TryGetValue(integrityId, out var threshold))
+            return 0f;
+
+        if (threshold <= FixedPoint2.Zero)
+            return 0f;
+
+        var remaining = threshold - damageableComponent.TotalDamage;
+        return float.Clamp((remaining / threshold).Float(), 0f, 1f);
     }
 }

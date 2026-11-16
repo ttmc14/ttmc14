@@ -1,0 +1,121 @@
+﻿<ui:MCSentryWindow xmlns="https://spacestation14.io"
+                   xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                   xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
+                   xmlns:ui="clr-namespace:Content.Client._MC.Engineering.Sentries.UI"
+                   MinSize="420 340"
+                   Title="Sentry Gun">
+
+    <!-- Main layout container -->
+    <BoxContainer Orientation="Vertical"
+                  HorizontalExpand="True"
+                  VerticalExpand="True"
+                  Margin="4">
+
+        <!-- Content panel with watermark emblem -->
+        <PanelContainer HorizontalExpand="True"
+                        VerticalExpand="True">
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#2B2B2B"
+                                       BorderColor="#3A3A3A"
+                                       BorderThickness="1" />
+            </PanelContainer.PanelOverride>
+
+            <!-- Background emblem (texture is set from code-behind) -->
+            <TextureRect Name="WatermarkTexture"
+                         Access="Public"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Stretch="KeepAspectCentered"
+                         Modulate="#22FFFFFF" />
+
+            <BoxContainer Orientation="Vertical"
+                          HorizontalExpand="True"
+                          Margin="8">
+
+                <!-- Sentry name header -->
+                <BoxContainer Orientation="Horizontal"
+                              HorizontalExpand="True"
+                              Margin="0 0 0 8">
+
+                    <Label Text="◆"
+                           Modulate="#FFFFFF"
+                           Margin="0 0 6 0" />
+
+                    <Label Name="SentryNameLabel"
+                           Access="Public"
+                           Text="ST-580 point defense sentry"
+                           StyleClasses="LabelHeading"
+                           HorizontalExpand="True" />
+                </BoxContainer>
+
+                <cc:HSeparator Color="#3A3A3A" Margin="0 0 0 8" />
+
+                <!-- Structural Integrity -->
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                    <Label Text="Structural Integrity:"
+                           MinWidth="130"
+                           VerticalAlignment="Center" />
+
+                    <ProgressBar Name="IntegrityBar"
+                                 Access="Public"
+                                 HorizontalExpand="True"
+                                 Value="1">
+                        <Label Name="IntegrityLabel"
+                               Access="Public"
+                               Align="Right"
+                               Margin="0 0 5 0"
+                               Text="100%" />
+                    </ProgressBar>
+                </BoxContainer>
+
+                <!-- Current Rounds -->
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 8">
+                    <Label Text="Current Rounds:"
+                           MinWidth="130"
+                           VerticalAlignment="Center" />
+
+                    <ProgressBar Name="RoundsBar"
+                                 Access="Public"
+                                 HorizontalExpand="True"
+                                 Value="1">
+                        <Label Name="RoundsLabel"
+                               Access="Public"
+                               Align="Right"
+                               Margin="0 0 5 0"
+                               Text="300 out of 300" />
+                    </ProgressBar>
+                </BoxContainer>
+
+                <cc:HSeparator Color="#3A3A3A" Margin="0 4 0 8" />
+
+                <!-- Radial Mode -->
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                    <Label Text="Radial Mode:"
+                           MinWidth="130"
+                           VerticalAlignment="Center" />
+
+                    <Control HorizontalExpand="True" />
+
+                    <CheckBox Name="RadialModeCheckBox"
+                            Access="Public"
+                            Text="Radial Mode" />
+                </BoxContainer>
+
+                <!-- Alert Mode -->
+                <BoxContainer Orientation="Horizontal" Margin="0 0 0 4">
+                    <Label Text="Alert Mode:"
+                           MinWidth="130"
+                           VerticalAlignment="Center" />
+
+                    <Control HorizontalExpand="True" />
+
+                    <CheckBox Name="AlertModeCheckBox"
+                              Access="Public"
+                              Text="Alert Mode" />
+                </BoxContainer>
+
+            </BoxContainer>
+        </PanelContainer>
+    </BoxContainer>
+</ui:MCSentryWindow>
+
