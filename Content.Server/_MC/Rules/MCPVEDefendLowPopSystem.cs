@@ -3,6 +3,8 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Spawners.Components;
 using Content.Server.Mind;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.GameTicking;
+using Content.Shared.GameTicking.Components;
 using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.Mind.Components;
@@ -31,11 +33,19 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
     // --- ОСНОВНЫЕ МЕТОДЫ СИСТЕМЫ ---
 
     public override void Initialize()
-    {
-        base.Initialize();
+{
+    base.Initialize();
+}
+protected override void Started(EntityUid uid, MCPVEDefendLowPopRuleComponent component, GameRuleComponent gameRule, GameRuleStartedEvent args)
+{
+    base.Started(uid, component, gameRule, args);
 
-        SubscribeLocalEvent<RoundStartAttemptEvent>(OnRoundStart);
-    }
+    component.RoundState = MCPVEDefendLowPopRuleState.InProgress;
+    _roundTime = TimeSpan.Zero;
+    _spawnCheckTime = TimeSpan.Zero;
+
+    Logger.Info("PVEDefendLowPop game mode has started!");
+}
 
     public override void Update(float frameTime)
     {
