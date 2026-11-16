@@ -8,9 +8,6 @@ public sealed partial class MCAISensorDefendPoint : MCAISensor<MCAISensorDefendP
 {
     public MCAISensorDefendPoint() { }
 
-    [DataField("conditionKey")]
-    public string ConditionKey { get; private set; } = "DefendPointExists";
-
     [DataField("outputTargetKey")]
     public string OutputTargetKey { get; private set; } = "DefendPointTarget";
 }
