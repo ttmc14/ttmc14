@@ -1,4 +1,5 @@
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.Chemistry.Components;
 using Content.Shared.NPC.Components;
 using Content.Shared._MC.PVE.Components.PVEXenoSpawnPoint;
@@ -10,6 +11,7 @@ public sealed class MCPVEXenoSpawnPointSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
     private readonly Dictionary<EntityUid, TimeSpan> _nextSpawnTimes = new();
 
@@ -53,9 +55,7 @@ public sealed class MCPVEXenoSpawnPointSystem : EntitySystem
             var spawned = Spawn(component.SpawnPrototype, coords);
             component.SpawnedCount++;
 
-            EnsureComp<NpcFactionMemberComponent>(spawned);
-            var factionComp = Comp<NpcFactionMemberComponent>(spawned);
-            factionComp.Factions.Add(component.EnemyFaction.Id);
+            _npcFaction.AddFaction(spawned, component.EnemyFaction.Id);
 
             if (component.SpawnSmokeOnSpawn)
             {

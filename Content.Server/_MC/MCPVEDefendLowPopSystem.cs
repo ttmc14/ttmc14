@@ -3,6 +3,7 @@ using Content.Server.GameTicking.Rules;
 using Content.Server.Spawners.Components;
 using Content.Server.Mind;
 using Content.Server.Fluids.EntitySystems;
+using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared._MC.Rules;
@@ -12,7 +13,7 @@ using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 
-namespace Content.Server._MC.Rules.PVEDefendLowPopSystem;
+namespace Content.Server._MC.Rules.MCPVEDefendLowPopSystem;
 
 public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowPopRuleComponent>
 {
@@ -22,6 +23,7 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
     [Dependency] private readonly GameTicker _gameTicker = default!;
     [Dependency] private readonly SmokeSystem _smoke = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
+    [Dependency] private readonly NpcFactionSystem _npcFaction = default!;
 
     private TimeSpan _roundTime = TimeSpan.Zero;
     private TimeSpan _spawnCheckTime = TimeSpan.Zero;
@@ -108,9 +110,15 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
         if (rule.XenoPrototypes.Count == 0)
             return;
 
-        var enemyQuery = EntityQuery<NpcFactionMemberComponent>();
         var factionId = rule.EnemyFaction.Id;
-        var currentEnemyCount = enemyQuery.Count(c => c.Factions.Contains(factionId));
+
+        var enemyQuery = EntityQueryEnumerator<NpcFactionMemberComponent>();
+        var currentEnemyCount = 0;
+        while (enemyQuery.MoveNext(out var enemyUid, out _))
+        {
+            if (_npcFaction.IsMember(enemyUid, factionId))
+                currentEnemyCount++;
+        }
 
         if (currentEnemyCount >= rule.MaxAiCount)
             return;
@@ -129,9 +137,7 @@ public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowP
 
         var spawned = Spawn(enemyPrototype, coords);
 
-        EnsureComp<NpcFactionMemberComponent>(spawned);
-        var factionComp = Comp<NpcFactionMemberComponent>(spawned);
-        factionComp.Factions.Add(factionId);
+        _npcFaction.AddFaction(spawned, factionId);
 
         if (rule.SpawnSmokeOnSpawn)
         {
