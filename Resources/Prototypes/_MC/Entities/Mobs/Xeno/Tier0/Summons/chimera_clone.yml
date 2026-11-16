@@ -62,7 +62,5 @@
   # TODO: gib
   - type: TimedDespawn
     lifetime: 10
-  - type: MCTimedDespawnDisappearanceVisuals
-    lifetime: 10
   - type: RMCGibOnDeath
     gibChance: 1
