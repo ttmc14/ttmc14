@@ -7,13 +7,13 @@ using Content.Shared.NPC.Systems;
 using Content.Shared.NPC.Components;
 using Content.Shared.Mind.Components;
 using Content.Shared._MC.Rules;
-using Content.Shared._MC.Rules.MCPVEDefendLowPopRule;
+using Content.Shared._MC.Rules.PVEDefendLowPopRule;
 using Content.Shared.Chemistry.Components;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
 using System.Linq;
 
-namespace Content.Server._MC.Rules.MCPVEDefendLowPopSystem;
+namespace Content.Server._MC.Rules.PVEDefendLowPopSystem;
 
 public sealed class MCPVEDefendLowPopRuleSystem : GameRuleSystem<MCPVEDefendLowPopRuleComponent>
 {

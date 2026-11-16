@@ -31,9 +31,9 @@
     - MCSquadEngineer
     - MCSquadCorpsman
     - MCSquadMarine
-    marineRespawnTime: "00:08:00"
+    marineRespawnTime: 480
     xenoPrototypes:
     - MCAIXenoDefender
-    spawnInterval: "00:01:30"
+    spawnInterval: 90
     maxAiCount: 20
-    defendTime: "00:50:00"
+    defendTime: 3000
