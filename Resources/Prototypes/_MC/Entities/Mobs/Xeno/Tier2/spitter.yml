@@ -44,7 +44,7 @@
     - MCActionXenoPsydrain
     # Main
     - MCActionXenoSprayAcid
-    - MCActionXenoToggleXenoSpit
+    - MCActionXenoSpitSpitter
     - MCActionXenoScatterSpit
     # Utilities
     - MCActionXenoAcidMedium
@@ -74,8 +74,8 @@
       types:
         MCBrute: 20
   - type: MovementSpeedModifier
-    baseWalkSpeed: 2.941
-    baseSprintSpeed: 4.166
+    baseWalkSpeed: 3
+    baseSprintSpeed: 4.25
   - type: AcidBloodSplash
     damage:
       types:
@@ -93,4 +93,8 @@
       types:
         MCBurn: 45
   - type: MCXenoScatterSpit
+    speed: 30
+    projectileId: MCActionXenoScatterSpitSpitter
+    count: 6
+    maxDeviation: 20
   - type: XenoAcid # TODO: Make MC component

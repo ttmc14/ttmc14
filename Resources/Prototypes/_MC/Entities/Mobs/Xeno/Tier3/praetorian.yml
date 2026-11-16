@@ -50,9 +50,10 @@
     - MCActionXenoDash
     - MCActionXenoScatterSpitPraetorian
     - MCActionXenoSprayAcidPraetorian
-    - MCActionXenoToggleXenoSpitPassthroughPraetorian
-    - MCActionXenoToggleXenoSpitToxLossPraetorian
     - MCActionXenoPheromones
+    # Spit
+    - MCActionXenoSpitPraetorianAcid
+    - MCActionXenoSpitPraetorianToxin
     # Utilities
     - MCActionXenoAcidStrong
     hudOffset: -0.15,0.25

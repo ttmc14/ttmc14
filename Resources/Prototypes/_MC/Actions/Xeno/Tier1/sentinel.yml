@@ -126,7 +126,7 @@
   - type: XenoProjectile
     deleteOnFriendlyXeno: false
   - type: ProjectileMaxRange
-    max: 7
+    max: 8
   - type: MCXenoToxicStacksOnHit
     amount: 5
 

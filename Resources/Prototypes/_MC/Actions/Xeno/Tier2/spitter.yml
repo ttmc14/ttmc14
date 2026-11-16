@@ -1,8 +1,8 @@
 # Spits
 - type: entity
   parent: ActionXenoBase
-  id: MCActionXenoToggleXenoSpit
-  name: Xeno Spit
+  id: MCActionXenoSpitSpitter
+  name: xeno Spit
   description: Spit neurotoxin or acid at your target up to 7 tiles away.
   components:
   - type: Action
@@ -13,32 +13,29 @@
     useDelay: 0.1
   - type: InstantAction
     event: !type:MCXenoSpitToggleActionEvent
-      projectileId: MCXenoProjectileMedium
+      projectileId: MCXenoSpitSpitter
       plasmaCost: 50
-      delay: 1.1
+      delay: 1
       speed: 30
 
-# Other
 - type: entity
-  parent: ActionXenoBase
-  id: MCActionXenoSprayAcid
-  name: Spray Acid (250)
-  description: Spray a line of dangerous acid at your target.
+  parent: MCXenoProjectile
+  id: MCXenoSpitSpitter
   components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon:
-      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
-      state: spray_acid
-    useDelay: 30
-  - type: TargetAction
-    range: 15
-  - type: WorldTargetAction
-    event: !type:XenoSprayAcidActionEvent
-  - type: XenoActionPlasma
-    cost: 250
-  - type: ActionBlockIfResting
+  - type: Sprite
+    layers:
+    - state: xeno_acid
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 35
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+  - type: ProjectileMaxRange
+    max: 8
 
+# Scatter spit
 - type: entity
   parent: ActionXenoBase
   id: MCActionXenoScatterSpit
@@ -61,3 +58,56 @@
   - type: XenoActionPlasma
     cost: 280
   - type: ActionBlockIfResting
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCActionXenoScatterSpitSpitter
+  components:
+  - type: Sprite
+    layers:
+    - state: xeno_acid_normal
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 20
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: ProjectileMaxRange
+    max: 8
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCXenoAcidSprayScatterSpitSpitter
+  - type: MCXenoProjectileTargetingTurf
+
+- type: entity
+  parent: MCXenoAcidSpray
+  id: MCXenoAcidSprayScatterSpitSpitter
+  components:
+  - type: TimedDespawn
+    lifetime: 1
+  - type: DamageOnCollide
+    damage:
+      types:
+        MCBurn: 14
+
+# Other
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSprayAcid
+  name: Spray Acid (250)
+  description: Spray a line of dangerous acid at your target.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/boiler.rsi
+      state: spray_acid
+    useDelay: 30
+  - type: TargetAction
+    range: 15
+  - type: WorldTargetAction
+    event: !type:XenoSprayAcidActionEvent
+  - type: XenoActionPlasma
+    cost: 250
+  - type: ActionBlockIfResting
+

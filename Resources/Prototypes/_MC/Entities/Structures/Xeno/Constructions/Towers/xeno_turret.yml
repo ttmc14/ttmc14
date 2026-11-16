@@ -53,7 +53,7 @@
     - FullAuto
     soundGunshot: /Audio/Weapons/Xeno/alien_spitacid.ogg
   - type: BallisticAmmoProvider
-    proto: MCXenoProjectileMedium
+    proto: MCActionXenoSpitSpitter
   - type: HTN
     rootTask:
       task: RMCSentryCompound

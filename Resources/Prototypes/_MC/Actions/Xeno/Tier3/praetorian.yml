@@ -1,3 +1,103 @@
+# Acid spit
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSpitPraetorianAcid
+  name: acid splash
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_xeno_acid
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoSpitPraetorianAcid
+      plasmaCost: 70
+      delay: 1
+      speed: 40
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoSpitPraetorianAcid
+  components:
+  - type: Sprite
+    layers:
+    - state: xeno_acid_strong
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types:
+        MCBurn: 40
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: true
+  - type: ProjectileMaxRange
+    max: 8
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCXenoAcidSprayScatterSpitSpitter
+  - type: MCXenoProjectileTargetingTurf
+
+# Toxin spit
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoSpitPraetorianToxin
+  name: toxin splash
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/spits.rsi
+      state: shift_spit_neurotoxin
+    useDelay: 0.1
+  - type: InstantAction
+    event: !type:MCXenoSpitToggleActionEvent
+      projectileId: MCXenoSpitPraetorianToxin
+      plasmaCost: 100
+      delay: 1
+      speed: 40
+
+- type: entity
+  parent: MCXenoProjectile
+  id: MCXenoSpitPraetorianToxin
+  components:
+  - type: Sprite
+    layers:
+    - state: neurotoxin
+      shader: unshaded
+  - type: Projectile
+    damage:
+      types: null
+  - type: XenoProjectile
+    deleteOnFriendlyXeno: false
+  - type: MCStaminaDamageOnCollide
+    damage: 10 # 40 to large?
+  - type: ProjectileMaxRange
+    max: 10
+  - type: MCProjectileInject
+    reagents:
+    - ReagentId: MCNeurotoxin
+      Quantity: 10
+  - type: MCXenoSpawnAcidSprayOnTerminating
+    spawn: MCSmokeXenoPraetorianNeurotoxin
+  - type: MCXenoProjectileTargetingTurf
+
+- type: entity
+  parent: MCSmokeTile
+  id: MCSmokeXenoPraetorianNeurotoxin
+  name: smoke xeno neurotoxin lite
+  components:
+  - type: Sprite
+    color: "#ffbf583c"
+  # - type: MCSmokeReagent
+  #   reagents:
+  #   - ReagentId: MCNeurotoxin
+  #     Quantity: 10
+  - type: TimedDespawn
+    lifetime: 1
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 1
+
+# Other
 - type: entity
   parent: ActionXenoBase
   id: MCActionXenoDash
@@ -18,42 +118,6 @@
   - type: XenoActionPlasma
     cost: 100
   - type: ActionBlockIfResting
-
-- type: entity
-  parent: ActionXenoBase
-  id: MCActionXenoToggleXenoSpitPassthroughPraetorian
-  name: acid splash
-  components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon:
-      sprite: _MC/Interface/Actions/Xeno/spits.rsi
-      state: shift_spit_xeno_acid
-    useDelay: 0.1
-  - type: InstantAction
-    event: !type:MCXenoSpitToggleActionEvent
-      projectileId: MCXenoProjectileHeavyPassthrough
-      plasmaCost: 70
-      delay: 1.2
-      speed: 40
-
-- type: entity
-  parent: ActionXenoBase
-  id: MCActionXenoToggleXenoSpitToxLossPraetorian
-  name: toxin splash
-  components:
-  - type: Action
-    itemIconStyle: NoItem
-    icon:
-      sprite: _MC/Interface/Actions/Xeno/spits.rsi
-      state: shift_spit_neurotoxin
-    useDelay: 0.1
-  - type: InstantAction
-    event: !type:MCXenoSpitToggleActionEvent
-      projectileId: MCXenoProjectileHeavyToxLoss
-      plasmaCost: 100
-      delay: 1
-      speed: 40
 
 - type: entity
   parent: ActionXenoBase
@@ -115,28 +179,6 @@
   - type: XenoActionPlasma
     cost: 280
   - type: ActionBlockIfResting
-
-# projectiles
-- type: entity
-  parent: MCXenoProjectile
-  id: MCXenoProjectileHeavyPassthrough
-  name: acid splash
-  components:
-  - type: Sprite
-    layers:
-    - state: xeno_acid_strong
-      shader: unshaded
-  - type: Projectile
-    damage:
-      types:
-        MCBurn: 30
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
-  - type: ProjectileMaxRange
-    max: 8
-  - type: MCXenoSpawnAcidSprayOnTerminating
-    spawn: MCXenoAcidSpraySpit
-  - type: MCXenoProjectileTargetingTurf
 
 - type: entity
   parent: MCXenoProjectile
