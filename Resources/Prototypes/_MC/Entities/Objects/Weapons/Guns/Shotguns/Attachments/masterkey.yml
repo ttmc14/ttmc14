@@ -38,7 +38,7 @@
     cycleable: false
     whitelist:
       tags:
-      - MCShellShotgun
+      - MCCartridgeShotgun
     capacity: 3
     soundInsert:
       path: /Audio/_RMC14/Weapons/Guns/Reload/m42a2.ogg

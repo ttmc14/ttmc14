@@ -1,0 +1,47 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCClothingBeltTools
+  name: M276 pattern toolbelt rig
+  description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version lacks any combat functionality, and is commonly used by engineers to transport important tools.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/utility.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/utility.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,13,1 # 7 slots
+    whitelist:
+      tags:
+      - Crowbar
+      - Screwdriver
+      - Wrench
+      - Wirecutter
+      - CableCoil
+      - PowerCell
+      - Multitool
+      - Flashlight
+      - CMFireExtinguisherPortable
+      components:
+      - Welder
+      - ComputerBoard
+      - MachineBoard
+      - LightReplacer
+      - EntrenchingTool
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCClothingBeltTools
+  id: MCClothingBeltToolsFill
+  suffix: Fill
+  components:
+  - type: StorageFill
+    contents:
+    - id: CMScrewdriver
+    - id: CMWirecutter
+    - id: CMWelder
+    - id: CMWrench
+    - id: CMCrowbar
+    - id: RMCCableCoil30
+    - id: CMMultitool

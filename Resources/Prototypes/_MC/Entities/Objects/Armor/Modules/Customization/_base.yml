@@ -2,7 +2,7 @@
   parent: MCArmorModule
   id: MCArmorModuleCustomization
   name: cape
-  description: WIP.
+  description: A cape.
   abstract: true
   components:
   - type: Tag

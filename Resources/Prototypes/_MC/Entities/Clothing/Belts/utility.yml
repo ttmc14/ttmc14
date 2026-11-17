@@ -1,0 +1,14 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCClothingBeltUtility
+  name: G8 general utility pouch
+  description: A small, lightweight pouch that can be clipped onto Armat Systems M3 Pattern armor or your belt to provide additional storage for miscellaneous gear or box and drum magazines.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/sparepouch.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/sparepouch.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,9,1 # 9 slots

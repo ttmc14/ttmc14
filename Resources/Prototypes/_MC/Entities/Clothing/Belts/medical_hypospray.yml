@@ -1,0 +1,56 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCBeltMedicalHypospray
+  name: M276 pattern hypospray belt
+  description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is a less common configuration, designed to transport hyposprays and reagent containers. You could probably fit a syringe case too.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/hypospray.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/hypospray.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,3
+    whitelist:
+      tags:
+      - MCHealthAnalyzer
+      - GlassBeaker
+      - MCBottle
+      - MCCaseSyringe
+      - MCAutoInjector
+      - MCHypospray
+      components:
+      - Hypospray
+  - type: IgnoreContentsSize
+    items:
+      tags:
+      - MCCaseSyringe
+      - MCHypospray
+  - type: FixedItemSizeStorage
+  - type: Tag
+    tags:
+    - RMCBeltMedical
+    - MCBeltMedical
+
+- type: entity
+  parent: MCBeltMedicalHypospray
+  id: MCBeltMedicalHyposprayCorpsmanFull
+  suffix: Corpsman, Full
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCBottleBicaridine
+    - id: MCBottleKelotane
+    - id: MCBottleTricordrazine
+    - id: MCBottleTramadol
+    - id: MCHyposprayBigFillBicaridine
+    - id: MCHyposprayBigFillKelotane
+    - id: MCHyposprayBigFillTricordrazine
+    - id: MCHyposprayBigFillBKTT
+    - id: MCHyposprayBigFillDylovene
+    - id: MCHyposprayBigFillInaprovaline
+    - id: MCHyposprayBigFillIsotonic
+    - id: MCHyposprayBigFillQuickClot
+    - id: MCHyposprayFillHypervene
+    - id: MCHealthAnalyzer

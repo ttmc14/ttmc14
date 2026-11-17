@@ -1,0 +1,38 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCClothingBeltGrenade
+  name: M276 pattern M40 HEDP rig
+  description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is designed to carry bulk quantities of M40 HEDP Grenades.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/grenade.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/grenade.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,17,1 # 9 slots
+    whitelist:
+      tags:
+      - MCGrenade
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCClothingBeltGrenade
+  id: MCClothingBeltGrenadeSom
+  name: S16 pattern grenade rig
+  description: A simple harness system available in many configurations. This version is designed to carry bulk quantities of grenades.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/grenade_som.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/grenade_som.rsi
+
+- type: entity
+  parent: MCClothingBeltGrenade
+  id: MCClothingBeltGrenadeB17
+  name: M276 pattern M40 HEDP rig Mk II
+  components:
+  - type: Storage
+    grid:
+    - 0,0,15,3 # 16 slots

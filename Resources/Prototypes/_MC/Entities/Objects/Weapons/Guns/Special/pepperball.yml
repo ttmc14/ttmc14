@@ -1,5 +1,7 @@
 - type: entity
-  parent: [ CMBaseWeaponRifle, RMCBaseWeaponMagazineVisuals ]
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
   id: MCWeaponPepperball
   name: PB-12 pepperball gun
   description: The PB-12 is ostensibly riot control device used by the TGMC in spiffy colors, working through a SAN ball that sends a short acting neutralizing chemical to knock out it's target, or weaken them. Guranteed to work on just about everything. Uses SAN Ball Holders as magazines.
@@ -40,8 +42,6 @@
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1
     accuracyMultiplierUnwielded: 0.75
-  - type: RMCWeaponDamageFalloff
-    falloffMultiplier: 0.5
   - type: WieldDelay
     baseDelay: 0.7
   - type: ItemSlots

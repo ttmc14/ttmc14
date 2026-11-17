@@ -8,14 +8,10 @@
   - type: GroupExamine
   - type: Armor
     modifiers: {}
-  - type: FlavorProfile
-    flavors:
-    - fiber
   - type: UseDelay
     delay: 0
   - type: Tag
     tags:
-    - WhitelistChameleon
     - Backpack
   - type: Sprite
     sprite: _RMC14/Objects/Clothing/Back/Backpacks/Civilians/standard.rsi

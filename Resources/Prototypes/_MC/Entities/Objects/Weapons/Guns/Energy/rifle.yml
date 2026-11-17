@@ -60,6 +60,7 @@
           tags:
           - MCAttachmentLaserSight
           - MCAttachmentMiniFlamethrower
+          - MCAttachmentUnderbarrelWeaponPepperball
   - type: AttachableHolderVisuals
     offsets:
       mc-attachment-barrel: 0.687500, 0.000000
@@ -70,29 +71,29 @@
   - type: MCWeaponLaser
     modes:
       Standard:
-        shots: 50
+        shots: 60
         fireRate: 5
         projectileId: MCLaserRifleStandard
         icon:
           sprite: _MC/Effects/Beams/base.rsi
           state: muzzle_beam
       Overcharge:
-        shots: 20
-        fireRate: 2.2
+        shots: 25
+        fireRate: 2.5
         projectileId: MCLaserRifleOvercharge
         icon:
           sprite: _MC/Effects/Beams/overcharge.rsi
           state: muzzle_beam
       Weakening:
-        shots: 20
+        shots: 25
         fireRate: 2.5
         projectileId: MCLaserRifleWeakening
         icon:
           sprite: _MC/Effects/Beams/weakening.rsi
           state: muzzle_beam
       Microwave:
-        shots: 25
-        fireRate: 2.2
+        shots: 20
+        fireRate: 2.5
         projectileId: MCLaserRifleMicrowave
         icon:
           sprite: _MC/Effects/Beams/microwave.rsi
@@ -198,4 +199,4 @@
   - type: MCProjectileStatusEffectsOnHit
     statusEffects:
     - effectId: MCStatusEffectMicrowaved
-      duration: 5
+      duration: 6

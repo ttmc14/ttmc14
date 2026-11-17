@@ -1,0 +1,10 @@
+ent-MCVendorBundleModuleHodBalistic = Набор: баллистическая система отклонения «Ход»
+ent-MCVendorBundleModuleMark1Mimir = Набор: система защиты от агрессивных сред «Мимир» Мк.1
+ent-MCVendorBundleModuleMark2Mimir = Набор: система защиты от агрессивных сред «Мимир» Мк.2
+ent-MCVendorBundleModuleHlinExplosive = Набор: модуль взрывозащиты «Хлин»
+ent-MCVendorBundleModuleMark1TyrArmor = Набор: система усиления брони «Тюр» Мк.1
+ent-MCVendorBundleModuleMark2TyrArmor = Набор: система усиления брони «Тюр» Мк.2
+ent-MCVendorBundleModuleBaldur = Набор: система усиления освещения «Балдур»
+ent-MCVendorBundleModuleValkyrieAutomedical = Набор: автоматическая медицинская система «Валькирия»
+ent-MCVendorBundleModuleValiChemical = Набор: модуль химического усиления «Вали»
+ent-MCVendorBundleModuleSvalinnEnergyShield = Набор: система энергетического щита «Свалин»

@@ -1,0 +1,68 @@
+- type: entity
+  parent:
+  - MCAttachmentUnderbarrel
+  - MCAttachableToggleableBase
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
+  id: MCAttachmentUnderbarrelWeaponPepperball
+  name: mini pepperball gun
+  description: An attachable version of the PB-12 pepperball gun. It has a smaller magazine size and has a slower rate of fire.
+  components:
+  - type: Tag
+    tags:
+    - MCAttachmentUnderbarrel
+    - MCAttachmentUnderbarrelWeaponPepperball
+  - type: Item
+    size: Large
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/Underbarrel/Weapons/pepperball.rsi
+    layers:
+    - state: base
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  # Gun
+  - type: Gun
+    selectedMode: FullAuto
+    availableModes:
+    - FullAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_fb12_1.ogg
+  - type: RMCSelectiveFire
+    baseFireRate: 5
+    baseFireModes:
+    - FullAuto
+    scatterWielded: 0
+    scatterUnwielded: 0
+  - type: WieldDelay
+    baseDelay: 0.2
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazinePepperball
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/rifle_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/flipblade.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazinePepperball
+  # Attachable
+  - type: AttachableVisuals
+    suffix: ""
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activateSound:
+      path: /Audio/_RMC14/Attachable/gun_u7_activate.ogg
+      params:
+        volume: -2
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/Underbarrel/Weapons/pepperball.rsi
+      state: base
+
+- type: Tag
+  id: MCAttachmentUnderbarrelWeaponPepperball

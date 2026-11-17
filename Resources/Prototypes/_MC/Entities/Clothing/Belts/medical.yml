@@ -1,0 +1,105 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCBeltMedical
+  name: M276 pattern medical storage rig
+  description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is a less common configuration, designed to transport medical supplies and heavier medical tools.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/medical.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/medical.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,15,3
+    whitelist:
+      tags:
+      # MC
+      - MCToolResearcher
+      # Other
+      - MCHealthAnalyzer
+      - MCDropper
+      - GlassBeaker
+      - MCBottle
+      - MCPill
+      - MCPacketPills
+      - MCPillCanister
+      - MCSyringe
+      - MCCaseSyringe
+      - CMBloodPack
+      - MCHealingGauze
+      - MCHealingSplint
+      - MCHealingOintment
+      - MCHealingTraumaKit
+      - MCHealingBurnKit
+      - MCAutoInjector
+      - MCRollerItem
+      - MCBodyBag
+      - MCHypospray
+      - MCTweezers
+      - MCDefibrillator
+      components:
+      - Hypospray
+      - Pill
+  - type: IgnoreContentsSize
+    items:
+      tags:
+      - MCPillCanister
+      - MCPacketPills
+      - MCCaseSyringe
+      - MCHypospra
+      - MCDefibrillator
+      - MCPill
+  - type: FixedItemSizeStorage
+  - type: Tag
+    tags:
+    - RMCBeltMedical
+    - MCBeltMedical
+
+- type: entity
+  parent: MCBeltMedical
+  id: MCBeltMedicalFilledMedical
+  suffix: Filled, Medical
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterDylovene
+    - id: MCPillCanisterInaprovaline
+    - id: MCPillCanisterDexalin
+    # spaceacilin
+    # alkysin
+    - id: MCPillCanisterImidazoline
+    - id: MCPillCanisterIsotonic
+    - id: MCPillCanisterHypervene
+    - id: MCDefibrillator
+    - id: MCStasisBagFolded
+    - id: MCRollerBedSpawnFolded
+    - id: MCHealthAnalyzer
+
+- type: entity
+  parent: MCBeltMedical
+  id: MCBeltMedicalFilledResearcher
+  suffix: Filled, Researcher
+  components:
+  - type: StorageFill
+    contents:
+    - id: MCPillCanisterBicaridine
+    - id: MCPillCanisterKelotane
+    - id: MCPillCanisterTramadol
+    - id: MCPillCanisterTricordrazine
+    - id: MCPillCanisterDylovene
+    - id: MCPillCanisterInaprovaline
+    - id: MCPillCanisterDexalin
+    # spaceacilin
+    # alkysin
+    - id: MCPillCanisterImidazoline
+    - id: MCPillCanisterIsotonic
+    - id: MCPillCanisterHypervene
+    - id: MCDefibrillator
+    - id: MCToolResearcherExcavationTool
+    - id: MCToolResearcherXenoAnalyzer
+    - id: MCHealthAnalyzer

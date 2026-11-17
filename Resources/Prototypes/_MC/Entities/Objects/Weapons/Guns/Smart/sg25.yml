@@ -92,6 +92,8 @@
           - MCAttachmentMagneticHarness
           - MCAttachmentRedDotSight
           - MCAttachmentRailFlashlight
+          - MCAttachmentMiniScope
+          - MCAttachmentT47RailScope
       mc-attachment-barrel:
         whitelist:
           tags:

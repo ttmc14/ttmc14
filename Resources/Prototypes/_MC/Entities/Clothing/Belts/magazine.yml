@@ -1,0 +1,58 @@
+- type: entity
+  parent: MCClothingBelt
+  id: MCClothingBeltMarine
+  name: M276 pattern ammo load rig
+  description: The M276 is the standard load-bearing equipment of the TGMC. It consists of a modular belt with various clips. This version is the standard variant designed for bulk ammunition-carrying operations.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/marine.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/marine.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,11,1 # 6 slots
+    whitelist:
+      tags:
+      - MCHandful
+      - MCMagazineSidearm
+      - MCMagazineRifle
+      - MCMagazinePepperball
+      - MCMagazineShotgun
+      - MCMagazineSmg
+      - MCBatteryTerra
+      - MCGrenade
+  - type: FixedItemSizeStorage
+
+- type: entity
+  parent: MCClothingBeltMarine
+  id: MCClothingBeltSom
+  name: S18 ammo belt
+  description: A belt with origins traced to the M276 ammo belt and some old colony security.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/som.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/som.rsi
+
+- type: entity
+  parent: MCClothingBeltMarine
+  id: MCClothingBeltUpp
+  name: Type 41 pattern load rig
+  description: The Type 41 load rig is the standard-issue LBE of the USL pirates. The primary function of this belt is to provide easy access to mags for the Type 71 during operations. Despite being designed for the Type 71 weapon system, the pouches are modular enough to fit other types of ammo and equipment.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/upp.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/upp.rsi
+
+- type: entity
+  parent: MCClothingBeltMarine
+  id: MCClothingBeltIcc
+  name: Modello/120 ammo belt
+  description: A belt purpose made to carry ammo, made with a tan synthetic fibre.
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/Belt/icc.rsi
+  - type: Clothing
+    sprite: _MC/Clothing/Belt/icc.rsi

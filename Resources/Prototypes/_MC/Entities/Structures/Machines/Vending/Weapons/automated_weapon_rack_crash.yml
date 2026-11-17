@@ -16,6 +16,8 @@
     - name: Energy Weapons
       entries:
       - id: MCMagazineBatteryTerra
+      - id: MCPouchPowerpack
+      - id: MCBackpackPowerpack
       - id: MCWeaponEnergyRifle
       - id: MCWeaponEnergySniper
       - id: MCWeaponEnergyCarbine

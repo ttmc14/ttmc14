@@ -1,5 +1,5 @@
 ﻿using Content.Shared._MC.Line;
-using Content.Shared._MC.Power.Systems.Providing;
+using Content.Shared._MC.Power.Battery;
 using Content.Shared._MC.Weapon.Laser.Components;
 using Content.Shared._MC.Weapons.AttackModeSelection.Core.Events;
 using Content.Shared.Popups;
@@ -10,6 +10,7 @@ using Content.Shared.Weapons.Ranged.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Audio.Systems;
 using Robust.Shared.Containers;
+using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Utility;
 
@@ -20,6 +21,7 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
     private static readonly VerbCategory Modes =
         new("mc-verb-categories-weapon-laser-modes", "/Textures/Interface/AdminActions/tricks.png", iconsOnly: false) { Columns = 1 };
 
+    [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedContainerSystem _container = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
@@ -30,7 +32,8 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
     [Dependency] private readonly SharedGunSystem _gun = null!;
 
     [Dependency] private readonly MCLineSystem _mcLine = null!;
-    [Dependency] private readonly MCProvidingSharedBatterySystem _mcProvidingBattery = null!;
+    [Dependency] private readonly MCBatterySystem _mcBattery = null!;
+
 
     public override void Initialize()
     {
@@ -135,11 +138,8 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         if (entity.Comp.Mode is not { } mode)
             return;
 
-        if (!_mcProvidingBattery.Supported)
-            return;
-
-        var shotCost = _mcProvidingBattery.GetMaxCharge(ammoEntity) / mode.Shots;
-        entity.Comp.Shots = (int) (_mcProvidingBattery.GetCharge(ammoEntity) / shotCost);
+        var shotCost = _mcBattery.GetMaxCharge(ammoEntity.Owner) / mode.Shots;
+        entity.Comp.Shots = (int) (_mcBattery.GetCharge(ammoEntity.Owner) / shotCost);
         entity.Comp.Capacity = mode.Shots;
 
         DirtyFields(entity, entity.Comp, null, nameof(MCWeaponLaserComponent.Shots), nameof(MCWeaponLaserComponent.Capacity));

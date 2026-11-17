@@ -46,6 +46,7 @@
           tags:
           - MCAttachmentLaserSight
           - MCAttachmentMiniFlamethrower
+          - MCAttachmentUnderbarrelWeaponPepperball
       mc-attachment-rail:
         whitelist:
           tags:

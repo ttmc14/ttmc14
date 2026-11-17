@@ -60,7 +60,7 @@
           - MCAttachmentGyroscopicStabilizer
           - MCAttachmentMiniFlamethrower
           - MCAttachmentUnderbarrelShotgun
-          # - TODO: Underbarrel Pepper Gun
+          - MCAttachmentUnderbarrelWeaponPepperball
   - type: AttachableHolderVisuals
     offsets:
       mc-attachment-barrel: 0.500000, 0.031250

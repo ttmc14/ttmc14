@@ -28,3 +28,7 @@
   components:
   - type: Sprite
     sprite: _MC/Clothing/Pouches/large_pistol_mag.rsi
+  - type: Storage
+    maxItemSize: Normal
+    grid:
+    - 0,0,11,1 # 6 slots

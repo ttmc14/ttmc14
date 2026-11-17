@@ -121,4 +121,4 @@
     state: mod_eshield
   - type: CMVendorBundle
     bundle:
-    - MCArmorModuleSvalinnEnergyShield
+    - MCArmorModuleSvalinEnergyShield

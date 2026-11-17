@@ -14,3 +14,8 @@
   - type: StatusEffect
     alert: MCMicrowaved
   - type: MCMicrowaved
+    tickDelay: 0.5
+    maxStacks: 4
+    damage:
+      types:
+        MCBurn: 5

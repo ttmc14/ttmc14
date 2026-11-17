@@ -57,6 +57,7 @@
           tags:
           - MCAttachmentLaserSight
           - MCAttachmentMiniFlamethrower
+          - MCAttachmentUnderbarrelWeaponPepperball
   - type: AttachableHolderVisuals
     offsets:
       mc-attachment-barrel: 0.656250, 0.062500

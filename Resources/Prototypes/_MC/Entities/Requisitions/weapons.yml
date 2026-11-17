@@ -76,6 +76,25 @@
         cost: 100
         entities:
         - MCWeaponPepperball
+      # Railgun
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Rifles/railgun/icon.rsi
+          state: icon
+        cost: 400
+        entities:
+        - MCWeaponRifleRailgun
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/Railgun/base.rsi
+          state: icon
+        cost: 30
+        entities:
+        - MCMagazineRifleRailgun
+      - icon:
+          sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/Railgun/hvap.rsi
+          state: icon
+        cost: 30
+        entities:
+        - MCMagazineRifleRailgunHvap
       # FL-84
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Special/fl84.rsi

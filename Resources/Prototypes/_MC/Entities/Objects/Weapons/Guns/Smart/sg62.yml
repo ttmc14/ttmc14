@@ -146,8 +146,8 @@
   #   zeroVisible: true
   - type: ContainerContainer
     containers:
-      gun_magazine: !type:ContainerSlot ""
-      gun_chamber: !type:ContainerSlot ""
+      gun_magazine: !type:ContainerSlot
+      gun_chamber: !type:ContainerSlot
   - type: ItemSlots
     slots:
       gun_magazine:

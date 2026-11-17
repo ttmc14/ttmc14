@@ -1,0 +1,31 @@
+- type: entity
+  parent: MCItem
+  id: MCArmorModule
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Clothing/modular.rsi
+  - type: Item
+    size: Huge
+  - type: MCArmorModule
+
+- type: Tag
+  id: MCArmorModule
+
+- type: Tag
+  id: MCArmorModuleBody
+
+- type: Tag
+  id: MCArmorModuleHead
+
+- type: Tag
+  id: MCArmorModuleBodyStorage
+
+- type: Tag
+  id: MCArmorModuleCustomization
+
+- type: Tag
+  id: MCArmorModuleCustomizationBody
+
+- type: Tag
+  id: MCArmorModuleCustomizationHead

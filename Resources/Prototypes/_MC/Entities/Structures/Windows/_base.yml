@@ -47,7 +47,7 @@
     state: base-0
   - type: IconSmooth
     key: windows
-    additionalKeys: [ doors ]
+    additionalKeys: [ doors, frames, walls, mcWalls ]
     base: base-
     mode: MCCardinalFlagsExtended
 
@@ -83,7 +83,7 @@
     state: base-0
   - type: IconSmooth
     key: windows
-    additionalKeys: [ doors, frames ]
+    additionalKeys: [ doors, frames, walls, mcWalls ]
     base: base-
     mode: MCCardinalFlagsExtended
 
@@ -112,7 +112,7 @@
     state: base-0
   - type: IconSmooth
     key: frames
-    additionalKeys: [ doors, windows ]
+    additionalKeys: [ doors, windows, walls, mcWalls ]
     base: base-
     mode: MCCardinalFlagsExtended
   - type: PlacementReplacement

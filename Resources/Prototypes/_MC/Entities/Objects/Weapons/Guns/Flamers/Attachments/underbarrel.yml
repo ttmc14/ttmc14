@@ -1,0 +1,117 @@
+- type: entity
+  parent: MCAttachmentUnderbarrel
+  id: MCAttachmentMiniFlamethrower
+  name: underbarrel flamethrower
+  description: A weapon-mounted refillable flamethrower attachment. It has a secondary setting for a more intense flame with far less propulsion ability and heavy fuel usage.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Attachments/flamer.rsi
+    state: flamethrower
+    layers:
+    - state: flamethrower
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: MagazineVisuals
+    magState: mag
+    steps: 1
+    zeroVisible: true
+  - type: Tag
+    tags:
+    - MCAttachmentUnderbarrel
+    - MCAttachmentMiniFlamethrower
+  - type: Item
+    size: Large
+  - type: Gun
+    cameraRecoilScalar: 0
+    fireRate: 0.333
+    selectedMode: SemiAuto
+    availableModes:
+    - SemiAuto
+    soundGunshot:
+      collection: RMCFlamerShoot
+  - type: RMCFlamerAmmoProvider
+    range: 4
+    spawn: null
+  - type: Wieldable
+  - type: ShootUseDelay
+  - type: ContainerContainer
+    containers:
+      gun_magazine: !type:ContainerSlot
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: mini incinerator tank
+        insertSound: /Audio/_RMC14/Weapons/Handling/flamer_reload.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Handling/flamer_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCFlamerTankMini
+  - type: RMCAmmoEject
+  - type: AttachableToggleable
+    userOnly: true
+    attachedOnly: true
+    supercedeHolder: true
+    wieldedUseOnly: true
+    activatePopupText: attachable-popup-switch-to-generic
+    deactivatePopupText: attachable-popup-switch-from-generic
+    activateSound:
+      path: /Audio/_RMC14/Attachable/gun_u7_activate.ogg
+      params:
+        volume: -2
+    actionName: Switch to the mini flamethrower.
+    actionDesc: Switch to using the mini flamethrower.
+    icon:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/flamer.rsi
+      state: flamethrower
+    iconActive:
+      sprite: _MC/Objects/Weapons/Guns/Attachments/flamer.rsi
+      state: flamethrower-on
+  - type: AttachableVisuals
+
+- type: entity
+  parent: MCItem
+  id: MCMiniTankFlamer
+  name: mini incinerator tank
+  description: A fuel tank of usually ultra thick napthal, a sticky combustable liquid chemical, for use in the underail incinerator unit. Handle with care.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Tanks/flamer.rsi
+    state: flametank_mini
+    layers:
+    - state: flametank_mini
+  - type: Item
+    size: Small
+  - type: SolutionContainerManager
+    solutions:
+      rmc_flamer_tank:
+        maxVol: 25
+        reagents:
+        - ReagentId: MCNapalm
+          Quantity: 25
+  - type: RMCFlamerTank
+  - type: Tag
+    tags:
+    - MCFlamerTankMini
+  - type: RMCSolutionTransferWhitelist
+    popup: rmc-solution-transfer-whitelist-failed-not-reagent-tank
+    targetWhitelist:
+      tags:
+      - MCPyroFlamerMini
+      - MCBackpackFlamer
+      - MCFlamerTankMini
+  - type: RefillableSolution
+    solution: rmc_flamer_tank
+  - type: DetailedExaminableSolution
+    solution: rmc_flamer_tank
+  - type: NoMixingReagents
+  - type: SolutionContainerVisuals
+    maxFillLevels: 2
+    fillBaseName: flametank_custom_strip
+  - type: Appearance
+  - type: SolutionStorageFillable
+    solution: rmc_flamer_tank
+
+- type: Tag
+  id: MCFlamerTankMini

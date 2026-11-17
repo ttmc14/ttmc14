@@ -20,10 +20,8 @@ public sealed class MCMicrowavedSystem : EntitySystem
     // It's called when we want to continue effect
     // that's mean repeat application
     // we increase power effect with each application
-    private static void OnTimeUpdated(Entity<MCMicrowavedComponent> entity, ref StatusEffectTimeUpdatedEvent args)
-    {
+    private static void OnTimeUpdated(Entity<MCMicrowavedComponent> entity, ref StatusEffectTimeUpdatedEvent args) =>
         entity.Comp.Stacks = int.Min(entity.Comp.Stacks + 1, entity.Comp.MaxStacks);
-    }
 
     public override void Update(float frameTime)
     {

@@ -6,19 +6,19 @@ namespace Content.Shared._MC.StatusEffects.Microwaved;
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCMicrowavedComponent : Component
 {
-    [DataField, AutoNetworkedField]
+    [ViewVariables, AutoNetworkedField]
     public TimeSpan TickNext;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public TimeSpan TickDelay = TimeSpan.FromSeconds(0.5);
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public int Stacks = 1;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public int MaxStacks = 7;
 
-    [DataField, AutoNetworkedField]
+    [DataField]
     public DamageSpecifier Damage = new()
     {
         DamageDict =

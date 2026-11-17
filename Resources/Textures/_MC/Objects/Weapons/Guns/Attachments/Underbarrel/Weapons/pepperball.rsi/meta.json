@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-SA-3.0",
+  "copyright": "Taken from https://github.com/UngaCo/UngaMarines-13/blob/3819b1f458d592109942aadb218e6f91498539e3/icons/obj/items/gun/special64.dmi",
+  "size": {
+    "x": 64,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "attachment"
+    },
+    {
+      "name": "attachment-empty"
+    },
+    {
+      "name": "base"
+    },
+    {
+      "name": "mag-0"
+    }
+  ]
+}

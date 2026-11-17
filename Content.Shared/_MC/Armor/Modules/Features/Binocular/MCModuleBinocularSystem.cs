@@ -5,6 +5,7 @@ using Content.Shared._MC.Armor.Modules.Core;
 using Content.Shared._MC.Armor.Modules.Features.Binocular.Components;
 using Content.Shared._MC.Armor.Modules.Features.Binocular.Events;
 using Content.Shared._RMC14.Actions;
+using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared.Actions;
 using Content.Shared.Camera;
 using Content.Shared.Movement.Systems;
@@ -32,6 +33,7 @@ public sealed class MCModuleBinocularSystem : EntitySystem
         SubscribeLocalEvent<MCModuleBinocularActiveComponent, ComponentRemove>(OnActiveRemove);
         SubscribeLocalEvent<MCModuleBinocularActiveComponent, MoveEvent>(OnActiveMove);
         SubscribeLocalEvent<MCModuleBinocularActiveComponent, GetEyeOffsetEvent>(OnActiveGetEyeOffset);
+        SubscribeLocalEvent<MCModuleBinocularActiveComponent, BeforeAttemptShootEvent>(OnActiveShoot);
     }
 
     private void OnGetAction(Entity<MCModuleBinocularComponent> entity, ref MCArmorModuleRelayedEvent<GetItemActionsEvent> args)
@@ -98,16 +100,17 @@ public sealed class MCModuleBinocularSystem : EntitySystem
         if (entity.Comp.CanMove)
             return;
 
-        if ((args.NewPosition.Position - args.OldPosition.Position).Length() == 0)
+        if ((args.NewPosition.Position - args.OldPosition.Position).Length() <= 0.05f)
             return;
 
         RemCompDeferred<MCModuleBinocularActiveComponent>(entity);
     }
 
-    private static void OnActiveGetEyeOffset(Entity<MCModuleBinocularActiveComponent> entity, ref GetEyeOffsetEvent args)
-    {
+    private static void OnActiveGetEyeOffset(Entity<MCModuleBinocularActiveComponent> entity, ref GetEyeOffsetEvent args) =>
         args.Offset += entity.Comp.Offset;
-    }
+
+    private void OnActiveShoot(Entity<MCModuleBinocularActiveComponent> entity, ref BeforeAttemptShootEvent args) =>
+        RemCompDeferred<MCModuleBinocularActiveComponent>(entity);
 
     private void Refresh(EntityUid uid)
     {
@@ -118,13 +121,9 @@ public sealed class MCModuleBinocularSystem : EntitySystem
     private void SetToggled(Entity<MCModuleBinocularActiveComponent> entity, bool value)
     {
         foreach (var action in _rmcActions.GetActionsWithEvent<MCModuleBinocularActionEvent>(entity))
-        {
             _actions.SetToggled((action, action), value);
-        }
     }
 
-    private EntityUid? GetUser(EntityUid uid)
-    {
-        return !TryComp<MCArmorModularClothingComponent>(Transform(uid).ParentUid, out var containerComponent) ? null : containerComponent.CurrentUser;
-    }
+    private EntityUid? GetUser(EntityUid uid) =>
+        !TryComp<MCArmorModularClothingComponent>(Transform(uid).ParentUid, out var containerComponent) ? null : containerComponent.CurrentUser;
 }

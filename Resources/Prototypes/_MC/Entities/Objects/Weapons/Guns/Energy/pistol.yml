@@ -65,18 +65,25 @@
   - type: MCWeaponLaser
     modes:
       Standard:
-        shots: 30
-        fireRate: 6.75
+        shots: 20
+        fireRate: 5
         projectileId: MCLaserPistolStandard
         icon:
           sprite: _MC/Effects/Beams/base.rsi
           state: muzzle_beam
       Heat:
         shots: 5
-        fireRate: 2
+        fireRate: 2.5
         projectileId: MCLaserPistolHeat
         icon:
           sprite: _MC/Effects/Beams/heat.rsi
+          state: muzzle_beam
+      Disabler:
+        shots: 15
+        fireRate: 4.5
+        projectileId: MCLaserPistolDisabler
+        icon:
+          sprite: _MC/Effects/Beams/weakening.rsi
           state: muzzle_beam
 
 - type: Tag
@@ -130,3 +137,25 @@
   - type: IgniteOnProjectileHit
     intensity: 10
     duration: 10
+
+- type: entity
+  parent: MCLaser
+  id: MCLaserPistolDisabler
+  components:
+  - type: MCLine
+    tail:
+      sprite: _MC/Effects/Beams/weakening.rsi
+      state: impact_beam
+    body:
+      sprite: _MC/Effects/Beams/weakening.rsi
+      state: beam
+    head:
+      sprite: _MC/Effects/Beams/weakening.rsi
+      state: muzzle_beam
+  - type: Projectile
+    damage:
+      types: null
+  - type: MCStaminaDamageOnCollide
+    damage: 10
+  - type: MCXenoPlasmaDamageOnHit
+    multiplier: 0.05

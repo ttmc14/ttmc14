@@ -1,0 +1,192 @@
+- type: entity
+  parent:
+  - MCWeaponRifle
+  - MCWeaponMagazineVisuals
+  id: MCWeaponRifleRailgun
+  name: RG-220 railgun
+  description: The RG-220 is a specialized heavy duty railgun made to shred through hard armor to allow for follow up attacks. Uses specialized canisters to reload.
+  components:
+  # Visuals
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Rifles/railgun/inhands.rsi
+    layers:
+    - state: base
+      sprite: _MC/Objects/Weapons/Guns/Rifles/railgun/icon.rsi
+      map: [ "enum.GunVisualLayers.Base" ]
+    - state: mag-0
+      sprite: _MC/Objects/Weapons/Guns/Rifles/railgun/icon.rsi
+      map: [ "enum.GunVisualLayers.Mag" ]
+  - type: Clothing
+    sprite: _MC/Objects/Weapons/Guns/Rifles/railgun/inhands.rsi
+  # Statistics
+  - type: ShootUseDelay
+  - type: GunRequiresWield
+  - type: Gun
+    selectedMode: SemiAuto
+    soundGunshot:
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_dmr37.ogg
+  - type: RMCSelectiveFire
+    baseFireRate: 0.5
+    baseFireModes:
+    - SemiAuto
+    recoilWielded: 3
+    recoilUnwielded: 3
+    scatterWielded: 0
+    scatterUnwielded: 0
+  - type: WieldDelay
+    baseDelay: 2
+  - type: MeleeWeapon
+    damage:
+      types:
+        MCBrute: 40
+  # Modifiers
+  - type: ItemSlots
+    slots:
+      gun_magazine:
+        name: Magazine
+        startingItem: MCMagazineRifleRailgun
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/t18_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t18_unload.ogg
+        priority: 2
+        whitelist:
+          tags:
+          - MCMagazineRifleRailgun
+  - type: WieldableSpeedModifiers
+    base: 1
+  - type: RMCWeaponAccuracy
+    accuracyMultiplier: 2
+    accuracyMultiplierUnwielded: 2
+  - type: RMCWeaponDamageFalloff
+    falloffMultiplier: 1
+  # Attachable
+  - type: AttachableHolder
+    slots:
+      mc-attachment-rail:
+        whitelist:
+          tags:
+          - MCAttachmentMagneticHarness
+          - MCAttachmentMiniScope
+          - MCAttachmentT47RailScope
+  - type: AttachableHolderVisuals
+    offsets:
+      mc-attachment-barrel: 0.718750, 0.062500
+      mc-attachment-underbarrel: 0.312500, -0.125000
+      mc-attachment-stock: -0.625000, 0.000000
+      mc-attachment-rail: -0.093750, 0.281250
+
+- type: entity
+  parent: MCMagazineRifle
+  id: MCMagazineRifleRailgun
+  name: railgun canister (Armor Piercing Discarding Sabot)
+  description: A canister holding a tungsten projectile to be used inside a railgun. APDS is written across the canister. This round will penetrate through most armor, but will not leave much of a hole.
+  components:
+  - type: Tag
+    tags:
+    - MCMagazineRifle
+    - MCMagazineRifleRailgun
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/Railgun/base.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeRifleRailgun
+    proto: MCCartridgeRifleRailgun
+    capacity: 1
+
+- type: Tag
+  id: MCMagazineRifleRailgun
+
+- type: entity
+  parent: MCMagazineRifleRailgun
+  id: MCMagazineRifleRailgunHvap
+  name: railgun canister (High Velocity Armor Piericing)
+  description: A canister holding a tungsten projectile to be used inside a railgun. HVAP is written across the canister. This round has less punching power than other railgun canister types, but will leave a sizeable hole in the targets armor.
+  components:
+  - type: Sprite
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/Railgun/hvap.rsi
+  - type: BallisticAmmoProvider
+    whitelist:
+      tags:
+      - MCCartridgeRifleRailgunHvap
+    proto: MCCartridgeRifleRailgunHvap
+    capacity: 1
+
+- type: entity
+  parent: MCCartridge
+  id: MCCartridgeRifleRailgun
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeRifleRailgun
+  - type: CartridgeAmmo
+    proto: MCBulletRifleRailgun
+
+- type: Tag
+  id: MCCartridgeRifleRailgun
+
+- type: entity
+  parent: MCCartridgeRifleRailgun
+  id: MCCartridgeRifleRailgunHvap
+  categories: [ HideSpawnMenu ]
+  components:
+  - type: Tag
+    tags:
+    - MCCartridge
+    - MCCartridgeRifleRailgunHvap
+  - type: CartridgeAmmo
+    proto: MCBulletRifleRailgunHvap
+
+- type: Tag
+  id: MCCartridgeRifleRailgunHvap
+
+- type: entity
+  parent: MCBullet
+  id: MCBulletRifleRailgun
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 150
+  - type: CMArmorPiercing
+    amount: 100
+  - type: MCXenoSunderDamageOnHit
+    amount: 20
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 14
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+  - type: MCStunOnHit
+    maxDistance: 14
+    paralyzeTime: 2
+    slowdownTime: 2
+    staggerTime: 4
+    knockback: 2
+
+- type: entity
+  parent: MCBulletRifleRailgun
+  id: MCBulletRifleRailgunHvap
+  components:
+  - type: Projectile
+    damage:
+      types:
+        MCBrute: 100
+  - type: CMArmorPiercing
+    amount: 30
+  - type: MCXenoSunderDamageOnHit
+    amount: 50
+  - type: RMCProjectileDamageFalloff
+    thresholds:
+    - range: 21
+      falloff: 9999
+      ignoreModifiers: true
+  - type: RMCProjectileAccuracy
+    accuracy: 100
+  - type: MCStunOnHit
+    maxDistance: 21
+    staggerTime: 4
+    knockback: 3

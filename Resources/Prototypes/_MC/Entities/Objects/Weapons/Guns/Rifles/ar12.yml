@@ -97,7 +97,7 @@
           - MCAttachmentBurstFireAssembly
           - MCAttachmentUnderbarrelShotgun
           # - TODO: Attached TX-7
-          # - TODO: PepperBall mini
+          - MCAttachmentUnderbarrelWeaponPepperball
   - type: AttachableHolderVisuals
     offsets:
       mc-attachment-barrel: 0.718750, 0.062500

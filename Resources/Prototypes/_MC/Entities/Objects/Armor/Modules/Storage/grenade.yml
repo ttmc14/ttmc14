@@ -1,0 +1,29 @@
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageGrenade
+  name: grenade Storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Can hold a respectable amount of grenades."
+  components:
+  - type: Sprite
+    state: mod_grenade_harness
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_grenade_harness_a
+    components:
+    - type: Storage
+      maxItemSize: Small
+      grid:
+      - 0,0,17,1 # 9 slots
+      whitelist:
+        tags:
+        - MCGrenade
+    - type: FixedItemSizeStorage
+  - type: Storage
+    maxItemSize: Small
+    grid:
+    - 0,0,17,1 # 9 slots
+    whitelist:
+      tags:
+      - MCGrenade
+  - type: FixedItemSizeStorage

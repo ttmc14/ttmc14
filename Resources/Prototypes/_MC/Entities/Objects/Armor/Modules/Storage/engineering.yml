@@ -1,0 +1,60 @@
+- type: entity
+  parent: MCArmorModuleStorage
+  id: MCArmorModuleStorageEngineering
+  name: engineering storage module
+  description: "Designed for mounting on the TGMC's modular armor systems. Can hold about as much as a tool pouch, and sometimes small spools of things like barbed wire, or an entrenching tool."
+  components:
+  - type: Sprite
+    state: mod_engineer_bag
+  - type: MCArmorModule
+    visuals:
+      sprite: _MC/Clothing/modular.rsi
+      state: mod_engineer_bag_a
+    components:
+    - type: Storage
+      maxItemSize: Huge
+      grid:
+      - 0,0,9,1 # 5 slots
+      whitelist:
+        tags:
+        - Sheet
+        - RodMetal1
+        - CableCoil
+        - RazorwireX
+        - MCGrenadeRazorburn
+        - Crowbar
+        - Wirecutter
+        - Screwdriver
+        - Wrench
+        - Multitool
+        - MCPowerCell
+        - C4
+        components:
+        - Welder
+        - BarbedWire
+        - EntrenchingTool
+        - EmptySandbag
+    - type: FixedItemSizeStorage
+  - type: Storage
+    maxItemSize: Huge
+    grid:
+    - 0,0,9,1 # 5 slots
+    whitelist:
+      tags:
+      - Sheet
+      - RodMetal1
+      - CableCoil
+      - RazorwireX
+      - MCGrenadeRazorburn
+      - Crowbar
+      - Wirecutter
+      - Screwdriver
+      - Wrench
+      - Multitool
+      - MCPowerCell
+      components:
+      - Welder
+      - BarbedWire
+      - EntrenchingTool
+      - EmptySandbag
+  - type: FixedItemSizeStorage

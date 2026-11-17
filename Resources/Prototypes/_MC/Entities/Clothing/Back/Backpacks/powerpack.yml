@@ -1,0 +1,33 @@
+- type: entity
+  parent: MCItem
+  id: MCBackpackPowerpack
+  name: te powerbackpack
+  description: A recently developed mass produced backpack which charges any TE technological achievement.
+  components:
+  - type: Appearance
+  - type: Sprite
+    sprite: _MC/Clothing/Back/Backpacks/Marines/powerpack.rsi
+    layers:
+    - state: base
+    - state: o4
+      map: [ "power" ]
+      shader: unshaded
+  - type: Clothing
+    sprite: _MC/Clothing/Back/Backpacks/Marines/powerpack.rsi
+    quickEquip: false
+    slots:
+    - back
+  - type: Item
+    size: Large
+  - type: MCBattery
+    charge: 72000
+    maxCharge: 72000
+  - type: MCBatteryVisuals
+    prefix: o
+    levels: 4
+  - type: MCPowerpack
+
+- type: entity
+  parent: MCBackpackPowerpack
+  id: MCBackpackPowerpackEmpty
+  suffix: Empty

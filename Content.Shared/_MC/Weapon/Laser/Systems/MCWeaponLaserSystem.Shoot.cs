@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Content.Shared._MC.Weapon.Laser.Components;
+using Content.Shared.Damage.Components;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
 using Content.Shared.Weapons.Ranged.Components;
@@ -14,6 +15,9 @@ public sealed partial class MCWeaponLaserSystem
 {
     public void Shoot(Entity<MCWeaponLaserComponent> entity, Entity<GunComponent> gunEntity, EntityUid? user, EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates)
     {
+        if (_net.IsClient)
+            return;
+
         if (!TryGetAmmo(entity, out var ammoEntity))
         {
             // Popup(Loc.GetString("mc-weapon-laser-failed-no-ammo"));
@@ -26,13 +30,10 @@ public sealed partial class MCWeaponLaserSystem
             return;
         }
 
-        if (!_mcProvidingBattery.Supported)
-            return;
-
         // For the sake of simplicity, instead of the cost per shot,
         // we'll specify the total number of shots and calculate the cost ourselves
-        var fireCost = mode.Consumption ?? _mcProvidingBattery.GetMaxCharge(ammoEntity) / mode.Shots;
-        var charge = _mcProvidingBattery.GetCharge(ammoEntity);
+        var fireCost = mode.Consumption ?? _mcBattery.GetMaxCharge(ammoEntity.Owner) / mode.Shots;
+        var charge = _mcBattery.GetCharge(ammoEntity.Owner);
 
         if (charge < fireCost)
         {
@@ -41,7 +42,7 @@ public sealed partial class MCWeaponLaserSystem
         }
 
         _audio.PlayPvs(gunEntity.Comp.SoundGunshotModified, gunEntity); // _audio.PlayPredicted(gunEntity.Comp.SoundGunshotModified, gunEntity, user);
-        _mcProvidingBattery.SetCharge(ammoEntity, charge - fireCost);
+        _mcBattery.SetCharge(ammoEntity.Owner, charge - fireCost);
 
         UpdateShots(entity);
 
@@ -57,6 +58,15 @@ public sealed partial class MCWeaponLaserSystem
             return;
 
         var result = rayCastResults[0];
+        foreach (var collide in rayCastResults)
+        {
+            if (collide.HitEntity != gunEntity.Comp.Target && CompOrNull<RequireProjectileTargetComponent>(collide.HitEntity)?.Active == true)
+                continue;
+
+            result = collide;
+            break;
+        }
+
         var hit = result.HitEntity;
         var hitCoordinates = Transform(hit).Coordinates;
 
@@ -66,10 +76,12 @@ public sealed partial class MCWeaponLaserSystem
         var projectileUid = SpawnAtPosition(mode.ProjectileId, fromCoordinates);
         ShootProjectile(projectileUid, gunEntity, user, out var physicsComponent, out var projectileComponent);
 
-        RaiseLocalEvent(entity, new AmmoShotEvent
-        {
-            FiredProjectiles = new List<EntityUid> { projectileUid },
-        });
+        RaiseLocalEvent(entity,
+            new AmmoShotEvent
+            {
+                FiredProjectiles = new List<EntityUid> { projectileUid },
+            }
+        );
 
         _projectile.ProjectileCollide((projectileUid, projectileComponent, physicsComponent), hit);
 
