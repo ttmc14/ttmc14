@@ -71,7 +71,7 @@
 - type: entity
   parent: MCAreaIceCavesGround
   id: MCAreaIceCavesLandingZone1
-  name: Первая зона посадки
+  name: ent-MCAreaIceCavesLandingZone1
   components:
   - type: Sprite
     state: landingzone1
@@ -81,7 +81,7 @@
 - type: entity
   parent: MCAreaIceCavesGround
   id: MCAreaIceCavesLandingZone2
-  name: Вторая зона посадки
+  name: ent-MCAreaIceCavesLandingZone2
   components:
   - type: Sprite
     state: landingzone2
@@ -91,7 +91,7 @@
 - type: entity
   parent: MCAreaIceCavesGround
   id: MCAreaIceCavesOutpostOutside
-  name: Улица Колонии
+  name: ent-MCAreaIceCavesOutpostOutside
   components:
   - type: Sprite
     state: blue # Its Red
@@ -101,7 +101,7 @@
 - type: entity
   parent: MCAreaIceCavesGround
   id: MCAreaIceCavesOutpostOutsideCenter
-  name: Центральная улица Колонии
+  name: ent-MCAreaIceCavesOutpostOutsideCenter
   components:
   - type: Sprite
     state: blue # Its Red
@@ -113,7 +113,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesAway4Caves
-  name: Пещера
+  name: ent-MCAreaIceCavesAway4Caves
   components:
   - type: Sprite
     state: away4
@@ -123,7 +123,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesEastCaves
-  name: Восточные пещеры
+  name: ent-MCAreaIceCavesEastCaves
   components:
   - type: Sprite
     state: cave
@@ -133,7 +133,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesNorthCaves
-  name: Северные пещеры
+  name: ent-MCAreaIceCavesNorthCaves
   components:
   - type: Sprite
     state: cave
@@ -143,7 +143,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesWestCaves
-  name: Западные пещеры
+  name: ent-MCAreaIceCavesWestCaves
   components:
   - type: Sprite
     state: cave
@@ -153,7 +153,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSouthCaves
-  name: Южные пещеры
+  name: ent-MCAreaIceCavesSouthCaves
   components:
   - type: Sprite
     state: cave
@@ -165,7 +165,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesGarage
-  name: Гараж
+  name: ent-MCAreaIceCavesGarage
   components:
   - type: Sprite
     state: garage
@@ -175,7 +175,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesKitchen
-  name: Кухня
+  name: ent-MCAreaIceCavesKitchen
   components:
   - type: Sprite
     state: kitchen
@@ -185,7 +185,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesDormitory
-  name: Спальня
+  name: ent-MCAreaIceCavesDormitory
   components:
   - type: Sprite
     state: maint_dormitory # Its not Mainteinance of Dormitory
@@ -195,7 +195,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesRefinery
-  name: Здание Переработки
+  name: ent-MCAreaIceCavesRefinery
   components:
   - type: Sprite
     state: purple
@@ -205,7 +205,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesMedbay
-  name: Медицинский блок
+  name: ent-MCAreaIceCavesMedbay
   components:
   - type: Sprite
     state: medbay
@@ -215,7 +215,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesOffices
-  name: Офисы
+  name: ent-MCAreaIceCavesOffices
   components:
   - type: Sprite
     state: yellow
@@ -225,7 +225,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesMiningWest
-  name: Западное здание шахтёров
+  name: ent-MCAreaIceCavesMiningWest
   components:
   - type: Sprite
     state: blue
@@ -235,7 +235,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesMiningEast
-  name: Восточное здание шахтёров
+  name: ent-MCAreaIceCavesMiningEast
   components:
   - type: Sprite
     state: blue
@@ -245,7 +245,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecurity
-  name: Здание охраны
+  name: ent-MCAreaIceCavesSecurity
   components:
   - type: Sprite
     state: security
@@ -255,7 +255,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesEngineering
-  name: Здание инженерного отдела
+  name: ent-MCAreaIceCavesEngineering
   components:
   - type: Sprite
     state: engine_smes
@@ -265,7 +265,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesResearchPost
-  name: Научный Пост
+  name: ent-MCAreaIceCavesResearchPost
   components:
   - type: Sprite
     state: purple
@@ -277,7 +277,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesCavesBrig
-  name: Пещерный Блок Охраны
+  name: ent-MCAreaIceCavesCavesBrig
   components:
   - type: Sprite
     state: icy_cavesbrig
@@ -287,7 +287,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesCavesChapel
-  name: Пещерная Церковь Нар'Си
+  name: ent-MCAreaIceCavesCavesChapel
   components:
   - type: Sprite
     state: icy_chapel
@@ -297,7 +297,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesCavesUndergroundCafe
-  name: Подземное кафе
+  name: ent-MCAreaIceCavesCavesUndergroundCafe
   components:
   - type: Sprite
     state: icy_undercaf
@@ -307,7 +307,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesCavesAlienStuff
-  name: Выставка «Внеземные организмы и растительная жизнь»
+  name: ent-MCAreaIceCavesCavesAlienStuff
   components:
   - type: Sprite
     state: icy_alienstuff
@@ -317,7 +317,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesCavesVault
-  name: Пещерное Хранилище Оружия
+  name: ent-MCAreaIceCavesCavesVault
   components:
   - type: Sprite
     state: icy_vault
@@ -329,7 +329,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesCrashedShip
-  name: Разбитый корабль
+  name: ent-MCAreaIceCavesCrashedShip
   components:
   - type: Sprite
     state: blue
@@ -341,7 +341,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesNorthWesternStationMonoRail
-  name: Северо-западная станция монорельса
+  name: ent-MCAreaIceCavesNorthWesternStationMonoRail
   components:
   - type: Sprite
     state: purple
@@ -351,7 +351,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesNorthWesternStationMonoRailHallway
-  name: Холл Северо-западной станции монорельса
+  name: ent-MCAreaIceCavesNorthWesternStationMonoRailHallway
   components:
   - type: Sprite
     state: purple
@@ -361,7 +361,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesNorthWesternStationMonoRailMedbay
-  name: Медицинский блок Северо-западной станции монорельса
+  name: ent-MCAreaIceCavesNorthWesternStationMonoRailMedbay
   components:
   - type: Sprite
     state: purple
@@ -371,7 +371,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesNorthWesternStationMonoRailMorgue
-  name: Морг Северо-западной станции монорельса
+  name: ent-MCAreaIceCavesNorthWesternStationMonoRailMorgue
   components:
   - type: Sprite
     state: purple
@@ -381,7 +381,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesNorthWesternStationMonoRailBreakRoom
-  name: Столовая Северо-западной станции монорельса
+  name: ent-MCAreaIceCavesNorthWesternStationMonoRailBreakRoom
   components:
   - type: Sprite
     state: purple
@@ -393,7 +393,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorMedbay
-  name: Медицинский блок второго этажа
+  name: ent-MCAreaIceCavesSecondFloorMedbay
   components:
   - type: Sprite
     state: medbay
@@ -403,7 +403,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorMedbayChemLab
-  name: Химическая лаборатория второго этажа
+  name: ent-MCAreaIceCavesSecondFloorMedbayChemLab
   components:
   - type: Sprite
     state: medbay
@@ -413,7 +413,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorMedbayOperationRoom
-  name: Операционная второго этажа
+  name: ent-MCAreaIceCavesSecondFloorMedbayOperationRoom
   components:
   - type: Sprite
     state: medbay
@@ -423,7 +423,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorDormitoryHallway
-  name: Холл спален второго этажа
+  name: ent-MCAreaIceCavesSecondFloorDormitoryHallway
   components:
   - type: Sprite
     state: maint_dormitory
@@ -433,7 +433,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorDormitoryRoomOneTwo
-  name: Комната 1-2 второго этажа
+  name: ent-MCAreaIceCavesSecondFloorDormitoryRoomOneTwo
   components:
   - type: Sprite
     state: maint_dormitory
@@ -443,7 +443,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorDormitoryRoomThreeFour
-  name: Комната 3-4 второго этажа
+  name: ent-MCAreaIceCavesSecondFloorDormitoryRoomThreeFour
   components:
   - type: Sprite
     state: maint_dormitory
@@ -453,7 +453,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorSecurityOffice
-  name: Офис охраны Второго этажа
+  name: ent-MCAreaIceCavesSecondFloorSecurityOffice
   components:
   - type: Sprite
     state: security
@@ -463,7 +463,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorRefinery
-  name: Второй этаж здания Переработки
+  name: ent-MCAreaIceCavesSecondFloorRefinery
   components:
   - type: Sprite
     state: purple
@@ -473,7 +473,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorOffices
-  name: Офисы второго этажа
+  name: ent-MCAreaIceCavesSecondFloorOffices
   components:
   - type: Sprite
     state: yellow
@@ -483,7 +483,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorEngineering
-  name: Инженерный отдел второго этажа
+  name: ent-MCAreaIceCavesSecondFloorEngineering
   components:
   - type: Sprite
     state: engine_smes
@@ -493,7 +493,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorGarage
-  name: Складское помещение-Гараж второго этажа
+  name: ent-MCAreaIceCavesSecondFloorGarage
   components:
   - type: Sprite
     state: garage
@@ -503,7 +503,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesSecondFloorResearchSpecialPost
-  name: Наблюдательный пост Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorResearchSpecialPost
   components:
   - type: Sprite
     state: purple
@@ -515,7 +515,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchHallway
-  name: Холл Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchHallway
   components:
   - type: Sprite
     state: purple
@@ -525,7 +525,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchArtifactRoom
-  name: Комната с артефактами Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchArtifactRoom
   components:
   - type: Sprite
     state: purple
@@ -535,7 +535,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchDormitory
-  name: Спальня Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchDormitory
   components:
   - type: Sprite
     state: purple
@@ -545,7 +545,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchResearchLab
-  name: Лаборатория Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchResearchLab
   components:
   - type: Sprite
     state: purple
@@ -555,7 +555,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchOfficeRD
-  name: Офис RD Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchOfficeRD
   components:
   - type: Sprite
     state: purple
@@ -565,7 +565,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchServerRoom
-  name: Серверная Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchServerRoom
   components:
   - type: Sprite
     state: purple
@@ -575,7 +575,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchCheckpoint
-  name: Контрольно-пропускной пункт Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchCheckpoint
   components:
   - type: Sprite
     state: blue # Its Red
@@ -585,7 +585,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchCheckpointEmergency
-  name: Экстреный Контрольно-пропускной пункт Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchCheckpointEmergency
   components:
   - type: Sprite
     state: blue # Its Red
@@ -595,7 +595,7 @@
 - type: entity
   parent: MCAreaIceCavesUnderground
   id: MCAreaIceCavesSecondFloorCavesResearchKitchen
-  name: Кухня Научного отдела второго этажа
+  name: ent-MCAreaIceCavesSecondFloorCavesResearchKitchen
   components:
   - type: Sprite
     state: purple
@@ -607,7 +607,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesRoofOne
-  name: Крыша здания
+  name: ent-MCAreaIceCavesRoofOne
   components:
   - type: Sprite
     state: blue2
@@ -617,7 +617,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesRoofTwo
-  name: Крыша здания
+  name: ent-MCAreaIceCavesRoofTwo
   components:
   - type: Sprite
     state: blue2
@@ -627,7 +627,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesRoofThree
-  name: Крыша здания
+  name: ent-MCAreaIceCavesRoofThree
   components:
   - type: Sprite
     state: blue2
@@ -637,7 +637,7 @@
 - type: entity
   parent: MCAreaIceCavesBuilding
   id: MCAreaIceCavesRoofFour
-  name: Крыша здания
+  name: ent-MCAreaIceCavesRoofFour
   components:
   - type: Sprite
     state: blue2

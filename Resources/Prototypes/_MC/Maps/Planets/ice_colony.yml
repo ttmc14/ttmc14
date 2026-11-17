@@ -1,6 +1,6 @@
 - type: entity
   id: MCPlanetIceColony
-  name: Ice Colony
+  name: ent-MCPlanetIceColony
   components:
   - type: RMCPlanetMapPrototype
     map: /Maps/_MC/Planets/IceColony/ice_colony0.yml

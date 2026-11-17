@@ -1,5 +1,28 @@
 - type: entity
-  parent: MCAreaShip
+  parent: MCArea
+  id: MCAreaCanterburyBase
+  abstract: true
+  components:
+  - type: Sprite
+    sprite: _MC/Areas/ship.rsi
+    state: almayer
+  - type: Area
+    CAS: true
+    fulton: true
+    mortarPlacement: true # TGMC13 Parity
+    mortarFire: true
+    lasing: false
+    medevac: false
+    OB: true
+    supplyDrop: true
+    powerNet: almayer
+    hijackEvacuationArea: false
+    hijackEvacuationWeight: 0
+    hijackEvacuationType: None
+  - type: IntelRescueSurvivorArea
+
+- type: entity
+  parent: MCAreaCanterburyBase
   id: MCAreaShipCanterbury
   name: Canterbury
   components:

@@ -1,7 +1,7 @@
 # TODO: cursed map lol
 # - type: entity
 #   id: MCPlanetBarrenquillaMining
-#   name: Горнодобывающая промышленность Барранкильи
+#   name: ent-MCPlanetBarrenquillaMining
 #   components:
 #   - type: RMCPlanetMapPrototype
 #     map: /Maps/_MC/barrenquilla_mining.yml

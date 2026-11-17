@@ -1,6 +1,6 @@
 - type: entity
   id: MCPlanetJungleTemple
-  name: Храм в джунглях
+  name: ent-MCPlanetJungleTemple
   components:
   - type: RMCPlanetMapPrototype
     map: /Maps/_MC/Planets/JungleTemple/jungle_temple0.yml

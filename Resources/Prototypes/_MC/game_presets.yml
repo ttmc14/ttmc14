@@ -18,3 +18,14 @@
   showInVote: true
   rules:
   - MCDistressSignal
+
+- type: gamePreset
+  id: MCDefendSignal
+  alias:
+  - mcdefendsignal
+  - mcdefend
+  name: mc-defend-signal-title
+  description: mc-defend-signal-description
+  showInVote: true
+  rules:
+  - MCPVEDefendLowPop

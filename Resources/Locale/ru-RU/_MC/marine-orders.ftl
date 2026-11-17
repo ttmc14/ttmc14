@@ -1,4 +1,4 @@
-attack-order-callout-1 = МАРИНЦЫ, БОРИТЕСЬ! СТРЕЛЯЙТЕ! УБИВАЙТЕ!!
+attack-order-callout-1 = МАРИНЫ, БОРИТЕСЬ! СТРЕЛЯЙТЕ! УБИВАЙТЕ!!
 attack-order-callout-2 = УНИЧТОЖЬТЕ ИХ!
 attack-order-callout-3 = ЗАСТРЕЛЬТЕ ИХ!
 attack-order-callout-4 = ПОКОНЧИТЕ С НИМИ!

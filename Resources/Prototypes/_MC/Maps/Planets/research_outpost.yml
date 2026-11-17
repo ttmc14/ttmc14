@@ -1,6 +1,6 @@
 - type: entity
   id: MCPlanetResearchOutpost
-  name: Исследовательский форпост
+  name: ent-MCPlanetResearchOutpost
   components:
   - type: RMCPlanetMapPrototype
     map: /Maps/_MC/Planets/ResearchOutpost/research_outpost0.yml

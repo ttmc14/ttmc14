@@ -1,6 +1,6 @@
 - type: entity
   id: MCPlanetMilitaryOutpostOrion
-  name: Военный аванпост "Орион"
+  name: ent-MCPlanetMilitaryOutpostOrion
   components:
   - type: RMCPlanetMapPrototype
     map: /Maps/_MC/Planets/MilitaryOutpostOrion/outpost_Orion.yml

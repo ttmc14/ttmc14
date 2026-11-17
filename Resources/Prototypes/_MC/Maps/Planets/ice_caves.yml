@@ -1,6 +1,6 @@
 - type: entity
   id: MCPlanetIceCaves
-  name: Ледяные пещеры
+  name: ent-MCPlanetIceCaves
   components:
   - type: RMCPlanetMapPrototype
     map: /Maps/_MC/Planets/IceCaves/ice_caves0.yml
