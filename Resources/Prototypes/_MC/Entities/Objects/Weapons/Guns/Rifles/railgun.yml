@@ -24,7 +24,7 @@
   - type: Gun
     selectedMode: SemiAuto
     soundGunshot:
-      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_dmr37.ogg
+      path: /Audio/_MC/Weapons/Guns/Gunshots/gun_railgun.ogg
   - type: RMCSelectiveFire
     baseFireRate: 0.5
     baseFireModes:
@@ -45,8 +45,8 @@
       gun_magazine:
         name: Magazine
         startingItem: MCMagazineRifleRailgun
-        insertSound: /Audio/_MC/Weapons/Guns/Reload/t18_reload.ogg
-        ejectSound: /Audio/_MC/Weapons/Guns/Reload/t18_unload.ogg
+        insertSound: /Audio/_MC/Weapons/Guns/Reload/sniper_reload.ogg
+        ejectSound: /Audio/_MC/Weapons/Guns/Reload/sniper_unload.ogg
         priority: 2
         whitelist:
           tags:
