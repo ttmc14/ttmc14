@@ -206,13 +206,18 @@ public sealed partial class MCMinerSystem : EntitySystem
 
     private void OnIntegrityTriggered(Entity<MCMinerComponent> entity, ref MCIntegrityTriggeredEvent args)
     {
-        entity.Comp.State = args.IntegrityId.Id switch
+        var state = args.IntegrityId.Id switch
         {
             "MinerSmallDamaged" => MCMinerState.SmallDamage,
             "MinerMediumDamaged" => MCMinerState.MediumDamage,
             "MinerDestroyed" => MCMinerState.Destroyed,
-            _ => throw new ArgumentOutOfRangeException(),
+            _ => MCMinerState.None,
         };
+
+        if (state == MCMinerState.None)
+            return;
+
+        entity.Comp.State = state;
 
         UpdateMapIcon(entity);
         UpdateAppearance(entity);

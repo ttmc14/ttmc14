@@ -105,6 +105,8 @@ public enum MCMinerLayers
 [Serializable, NetSerializable]
 public enum MCMinerState : byte
 {
+    None,
+
     Running,
 
     /// <summary>
