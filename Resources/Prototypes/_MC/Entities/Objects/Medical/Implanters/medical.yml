@@ -11,7 +11,7 @@
   - type: MCSkillInjector
     skill: MCSkillMedical
     level: 1
-    levelMax: 3
+    levelMax: 4
 
 - type: entity
   parent: MCImplantSkill
