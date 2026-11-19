@@ -19,6 +19,7 @@
   # Statistics
   - type: Gun
     shotsPerBurst: 3
+    burstCooldown: 0.60
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_smg45.ogg
   - type: RMCSelectiveFire
@@ -31,11 +32,12 @@
     recoilUnwielded: 0.6
     scatterWielded: 9
     scatterUnwielded: 20
+    burstFireRateMultiplier: 2.14
     modifiers:
       Burst:
-        fireDelay: 0.2
+        fireDelay: 0
         unwieldedScatterMultiplier: 1
-        shotsToMaxScatter: null
+        shotsToMaxScatter: 4
   - type: ItemSlots
     slots:
       gun_magazine:

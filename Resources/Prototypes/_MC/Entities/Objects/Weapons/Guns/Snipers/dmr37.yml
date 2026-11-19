@@ -21,18 +21,27 @@
   # Statistics
   - type: Gun
     shotsPerBurst: 1
+    burstCooldown: 1.678
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_dmr37.ogg
   - type: RMCSelectiveFire
     baseFireModes:
     - FullAuto
     baseFireRate: 1.5
+    burstFireRateMultiplier: 6.67
     # Scatter
     scatterWielded: -4
     scatterUnwielded: 26
     # Recoil
     recoilWielded: 0
     recoilUnwielded: 0
+    modifiers:
+      Burst:
+        fireDelay: 0
+        maxScatterModifier: 0.5 
+        useBurstScatterMult: false
+        unwieldedScatterMultiplier: 1
+        shotsToMaxScatter: 2
   - type: ItemSlots
     slots:
       gun_magazine:

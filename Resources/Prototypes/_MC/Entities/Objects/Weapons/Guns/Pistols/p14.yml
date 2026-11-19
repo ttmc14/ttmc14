@@ -18,7 +18,8 @@
       types:
         MCBrute: 8
   - type: Gun
-    shotsPerBurst: 1
+    shotsPerBurst: 3
+    burstCooldown: 0.232
     availableModes:
     - FullAuto
     soundGunshot:
@@ -28,19 +29,20 @@
     - FullAuto
     recoilWielded: 1
     recoilUnwielded: 1
-    scatterWielded: -4
-    scatterUnwielded: 8
+    scatterWielded: -2
+    scatterUnwielded: 4
     baseFireRate: 6.6
+    burstFireRateMultiplier: 1.32
     modifiers:
       Burst:
-        fireDelay: 0.1665
-        maxScatterModifier: 10
+        fireDelay: 0
+        maxScatterModifier: 3
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
-        shotsToMaxScatter: 6
+        shotsToMaxScatter: 4
       FullAuto:
         fireDelay: 0
-        maxScatterModifier: 8
+        maxScatterModifier: 4
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
         shotsToMaxScatter: 4
