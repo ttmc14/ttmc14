@@ -21,6 +21,7 @@
   # Statistics
   - type: Gun
     shotsPerBurst: 3
+    burstCooldown: 0.46
     selectedMode: FullAuto
     soundGunshot:
       collection: MCAR12Shoot
@@ -38,9 +39,9 @@
     # Modifiers
     modifiers:
       Burst:
-        fireDelay: 0.15
+        fireDelay: 0
         unwieldedScatterMultiplier: 1
-        shotsToMaxScatter: null
+        shotsToMaxScatter: 4
   - type: ItemSlots
     slots:
       gun_magazine:

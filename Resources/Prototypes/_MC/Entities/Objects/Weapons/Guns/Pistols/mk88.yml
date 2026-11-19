@@ -20,6 +20,7 @@
   - type: Gun
     selectedMode: FullAuto
     shotsPerBurst: 3
+    burstCooldown: 0.48
     availableModes:
     - FullAuto
     - Burst
@@ -36,14 +37,14 @@
     scatterWielded: -8
     scatterUnwielded: 26
     baseFireRate: 5
-    burstFireRateMultiplier: 2
+    burstFireRateMultiplier: 2.4
     modifiers:
       Burst:
-        fireDelay: 0.1665
-        maxScatterModifier: 10
+        fireDelay: 0
+        maxScatterModifier: 6.67
         useBurstScatterMult: true
         unwieldedScatterMultiplier: 2
-        shotsToMaxScatter: 6
+        shotsToMaxScatter: 4
       FullAuto:
         fireDelay: 0
         maxScatterModifier: 8

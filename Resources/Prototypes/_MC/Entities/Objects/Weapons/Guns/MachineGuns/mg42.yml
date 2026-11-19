@@ -22,6 +22,7 @@
       gun_chamber: !type:ContainerSlot
   - type: Gun
     shotsPerBurst: 5
+    burstCooldown: 0.65
     selectedMode: FullAuto
     availableModes:
     - Burst
@@ -41,10 +42,11 @@
     scatterWielded: 2
     scatterUnwielded: 25
     baseFireRate: 5
+    burstFireRateMultiplier: 3.0
     burstScatterMult: 3
     modifiers:
       Burst:
-        fireDelay: 4
+        fireDelay: 0.03
         maxScatterModifier: 10
         unwieldedScatterMultiplier: 0
         shotsToMaxScatter: 6
@@ -87,6 +89,7 @@
       rmc-aslot-underbarrel:
         whitelist:
           tags:
+          - MCAttachmentBurstFireAssembly
           - MCAttachmentLaserSight
           - MCAttachmentVerticalGrip
           - MCAttachmentBipod

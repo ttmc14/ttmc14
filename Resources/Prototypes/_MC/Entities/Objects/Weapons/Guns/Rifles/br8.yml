@@ -20,7 +20,8 @@
     sprite: _MC/Objects/Weapons/Guns/Rifles/br8/inhands.rsi
   # Statistics
   - type: Gun
-    shotsPerBurst: 1
+    shotsPerBurst: 2
+    burstCooldown: 0.543
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_br64.ogg
   - type: GunIFF
@@ -29,11 +30,19 @@
     baseFireModes:
     - FullAuto
     baseFireRate: 2.5
+    burstFireRateMultiplier: 1.33
     # Scatter and recoil
     recoilWielded: 1
     recoilUnwielded: 0.6
     scatterWielded: 6
     scatterUnwielded: 24
+    modifiers:
+      Burst:
+        fireDelay: 0
+        maxScatterModifier: 8
+        useBurstScatterMult: true
+        unwieldedScatterMultiplier: 2
+        shotsToMaxScatter: 3
   - type: ItemSlots
     slots:
       gun_magazine:
