@@ -775,7 +775,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                     break;
                 case MCWeaponLaserComponent mcLaser:
                     if (ent != null)
-                        _mcWeaponLaser.Shoot((ent.Value, mcLaser), (gunUid, gun), user, fromCoordinates, toCoordinates);
+                        _mcWeaponLaser.Shoot((ent.Value, mcLaser), (gunUid, gun), user, fromCoordinates, toCoordinates,
+                            GunPrediction && !HasComp<GunIgnorePredictionComponent>(gunUid) ? userSession : null);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

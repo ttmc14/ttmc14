@@ -12,7 +12,7 @@ public sealed class MCLineEffectSystem : EntitySystem
     {
         base.Initialize();
 
-        SubscribeNetworkEvent<MCLineEffectEvent>(OnEffect);
+        SubscribeAllEvent<MCLineEffectEvent>(OnEffect);
     }
 
     private void OnEffect(MCLineEffectEvent ev)
