@@ -1,48 +1,43 @@
-﻿using Content.Client._MC.Serialization.Loadout;
+﻿using System.Threading.Tasks;
+using Content.Client._MC.Serialization.Loadout;
 using Content.Shared._MC.Engineering.Vending.UI.Messages;
-using Content.Shared._MC.Serialization.Loadout;
 using JetBrains.Annotations;
 using Robust.Client.UserInterface;
-using Robust.Client.UserInterface.Controls;
 
 namespace Content.Client._MC.Vending.UI;
 
 [UsedImplicitly]
 public sealed class MCVendorQuickEquipBui(EntityUid owner, Enum uiKey) : BoundUserInterface(owner, uiKey)
 {
-    [Dependency] private readonly IEntityManager _entities = null!;
-
-    private MCLoadoutExporterSystem _mcLoadoutExporter = null!;
-
-    [ViewVariables]
-    private MCVendorQuickEquip? _window;
-
     protected override void Open()
     {
         base.Open();
 
-        _mcLoadoutExporter = _entities.System<MCLoadoutExporterSystem>();
-
-        _window = this.CreateWindow<MCVendorQuickEquip>();
-
-        _window.ExportButton.OnPressed += OnExportPressed;
-        _window.ImportButton.OnPressed += OnImportPressed;
+        var exporter = EntMan.System<MCLoadoutExporterSystem>();
+        var window = this.CreateWindow<MCVendorQuickEquip>();
+        window.OnVend += loadout => SendMessage(new MCVendorQuickEquipVendMessage(loadout));
+        window.ExportButton.OnPressed += _ => exporter.ExportSelf();
+        window.ImportButton.OnPressed += async _ => await ImportLoadout(window, exporter);
     }
 
-    private void OnExportPressed(BaseButton.ButtonEventArgs obj)
+    private static async Task ImportLoadout(MCVendorQuickEquip window, MCLoadoutExporterSystem exporter)
     {
-        _ = _mcLoadoutExporter.ExportSelf();
-    }
-
-    private void OnImportPressed(BaseButton.ButtonEventArgs obj)
-    {
-        _mcLoadoutExporter.Import().ContinueWith(action =>
+        window.ImportButton.Disabled = true;
+        try
         {
-            if (action.IsFaulted || action.IsCanceled)
-                return;
-
-            var result = action.GetAwaiter().GetResult();
-            SendMessage(new MCVendorQuickEquipVendMessage(result));
-        });
+            if (await exporter.Import() is { } loadout && window.IsOpen)
+                window.ShowLoadout(loadout);
+        }
+        catch (Exception e)
+        {
+            Logger.ErrorS("mc.loadout", $"Loadout import failed: {e.Message}");
+            if (window.IsOpen)
+                window.ShowLoadout(null);
+        }
+        finally
+        {
+            if (window.IsOpen)
+                window.ImportButton.Disabled = false;
+        }
     }
 }

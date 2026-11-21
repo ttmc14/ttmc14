@@ -28,9 +28,10 @@ public sealed class MCLoadoutSerializeCommand  : LocalizedCommands
         }
 
         var loadoutSerializer = _entity.System<MCLoadoutSerializerSystem>();
-        var data  = loadoutSerializer.BuildEntity(targetUid);
-
-        shell.WriteLine($"Data: {data}");
+        var data = loadoutSerializer.BuildEntity(targetUid);
+        using var writer = new System.IO.StringWriter();
+        loadoutSerializer.LoadoutToDataNode(data).Write(writer);
+        shell.WriteLine(writer.ToString());
     }
 
     public override CompletionResult GetCompletion(IConsoleShell shell, string[] args)

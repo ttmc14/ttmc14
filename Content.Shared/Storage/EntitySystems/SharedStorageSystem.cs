@@ -43,6 +43,7 @@ using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Serialization;
+using Robust.Shared.Timing;
 using Robust.Shared.Utility;
 
 namespace Content.Shared.Storage.EntitySystems;
@@ -50,6 +51,7 @@ namespace Content.Shared.Storage.EntitySystems;
 public abstract class SharedStorageSystem : EntitySystem
 {
     [Dependency] private   readonly IConfigurationManager _cfg = default!;
+    [Dependency] private   readonly IGameTiming _timing = default!;
     [Dependency] private   readonly IPrototypeManager _prototype = default!;
     [Dependency] protected readonly IRobustRandom Random = default!;
     [Dependency] private   readonly ISharedAdminLogManager _adminLog = default!;
@@ -884,7 +886,8 @@ public abstract class SharedStorageSystem : EntitySystem
         if (args.Container.ID != StorageComponent.ContainerId)
             return;
 
-        if (!entity.Comp.StoredItems.ContainsKey(args.Entity))
+        // Container membership can arrive before the storage grid. The server supplies the item locations too.
+        if (!_timing.ApplyingState && !entity.Comp.StoredItems.ContainsKey(args.Entity))
         {
             if (!CMInventoryExtensions.TryGetFirst(entity, args.Entity, out var location))
             {

@@ -38,8 +38,7 @@ public abstract partial class MCArmorModuleSharedSystem
 
         if (duration == TimeSpan.Zero || user is null)
         {
-            AttachModuleToAnySlot(entity, module, user, slot);
-            return true;
+            return AttachModuleToAnySlot(entity, module, user, slot);
         }
 
         var ev = new MCArmorModuleAttachDoAfterEvent();
@@ -53,23 +52,32 @@ public abstract partial class MCArmorModuleSharedSystem
     }
 
     [PublicAPI]
-    public void AttachModuleToAnySlot(
+    public bool AttachModuleToAnySlot(
         Entity<MCArmorModularClothingComponent> entity,
         Entity<MCArmorModuleComponent> module,
         EntityUid? user,
         MCArmorModuleSlot slot)
     {
-        var container = _container.EnsureContainer<Container>(entity, entity.Comp.ContainerId);
-        if (!_container.Insert(module.Owner, container))
-            return;
+        if (slot.Module != null || !_whitelist.IsWhitelistPassOrNull(slot.Whitelist, module))
+            return false;
 
+        var container = _container.EnsureContainer<Container>(entity, entity.Comp.ContainerId);
+        // The insert event also assigns a slot for modules inserted by other systems.
         slot.Module = module;
+        if (!_container.Insert(module.Owner, container))
+        {
+            slot.Module = null;
+            return false;
+        }
+
         ApplyModuleEffects(entity, module, user);
 
-        _doTransfer.Add((entity, module));
+        if (StorageQuery.HasComp(module) && StorageQuery.HasComp(entity))
+            _storage.TransferEntities(module, entity);
 
         var ev = new MCArmorModuleAttachedEvent(entity, module, user);
         RaiseLocalEvent(module, ref ev);
+        return true;
     }
 
     [PublicAPI]
@@ -120,13 +128,8 @@ public abstract partial class MCArmorModuleSharedSystem
         var ev = new MCArmorModuleDetachedEvent(entity, module, user);
         RaiseLocalEvent(module, ref ev);
 
-        if (StorageQuery.TryComp(entity, out var storage))
-        {
-            foreach (var stored in storage.Container.ContainedEntities.ToArray())
-            {
-                _storage.Insert(module, stored, out _, playSound: false);
-            }
-        }
+        if (StorageQuery.HasComp(module) && StorageQuery.HasComp(entity))
+            _storage.TransferEntities(entity, module);
 
         RefreshUser(user);
         RemoveModuleEffects(entity, module, user);

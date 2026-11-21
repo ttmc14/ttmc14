@@ -35,7 +35,7 @@ public partial class MCArmorModuleSharedSystem
 
     private bool TryInsertModule(Entity<MCArmorModularClothingComponent> entity, EntityUid moduleUid)
     {
-        var slot = FindSlotModule(entity, moduleUid);
+        var slot = entity.Comp.Slots.FirstOrDefault(s => s.Module == moduleUid) ?? FindFreeSlotForModule(entity, moduleUid);
         if (slot == null)
             return false;
 
@@ -55,11 +55,6 @@ public partial class MCArmorModuleSharedSystem
 
         ContainerRefresh(entity);
         return true;
-    }
-
-    private MCArmorModuleSlot? FindSlotModule(Entity<MCArmorModularClothingComponent> entity, EntityUid uid)
-    {
-        return entity.Comp.Slots.FirstOrDefault(s => s.Module is null && _whitelist.IsWhitelistPassOrNull(s.Whitelist, uid));
     }
 
     private void ContainerRefresh(Entity<MCArmorModularClothingComponent> entity)

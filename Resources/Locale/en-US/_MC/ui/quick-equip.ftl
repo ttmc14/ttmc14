@@ -1,0 +1,9 @@
+mc-quick-equip-preview = Equipment loadout
+mc-quick-equip-open = Open file…
+mc-quick-equip-prompt = Open a .yml file to preview your loadout.
+mc-quick-equip-save = Save worn equipment…
+mc-quick-equip-vend = Issue loadout
+mc-quick-equip-empty = This loadout contains no items.
+mc-quick-equip-error = Could not read the loadout file.
+mc-quick-equip-sent = Equipment request sent.
+mc-quick-equip-unknown = Unknown item ({ $id })

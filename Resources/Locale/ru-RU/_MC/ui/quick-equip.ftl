@@ -1,0 +1,9 @@
+mc-quick-equip-preview = Комплект снаряжения
+mc-quick-equip-open = Открыть файл…
+mc-quick-equip-prompt = Откройте файл .yml, чтобы посмотреть комплект.
+mc-quick-equip-save = Сохранить надетое…
+mc-quick-equip-vend = Получить комплект
+mc-quick-equip-empty = В этом комплекте нет предметов.
+mc-quick-equip-error = Не удалось прочитать файл комплекта.
+mc-quick-equip-sent = Запрос на выдачу отправлен.
+mc-quick-equip-unknown = Неизвестный предмет ({ $id })

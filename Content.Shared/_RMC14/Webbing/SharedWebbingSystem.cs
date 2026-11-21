@@ -92,7 +92,7 @@ public abstract class SharedWebbingSystem : EntitySystem
         args.Verbs.Add(new InteractionVerb
         {
             Text = Loc.GetString("rmc-storage-webbing-remove-verb"),
-            Act = () => Detach(clothing, user),
+            Act = () => TryDetach(clothing, user),
             IconEntity = GetNetEntity(clothing.Owner)
         });
     }
@@ -124,7 +124,7 @@ public abstract class SharedWebbingSystem : EntitySystem
         args.Verbs.Add(new EquipmentVerb
         {
             Text = Loc.GetString("rmc-storage-webbing-remove-verb"),
-            Act = () => Detach(clothing, user),
+            Act = () => TryDetach(clothing, user),
             IconEntity = GetNetEntity(clothing.Owner)
         });
     }
@@ -255,29 +255,49 @@ public abstract class SharedWebbingSystem : EntitySystem
         return true;
     }
 
-    private void Detach(Entity<WebbingClothingComponent> clothing, EntityUid user)
+    public bool TryDetach(Entity<WebbingClothingComponent> clothing, EntityUid? user = null, bool deferTransfer = true)
     {
-        if (TerminatingOrDeleted(clothing) || !clothing.Comp.Running)
-            return;
+        if (TerminatingOrDeleted(clothing) || !clothing.Comp.Running ||
+            !HasWebbing((clothing, clothing), out var webbing) || !_container.TryRemoveFromContainer(webbing.Owner))
+            return false;
 
-        if (!HasWebbing((clothing, clothing), out var webbing))
-            return;
-
-        _container.TryRemoveFromContainer(webbing.Owner);
-        _hands.TryPickupAnyHand(user, webbing);
+        if (user is { } holder)
+            _hands.TryPickupAnyHand(holder, webbing);
 
         EntityManager.AddComponents(webbing, webbing.Comp.Components);
 
-        var comp = EnsureComp<WebbingTransferComponent>(webbing);
-        comp.Clothing = clothing;
-        comp.Transfer = TransferType.ToWebbing;
-        Dirty(webbing, comp);
+        if (deferTransfer)
+        {
+            var comp = EnsureComp<WebbingTransferComponent>(webbing);
+            comp.Clothing = clothing;
+            comp.Transfer = TransferType.ToWebbing;
+            Dirty(webbing, comp);
+        }
+        else
+        {
+            RemComp<WebbingTransferComponent>(webbing);
+            TransferToWebbing(clothing, webbing);
+        }
 
         if (clothing.Comp.UnequippedSize is { } size)
         {
             clothing.Comp.UnequippedSize = null;
             _item.SetSize(clothing, size);
         }
+
+        return true;
+    }
+
+    private void TransferToWebbing(EntityUid clothing, Entity<WebbingComponent> webbing)
+    {
+        if (TryComp(clothing, out StorageComponent? storage))
+        {
+            foreach (var stored in storage.Container.ContainedEntities.ToArray())
+                _storage.Insert(webbing, stored, out _, playSound: false);
+        }
+
+        foreach (var entry in webbing.Comp.Components.Values)
+            RemComp(clothing, entry.Component.GetType());
     }
 
     public override void Update(float frameTime)
@@ -313,22 +333,8 @@ public abstract class SharedWebbingSystem : EntitySystem
                 }
                 case TransferType.ToWebbing:
                 {
-                    if (transfer.Clothing is not { } clothing)
-                        continue;
-
-                    if (TryComp(clothing, out StorageComponent? storage))
-                    {
-                        foreach (var stored in storage.Container.ContainedEntities.ToArray())
-                        {
-                            _storage.Insert(uid, stored, out _, playSound: false);
-                        }
-                    }
-
-                    foreach (var entry in webbing.Components.Values)
-                    {
-                        RemComp(clothing, entry.Component.GetType());
-                    }
-
+                    if (transfer.Clothing is { } clothing)
+                        TransferToWebbing(clothing, (uid, webbing));
                     break;
                 }
             }
