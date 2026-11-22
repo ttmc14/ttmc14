@@ -18,4 +18,4 @@
     maxStacks: 4
     damage:
       types:
-        MCBurn: 5
+        MCBurn: 3.5
