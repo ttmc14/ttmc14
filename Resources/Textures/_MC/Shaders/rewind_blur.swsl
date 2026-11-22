@@ -1,0 +1,14 @@
+light_mode unshaded;
+
+uniform highp float strength;
+
+void fragment()
+{
+    highp vec2 stepUV = (vec2(0.5) - UV) * strength / 4.0;
+    highp vec4 sum = vec4(0.0);
+    for (int i = 0; i < 5; i++)
+    {
+        sum += zTexture(UV + float(i) * stepUV);
+    }
+    COLOR = sum / 5.0;
+}
