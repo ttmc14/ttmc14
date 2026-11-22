@@ -1,0 +1,4 @@
+- type: shader
+  id: MCWraithWarp
+  kind: source
+  path: /Textures/_MC/Shaders/wraith_warp.swsl

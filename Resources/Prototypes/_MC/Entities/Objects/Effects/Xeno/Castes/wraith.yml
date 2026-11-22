@@ -1,0 +1,20 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectWraithWarp
+  components:
+  - type: MCWraithWarp
+  - type: EmitSoundOnSpawn
+    sound:
+      path: /Audio/_MC/Effects/emp_pulse.ogg
+      params:
+        volume: -5
+        variation: 0.1
+  - type: Sprite
+    drawdepth: Effects
+    getScreenTexture: true
+    layers:
+    - sprite: _MC/Effects/Xeno/blink_warp.rsi
+      state: light
+      shader: unshaded
+  - type: TimedDespawn
+    lifetime: 0.8

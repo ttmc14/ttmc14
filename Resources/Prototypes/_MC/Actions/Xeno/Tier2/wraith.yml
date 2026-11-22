@@ -37,6 +37,7 @@
   - type: TargetAction
     range: -1
     checkCanAccess: false
+    repeat: true
   - type: WorldTargetAction
     event: !type:MCXenoBlinkActionEvent
   - type: XenoActionPlasma

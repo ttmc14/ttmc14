@@ -15,6 +15,7 @@ public sealed partial class MCSlowdownStacksSystem : EntitySystem
     public override void Initialize()
     {
         SubscribeLocalEvent<MCSlowdownStacksComponent, StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent>>(OnRefreshMovementSpeedModifiers);
+        SubscribeLocalEvent<MCSlowdownStacksComponent, StatusEffectRemovedEvent>(OnRemoved);
     }
 
     public override void Update(float frameTime)
@@ -28,29 +29,27 @@ public sealed partial class MCSlowdownStacksSystem : EntitySystem
             if (component.UpdateNext > _timing.CurTime)
                 continue;
 
-            Update((uid, component), 1f /  (float) component.UpdateDelay.TotalSeconds, targetUid);
-
+            var elapsed = _timing.CurTime - component.UpdateNext + component.UpdateDelay;
+            component.Stacks = MathF.Max(0f, component.Stacks - component.Regeneration * (float) elapsed.TotalSeconds);
             component.UpdateNext = _timing.CurTime + component.UpdateDelay;
-            DirtyField(uid, component, nameof(MCSlowdownStacksComponent.UpdateNext));
+            DirtyFields(uid, component, null, nameof(MCSlowdownStacksComponent.Stacks), nameof(MCSlowdownStacksComponent.UpdateNext));
+
+            if (component.Stacks == 0f && _statusEffects.TryRemoveStatusEffect(targetUid, EffectProtoId))
+                continue;
+
+            _movementSpeedModifier.RefreshMovementSpeedModifiers(targetUid);
         }
     }
 
-    private void Update(Entity<MCSlowdownStacksComponent> entity, float scale, EntityUid targetUid)
+    private void OnRemoved(Entity<MCSlowdownStacksComponent> entity, ref StatusEffectRemovedEvent args)
     {
-        entity.Comp.Stacks -= entity.Comp.Regeneration * scale;
-
-        _movementSpeedModifier.RefreshMovementSpeedModifiers(targetUid);
-
-        if (entity.Comp.Stacks > 0)
-            return;
-
-        _statusEffects.TryRemoveStatusEffect(targetUid, MetaData(targetUid).EntityPrototype!);
+        // The effect still receives relayed events while it is being removed.
+        entity.Comp.Stacks = 0f;
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(args.Target);
     }
 
-    private static void OnRefreshMovementSpeedModifiers(Entity<MCSlowdownStacksComponent> entity, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args)
-    {
+    private static void OnRefreshMovementSpeedModifiers(Entity<MCSlowdownStacksComponent> entity, ref StatusEffectRelayedEvent<RefreshMovementSpeedModifiersEvent> args) =>
         args.Args.ModifySpeed(GetSpeedMultiplier(entity));
-    }
 
     private static float GetSpeedMultiplier(Entity<MCSlowdownStacksComponent> entity)
     {

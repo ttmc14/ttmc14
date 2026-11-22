@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "Light mask from UngaMarines-13: https://github.com/UngaCo/UngaMarines-13/blob/4393675af57677a89e941e124b4cf911ed835e81/icons/effects/light_overlays/light_128.dmi",
+  "size": { "x": 128, "y": 128 },
+  "states": [{ "name": "light" }]
+}
