@@ -1,16 +1,15 @@
 ﻿using Content.Shared._MC.Weapons.AttackModeSelection.Core.Events;
 using Content.Shared.Weapons.Ranged.Components;
-
+using Content.Shared.Weapons.Ranged.Systems;
 using SelectiveFireType = Content.Shared.Weapons.Ranged.Components.SelectiveFire;
 
 namespace Content.Shared._MC.Weapons.Range.SelectiveFire;
 
 public sealed class MCWeaponSelectiveFireSystem : EntitySystem
 {
-    public override void Initialize()
-    {
-        SubscribeLocalEvent<MCWeaponSelectiveFireComponent, MCAttackModeSelectionEvent>(OnSelected);
-    }
+    [Dependency] private readonly SharedGunSystem _gun = null!;
+
+    public override void Initialize() => SubscribeLocalEvent<MCWeaponSelectiveFireComponent, MCAttackModeSelectionEvent>(OnSelected);
 
     private void OnSelected(Entity<MCWeaponSelectiveFireComponent> entity, ref MCAttackModeSelectionEvent args)
     {
@@ -23,7 +22,6 @@ public sealed class MCWeaponSelectiveFireSystem : EntitySystem
             return;
         }
 
-        component.SelectedMode = type;
-        Dirty(entity);
+        _gun.SelectFire(entity, component, type);
     }
 }

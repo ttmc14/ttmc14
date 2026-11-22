@@ -3,9 +3,6 @@ using Content.Client.UserInterface.Controls;
 using Content.Shared._MC.Weapons.AttackModeSelection;
 using Content.Shared._MC.Weapons.AttackModeSelection.Core.Components;
 using Robust.Client.GameObjects;
-using Robust.Client.Graphics;
-using Robust.Client.Input;
-using Robust.Client.Player;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.Utility;
@@ -67,8 +64,5 @@ public sealed partial class MCWeaponAttackModeSelectionBui : BoundUserInterface
         parent.AddChild(button);
     }
 
-    private void Select(string id)
-    {
-        SendMessage(new MCAttackModeSelectionMessage(id));
-    }
+    private void Select(string id) => SendMessage(new MCAttackModeSelectionMessage(id));
 }
