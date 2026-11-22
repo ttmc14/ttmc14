@@ -53,6 +53,8 @@
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.1
     accuracyMultiplierUnwielded: 0.6
+  - type: WieldableSpeedModifiers
+    base: 0.714286
   - type: WieldDelay
     baseDelay: 1.2
   - type: ItemSlots

@@ -52,7 +52,7 @@
           tags:
           - MCMagazineRifleRailgun
   - type: WieldableSpeedModifiers
-    base: 1
+    base: 0.851064
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 2
     accuracyMultiplierUnwielded: 2

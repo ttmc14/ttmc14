@@ -35,6 +35,8 @@
     - FullAuto
     scatterWielded: 0
     scatterUnwielded: 0
+  - type: WieldableSpeedModifiers
+    base: 0.851064
   - type: WieldDelay
     baseDelay: 0.2
   - type: ItemSlots

@@ -17,6 +17,8 @@
     damage:
       types:
         MCBrute: 8
+  - type: WieldableSpeedModifiers
+    base: 1
   - type: Gun
     shotsPerBurst: 1
     availableModes:

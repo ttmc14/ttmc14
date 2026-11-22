@@ -28,6 +28,8 @@
       mc-attachment-rail: 0,0.15625
   - type: ShootAtFixedPoint
     maxFixedRange: 10
+  - type: WieldableSpeedModifiers
+    base: 0.666667
   - type: WieldDelay
     baseDelay: 0.2
   - type: GunIgnorePrediction

@@ -33,6 +33,8 @@
     accuracyMultiplierUnwielded: 0.65
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
+  - type: WieldableSpeedModifiers
+    base: 0.909091
   - type: WieldDelay
     baseDelay: 0.5
   - type: AttachableHolder

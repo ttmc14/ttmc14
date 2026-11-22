@@ -35,6 +35,8 @@
     scatterWielded: 4
     scatterUnwielded: 2
     baseFireRate: 6.75
+  - type: WieldableSpeedModifiers
+    base: 1
   - type: WieldDelay
     baseDelay: 0.4
   - type: AttachableHolder

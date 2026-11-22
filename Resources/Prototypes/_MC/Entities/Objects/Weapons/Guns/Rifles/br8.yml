@@ -59,7 +59,7 @@
       types:
         MCBrute: 16
   - type: WieldableSpeedModifiers
-    base: 0.95
+    base: 0.816327
   # Attachable
   - type: AttachableHolder
     slots:

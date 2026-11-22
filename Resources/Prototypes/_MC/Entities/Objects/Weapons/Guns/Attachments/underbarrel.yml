@@ -307,6 +307,8 @@
     ejectSound:
       path: /Audio/_RMC14/Weapons/Guns/Reload/grenade_insert.ogg
   - type: AmmoCounter
+  - type: WieldableSpeedModifiers
+    base: 1
   - type: Gun
     projectileSpeed: 50
     soundGunshot:
@@ -378,6 +380,8 @@
     - MCAttachmentUnderslungHydrocannon
   - type: Item
     size: Normal
+  - type: WieldableSpeedModifiers
+    base: 0.533333
   - type: Gun
     cameraRecoilScalar: 0
     fireRate: 0.5

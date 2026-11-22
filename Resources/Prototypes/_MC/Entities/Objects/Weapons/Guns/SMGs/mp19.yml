@@ -41,7 +41,7 @@
     autoEject: true
     soundAutoEject: null
   - type: WieldableSpeedModifiers
-    base: 0.8
+    base: 0.930233
     light: 1
     medium: 1
     heavy: 1

@@ -25,6 +25,8 @@
       gun_magazine: !type:ContainerSlot
       gun_chamber: !type:ContainerSlot
   - type: GunRequiresWield
+  - type: WieldableSpeedModifiers
+    base: 0.851064
   - type: Gun
     shotsPerBurst: 1
     soundGunshot:

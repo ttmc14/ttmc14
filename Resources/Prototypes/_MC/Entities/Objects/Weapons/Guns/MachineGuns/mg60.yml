@@ -39,6 +39,8 @@
     scatterWielded: 7
     scatterUnwielded: 25
     baseFireRate: 6.7
+  - type: WieldableSpeedModifiers
+    base: 0.625
   - type: WieldDelay
     baseDelay: 1.7
   - type: ItemSlots

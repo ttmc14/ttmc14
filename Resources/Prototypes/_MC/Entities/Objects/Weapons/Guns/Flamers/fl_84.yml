@@ -56,7 +56,7 @@
           - MCFlamerTank
   - type: Wieldable
   - type: WieldableSpeedModifiers
-    base: 0.6
+    base: 0.533333
   - type: GunRequiresWield
   - type: MagazineVisuals
     magState: mag

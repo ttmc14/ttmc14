@@ -73,6 +73,8 @@
   # Wield
   - type: GunRequiresWield
   - type: Wieldable
+  - type: WieldableSpeedModifiers
+    base: 0.8
   - type: WieldDelay
     baseDelay: 1.1
   # Skills

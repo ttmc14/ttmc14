@@ -51,7 +51,7 @@
           tags:
           - MCMagazineRifleAR18
   - type: WieldableSpeedModifiers
-    base: 0.95
+    base: 0.869565
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.05
   - type: RMCWeaponDamageFalloff
