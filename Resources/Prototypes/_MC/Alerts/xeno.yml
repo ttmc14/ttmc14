@@ -29,3 +29,9 @@
   description: Your armor. It reduces damage taken.
   minSeverity: 0
   maxSeverity: 11
+
+- type: alert
+  parent: XenoPlasma
+  id: MCXenoBlood
+  name: mc-xeno-gorger-blood
+  description: mc-xeno-gorger-blood-desc

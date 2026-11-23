@@ -21,6 +21,6 @@ public sealed class MCSmokePlasmaSystem : EntitySystem
     {
         var maxPlasma = _mcXenoPlasma.GetMaxPlasma(args.TargetUid);
         var amount = entity.Comp.Amount + entity.Comp.Multiplier * maxPlasma;
-        _mcXenoPlasma.RemovePlasma(args.TargetUid, amount);
+        _mcXenoPlasma.DrainPlasma(args.TargetUid, amount);
     }
 }

@@ -1,6 +1,6 @@
-﻿using Content.Shared._MC.Xeno.Heal;
+﻿using Content.Shared._MC.Aura;
+using Content.Shared._MC.Xeno.Heal;
 using Content.Shared._MC.Xeno.Sunder;
-using Content.Shared._RMC14.Aura;
 using Content.Shared._RMC14.Xenonids.Weeds;
 using Content.Shared.StatusEffectNew;
 using Content.Shared.StatusEffectNew.Components;
@@ -10,11 +10,13 @@ namespace Content.Shared._MC.Xeno.StatusEffects.HealingInfusion;
 
 public sealed class MCXenoStatusEffectHealingInfusionSystem : EntitySystem
 {
+    private const string AuraLayer = "healing-infusion";
+
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = null!;
     [Dependency] private readonly MCXenoSunderSystem _mcXenoSunder = null!;
     [Dependency] private readonly MCXenoHealSystem _mcXenoHeal = null!;
-    [Dependency] private readonly SharedAuraSystem _rmcAura = null!;
+    [Dependency] private readonly MCAuraSystem _aura = null!;
 
     private EntityQuery<AffectableByWeedsComponent> _affectableQuery;
 
@@ -68,12 +70,12 @@ public sealed class MCXenoStatusEffectHealingInfusionSystem : EntitySystem
 
     private void OnApply(Entity<MCXenoStatusEffectHealingInfusionComponent> entity, ref StatusEffectAppliedEvent args)
     {
-        _rmcAura.GiveAura(args.Target, entity.Comp.EffectAuraColor, null, entity.Comp.EffectAuraStrength);
+        _aura.Set(args.Target, AuraLayer, entity.Comp.Aura, emitter: entity.Owner);
     }
 
     private void OnRemoved(Entity<MCXenoStatusEffectHealingInfusionComponent> ent, ref StatusEffectRemovedEvent args)
     {
-        RemCompDeferred<AuraComponent>(args.Target);
+        _aura.Remove(args.Target, AuraLayer, ent.Owner);
     }
 
     private static void OnTimeUpdated(Entity<MCXenoStatusEffectHealingInfusionComponent> entity, ref StatusEffectTimeUpdatedEvent args)

@@ -4,18 +4,20 @@ using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Stun;
+using Content.Shared._RMC14.Synth;
 using Content.Shared._RMC14.Weapons.Melee;
-using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Hive;
+using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Actions;
 using Content.Shared.Damage;
 using Content.Shared.Effects;
+using Content.Shared.Humanoid;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Weapons.Melee;
 using JetBrains.Annotations;
-using Robust.Shared.Map;
 using Robust.Shared.Map.Components;
+using Robust.Shared.Map;
 using Robust.Shared.Network;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
@@ -286,6 +288,22 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     protected bool IsXeno(EntityUid uid)
     {
         return HasComp<XenoComponent>(uid);
+    }
+
+    /// <summary>
+    /// Identifies organic humanoids that can provide blood to a feeding xenomorph.
+    /// </summary>
+    protected bool IsOrganicHuman(EntityUid uid)
+    {
+        return HasComp<HumanoidAppearanceComponent>(uid) && !HasComp<SynthComponent>(uid) && !IsXeno(uid);
+    }
+
+    /// <summary>
+    /// Identifies living xenomorphs that may receive support from the caster, including the caster itself.
+    /// </summary>
+    protected bool IsLivingHiveMember(EntityUid owner, EntityUid target)
+    {
+        return IsXeno(target) && !IsDead(target) && (owner == target || MCXenoHive.FromSameHive(owner, target));
     }
 
     [PublicAPI]

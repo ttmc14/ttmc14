@@ -1,6 +1,6 @@
 ﻿using Content.Shared._MC.Armor.Core.Events;
+using Content.Shared._MC.Aura;
 using Content.Shared._MC.Stun.Events;
-using Content.Shared._RMC14.Aura;
 using Content.Shared._RMC14.Emote;
 using Content.Shared._RMC14.Xenonids.Pheromones;
 using Content.Shared.Mobs;
@@ -13,11 +13,13 @@ namespace Content.Shared._MC.Xeno.Abilities.Ravager.Endure;
 
 public sealed partial class MCXenoEndureSystem : MCXenoAbilitySystem
 {
+    private const string AuraLayer = "endure";
+
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly MobStateSystem _mobState = null!;
-    [Dependency] private readonly SharedAuraSystem _rmcAura = null!;
+    [Dependency] private readonly MCAuraSystem _aura = null!;
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmote = null!;
 
     private EntityQuery<MCXenoEndureComponent> _query;
@@ -74,8 +76,7 @@ public sealed partial class MCXenoEndureSystem : MCXenoAbilitySystem
 
         args.Handled = true;
 
-        if (!HasComp<AuraComponent>(entity))
-            _rmcAura.GiveAura(entity, entity.Comp.ActivationAuraColor, entity.Comp.Duration);
+        _aura.Set(entity, AuraLayer, entity.Comp.Aura);
 
         _rmcEmote.TryEmoteWithChat(entity, entity.Comp.ActivationEmote);
 
@@ -90,6 +91,7 @@ public sealed partial class MCXenoEndureSystem : MCXenoAbilitySystem
 
     private void OnActiveRemove(Entity<MCXenoEndureActiveComponent> entity, ref ComponentRemove args)
     {
+        _aura.Remove(entity, AuraLayer);
         if (_net.IsServer)
             _popup.PopupEntity(Loc.GetString("mc-xeno-ability-endure-end"), entity, entity, PopupType.MediumXeno);
 

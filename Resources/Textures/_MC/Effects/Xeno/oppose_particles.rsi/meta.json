@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "Particle shapes from UngaMarines-13 icons/effects/particles/generic_particles.dmi, arranged using the oppose_aoe particle effect at https://github.com/UngaCo/UngaMarines-13/tree/4393675af57677a89e941e124b4cf911ed835e81",
+  "size": {
+    "x": 224,
+    "y": 224
+  },
+  "states": [
+    {
+      "name": "pulse",
+      "delays": [
+        [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

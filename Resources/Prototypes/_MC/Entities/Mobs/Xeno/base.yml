@@ -11,6 +11,7 @@
         MCBrute: 5
   - type: TunnelRenamer
   - type: MCXenoHeal
+  - type: MCXenoOverheal
   - type: MCXenoPlasma
   - type: XenoAnnounceDeath
     message: mc-xeno-death

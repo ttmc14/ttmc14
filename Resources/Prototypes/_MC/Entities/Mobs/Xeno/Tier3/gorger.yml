@@ -40,7 +40,14 @@
     # Base
     - MCActionXenoHiveStatus
     - MCActionXenoRest
-    - MCActionXenoPsydrain
+    - MCActionXenoPsydrainFree
+    # Abilities
+    - MCActionXenoPsychicLink
+    - MCActionXenoDrain
+    - MCActionXenoTransfusion
+    - MCActionXenoCarnage
+    - MCActionXenoFeast
+    - MCActionXenoDevour
     hudOffset: -0.1, 0.1
   # Statistics
   - type: MobThresholds
@@ -49,7 +56,8 @@
       600: Critical
       700: Dead
   - type: XenoPlasma
-    plasma: 400
+    alert: MCXenoBlood
+    plasma: 100
     maxPlasma: 400
     plasmaRegenLimit: 40
     plasmaRegenOnWeeds: 5
@@ -72,3 +80,42 @@
     baseSprintSpeed: 3.8
   - type: RMCSize
     size: Big
+  - type: MCXenoPlasma
+    showBloodHud: true
+    canBeGivenPlasma: false
+    immuneToPlasmaDrain: true
+  - type: MCXenoOverheal
+    maximum: 275
+  # Abilities
+  - type: MCXenoPsychicLink
+  - type: MCXenoDrain
+  - type: MCXenoTransfusion
+  - type: MCXenoCarnage
+  - type: MCXenoFeast
+  - type: MCXenoDevour
+
+- type: entity
+  parent: MCXenoGorger
+  id: MCXenoGorgerPrimordial
+  name: primordial gorger
+  components:
+  - type: XenoHidden
+  - type: FixedIdentity
+    name: mc-job-name-xeno-gorger-primordial
+  - type: GhostRole
+    name: mc-job-name-xeno-gorger-primordial
+  - type: Xeno
+    actionIds:
+    - MCActionXenoHiveStatus
+    - MCActionXenoRest
+    - MCActionXenoPsydrainFree
+    - MCActionXenoPsychicLink
+    - MCActionXenoDrain
+    - MCActionXenoTransfusion
+    - MCActionXenoCarnage
+    - MCActionXenoFeast
+    - MCActionXenoDevour
+    - MCActionXenoRejuvenate
+    - MCActionXenoOppose
+  - type: MCXenoRejuvenate
+  - type: MCXenoOppose

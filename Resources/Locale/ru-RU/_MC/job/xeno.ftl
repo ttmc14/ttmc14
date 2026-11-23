@@ -33,3 +33,4 @@ mc-job-name-xeno-queen = Королева
 mc-job-name-xeno-widow = Вдова
 mc-job-name-xeno-spiderling = Спайдерлинг
 mc-job-name-xeno-chimera = Химера
+mc-job-name-xeno-gorger-primordial = Первозданный поглотитель

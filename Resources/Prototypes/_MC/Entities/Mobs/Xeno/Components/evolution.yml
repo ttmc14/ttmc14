@@ -39,7 +39,7 @@
     evolvesTo:
     - MCXenoCrusher
     - MCXenoDefiler
-    # - MCXenoGorger
+    - MCXenoGorger
     - MCXenoWarlock
     - MCXenoPraetorian
     - MCXenoBoiler

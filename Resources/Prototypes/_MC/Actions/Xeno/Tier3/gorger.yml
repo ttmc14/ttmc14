@@ -1,0 +1,144 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoPsychicLink
+  name: Psychic Link
+  description: Link to a hive sister within 7 tiles to take half her brute and burn damage. Use again to unlink.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: psychic_link
+  - type: TargetAction
+    range: 7
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:MCXenoPsychicLinkActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoDrain
+  name: Drain
+  description: Hold a living human to draw blood and restore your health and reserves. Feeding on a corpse restores health and carapace instead.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: drain
+  - type: TargetAction
+    range: 1.5
+  - type: EntityTargetAction
+    canTargetSelf: false
+    event: !type:MCXenoDrainActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoTransfusion
+  name: Transfusion (20)
+  description: Spend 20 blood to heal a nearby hive sister for 30% of her maximum health. Excess healing grants temporary health.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: transfusion
+    useDelay: 2
+  - type: TargetAction
+    range: 3
+  - type: EntityTargetAction
+    event: !type:MCXenoTransfusionActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 20
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoCarnage
+  name: Carnage
+  description: Gain speed for up to 10 seconds. Your next slash against a living human heals you. When low on blood, you also knock the victim down and feed.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: carnage
+    useDelay: 15
+  - type: InstantAction
+    event: !type:MCXenoCarnageActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoFeast
+  name: Feast
+  description: With at least 200 blood, spend 20 per second to heal yourself and nearby hive sisters. Activate again to stop.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: feast
+  - type: InstantAction
+    event: !type:MCXenoFeastActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoDevour
+  name: Devour
+  description: Swallow a human corpse that can no longer be revived. Target yourself to release it.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: abduct
+  - type: TargetAction
+    range: 1.5
+  - type: EntityTargetAction
+    event: !type:MCXenoDevourActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoRejuvenate
+  name: Rejuvenate
+  description: Spend 20 blood to thicken your carapace. You move slowly, resist heavy damage, and spend another 20 blood every two seconds to heal. Activate again to stop.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/gorger.rsi
+      state: rejuvenation
+  - type: InstantAction
+    event: !type:MCXenoRejuvenateActionEvent
+  - type: ActionBlockIfResting
+
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoOppose
+  name: Oppose (80)
+  description: Strike the ground to heal nearby hive sisters, stagger adjacent enemies and injure enemies on your tile.
+  components:
+  - type: Action
+    itemIconStyle: NoItem
+    icon:
+      sprite: _MC/Interface/Actions/Xeno/crusher.rsi
+      state: stomp
+    useDelay: 30
+  - type: InstantAction
+    event: !type:MCXenoOpposeActionEvent
+  - type: ActionBlockIfResting
+  - type: XenoActionPlasma
+    cost: 80
+
+- type: entity
+  parent: MCActionXenoPsydrain
+  id: MCActionXenoPsydrainFree
+  name: Psy drain
+  components:
+  - type: XenoActionPlasma
+    cost: 0

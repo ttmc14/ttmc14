@@ -1,0 +1,4 @@
+- type: shader
+  id: MCAura
+  kind: source
+  path: /Textures/_MC/Shaders/aura.swsl

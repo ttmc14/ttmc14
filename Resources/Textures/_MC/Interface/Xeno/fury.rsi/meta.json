@@ -1,0 +1,44 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "Taken from UngaMarines-13 at https://github.com/UngaCo/UngaMarines-13/blob/4393675af57677a89e941e124b4cf911ed835e81/icons/mob/hud/xeno_health.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "fury0"
+    },
+    {
+      "name": "fury10"
+    },
+    {
+      "name": "fury20"
+    },
+    {
+      "name": "fury30"
+    },
+    {
+      "name": "fury40"
+    },
+    {
+      "name": "fury50"
+    },
+    {
+      "name": "fury60"
+    },
+    {
+      "name": "fury70"
+    },
+    {
+      "name": "fury80"
+    },
+    {
+      "name": "fury90"
+    },
+    {
+      "name": "fury100"
+    }
+  ]
+}

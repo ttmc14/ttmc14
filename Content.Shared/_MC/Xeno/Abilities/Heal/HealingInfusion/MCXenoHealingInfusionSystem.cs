@@ -1,5 +1,4 @@
-﻿using Content.Shared._MC.Line;
-using Content.Shared._MC.Xeno.Abilities.Heal.HealingInfusion.Components;
+﻿using Content.Shared._MC.Xeno.Abilities.Heal.HealingInfusion.Components;
 using Content.Shared._MC.Xeno.Abilities.Heal.HealingInfusion.Events;
 using Content.Shared.Coordinates;
 using Content.Shared.StatusEffectNew;
@@ -11,7 +10,6 @@ public sealed class MCXenoHealingInfusionSystem : MCXenoAbilitySystem
 {
     [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedStatusEffectsSystem _statusEffects = null!;
-    [Dependency] private readonly MCLineSystem _mcLine = null!;
 
     public override void Initialize()
     {
@@ -35,7 +33,14 @@ public sealed class MCXenoHealingInfusionSystem : MCXenoAbilitySystem
             entity.Comp.StatusEffectId,
             entity.Comp.StatusEffectDuration);
 
-        _mcLine.SpawnEffect(entity.Comp.RayEffectId, entity.Owner.ToCoordinates(), args.Target.ToCoordinates());
+        if (Net.IsServer)
+        {
+            var beam = SpawnAttachedTo(entity.Comp.RayEffectId, entity.Owner.ToCoordinates());
+            var link = Comp<MCXenoHealingInfusionBeamComponent>(beam);
+            link.Recipient = args.Target;
+            Dirty(beam, link);
+        }
+
         _audio.PlayPredicted(entity.Comp.Sound, entity, entity);
 
         SpawnAttachedTo(entity.Comp.EffectProtoId, args.Target.ToCoordinates());

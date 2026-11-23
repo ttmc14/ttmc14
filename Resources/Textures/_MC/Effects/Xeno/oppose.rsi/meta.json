@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "Taken from UngaMarines-13 at https://github.com/UngaCo/UngaMarines-13/blob/4393675af57677a89e941e124b4cf911ed835e81/icons/effects/96x96.dmi",
+  "size": {
+    "x": 96,
+    "y": 96
+  },
+  "states": [
+    {
+      "name": "oppose_shatter"
+    }
+  ]
+}
