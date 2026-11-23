@@ -62,7 +62,7 @@
   parent: ActionXenoBase
   id: MCActionXenoWhirlwind
   name: Fire Storm (50)
-  description: Unleash a fiery tornado that goes in a straight line which will set fire around it as it goes and harm marines that directly touch it.
+  description: Aim in a direction to send a fiery whirlwind 8 meters or until it hits an obstacle. It burns marines on contact and leaves melting fire along its path and on random nearby patches of floor.
   components:
   - type: Action
     itemIconStyle: NoItem
@@ -71,7 +71,8 @@
       state: whirlwind
     useDelay: 12
   - type: TargetAction
-    range: 15
+    range: -1
+    checkCanAccess: false
   - type: WorldTargetAction
     event: !type:MCXenoWhirlwindActionEvent
   - type: XenoActionPlasma

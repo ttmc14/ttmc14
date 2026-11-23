@@ -26,6 +26,14 @@ public sealed partial class MCArmorSystem
         return Math.Clamp(multiplier, 0f, 1f);
     }
 
+    public float GetFireDamageMultiplier(EntityUid uid, float damage)
+    {
+        if (!TryGetArmor(uid, out var soft, out var hard))
+            return 1f;
+
+        return ArmorToValue(soft.Fire, hard.Fire, sunder: _mcXenoSunder.GetSunder(uid), damage: damage);
+    }
+
     private (int, int) GetArmorWithType(EntityUid uid, EntityUid tool)
     {
         if (!TryGetArmor(uid, out var soft, out var hard))

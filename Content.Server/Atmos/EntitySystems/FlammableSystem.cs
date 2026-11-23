@@ -43,7 +43,6 @@ namespace Content.Server.Atmos.EntitySystems
         [Dependency] private readonly StunSystem _stunSystem = default!;
         [Dependency] private readonly TemperatureSystem _temperatureSystem = default!;
         [Dependency] private readonly SharedIgnitionSourceSystem _ignitionSourceSystem = default!;
-        [Dependency] private readonly DamageableSystem _damageableSystem = default!;
         [Dependency] private readonly AlertsSystem _alertsSystem = default!;
         [Dependency] private readonly FixtureSystem _fixture = default!;
         [Dependency] private readonly IAdminLogManager _adminLogger = default!;
@@ -516,7 +515,7 @@ namespace Content.Server.Atmos.EntitySystems
                     if (_inventoryQuery.TryComp(uid, out var inv))
                         _inventory.RelayEvent((uid, inv), ref ev);
 
-                    DamageSpecifier? damage;
+                    DamageSpecifier damage;
                     if (HasComp<XenoComponent>(uid))
                     {
                         damage = flammable.Intensity * (flammable.FireStacks / flammable.Duration * 0.2 + 0.8) * ev.Multiplier * flammable.Damage / 2;
@@ -538,19 +537,9 @@ namespace Content.Server.Atmos.EntitySystems
                     var tileEv = new RMCGetFireImmunityEvent(null);
                     RaiseLocalEvent(uid, ref tileEv);
 
-                    if (tileEv.Immune ||
-                        HasComp<RMCImmuneToFireTileDamageComponent>(uid))
-                    {
-                        // If entity has fire immunity, only deal damage if they have the bypass component
-                        if (HasComp<RMCFireBypassActiveComponent>(uid) && damage != null)
-                            _damageableSystem.TryChangeDamage(uid, damage, true, false, origin: uid);
-                    }
-                    else
-                    {
-                        // No immunity, deal damage normally
-                        if (damage != null)
-                            _damageableSystem.TryChangeDamage(uid, damage, true, false, origin: uid);
-                    }
+                    var immune = tileEv.Immune || HasComp<RMCImmuneToFireTileDamageComponent>(uid);
+                    if (!immune || HasComp<RMCFireBypassActiveComponent>(uid))
+                        _rmcFlammable.ApplyFireDamage(uid, damage, interruptsDoAfters: false, origin: uid);
 
                     AdjustFireStacks(uid, flammable.Resisting ? flammable.ResistStacks : -0.25f, flammable, flammable.OnFire);
                 }
