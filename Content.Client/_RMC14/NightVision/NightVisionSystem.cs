@@ -1,4 +1,3 @@
-using Content.Client.Movement.Systems;
 using Content.Shared._RMC14.NightVision;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Burrow;
@@ -16,9 +15,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
     [Dependency] private readonly ILightManager _light = default!;
     [Dependency] private readonly IOverlayManager _overlay = default!;
     [Dependency] private readonly IPlayerManager _player = default!;
-    [Dependency] private readonly SharedEyeSystem _eye = default!;
     [Dependency] private readonly ExamineSystemShared _examine = default!;
-    [Dependency] private readonly ContentEyeSystem  _contentEye = default!;
 
     private EntityQuery<XenoComponent> _xenoQuery;
     private EntityQuery<NightVisionComponent> _nvQuery;
@@ -41,7 +38,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
     private void OnNightVisionDetached(Entity<NightVisionComponent> ent, ref LocalPlayerDetachedEvent args)
     {
-        Off(ent);
+        Off();
     }
 
     protected override void NightVisionChanged(Entity<NightVisionComponent> ent)
@@ -52,7 +49,7 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         switch (ent.Comp.State)
         {
             case NightVisionState.Off:
-                Off(ent);
+                Off();
                 break;
             case NightVisionState.Half:
                 Half(ent);
@@ -70,19 +67,10 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         if (ent != _player.LocalEntity)
             return;
 
-        Off(ent);
+        Off();
     }
 
-    private void SetMesons(bool on)
-    {
-        return; // TODO RMC14 make this not lag horribly
-        if (_player.LocalEntity == null)
-            return;
-
-        _eye.SetDrawFov(_player.LocalEntity.Value, !on);
-    }
-
-    private void Off(Entity<NightVisionComponent> ent)
+    private void Off()
     {
         _overlay.RemoveOverlay<NightVisionOverlay>();
         _overlay.RemoveOverlay<NightVisionFilterOverlay>();
@@ -91,9 +79,6 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
         _light.DrawHardFov = true;
         _light.DrawLighting = true;
 
-        _eye.SetDrawFov(ent, true);
-
-        SetMesons(false);
         SetMesonSprites(false);
     }
 
@@ -109,14 +94,12 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = true;
-
-        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
-
-        SetMesons(ent.Comp.Mesons);
     }
 
     private void Full(Entity<NightVisionComponent> ent)
     {
+        _overlay.RemoveOverlay<HalfNightVisionBrightnessOverlay>();
+
         if (ent.Comp.Overlay)
             _overlay.AddOverlay(new NightVisionOverlay());
 
@@ -125,10 +108,6 @@ public sealed class NightVisionSystem : SharedNightVisionSystem
 
         _light.DrawHardFov = ent.Comp.DrawFov;
         _light.DrawLighting = false;
-
-        _eye.SetDrawFov(ent, ent.Comp.DrawFov);
-
-        SetMesons(ent.Comp.Mesons);
     }
 
     private void SetMesonSprites(bool mesons)

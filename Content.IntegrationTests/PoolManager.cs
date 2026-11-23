@@ -73,7 +73,7 @@ public static partial class PoolManager
                 .OnValueChanged(RTCVars.FailureLogLevel, value => logHandler.FailureLevel = value, true);
         };
 
-        SetDefaultCVars(options);
+        SetDefaultCVars(options, poolSettings);
         var server = new RobustIntegrationTest.ServerIntegrationInstance(options);
         await server.WaitIdleAsync();
         await SetupCVars(server, poolSettings);
@@ -170,7 +170,7 @@ public static partial class PoolManager
             });
         };
 
-        SetDefaultCVars(options);
+        SetDefaultCVars(options, poolSettings);
         var client = new RobustIntegrationTest.ClientIntegrationInstance(options);
         await client.WaitIdleAsync();
         await SetupCVars(client, poolSettings);
