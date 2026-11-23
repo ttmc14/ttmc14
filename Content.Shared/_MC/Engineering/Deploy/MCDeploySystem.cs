@@ -48,6 +48,7 @@ public sealed class MCDeploySystem : EntitySystem
         SubscribeLocalEvent<MCDeployComponent, GetVerbsEvent<AlternativeVerb>>(OnGetVerbs);
         SubscribeLocalEvent<MCDeployComponent, InteractUsingEvent>(OnInteractUsing);
         SubscribeLocalEvent<MCDeployComponent, PickupAttemptEvent>(OnPickupAttempt);
+        SubscribeLocalEvent<MCDeployComponent, CombatModeShouldHandInteractEvent>(OnCombatModeShouldHandInteract);
         SubscribeLocalEvent<MCDeployComponent, AttemptShootEvent>(OnAttemptShoot);
         SubscribeLocalEvent<MCDeployComponent, UseInHandEvent>(OnUseInHand);
 
@@ -112,6 +113,12 @@ public sealed class MCDeploySystem : EntitySystem
 
         if (HasComp<StackComponent>(entity) && HasComp<StackComponent>(args.Used))
             args.Handled = true;
+    }
+
+    private static void OnCombatModeShouldHandInteract(Entity<MCDeployComponent> entity, ref CombatModeShouldHandInteractEvent args)
+    {
+        if (entity.Comp.AttackInCombatMode)
+            args.Cancelled = true;
     }
 
     private static void OnPickupAttempt(Entity<MCDeployComponent> entity, ref PickupAttemptEvent args)
@@ -251,7 +258,8 @@ public sealed class MCDeploySystem : EntitySystem
 
                 _rmcNpc.WakeNPC(entity);
                 _appearance.SetData(entity, MCDeployLayers.Layer, MCDeployState.Deployed);
-                _transform.AnchorEntity(entity);
+                if (!Transform(entity).Anchored)
+                    _transform.AnchorEntity(entity);
                 break;
 
             default:

@@ -44,6 +44,12 @@ public sealed partial class MCDeployComponent : Component
     public bool DeployAllowed = true;
 
     /// <summary>
+    /// An empty-hand click in combat mode strikes this item.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool AttackInCombatMode;
+
+    /// <summary>
     /// Allows you to undeploy an entity manually.
     /// </summary>
     /// <remarks>

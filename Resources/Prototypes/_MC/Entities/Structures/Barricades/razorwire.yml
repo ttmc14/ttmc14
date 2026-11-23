@@ -52,6 +52,7 @@
   - type: Item
     size: Normal
   - type: MCDeploy
+    attackInCombatMode: true
     deployFixture: razorwire
     deployTime: 2.5
     deployedPrototype: MCRazorwire1
