@@ -1,5 +1,5 @@
-mc-damage-brute = Физический
-mc-damage-burn = Ожоги
-mc-damage-toxin = Токсины
-mc-damage-oxygen = Удушье
-mc-damage-clone = Клон
+mc-damage-brute = Brute
+mc-damage-burn = Burn
+mc-damage-toxin = Toxin
+mc-damage-oxygen = Oxygen deprivation
+mc-damage-clone = Clone damage

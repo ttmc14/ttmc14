@@ -9,7 +9,7 @@ asrs-ui-items = { " предметов" }
 asrs-ui-cost = { "Стоимость: " }
 
 asrs-ui-previous-purchases = Предыдущие покупки
-asrs-ui-export-history = Экспорт истории
+asrs-ui-export-history = История экспорта
 
 asrs-ui-requests = Запросы
 asrs-ui-approved-requests = Одобренные запросы

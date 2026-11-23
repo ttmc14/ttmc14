@@ -12,5 +12,5 @@ ent-MCWeaponFlamerUnloadedAll = { ent-MCWeaponFlamer }
 ent-MCBackFlamethrower = сумка для огнемета TGMC
     .desc = Этот рюкзак позволяет переносить огнемёт и имеет умеренную вместимость для прочих вещей. Автоматически пополняет топливо огнемёта.
 ent-MCBackFlamethrowerFull = { ent-MCBackFlamethrower }
-    .suffix = Full
+    .suffix = Заполнена
     .desc = { ent-MCBackFlamethrower.desc }

@@ -8,3 +8,5 @@ mc-module-vali-necrosis-warning = Вы чувствуете легкое жже�
 mc-module-vali-necrosis-danger = ВНИМАНИЕ: Начинается некроз тканей! Немедленно отключите систему Вали!
 mc-module-vali-necrosis-final = Процесс некроза завершен. Ваши ткани необратимо повреждены!
 mc-module-vali-necrosis-popup = Вы чувствуете, как ваша плоть отмирает!
+
+mc-armor-remove-specific-module = Снять модуль «{ $module }»

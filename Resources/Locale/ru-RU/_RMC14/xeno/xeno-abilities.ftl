@@ -18,6 +18,7 @@ rmc-xeno-not-enough-acid = У вас недостаточно накопленн
 rmc-xeno-acid-increase-user = Вы чувствуете, как ваши запасы кислоты увеличиваются!
 
 # Строительство
+cm-xeno-weeds-source-already-here = Здесь уже есть смоляной узел!
 cm-xeno-choose-resin-structure = Выберите смоляную конструкцию
 cm-xeno-order-construction = Построить конструкцию
 cm-xeno-too-close-to-other-node = Это слишком близко к { THE($target) }!

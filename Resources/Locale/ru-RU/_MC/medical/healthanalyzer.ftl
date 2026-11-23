@@ -1,10 +1,10 @@
 mc-health-analyzer-title = Сканирование здоровья
 mc-health-analyzer-patient = Пациент: { $name }
-mc-health-analyzer-brute = Brute
-mc-health-analyzer-burn = Burn
-mc-health-analyzer-toxin = Toxin
-mc-health-analyzer-oxygen = Oxygen
-mc-health-analyzer-clone = Clone
+mc-health-analyzer-brute = { mc-damage-brute }
+mc-health-analyzer-burn = { mc-damage-burn }
+mc-health-analyzer-toxin = { mc-damage-toxin }
+mc-health-analyzer-oxygen = { mc-damage-oxygen }
+mc-health-analyzer-clone = { mc-damage-clone }
 mc-health-analyzer-permadead = Безвозвратно мёртв
 mc-health-analyzer-healthy = { $percent } здоровья
 mc-health-analyzer-unknown-reagents = [color=white][italic]Неизвестные реагенты зафиксированы.[/italic][/color]

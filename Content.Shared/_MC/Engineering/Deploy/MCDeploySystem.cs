@@ -95,7 +95,7 @@ public sealed class MCDeploySystem : EntitySystem
         var user = args.User;
         args.Verbs.Add(new AlternativeVerb
         {
-            Text = Loc.GetString("Disassemble"),
+            Text = Loc.GetString("disassemble-system-verb-disassemble"),
             Act = () =>
             {
                 Disassemble(entity, user);
