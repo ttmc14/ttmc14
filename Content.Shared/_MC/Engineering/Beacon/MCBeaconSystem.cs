@@ -1,19 +1,21 @@
-﻿using Content.Shared._MC.Engineering.Beacon.Components;
+﻿using Content.Shared._MC.Areas;
+using Content.Shared._MC.Engineering.Beacon.Components;
 using Content.Shared._MC.Engineering.Beacon.Events;
 using Content.Shared._MC.Engineering.Beacon.Prototypes;
 using Content.Shared._MC.Engineering.Deploy;
 using Content.Shared._MC.Engineering.Deploy.Components;
 using Content.Shared._MC.Engineering.Deploy.Events;
+using Robust.Shared.Map.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
-using Robust.Shared.Random;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Engineering.Beacon;
 
 public sealed class MCBeaconSystem : EntitySystem
 {
-    [Dependency] private readonly IRobustRandom _random = null!;
+    [Dependency] private readonly MCAreasSystem _areas = null!;
+    [Dependency] private readonly SharedMapSystem _map = null!;
     [Dependency] private readonly INetManager _net = null!;
 
     [Dependency] private readonly MCDeploySystem _mcDeploy = null!;
@@ -26,27 +28,26 @@ public sealed class MCBeaconSystem : EntitySystem
 
         _beaconQuery = GetEntityQuery<MCBeaconComponent>();
 
-        SubscribeLocalEvent<MCBeaconComponent, ComponentStartup>(OnMapInit);
+        SubscribeLocalEvent<MCBeaconComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MCBeaconComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MCBeaconComponent, MCDeployChangedStateEvent>(OnDeployChangedState);
     }
 
-    private void OnMapInit(Entity<MCBeaconComponent> entity, ref ComponentStartup args)
+    private void OnStartup(Entity<MCBeaconComponent> entity, ref ComponentStartup args)
     {
-        if (_net.IsClient)
-            return;
-
-        if (!string.IsNullOrEmpty(entity.Comp.Name))
-            return;
-
-        var symbols = new [] { "A", "B", "G", "D", "X", "Z" };
-        entity.Comp.Name = $"{string.Join("", _random.GetItems(symbols, 2))}-{_random.Next(0, 999):000}";
-
-        Dirty(entity);
-
-        if (!_mcDeploy.Deployed(entity))
+        if (_net.IsClient || !_mcDeploy.Deployed(entity))
             return;
 
         var ev = new MCBeaconActiveChangedEvent(entity, true);
+        RaiseLocalEvent(ref ev);
+    }
+
+    private void OnShutdown(Entity<MCBeaconComponent> entity, ref ComponentShutdown args)
+    {
+        if (!_net.IsServer || !_mcDeploy.Deployed(entity))
+            return;
+
+        var ev = new MCBeaconActiveChangedEvent(entity, false);
         RaiseLocalEvent(ref ev);
     }
 
@@ -83,19 +84,39 @@ public sealed class MCBeaconSystem : EntitySystem
         return result;
     }
 
-    public List<NetBeaconWithName> GetNetActiveBeaconsWithName(ProtoId<MCBeaconCategoryPrototype> categoryId)
+    public List<NetBeaconWithName> GetNetActiveBeaconsWithName(ProtoId<MCBeaconCategoryPrototype> categoryId,
+        Predicate<EntityUid>? include = null)
     {
         var result = new List<NetBeaconWithName>();
         foreach (var entity in EnumerateActiveBeacons(categoryId))
         {
-            result.Add(new NetBeaconWithName(GetNetEntity(entity), entity.Comp.Name));
+            if (include != null && !include(entity))
+                continue;
+
+            var transform = Transform(entity);
+            var name = string.IsNullOrEmpty(entity.Comp.Name) ? Name(entity) : entity.Comp.Name;
+            var grid = transform.GridUid;
+            var tile = grid is { } uid && TryComp<MapGridComponent>(uid, out var mapGrid)
+                ? _map.TileIndicesFor(uid, mapGrid, transform.Coordinates)
+                : default;
+            result.Add(new NetBeaconWithName(GetNetEntity(entity), name, GetNetEntity(grid), tile));
         }
         return result;
     }
 
     private void OnDeployChangedState(Entity<MCBeaconComponent> entity, ref MCDeployChangedStateEvent args)
     {
-        var ev = new MCBeaconActiveChangedEvent(entity, args.State == MCDeployState.Deployed);
+        var deployed = args.State == MCDeployState.Deployed;
+        if (deployed && _net.IsServer)
+        {
+            var area = _areas.GetAreaName(entity);
+            entity.Comp.Name = args.User is { } user
+                ? Loc.GetString("mc-asrs-beacon-name", ("user", Name(user)), ("area", area))
+                : area;
+            DirtyField(entity, entity.Comp, nameof(MCBeaconComponent.Name));
+        }
+
+        var ev = new MCBeaconActiveChangedEvent(entity, deployed);
         RaiseLocalEvent(ref ev);
     }
 
@@ -104,7 +125,7 @@ public sealed class MCBeaconSystem : EntitySystem
         var query = EntityQueryEnumerator<MCBeaconComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            if (!_mcDeploy.Deployed(uid))
+            if (component.LifeStage >= ComponentLifeStage.Stopping || !_mcDeploy.Deployed(uid))
                 continue;
 
             if (component.Category != categoryId)
@@ -115,5 +136,5 @@ public sealed class MCBeaconSystem : EntitySystem
     }
 
     [Serializable, NetSerializable]
-    public record struct NetBeaconWithName(NetEntity Uid, string Name);
+    public readonly record struct NetBeaconWithName(NetEntity Uid, string Name, NetEntity? Grid, Vector2i Tile);
 }

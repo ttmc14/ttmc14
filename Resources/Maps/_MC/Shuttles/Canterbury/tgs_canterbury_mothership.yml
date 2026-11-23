@@ -101,6 +101,7 @@ entities:
   - uid: 1
     components:
     - type: MCShuttlePreventCollide
+    - type: MCBlockAntennaSignal
     - type: MetaData
       name: ТГК Кентбери "Мазершип"
     - type: Transform

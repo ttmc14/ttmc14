@@ -36,6 +36,7 @@
       enum.MCASRSConsoleUI.Key:
         type: MCASRSBui
   - type: MCASRSConsole
+    deliveryFee: 150
 
 - type: entity
   parent: MCASRSConsole
@@ -43,3 +44,5 @@
   components:
   - type: AccessReader
     access: []
+  - type: MCASRSConsole
+    deliveryFee: 0

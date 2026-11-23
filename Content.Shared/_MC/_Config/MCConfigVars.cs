@@ -63,7 +63,13 @@ public sealed partial class MCConfigVars : CVars
      */
 
     public static readonly CVarDef<int> AsrsStartingBalance =
-        CVarDef.Create("mc.asrs_starting_balance", 500, CVar.REPLICATED | CVar.SERVER);
+        CVarDef.Create("mc.asrs.starting_balance", 500, CVar.REPLICATED | CVar.SERVER);
+
+    /// <summary>
+    /// Allows ASRS deliveries to active supply beacons on any map.
+    /// </summary>
+    public static readonly CVarDef<bool> AsrsAllowDeliveryAnywhere =
+        CVarDef.Create("mc.asrs.allow_delivery_anywhere", false, CVar.SERVERONLY);
 
     /**
      * Fire

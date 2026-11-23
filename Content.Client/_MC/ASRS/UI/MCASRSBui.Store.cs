@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.ASRS.Components;
+using Content.Shared._MC.ASRS.Systems;
 
 namespace Content.Client._MC.ASRS.UI;
 
@@ -6,8 +7,11 @@ public sealed partial class MCASRSBui
 {
     private event Action? StoreRefreshed;
 
-    public int StoreCost { get; private set; }
-    public int StoreCount { get; private set; }
+    public long StoreCost { get; private set; }
+    public long StoreCount { get; private set; }
+
+    public long StoreItemCount { get; private set; }
+    public int CrateCapacity => _entity.System<MCASRSDropSystem>().CrateCapacity;
 
     public Dictionary<MCASRSEntry, int> Store { get; } = new();
     public bool StoreEmpty => Store.Count == 0;
@@ -46,10 +50,12 @@ public sealed partial class MCASRSBui
     {
         StoreCost = 0;
         StoreCount = 0;
+        StoreItemCount = 0;
 
         foreach (var (entry, count) in Store)
         {
-            StoreCost += entry.Cost * count;
+            StoreCost += (long) entry.Cost * count;
+            StoreItemCount += (long) entry.Entities.Count * count;
             StoreCount += count;
         }
 

@@ -79,7 +79,7 @@ public sealed class MCASRSExporterSystem : EntitySystem
             return;
         }
 
-        _mcAsrs.AddBalance(value);
+        _mcAsrs.AddBalance(value, entity.Comp.Account);
         _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("export-pad-sold", ("pad", entity), ("points", value)));
 
         return;

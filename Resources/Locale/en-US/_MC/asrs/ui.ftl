@@ -1,0 +1,10 @@
+mc-asrs-beacon-name = { $user } + { $area }
+mc-asrs-beacon-choice = Select delivery beacon
+mc-asrs-no-beacons = No active beacons
+mc-asrs-map-unavailable = Area map unavailable
+mc-asrs-beacon-unavailable = Ground beacon signal lost.
+mc-asrs-drop-blocked = Delivery failed. The beacon needs a clear landing tile.
+mc-asrs-delivery-insufficient = Delivery requires { $fee } supply points.
+mc-asrs-confirm-delivery-fee = Deliver for { $fee } points
+mc-asrs-cart-capacity = A delivery crate holds up to { $capacity } items.
+mc-asrs-cart-cost-limit = The total exceeds the maximum ASRS balance.

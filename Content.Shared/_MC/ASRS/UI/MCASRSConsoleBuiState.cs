@@ -6,6 +6,7 @@ namespace Content.Shared._MC.ASRS.Ui;
 [Serializable, NetSerializable]
 public sealed class MCASRSConsoleBuiState(
     int points,
+    int deliveryFee,
     List<MCBeaconSystem.NetBeaconWithName> beacons,
     List<MCASRSRequest> requests,
     List<MCASRSRequest> requestsAwaitingDelivery,
@@ -14,6 +15,7 @@ public sealed class MCASRSConsoleBuiState(
     : BoundUserInterfaceState
 {
     public readonly int Points = points;
+    public readonly int DeliveryFee = deliveryFee;
 
     public readonly List<MCBeaconSystem.NetBeaconWithName> Beacons = beacons;
 

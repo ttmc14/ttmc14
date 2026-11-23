@@ -9,6 +9,7 @@
     - MCBeacon
   - type: MCBeacon
     category: None
+  - type: MCSerialNumber
   - type: Sprite
     noRot: true
     sprite: _MC/Objects/Items/beacon.rsi
@@ -31,6 +32,12 @@
 
 - type: Tag
   id: MCBeacon
+
+- type: entity
+  id: MCHelmetAntennaSignal
+  name: HM-9 supply signal
+  categories: [ HideSpawnMenu ]
+  save: false
 
 - type: entity
   parent: MCBeacon

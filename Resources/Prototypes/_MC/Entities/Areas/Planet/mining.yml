@@ -20,6 +20,7 @@
   id: MCAreaMiningCave
   abstract: true
   components:
+  - type: MCBlockAntennaSignal
   - type: Area
     weatherEnabled: false
     minimapColor: "#4a3710d0"
@@ -166,6 +167,7 @@
   id: MCAreaResearchOutpost
   name: Исследовательский аванпост
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: purple
   - type: Area
@@ -248,6 +250,7 @@
   id: MCAreaNukeFacility
   name: Аварийный ядерный объект
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: brig
   - type: Area
@@ -309,6 +312,7 @@
   id: MCAreaWorkerDormitory
   name: Рабочее общежитие
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: crew_quarters
   - type: Area

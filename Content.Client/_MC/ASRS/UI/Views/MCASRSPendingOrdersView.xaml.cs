@@ -13,13 +13,15 @@ public sealed partial class MCASRSPendingOrdersView : MCASRSView
     public event Action? Cleared;
     public event Action<MCASRSEntry, int>? OrderCountChanged;
 
+    private MCASRSBui? _bui;
+
     private string Reason => ReasonBar.Text;
 
     public MCASRSPendingOrdersView()
     {
         RobustXamlLoader.Load(this);
 
-        ReasonBar.OnTextChanged += OnReasonChanged;
+        ReasonBar.OnTextChanged += _ => UpdateSubmitButton();
         SubmitButton.OnPressed += _ => Submitted?.Invoke(Reason);
         ClearButton.OnPressed += _ => Cleared?.Invoke();
     }
@@ -32,6 +34,8 @@ public sealed partial class MCASRSPendingOrdersView : MCASRSView
 
     public void Refresh(MCASRSBui bui)
     {
+        _bui = bui;
+        UpdateSubmitButton();
         Container.Children.Clear();
         foreach (var (entry, count) in bui.Store)
         {
@@ -39,9 +43,16 @@ public sealed partial class MCASRSPendingOrdersView : MCASRSView
         }
     }
 
-    private void OnReasonChanged(LineEdit.LineEditEventArgs obj)
+    private void UpdateSubmitButton()
     {
-        SubmitButton.Disabled = ReasonBar.Text == string.Empty;
+        if (_bui == null)
+            return;
+
+        var capacity = _bui.CrateCapacity;
+        SubmitButton.ToolTip = _bui.StoreItemCount > capacity
+            ? Loc.GetString("mc-asrs-cart-capacity", ("capacity", capacity))
+            : _bui.StoreCost > int.MaxValue ? Loc.GetString("mc-asrs-cart-cost-limit") : null;
+        SubmitButton.Disabled = _bui.StoreEmpty || string.IsNullOrWhiteSpace(Reason) || SubmitButton.ToolTip != null;
     }
 
     private void OnCountChanged(MCASRSEntry entry, int count)

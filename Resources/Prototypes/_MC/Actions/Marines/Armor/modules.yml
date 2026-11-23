@@ -32,6 +32,24 @@
   - type: InstantAction
     event: !type:MCModuleBinocularActionEvent
 
+- type: entity
+  parent: ActionMarineBase
+  id: MCActionModuleAntenna
+  save: false
+  name: Toggle HM-9 supply beacon
+  description: Register your current tile with ASRS, or switch off the signal.
+  components:
+  - type: Action
+    temporary: true
+    icon:
+      sprite: _MC/Clothing/modular.rsi
+      state: antenna_head
+    backgroundOn:
+      sprite: _MC/Actions/actions.rsi
+      state: selected_frame
+  - type: InstantAction
+    event: !type:MCModuleAntennaActionEvent
+
 # Pluto & Vali
 - type: entity
   parent: ActionMarineBase

@@ -188,7 +188,7 @@ public sealed class MCDeploySystem : EntitySystem
         }
 
         _transform.SetCoordinates(targetEntity, Transform(targetEntity), coordinates, angle);
-        SetState(targetEntity, MCDeployState.Deployed);
+        SetState(targetEntity, MCDeployState.Deployed, args.User);
     }
 
     private void OnDisassembleDoAfter(Entity<MCDeployComponent> entity, ref MCDeployDisassembleDoAfterEvent args)
@@ -199,7 +199,7 @@ public sealed class MCDeploySystem : EntitySystem
 
         args.Handled = true;
 
-        SetState(entity, MCDeployState.Item);
+        SetState(entity, MCDeployState.Item, user);
 
         var selfMsg = Loc.GetString("rmc-sentry-disassemble-finish-self", ("sentry", entity));
         var othersMsg = Loc.GetString("rmc-sentry-disassemble-finish-others", ("user", user), ("sentry", entity));
@@ -222,14 +222,14 @@ public sealed class MCDeploySystem : EntitySystem
         _doAfter.TryStartDoAfter(doAfter);
     }
 
-    private void SetState(Entity<MCDeployComponent> entity, MCDeployState state)
+    private void SetState(Entity<MCDeployComponent> entity, MCDeployState state, EntityUid? user)
     {
         var previousState = entity.Comp.State;
 
         entity.Comp.State = state;
         Dirty(entity);
 
-        var ev  = new MCDeployChangedStateEvent(state, previousState);
+        var ev = new MCDeployChangedStateEvent(state, previousState, user);
         RaiseLocalEvent(entity, ref ev);
 
         UpdateState(entity);

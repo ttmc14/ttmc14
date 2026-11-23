@@ -3,4 +3,4 @@
 namespace Content.Shared._MC.Engineering.Deploy.Events;
 
 [ByRefEvent]
-public readonly record struct MCDeployChangedStateEvent(MCDeployState State, MCDeployState PreviousState);
+public readonly record struct MCDeployChangedStateEvent(MCDeployState State, MCDeployState PreviousState, EntityUid? User = null);

@@ -2,7 +2,8 @@
   parent: MCArmorModule
   id: MCArmorModuleHelmetAntenna
   name: HM-9 antenna helmet module
-  description: Designed for mounting on a modular Helmet. This module is able to provide a readout of the user's coordinates and connect to the shipside supply console and shield against the interference of caves, allowing for normal messaging in shallow caves, and only minor interference when deep.
+  description: Mounts on a modular helmet. Activate it to read your coordinates and mark a supply drop for ASRS.
+  # TODO MC: Add cave radio interference and have a worn HM-9 reduce it by one level.
   components:
   - type: Tag
     tags:
@@ -10,6 +11,7 @@
     - MCArmorModuleHead
   - type: Sprite
     state: antenna_head
+  - type: MCModuleAntenna
   - type: MCArmorModule
     visuals:
       sprite: _MC/Clothing/modular.rsi

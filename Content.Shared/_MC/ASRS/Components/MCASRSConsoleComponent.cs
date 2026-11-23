@@ -7,9 +7,18 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.ASRS.Components;
 
+/// <summary>
+/// Manages supply orders, delivery fees and the ASRS account used by this console.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCASRSConsoleComponent : Component
 {
+    [DataField, AutoNetworkedField]
+    public ProtoId<MCASRSAccountPrototype> Account = MCASRSAccountPrototype.Default;
+
+    [DataField, AutoNetworkedField]
+    public int DeliveryFee;
+
     [DataField, AutoNetworkedField, AlwaysPushInheritance]
     public List<MCASRSCategory> Categories = new();
 
