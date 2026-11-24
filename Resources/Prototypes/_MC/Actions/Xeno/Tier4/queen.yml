@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoScreech
   name: Screech (250)
   description: A large area knockdown that causes pain and screen-shake.

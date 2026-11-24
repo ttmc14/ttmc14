@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoTransferPlasma
   name: Transfer Plasma
   description: Give some of your plasma to a teammate.

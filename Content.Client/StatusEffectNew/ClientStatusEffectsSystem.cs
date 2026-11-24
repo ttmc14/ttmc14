@@ -42,7 +42,7 @@ public sealed partial class ClientStatusEffectsSystem : SharedStatusEffectsSyste
 
         foreach (var effect in state.ActiveStatusEffects)
         {
-            var effectUid = GetEntity(effect);
+            var effectUid = EnsureEntity<StatusEffectContainerComponent>(effect, ent);
             if (ent.Comp.ActiveStatusEffects.Contains(effectUid))
                 continue;
 

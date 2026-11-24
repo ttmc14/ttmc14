@@ -53,9 +53,10 @@ public sealed partial class XenoHudOverlay
         regenLimit = Math.Clamp(regenLimit, 0, plasmaMax);
 
         var plasmaLevel = regenLimit > 0 ? ContentHelpers.RoundToLevels(plasma, regenLimit, 11) : 0;
-        DrawBar($"plasma{(plasmaLevel > 0 ? plasmaLevel * 10 : 0)}",
-            xeno, sprite, handle,
-            path: "/Textures/_MC/Interface/Xeno/hud.rsi");
+        var red = reserve?.UseRedPlasmaBar == true;
+        var state = red ? $"fury{plasmaLevel * 10}" : $"plasma{plasmaLevel * 10}";
+        var path = red ? "/Textures/_MC/Interface/Xeno/fury.rsi" : "/Textures/_MC/Interface/Xeno/hud.rsi";
+        DrawBar(state, xeno, sprite, handle, path);
 
         if (plasma <= regenLimit || regenLimit >= plasmaMax)
             return;

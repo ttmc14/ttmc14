@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPsychicLink
   name: Psychic Link
   description: Link to a hive sister within 7 tiles to take half her brute and burn damage. Use again to unlink.
@@ -17,7 +17,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoDrain
   name: Drain
   description: Hold a living human to draw blood and restore your health and reserves. Feeding on a corpse restores health and carapace instead.
@@ -35,7 +35,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoTransfusion
   name: Transfusion (20)
   description: Spend 20 blood to heal a nearby hive sister for 30% of her maximum health. Excess healing grants temporary health.
@@ -55,7 +55,7 @@
     cost: 20
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCarnage
   name: Carnage
   description: Gain speed for up to 10 seconds. Your next slash against a living human heals you. When low on blood, you also knock the victim down and feed.
@@ -118,7 +118,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoOppose
   name: Oppose (80)
   description: Strike the ground to heal nearby hive sisters, stagger adjacent enemies and injure enemies on your tile.

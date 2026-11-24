@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoRage
   name: Rage
   description: Use while at 50% health or lower to gain extra slash damage, resistances and speed in proportion to your missing hit points. This bonus is increased and you regain plasma while your HP is negative.
@@ -15,7 +15,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoRavage
   name: Ravage (200)
   description: Attacks and knockbacks enemies in the direction your facing.
@@ -33,7 +33,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCharge
   name: Charge (250)
   description: Charge up to 4 tiles and viciously attack your target

@@ -7,6 +7,7 @@ using Content.Shared._MC.Damage;
 using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Components;
 using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Events;
 using Content.Shared._MC.Xeno.Abilities.Gorger.Carnage.Events;
+using Content.Shared._MC.Xeno.Abilities.Gorger.Drain.Components;
 using Content.Shared._MC.Xeno.Abilities.Gorger.Drain.Events;
 using Content.Shared._MC.Xeno.Abilities.Gorger.Feast.Events;
 using Content.Shared._MC.Xeno.Abilities.Gorger.Oppose.Events;
@@ -275,8 +276,9 @@ public sealed class MCXenoGorgerTest
         await pair.CleanReturnAsync();
     }
 
-    [Test]
-    public async Task DrainSuppliesTwoMealsAndPowersFeast()
+    [TestCase(false, 250)]
+    [TestCase(true, 400)]
+    public async Task DrainSuppliesTwoMealsAndPowersFeast(bool startFull, int expectedBlood)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
@@ -295,18 +297,26 @@ public sealed class MCXenoGorgerTest
             gorger = server.EntMan.SpawnEntity("MCXenoGorger", map.GridCoords);
             var human = server.EntMan.SpawnEntity("MCMobHuman", map.GridCoords.Offset(Vector2.UnitX));
             var drain = xenoActions.GetActionsWithEvent<MCXenoDrainActionEvent>(gorger).Single();
+            if (startFull)
+            {
+                plasma.RegenPlasmaMax(gorger);
+                Assert.That(plasma.GetPlasma(gorger), Is.EqualTo(plasma.GetMaxPlasma(gorger)));
+            }
+
             actions.SetEventTarget(drain, human);
             actions.PerformAction(gorger, drain);
+            Assert.That(server.EntMan.GetComponent<MCXenoDrainComponent>(gorger).Feeding, Is.True);
+            server.System<MCDamageableSystem>().AdjustBruteLoss(gorger, 10);
         });
         await pair.RunTicksSync(60);
         await server.WaitAssertion(() =>
         {
-            Assert.That(plasma.GetPlasma(gorger), Is.EqualTo(250));
+            Assert.That(plasma.GetPlasma(gorger), Is.EqualTo(expectedBlood));
             var feast = xenoActions.GetActionsWithEvent<MCXenoFeastActionEvent>(gorger).Single();
             actions.PerformAction(gorger, feast);
         });
         await pair.RunTicksSync(30);
-        await server.WaitAssertion(() => Assert.That(plasma.GetPlasma(gorger), Is.EqualTo(230)));
+        await server.WaitAssertion(() => Assert.That(plasma.GetPlasma(gorger), Is.EqualTo(expectedBlood - 20)));
         await server.WaitPost(() => server.System<SharedMapSystem>().DeleteMap(map.MapId));
         await pair.CleanReturnAsync();
     }

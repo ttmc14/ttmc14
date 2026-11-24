@@ -59,7 +59,6 @@ public sealed class MCXenoDevourSystem : MCXenoAbilitySystem
             DistanceThreshold = ent.Comp.Range,
             AttemptFrequency = eject ? AttemptFrequency.Never : AttemptFrequency.StartAndEnd,
             BreakOnMove = true,
-            BreakOnDamage = true,
             DuplicateCondition = DuplicateConditions.None,
             RequireCanInteract = false,
         };

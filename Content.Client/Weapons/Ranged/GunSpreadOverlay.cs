@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Client.Weapons.Ranged;
 
-public sealed class GunSpreadOverlay : Overlay
+public sealed partial class GunSpreadOverlay : Overlay
 {
     public override OverlaySpace Space => OverlaySpace.WorldSpace;
 
@@ -48,7 +48,7 @@ public sealed class GunSpreadOverlay : Overlay
         if (mapPos.MapId == MapId.Nullspace)
             return;
 
-        if (!_guns.TryGetGun(player.Value, out var gunUid, out var gun))
+        if (!TryGetSpread(player.Value, out var minSpread, out var maxSpread, out var currentAngle))
             return;
 
         var mouseScreenPos = _input.MouseScreenPosition;
@@ -57,12 +57,6 @@ public sealed class GunSpreadOverlay : Overlay
         if (mapPos.MapId != mousePos.MapId)
             return;
 
-        // (☞ﾟヮﾟ)☞
-        var maxSpread = gun.MaxAngleModified;
-        var minSpread = gun.MinAngleModified;
-        var timeSinceLastFire = (_timing.CurTime - gun.NextFire).TotalSeconds;
-        var currentAngle = new Angle(MathHelper.Clamp(gun.CurrentAngle.Theta - gun.AngleDecayModified.Theta * timeSinceLastFire,
-            gun.MinAngleModified.Theta, gun.MaxAngleModified.Theta));
         var direction = (mousePos.Position - mapPos.Position);
 
         worldHandle.DrawLine(mapPos.Position, mousePos.Position + direction, Color.Orange);

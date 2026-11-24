@@ -18,6 +18,12 @@ public sealed partial class MCXenoPlasmaComponent : Component
     public bool ShowBloodHud;
 
     /// <summary>
+    /// Uses red for the regenerating portion of the in-world plasma bar.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public bool UseRedPlasmaBar;
+
+    /// <summary>
     /// Whether other xenomorphs can replenish this reserve through a plasma transfer.
     /// </summary>
     [DataField, AutoNetworkedField]

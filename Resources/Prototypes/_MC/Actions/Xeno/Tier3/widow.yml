@@ -1,6 +1,6 @@
 # Orders
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoOrderAttack
   name: Order Attack
   description: Send out your summons to attack nearby humans.
@@ -15,7 +15,7 @@
       orderId: attack
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoOrderFollow
   name: Order Follow
   description: Recall your summons to follow you once more.
@@ -34,7 +34,7 @@
 
 # Summons
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoSpawnSpiderling
   name: Birth Spiderling (80)
   description: Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time.
@@ -51,7 +51,7 @@
     cost: 80
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAbsorbSpiderling
   name: Absorb Spiderling (15)
   description: We kill our spiderling and absorb their life energy and plasma.
@@ -72,7 +72,7 @@
 
 # Spit
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoSpitOnceWeb
   name: Web Spit (100)
   description: Stun and blind the target with a web projectile.
@@ -96,7 +96,7 @@
 
 # Other
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoWebPounce
   name: Web Pounce (200)
   description: Shoot out a web and pull it to traverse forward like Spiderman.

@@ -74,6 +74,12 @@ public sealed partial class MCXenoCarnageComponent : Component
     public SoundSpecifier RoarSound = new SoundCollectionSpecifier("XenoRoar");
 
     /// <summary>
+    /// Bite heard when the caster feeds on a knocked-down victim.
+    /// </summary>
+    [DataField]
+    public SoundSpecifier FeedSound = new SoundPathSpecifier("/Audio/_MC/Effects/alien_bite2.ogg", AudioParams.Default.WithVolume(-4));
+
+    /// <summary>
     /// Visual preset applied while this effect is active.
     /// </summary>
     [DataField]

@@ -11,7 +11,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoBodySwap
   name: Body swap (100)
   description: Swap places with another xeno.
@@ -32,7 +32,7 @@
     cost: 100
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoWarpBlast
   name: Warp Blast (100)
   description: Create a pure force explosion that damages and knockbacks targets around.

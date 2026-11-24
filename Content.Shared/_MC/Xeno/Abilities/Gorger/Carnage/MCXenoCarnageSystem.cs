@@ -102,7 +102,6 @@ public sealed class MCXenoCarnageSystem : MCXenoAbilitySystem<MCXenoCarnageCompo
                 {
                     DistanceThreshold = ability.Range,
                     BreakOnMove = true,
-                    BreakOnDamage = true,
                     DuplicateCondition = DuplicateConditions.None,
                     RequireCanInteract = false,
                 };
@@ -127,6 +126,9 @@ public sealed class MCXenoCarnageSystem : MCXenoAbilitySystem<MCXenoCarnageCompo
         {
             _blood.TryModifyBloodLevel(human, -ability.BloodDrain);
             _plasma.RegenPlasma(ent.Owner, ability.BloodGain * ent.Comp.Power);
+
+            AnimateHit(ent, human);
+            _audio.PlayPredicted(ability.FeedSound, human, ent);
         }
 
         Stop(ent);

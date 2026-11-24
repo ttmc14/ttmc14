@@ -99,7 +99,7 @@
 
 # Other
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoDash
   name: Dash (100)
   description: Instantly dash to the selected tile.
@@ -138,7 +138,7 @@
       speed: 40
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoSprayAcidPraetorian
   name: Spray Acid (100)
   description: Spray a short line of dangerous acid at your target.
@@ -158,7 +158,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoScatterSpitPraetorian
   name: Scatter Spit (280)
   description: Spits a spread of acid projectiles that splatter on the ground.

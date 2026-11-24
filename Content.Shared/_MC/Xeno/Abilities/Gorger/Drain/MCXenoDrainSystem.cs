@@ -55,15 +55,11 @@ public sealed class MCXenoDrainSystem : MCXenoAbilitySystem
         if (corpse && !NeedsHealing(ent))
             return;
 
-        if (!corpse && _plasma.GetPlasmaNormalized(ent) >= 1)
-            return;
-
         var ev = new MCXenoDrainDoAfterEvent(args.Action, EntityManager, corpse);
         var doAfter = new DoAfterArgs(EntityManager, ent, corpse ? ent.Comp.CorpseDelay : ent.Comp.Delay, ev, ent, args.Target)
         {
             DistanceThreshold = ent.Comp.Range,
             BreakOnMove = true,
-            BreakOnDamage = true,
             DuplicateCondition = DuplicateConditions.None,
             RequireCanInteract = false,
         };

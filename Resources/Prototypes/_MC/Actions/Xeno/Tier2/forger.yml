@@ -1,5 +1,5 @@
 ﻿- type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoInferno
   name: Inferno (50)
   description: After a short cast time, release a burst of fire in a 5x5 radius. All tiles are set on fire. Humans are set on fire and burnt.
@@ -17,7 +17,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoFireball
   name: Fireball (50)
   description: Release a fireball that explodes on contact.
@@ -38,7 +38,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoFirecharge
   name: Fire Charge (30)
   description: Charge up to 3 tiles, attacking any organic you come across. Extinguishes the target if they were set on fire, but deals extra damage depending on how many fire stacks they have.
@@ -59,7 +59,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoWhirlwind
   name: Fire Storm (50)
   description: Aim in a direction to send a fiery whirlwind 8 meters or until it hits an obstacle. It burns marines on contact and leaves melting fire along its path and on random nearby patches of floor.

@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCrestToss
   name: Crest Toss (75)
   description: Fling an adjacent target over and behind you, or away from you while on harm intent. Also works over barricades.
@@ -18,7 +18,7 @@
     cost: 75
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoStomp
   name: Stomp (100)
   description: Knocks all adjacent targets away and down.
@@ -36,7 +36,7 @@
     cost: 100
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCrusherForwardCharge
   name: Forward Charge (150)
   description: WIP.
@@ -75,7 +75,7 @@
     event: !type:MCXenoChargeActionEvent
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoZoom
   name: Toggle Long Range Sight
   description: Extend your sight off into the distance. Must remain stationary to use.

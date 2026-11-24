@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoBanelingExplode
   name: Baneling Explode (60)
   description: Explode and spread dangerous toxins to hinder or kill your foes. You die.

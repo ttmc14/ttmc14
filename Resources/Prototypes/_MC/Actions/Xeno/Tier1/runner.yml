@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoEvasion
   name: Evasion (75)
   description: Take evasive action, forcing non-friendly projectiles that would hit you to miss for a short duration so long as you keep moving.
@@ -17,7 +17,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPounce
   name: Pounce (10)
   description: Leap at your target, tackling and disarming them.
@@ -39,7 +39,7 @@
 
 # Melter
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoMelterPounce
   name: Pounce (50)
   description: Leap at your target, tackling and disarming them.
@@ -60,7 +60,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoMelterShroud
   name: Melter Shroud (50)
   description: Creates see-through acid smoke below yourself.

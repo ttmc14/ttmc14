@@ -142,6 +142,7 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
 
         var result = new EntityUid[shots];
         var direction = targetMap.Position - origin.Position;
+        deviation += _gun.GetShooterSpread(xeno);
         for (var i = 0; i < shots; i++)
         {
             var projTarget = ApplyDeviation(targetMap, deviation, direction);

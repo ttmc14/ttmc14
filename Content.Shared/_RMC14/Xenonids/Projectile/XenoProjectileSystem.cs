@@ -257,6 +257,7 @@ public sealed class XenoProjectileSystem : EntitySystem
 
         var originalDiff = targetMap.Position - origin.Position;
         var halfDeviation = deviation / 2;
+        var halfShooterSpread = _gun.GetShooterSpread(xeno) / 2;
         if (projectileHitLimit != null)
             _limitHitsId++;
 
@@ -266,6 +267,11 @@ public sealed class XenoProjectileSystem : EntitySystem
             var angleOffset = Angle.Zero;
             if (i > 0 && deviation != Angle.Zero)
                 angleOffset = _rmcPseudoRandom.NextAngle(ref xoroshiro, -halfDeviation, halfDeviation);
+
+            if (halfShooterSpread != Angle.Zero)
+            {
+                angleOffset += _rmcPseudoRandom.NextAngle(ref xoroshiro, -halfShooterSpread, halfShooterSpread);
+            }
 
             var projTarget = new MapCoordinates(origin.Position + angleOffset.RotateVec(originalDiff), targetMap.MapId);
 

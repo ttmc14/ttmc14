@@ -102,6 +102,11 @@ public abstract partial class SharedProjectileSystem : EntitySystem
         if (ev.Handled)
             return;
 
+        if (component.ShotDamageMultiplier != 1f)
+        {
+            ev.Damage *= component.ShotDamageMultiplier;
+        }
+
         var coordinates = Transform(projectile).Coordinates;
         var otherName = ToPrettyString(target);
         var modifiedDamage = _net.IsServer

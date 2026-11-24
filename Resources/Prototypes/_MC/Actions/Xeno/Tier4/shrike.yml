@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPsychicFling
   name: Psychic Fling (100)
   description: Sends an enemy or an item flying. A close ranged ability.
@@ -19,7 +19,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoUnrelentingForce
   name: Unrelenting Force (300)
   description: Unleashes our raw psychic power, pushing aside anyone who stands in our path.
@@ -40,7 +40,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPsychicCure
   name: Psychic Cure (200)
   description: Heal and remove debuffs from a target.

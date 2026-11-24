@@ -15,7 +15,7 @@
   - type: MCXenoChooseWeedsAction
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPlantWeeds
   name: Plant Weeds
   description: Plants a resin weed node, which will start growing resin weeds in a 3-tile radius that allows xenomorphs to heal and restore plasma while on top of the tile.
@@ -30,7 +30,7 @@
     event: !type:MCXenoPlaceWeedsActionEvent
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCreateResinJelly
   name: Create Resin Jelly (100)
   description: Places Resin Jelly in your active hand, which can be used on yourself or other xeno castes for a 30-second protection from fire.
@@ -47,7 +47,7 @@
     cost: 100
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoLayEgg
   name: Lay Egg (200)
   description: Create an egg that will grow a larval hugger after a short delay. Empty eggs can have huggers inserted into them.
@@ -64,7 +64,7 @@
     cost: 200
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoSecreteStructure
   name: Secrete Resin
   description: Builds structures, which can be chosen by clicking on the ability while it's active.
@@ -102,7 +102,7 @@
   - type: XenoChooseConstructionAction
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPlaceTrap
   name: Place trap (200)
   description: Place a hole on weeds that can be filled with a hugger, liquid acid or acid gas. Activates when a marine steps on it.

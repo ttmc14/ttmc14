@@ -113,10 +113,6 @@ public sealed partial class MCWeaponLaserSystem
         _physics.SetBodyStatus(uid, physicsComponent, BodyStatus.InAir);
 
         projectileComponent = EnsureComp<ProjectileComponent>(uid);
-        projectileComponent.Weapon = gunUid;
-
-        var shooter = user ?? gunUid;
-        if (shooter is not null)
-            _projectile.SetShooter(uid, projectileComponent, shooter.Value);
+        _projectile.InitializeShot((uid, projectileComponent), gunUid, user);
     }
 }

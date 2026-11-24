@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoRewind
   name: Rewind (150)
   description: Save the location and status of the target. When the time is up, the target location and status are restored
@@ -20,7 +20,7 @@
     cost: 150
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoBlink
   name: Blink (30)
   description: Teleport to a space a short distance away within line of sight. Can teleport mobs you're dragging with you at the cost of higher cooldown.
@@ -44,7 +44,7 @@
     cost: 30
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPortalPlacer
   name: Portal (100)
   description: Place a portal on your location. You and other, whether it be marine or xenomorph, can travel from portal to portal.
@@ -61,7 +61,7 @@
     cost: 100
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoBanish
   name: Banish (100)
   description: Banish a creature or object a short distance away within line of sight to null space. Can target oneself and allies. Can be manually cancelled with Recall.
@@ -82,7 +82,7 @@
     cost: 100
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoRecall
   name: Recall
   description: Manually cancels your active banishment.

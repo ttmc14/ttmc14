@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPlaceAcidWell
   name: place acid well (200)
   description: Place an acid well that can put out fires and destroy sticky grenades.

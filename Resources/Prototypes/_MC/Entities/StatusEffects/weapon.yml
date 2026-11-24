@@ -19,3 +19,12 @@
     damage:
       types:
         MCBurn: 3.5
+
+- type: entity
+  parent: MCStatusEffectMob
+  id: MCStatusEffectStagger
+  name: stagger
+  components:
+  - type: StatusEffect
+    alert: MCStagger
+  - type: MCStagger

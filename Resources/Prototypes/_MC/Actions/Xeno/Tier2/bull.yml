@@ -14,7 +14,7 @@
     event: !type:MCXenoChargeActionEvent
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoGoreCharge
   name: Gore Charge (40)
   description: The gore charge, when it hits a host, stops your charge while dealing a large amount of damage.
@@ -38,7 +38,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoHeadbuttCharge
   name: Headbutt Charge (40)
   description: The headbutt charge, when it hits a host, stops your charge while push them away.
@@ -64,7 +64,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAcidCharge
   name: Acid Charge (40)
   description: The acid charge, deal small damage to yourself and start leaving acid puddles after your steps.

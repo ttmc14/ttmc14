@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoToxicSlash
   name: Toxic Slash (100)
   description: Imbue your claws with acid, inflicting the Intoxicated debuff with every slash. You won't have Toxic Slash after 4 seconds or after 3 slashes have been dealt.
@@ -16,7 +16,7 @@
     cost: 100
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoDrainSting
   name: Drain Sting (75)
   description: Sting your victim, draining them and gaining benefits if they are Intoxicated.
@@ -34,7 +34,7 @@
     cost: 75
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoNeurotoxinSting
   name: Neurotoxin Sting (150)
   description: A channeled melee attack that injects the target with neurotoxin over a few seconds, temporarily stunning them.

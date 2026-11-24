@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoSprayAcidBoiler
   name: Spray Acid (250)
   description: Spray a line of dangerous acid at your target.
@@ -19,7 +19,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCreateGlob
   name: Create bomb (200)
   description: Creates a Boiler Bombard.
@@ -37,7 +37,7 @@
     cost: 200
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoBombard
   name: Bombard
   description: Launch a glob of acid
@@ -59,7 +59,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoBoilerLongRange
   name: Toggle Long Range Sight
   description: Activates your weapon sight in the direction you are facing. Must remain stationary to use.
@@ -74,7 +74,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAcidShroud
   name: Acid Shroud (200)
   description: Create a smokescreen of gas, setting your Bombard on a longer cooldown. Does not require or consume a reserved globule.

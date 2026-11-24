@@ -1,0 +1,6 @@
+- type: entity
+  parent: ActionXenoBase
+  id: MCActionXenoStaggerable
+  abstract: true
+  components:
+  - type: MCStaggerableAction
