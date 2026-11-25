@@ -3,3 +3,8 @@
   id: MCMachineVending
   abstract: true
   categories: [ MCContent ]
+  components:
+  - type: UserInterface
+    interfaces:
+      enum.CMAutomatedVendorUI.Key:
+        type: MCVendorBui

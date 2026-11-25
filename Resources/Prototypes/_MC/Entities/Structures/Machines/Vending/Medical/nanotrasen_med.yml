@@ -14,8 +14,9 @@
     - state: med
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Misc
+    - name: mc-vendor-category-misc
       entries:
       - id: MCRollerBedSpawnFolded
         amount: 6
@@ -25,7 +26,7 @@
         amount: 16
       - id: CMStasisBagFolded
         amount: 24
-    - name: Chemistry Equipment
+    - name: mc-vendor-category-chemistry-equipment
       entries:
       - id: MCSyringe
       - id: MCCaseSyringe
@@ -36,7 +37,7 @@
       - id: MCBeakerLarge
         name: Beaker, Large (120 units)
       - id: MCDropper
-    - name: Reagent tanks
+    - name: mc-vendor-category-reagent-tanks
       entries:
       - id: MCTankReagentEmpty
         name: пустой # TODO: Locale
@@ -56,7 +57,7 @@
       - id: MCTankReagentCombatMix
         name: боевой микс # TODO: Locale
         amount: 1
-    - name: Misc
+    - name: mc-vendor-category-misc
       entries:
       - id: MCHypospray
         amount: 30
@@ -69,11 +70,11 @@
         amount: 6
       - id: MCHealthAnalyzer
         amount: 6
-    - name: Storages
+    - name: mc-vendor-category-storages
       entries:
       - id: MCPouchSurgeryFilled
       - id: MCWebbingSurgeryFilled
-    - name: Surgery
+    - name: mc-vendor-category-surgery
       entries:
       - id: MCScalpelManager
       - id: MCScalpel

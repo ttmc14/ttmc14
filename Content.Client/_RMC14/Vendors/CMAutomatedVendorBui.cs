@@ -20,7 +20,7 @@ using static Robust.Client.UserInterface.Controls.LineEdit;
 namespace Content.Client._RMC14.Vendors;
 
 [UsedImplicitly]
-public sealed class CMAutomatedVendorBui : BoundUserInterface
+public sealed class CMAutomatedVendorBui : BoundUserInterface, IAutomatedVendorUI
 {
     [Dependency] private readonly IPlayerManager _player = default!;
     [Dependency] private readonly IPrototypeManager _prototype = default!;
@@ -73,31 +73,15 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
                         if (entity.TryGetComponent<SpriteComponent>("Sprite", out var entitySprites))
                             uiEntry.Texture.Modulate = entitySprites.AllLayers.First().Color;
 
-                        uiEntry.Panel.Button.Label.Text = entry.Name is null ? entity.Name : Loc.GetString(entry.Name).Replace("\\n", "\n");
-
-                        var name = entity.Name;
-                        var color = CMAutomatedVendorPanel.DefaultColor;
-                        var borderColor = CMAutomatedVendorPanel.DefaultBorderColor;
-                        var hoverColor = CMAutomatedVendorPanel.DefaultBorderColor;
-                        if (section.TakeAll != null || section.TakeOne != null)
+                        var required = section.TakeAll is not null || section.TakeOne is not null;
+                        var label = entry.Name is null ? entity.Name : Loc.GetString(entry.Name).Replace("\\n", "\n");
+                        uiEntry.SetProduct(label, required, entry.Recommended);
+                        var name = (required, entry.Recommended) switch
                         {
-                            name = $"Mandatory: {name}";
-                            color = Color.FromHex("#251A0C");
-                            borderColor = Color.FromHex("#805300");
-                            hoverColor = Color.FromHex("#805300");
-                        }
-                        else if (entry.Recommended)
-                        {
-                            uiEntry.Panel.Button.Label.Text = $"★ {uiEntry.Panel.Button.Label.Text}";
-                            name = $"Recommended: {name}";
-                            color = Color.FromHex("#102919");
-                            borderColor = Color.FromHex("#3A9B52");
-                            hoverColor = Color.FromHex("#3A9B52");
-                        }
-
-                        uiEntry.Panel.Color = color;
-                        uiEntry.Panel.BorderColor = borderColor;
-                        uiEntry.Panel.HoveredColor = hoverColor;
+                            (true, _) => $"Mandatory: {entity.Name}",
+                            (_, true) => $"Recommended: {entity.Name}",
+                            _ => entity.Name,
+                        };
 
                         var msg = new FormattedMessage();
                         msg.AddText(name);
@@ -269,23 +253,13 @@ public sealed class CMAutomatedVendorBui : BoundUserInterface
                         disabled = true;
                 }
 
-                if (entry.Points != null)
+                if (entry.Points is { } price)
                 {
                     anyEntryWithPoints = true;
-                    uiEntry.Amount.Text = $"{entry.Points}P";
-
-                    if (user == null || userPoints < entry.Points)
-                    {
-                        disabled = true;
-                    }
-                }
-                else
-                {
-                    uiEntry.Amount.Text = entry.Amount.ToString();
+                    disabled |= user is null || userPoints < price;
                 }
 
-                uiEntry.Amount.Modulate = disabled ? Color.Red : Color.White;
-                uiEntry.Panel.Button.Disabled = disabled;
+                uiEntry.SetAvailability(entry.Points, entry.Amount, disabled);
 
                 if (!string.IsNullOrWhiteSpace(uiEntry.Amount.Text))
                     anyAmount = true;

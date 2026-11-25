@@ -14,6 +14,10 @@ namespace Content.Shared._RMC14.Vendors;
 [Access(typeof(SharedCMAutomatedVendorSystem))]
 public sealed partial class CMAutomatedVendorComponent : Component
 {
+    /// <summary>Enables the category selector in the MC vendor window.</summary>
+    [DataField, AutoNetworkedField]
+    public bool CategoryTabs;
+
     // TODO RMC14 make this EntProtoId<T>? instead of string?
     [DataField, AutoNetworkedField]
     public string? PointsType;

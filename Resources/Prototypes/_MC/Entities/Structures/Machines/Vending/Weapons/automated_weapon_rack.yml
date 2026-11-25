@@ -21,14 +21,15 @@
   - type: MCVendorNetwork
     networkId: weapon-main
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Rifles
+    - name: mc-vendor-category-rifles
       entries:
       - id: MCWeaponRifleAR12
       - id: MCMagazineRifleAR12
       - id: MCWeaponRifleAR21
       - id: MCMagazineRifleAR21
-    - name: Energy Weapons
+    - name: mc-vendor-category-energy-weapons
       entries:
       - id: MCMagazineBatteryTerra
       - id: MCWeaponEnergyRifle
@@ -36,20 +37,20 @@
       - id: MCWeaponEnergyCarbine
       - id: MCWeaponEnergyPistol
       - id: MCWeaponEnergyMachineGun
-    - name: SMGs
+    - name: mc-vendor-category-smgs
       entries:
       - id: MCWeaponSMG90
       - id: MCMagazineSMG90
       - id: MCWeaponSMG45
       - id: MCMagazineSMG45
       - id: MCMagazineSMG45SH
-    - name: Sniper
+    - name: mc-vendor-category-sniper
       entries:
       - id: MCWeaponSniperDMR37
       - id: MCMagazineDMR37
       - id: MCWeaponSniperSR127
       - id: MCMagazineSR127
-    - name: Marksman
+    - name: mc-vendor-category-marksman
       entries:
       - id: MCWeaponShotgunLeicesterRepeater
       - id: MCBoxGovernmentRounds
@@ -58,7 +59,7 @@
       - id: MCWeaponRifleVGR
       - id: MCBoxRoundsRifleVGR
       - id: MCBoxRoundsRifleVGRWhite
-    - name: Shotgun
+    - name: mc-vendor-category-shotgun
       entries:
       - id: MCWeaponShotgunSH35
       - id: MCWeaponShotgunSH34
@@ -68,7 +69,7 @@
       - id: MCWeaponShotgunSH15
       - id: MCMagazineShotgunSH15Flechette
       - id: MCMagazineShotgunSH15Slug
-    - name: Machinegun
+    - name: mc-vendor-category-machinegun
       entries:
       - id: MCWeaponMachineGunMG42
       - id: MCMagazineMG42
@@ -78,7 +79,7 @@
       #  amount: 2
       #- id: MCMagazineMG08
       #  amount: 4
-    - name: Melee
+    - name: mc-vendor-category-melee
       entries:
       - id: MCKnifeCombat
       - id: MCKnifeBayonet
@@ -86,14 +87,14 @@
       - id: MCMacheteAlt
       - id: MCSpear
       - id: MCScabbardMachete
-    - name: Vali
+    - name: mc-vendor-category-vali
       entries:
       - id: MCMeleeWeaponValiClaymore
       - id: MCMeleeWeaponValiKnife
       - id: MCMeleeWeaponValiSpear
       - id: MCMeleeWeaponValiSword
       - id: MCScabbardMachete
-    - name: Sidearm
+    - name: mc-vendor-category-sidearm
       entries:
       # R-44
       - id: MCWeaponRevolverR44
@@ -111,13 +112,13 @@
       - id: MCMagazinePistolP14
       - id: MCWeaponMK88
       - id: MCMagazinePistolMK88
-    - name: Utilities
+    - name: mc-vendor-category-utilities
       entries:
       - id: MCWeaponFlareGunM30E2
       - id: MCStorageCaseFlareFilledM40
       - id: MCStorageCaseFlareFilledM50
         amount: 30
-    - name: Grenades
+    - name: mc-vendor-category-grenades
       entries:
       - id: MCWeaponLauncherGl81
         amount: 4
@@ -133,7 +134,7 @@
         amount: 25
       - id: MCGrenadePGas
         amount: 10
-    - name: Specialized
+    - name: mc-vendor-category-specialized
       entries:
       - id: MCWeaponPepperball
         amount: 4
@@ -147,7 +148,7 @@
       - id: MCBackpackFlamer
         amount: 4
       - id: MCAttachmentUnderslungHydrocannon
-    - name: Attachments
+    - name: mc-vendor-category-attachments
       entries:
       - id: MCAttachmentBayonet
       - id: MCAttachmentRecoilCompensator
@@ -170,7 +171,7 @@
       - id: MCAttachmentGrenadeLauncher
       - id: MCAttachmentMiniFlamethrower
       - id: MCMiniTankFlamer
-    - name: Utility
+    - name: mc-vendor-category-utility
       entries:
       - id: RMCFlashlight
       - id: CMEntrenchingTool

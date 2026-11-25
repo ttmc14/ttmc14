@@ -1,0 +1,19 @@
+<ui:MCVendorWindow xmlns="https://spacestation14.io"
+                   xmlns:ui="clr-namespace:Content.Client._MC.Vending.UI"
+                   MinSize="470 300" SetSize="600 640">
+    <BoxContainer Orientation="Vertical" SeparationOverride="4">
+        <OptionButton Name="Categories" Access="Public" Visible="False" PrefixMargin="False" />
+        <BoxContainer SeparationOverride="6">
+            <LineEdit Name="Search" HorizontalExpand="True" PlaceHolder="{Loc mc-vendor-search}" />
+            <CheckBox Name="ShowEmpty" Text="{Loc mc-vendor-show-empty}" />
+        </BoxContainer>
+        <Label Name="Points" Access="Public" />
+        <ProgressBar Name="Reagents" Access="Public">
+            <Label Name="ReagentAmount" Access="Public" Align="Center" />
+        </ProgressBar>
+        <ScrollContainer Name="Catalog" VerticalExpand="True" HScrollEnabled="False">
+            <BoxContainer Name="Sections" Access="Public" Orientation="Vertical" SeparationOverride="6" />
+        </ScrollContainer>
+        <Label Name="Empty" Align="Center" VerticalExpand="True" VerticalAlignment="Center" Text="{Loc mc-vendor-empty}" />
+    </BoxContainer>
+</ui:MCVendorWindow>

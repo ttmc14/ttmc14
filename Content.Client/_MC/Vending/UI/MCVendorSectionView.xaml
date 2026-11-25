@@ -1,0 +1,9 @@
+<ui:MCVendorSectionView xmlns="https://spacestation14.io"
+                        xmlns:ui="clr-namespace:Content.Client._MC.Vending.UI"
+                        Orientation="Vertical" SeparationOverride="2">
+    <BoxContainer Name="Heading" Access="Public" SeparationOverride="6">
+        <Label Name="Title" Access="Public" HorizontalExpand="True" ClipText="True" />
+        <Label Name="Allowance" Access="Public" StyleClasses="LabelSubText" />
+    </BoxContainer>
+    <BoxContainer Name="Rows" Access="Public" Orientation="Vertical" SeparationOverride="2" />
+</ui:MCVendorSectionView>

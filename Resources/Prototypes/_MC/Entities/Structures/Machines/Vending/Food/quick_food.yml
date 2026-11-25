@@ -12,8 +12,9 @@
     - state: sustenance
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Snacks
+    - name: mc-vendor-category-snacks
       entries:
       - id: RMCFoodSnackCheeseburgerPackaged
       - id: RMCFoodSnackBurritoPackaged
@@ -25,7 +26,7 @@
       - id: RMCFoodSnackBoonie
       - id: RMCFoodSnackCHUNK
       - id: RMCFoodSnackBarcaridine
-    - name: Cola
+    - name: mc-vendor-category-cola
       entries:
       # BASIC
       - id: CMDrinkCanBobdaClassic
@@ -49,7 +50,7 @@
       - id: CMDrinkCanBobdaPineappleDiet
       # NON BOBDA
       - id: CMDrinkCanCola
-    - name: Sigares
+    - name: mc-vendor-category-sigares
       entries:
       - id: RMCCigarettePackElectroGolds
       - id: RMCCigarettePackLuckySloths
