@@ -15,6 +15,12 @@ public sealed partial class MCSentryRadialComponent : Component
     public bool RadialMode;
 
     /// <summary>
+    /// Local facing direction established when the sentry is deployed.
+    /// </summary>
+    [DataField, AutoNetworkedField]
+    public Angle? DeploymentRotation;
+
+    /// <summary>
     /// The default detection/engagement radius.
     /// </summary>
     [DataField]
@@ -30,5 +36,5 @@ public sealed partial class MCSentryRadialComponent : Component
     /// The maximum allowed angular deviation from the facing direction when not in radial mode.
     /// </summary>
     [DataField]
-    public Angle MaxDeviation = Angle.FromDegrees(75);
+    public Angle MaxDeviation = Angle.FromDegrees(45);
 }

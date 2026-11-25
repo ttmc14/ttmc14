@@ -1,4 +1,6 @@
 ﻿using Content.Shared._MC.Engineering.Sentries.Components;
+using Content.Shared._MC.Engineering.Deploy.Components;
+using Content.Shared._MC.Engineering.Deploy.Events;
 using Content.Shared._MC.Engineering.Sentries.UI.Message;
 using Content.Shared._RMC14.Interaction;
 
@@ -11,20 +13,44 @@ public abstract class MCSentryRadialSharedSystem : EntitySystem
 {
     [Dependency] private readonly MCSentryUISystem _mcSentryUi = null!;
     [Dependency] private readonly RMCInteractionSystem _rmcInteraction = null!;
+    [Dependency] private readonly SharedTransformSystem _transform = null!;
 
     public override void Initialize()
     {
-        SubscribeLocalEvent<MCSentryRadialComponent, ComponentStartup>(OnStartup);
+        SubscribeLocalEvent<MCSentryRadialComponent, MapInitEvent>(OnMapInit);
+        SubscribeLocalEvent<MCSentryRadialComponent, MCDeployChangedStateEvent>(OnDeployChanged);
         SubscribeLocalEvent<MCSentryRadialComponent, MCSentryRadialModeBuiMessage>(OnRadialModeMessage);
     }
 
-    private void OnStartup(Entity<MCSentryRadialComponent> entity, ref ComponentStartup args) =>
+    private void OnMapInit(Entity<MCSentryRadialComponent> entity, ref MapInitEvent args)
+    {
+        entity.Comp.DeploymentRotation ??= Transform(entity).LocalRotation;
+        Dirty(entity);
         Refresh(entity);
+    }
+
+    private void OnDeployChanged(Entity<MCSentryRadialComponent> entity, ref MCDeployChangedStateEvent args)
+    {
+        if (args.State != MCDeployState.Deployed)
+            return;
+
+        entity.Comp.DeploymentRotation = Transform(entity).LocalRotation;
+        Dirty(entity);
+        ApplyRotationConstraints(entity);
+    }
 
     private void OnRadialModeMessage(Entity<MCSentryRadialComponent> entity, ref MCSentryRadialModeBuiMessage args)
     {
+        if (entity.Comp.RadialMode == args.Enabled)
+            return;
+
         entity.Comp.RadialMode = args.Enabled;
         Dirty(entity);
+
+        if (!args.Enabled && entity.Comp.DeploymentRotation is { } rotation)
+        {
+            _transform.SetLocalRotation(entity.Owner, rotation);
+        }
 
         Refresh(entity);
     }
@@ -47,12 +73,15 @@ public abstract class MCSentryRadialSharedSystem : EntitySystem
     {
         if (entity.Comp.RadialMode)
         {
-            RemCompDeferred<MaxRotationComponent>(entity);
+            RemComp<MaxRotationComponent>(entity);
             return;
         }
 
-        var currentDir = Transform(entity).LocalRotation.GetCardinalDir().ToAngle();
-        _rmcInteraction.SetMaxRotation(entity.Owner, currentDir, entity.Comp.MaxDeviation);
+        var rotation = entity.Comp.DeploymentRotation;
+        if (rotation is null)
+            return;
+
+        _rmcInteraction.SetMaxRotation(entity.Owner, rotation.Value, entity.Comp.MaxDeviation);
     }
 
     /// <summary>

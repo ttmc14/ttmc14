@@ -21,19 +21,23 @@ namespace Content.Shared.Interaction
         [Dependency] private readonly RMCInteractionSystem _rmcInteraction = default!;
 
         /// <summary>
-        /// Tries to rotate the entity towards the target rotation. Returns false if it needs to keep rotating.
+        /// Tries to rotate the entity towards the target rotation. Returns false while still turning
+        /// or when a reachable angle is required and the target lies outside the rotation limits.
         /// </summary>
         public bool TryRotateTo(EntityUid uid,
             Angle goalRotation,
             float frameTime,
             Angle tolerance,
             double rotationSpeed = float.MaxValue,
-            TransformComponent? xform = null)
+            TransformComponent? xform = null,
+            bool requireReachableAngle = false)
         {
             if (!Resolve(uid, ref xform))
                 return true;
 
-            _rmcInteraction.TryCapWorldRotation((uid, null, xform), ref goalRotation);
+            var canReachGoal = _rmcInteraction.ClampWorldRotation((uid, null, xform), ref goalRotation);
+            if (requireReachableAngle && !canReachGoal)
+                return false;
 
             // If we have a max rotation speed then do that.
             // We'll rotate even if we can't shoot, looks better.
