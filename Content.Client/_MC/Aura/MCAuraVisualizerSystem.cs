@@ -75,10 +75,9 @@ public sealed class MCAuraVisualizerSystem : EntitySystem
         }
 
         var shader = visual.Shader;
-        if (rays && !visual.Rays)
+        if (rays)
         {
             _rayTexture ??= _resources.GetResource<TextureResource>("/Textures/_MC/Effects/Xeno/carnage_rays.png").Texture;
-            shader.SetParameter("rayTexture", _rayTexture);
         }
 
         visual.Rays = rays;
@@ -97,10 +96,8 @@ public sealed class MCAuraVisualizerSystem : EntitySystem
             return;
 
         var size = (Vector2) _rayTexture.Size * Vector2.Abs(args.Sprite.Scale) * eye.Scale * args.Viewport.RenderScale;
-        if (size == visual.RaySize)
-            return;
-
-        visual.RaySize = size;
+        // Clyde shares texture units between shaders. Another draw may have replaced the ray texture.
+        visual.Shader.SetParameter("rayTexture", _rayTexture);
         visual.Shader.SetParameter("raySize", size);
     }
 
@@ -168,6 +165,5 @@ public sealed class MCAuraVisualizerSystem : EntitySystem
         public readonly float[] Widths = new float[MaxOutlines];
         public bool Rays;
         public bool EnabledShaderEvent;
-        public Vector2 RaySize;
     }
 }
