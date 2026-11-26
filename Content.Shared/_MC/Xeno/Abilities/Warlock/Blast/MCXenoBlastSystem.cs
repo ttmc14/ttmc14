@@ -47,17 +47,12 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
         if (!CanUseAction(entity, args.Action))
             return;
 
-        _mcZLevelShooting.TryAdjustShotCoordinates(entity,
-            Transform(entity).Coordinates,
-            args.Target,
-            out var adjustedStart ,
-            out var adjustedTarget);
-
-        var coordinatesStart = _transform.ToMapCoordinates(adjustedStart);
-        var coordinatesTarget = _transform.ToMapCoordinates(adjustedTarget);
+        if (!_mcZLevelShooting.TryGetAbilityShotCoordinates(entity, args.Target, out var coordinatesStart, out var coordinatesTarget,
+                entity.Comp.Range, projectDownward: true))
+            return;
 
         var direction = coordinatesTarget.Position - coordinatesStart.Position;
-        var distance = float.Min(direction.Length(), entity.Comp.Range);
+        var distance = direction.Length();
 
         if (distance <= 0)
             return;
@@ -69,7 +64,7 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
         );
 
         var results = _physics.IntersectRayWithPredicate(
-            _transform.GetMapId(entity.Owner),
+            coordinatesStart.MapId,
             ray,
             distance,
             ent => ent == entity.Owner || IsDead(ent),

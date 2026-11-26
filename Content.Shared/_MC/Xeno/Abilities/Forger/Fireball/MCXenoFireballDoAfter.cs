@@ -7,6 +7,8 @@ namespace Content.Shared._MC.Xeno.Abilities.Forger.Fireball;
 [Serializable, NetSerializable]
 public sealed partial class MCXenoFireballDoAfterEvent : SimpleDoAfterEvent
 {
+    public MapId TargetMap;
+
     public readonly NetCoordinates Coordinates;
     public readonly NetEntity Action;
     public readonly NetEntity? Entity;

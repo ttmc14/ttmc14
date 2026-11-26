@@ -25,7 +25,13 @@ public sealed class MCXenoScatterSpitSystem : MCXenoAbilitySystem
         if (!RMCActions.CanUseActionPopup(entity, args.Action, entity))
             return;
 
-        var ev = new MCXenoScatterSpitDoAfterEvent(GetNetCoordinates(args.Target), GetNetEntity(args.Action), GetNetEntity(args.Entity));
+        if (!_mcXenoSpit.TryGetShotCoordinates(entity, args.Target, out _, out var target))
+            return;
+
+        var ev = new MCXenoScatterSpitDoAfterEvent(GetNetCoordinates(args.Target), GetNetEntity(args.Action), GetNetEntity(args.Entity))
+        {
+            TargetMap = target.MapId,
+        };
         var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, ev, entity)
         {
             BreakOnMove = true,
@@ -39,6 +45,10 @@ public sealed class MCXenoScatterSpitSystem : MCXenoAbilitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!_mcXenoSpit.TryGetShotCoordinates(entity, GetCoordinates(args.Coordinates), out var origin, out var target) ||
+            target.MapId != args.TargetMap)
+            return;
+
         var action = GetEntity(args.Action);
         if (!RMCActions.TryUseAction(entity, action, entity))
             return;
@@ -47,7 +57,8 @@ public sealed class MCXenoScatterSpitSystem : MCXenoAbilitySystem
 
         _mcXenoSpit.Shoot(
             entity,
-            GetCoordinates(args.Coordinates),
+            origin,
+            target,
             entity.Comp.ProjectileId,
             entity.Comp.Count,
             entity.Comp.MaxDeviation,
