@@ -9,15 +9,17 @@ public enum TacticalMapComputerUi
 }
 
 [Serializable, NetSerializable]
-public sealed class TacticalMapUpdateCanvasMsg(List<TacticalMapLine> lines, Dictionary<Vector2i, string> labels) : BoundUserInterfaceMessage
+public sealed class TacticalMapUpdateCanvasMsg(NetEntity map, List<TacticalMapLine> lines, Dictionary<Vector2i, string> labels) : BoundUserInterfaceMessage
 {
+    public readonly NetEntity Map = map;
     public readonly List<TacticalMapLine> Lines = lines;
     public readonly Dictionary<Vector2i, string> Labels = labels;
 }
 
 [Serializable, NetSerializable]
-public sealed class TacticalMapQueenEyeMoveMsg(Vector2i position) : BoundUserInterfaceMessage
+public sealed class TacticalMapQueenEyeMoveMsg(NetEntity map, Vector2i position) : BoundUserInterfaceMessage
 {
+    public readonly NetEntity Map = map;
     public readonly Vector2i Position = position;
 }
 

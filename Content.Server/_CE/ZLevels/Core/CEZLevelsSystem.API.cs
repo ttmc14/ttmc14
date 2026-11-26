@@ -76,7 +76,7 @@ public sealed partial class CEZLevelsSystem
                 success = false;
         }
 
-        RaiseLocalEvent(network, new CEZLevelNetworkUpdatedEvent());
+        RaiseLocalEvent(network, new CEZLevelNetworkUpdatedEvent(network), broadcast: true);
 
         return success;
     }
@@ -143,4 +143,7 @@ public sealed partial class CEZLevelsSystem
 /// <summary>
 /// Called on ZLevel Network Entity, when maps added or removed from network
 /// </summary>
-public sealed class CEZLevelNetworkUpdatedEvent : EntityEventArgs;
+public sealed class CEZLevelNetworkUpdatedEvent(Entity<CEZLevelsNetworkComponent> network) : EntityEventArgs
+{
+    public readonly Entity<CEZLevelsNetworkComponent> Network = network;
+}
