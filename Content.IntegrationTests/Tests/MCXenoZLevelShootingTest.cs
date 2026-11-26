@@ -53,7 +53,7 @@ public sealed class MCXenoZLevelShootingTest
                 entities.SpawnEntity("MCWallRegular", new EntityCoordinates(lower, 4.5f, y));
                 if (row == 1)
                 {
-                    entities.SpawnEntity("MCWallRegular", new EntityCoordinates(upper, 10.5f, y));
+                    entities.SpawnEntity("MCWallRegular", new EntityCoordinates(upper, 6.5f, y));
                 }
 
                 var warlock = entities.SpawnEntity("MCXenoWarlock", new EntityCoordinates(lower, 0.5f, y));
@@ -66,7 +66,7 @@ public sealed class MCXenoZLevelShootingTest
                 var pending = entities.GetComponent<DoAfterComponent>(warlock).DoAfters.Values.Single();
                 var blast = (MCXenoBlastDoAfterEvent) pending.Args.Event;
                 Assert.That(blast.Target.MapId, Is.EqualTo(upperId));
-                var expectedX = row == 0 ? 14.5f : 10f;
+                var expectedX = row == 0 ? 7.5f : 6f;
                 Assert.That(blast.Target.X, Is.EqualTo(expectedX).Within(0.1f));
             }
 
