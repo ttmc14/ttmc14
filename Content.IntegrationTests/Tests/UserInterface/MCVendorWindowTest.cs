@@ -19,6 +19,7 @@ public sealed class MCVendorWindowTest
 {
     [TestCase("MCMachineVendingQuickFood", 1)]
     [TestCase("MCMachineVendingWeapon", 14)]
+    [TestCase("MCMachineVendingNanotrasenMed", 2)]
     public async Task CategoryMenuDispensesFilteredItem(string vendorPrototype, int categoryIndex)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
@@ -60,16 +61,16 @@ public sealed class MCVendorWindowTest
             var size = new Vector2(470, 510);
             window.Measure(size);
             window.Arrange(UIBox2.FromDimensions(default, size));
-            var rows = window.Sections.Children.Cast<MCVendorSectionView>()
-                .Where(section => section.Visible)
-                .SelectMany(section => section.Rows.Children.Cast<CMAutomatedVendorEntry>())
-                .ToArray();
-            var widestIcon = rows.SelectMany(row => row.Texture.Textures).Max(texture => texture.Width);
-            foreach (var row in rows)
+            foreach (var section in window.Sections.Children.Cast<MCVendorSectionView>().Where(section => section.Visible))
             {
-                Assert.That(row.Texture.Width, Is.EqualTo(widestIcon));
-                Assert.That(row.Panel.GlobalPosition.X, Is.EqualTo(rows[0].Panel.GlobalPosition.X));
-                Assert.That(row.Panel.Width, Is.EqualTo(rows[0].Panel.Width));
+                var rows = section.Rows.Children.Cast<CMAutomatedVendorEntry>().ToArray();
+                var widestIcon = rows.SelectMany(row => row.Texture.Textures).Select(texture => texture.Width).DefaultIfEmpty().Max();
+                foreach (var row in rows)
+                {
+                    Assert.That(row.Texture.Width, Is.EqualTo(widestIcon));
+                    Assert.That(row.Panel.GlobalPosition.X, Is.EqualTo(rows[0].Panel.GlobalPosition.X));
+                    Assert.That(row.Panel.Width, Is.EqualTo(rows[0].Panel.Width));
+                }
             }
 
             Assert.That(categories.Visible, Is.True);
@@ -82,6 +83,17 @@ public sealed class MCVendorWindowTest
                 var path = new ResPath("_MC/Objects/Weapons/Guns/Rifles/ar21/icon.rsi");
                 Assert.That(rifle.Texture.Textures, Does.Contain(sprites.GetState(new SpriteSpecifier.Rsi(path, "base")).Frame0));
                 Assert.That(rifle.Texture.Textures, Does.Contain(sprites.GetState(new SpriteSpecifier.Rsi(path, "mag-0")).Frame0));
+                var marksman = (MCVendorSectionView) window.Sections.GetChild(4);
+                var cartridges = (CMAutomatedVendorEntry) marksman.Rows.GetChild(3);
+                var handful = new SpriteSpecifier.Rsi(new ResPath("_MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi"), "base-5");
+                Assert.That(cartridges.Texture.Textures, Does.Contain(sprites.GetState(handful).Frame0));
+            }
+            if (vendorPrototype == "MCMachineVendingNanotrasenMed")
+            {
+                var equipment = (MCVendorSectionView) window.Sections.GetChild(3);
+                var hud = (CMAutomatedVendorEntry) equipment.Rows.GetChild(6);
+                var active = new SpriteSpecifier.Rsi(new ResPath("_MC/Clothing/Eyes/Glasses/Hud/medical.rsi"), "icon-on");
+                Assert.That(hud.Texture.Textures, Does.Contain(client.System<SpriteSystem>().GetState(active).Frame0));
             }
             Assert.That(window.Sections.GetChild(0).Visible, Is.True);
             Assert.That(window.Sections.GetChild(categoryIndex).Visible, Is.True);

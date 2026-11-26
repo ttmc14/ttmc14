@@ -119,6 +119,8 @@ public sealed class MCVendorBui(EntityUid owner, Enum uiKey) : BoundUserInterfac
                 row.Panel.Button.ToolTip = name;
                 usesPoints |= entry.Points is not null;
             }
+
+            view.AlignColumns();
         }
 
         _window.Points.Visible = usesPoints;
@@ -133,7 +135,6 @@ public sealed class MCVendorBui(EntityUid owner, Enum uiKey) : BoundUserInterfac
             _window.ReagentAmount.Text = _loc.GetString("mc-vendor-reagents", ("current", current.Int()), ("max", max.Int()));
         }
 
-        _window.AlignColumns();
         _window.RefreshCategories(vendor.CategoryTabs);
     }
 
