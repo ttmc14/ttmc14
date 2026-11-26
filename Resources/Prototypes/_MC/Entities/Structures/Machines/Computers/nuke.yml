@@ -20,7 +20,11 @@
     idleLoad: 300
     activeLoad: 300
     channel: Environment
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Godmode
   - type: MCNukeDiskGenerator
+    spawnId: MCDiskNukeRed
   - type: MarineMapTracked
   - type: XenoMapTracked
   - type: TacticalMapTracked
@@ -28,6 +32,11 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
       state: red_disk_off
+  - type: MCTacticalMapIconSwitcher
+    icons:
+      on:
+        sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
+        state: red_disk_on
   - type: WarpPoint
     location: Nuke disk generator
 

@@ -6,13 +6,32 @@
   components:
   - type: Sprite
     sprite: _MC/Structures/Machines/nuclear_bomb.rsi
-    state: base
+    layers:
+    - state: base
+      map: ["display"]
+  - type: Appearance
+  - type: GenericVisualizer
+    visuals:
+      enum.MCNukeVisuals.State:
+        display:
+          base: { state: base }
+          'off': { state: off }
+          'on': { state: on }
+          explode: { state: explode }
+  - type: Damageable
+    damageContainer: Inorganic
+  - type: Godmode
   - type: Corrodible
     isCorrodible: false
   - type: InteractionOutline
   - type: MCNuke
+  - type: InteractedBlacklist
+    blacklist:
+      components:
+      - Xeno
   # UI
   - type: ActivatableUI
+    blockSpectators: true
     key: enum.MCNukeUi.Key
   - type: UserInterface
     interfaces:
@@ -21,17 +40,17 @@
   - type: ItemSlots
     slots:
       disk_red:
-        name: Disk Red
+        name: mc-nuke-disk-red
         whitelist:
           tags:
           - MCDiskNukeRed
       disk_blue:
-        name: Disk Blue
+        name: mc-nuke-disk-blue
         whitelist:
           tags:
           - MCDiskNukeBlue
       disk_green:
-        name: Disk Green
+        name: mc-nuke-disk-green
         whitelist:
           tags:
           - MCDiskNukeGreen
@@ -47,6 +66,11 @@
     icon:
       sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
       state: nuke_off
+  - type: MCTacticalMapIconSwitcher
+    icons:
+      on:
+        sprite: /Textures/_MC/Interface/MapIcons/nuke.rsi
+        state: nuke_on
   - type: WarpPoint
     location: Nuke
 
@@ -58,19 +82,19 @@
   - type: ItemSlots
     slots:
       disk_red:
-        name: Disk Red
+        name: mc-nuke-disk-red
         startingItem: MCDiskNukeRed
         whitelist:
           tags:
           - MCDiskNukeRed
       disk_blue:
-        name: Disk Blue
+        name: mc-nuke-disk-blue
         startingItem: MCDiskNukeBlue
         whitelist:
           tags:
           - MCDiskNukeBlue
       disk_green:
-        name: Disk Green
+        name: mc-nuke-disk-green
         startingItem: MCDiskNukeGreen
         whitelist:
           tags:

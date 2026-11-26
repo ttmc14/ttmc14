@@ -1,0 +1,5 @@
+mc-crash-NukeVictory = [color=green]Боеголовка взорвалась на колонии после эвакуации морпехов. Полная победа морпехов![/color]
+mc-crash-NukeMinorVictory = [color=green]Боеголовка взорвалась на колонии до эвакуации морпехов. Малая победа морпехов.[/color]
+mc-crash-NukeOffworld = [color=purple]Боеголовка взорвалась за пределами колонии. Улей победил![/color]
+mc-warfare-NukeVictory = [color=green]Планетарная боеголовка взорвалась. Морпехи победили![/color]
+mc-warfare-NukeOffworld = [color=purple]Боеголовка взорвалась за пределами колонии. Улей победил![/color]

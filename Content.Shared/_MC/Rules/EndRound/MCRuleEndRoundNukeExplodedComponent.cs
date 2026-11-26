@@ -1,4 +1,4 @@
-﻿using Robust.Shared.GameStates;
+using Robust.Shared.GameStates;
 
 namespace Content.Shared._MC.Rules.EndRound;
 
@@ -6,5 +6,8 @@ namespace Content.Shared._MC.Rules.EndRound;
 public sealed partial class MCRuleEndRoundNukeExplodedComponent : Component
 {
     [DataField]
-    public string EndRuleId = "MajorMarineVictory";
+    public string EndRuleId = "NukeVictory";
+
+    [DataField]
+    public string? WithoutEvacuationId;
 }

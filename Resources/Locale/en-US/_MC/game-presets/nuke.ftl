@@ -1,0 +1,5 @@
+mc-crash-NukeVictory = [color=green]The warhead detonated on the colony after the marines evacuated. Major marine victory![/color]
+mc-crash-NukeMinorVictory = [color=green]The warhead detonated on the colony before the marines evacuated. Minor marine victory.[/color]
+mc-crash-NukeOffworld = [color=purple]The warhead detonated away from the colony. The hive wins![/color]
+mc-warfare-NukeVictory = [color=green]The planetary warhead detonated. The marines win![/color]
+mc-warfare-NukeOffworld = [color=purple]The warhead detonated away from the colony. The hive wins![/color]

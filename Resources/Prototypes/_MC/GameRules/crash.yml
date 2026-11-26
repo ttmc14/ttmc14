@@ -38,4 +38,5 @@
   - type: MCRuleEndRoundHiveCollapse
   - type: MCRuleEndRoundMarinesDead
   - type: MCRuleEndRoundNukeExploded
+    withoutEvacuationId: NukeMinorVictory
   - type: MCRuleEndRoundShuttleEvacuation

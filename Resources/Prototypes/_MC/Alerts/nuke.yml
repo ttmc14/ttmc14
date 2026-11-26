@@ -1,0 +1,7 @@
+- type: alert
+  id: MCNukeCountdown
+  icons:
+  - sprite: /Textures/_RMC14/Interface/tech_tree.rsi
+    state: nuke
+  name: mc-nuke-countdown
+  description: mc-nuke-hive-alert
