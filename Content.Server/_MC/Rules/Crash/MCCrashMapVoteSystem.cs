@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Text;
 using Content.Server.Chat.Managers;
+using Content.Server.GameTicking;
 using Content.Server.Voting;
 using Content.Server.Voting.Managers;
 using Content.Server.Maps;
@@ -24,6 +25,8 @@ public sealed class MCCrashMapVoteSystem : EntitySystem
     [Dependency] private readonly IVoteManager _vote = null!;
     [Dependency] private readonly IRobustRandom _random = null!;
 
+    [Dependency] private readonly GameTicker _ticker = null!;
+
     private IVoteHandle? _currentVote;
 
     public ProtoId<GameMapPrototype> SelectedMap { get; private set; } = "MCCanterbury";
@@ -35,6 +38,9 @@ public sealed class MCCrashMapVoteSystem : EntitySystem
 
     private void OnRoundRestartCleanup(RoundRestartCleanupEvent ev)
     {
+        if (_ticker.Preset?.ID == "MCCrash")
+            return;
+
         StartMapVote();
     }
 

@@ -30,6 +30,7 @@
   abstract: true
   components:
   - type: Area
+    paradropping: true
     CAS: true
     fulton: true
     lasing: true

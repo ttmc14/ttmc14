@@ -2,6 +2,8 @@
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Shuttles.Components;
+using Content.Server.Shuttles.Events;
+using Robust.Server.Player;
 using Content.Server.Shuttles.Systems;
 using Content.Shared._MC.Rules.Common;
 using Content.Shared._MC.Shuttle;
@@ -23,10 +25,13 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
     [Dependency] private readonly MCRelayedSystem _relayed = null!;
     [Dependency] private readonly MCCrashMapVoteSystem _mapVote = null!;
 
+    [Dependency] private readonly IPlayerManager _players = null!;
+
     public override void Initialize()
     {
         base.Initialize();
 
+        SubscribeLocalEvent<AlmayerComponent, FTLCompletedEvent>(OnLanded);
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
     }
@@ -37,7 +42,13 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
             return;
 
         ev.Maps.Clear();
-        ev.Maps.Add(_prototype.Index(_mapVote.SelectedMap));
+        var ship = _mapVote.SelectedMap;
+        if (GameTicker.IsGameRuleAdded<MCRuleCrashLandingComponent>())
+        {
+            ship = _players.PlayerCount >= 25 ? "MCCanterburyMothership" : "MCCanterbury";
+        }
+
+        ev.Maps.Add(_prototype.Index(ship));
 
         GameTicker.UpdateInfoText();
     }
@@ -77,12 +88,30 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
         var query = EntityQueryEnumerator<AlmayerComponent, ShuttleComponent>();
         while (query.MoveNext(out var uid, out _, out var shuttle))
         {
+            if (TryComp<MCRuleCrashLandingComponent>(entity, out var landing))
+            {
+                landing.Shuttle = uid;
+            }
+
             _shuttle.FTLToCoordinates(
                 uid,
                 shuttle,
                 coordinates,
                 Angle.Zero,
                 hyperspaceTime: (float) entity.Comp.Time.TotalSeconds);
+        }
+    }
+
+    private void OnLanded(Entity<AlmayerComponent> shuttle, ref FTLCompletedEvent args)
+    {
+        foreach (var rule in GameTicker.GetActiveGameRules())
+        {
+            if (!TryComp<MCRuleCrashLandingComponent>(rule, out var landing) || landing.Shuttle != shuttle.Owner || landing.Landed)
+                continue;
+
+            landing.Landed = true;
+            var landed = new MCCrashLandedEvent();
+            RaiseLocalEvent(rule, ref landed);
         }
     }
 

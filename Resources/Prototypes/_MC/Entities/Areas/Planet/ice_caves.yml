@@ -29,6 +29,7 @@
   id: MCAreaIceCavesGround
   components:
   - type: Area
+    paradropping: true
     CAS: true
     fulton: true
     lasing: true
