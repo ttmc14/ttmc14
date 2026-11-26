@@ -2,12 +2,9 @@
 using Content.Shared._MC.Damage;
 using Content.Shared._MC.Knockback;
 using Content.Shared._MC.Line;
-using Content.Shared._MC.Map;
 using Content.Shared._MC.Physics;
 using Content.Shared._MC.StatusEffects.Stun;
 using Content.Shared._MC.Stun;
-using Content.Shared._MC.Xeno.Hive.Systems;
-using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.ZLevels.Weapons;
 using Content.Shared.DoAfter;
 using Content.Shared.Physics;
@@ -27,12 +24,10 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
 
     [Dependency] private readonly MCKnockbackSystem _mcKnockback = null!;
-    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCStunSystem _mcStun = null!;
     [Dependency] private readonly MCLineSystem _mcLine = null!;
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
     [Dependency] private readonly MCPhysicsFixtureCacheSystem _mcPhysicsFixtureCache = null!;
-    [Dependency] private readonly MCAnchoredRadiusSystem _mcAnchoredRadius = null!;
     [Dependency] private readonly MCZLevelShootingSystem _mcZLevelShooting = null!;
 
 
@@ -128,24 +123,9 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
 
         var entities = _lookup.GetEntitiesInRange(targetCoords, entity.Comp.EffectRange, LookupFlags.Uncontained);
 
-        var anchoredQuery = _mcAnchoredRadius.GetAnchoredInRadius(_transform.ToCoordinates(targetCoords), (int) float.Ceiling(entity.Comp.EffectRange));
-        while (anchoredQuery.MoveNext(out var anchoredUid))
-        {
-            entities.Add(anchoredUid);
-        }
-
         foreach (var targetUid in entities)
         {
-            // Always ignore self
-            if (entity.Owner == targetUid)
-                continue;
-
-            // Ignore same hive
-            if (_mcXenoHive.FromSameHive(entity.Owner, targetUid))
-                continue;
-
-            // Ignore dead entities
-            if (IsMob(targetUid) && IsDead(targetUid))
+            if (!CanAreaAttackTarget(entity, targetUid))
                 continue;
 
             // Ignore entities in storages etc.
@@ -161,11 +141,7 @@ public sealed class MCXenoBlastSystem : MCXenoAbilitySystem
             if (fixture is null)
                 continue;
 
-            // Ignore entities with non-correct fixture layer
-            // if ((fixture.CollisionLayer & (int) CollisionGroup.MobLayer) == 0)
-            //    continue;
-
-            var coords = Transform(targetUid).Coordinates;
+            var coords = _transform.GetMapCoordinates(targetUid);
             var direction = coords.Position - targetCoords.Position;
             var distance = direction.Length();
 

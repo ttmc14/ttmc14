@@ -20,18 +20,15 @@ public sealed partial class MCXenoPsyCrushSystem
         var orbDespawnComponent = EnsureComp<TimedDespawnComponent>(entity.Comp.OrbUid);
         orbDespawnComponent.Lifetime = 0.4f;
 
-        Dirty(entity, orbDespawnComponent);
-
         _affected.Clear();
 
         foreach (var effectUid in entity.Comp.SpawnedEffects)
         {
             var warningDespawnComponent = EnsureComp<TimedDespawnComponent>(effectUid);
             warningDespawnComponent.Lifetime = 0.1f;
-            Dirty(effectUid, warningDespawnComponent);
         }
 
-        if (entity.Comp.AffectedTiles.Count == 0)
+        if (_net.IsClient || entity.Comp.AffectedTiles.Count == 0)
             return;
 
         ApplyFinalDamage(entity, config);
@@ -44,16 +41,7 @@ public sealed partial class MCXenoPsyCrushSystem
 
         foreach (var targetUid in GetPotentialVictims(entity, config))
         {
-            // Always ignore self
-            if (entity.Owner == targetUid)
-                continue;
-
-            // Ignore same hive
-            if (_mcXenoHive.FromSameHive(entity.Owner, targetUid))
-                continue;
-
-            // Ignore dead entities
-            if (IsMob(targetUid) && IsDead(targetUid))
+            if (!CanAreaAttackTarget(entity, targetUid))
                 continue;
 
             // Ignore entities in storages etc.
@@ -74,7 +62,7 @@ public sealed partial class MCXenoPsyCrushSystem
             _mcDamageable.DealBombDamage(targetUid, 0, config.Damage, origin: entity);
             _mcStamina.ApplyDamage(targetUid, config.StaminaDamage);
 
-            RaiseEffect(entity, targetUid);
+            RaiseEffect(entity.Comp.OrbUid, targetUid);
         }
     }
 }

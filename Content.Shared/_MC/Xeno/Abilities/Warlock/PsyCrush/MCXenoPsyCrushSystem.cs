@@ -1,8 +1,6 @@
 ﻿using System.Numerics;
 using Content.Shared._MC.Damage;
 using Content.Shared._MC.Mob.Stamina;
-using Content.Shared._MC.Xeno.Hive.Systems;
-using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.Xeno.Plasma.Systems;
 using Content.Shared.Maps;
 using Content.Shared.Physics;
@@ -41,7 +39,6 @@ public sealed partial class MCXenoPsyCrushSystem : MCXenoAbilitySystem
 
     [Dependency] private readonly MCXenoPlasmaSystem _plasma = null!;
     [Dependency] private readonly MCStaminaSystem _mcStamina = null!;
-    [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
     [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
 
     private readonly HashSet<EntityUid> _affected = new();

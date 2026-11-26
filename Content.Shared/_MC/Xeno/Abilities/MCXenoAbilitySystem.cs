@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using Content.Shared._MC.Damage;
 using Content.Shared._MC.Flammable;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
@@ -45,6 +46,7 @@ public abstract class MCXenoAbilitySystem : EntitySystem
     [Dependency, PublicAPI] protected readonly MCSharedFlammableSystem MCFlammable = null!;
 
     [Dependency, PublicAPI] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly MCDamageableSystem _areaDamage = null!;
 
     [PublicAPI]
     protected bool TryUseAction(EntityUid uid, EntityUid actionUid, EntityUid? targetUid = null, bool affectOnStructures = false, bool affectOnDead = false, bool allowUseOnFire = true)
@@ -84,6 +86,12 @@ public abstract class MCXenoAbilitySystem : EntitySystem
 
         return !MCXenoHive.FromSameHive(uid, targetUid.Value);
     }
+
+    /// <summary>
+    /// Determines whether an area attack can hit a living mob or eligible structure outside the attacker's hive.
+    /// </summary>
+    protected bool CanAreaAttackTarget(EntityUid attacker, EntityUid target)
+        => _areaDamage.CanAreaAttackTarget(attacker, target);
 
     [PublicAPI]
     protected bool IsOnMap(EntityUid uid)
