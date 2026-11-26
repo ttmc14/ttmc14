@@ -13,7 +13,7 @@
   - type: Storage
     maxItemSize: Ginormous
     grid:
-    - 0,0,11,3 # 4 slots
+    - 0,0,9,3 # 10 slots
     whitelist:
       tags:
       - MCHandful
@@ -58,4 +58,4 @@
   - type: StorageFill
     contents:
     - id: MCCartridgeShotgunBuckshot
-      amount: 12
+      amount: 10
