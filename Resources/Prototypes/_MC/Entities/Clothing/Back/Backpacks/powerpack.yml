@@ -26,8 +26,12 @@
     prefix: o
     levels: 4
   - type: MCPowerpack
+  - type: MCPowerpackRecharge
 
 - type: entity
   parent: MCBackpackPowerpack
   id: MCBackpackPowerpackEmpty
   suffix: Empty
+  components:
+  - type: MCBattery
+    charge: 0
