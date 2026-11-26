@@ -98,6 +98,9 @@
     - MCCartridge
     - MCCartridgeRifleSFR7
     - MCHandful
+  - type: Icon
+    sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
+    state: base-5
   - type: Sprite
     sprite: _MC/Objects/Weapons/Guns/Ammunition/Handful/mosin.rsi
     layers:

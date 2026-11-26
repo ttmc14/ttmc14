@@ -24,6 +24,9 @@
   - type: Tag
     tags:
     - MCGlassesHudHealth
+  - type: Icon
+    sprite: _MC/Clothing/Eyes/Glasses/Hud/medical.rsi
+    state: icon-on
   - type: Item
     storedRotation: 0
   - type: Sprite
