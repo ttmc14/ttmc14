@@ -17,14 +17,7 @@ public sealed partial class TacticalMapSystem
         if (!levels.TryGetValue(0, out var root) || !HasComp<TacticalMapComponent>(root))
             return;
 
-        foreach (var map in network.Comp.ZLevelByEntity.Keys)
-        {
-            if (map == root || !TryComp<MapGridComponent>(map, out var grid) || grid.ChunkCount == 0)
-                continue;
-
-            EnsureComp<AreaGridComponent>(map);
-            EnsureComp<TacticalMapComponent>(map);
-        }
+        EnsureTacticalMapLayers(network.Comp);
 
         var users = EntityQueryEnumerator<TacticalMapUserComponent>();
         while (users.MoveNext(out var uid, out var user))
@@ -42,6 +35,18 @@ public sealed partial class TacticalMapSystem
             {
                 UpdateTacticalMapComputerState((uid, computer));
             }
+        }
+    }
+
+    private void EnsureTacticalMapLayers(CEZLevelsNetworkComponent network)
+    {
+        foreach (var (map, depth) in network.ZLevelByEntity)
+        {
+            if (depth == 0 || !TryComp<MapGridComponent>(map, out var grid) || grid.ChunkCount == 0)
+                continue;
+
+            EnsureComp<AreaGridComponent>(map);
+            EnsureComp<TacticalMapComponent>(map);
         }
     }
 

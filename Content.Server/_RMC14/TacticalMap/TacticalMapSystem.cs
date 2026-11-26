@@ -207,8 +207,16 @@ public sealed partial class TacticalMapSystem : SharedTacticalMapSystem
             UpdateTracked((uid, active));
         }
 
-        if (TryComp<CEZLevelMapComponent>(ent, out var level) && level.Depth != 0)
-            return;
+        if (TryComp<CEZLevelMapComponent>(ent, out var level))
+        {
+            if (level.Depth != 0)
+                return;
+
+            if (TryComp<CEZLevelsNetworkComponent>(level.NetworkUid, out var network))
+            {
+                EnsureTacticalMapLayers(network);
+            }
+        }
 
         var users = EntityQueryEnumerator<TacticalMapUserComponent>();
         while (users.MoveNext(out var userId, out var userComp))
