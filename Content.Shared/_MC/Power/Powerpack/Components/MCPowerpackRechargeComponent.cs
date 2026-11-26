@@ -6,9 +6,13 @@ namespace Content.Shared._MC.Power.Powerpack.Components;
 /// <summary>
 /// Allows this pack to recharge cells in its wearer's held lasers while equipped on the back.
 /// </summary>
-[RegisterComponent, NetworkedComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(MCPowerpackRechargeSystem))]
 public sealed partial class MCPowerpackRechargeComponent : Component
 {
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
     public EntityUid? Wearer;
-    public readonly Dictionary<EntityUid, Entity<MCBatteryComponent>> Cells = [];
+
+    [ViewVariables(VVAccess.ReadWrite)]
+    public Dictionary<EntityUid, Entity<MCBatteryComponent>> Cells = [];
 }

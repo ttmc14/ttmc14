@@ -7,6 +7,7 @@ using Content.Shared.Hands;
 using Content.Shared.Hands.EntitySystems;
 using Content.Shared.Inventory;
 using Content.Shared.Inventory.Events;
+using Robust.Shared.Network;
 
 namespace Content.Shared._MC.Power.Powerpack;
 
@@ -14,10 +15,14 @@ public sealed class MCPowerpackRechargeSystem : EntitySystem
 {
     [Dependency] private readonly SharedHandsSystem _hands = null!;
     [Dependency] private readonly InventorySystem _inventory = null!;
+    [Dependency] private readonly INetManager _net = null!;
 
     [Dependency] private readonly MCBatterySystem _batteries = null!;
     [Dependency] private readonly MCWeaponLaserSystem _laser = null!;
 
+    /// <summary>
+    /// Tracks equipped recharge packs and handles laser cell changes for their wearers.
+    /// </summary>
     public override void Initialize()
     {
         SubscribeLocalEvent<MCPowerpackRechargeComponent, ComponentStartup>(OnStartup);
@@ -91,22 +96,41 @@ public sealed class MCPowerpackRechargeSystem : EntitySystem
 
     private void Connect(Entity<MCPowerpackRechargeComponent> pack, EntityUid wearer)
     {
+        if (_net.IsClient)
+            return;
+
         pack.Comp.Wearer = wearer;
-        EnsureComp<MCPowerpackWearerComponent>(wearer).Packs.Add(pack);
+        Dirty(pack);
+
+        var relay = EnsureComp<MCPowerpackWearerComponent>(wearer);
+        if (relay.Packs.Add(pack))
+            Dirty(wearer, relay);
     }
 
     private void Disconnect(Entity<MCPowerpackRechargeComponent> pack)
     {
         pack.Comp.Cells.Clear();
-        if (pack.Comp.Wearer is not { } wearer)
+
+        if (_net.IsClient || pack.Comp.Wearer is not { } wearer)
             return;
 
         pack.Comp.Wearer = null;
+
+        if (!pack.Comp.Deleted)
+            Dirty(pack);
+
         if (!TryComp<MCPowerpackWearerComponent>(wearer, out var relay))
             return;
 
-        relay.Packs.Remove(pack);
+        if (!relay.Packs.Remove(pack))
+            return;
+
         if (relay.Packs.Count == 0)
+        {
             RemComp<MCPowerpackWearerComponent>(wearer);
+            return;
+        }
+
+        Dirty(wearer, relay);
     }
 }

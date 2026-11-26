@@ -1,10 +1,14 @@
+using Robust.Shared.GameStates;
+
 namespace Content.Shared._MC.Power.Powerpack.Components;
 
 /// <summary>
 /// Routes held laser notifications to the wearer's equipped recharge packs.
 /// </summary>
-[RegisterComponent]
+[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[Access(typeof(MCPowerpackRechargeSystem))]
 public sealed partial class MCPowerpackWearerComponent : Component
 {
-    public readonly HashSet<EntityUid> Packs = [];
+    [ViewVariables(VVAccess.ReadWrite), AutoNetworkedField]
+    public HashSet<EntityUid> Packs = [];
 }

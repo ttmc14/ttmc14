@@ -1,4 +1,5 @@
-﻿using Content.Shared.Physics;
+﻿using Content.Shared._MC.Weapon.Laser.Systems;
+using Content.Shared.Physics;
 using Content.Shared.Weapons.Ranged;
 using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
@@ -11,6 +12,7 @@ namespace Content.Shared._MC.Weapon.Laser.Components;
 /// Tracks the laser's cell slot, firing modes and available shots.
 /// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true, fieldDeltas: true)]
+[Access(typeof(MCWeaponLaserSystem))]
 public sealed partial class MCWeaponLaserComponent : Component, IShootable
 {
     [DataField, AutoNetworkedField]
