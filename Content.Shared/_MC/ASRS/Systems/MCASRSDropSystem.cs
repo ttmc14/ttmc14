@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.ASRS.Components;
 using Content.Shared._MC.Damage;
+using Content.Shared.Storage.Components;
 using Content.Shared.Storage.EntitySystems;
 using Robust.Shared.Map;
 using Robust.Shared.Network;
@@ -14,6 +15,8 @@ public sealed class MCASRSDropSystem : EntitySystem
     private static readonly EntProtoId DefaultCrateId = "MCCrate";
     private static readonly EntProtoId DefaultLandingEffectId = "RMCEffectAlert";
 
+    [Dependency] private readonly IPrototypeManager _prototypes = null!;
+
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly INetManager _net = null!;
 
@@ -26,6 +29,8 @@ public sealed class MCASRSDropSystem : EntitySystem
 
     private int _tempMapOffset;
     private MapId? _tempMap;
+
+    public int CrateCapacity => ((SharedEntityStorageComponent) _prototypes.Index(DefaultCrateId).Components["EntityStorage"].Component).Capacity;
 
     private MapId TempMap => EnsureMap();
 

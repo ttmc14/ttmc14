@@ -52,6 +52,7 @@
   - type: Item
     size: Normal
   - type: MCDeploy
+    attackInCombatMode: true
     deployFixture: razorwire
     deployTime: 2.5
     deployedPrototype: MCRazorwire1
@@ -81,6 +82,7 @@
   - type: CollisionWake
     enabled: false
   # Durability
+  - type: MCXenoAreaDamageTarget
   - type: Damageable
     damageContainer: MCStructural
   - type: Destructible

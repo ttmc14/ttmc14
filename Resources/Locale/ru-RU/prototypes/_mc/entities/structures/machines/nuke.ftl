@@ -1,5 +1,5 @@
 ent-MCNuclearBomb = ядерный фугас
-    .desc = Вам, вероятно, не стоит задерживаться, чтобы проверить, активировано ли это.
+    .desc = Лучше не задерживаться, чтобы проверить, активирован ли фугас.
 ent-MCNuclearBombFilled = { ent-MCNuclearBomb }
-    .suffix = Filled
+    .suffix = С дисками
     .desc = { ent-MCNuclearBomb.desc }

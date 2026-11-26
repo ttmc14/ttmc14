@@ -1,0 +1,48 @@
+- type: mcAura
+  id: MCRejuvenateAura
+  color: "#455D5762"
+
+- type: mcAura
+  id: MCOverhealAura
+  priority: 1
+  color: "#60CE6F60"
+  width: 4
+
+- type: mcAura
+  id: MCResinJellyAura
+  priority: 2
+  color: "#FF7B00"
+
+- type: mcAura
+  id: MCFeastAura
+  priority: 2
+  color: "#61132360"
+  wave: true
+
+- type: mcAura
+  id: MCPsychicLinkAura
+  priority: 2
+  color: "#2A888360"
+
+- type: mcAura
+  id: MCHealingInfusionAura
+  priority: 3
+  color: "#DDFFD3"
+  width: 3
+
+- type: mcAura
+  id: MCEndureAura
+  priority: 4
+  color: "#800080"
+
+- type: mcAura
+  id: MCRageAura
+  priority: 5
+  color: "#FF0000"
+  width: 3
+
+- type: mcAura
+  id: MCCarnageAura
+  priority: 5
+  width: 0
+  rays: true

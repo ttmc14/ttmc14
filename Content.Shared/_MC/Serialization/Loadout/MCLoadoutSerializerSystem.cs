@@ -2,12 +2,9 @@
 using System.Linq;
 using Content.Shared._MC.Serialization.Loadout.Data;
 using Content.Shared.Inventory;
-using Content.Shared.Storage;
-using Content.Shared.Storage.Components;
 using JetBrains.Annotations;
 using Robust.Shared;
 using Robust.Shared.Configuration;
-using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.Manager;
 using Robust.Shared.Serialization.Markdown;
 using Robust.Shared.Utility;
@@ -22,6 +19,30 @@ public sealed class MCLoadoutSerializerSystem : EntitySystem
 
     [Dependency] private readonly InventorySystem _inventory = null!;
 
+    private readonly Dictionary<Type, MCLoadoutPartSystem> _handlers = new();
+
+    internal void Register<TComponent, TPart>(MCLoadoutPartSystem<TComponent, TPart> system)
+        where TComponent : Component
+        where TPart : MCLoadoutPart
+    {
+        _handlers.Add(typeof(TPart), system);
+    }
+
+    internal void RestoreItem(EntityUid uid, MCLoadoutItem item, MCLoadoutRestoreContext context)
+    {
+        if (item.Parts.Count == 0)
+            return;
+
+        // Resolve each component after earlier parts have installed their modules.
+        var restored = new HashSet<Type>();
+        foreach (var part in item.Parts.OrderBy(p => p.RestoreOrder))
+        {
+            var type = part.GetType();
+            if (restored.Add(type) && _handlers.TryGetValue(type, out var handler))
+                handler.RestorePart(uid, part, context);
+        }
+    }
+
     [PublicAPI]
     public MCLoadout LoadoutFromStream(Stream stream)
     {
@@ -30,8 +51,7 @@ public sealed class MCLoadoutSerializerSystem : EntitySystem
         yamlStream.Load(reader);
 
         var root = yamlStream.Documents[0].RootNode;
-        var export = _serialization.Read<MCLoadout>(root.ToDataNode(), notNullableOverride: true);
-        return export;
+        return _serialization.Read<MCLoadout>(root.ToDataNode(), notNullableOverride: true);
     }
 
     [PublicAPI]
@@ -58,14 +78,12 @@ public sealed class MCLoadoutSerializerSystem : EntitySystem
     }
 
     [PublicAPI]
-    public MCLoadoutSlot BuildSlot(EntityUid itemUid, SlotDefinition slot)
-    {
-        return new MCLoadoutSlot
+    public MCLoadoutSlot BuildSlot(EntityUid itemUid, SlotDefinition slot) =>
+        new()
         {
             SlotName = slot.Name,
             Item = BuildItem(itemUid),
         };
-    }
 
     [PublicAPI]
     public MCLoadoutItem? BuildItem(EntityUid itemUid)
@@ -76,47 +94,13 @@ public sealed class MCLoadoutSerializerSystem : EntitySystem
         if (MetaData(itemUid).EntityPrototype is not { } entityPrototype)
             return null;
 
-        if (!TryComp<StorageComponent>(itemUid, out var storage) || storage.StoredItems.Count == 0)
+        var item = new MCLoadoutItem { ProtoId = entityPrototype.ID };
+        foreach (var handler in _handlers.Values)
         {
-            return new MCLoadoutItem
-            {
-                ProtoId = entityPrototype.ID,
-            };
+            if (handler.CapturePart(itemUid) is { } part)
+                item.Parts.Add(part);
         }
 
-        var contents = new List<EntProtoId>();
-        if (TryComp<StorageFillComponent>(itemUid, out var fillComponent))
-        {
-            contents = fillComponent.Contents
-                .Where(e => e.PrototypeId is not null)
-                .SelectMany(e => Enumerable.Repeat((EntProtoId) e.PrototypeId!, e.Amount))
-                .ToList();
-        }
-
-        var contains = new List<MCLoadoutItem>();
-        foreach (var (storedUid, _) in storage.StoredItems)
-        {
-            var prototypeId = MetaData(storedUid).EntityPrototype?.ID;
-            if (string.IsNullOrEmpty(prototypeId))
-                continue;
-
-            if (contents.Contains(prototypeId))
-            {
-                contents.Remove(prototypeId);
-                continue;
-            }
-
-            var serialized = BuildItem(storedUid);
-            if (serialized is null)
-                continue;
-
-            contains.Add(serialized);
-        }
-
-        return new MCLoadoutItem
-        {
-            ProtoId = entityPrototype.ID,
-            Contains = contains,
-        };
+        return item;
     }
 }

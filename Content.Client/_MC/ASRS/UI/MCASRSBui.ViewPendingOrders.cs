@@ -1,4 +1,5 @@
 ﻿using Content.Client._MC.ASRS.UI.Views;
+using Content.Shared._MC.ASRS.Components;
 using Content.Shared._MC.ASRS.UI.Messages;
 
 namespace Content.Client._MC.ASRS.UI;
@@ -17,7 +18,18 @@ public sealed partial class MCASRSBui
 
     private void SendStoreRequestsMessage(string reason)
     {
-        SendMessage(new MCASRSConsoleStoreRequestsMessage(reason, Store));
+        var catalog = _entity.GetComponent<MCASRSConsoleComponent>(Owner).CachedEntries;
+        var quantities = new Dictionary<int, int>();
+        foreach (var (entry, count) in Store)
+        {
+            var index = catalog.IndexOf(entry);
+            if (index < 0)
+                return;
+
+            quantities.Add(index, count);
+        }
+
+        SendMessage(new MCASRSConsoleStoreRequestsMessage(reason, quantities));
         StoreClear();
     }
 

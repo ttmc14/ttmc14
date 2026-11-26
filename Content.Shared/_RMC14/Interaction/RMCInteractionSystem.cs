@@ -85,35 +85,26 @@ public sealed class RMCInteractionSystem : EntitySystem
         args.Handled = true;
     }
 
-    public void TryCapWorldRotation(Entity<MaxRotationComponent?, TransformComponent?> max, ref Angle angle)
-    {
-        if (!Resolve(max, ref max.Comp1, ref max.Comp2, false))
-            return;
-
-        var set = max.Comp1.Set;
-        var deviation = max.Comp1.Deviation;
-        if (Angle.ShortestDistance(angle, set) > deviation)
-            angle = set + deviation;
-
-        if (Angle.ShortestDistance(angle, set) < -deviation)
-            angle = set - deviation;
-    }
-
-    public bool CanFaceMaxRotation(Entity<MaxRotationComponent?, TransformComponent?> max, Angle angle)
+    /// <summary>
+    /// Clamps a world-space aim angle and returns whether the original angle is reachable.
+    /// </summary>
+    public bool ClampWorldRotation(Entity<MaxRotationComponent?, TransformComponent?> max, ref Angle angle)
     {
         if (!Resolve(max, ref max.Comp1, ref max.Comp2, false))
             return true;
 
-        var set = max.Comp1.Set;
-        var deviation = max.Comp1.Deviation;
-        if (Angle.ShortestDistance(angle, set) > deviation ||
-            Angle.ShortestDistance(angle, set) < -deviation)
-        {
-            return false;
-        }
+        var center = _transform.GetWorldRotation(max.Comp2) - max.Comp2.LocalRotation + max.Comp1.Set;
+        var offset = Angle.ShortestDistance(center, angle).Theta;
+        var deviation = max.Comp1.Deviation.Theta;
+        if (Math.Abs(offset) <= deviation)
+            return true;
 
-        return true;
+        angle = center + Math.CopySign(deviation, offset);
+        return false;
     }
+
+    public bool CanFaceMaxRotation(Entity<MaxRotationComponent?, TransformComponent?> max, Angle angle) =>
+        ClampWorldRotation(max, ref angle);
 
     public void SetMaxRotation(Entity<MaxRotationComponent?> ent, Angle set, Angle deviation)
     {

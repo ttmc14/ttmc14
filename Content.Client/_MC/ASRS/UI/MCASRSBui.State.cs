@@ -16,7 +16,8 @@ public sealed partial class MCASRSBui
     public List<MCASRSRequest> RequestsDeniedHistory = new();
 
     public int Points { get; private set; }
-    public int RequestsTotalCost { get; private set; }
+    private int DeliveryFee { get; set; }
+    public long RequestsTotalCost { get; private set; }
 
     public bool HasRequests => Requests.Count > 0;
     public bool HasRequestsAwaitingDelivery => RequestsAwaitingDelivery.Count > 0;
@@ -41,7 +42,8 @@ public sealed partial class MCASRSBui
         RequestsDeniedHistory = state.RequestsDeniedHistory;
 
         Points = state.Points;
-        RequestsTotalCost = Requests.Sum(request => request.TotalCost);
+        DeliveryFee = state.DeliveryFee;
+        RequestsTotalCost = Requests.Sum(request => (long) request.TotalCost);
 
         StateRefreshed?.Invoke();
     }

@@ -1,6 +1,7 @@
 using System.Numerics;
 using Content.Client._RMC14.Medical.HUD;
 using Content.Client._RMC14.NightVision;
+using Content.Shared._MC.Xeno.Heal;
 using Content.Shared._MC.Xeno.Sunder;
 using Content.Shared._RMC14.Mobs;
 using Content.Shared._RMC14.Shields;
@@ -96,6 +97,7 @@ public sealed partial class XenoHudOverlay : Overlay // mc-changes
         _invisQuery = _entity.GetEntityQuery<EntityActiveInvisibleComponent>();
         _xenoQuery = _entity.GetEntityQuery<XenoComponent>();
         _mcXenoSunderQuery = _entity.GetEntityQuery<MCXenoSunderComponent>(); // mc-changes
+        _mcXenoOverhealQuery = _entity.GetEntityQuery<MCXenoOverhealComponent>();
 
         _shader = _prototype.Index<ShaderPrototype>("unshaded").Instance();
         ZIndex = 1;
@@ -563,6 +565,7 @@ public sealed partial class XenoHudOverlay : Overlay // mc-changes
 
         var position = new Vector2(xOffset, yOffset);
         handle.DrawTexture(texture, position);
+        DrawOverheal(uid, position, handle); // mc-changes
     }
 
     /*

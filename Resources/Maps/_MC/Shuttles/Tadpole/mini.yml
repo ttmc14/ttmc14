@@ -102,6 +102,7 @@ entities:
       parent: invalid
     - type: MCShuttleTadpole
     - type: MCShuttlePreventCollide
+    - type: MCBlockAntennaSignal
     - type: MapGrid
       chunks:
         0,0:

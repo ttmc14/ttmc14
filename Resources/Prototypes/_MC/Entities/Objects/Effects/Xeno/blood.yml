@@ -1,0 +1,62 @@
+- type: entity
+  parent: MCEffect
+  id: MCEffectBloodHealing
+  components:
+  - type: TimedDespawn
+    lifetime: 0.8
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _RMC14/Effects/heal.rsi
+    state: busy_medical
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectTelekinesis
+  components:
+  - type: TimedDespawn
+    lifetime: 0.5
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _RMC14/Effects/effects.rsi
+    state: empdisable
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectOpposeShatter
+  components:
+  - type: TimedDespawn
+    lifetime: 3
+  - type: MCTimedDespawnDisappearanceVisuals
+    lifetime: 3
+  - type: Sprite
+    noRot: true
+    drawdepth: BelowMobs
+    sprite: _MC/Effects/Xeno/oppose.rsi
+    state: oppose_shatter
+    color: "#FFFFFFC8"
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectOpposeParticles
+  components:
+  - type: TimedDespawn
+    lifetime: 1.8
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _MC/Effects/Xeno/oppose_particles.rsi
+    state: pulse
+
+- type: entity
+  parent: MCEffect
+  id: MCEffectDrainStab
+  components:
+  - type: TimedDespawn
+    lifetime: 0.35
+  - type: Sprite
+    noRot: true
+    drawdepth: Effects
+    sprite: _MC/Effects/Xeno/redstab.rsi
+    state: redstab

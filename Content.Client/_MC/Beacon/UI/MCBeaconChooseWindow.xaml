@@ -1,26 +1,20 @@
-﻿<ui:MCBeaconChooseWindow
+<ui:MCBeaconChooseWindow
     xmlns="https://spacestation14.io"
     xmlns:ui="clr-namespace:Content.Client._MC.Beacon.UI"
-    xmlns:cc="clr-namespace:Content.Client.Administration.UI.CustomControls"
-    Title="Beacon choice"
-    MinSize="300 300">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True" Margin="8">
-        <RichTextLabel Text="Select the beacon" Margin="0 0 16 0" />
-
-        <cc:HSeparator Margin="0 4" />
-
-        <ScrollContainer HorizontalExpand="True" VerticalExpand="True">
-            <BoxContainer Orientation="Vertical" Name="Container" HorizontalExpand="True" VerticalExpand="True" />
-        </ScrollContainer>
-
-        <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Align="Center">
-                <Button Text="Cancel" Name="CancelButton" />
-            </BoxContainer>
-
-            <BoxContainer Orientation="Horizontal" HorizontalExpand="True" Align="Center">
-                <Button Text="Submit" Name="SubmitButton" Disabled="True" />
-            </BoxContainer>
+    xmlns:map="clr-namespace:Content.Client._RMC14.TacticalMap"
+    Title="{Loc mc-asrs-beacon-choice}"
+    MinSize="760 460">
+    <BoxContainer Orientation="Vertical" Margin="8" SeparationOverride="8">
+        <BoxContainer Orientation="Horizontal" VerticalExpand="True" SeparationOverride="8">
+            <ItemList Name="BeaconList" SelectMode="Single" MinWidth="240" VerticalExpand="True" />
+            <PanelContainer StyleClasses="BorderedWindowPanel" HorizontalExpand="True" VerticalExpand="True" RectClipContent="True">
+                <map:TacticalMapControl Name="Map" MouseFilter="Stop" HorizontalExpand="True" VerticalExpand="True" />
+                <Label Name="MapStatus" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </PanelContainer>
+        </BoxContainer>
+        <BoxContainer Orientation="Horizontal" Align="End" SeparationOverride="8">
+            <Button Name="CancelButton" Text="{Loc quick-dialog-ui-cancel}" />
+            <Button Name="SubmitButton" Text="{Loc generic-confirm}" Disabled="True" />
         </BoxContainer>
     </BoxContainer>
 </ui:MCBeaconChooseWindow>

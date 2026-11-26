@@ -51,6 +51,7 @@
     size: Large
   - type: MCTeleporter
   - type: MCDeploy
+    attackInCombatMode: true
     deployFixture: teleporter
     deployTime: 2
   - type: MCPairLinkInteractLinked

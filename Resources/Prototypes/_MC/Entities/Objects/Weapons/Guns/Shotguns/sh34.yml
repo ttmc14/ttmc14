@@ -17,6 +17,8 @@
     shotsPerBurst: 1
   - type: Appearance
   - type: ShootUseDelay
+  - type: WieldableSpeedModifiers
+    base: 0.769231
   - type: WieldDelay
     delay: 0.5
   - type: UseDelay

@@ -2,89 +2,78 @@
 using Content.Shared._MC.ASRS.Events;
 using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
+using Robust.Shared.Network;
+using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.ASRS.Systems;
 
 public sealed class MCASRSSystem : MCEntitySystemSingleton<MCASRSSingletonComponent>
 {
-    public const int MinBalance = 0;
-
     [Dependency] private readonly IConfigurationManager _configuration = null!;
+    [Dependency] private readonly IPrototypeManager _prototypes = null!;
+    [Dependency] private readonly INetManager _net = null!;
 
-    private int Balance
+    public int GetBalance(ProtoId<MCASRSAccountPrototype>? account = null)
     {
-        get => Inst.Comp.Balance;
-        set
-        {
-            Inst.Comp.Balance = value;
-            Dirty(Inst);
-        }
+        var id = account ?? MCASRSAccountPrototype.Default;
+        var instance = Inst;
+        var balances = instance.Comp.Balances;
+        if (balances.TryGetValue(id, out var balance))
+            return balance;
+
+        var startingBalance = _prototypes.Index(id).StartingBalance ?? _configuration.GetCVar(MCConfigVars.AsrsStartingBalance);
+        balances[id] = Math.Max(0, startingBalance);
+        Dirty(instance);
+        return balances[id];
     }
 
-    protected override void OnInstanceCreated(Entity<MCASRSSingletonComponent> entity)
+    public bool HasBalance(int required, ProtoId<MCASRSAccountPrototype>? account = null)
     {
-        base.OnInstanceCreated(entity);
-
-        entity.Comp.Balance = _configuration.GetCVar(MCConfigVars.AsrsStartingBalance);
+        return required >= 0 && GetBalance(account) >= required;
     }
 
-    #region Operations
-
-    public int GetBalance()
+    public void SetBalance(int amount, ProtoId<MCASRSAccountPrototype>? account = null)
     {
-        return Balance;
+        var id = account ?? MCASRSAccountPrototype.Default;
+        var oldBalance = GetBalance(id);
+        var balance = Math.Max(0, amount);
+        var instance = Inst;
+        instance.Comp.Balances[id] = balance;
+        Dirty(instance);
+
+        var ev = new MCASRSBalanceChangedEvent(id, balance, oldBalance);
+        RaiseLocalEvent(ref ev);
     }
 
-    public bool HasBalance(int required)
+    public void AddBalance(int amount, ProtoId<MCASRSAccountPrototype>? account = null)
     {
-        return GetBalance() >= required;
+        // Miners and export pads also run client-side for prediction.
+        if (_net.IsServer && amount > 0)
+            SetBalance((int) Math.Min(int.MaxValue, (long) GetBalance(account) + amount), account);
     }
 
-    public void SetBalance(int amount)
+    public void RemoveBalance(int amount, ProtoId<MCASRSAccountPrototype>? account = null)
     {
-        Balance = amount;
-        Refresh();
+        if (amount > 0)
+            SetBalance(GetBalance(account) - amount, account);
     }
 
-    public void AddBalance(int amount)
+    public bool TryRemoveBalance(int amount, ProtoId<MCASRSAccountPrototype>? account = null)
     {
-        var oldBalance = Balance;
-
-        Balance += amount;
-        Refresh(oldBalance);
-    }
-
-    public void RemoveBalance(int amount)
-    {
-        var oldBalance = Balance;
-
-        Balance = int.Max(Balance - amount, MinBalance);
-        Refresh(oldBalance);
-    }
-
-    public bool TryRemoveBalance(int amount)
-    {
-        if (!HasBalance(amount))
+        if (!HasBalance(amount, account))
             return false;
 
-        RemoveBalance(amount);
+        RemoveBalance(amount, account);
         return true;
-    }
-
-    #endregion
-
-    private void Refresh(int oldBalance = 0)
-    {
-        Dirty();
-
-        var ev = new MCASRSBalanceChangedEvent(Balance, oldBalance);
-        RaiseLocalEvent(ref ev);
     }
 }
 
+/// <summary>
+/// Holds the supply point balance for each ASRS account used in the current round.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
 public sealed partial class MCASRSSingletonComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public int Balance;
+    public Dictionary<ProtoId<MCASRSAccountPrototype>, int> Balances = new();
 }

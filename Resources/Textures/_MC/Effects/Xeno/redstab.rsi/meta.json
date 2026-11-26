@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "license": "CC-BY-NC-4.0",
+  "copyright": "Taken from UngaMarines-13 at https://github.com/UngaCo/UngaMarines-13/blob/4393675af57677a89e941e124b4cf911ed835e81/icons/effects/effects.dmi",
+  "size": {
+    "x": 32,
+    "y": 32
+  },
+  "states": [
+    {
+      "name": "redstab",
+      "delays": [
+        [
+          0.1,
+          0.05,
+          0.05,
+          0.05,
+          0.1
+        ]
+      ]
+    }
+  ]
+}

@@ -6,7 +6,7 @@
     useDelay: 20
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoResinWalker
   name: Resin Walker (50)
   description: Run faster on weeds. [color=cyan]Consumes 30 plasma per second.[/color]
@@ -21,7 +21,7 @@
     event: !type:XenoResinWalkerActionEvent
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoDigTunnel
   name: Dig Tunnel (200)
   description: Dig a tunnel for speedy transportation across the hive.
@@ -37,7 +37,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoHealingInfusion
   name: Healing Infusion (200)
   description: Psychically infuses a friendly xeno with regenerative energies, greatly improving its natural healing. Doesn't work if the target can't naturally heal.

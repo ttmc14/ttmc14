@@ -8,14 +8,19 @@ using Content.Shared.Weapons.Ranged.Events;
 using Robust.Shared.Map;
 using Robust.Shared.Physics;
 using Robust.Shared.Physics.Components;
+using Robust.Shared.Player;
 
 namespace Content.Shared._MC.Weapon.Laser.Systems;
 
 public sealed partial class MCWeaponLaserSystem
 {
-    public void Shoot(Entity<MCWeaponLaserComponent> entity, Entity<GunComponent> gunEntity, EntityUid? user, EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates)
+    /// <summary>
+    /// Fires the laser in its current mode if the installed cell can supply the required charge.
+    /// </summary>
+    public void Shoot(Entity<MCWeaponLaserComponent> entity, Entity<GunComponent> gunEntity, EntityUid? user,
+        EntityCoordinates fromCoordinates, EntityCoordinates toCoordinates, ICommonSession? predictingSession)
     {
-        if (_net.IsClient)
+        if (_net.IsClient && predictingSession == null)
             return;
 
         if (!TryGetAmmo(entity, out var ammoEntity))
@@ -41,10 +46,16 @@ public sealed partial class MCWeaponLaserSystem
             return;
         }
 
-        _audio.PlayPvs(gunEntity.Comp.SoundGunshotModified, gunEntity); // _audio.PlayPredicted(gunEntity.Comp.SoundGunshotModified, gunEntity, user);
-        _mcBattery.SetCharge(ammoEntity.Owner, charge - fireCost);
+        if (predictingSession != null)
+            _audio.PlayPredicted(gunEntity.Comp.SoundGunshotModified, gunEntity, user);
+        else
+            _audio.PlayPvs(gunEntity.Comp.SoundGunshotModified, gunEntity);
 
-        UpdateShots(entity);
+        if (_net.IsServer)
+        {
+            _mcBattery.SetCharge(ammoEntity.Owner, charge - fireCost);
+            UpdateShots(entity);
+        }
 
         var fromMapCoordinates = _transform.ToMapCoordinates(fromCoordinates);
         var toMapCoordinates = _transform.ToMapCoordinates(toCoordinates);
@@ -70,7 +81,10 @@ public sealed partial class MCWeaponLaserSystem
         var hit = result.HitEntity;
         var hitCoordinates = Transform(hit).Coordinates;
 
-        _mcLine.SpawnEffect(mode.EffectId, mode.ProjectileId, fromCoordinates, hitCoordinates);
+        _mcLine.SpawnEffect(mode.EffectId, mode.ProjectileId, fromCoordinates, hitCoordinates, predictingSession);
+
+        if (_net.IsClient)
+            return;
 
         // FUNNY MOMENT HERE
         var projectileUid = SpawnAtPosition(mode.ProjectileId, fromCoordinates);
@@ -102,10 +116,6 @@ public sealed partial class MCWeaponLaserSystem
         _physics.SetBodyStatus(uid, physicsComponent, BodyStatus.InAir);
 
         projectileComponent = EnsureComp<ProjectileComponent>(uid);
-        projectileComponent.Weapon = gunUid;
-
-        var shooter = user ?? gunUid;
-        if (shooter is not null)
-            _projectile.SetShooter(uid, projectileComponent, shooter.Value);
+        _projectile.InitializeShot((uid, projectileComponent), gunUid, user);
     }
 }

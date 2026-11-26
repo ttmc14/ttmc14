@@ -1,10 +1,14 @@
-﻿using Content.Shared.Tools;
+﻿using Content.Shared._MC.ASRS;
+using Content.Shared.Tools;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.Engineering.Miners.Components;
 
+/// <summary>
+/// Produces and stores minerals whose sale credits the miner's ASRS account.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCMinerComponent : Component
 {
@@ -15,6 +19,9 @@ public sealed partial class MCMinerComponent : Component
     public MCMinerState State = MCMinerState.Destroyed;
 
     #region Points
+
+    [DataField, AutoNetworkedField]
+    public ProtoId<MCASRSAccountPrototype> Account = MCASRSAccountPrototype.Default;
 
     /// <summary>
     /// The mineral type that's produced.

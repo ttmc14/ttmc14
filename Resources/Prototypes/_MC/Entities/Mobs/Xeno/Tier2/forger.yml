@@ -82,13 +82,6 @@
         MCBurn: 30
   - type: MCXenoFireball
   - type: MCXenoWhirlwind
-    fire: MCTileFireXenoAcid
-    range: 7
-    doAfter: 0.6
-    delay: 0.3
-    barricadeDamage:
-      types:
-        MCBurn: 5
   # Pounce (FireCharge)
   - type: MCXenoPounceEmote
     emote: XenoRoar

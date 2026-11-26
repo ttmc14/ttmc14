@@ -11,8 +11,6 @@ public sealed partial class MCLoadoutSlot
     [DataField(required: true)]
     public MCLoadoutItem? Item;
 
-    public override string ToString()
-    {
-        return $"Slot: {SlotName}, Item: {Item}";
-    }
+    public override string ToString() =>
+        $"Slot: {SlotName}, Item: {Item}";
 }

@@ -236,7 +236,7 @@ public sealed partial class MCMinerSystem : EntitySystem
 
         var value = entity.Comp.MineralStored * entity.Comp.MineralValueTotal;
 
-        _mcAsrs.AddBalance(value);
+        _mcAsrs.AddBalance(value, entity.Comp.Account);
         _mcChat.TrySendInGameICSpeakMessage(entity, Loc.GetString("mc-miner-sold", ("value", value)));
 
         entity.Comp.MineralStored = 0;

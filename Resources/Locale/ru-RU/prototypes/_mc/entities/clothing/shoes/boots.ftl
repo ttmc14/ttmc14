@@ -1,10 +1,10 @@
 ent-MCBootsBlack = боевые ботинки морской пехоты
     .desc = Стандартная боевая обувь для боевых столкновений. Только бой, всегда.
-ent-MCBootsBlackFilled = боевые ботинки морской пехоты
-    .suffix = Filled
-    .desc = Стандартная боевая обувь для боевых столкновений. Только бой, всегда.
+ent-MCBootsBlackFilled = { ent-MCBootsBlack }
+    .suffix = С ножом
+    .desc = { ent-MCBootsBlack.desc }
 ent-MCBootsBrown = боевые ботинки морской пехоты
     .desc = Стандартная боевая обувь для боевых столкновений. Только бой, всегда. Эти коричневые.
-ent-MCBootsBrownFilled = боевые ботинки морской пехоты
-    .suffix = Filled
-    .desc = Стандартная боевая обувь для боевых столкновений. Только бой, всегда. Эти коричневые.
+ent-MCBootsBrownFilled = { ent-MCBootsBrown }
+    .suffix = С ножом
+    .desc = { ent-MCBootsBrown.desc }

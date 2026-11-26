@@ -29,9 +29,10 @@ public sealed class MCLineSystem : EntitySystem
         EntProtoId spawnId,
         EntProtoId dataId,
         EntityCoordinates start,
-        EntityCoordinates end)
+        EntityCoordinates end,
+        ICommonSession? predictingSession = null)
     {
-        SpawnEffect(spawnId, dataId, _transform.ToMapCoordinates(start), _transform.ToMapCoordinates(end));
+        SpawnEffect(spawnId, dataId, _transform.ToMapCoordinates(start), _transform.ToMapCoordinates(end), predictingSession);
     }
 
     public void SpawnEffect(
@@ -46,9 +47,10 @@ public sealed class MCLineSystem : EntitySystem
         EntProtoId spawnId,
         EntProtoId dataId,
         MapCoordinates start,
-        MapCoordinates end)
+        MapCoordinates end,
+        ICommonSession? predictingSession = null)
     {
-        if (_net.IsClient)
+        if (_net.IsClient && predictingSession == null)
             return;
 
         if (start.MapId != end.MapId)
@@ -119,9 +121,17 @@ public sealed class MCLineSystem : EntitySystem
         if (sprites.Count == 0)
             return;
 
-        RaiseNetworkEvent(new MCLineEffectEvent
+        var effect = new MCLineEffectEvent { Data = sprites };
+        if (_net.IsClient)
         {
-            Data = sprites,
-        }, CEFilter.ZPvs(startCoords));
+            RaiseLocalEvent(effect);
+            return;
+        }
+
+        var filter = CEFilter.ZPvs(startCoords);
+        if (predictingSession != null)
+            filter.RemovePlayer(predictingSession);
+
+        RaiseNetworkEvent(effect, filter);
     }
 }

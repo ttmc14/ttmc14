@@ -9,9 +9,13 @@ rmc-distress-signal-minorxenovictory-timeout = [color=purple]The xenos hijacked 
 cm-distress-signal-alldied = [color=yellow]Mutual Annihilation![/color]
 cm-distress-signal-none = [color=yellow]No outcome![/color]
 cm-distress-signal-marine = { $player }
-rmc-distress-signal-next-map-title = Next Planet Map
-rmc-distress-signal-next-map-tie = Tie for map vote! Picking... { $picked }
-rmc-distress-signal-next-map-win = { $winner } won the map vote!
+rmc-distress-signal-next-map-title = Выбор следующей планеты
+rmc-distress-signal-next-map-tie = Ничья! Выбрана карта «{ $picked }».
+rmc-distress-signal-next-map-win = Победила карта «{ $winner }»!
+rmc-distress-signal-next-map-header = Результаты голосования за карту
+rmc-distress-signal-next-map-votes = { $map } — голосов: { $votes }
+rmc-distress-signal-next-map-votes-new = { rmc-distress-signal-next-map-votes } (новых: { $newVotes })
+rmc-distress-signal-next-map-tiebreaker = Одинаковое число голосов набрали карты:
 rmc-distress-signal-fallen =
     In memoriam of our fallen soldiers:
     { $fallen }

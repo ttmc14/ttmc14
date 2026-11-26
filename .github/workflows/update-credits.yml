@@ -15,7 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.2.2
         with:
-          ref: master
+          ref: main
 
       - name: Get this week's Contributors
         shell: pwsh

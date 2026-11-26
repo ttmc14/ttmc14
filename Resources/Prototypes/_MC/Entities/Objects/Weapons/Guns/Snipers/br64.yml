@@ -57,7 +57,7 @@
       types:
         MCBrute: 20
   - type: WieldableSpeedModifiers
-    base: 0.95
+    base: 0.784314
   - type: WieldDelay
     baseDelay: 0.9
   - type: RMCWeaponAccuracy

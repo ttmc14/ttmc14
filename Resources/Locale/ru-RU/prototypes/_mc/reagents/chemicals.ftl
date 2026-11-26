@@ -1,5 +1,5 @@
 ent-MCSheetPhoron = форон
-    .suffix = Full, MC
+    .suffix = Полная стопка, MC
     .desc = { ent-SheetOtherBase.desc }
 ent-MCSheetPhoron15 = { ent-MCSheetPhoron }
     .suffix = 15, MC

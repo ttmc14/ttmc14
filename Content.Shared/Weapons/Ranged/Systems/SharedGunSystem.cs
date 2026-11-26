@@ -540,6 +540,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         }
 
         var fromMap = fromCoordinates.ToMap(EntityManager, TransformSystem);
+        toCoordinates = ApplyShooterSpread(user, gunUid, fromMap, toCoordinates);
         var toMap = toCoordinates.ToMapPos(EntityManager, TransformSystem);
         var mapDirection = toMap - fromMap.Position;
         var mapAngle = mapDirection.ToAngle();
@@ -729,7 +730,7 @@ public abstract partial class SharedGunSystem : EntitySystem
 
                         var hitName = ToPrettyString(hitEntity);
                         if (dmg != null)
-                            dmg = Damageable.TryChangeDamage(hitEntity, dmg * Damageable.UniversalHitscanDamageModifier, origin: user, tool: ent);
+                            dmg = Damageable.TryChangeDamage(hitEntity, dmg * Damageable.UniversalHitscanDamageModifier * GetShooterDamageMultiplier(user), origin: user, tool: ent);
 
                         // check null again, as TryChangeDamage returns modified damage values
                         if (dmg != null)
@@ -775,7 +776,8 @@ public abstract partial class SharedGunSystem : EntitySystem
                     break;
                 case MCWeaponLaserComponent mcLaser:
                     if (ent != null)
-                        _mcWeaponLaser.Shoot((ent.Value, mcLaser), (gunUid, gun), user, fromCoordinates, toCoordinates);
+                        _mcWeaponLaser.Shoot((ent.Value, mcLaser), (gunUid, gun), user, fromCoordinates, toCoordinates,
+                            GunPrediction && !HasComp<GunIgnorePredictionComponent>(gunUid) ? userSession : null);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -1008,10 +1010,7 @@ public abstract partial class SharedGunSystem : EntitySystem
         Physics.SetLinearVelocity(uid, finalLinear, body: physics);
 
         var projectile = EnsureComp<ProjectileComponent>(uid);
-        projectile.Weapon = gunUid;
-        var shooter = user ?? gunUid;
-        if (shooter != null)
-            Projectiles.SetShooter(uid, projectile, shooter.Value);
+        Projectiles.InitializeShot((uid, projectile), gunUid, user);
 
         TransformSystem.SetWorldRotationNoLerp(uid, direction.ToWorldAngle() + projectile.Angle);
     }

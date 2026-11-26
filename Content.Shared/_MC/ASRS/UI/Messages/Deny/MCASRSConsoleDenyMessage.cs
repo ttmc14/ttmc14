@@ -5,10 +5,10 @@ namespace Content.Shared._MC.ASRS.UI.Messages.Deny;
 [Serializable, NetSerializable]
 public sealed class MCASRSConsoleDenyMessage : BoundUserInterfaceMessage
 {
-    public readonly MCASRSRequest Request;
+    public readonly Guid RequestId;
 
-    public MCASRSConsoleDenyMessage(MCASRSRequest request)
+    public MCASRSConsoleDenyMessage(Guid requestId)
     {
-        Request = request;
+        RequestId = requestId;
     }
 }

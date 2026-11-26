@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.StatusEffects.Stagger;
 using Content.Shared._MC.StatusEffects.Stun.Components;
 using Content.Shared._MC.Stun.Events;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
@@ -17,6 +18,7 @@ namespace Content.Shared._MC.StatusEffects.Stun;
 
 public sealed class MCStunSystem : EntitySystem
 {
+    [Dependency] private readonly MCStaggerSystem _stagger = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedStunSystem _stun = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
@@ -109,20 +111,8 @@ public sealed class MCStunSystem : EntitySystem
         _slow.TrySlowdown(uid, duration);
     }
 
-    public void Stagger(EntityUid uid, TimeSpan duration)
-    {
-        if (duration == TimeSpan.Zero)
-            return;
-
-        var attemptEv = new MCStaggerAttemptEvent();
-        RaiseLocalEvent(uid, ref attemptEv);
-
-        if (attemptEv.Canceled)
-            return;
-
-        var ev = new MCStaggerEvent();
-        RaiseLocalEvent(uid, ref ev);
-    }
+    /// <inheritdoc cref="MCStaggerSystem.Stagger"/>
+    public void Stagger(EntityUid uid, TimeSpan duration) => _stagger.Stagger(uid, duration);
 
     public bool IsStun(EntityUid uid)
     {

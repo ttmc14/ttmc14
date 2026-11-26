@@ -14,8 +14,9 @@
     - state: marinemed
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Heal Pack
+    - name: mc-vendor-category-heal-pack
       entries:
       - id: MCHealingGauze
       - id: MCHealingOintment
@@ -24,7 +25,7 @@
         amount: 50
       - id: MCHealingBurnKit
         amount: 50
-    - name: Pill Bottles
+    - name: mc-vendor-category-pill-bottles
       entries:
       - id: MCPillCanisterBicaridine
       - id: MCPillCanisterKelotane
@@ -45,7 +46,7 @@
         amount: 6
       - id: MCPillCanisterHypervene
         amount: 6
-    - name: Auto Injector
+    - name: mc-vendor-category-auto-injector
       entries:
       - id: MCAutoInjectorBicaridine
       - id: MCAutoInjectorKelotane
@@ -69,7 +70,7 @@
         amount: 10
       - id: MCAutoInjectorSleepToxin
         amount: 10
-    - name: Reagent Bottle
+    - name: mc-vendor-category-reagent-bottle
       entries:
       - id: MCBottleBicaridine
       - id: MCBottleKelotane

@@ -1,7 +1,11 @@
 ﻿using Content.Shared._MC.Armor.Core;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Entrenching;
 using Content.Shared.Damage;
 using Content.Shared.Damage.Prototypes;
 using Content.Shared.FixedPoint;
+using Content.Shared.Mobs.Components;
+using Content.Shared.Mobs.Systems;
 using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Damage;
@@ -24,6 +28,8 @@ public sealed class MCDamageableSystem : EntitySystem
     [Dependency] private readonly IPrototypeManager _prototype = null!;
     [Dependency] private readonly DamageableSystem _damageable = null!;
     [Dependency] private readonly MCArmorSystem _armor = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
+    [Dependency] private readonly MCSharedXenoHiveSystem _hive = null!;
 
     private EntityQuery<DamageableComponent> _damageableQuery;
 
@@ -38,6 +44,20 @@ public sealed class MCDamageableSystem : EntitySystem
         _damageToxin = _prototype.Index(DamageToxinId);
         _damageOxygen = _prototype.Index(DamageOxygenId);
         _damageClone = _prototype.Index(DamageCloneId);
+    }
+
+    /// <summary>
+    /// Returns whether a xeno area attack can damage the target.
+    /// </summary>
+    public bool CanAreaAttackTarget(EntityUid attacker, EntityUid target)
+    {
+        if (attacker == target)
+            return false;
+
+        if (!HasComp<MobStateComponent>(target) && !HasComp<BarricadeComponent>(target) && !HasComp<MCXenoAreaDamageTargetComponent>(target))
+            return false;
+
+        return !_mobState.IsDead(target) && !_hive.FromSameHive(attacker, target);
     }
 
     public DamageSpecifier? DealBombDamage(EntityUid uid, int penetration, DamageSpecifier damageSpecifier, EntityUid? origin = null, EntityUid? tool = null)

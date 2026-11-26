@@ -12,15 +12,16 @@
     - state: surplus_armor
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Xenonauten
+    - name: mc-vendor-category-xenonauten
       entries:
       - id: MCArmorModularXenonautenL
       - id: MCArmorHelmetModularXenonautenM10X
       - id: MCArmorHelmetModularXenonautenM10XE
       - id: MCArmorModularXenonautenM
       - id: MCArmorModularXenonautenH
-    - name: Jaeger
+    - name: mc-vendor-category-jaeger
       entries:
       # Scout
       - id: MCArmorModularJaegerScout
@@ -52,7 +53,7 @@
       # Eod
       - id: MCArmorModularJaegerEOD
       - id: MCArmorHelmetModularJaegerEOD
-    - name: Jaeger modules
+    - name: mc-vendor-category-jaeger-modules
       entries:
       # Tyr
       - id: MCArmorModuleMark1TyrArmor
@@ -74,7 +75,7 @@
       - id: MCArmorModuleHelmetBinoculars
       - id: MCArmorModuleHelmetArtemisMk1
       - id: MCArmorModuleHelmetAntenna
-    - name: Jaeger storage modules
+    - name: mc-vendor-category-jaeger-storage-modules
       entries:
       - id: MCArmorModuleStorageMedical
       - id: MCArmorModuleStorageInjector

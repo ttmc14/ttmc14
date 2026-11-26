@@ -27,7 +27,7 @@ public abstract class MCSharedXenoRewindSystem : EntitySystem
         SubscribeLocalEvent<MCXenoRewindComponent, MCXenoRewindActionEvent>(OnAction);
 
         SubscribeLocalEvent<MCXenoRewindTargetComponent, MobStateChangedEvent>(OnTagetChangedState);
-        SubscribeLocalEvent<MCXenoRewindTargetComponent, ComponentStartup>(OnTagetStartup);
+        SubscribeLocalEvent<MCXenoRewindTargetComponent, ComponentStartup>(OnTargetStartup);
         SubscribeLocalEvent<MCXenoRewindTargetComponent, ComponentShutdown>(OnTagetShutdown);
     }
 
@@ -76,7 +76,7 @@ public abstract class MCSharedXenoRewindSystem : EntitySystem
         Dirty(entity);
     }
 
-    private void OnTagetStartup(Entity<MCXenoRewindTargetComponent> entity, ref ComponentStartup _)
+    protected virtual void OnTargetStartup(Entity<MCXenoRewindTargetComponent> entity, ref ComponentStartup _)
     {
         if (entity.Comp.Canceled)
             return;

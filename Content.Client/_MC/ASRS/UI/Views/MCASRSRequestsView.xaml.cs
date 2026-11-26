@@ -35,7 +35,7 @@ public sealed partial class MCASRSRequestsView : MCASRSView
 
     public void Refresh(MCASRSBui bui, IReadOnlyList<MCASRSRequest> requests)
     {
-        ApproveAllButton.Disabled = bui.RequestsTotalCost == 0;
+        ApproveAllButton.Disabled = !bui.HasRequests || bui.RequestsTotalCost > bui.Points;
 
         Container.Children.Clear();
         foreach (var request in requests)

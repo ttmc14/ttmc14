@@ -5,7 +5,7 @@ ent-MCPillCanisterKelotane = банка с таблетками келотана
     .desc = Банка с таблетками для лечения [color=#da841d]ожогов[/color].
 
 ent-MCPillCanisterDylovene = банка с таблетками диловена
-    .desc = Банка с таблетками для лечения [color=#759a27]токсинов[/color].
+    .desc = Банка с таблетками для лечения [color=#759a27]отравления[/color].
 
 ent-MCPillCanisterTricordrazine = банка с таблетками трикордразина
     .desc = Банка с таблетками для [bold]слабого[/bold] лечения [color=#00cbc6]общего урона[/color].

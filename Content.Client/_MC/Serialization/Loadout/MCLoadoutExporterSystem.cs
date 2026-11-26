@@ -9,50 +9,48 @@ namespace Content.Client._MC.Serialization.Loadout;
 
 public sealed class MCLoadoutExporterSystem : EntitySystem
 {
+    private static readonly FileDialogFilters LoadoutFiles = new(new FileDialogFilters.Group("yml"));
+
     [Dependency] private readonly IFileDialogManager _fileDialog = null!;
     [Dependency] private readonly IPlayerManager _player = null!;
 
-    [Dependency] private readonly MCLoadoutSerializerSystem _mcLoadoutSerializer = null!;
+    [Dependency] private readonly MCLoadoutSerializerSystem _serializer = null!;
 
-    public async Task ExportSelf()
+    public override void Initialize()
     {
-        if (_player.LocalEntity is not { } targetUid)
-            return;
+        SubscribeNetworkEvent<MCLoadoutExportResponse>(OnExportResponse);
+    }
 
-        await Export(_mcLoadoutSerializer.BuildEntity(targetUid));
+    public void ExportSelf()
+    {
+        if (_player.LocalEntity != null)
+            RaiseNetworkEvent(new MCLoadoutExportRequest());
+    }
+
+    private async void OnExportResponse(MCLoadoutExportResponse message)
+    {
+        try
+        {
+            await Export(message.Loadout);
+        }
+        catch (Exception e)
+        {
+            Log.Error($"Loadout export failed: {e.Message}");
+        }
     }
 
     public async Task Export(MCLoadout loadout)
     {
-        var file = await _fileDialog.SaveFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-        if (file is null)
+        if (await _fileDialog.SaveFile(LoadoutFiles) is not { } file)
             return;
 
-        try
-        {
-            var data = _mcLoadoutSerializer.LoadoutToDataNode(loadout);
-            await using var writer = new StreamWriter(file.Value.fileStream);
-            data.Write(writer);
-        }
-        finally
-        {
-            await file.Value.fileStream.DisposeAsync();
-        }
+        await using var writer = new StreamWriter(file.fileStream);
+        _serializer.LoadoutToDataNode(loadout).Write(writer);
     }
 
-    public async Task<MCLoadout> Import()
+    public async Task<MCLoadout?> Import()
     {
-        var file = await _fileDialog.OpenFile(new FileDialogFilters(new FileDialogFilters.Group("yml")));
-        if (file is null)
-            throw new FileNotFoundException();
-
-        try
-        {
-            return _mcLoadoutSerializer.LoadoutFromStream(file);
-        }
-        finally
-        {
-            await file.DisposeAsync();
-        }
+        await using var file = await _fileDialog.OpenFile(LoadoutFiles);
+        return file == null ? null : _serializer.LoadoutFromStream(file);
     }
 }

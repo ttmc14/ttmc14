@@ -11,40 +11,33 @@ public sealed class MCPowerpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly MCBatterySystem _battery = null!;
 
+    /// <summary>
+    /// Registers manual charging when a battery is used on a powerpack.
+    /// </summary>
     public override void Initialize() =>
         SubscribeLocalEvent<MCPowerpackComponent, InteractUsingEvent>(OnInteractUsing);
 
     private void OnInteractUsing(Entity<MCPowerpackComponent> entity, ref InteractUsingEvent args)
     {
-        if (!TryComp<MCBatteryComponent>(args.Used, out var usedBattery))
+        if (args.Handled || args.Used == entity.Owner)
             return;
 
-        if (!TryComp<MCBatteryComponent>(entity, out var powerpackBattery))
+        if (!TryComp<MCBatteryComponent>(args.Used, out var usedBattery) ||
+            !TryComp<MCBatteryComponent>(entity, out var powerpackBattery))
             return;
 
-        if (args.Used == entity.Owner)
-            return;
-
-        var powerpackCharge = _battery.GetCharge((entity.Owner, powerpackBattery));
-        var batteryCharge = usedBattery.Charge;
-        var batteryMaxCharge = usedBattery.MaxCharge;
-
-        var spaceInBattery = batteryMaxCharge - batteryCharge;
-        if (spaceInBattery <= 0f)
+        if (usedBattery.Charge >= usedBattery.MaxCharge)
         {
             _popup.PopupClient(Loc.GetString("mc-powerpack-battery-full"), entity, args.User);
             return;
         }
 
-        var transferAmount = float.Min(powerpackCharge, spaceInBattery);
+        var transferAmount = _battery.TransferCharge((entity.Owner, powerpackBattery), (args.Used, usedBattery));
         if (transferAmount <= 0f)
         {
             _popup.PopupClient(Loc.GetString("mc-powerpack-empty"), entity, args.User);
             return;
         }
-
-        _battery.SetCharge((entity.Owner, powerpackBattery), powerpackCharge - transferAmount);
-        _battery.SetCharge((args.Used, usedBattery), batteryCharge + transferAmount);
 
         _popup.PopupClient(
             Loc.GetString("mc-powerpack-charged", ("amount", transferAmount)),

@@ -12,5 +12,6 @@
   - type: MCBeacon
     category: Supply
     name: ТГК Кентербери
+  - type: MCASRSOffPlanetDelivery
   - type: WarpPoint
     location: ТГК Кентербери

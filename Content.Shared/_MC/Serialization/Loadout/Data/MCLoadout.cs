@@ -10,16 +10,13 @@ public sealed partial class MCLoadout
     public string ForkId = string.Empty;
 
     [DataField]
-    public int Version = 1;
+    public int Version = 3;
 
     [DataField]
     public List<MCLoadoutSlot> Slots = new();
 
     public override string ToString()
     {
-        // Ha ha NOT FUNNY!
-        // [ERRO] res.typecheck: Sandbox violation: Access to method not allowed: [System.Runtime]System.Text.StringBuilder [System.Runtime]System.Text.StringBuilder.AppendLine([System.Runtime]System.Text.StringBuilder/AppendInterpolatedStringHandler&)
-
         var slotsString = string.Join(Environment.NewLine, Slots.Select(s => $"  {s}"));
         return $"ForkId: {ForkId}, Version: {Version}{Environment.NewLine}{slotsString}";
     }

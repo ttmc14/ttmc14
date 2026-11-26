@@ -44,7 +44,7 @@
     event: !type:XenoRestActionEvent
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoHide
   name: Hide
   description: Hide under tables and other objects.
@@ -114,7 +114,7 @@
     event: !type:XenoPheromonesActionEvent
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAcidWeak
   name: Weak Corrosive Acid (75)
   description: Melts down a structure or item over time.
@@ -135,7 +135,7 @@
       expendableLightDps: 0.3
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAcidMedium
   name: Corrosive Acid (100)
   description: Melts down a structure or item over time.
@@ -156,7 +156,7 @@
       expendableLightDps: 2.5
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAcidStrong
   name: Strong Corrosive Acid (100)
   description: Melts down a structure or item over time.

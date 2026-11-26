@@ -17,5 +17,6 @@ public sealed partial class MCSlowdownStacksSystem
         component.UpdateNext = _timing.CurTime + component.UpdateDelay;
 
         DirtyFields(statusEffect.Value, component, null, nameof(MCSlowdownStacksComponent.Stacks), nameof(MCSlowdownStacksComponent.UpdateNext));
+        _movementSpeedModifier.RefreshMovementSpeedModifiers(targetUid);
     }
 }

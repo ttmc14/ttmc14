@@ -2,7 +2,7 @@ name: Map checker
 
 on:
   pull_request:
-    branches: [ "master" ]
+    branches: [ "main" ]
     paths:
     # Run if maps are changed.
     - "Resources/Maps/_RMC14/**/*.yml"

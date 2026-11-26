@@ -1,4 +1,5 @@
 using System.Linq;
+using Content.Shared._MC.Armor.Core;
 using Content.Shared._RMC14.Armor;
 using Content.Shared._RMC14.Chemistry;
 using Content.Shared._RMC14.Chemistry.Reagent;
@@ -67,6 +68,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = default!;
     [Dependency] private readonly SharedTransformSystem _transform = default!;
     [Dependency] private readonly CMArmorSystem _armor = default!;
+    [Dependency] private readonly MCArmorSystem _mcArmor = default!;
     [Dependency] private readonly XenoPlasmaSystem _plasma = default!;
     [Dependency] private readonly SharedRMCEmoteSystem _emote = default!;
     [Dependency] private readonly InventorySystem _inventory = default!;
@@ -147,6 +149,11 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     }
 
     private void OnTileFireMapInit(Entity<TileFireComponent> ent, ref MapInitEvent args)
+    {
+        RefreshTileFire(ent);
+    }
+
+    public void RefreshTileFire(Entity<TileFireComponent> ent)
     {
         ent.Comp.SpawnedAt = _timing.CurTime;
         Dirty(ent);
@@ -387,6 +394,12 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
     public bool IsOnFire(Entity<FlammableComponent?> ent)
     {
         return Resolve(ent, ref ent.Comp, false) && ent.Comp.OnFire;
+    }
+
+    public void ApplyFireDamage(EntityUid target, DamageSpecifier damage, bool interruptsDoAfters = true, EntityUid? origin = null)
+    {
+        var multiplier = _mcArmor.GetFireDamageMultiplier(target, damage.GetTotal().Float());
+        _damageable.TryChangeDamage(target, damage * multiplier, ignoreResistances: true, interruptsDoAfters: interruptsDoAfters, origin: origin);
     }
 
     public virtual bool Ignite(Entity<FlammableComponent?> flammable, int intensity, int duration, int? maxStacks, bool igniteDamage = true, DamageSpecifier? tileDamage = null)
@@ -840,7 +853,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
         }
 
         if (!wasOnFire && IsOnFire(flammableEnt) && CanFireBypassImmunity(ent, other))
-            _damageable.TryChangeDamage(flammableEnt, flammableEnt.Comp.Damage * ent.Comp.Intensity, true);
+            ApplyFireDamage(flammableEnt, flammableEnt.Comp.Damage * ent.Comp.Intensity);
     }
 
     private void ApplyTileEffect(Entity<SteppingOnFireComponent> ent, RMCIgniteOnCollideComponent ignite, EntityUid fireEntity)
@@ -871,7 +884,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
             {
                 stepping.Distance = 0;
                 if (CanFireBypassImmunity(fireEntity, uid)) // TODO: MCUPSTREAM
-                    _damageable.TryChangeDamage(uid, tile * ignite.Intensity, true);
+                    ApplyFireDamage(uid, tile * ignite.Intensity);
             }
         }
 
@@ -909,7 +922,7 @@ public abstract class SharedRMCFlammableSystem : EntitySystem
 
             if (ent.Comp.UpdateAt <= timing)
             {
-                _damageable.TryChangeDamage(uid, ignite.Intensity / 5f * flammable.Damage * ev.Multiplier, true, false);
+                ApplyFireDamage(uid, ignite.Intensity / 5f * flammable.Damage * ev.Multiplier, interruptsDoAfters: false);
                 ent.Comp.UpdateAt = timing + ent.Comp.UpdateTime;
             }
         }

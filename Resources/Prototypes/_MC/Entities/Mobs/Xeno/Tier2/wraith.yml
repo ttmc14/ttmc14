@@ -96,7 +96,7 @@
         sprite: _MC/Effects/portals.rsi
         state: blue
   - type: MCXenoBlink
-    range: 2.5
+    range: 4
   - type: MCXenoRewind
   - type: MCXenoBanish
 - type: Tag

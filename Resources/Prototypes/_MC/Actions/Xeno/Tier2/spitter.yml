@@ -37,7 +37,7 @@
 
 # Scatter spit
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoScatterSpit
   name: Scatter Spit (280)
   description: Spits a spread of acid projectiles that splatter on the ground.
@@ -92,7 +92,7 @@
 
 # Other
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoSprayAcid
   name: Spray Acid (250)
   description: Spray a line of dangerous acid at your target.

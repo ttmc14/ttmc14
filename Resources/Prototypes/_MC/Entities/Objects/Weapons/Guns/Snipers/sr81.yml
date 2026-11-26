@@ -57,6 +57,8 @@
     multiplier: 1
   - type: RMCWeaponDamageFalloff
     falloffMultiplier: 0.5
+  - type: WieldableSpeedModifiers
+    base: 0.666667
   - type: WieldDelay
     baseDelay: 1.5
   - type: AttachableHolder

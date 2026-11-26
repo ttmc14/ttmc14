@@ -135,6 +135,7 @@
   id: MCAreaIceCavesNorthCaves
   name: Северные пещеры
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: cave
   - type: Area
@@ -289,6 +290,7 @@
   id: MCAreaIceCavesCavesChapel
   name: Пещерная Церковь Нар'Си
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: icy_chapel
   - type: Area
@@ -299,6 +301,7 @@
   id: MCAreaIceCavesCavesUndergroundCafe
   name: Подземное кафе
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: icy_undercaf
   - type: Area
@@ -309,6 +312,7 @@
   id: MCAreaIceCavesCavesAlienStuff
   name: Выставка «Внеземные организмы и растительная жизнь»
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: icy_alienstuff
   - type: Area
@@ -319,6 +323,7 @@
   id: MCAreaIceCavesCavesVault
   name: Пещерное Хранилище Оружия
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: icy_vault
   - type: Area
@@ -331,6 +336,7 @@
   id: MCAreaIceCavesCrashedShip
   name: Разбитый корабль
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: blue
   - type: Area
@@ -343,6 +349,7 @@
   id: MCAreaIceCavesNorthWesternStationMonoRail
   name: Северо-западная станция монорельса
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: purple
   - type: Area
@@ -353,6 +360,7 @@
   id: MCAreaIceCavesNorthWesternStationMonoRailHallway
   name: Холл Северо-западной станции монорельса
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: purple
   - type: Area
@@ -363,6 +371,7 @@
   id: MCAreaIceCavesNorthWesternStationMonoRailMedbay
   name: Медицинский блок Северо-западной станции монорельса
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: purple
   - type: Area
@@ -373,6 +382,7 @@
   id: MCAreaIceCavesNorthWesternStationMonoRailMorgue
   name: Морг Северо-западной станции монорельса
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: purple
   - type: Area
@@ -383,6 +393,7 @@
   id: MCAreaIceCavesNorthWesternStationMonoRailBreakRoom
   name: Столовая Северо-западной станции монорельса
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: purple
   - type: Area

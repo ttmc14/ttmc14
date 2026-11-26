@@ -33,6 +33,9 @@ public sealed partial class MCASRSBui
 
     private void RefreshRequests()
     {
+        if (_beaconChooseWindow.IsOpen)
+            _beaconChooseWindow.Refresh(Beacons, DeliveryFee);
+
         RefreshRequests(RequestsView, Requests);
         RefreshRequests(RequestsAwaitingDeliveryView, RequestsAwaitingDelivery);
         RefreshRequests(RequestsApprovedHistoryRequestsView, RequestsApprovedHistory);
@@ -46,18 +49,17 @@ public sealed partial class MCASRSBui
 
     private void OnDelivery(MCASRSRequest request)
     {
-        _beaconChooseWindow.OpenCentered();
-        _beaconChooseWindow.Refresh(Beacons, request);
+        _beaconChooseWindow.OpenFor(Beacons, request, DeliveryFee);
     }
 
     private void SendApprove(MCASRSRequest request)
     {
-        SendMessage(new MCASRSConsoleApproveMessage(request));
+        SendMessage(new MCASRSConsoleApproveMessage(request.Id));
     }
 
     private void SendDeny(MCASRSRequest request)
     {
-        SendMessage(new MCASRSConsoleDenyMessage(request));
+        SendMessage(new MCASRSConsoleDenyMessage(request.Id));
     }
 
     private void SendApproveAll()
@@ -75,6 +77,6 @@ public sealed partial class MCASRSBui
         if (payload is not MCASRSRequest request)
             return;
 
-        SendMessage(new MCASRSConsoleDeliveryMessage(request, beaconUid));
+        SendMessage(new MCASRSConsoleDeliveryMessage(request.Id, beaconUid));
     }
 }

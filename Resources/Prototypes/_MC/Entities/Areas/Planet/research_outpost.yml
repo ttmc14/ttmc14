@@ -149,6 +149,7 @@
   id: MCAreaNorthWesternCave
   name: North Western Cave
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: cave
   - type: Area
@@ -159,6 +160,7 @@
   id: MCAreaNorthernCave
   name: Northern Cave
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: cave
   - type: Area
@@ -169,6 +171,7 @@
   id: MCAreaNorthEasternCaves
   name: NorthEasternCaves
   components:
+  - type: MCBlockAntennaSignal
   - type: Sprite
     state: cave
   - type: Area

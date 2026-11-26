@@ -5,10 +5,10 @@ namespace Content.Shared._MC.ASRS.UI.Messages.Approve;
 [Serializable, NetSerializable]
 public sealed class MCASRSConsoleApproveMessage : BoundUserInterfaceMessage
 {
-    public readonly MCASRSRequest Request;
+    public readonly Guid RequestId;
 
-    public MCASRSConsoleApproveMessage(MCASRSRequest request)
+    public MCASRSConsoleApproveMessage(Guid requestId)
     {
-        Request = request;
+        RequestId = requestId;
     }
 }

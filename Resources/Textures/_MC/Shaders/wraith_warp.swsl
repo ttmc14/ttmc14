@@ -1,0 +1,13 @@
+light_mode unshaded;
+
+uniform sampler2D SCREEN_TEXTURE;
+
+void fragment()
+{
+    highp float mask = zTexture(UV).a;
+    if (mask == 0.0)
+        discard;
+
+    highp vec2 offset = vec2(20.0) * mask;
+    COLOR = zTextureSpec(SCREEN_TEXTURE, (FRAGCOORD.xy + offset) * SCREEN_PIXEL_SIZE);
+}

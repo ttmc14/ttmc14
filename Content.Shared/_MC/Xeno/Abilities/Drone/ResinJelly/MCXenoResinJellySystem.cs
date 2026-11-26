@@ -1,9 +1,9 @@
-﻿using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Components;
+﻿using Content.Shared._MC.Aura;
+using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Components;
 using Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly.Events;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Atmos;
-using Content.Shared._RMC14.Aura;
 using Content.Shared._RMC14.Emote;
 using Content.Shared._RMC14.Hands;
 using Content.Shared._RMC14.Xenonids;
@@ -17,12 +17,14 @@ namespace Content.Shared._MC.Xeno.Abilities.Drone.ResinJelly;
 
 public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
 {
+    private const string AuraLayer = "resin-jelly";
+
     [Dependency] private readonly INetManager _net = null!;
 
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
     [Dependency] private readonly SharedHandsSystem _hands = null!;
 
-    [Dependency] private readonly SharedAuraSystem _rmcAura = null!;
+    [Dependency] private readonly MCAuraSystem _aura = null!;
     [Dependency] private readonly SharedRMCActionsSystem _rmcActions = null!;
     [Dependency] private readonly SharedRMCEmoteSystem _rmcEmote = null!;
     [Dependency] private readonly SharedRMCFlammableSystem _rmcFlammable = null!;
@@ -39,6 +41,7 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
         SubscribeLocalEvent<MCXenoResinJellyComponent, ActivateInWorldEvent>(OnPickupAttempt, after: [ typeof(RMCHandsSystem) ]);
         SubscribeLocalEvent<MCXenoResinJellyComponent, MCXenoResinJellyConsumeDoAfterEvent>(OnAfterInteractDoAfter);
 
+        SubscribeLocalEvent<MCXenoResinJellyFireproofComponent, ComponentShutdown>(OnFireproofShutdown);
         SubscribeLocalEvent<MCXenoResinJellyFireproofComponent, RMCIgniteAttemptEvent>(OnFireproofIgniteAttempt);
         SubscribeLocalEvent<MCXenoResinJellyFireproofComponent, RMCGetFireImmunityEvent>(OnFireproofGetFireImmunity);
     }
@@ -93,7 +96,7 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
         if (args.Target is not { } target)
             return;
 
-        _rmcAura.GiveAura(target, entity.Comp.AuraColor, entity.Comp.Duration);
+        _aura.Set(target, AuraLayer, entity.Comp.Aura);
         _rmcEmote.TryEmoteWithChat(target, entity.Comp.Emote);
         _rmcFlammable.Extinguish(target);
 
@@ -104,6 +107,11 @@ public sealed class MCXenoResinJellySystem : MCXenoAbilitySystem
 
         RemCompDeferredDelayed<MCXenoResinJellyFireproofComponent>(target, entity.Comp.Duration);
         Del(entity);
+    }
+
+    private void OnFireproofShutdown(Entity<MCXenoResinJellyFireproofComponent> entity, ref ComponentShutdown args)
+    {
+        _aura.Remove(entity, AuraLayer);
     }
 
     private void OnFireproofIgniteAttempt(Entity<MCXenoResinJellyFireproofComponent> entity, ref RMCIgniteAttemptEvent args)

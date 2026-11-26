@@ -1,0 +1,67 @@
+// Active outlines are packed in priority order, closest to the sprite first.
+uniform highp vec4[16] outlineColors;
+uniform highp float[16] outlineWidths;
+uniform lowp int outlineCount;
+uniform bool wave;
+uniform bool rays;
+uniform highp float tint;
+uniform sampler2D rayTexture;
+uniform highp vec2 raySize;
+
+// A sparse blur of the alpha mask. Axial samples carry more weight than the corners.
+highp float outlineCoverage(highp vec2 uv, highp vec2 stepUV) {
+    highp vec2 x = vec2(stepUV.x, 0.0);
+    highp vec2 y = vec2(0.0, stepUV.y);
+    highp float sides = texture2D(TEXTURE, uv + x).a + texture2D(TEXTURE, uv - x).a
+                      + texture2D(TEXTURE, uv + y).a + texture2D(TEXTURE, uv - y).a;
+    highp float corners = texture2D(TEXTURE, uv + x + y).a + texture2D(TEXTURE, uv + x - y).a
+                        + texture2D(TEXTURE, uv - x + y).a + texture2D(TEXTURE, uv - x - y).a;
+    return min(1.0, sides * 0.35 + corners * 0.2);
+}
+
+void fragment() {
+    highp vec2 pixel = TEXTURE_PIXEL_SIZE;
+    highp vec2 uv = UV;
+    if (wave) {
+        highp float phase = dot(uv / pixel, vec2(0.72, 0.24)) + TIME * 3.14;
+        uv += pixel * vec2(0.24, -0.72) * sin(phase) * 0.4;
+    }
+
+    highp vec4 body = zTexture(uv);
+    if (tint > 0.0 && body.a > 0.0) {
+        highp vec4 srgb = zToSrgb(body);
+        srgb.r = clamp(srgb.r * (1.0 + tint) - srgb.g * (0.5 + tint) + srgb.b * (0.8 * tint), 0.0, 1.0);
+        body.r = zFromSrgb(srgb).r;
+    }
+
+    highp float radius = 0.0;
+    highp float covered = body.a;
+    highp vec4 result = vec4(body.rgb * body.a, body.a);
+    for (int i = 0; i < 16; i++) {
+        if (i >= outlineCount || covered >= 1.0)
+            break;
+        radius += max(1.0, outlineWidths[i]);
+        highp float inner = floor(radius);
+        highp float edge = outlineCoverage(uv, pixel * inner);
+        highp float fraction = fract(radius);
+        if (fraction > 0.0) {
+            edge = mix(edge, outlineCoverage(uv, pixel * (inner + 1.0)), fraction);
+        }
+        highp float alpha = max(edge - covered, 0.0) * outlineColors[i].a;
+        result += vec4(outlineColors[i].rgb * alpha, alpha);
+        covered = max(covered, edge);
+    }
+
+    if (rays && result.a < 1.0) {
+        highp vec2 rayUV = (uv - vec2(0.5)) / (pixel * raySize) + vec2(0.5);
+        if (all(greaterThanEqual(rayUV, vec2(0.0))) && all(lessThan(rayUV, vec2(1.0)))) {
+            highp vec4 ray = zTextureSpec(rayTexture, rayUV);
+            highp float alpha = ray.a * (1.0 - result.a);
+            result += vec4(ray.rgb * alpha, alpha);
+        }
+    }
+
+    COLOR = vec4(result.rgb / max(result.a, 0.0001), result.a);
+    // The sprite in the post-processing texture has already been lit.
+    lightSample = vec3(1.0);
+}

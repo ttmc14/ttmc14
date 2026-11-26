@@ -2,7 +2,7 @@
 using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using JetBrains.Annotations;
 
-namespace Content.Shared._MC.ZLevels.Mathematics ;
+namespace Content.Shared._MC.ZLevels.Mathematics;
 
 public static class MCZLevelMath
 {
@@ -11,15 +11,19 @@ public static class MCZLevelMath
     [PublicAPI] public const float CrossZOpeningSourceEdgeRangeTiles = 2f;
 
     [PublicAPI]
-    public static Vector2 ClampCrossZShotTarget(Vector2 from, Vector2 to)
+    public static Vector2 ClampCrossZShotTarget(Vector2 from, Vector2 to) => ClampShotTarget(from, to, CrossZShotRange);
+
+    /// <summary>Limits the distance from the shooter while preserving the aim direction.</summary>
+    [PublicAPI]
+    public static Vector2 ClampShotTarget(Vector2 from, Vector2 to, float range)
     {
         var delta = to - from;
         var distance = delta.Length();
 
-        if (distance <= CrossZShotRange || distance <= 0.001f)
+        if (distance <= range || distance <= 0.001f)
             return to;
 
-        return from + delta / distance * CrossZShotRange;
+        return from + delta / distance * range;
     }
 
     [PublicAPI]

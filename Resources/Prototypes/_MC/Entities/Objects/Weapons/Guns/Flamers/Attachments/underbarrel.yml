@@ -22,6 +22,8 @@
     - MCAttachmentMiniFlamethrower
   - type: Item
     size: Large
+  - type: WieldableSpeedModifiers
+    base: 0.533333
   - type: Gun
     cameraRecoilScalar: 0
     fireRate: 0.333

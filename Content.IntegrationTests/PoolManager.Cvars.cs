@@ -15,7 +15,6 @@ public static partial class PoolManager
         (CCVars.DatabaseSynchronous.Name,     "true"),
         (CCVars.DatabaseSqliteDelay.Name,     "0"),
         (CCVars.HolidaysEnabled.Name,         "false"),
-        (CCVars.GameMap.Name,                 TestMap),
         (CCVars.AdminLogsQueueSendDelay.Name, "0"),
         (CVars.NetPVS.Name,                   "false"),
         (CCVars.NPCMaxUpdates.Name,           "999999"),
@@ -67,8 +66,9 @@ public static partial class PoolManager
         });
     }
 
-    private static void SetDefaultCVars(RobustIntegrationTest.IntegrationOptions options)
+    private static void SetDefaultCVars(RobustIntegrationTest.IntegrationOptions options, PoolSettings settings)
     {
+        options.CVarOverrides[CCVars.GameMap.Name] = settings.Map;
         foreach (var (cvar, value) in TestCvars)
         {
             options.CVarOverrides[cvar] = value;

@@ -31,7 +31,7 @@
     scatterWielded: 0
     scatterUnwielded: 10
   - type: WieldableSpeedModifiers
-    base: 0.4
+    base: 0.833333
   - type: WieldDelay
     baseDelay: 0.7
   - type: RMCWeaponAccuracy

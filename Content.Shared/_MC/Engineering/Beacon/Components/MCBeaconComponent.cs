@@ -4,6 +4,9 @@ using Robust.Shared.Prototypes;
 
 namespace Content.Shared._MC.Engineering.Beacon.Components;
 
+/// <summary>
+/// Identifies a named destination for systems that accept this beacon category.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(fieldDeltas: true)]
 public sealed partial class MCBeaconComponent : Component
 {

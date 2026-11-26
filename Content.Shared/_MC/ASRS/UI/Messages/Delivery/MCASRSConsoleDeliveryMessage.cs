@@ -5,12 +5,12 @@ namespace Content.Shared._MC.ASRS.UI.Messages.Delivery;
 [Serializable, NetSerializable]
 public sealed class MCASRSConsoleDeliveryMessage : BoundUserInterfaceMessage
 {
-    public readonly MCASRSRequest Request;
+    public readonly Guid RequestId;
     public readonly NetEntity BeaconUid;
 
-    public MCASRSConsoleDeliveryMessage(MCASRSRequest request, NetEntity beaconUid)
+    public MCASRSConsoleDeliveryMessage(Guid requestId, NetEntity beaconUid)
     {
-        Request = request;
+        RequestId = requestId;
         BeaconUid = beaconUid;
     }
 }

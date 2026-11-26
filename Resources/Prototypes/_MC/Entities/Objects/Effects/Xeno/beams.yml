@@ -49,20 +49,5 @@
   id: MCEffectTransferMedRay
   components:
   - type: TimedDespawn
-    lifetime: 0.3
-  - type: MCTimedDespawnDisappearanceVisuals
-    lifetime: 0.05
-  - type: Sprite
-    sprite: _MC/Effects/Beams/med.rsi
-    state: base
-    drawdepth: Effects
-  - type: MCLine
-    tail:
-      sprite: _MC/Effects/Beams/med.rsi
-      state: base
-    body:
-      sprite: _MC/Effects/Beams/med.rsi
-      state: base
-    head:
-      sprite: _MC/Effects/Beams/med.rsi
-      state: base
+    lifetime: 1
+  - type: MCXenoHealingInfusionBeam

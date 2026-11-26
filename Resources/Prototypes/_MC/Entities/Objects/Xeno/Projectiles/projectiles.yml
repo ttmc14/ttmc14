@@ -74,26 +74,20 @@
     color: "#069420"
 
 - type: entity
-  parent: MCXenoProjectile
+  parent: RMCBaseEffect
   id: MCXenoProjectileWhirlwind
+  name: plasma whirlwind
+  categories: [ HideSpawnMenu ]
   components:
+  - type: MCXenoWhirlwindProjectile
+  - type: TimedDespawn
+    lifetime: 2
+  - type: Tag
+    tags: [ MCDamageFire, HideContextMenu ]
   - type: Sprite
+    drawdepth: Effects
     sprite: _MC/Objects/Xeno/whirlwind.rsi
     noRot: true
     layers:
     - state: icon
       shader: unshaded
-  - type: Projectile
-    impactEffect: null
-    damage:
-      types:
-        MCBurn: 50
-  - type: IgniteOnProjectileHit
-    intensity: 30
-    duration: 20
-  - type: XenoProjectile
-    deleteOnFriendlyXeno: false
-  - type: ProjectileMaxRange
-    max: 7
-  - type: RMCProjectileAccuracy
-    accuracy: 95

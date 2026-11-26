@@ -1,0 +1,9 @@
+- type: shader
+  id: MCWraithWarp
+  kind: source
+  path: /Textures/_MC/Shaders/wraith_warp.swsl
+
+- type: shader
+  id: MCRewindBlur
+  kind: source
+  path: /Textures/_MC/Shaders/rewind_blur.swsl

@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoCrestDefense
   name: Crest Defense
   description: Raises your armor values while sacrificing 20% movement speed. See the armor values table above.
@@ -15,7 +15,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoFortify
   name: Fortify
   description: Increases your armor greatly, but you're unable to move while in this state. You can still slash at objects and players AND you can forward charge from fortify!
@@ -31,7 +31,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoTailSweep
   name: Tail Sweep (35)
   description: Attacks all humanoids in around the user in a radius. Deals melee and stamina damage to those hit, knocking them over. Can be used while in a defensive stance, but uses double the plasma.
@@ -47,7 +47,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoForwardCharge
   name: Forward Charge (80)
   description: Charge up to 4 tiles in the direction you click in, knocking over sentries, tables, and humanoids. People are stunned for about 4 seconds. Can be used while in a defensive stance or fortify, taking you out of one.
@@ -75,7 +75,7 @@
     useDelay: 30
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoRegenerateSkin
   name: Regenerate Skin (160)
   description: Restores 25 brute and 25 burn, and resets sunder. Can't be used while on fire, but it can be used while in a defensive stance.

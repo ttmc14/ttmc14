@@ -45,7 +45,7 @@
       FullAuto:
         shotsToMaxScatter: null
   - type: WieldableSpeedModifiers
-    base: 0.35
+    base: 0.625
   - type: RMCWeaponAccuracy
     accuracyMultiplier: 1.1
     accuracyMultiplierUnwielded: 0.5

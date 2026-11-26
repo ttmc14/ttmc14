@@ -14,6 +14,8 @@
     sprite: _MC/Objects/Weapons/Guns/Revolvers/r312.rsi
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Revolvers/r312.rsi
+  - type: WieldableSpeedModifiers
+    base: 1
   - type: Gun
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Fire/t312.ogg

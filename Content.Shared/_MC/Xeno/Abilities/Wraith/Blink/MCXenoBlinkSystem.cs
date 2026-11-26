@@ -74,10 +74,7 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
             if (!RMCActions.TryUseAction(entity, args.Action, entity))
                 return;
 
-            DebuffAoe(entity, origin);
-            DebuffAoe(entity, target);
-
-            _transform.SetMapCoordinates(entity, target);
+            Blink(entity, origin, target);
 
             IncreaseCooldown(entity, entity.Comp.DragFriendlyMultiplier);
             return;
@@ -91,11 +88,7 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
 
             _transform.SetMapCoordinates(targetUid, target);
 
-            // Still continue base teleportation process
-            DebuffAoe(entity, origin);
-            DebuffAoe(entity, target);
-
-            _transform.SetMapCoordinates(entity, target);
+            Blink(entity, origin, target);
 
             IncreaseCooldown(entity, entity.Comp.DragFriendlyMultiplier);
             return;
@@ -125,13 +118,19 @@ public sealed class MCXenoBlinkSystem : MCXenoAbilitySystem
 
         _transform.SetMapCoordinates(targetUid, args.TargetCoordinates);
 
-        // Still continue base teleportation process
-        DebuffAoe(entity, args.OriginCoordinates);
-        DebuffAoe(entity, args.TargetCoordinates);
-
-        _transform.SetMapCoordinates(entity, args.TargetCoordinates);
+        Blink(entity, args.OriginCoordinates, args.TargetCoordinates);
 
         IncreaseCooldown(entity, entity.Comp.DragMultiplier);
+    }
+
+    private void Blink(Entity<MCXenoBlinkComponent> entity, MapCoordinates origin, MapCoordinates target)
+    {
+        DebuffAoe(entity, origin);
+        DebuffAoe(entity, target);
+        _transform.SetMapCoordinates(entity, target);
+
+        ServerSpawn("MCEffectWraithWarp", origin);
+        ServerSpawn("MCEffectWraithWarp", target);
     }
 
     private void IncreaseCooldown(Entity<MCXenoBlinkComponent> entity, float modifier)

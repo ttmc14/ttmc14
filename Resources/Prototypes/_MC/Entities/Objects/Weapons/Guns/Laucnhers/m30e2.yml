@@ -17,6 +17,8 @@
   - type: Item
     size: Normal
   - type: Wieldable
+  - type: WieldableSpeedModifiers
+    base: 0.666667
   - type: WieldDelay
     baseDelay: 0.2
   - type: MeleeWeapon

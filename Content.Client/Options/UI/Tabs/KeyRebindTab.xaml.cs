@@ -1,5 +1,6 @@
 using System.Numerics;
 using Content.Client.Stylesheets;
+using Content.Shared._MC;
 using Content.Shared._RMC14.Input;
 using Content.Shared.CCVar;
 using Content.Shared.Input;
@@ -210,6 +211,14 @@ namespace Content.Client.Options.UI.Tabs
             AddHeader("ui-options-header-interaction-adv");
             AddButton(ContentKeyFunctions.SmartEquipBackpack);
             AddButton(ContentKeyFunctions.SmartEquipBelt);
+            // mc-keybinds-start
+            AddButton(MCKeyFunctions.SmartEquipPocket1);
+            AddButton(MCKeyFunctions.SmartEquipPocket2);
+            AddButton(MCKeyFunctions.SmartEquipSuitStorage);
+            AddButton(MCKeyFunctions.SmartEquipUniform);
+            AddButton(MCKeyFunctions.SmartEquipArmor);
+            AddButton(MCKeyFunctions.SmartEquipHelmet);
+            // mc-keybinds-end
             AddButton(ContentKeyFunctions.OpenBackpack);
             AddButton(ContentKeyFunctions.OpenBelt);
             AddButton(ContentKeyFunctions.ThrowItemInHand);

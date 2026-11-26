@@ -13,3 +13,11 @@
     state: microwaved
   name: Microwaved
   description: ...
+
+- type: alert
+  id: MCStagger
+  icons:
+  - sprite: /Textures/Interface/Alerts/stamina.rsi
+    state: stamina4
+  name: mc-stagger-name
+  description: mc-stagger-description

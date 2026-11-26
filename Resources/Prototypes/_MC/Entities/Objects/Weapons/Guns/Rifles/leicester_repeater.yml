@@ -14,6 +14,8 @@
   - type: Clothing
     sprite: _MC/Objects/Weapons/Guns/Rifles/leicrep/inhands.rsi
   # Statistics
+  - type: WieldableSpeedModifiers
+    base: 0.769231
   - type: Gun
     shotsPerBurst: 1
     soundGunshot:

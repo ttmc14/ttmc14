@@ -1,57 +1,70 @@
 ﻿using Content.Shared._MC.Xeno.Abilities.Forger.Whirlwind.Components;
 using Content.Shared._MC.Xeno.Abilities.Forger.Whirlwind.Events;
+using Content.Shared._MC.ZLevels.Weapons;
 using Content.Shared.DoAfter;
-using Content.Shared._MC.Xeno.Spit;
+using Robust.Shared.Audio.Systems;
 
 namespace Content.Shared._MC.Xeno.Abilities.Forger.Whirlwind;
 
 public sealed class MCXenoWhirlwindSystem : MCXenoAbilitySystem
 {
+    [Dependency] private readonly MCZLevelShootingSystem _zShooting = null!;
     [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly MCSharedXenoSpitSystem _mcXenoSpit = null!;
+    [Dependency] private readonly MCXenoWhirlwindProjectileSystem _whirlwind = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
 
     public override void Initialize()
     {
         base.Initialize();
 
         SubscribeLocalEvent<MCXenoWhirlwindComponent, MCXenoWhirlwindActionEvent>(OnAction);
-        SubscribeLocalEvent<MCXenoWhirlwindComponent, MCXenoWhirlwindDoAfterEvent>(OnActionDoAfter);
+        SubscribeLocalEvent<MCXenoWhirlwindComponent, MCXenoWhirlwindDoAfterEvent>(OnDoAfter);
     }
 
     private void OnAction(Entity<MCXenoWhirlwindComponent> entity, ref MCXenoWhirlwindActionEvent args)
     {
-        if (!RMCActions.CanUseActionPopup(entity, args.Action))
+        if (args.Handled)
             return;
 
-        var ev = new MCXenoWhirlwindDoAfterEvent(args.Action, args.Target, EntityManager);
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, entity, entity.Comp.ProjectileDelay, ev, entity)
+        if (!RMCActions.CanUseActionPopup(entity, args.Action, entity))
+            return;
+
+        if (!_zShooting.TryGetAbilityShotCoordinates(entity, args.Target, out _, out var target))
+            return;
+
+        var ev = new MCXenoWhirlwindDoAfterEvent(args.Action, args.Target, EntityManager)
+        {
+            TargetMap = target.MapId,
+        };
+        var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.ProjectileDelay, ev, entity)
         {
             BreakOnMove = true,
-        });
+        };
+
+        _doAfter.TryStartDoAfter(doAfter);
     }
 
-    private void OnActionDoAfter(Entity<MCXenoWhirlwindComponent> entity, ref MCXenoWhirlwindDoAfterEvent args)
+    private void OnDoAfter(Entity<MCXenoWhirlwindComponent> entity, ref MCXenoWhirlwindDoAfterEvent args)
     {
         if (args.Handled || args.Cancelled)
             return;
 
-        args.Handled = true;
+        if (!_zShooting.TryGetAbilityShotCoordinates(entity, GetCoordinates(args.Coordinates), out var origin, out var target) ||
+            target.MapId != args.TargetMap)
+            return;
 
         var actionUid = GetEntity(args.ActionUid);
-        var coordinates = GetCoordinates(args.Coordinates);
 
         if (!RMCActions.TryUseAction(entity, actionUid, entity))
             return;
 
-        _mcXenoSpit.Shoot(
-            entity,
-            coordinates,
-            entity.Comp.ProjectileId,
-            1,
-            Angle.Zero,
-            entity.Comp.ProjectileSpeed,
-            entity.Comp.Sound
-        );
+        args.Handled = true;
+        _audio.PlayPredicted(entity.Comp.Sound, entity, entity);
+
+        if (Net.IsServer)
+        {
+            _whirlwind.Launch(entity.Comp.ProjectileId, entity, origin, target);
+        }
 
         ActionStartUseDelay<MCXenoWhirlwindActionEvent>(entity, actionUid);
     }

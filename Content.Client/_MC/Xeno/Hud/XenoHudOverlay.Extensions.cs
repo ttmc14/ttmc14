@@ -1,10 +1,12 @@
 ﻿using System.Numerics;
+using Content.Shared._MC.Xeno.Heal;
+using Content.Shared._MC.Xeno.Plasma.Components;
 using Content.Shared._MC.Xeno.Sunder;
+using Content.Shared._RMC14.Xenonids;
 using Content.Shared.Rounding;
 using Robust.Client.GameObjects;
 using Robust.Client.Graphics;
 using Robust.Shared.Utility;
-using Content.Shared._RMC14.Xenonids;
 
 // ReSharper disable once CheckNamespace
 namespace Content.Client._RMC14.Xenonids.Hud;
@@ -12,6 +14,20 @@ namespace Content.Client._RMC14.Xenonids.Hud;
 public sealed partial class XenoHudOverlay
 {
     private readonly EntityQuery<MCXenoSunderComponent> _mcXenoSunderQuery;
+    private readonly EntityQuery<MCXenoOverhealComponent> _mcXenoOverhealQuery;
+
+    private void DrawOverheal(EntityUid uid, Vector2 healthPosition, DrawingHandleWorld handle)
+    {
+        if (!_mcXenoOverhealQuery.TryComp(uid, out var reserve) || reserve.Amount <= 0 || reserve.Maximum <= 0)
+            return;
+
+        // The fill occupies columns 0–1 in the reserve sprite and 3–4 in the health sprite.
+        const float healthColumn = 3;
+        var level = ContentHelpers.RoundToLevels((double) reserve.Amount, (double) reserve.Maximum, 11);
+        var icon = new SpriteSpecifier.Rsi(new ResPath("/Textures/_MC/Interface/Xeno/hud.rsi"), $"over_plasma{level * 10}");
+        var texture = _sprite.GetFrame(icon, _timing.CurTime);
+        handle.DrawTexture(texture, healthPosition + new Vector2(healthColumn / EyeManager.PixelsPerMeter, 0));
+    }
 
     private void UpdatePlasma(Entity<XenoComponent, SpriteComponent> ent, DrawingHandleWorld handle)
     {
@@ -20,8 +36,14 @@ public sealed partial class XenoHudOverlay
         if (!_xenoPlasmaQuery.TryComp(uid, out var comp) || comp.MaxPlasma <= 0)
             return;
 
-        var plasmaTemp = comp.Plasma;
-        var plasma = double.Clamp(plasmaTemp.Double(), 0, comp.MaxPlasma);
+        var stored = comp.Plasma;
+        var plasma = stored.Double();
+        if (_entity.TryGetComponent<MCXenoPlasmaComponent>(uid, out var reserve) && reserve.ShowBloodHud)
+        {
+            DrawBar(GetBloodHudState(plasma, comp.MaxPlasma), xeno, sprite, handle, "/Textures/_MC/Interface/Xeno/fury.rsi");
+            return;
+        }
+
         var plasmaMax = comp.MaxPlasma;
 
         var regenLimit = comp.PlasmaRegenLimit == -1
@@ -30,10 +52,11 @@ public sealed partial class XenoHudOverlay
 
         regenLimit = Math.Clamp(regenLimit, 0, plasmaMax);
 
-        var plasmaLevel = ContentHelpers.RoundToLevels(plasma, regenLimit, 11);
-        DrawBar($"plasma{(plasmaLevel > 0 ? plasmaLevel * 10 : 0)}",
-            xeno, sprite, handle,
-            path: "/Textures/_MC/Interface/Xeno/hud.rsi");
+        var plasmaLevel = regenLimit > 0 ? ContentHelpers.RoundToLevels(plasma, regenLimit, 11) : 0;
+        var red = reserve?.UseRedPlasmaBar == true;
+        var state = red ? $"fury{plasmaLevel * 10}" : $"plasma{plasmaLevel * 10}";
+        var path = red ? "/Textures/_MC/Interface/Xeno/fury.rsi" : "/Textures/_MC/Interface/Xeno/hud.rsi";
+        DrawBar(state, xeno, sprite, handle, path);
 
         if (plasma <= regenLimit || regenLimit >= plasmaMax)
             return;
@@ -48,6 +71,19 @@ public sealed partial class XenoHudOverlay
             path: "/Textures/_MC/Interface/Xeno/hud.rsi");
     }
 
+    /// <summary>
+    /// Selects the world HUD sprite for the blood reserve as a percentage of full capacity.
+    /// </summary>
+    public static string GetBloodHudState(double blood, int capacity)
+    {
+        if (capacity <= 0)
+            return "fury0";
+
+        var fraction = Math.Clamp(blood / capacity, 0, 1);
+        var level = (int) Math.Round(fraction * 10, MidpointRounding.AwayFromZero);
+        return $"fury{level * 10}";
+    }
+
     private void UpdateSunder(Entity<XenoComponent, SpriteComponent> entity, DrawingHandleWorld handle)
     {
         var (uid, xeno, sprite) = entity;
@@ -59,7 +95,8 @@ public sealed partial class XenoHudOverlay
         DrawBar($"xenoarmor{name}", xeno, sprite, handle);
     }
 
-    private void DrawBar(string state, XenoComponent xeno, SpriteComponent sprite, DrawingHandleWorld handle, string path = "/Textures/_RMC14/Interface/xeno_hud.rsi")
+    private void DrawBar(string state, XenoComponent xeno, SpriteComponent sprite, DrawingHandleWorld handle,
+        string path = "/Textures/_RMC14/Interface/xeno_hud.rsi")
     {
         var icon = new SpriteSpecifier.Rsi(new ResPath(path), state);
         var texture = _sprite.GetFrame(icon, _timing.CurTime);

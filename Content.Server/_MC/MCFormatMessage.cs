@@ -1,4 +1,4 @@
-﻿using System.Collections.Frozen;
+using System.Collections.Frozen;
 
 namespace Content.Server._MC;
 
@@ -65,7 +65,7 @@ public static class MCFormatMessage
         { "sanabi", "/Textures/_MC/Interface/Emoji/sanabi.png" },
         { "smileround", "/Textures/_MC/Interface/Emoji/smileround.png" },
         { "stupidass", "/Textures/_MC/Interface/Emoji/stupidass.png" },
-        { "sviin", "/Textures/_MC/Interface/Emoji/sviin.png" },
+        { "sviin", "/Textures/_MC/Interface/Emoji/sviiin.png" },
         { "tatarla", "/Textures/_MC/Interface/Emoji/tatarla.png" },
         { "thundercat", "/Textures/_MC/Interface/Emoji/thundercat.png" },
         { "tile", "/Textures/_MC/Interface/Emoji/tile.png" },
@@ -74,7 +74,7 @@ public static class MCFormatMessage
         { "umarines14", "/Textures/_MC/Interface/Emoji/umarines14.png" },
         { "unfortune", "/Textures/_MC/Interface/Emoji/unfortune.png" },
         { "xdd", "/Textures/_MC/Interface/Emoji/xdd.png" },
-        { "ZaMamuOtveish", "/Textures/_MC/Interface/Emoji/ZaMamuOtveish.png" },
+        { "ZaMamuOtveish", "/Textures/_MC/Interface/Emoji/ZaMamuOtvetish.png" },
     }.ToFrozenDictionary();
 
     public static string ApplyEmoji(string text)

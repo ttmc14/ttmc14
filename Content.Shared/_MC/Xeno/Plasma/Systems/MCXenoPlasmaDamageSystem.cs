@@ -36,6 +36,6 @@ public sealed class MCXenoPlasmaDamageSystem : EntitySystem
     {
         var maxPlasma = _mcXenoPlasma.GetMaxPlasma(targetUid);
         var amount = entity.Comp.Amount + entity.Comp.Multiplier * maxPlasma + _mcXenoPlasma.GetPlasmaNormalized(targetUid) * entity.Comp.MissingMultiplier;
-        _mcXenoPlasma.RemovePlasma(targetUid, amount);
+        _mcXenoPlasma.DrainPlasma(targetUid, amount);
     }
 }

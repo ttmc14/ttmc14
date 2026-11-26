@@ -1,4 +1,4 @@
-using System.Linq;
+using Content.Client._MC.UI.RichText;
 using Content.Client._RMC14.Chat;
 using Content.Client.UserInterface.Systems.Chat.Controls;
 using Content.Shared._MC._Config;
@@ -42,7 +42,7 @@ public partial class ChatBox : UIWidget
     private readonly HashSet<string> _whitelist = ["mono", "scramble", "bolditalic", "bold", "bullet", "color", "font", "head", "italic"];
 
     // MCChanges:
-    private bool _emojiAvaible = false;
+    private bool _emojiEnabled;
     // MCChanges
 
     public ChatBox()
@@ -64,21 +64,15 @@ public partial class ChatBox : UIWidget
         _controller.RegisterChat(this);
 
         // MCChanges:
-        _configurationManager.OnValueChanged(MCConfigVars.ChatEmoji, value =>
-        {
-            _emojiAvaible = value;
-
-            if (value)
-                return;
-
-            var toRemove = Contents.Children.Where(child => !(!child.Name?.Contains("__mcsprite_") ?? false)).ToList();
-            foreach (var child in toRemove)
-            {
-                Contents.Children.Remove(child);
-            }
-
-        }, true);
+        _emojiEnabled = _configurationManager.GetCVar(MCConfigVars.ChatEmoji);
+        _configurationManager.OnValueChanged(MCConfigVars.ChatEmoji, OnEmojiChanged);
         // MCChanges
+    }
+
+    private void OnEmojiChanged(bool enabled)
+    {
+        _emojiEnabled = enabled;
+        Repopulate();
     }
 
     private void OnTextEntered(LineEditEventArgs args)
@@ -116,6 +110,7 @@ public partial class ChatBox : UIWidget
 
     public void Repopulate()
     {
+        RepeatQueue.Clear();
         Contents.Clear();
 
         foreach (var message in _controller.History)
@@ -126,12 +121,7 @@ public partial class ChatBox : UIWidget
 
     private void OnChannelFilter(ChatChannel channel, bool active)
     {
-        Contents.Clear();
-
-        foreach (var message in _controller.History)
-        {
-            OnMessageAdded(message.Item2);
-        }
+        Repopulate();
 
         if (active)
         {
@@ -175,9 +165,9 @@ public partial class ChatBox : UIWidget
                 continue;
             }
 
-            if (_emojiAvaible && name == "mcsprite")
+            if (_emojiEnabled && name == "mcsprite" && !tag.Closing && tag.Value.StringValue != null)
             {
-                output.PushTag(tag);
+                output.PushTag(new MarkupNode(MCChatEmojiTag.TagName, tag.Value, null), selfClosing: true);
                 continue;
             }
 
@@ -275,6 +265,7 @@ public partial class ChatBox : UIWidget
         base.Dispose(disposing);
 
         if (!disposing) return;
+        _configurationManager.UnsubValueChanged(MCConfigVars.ChatEmoji, OnEmojiChanged);
         _controller.UnregisterChat(this);
         ChatInput.Input.OnTextEntered -= OnTextEntered;
         ChatInput.Input.OnKeyBindDown -= OnInputKeyBindDown;

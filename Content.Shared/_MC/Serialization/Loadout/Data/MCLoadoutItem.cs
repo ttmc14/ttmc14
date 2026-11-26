@@ -13,14 +13,7 @@ public sealed partial class MCLoadoutItem
     public EntProtoId? VendorProtoId;
 
     [DataField]
-    public List<MCLoadoutItem>? Contains = new();
+    public List<MCLoadoutPart> Parts = new();
 
-    public override string ToString()
-    {
-        if (Contains is not { Count: > 0 })
-            return $"ProtoId: {ProtoId}";
-
-        var containsString = string.Join(", ", Contains);
-        return $"ProtoId: {ProtoId}, Contains: [{containsString}]";
-    }
+    public override string ToString() => ProtoId.Id;
 }

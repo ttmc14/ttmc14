@@ -1,11 +1,22 @@
 ﻿using System.Linq;
 using Content.Shared._MC.ASRS.Components;
+using Content.Shared._RMC14.Map;
+using Content.Shared._RMC14.Rules;
+using Content.Shared.Maps;
+using Content.Shared.Physics;
+using Content.Shared.Popups;
+using Robust.Shared.Network;
 
 namespace Content.Shared._MC.ASRS.Systems;
 
 public sealed partial class MCASRSConsoleSystem : EntitySystem
 {
     [Dependency] private readonly MCASRSDropSystem _mcAsrsDrop = null!;
+    [Dependency] private readonly RMCPlanetSystem _planet = null!;
+    [Dependency] private readonly RMCMapSystem _map = null!;
+    [Dependency] private readonly TurfSystem _turf = null!;
+    [Dependency] private readonly SharedPopupSystem _popup = null!;
+    [Dependency] private readonly INetManager _net = null!;
 
     private event Action<Entity<MCASRSConsoleComponent>>? OnRequestUpdated;
 
@@ -26,57 +37,64 @@ public sealed partial class MCASRSConsoleSystem : EntitySystem
         Refresh(entity);
     }
 
-    private void TryAddRequest(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request)
+    private void TryDelivery(Entity<MCASRSConsoleComponent> entity, Guid requestId, NetEntity beaconUid, EntityUid user)
     {
-        if (entity.Comp.Requests.Count >= entity.Comp.RequestsLimit)
+        if (_net.IsClient)
             return;
 
-        if (!ValidateRequest(entity, request))
+        var pending = entity.Comp.RequestsAwaitingDelivery;
+        var index = pending.FindIndex(request => request.Id == requestId);
+        if (index < 0)
             return;
 
-        entity.Comp.Requests.Add(request);
+        if (!TryGetEntity(beaconUid, out var beacon) || !_mcBeacon.Active(beacon.Value, entity.Comp.DeliveryCategory) ||
+            !IsDeliveryLocation(beacon.Value))
+        {
+            _popup.PopupEntity(Loc.GetString("mc-asrs-beacon-unavailable"), entity, user);
+            return;
+        }
+
+        var coords = Transform(beacon.Value).Coordinates;
+        if (!_map.TryGetTileRefForEnt(coords, out _, out var tile) || _turf.IsSpace(tile) ||
+            _turf.IsTileBlocked(tile, CollisionGroup.Impassable))
+        {
+            _popup.PopupEntity(Loc.GetString("mc-asrs-drop-blocked"), entity, user);
+            return;
+        }
+
+        var fee = entity.Comp.DeliveryFee;
+        if (!_mcAsrs.HasBalance(fee, entity.Comp.Account))
+        {
+            _popup.PopupEntity(Loc.GetString("mc-asrs-delivery-insufficient", ("fee", fee)), entity, user);
+            return;
+        }
+
+        _mcAsrsDrop.Drop(pending[index], beacon.Value);
+        pending.RemoveAt(index);
+        if (fee > 0)
+            _mcAsrs.RemoveBalance(fee, entity.Comp.Account);
         Refresh(entity);
-    }
-
-    private void TryDelivery(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request, NetEntity beaconUid)
-    {
-        if (!entity.Comp.RequestsAwaitingDelivery.Contains(request))
-            return;
-
-        if (!_mcBeacon.Active(beaconUid, entity.Comp.DeliveryCategory))
-            return;
-
-        Delivery(entity, request, GetEntity(beaconUid));
     }
 
     private void TryApprove(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request)
     {
-        if (!ContainsRequest(entity, request))
-            return;
-
-        if (!TryRemoveBalance(request))
+        if (!_mcAsrs.TryRemoveBalance(request.TotalCost, entity.Comp.Account))
             return;
 
         Approve(entity, request);
     }
 
-    private void TryApprove(Entity<MCASRSConsoleComponent> entity, List<MCASRSRequest> requests)
+    private void TryApproveAll(Entity<MCASRSConsoleComponent> entity)
     {
-        if (!ContainsRequests(entity, requests))
+        var requests = entity.Comp.Requests;
+        if (requests.Count == 0 || requests.Any(request => request.TotalCost < 0))
             return;
 
-        if (!TryRemoveBalance(requests))
+        var totalCost = requests.Sum(request => (long) request.TotalCost);
+        if (totalCost > int.MaxValue || !_mcAsrs.TryRemoveBalance((int) totalCost, entity.Comp.Account))
             return;
 
         Approve(entity, requests);
-    }
-
-    private void Delivery(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request, EntityUid beaconUid)
-    {
-        entity.Comp.RequestsAwaitingDelivery.Remove(request);
-        Refresh(entity);
-
-        _mcAsrsDrop.Drop(request, beaconUid);
     }
 
     private void Approve(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request)
@@ -136,21 +154,6 @@ public sealed partial class MCASRSConsoleSystem : EntitySystem
         }
 
         container.Add(element);
-    }
-
-    private static bool ContainsRequest(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request)
-    {
-        return entity.Comp.Requests.Contains(request);
-    }
-
-    private static bool ContainsRequests(Entity<MCASRSConsoleComponent> entity, List<MCASRSRequest> requests)
-    {
-        return entity.Comp.Requests.All(requests.Contains);
-    }
-
-    private static bool ValidateRequest(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request)
-    {
-        return request.Reason != string.Empty && request.Contents.Keys.All(entry => entity.Comp.CachedEntries.Contains(entry));
     }
 
     private static void Cache(Entity<MCASRSConsoleComponent> entity)

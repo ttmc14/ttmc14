@@ -57,7 +57,7 @@
   - type: ShootAtFixedPoint
     maxFixedRange: 30
   - type: WieldableSpeedModifiers
-    base: 0.75
+    base: 0.533333
 
 - type: Tag
   id: MCWeaponLauncherRL152

@@ -40,7 +40,7 @@
   - type: WieldDelay
     baseDelay: 0.5
   - type: WieldableSpeedModifiers
-    base: 0.8
+    base: 0.909091
     light: 1
     medium: 1
     heavy: 1

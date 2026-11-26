@@ -1,2 +1,5 @@
 ent-MCXenoGorger = поглотитель
     .desc = Пугающее на вид, громоздкое инопланетное существо, из которого капает знакомая красная жидкость.
+
+ent-MCXenoGorgerPrimordial = первозданный поглотитель
+    .desc = { ent-MCXenoGorger.desc }

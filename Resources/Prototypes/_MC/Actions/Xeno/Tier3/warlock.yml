@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPsychicBlast
   name: Psychic Blast (230)
   description: Launch a blast of psychic energy that deals light damage and knocks back enemies in its AOE. Must remain stationary for a few seconds to use.
@@ -22,7 +22,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPsychicCrush
   name: Psychic Crush (40)
   description: Channel an expanding AOE crush effect, activating it again pre-maturely crushes enemies over an area. The longer it is channeled, the larger area it will affect, but will consume more plasma.
@@ -43,7 +43,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoPsychicShield
   name: Psychic Shield (200)
   description: Channel a psychic shield at your current location that can reflect most projectiles. Activate again while the shield is active to detonate the shield forcibly, producing knockback. Must remain static to use.
@@ -59,7 +59,7 @@
   - type: ActionBlockIfResting
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAntigravity
   name: Antigravity (200)
   description: WIP.

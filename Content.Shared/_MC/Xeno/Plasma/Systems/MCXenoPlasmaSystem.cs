@@ -79,6 +79,17 @@ public sealed class MCXenoPlasmaSystem : EntitySystem
 
     #region Remove
 
+    /// <summary>
+    /// Removes plasma through a hostile drain unless the target is immune.
+    /// </summary>
+    public void DrainPlasma(EntityUid uid, float amount)
+    {
+        if (_mcQuery.TryComp(uid, out var component) && component.ImmuneToPlasmaDrain)
+            return;
+
+        RemovePlasma(uid, amount);
+    }
+
     public void RemovePlasma(EntityUid uid, float amount)
     {
         if (!_query.TryComp(uid, out var component))

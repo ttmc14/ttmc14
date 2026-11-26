@@ -26,6 +26,8 @@
     whitelist:
       tags:
       - MCCartridgeShotgun
+  - type: WieldableSpeedModifiers
+    base: 0.833333
   - type: WieldDelay
     baseDelay: 0.7
   - type: RMCWeaponAccuracy

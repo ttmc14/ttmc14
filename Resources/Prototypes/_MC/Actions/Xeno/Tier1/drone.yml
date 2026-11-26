@@ -1,5 +1,5 @@
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoAcidicSalve
   name: Acidic Salve (150)
   description: Allows you to spend 150 plasma on healing a xeno for 50 HP + (Recovery Pheremone Level * the Xeno's max health * 0.01) along with healing (total heal amount/10) sunder.
@@ -37,7 +37,7 @@
     cost: 750
 
 - type: entity
-  parent: ActionXenoBase
+  parent: MCActionXenoStaggerable
   id: MCActionXenoOzelomelynSting
   name: Ozelomelyn Sting (100)
   description: A channeled melee attack that injects the target with Ozelomelyn over a few seconds, purging chemicals and dealing minor toxin damage to a moderate cap while inside them.

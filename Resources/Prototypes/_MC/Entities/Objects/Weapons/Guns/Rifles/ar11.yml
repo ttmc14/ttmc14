@@ -50,7 +50,7 @@
           tags:
           - MCMagazineRifleAR11
   - type: WieldableSpeedModifiers
-    base: 0.95
+    base: 0.816327
   - type: WieldDelay
     baseDelay: 0.6
   - type: RMCWeaponAccuracy

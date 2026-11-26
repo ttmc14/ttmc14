@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Fail if we are attempting to run on the master branch
-      if: ${{GITHUB.REF_NAME == 'master' && github.repository == 'space-wizards/space-station-14'}}
+    - name: Fail if we are attempting to run on the main branch
+      if: ${{GITHUB.REF_NAME == 'main' && github.repository == 'space-wizards/space-station-14'}}
       run: exit 1
 
     - name: Install dependencies

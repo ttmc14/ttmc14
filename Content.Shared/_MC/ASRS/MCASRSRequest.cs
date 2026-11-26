@@ -1,5 +1,4 @@
-﻿using System.Collections.Frozen;
-using Content.Shared._MC.ASRS.Components;
+﻿using Content.Shared._MC.ASRS.Components;
 using Robust.Shared.Serialization;
 
 namespace Content.Shared._MC.ASRS;
@@ -7,6 +6,9 @@ namespace Content.Shared._MC.ASRS;
 [DataDefinition, Serializable, NetSerializable]
 public sealed partial class MCASRSRequest
 {
+    [ViewVariables]
+    public readonly Guid Id;
+
     [ViewVariables]
     public readonly string Requester;
 
@@ -19,39 +21,39 @@ public sealed partial class MCASRSRequest
     [ViewVariables]
     public readonly int TotalCost;
 
-    public MCASRSRequest(string requester, string reason, Dictionary<MCASRSEntry, int> contents, int totalCost)
+    private MCASRSRequest(string requester, string reason, Dictionary<MCASRSEntry, int> contents, int totalCost)
     {
+        Id = Guid.NewGuid();
         Requester = requester;
         Reason = reason;
         Contents = contents;
         TotalCost = totalCost;
     }
 
-    public override int GetHashCode()
+    public static MCASRSRequest? Create(string requester, string reason, IReadOnlyDictionary<int, int>? quantities,
+        IReadOnlyList<MCASRSEntry> catalog, int crateCapacity)
     {
-        var hash = new HashCode();
+        if (string.IsNullOrWhiteSpace(reason) || quantities is not { Count: > 0 } || quantities.Count > crateCapacity)
+            return null;
 
-        hash.Add(Requester);
-        hash.Add(Reason);
-
-        foreach (var kv in Contents)
+        var contents = new Dictionary<MCASRSEntry, int>();
+        long totalCost = 0;
+        long itemCount = 0;
+        foreach (var (index, count) in quantities)
         {
-            hash.Add(kv.Key);
-            hash.Add(kv.Value);
+            if (index < 0 || index >= catalog.Count || count <= 0)
+                return null;
+
+            var entry = catalog[index];
+            if (entry.Cost < 0 || entry.Entities.Count == 0 || !contents.TryAdd(entry, count))
+                return null;
+
+            itemCount += (long) entry.Entities.Count * count;
+            totalCost += (long) entry.Cost * count;
+            if (itemCount > crateCapacity || totalCost > int.MaxValue)
+                return null;
         }
 
-        hash.Add(TotalCost);
-
-        return hash.ToHashCode();
-    }
-
-    private bool Equals(MCASRSRequest other)
-    {
-        return GetHashCode() == other.GetHashCode();
-    }
-
-    public override bool Equals(object? obj)
-    {
-        return ReferenceEquals(this, obj) || obj is MCASRSRequest other && Equals(other);
+        return new MCASRSRequest(requester, reason, contents, (int) totalCost);
     }
 }

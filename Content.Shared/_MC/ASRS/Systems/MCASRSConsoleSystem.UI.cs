@@ -15,6 +15,7 @@ public sealed partial class MCASRSConsoleSystem
 
     private void InitializeUI()
     {
+        SubscribeLocalEvent<MCASRSConsoleComponent, BoundUIOpenedEvent>(OnUIOpened);
         SubscribeLocalEvent<MCASRSConsoleComponent, MCASRSConsoleStoreRequestsMessage>(OnRequestMessage);
         SubscribeLocalEvent<MCASRSConsoleComponent, MCASRSConsoleDeliveryMessage>(OnDeliveryMessage);
         SubscribeLocalEvent<MCASRSConsoleComponent, MCASRSConsoleApproveMessage>(OnApproveMessage);
@@ -25,29 +26,47 @@ public sealed partial class MCASRSConsoleSystem
         OnRequestUpdated += RefreshUI;
     }
 
+    private void OnUIOpened(Entity<MCASRSConsoleComponent> entity, ref BoundUIOpenedEvent args)
+    {
+        RefreshUI(entity);
+    }
+
     private void OnRequestMessage(Entity<MCASRSConsoleComponent> entity, ref MCASRSConsoleStoreRequestsMessage args)
     {
-        TryAddRequest(entity, args.ToRequest(GetRequesterName(args.Actor)));
+        if (entity.Comp.Requests.Count >= entity.Comp.RequestsLimit)
+            return;
+
+        var request = MCASRSRequest.Create(GetRequesterName(args.Actor), args.Reason, args.Quantities,
+            entity.Comp.CachedEntries, _mcAsrsDrop.CrateCapacity);
+        if (request == null)
+            return;
+
+        entity.Comp.Requests.Add(request);
+        Refresh(entity);
     }
 
     private void OnDeliveryMessage(Entity<MCASRSConsoleComponent> entity, ref MCASRSConsoleDeliveryMessage args)
     {
-        TryDelivery(entity, args.Request, args.BeaconUid);
+        TryDelivery(entity, args.RequestId, args.BeaconUid, args.Actor);
     }
 
     private void OnApproveAllMessage(Entity<MCASRSConsoleComponent> entity, ref MCASRSConsoleApproveAllMessage args)
     {
-        TryApprove(entity, entity.Comp.Requests);
+        TryApproveAll(entity);
     }
 
     private void OnApproveMessage(Entity<MCASRSConsoleComponent> entity, ref MCASRSConsoleApproveMessage args)
     {
-        TryApprove(entity, args.Request);
+        var id = args.RequestId;
+        if (entity.Comp.Requests.Find(candidate => candidate.Id == id) is { } request)
+            TryApprove(entity, request);
     }
 
     private void OnDenyMessage(Entity<MCASRSConsoleComponent> entity, ref MCASRSConsoleDenyMessage args)
     {
-        Deny(entity, args.Request);
+        var id = args.RequestId;
+        if (entity.Comp.Requests.Find(candidate => candidate.Id == id) is { } request)
+            Deny(entity, request);
     }
 
     private void OnDenyAllMessage(Entity<MCASRSConsoleComponent> entity, ref MCASRSConsoleDenyAllMessage args)
@@ -57,14 +76,16 @@ public sealed partial class MCASRSConsoleSystem
 
     private void RefreshUI(Entity<MCASRSConsoleComponent> entity)
     {
-        _userInterface.SetUiState(entity.Owner, UIKey, GetUIState(entity));
+        if (_net.IsServer)
+            _userInterface.SetUiState(entity.Owner, UIKey, GetUIState(entity));
     }
 
     private MCASRSConsoleBuiState GetUIState(Entity<MCASRSConsoleComponent> entity)
     {
         return new MCASRSConsoleBuiState(
-            GetBalance(),
-            _mcBeacon.GetNetActiveBeaconsWithName(entity.Comp.DeliveryCategory),
+            _mcAsrs.GetBalance(entity.Comp.Account),
+            entity.Comp.DeliveryFee,
+            _mcBeacon.GetNetActiveBeaconsWithName(entity.Comp.DeliveryCategory, IsDeliveryLocation),
             entity.Comp.Requests,
             entity.Comp.RequestsAwaitingDelivery,
             entity.Comp.RequestsDenyHistory,

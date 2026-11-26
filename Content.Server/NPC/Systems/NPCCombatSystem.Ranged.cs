@@ -181,7 +181,8 @@ public sealed partial class NPCCombatSystem
             var goalRotation = (targetSpot - worldPos).ToWorldAngle();
             var rotationSpeed = comp.RotationSpeed;
 
-            if (!_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold, rotationSpeed?.Theta ?? double.MaxValue, xform))
+            if (!_rotate.TryRotateTo(uid, goalRotation, frameTime, comp.AccuracyThreshold,
+                    rotationSpeed?.Theta ?? double.MaxValue, xform, requireReachableAngle: true))
             {
                 continue;
             }

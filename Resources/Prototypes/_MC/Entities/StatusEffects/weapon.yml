@@ -18,4 +18,13 @@
     maxStacks: 4
     damage:
       types:
-        MCBurn: 5
+        MCBurn: 3.5
+
+- type: entity
+  parent: MCStatusEffectMob
+  id: MCStatusEffectStagger
+  name: stagger
+  components:
+  - type: StatusEffect
+    alert: MCStagger
+  - type: MCStagger

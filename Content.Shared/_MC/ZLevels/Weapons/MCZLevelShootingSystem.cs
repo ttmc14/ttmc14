@@ -8,7 +8,7 @@ using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.ZLevels.Weapons;
 
-public sealed class MCZLevelShootingSystem: EntitySystem
+public sealed class MCZLevelShootingSystem : EntitySystem
 {
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -31,40 +31,68 @@ public sealed class MCZLevelShootingSystem: EntitySystem
         if (offset == 0)
             return true;
 
-        var shooterMap = Transform(shooter).MapUid;
-        if (shooterMap is null || !_zLevels.TryMapOffset(shooterMap.Value, offset, out var targetMap, out var mapComponent))
-            return false;
-
         var fromMap = _transform.ToMapCoordinates(fromCoordinates);
         var toMap = _transform.ToMapCoordinates(toCoordinates);
-
         var clampedTo = MCZLevelMath.ClampCrossZShotTarget(fromMap.Position, toMap.Position);
-
-        if (!_zLevels.TryFindZShotOpening(
-                shooterMap.Value,
-                targetMap,
-                offset,
-                fromMap.Position,
-                clampedTo,
-                out var opening,
-                preferOpeningAwayFromSource: true,
-                maxSourceDistanceFromOpeningEdgeTiles: MCZLevelMath.CrossZOpeningSourceEdgeRangeTiles))
+        if (!TryGetShotOpening(shooter, offset, fromMap.Position, clampedTo, out var opening))
             return false;
 
         MCZLevelMath.GetCrossZProjectilePath(
             fromMap.Position,
             toMap.Position,
             clampedTo,
-            opening,
+            opening.Position,
             offset,
             out var projectileFrom,
             out var projectileTo);
 
-        var targetFrom = new MapCoordinates(projectileFrom, mapComponent.MapId);
-        var targetTo = new MapCoordinates(projectileTo, mapComponent.MapId);
+        var targetFrom = new MapCoordinates(projectileFrom, opening.MapId);
+        var targetTo = new MapCoordinates(projectileTo, opening.MapId);
 
         adjustedFromCoordinates = _transform.ToCoordinates(targetFrom);
         adjustedToCoordinates = _transform.ToCoordinates(targetTo);
+        return true;
+    }
+
+    /// <summary>
+    /// Resolves an ability's launch position and aimed point on the firing plane.
+    /// Projectiles that descend during flight only need their upward shots projected.
+    /// </summary>
+    public bool TryGetAbilityShotCoordinates(EntityUid shooter, EntityCoordinates aim,
+        out MapCoordinates origin, out MapCoordinates target, float range = float.PositiveInfinity, bool projectDownward = false)
+    {
+        origin = _transform.GetMapCoordinates(shooter);
+        target = _transform.ToMapCoordinates(aim, logError: false);
+        if (origin.MapId == MapId.Nullspace || origin.MapId != target.MapId)
+            return false;
+
+        target = new MapCoordinates(MCZLevelMath.ClampShotTarget(origin.Position, target.Position, range), target.MapId);
+        var offset = _zLevelsView.GetRequestedShotOffset(shooter, aim);
+        if (offset == 0 || offset < 0 && !projectDownward)
+            return true;
+
+        var searchEnd = MCZLevelMath.ClampCrossZShotTarget(origin.Position, target.Position);
+        if (!TryGetShotOpening(shooter, offset, origin.Position, searchEnd, out var opening))
+            return false;
+
+        origin = new MapCoordinates(MCZLevelMath.NudgeOpeningTowardSource(opening.Position, origin.Position), opening.MapId);
+        target = new MapCoordinates(target.Position, opening.MapId);
+        return true;
+    }
+
+    private bool TryGetShotOpening(EntityUid shooter, int offset, Vector2 from, Vector2 searchEnd, out MapCoordinates opening)
+    {
+        opening = default;
+        if (Transform(shooter).MapUid is not { } sourceMap ||
+            !_zLevels.TryMapOffset(sourceMap, offset, out var targetMap, out var mapComponent))
+            return false;
+
+        if (!_zLevels.TryFindZShotOpening(sourceMap, targetMap, offset, from, searchEnd, out var position,
+                preferOpeningAwayFromSource: true,
+                maxSourceDistanceFromOpeningEdgeTiles: MCZLevelMath.CrossZOpeningSourceEdgeRangeTiles))
+            return false;
+
+        opening = new MapCoordinates(position, mapComponent.MapId);
         return true;
     }
 
