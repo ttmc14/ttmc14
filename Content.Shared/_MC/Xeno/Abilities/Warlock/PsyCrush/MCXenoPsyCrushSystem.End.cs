@@ -28,7 +28,7 @@ public sealed partial class MCXenoPsyCrushSystem
             warningDespawnComponent.Lifetime = 0.1f;
         }
 
-        if (entity.Comp.AffectedTiles.Count == 0)
+        if (_net.IsClient || entity.Comp.AffectedTiles.Count == 0)
             return;
 
         ApplyFinalDamage(entity, config);
@@ -62,7 +62,7 @@ public sealed partial class MCXenoPsyCrushSystem
             _mcDamageable.DealBombDamage(targetUid, 0, config.Damage, origin: entity);
             _mcStamina.ApplyDamage(targetUid, config.StaminaDamage);
 
-            RaiseEffect(entity, targetUid);
+            RaiseEffect(entity.Comp.OrbUid, targetUid);
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using Content.Shared._MC.Smoke.Components;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
-using Content.Shared._RMC14.Entrenching;
+using Content.Shared._MC.Damage;
 using Content.Shared._RMC14.Map;
-using Content.Shared.Mobs.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
@@ -15,6 +14,7 @@ public sealed partial class MCSmokeSystem : EntitySystem
     [Dependency] private readonly INetManager _net = null!;
 
     [Dependency] private readonly RMCMapSystem _rmcMap = null!;
+    [Dependency] private readonly MCDamageableSystem _mcDamageable = null!;
 
     [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
 
@@ -32,7 +32,7 @@ public sealed partial class MCSmokeSystem : EntitySystem
 
     private void OnCollideStart(Entity<MCSmokeComponent> entity, ref StartCollideEvent args)
     {
-        if (TerminatingOrDeleted(args.OtherEntity) || !CanAffect(entity, args.OtherEntity))
+        if (TerminatingOrDeleted(args.OtherEntity))
             return;
 
         entity.Comp.AffectedEntities.Add(args.OtherEntity);
@@ -83,9 +83,6 @@ public sealed partial class MCSmokeSystem : EntitySystem
         var anchored = _rmcMap.GetAnchoredEntitiesEnumerator(entity.Owner);
         while (anchored.MoveNext(out var uid))
         {
-            if (!CanAffect(entity, uid))
-                continue;
-
             _toProcess.Add(uid);
         }
 
@@ -95,12 +92,12 @@ public sealed partial class MCSmokeSystem : EntitySystem
         }
     }
 
-    private bool CanAffect(EntityUid smoke, EntityUid target)
-        => !HasComp<MCSmokeDamageComponent>(smoke) || HasComp<MobStateComponent>(target) || HasComp<BarricadeComponent>(target);
-
     private void Affect(Entity<MCSmokeComponent> entity, EntityUid affectedUid)
     {
         if (TerminatingOrDeleted(affectedUid))
+            return;
+
+        if (HasComp<MCSmokeDamageComponent>(entity) && !_mcDamageable.CanAreaAttackTarget(entity, affectedUid))
             return;
 
         if (_immunity.TryGetValue(affectedUid, out var immunityTime) && immunityTime > _timing.CurTime)

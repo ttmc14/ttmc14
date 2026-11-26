@@ -18,8 +18,11 @@ public sealed class MCXenoAreaDamageTest
         ["MCXenoWarlock", "MCActionXenoPsychicCrush"],
     ];
 
+    /// <summary>
+    /// Checks which targets take damage when a xeno uses an area ability.
+    /// </summary>
     [TestCaseSource(nameof(Abilities))]
-    public async Task AreaAttackDamagesMarineAndBarricadeWhileSparingCatwalkAndCable(string caste, string ability)
+    public async Task AreaAttackDamagesMarineAndDefensesWhileSparingCatwalkAndCable(string caste, string ability)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
@@ -36,6 +39,8 @@ public sealed class MCXenoAreaDamageTest
         EntityUid catwalk = default;
         EntityUid cable = default;
         EntityUid barricade = default;
+        EntityUid sentry = default;
+        EntityUid razorwire = default;
         EntityUid marine = default;
 
         await server.WaitAssertion(() =>
@@ -44,6 +49,8 @@ public sealed class MCXenoAreaDamageTest
             catwalk = entities.SpawnEntity("CMCatwalk", target);
             cable = entities.SpawnEntity("RMCCableHeavy", target);
             barricade = entities.SpawnEntity("MCBarricadeMetal", target);
+            sentry = entities.SpawnEntity("MCSentryBigDeployed", target);
+            razorwire = entities.SpawnEntity("MCRazorwireDeployed", target);
             marine = entities.SpawnEntity("MCMobHuman", target);
             var xeno = entities.SpawnEntity(caste, origin);
             var hive = entities.SpawnEntity("MCXenoHive", origin);
@@ -66,6 +73,8 @@ public sealed class MCXenoAreaDamageTest
             Assert.That(entities.GetComponent<DamageableComponent>(catwalk).TotalDamage.Float(), Is.Zero, "Catwalk");
             Assert.That(entities.GetComponent<DamageableComponent>(cable).TotalDamage.Float(), Is.Zero, "Cable");
             Assert.That(entities.GetComponent<DamageableComponent>(barricade).TotalDamage.Float(), Is.Positive, "Barricade");
+            Assert.That(entities.GetComponent<DamageableComponent>(sentry).TotalDamage.Float(), Is.Positive, "Sentry");
+            Assert.That(entities.GetComponent<DamageableComponent>(razorwire).TotalDamage.Float(), Is.Positive, "Razorwire");
             Assert.That(entities.GetComponent<DamageableComponent>(marine).TotalDamage.Float(), Is.Positive, "Marine");
         });
         await pair.CleanReturnAsync();

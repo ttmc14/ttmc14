@@ -82,6 +82,7 @@
   - type: CollisionWake
     enabled: false
   # Durability
+  - type: MCXenoAreaDamageTarget
   - type: Damageable
     damageContainer: MCStructural
   - type: Destructible

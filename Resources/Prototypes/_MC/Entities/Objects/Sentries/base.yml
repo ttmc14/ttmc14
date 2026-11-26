@@ -104,6 +104,7 @@
       types:
         MCBurn: 2.5
   # Integrity
+  - type: MCXenoAreaDamageTarget
   - type: Damageable
     damageContainer: Inorganic
   - type: MCIntegrity
