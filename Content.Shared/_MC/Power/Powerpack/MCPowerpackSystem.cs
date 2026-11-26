@@ -11,18 +11,19 @@ public sealed class MCPowerpackSystem : EntitySystem
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly MCBatterySystem _battery = null!;
 
+    /// <summary>
+    /// Registers manual charging when a battery is used on a powerpack.
+    /// </summary>
     public override void Initialize() =>
         SubscribeLocalEvent<MCPowerpackComponent, InteractUsingEvent>(OnInteractUsing);
 
     private void OnInteractUsing(Entity<MCPowerpackComponent> entity, ref InteractUsingEvent args)
     {
-        if (!TryComp<MCBatteryComponent>(args.Used, out var usedBattery))
+        if (args.Handled || args.Used == entity.Owner)
             return;
 
-        if (!TryComp<MCBatteryComponent>(entity, out var powerpackBattery))
-            return;
-
-        if (args.Used == entity.Owner)
+        if (!TryComp<MCBatteryComponent>(args.Used, out var usedBattery) ||
+            !TryComp<MCBatteryComponent>(entity, out var powerpackBattery))
             return;
 
         if (usedBattery.Charge >= usedBattery.MaxCharge)

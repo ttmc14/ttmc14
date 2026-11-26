@@ -7,6 +7,9 @@ namespace Content.Shared._MC.Power.Battery;
 
 public sealed class MCBatterySystem : EntitySystem
 {
+    /// <summary>
+    /// Registers the initial charge notification and the battery examination readout.
+    /// </summary>
     public override void Initialize()
     {
         SubscribeLocalEvent<MCBatteryComponent, ComponentStartup>(OnStartup);
@@ -25,6 +28,9 @@ public sealed class MCBatterySystem : EntitySystem
         args.PushMarkup(Loc.GetString("power-cell-component-examine-details", ("currentCharge", $"{charge:F0}")));
     }
 
+    /// <summary>
+    /// Sets the charge within the battery's capacity and raises a charge notification.
+    /// </summary>
     [PublicAPI]
     public void SetCharge(Entity<MCBatteryComponent?> entity, float value)
     {
@@ -40,10 +46,16 @@ public sealed class MCBatterySystem : EntitySystem
         RaiseLocalEvent(entity, ref ev);
     }
 
+    /// <summary>
+    /// Returns the current charge, or zero if the entity has no battery.
+    /// </summary>
     [PublicAPI]
     public float GetCharge(Entity<MCBatteryComponent?> entity) =>
         Resolve(entity, ref entity.Comp, false) ? entity.Comp.Charge : 0f;
 
+    /// <summary>
+    /// Returns the maximum charge, or zero if the entity has no battery.
+    /// </summary>
     [PublicAPI]
     public float GetMaxCharge(Entity<MCBatteryComponent?> entity) =>
         Resolve(entity, ref entity.Comp, false) ? entity.Comp.MaxCharge : 0f;

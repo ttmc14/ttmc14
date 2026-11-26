@@ -1,7 +1,9 @@
 ﻿using Content.Shared._MC.Line;
 using Content.Shared._MC.Power.Battery;
 using Content.Shared._MC.Power.Battery.Components;
+using Content.Shared._MC.Power.Battery.Events;
 using Content.Shared._MC.Weapon.Laser.Components;
+using Content.Shared._MC.Weapon.Laser.Events;
 using Content.Shared._MC.Weapons.AttackModeSelection.Core.Events;
 using Content.Shared.Popups;
 using Content.Shared.Projectiles;
@@ -36,11 +38,20 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
     [Dependency] private readonly MCBatterySystem _mcBattery = null!;
 
 
+    /// <summary>
+    /// Registers handlers for laser startup, firing mode selection, ammunition queries and appearance.
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
 
         InitializeAppearance();
+
+        if (_net.IsServer)
+        {
+            SubscribeLocalEvent<MCWeaponLaserAmmoComponent, MCBatteryChargeChangedEvent>(OnCellChargeChanged,
+                after: [typeof(MCBatteryVisualsSystem)]);
+        }
 
         SubscribeLocalEvent<MCWeaponLaserComponent, ComponentStartup>(OnStartup);
 
@@ -89,20 +100,23 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         UpdateShots(entity);
 
         args.Count = entity.Comp.Shots;
-        args.Capacity = entity.Comp.Shots;
+        args.Capacity = entity.Comp.Capacity;
     }
 
-    /// <summary>
-    /// Recharges the installed laser cell from the source battery and updates the shot counter.
-    /// </summary>
-    public void Recharge(Entity<MCWeaponLaserComponent> entity, Entity<MCBatteryComponent> source)
+    private void OnCellChargeChanged(Entity<MCWeaponLaserAmmoComponent> cell, ref MCBatteryChargeChangedEvent args)
     {
-        if (!TryGetAmmo(entity, out var ammo) || !TryComp<MCBatteryComponent>(ammo, out var battery))
+        if (args.Charge == args.PreviousCharge || args.Charge >= args.MaxCharge)
             return;
 
-        if (_mcBattery.TransferCharge(source, (ammo.Owner, battery)) > 0f)
+        var gun = Transform(cell).ParentUid;
+        if (!TryComp<MCWeaponLaserComponent>(gun, out var laser))
+            return;
+
+        var ev = new MCLaserCellChargeChangedEvent(gun, cell.Owner);
+        RaiseLocalEvent(Transform(gun).ParentUid, ref ev);
+        if (ev.Recharged && TryComp<MCBatteryComponent>(cell.Owner, out var battery))
         {
-            UpdateShots(entity);
+            UpdateShots((gun, laser), battery);
         }
     }
 
@@ -145,16 +159,38 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
         _gun.RefreshModifiers(entity.Owner);
     }
 
+    /// <summary>
+    /// Resolves the battery currently installed in the gun's laser cell slot.
+    /// </summary>
+    public bool TryGetInstalledBattery(Entity<MCWeaponLaserComponent?> gun, out Entity<MCBatteryComponent> cell)
+    {
+        cell = default;
+        if (!Resolve(gun, ref gun.Comp, false) || !TryGetAmmo((gun.Owner, gun.Comp), out var ammo) ||
+            !TryComp<MCBatteryComponent>(ammo.Owner, out var battery))
+            return false;
+
+        cell = (ammo.Owner, battery);
+        return true;
+    }
+
     private void UpdateShots(Entity<MCWeaponLaserComponent> entity)
     {
-        if (!TryGetAmmo(entity, out var ammoEntity))
+        if (!TryGetInstalledBattery(entity.AsNullable(), out var cell))
             return;
 
+        UpdateShots(entity, cell.Comp);
+    }
+
+    /// <summary>
+    /// Updates the shot counter using the charge of the installed cell and the current firing mode.
+    /// </summary>
+    private void UpdateShots(Entity<MCWeaponLaserComponent> entity, MCBatteryComponent battery)
+    {
         if (entity.Comp.Mode is not { } mode)
             return;
 
-        var shotCost = _mcBattery.GetMaxCharge(ammoEntity.Owner) / mode.Shots;
-        entity.Comp.Shots = (int) (_mcBattery.GetCharge(ammoEntity.Owner) / shotCost);
+        var shotCost = battery.MaxCharge / mode.Shots;
+        entity.Comp.Shots = (int) (battery.Charge / shotCost);
         entity.Comp.Capacity = mode.Shots;
 
         DirtyFields(entity, entity.Comp, null, nameof(MCWeaponLaserComponent.Shots), nameof(MCWeaponLaserComponent.Capacity));

@@ -7,6 +7,9 @@ using Robust.Shared.Utility;
 
 namespace Content.Shared._MC.Weapon.Laser.Components;
 
+/// <summary>
+/// Tracks the laser's cell slot, firing modes and available shots.
+/// </summary>
 [RegisterComponent, NetworkedComponent, AutoGenerateComponentState(raiseAfterAutoHandleState: true, fieldDeltas: true)]
 public sealed partial class MCWeaponLaserComponent : Component, IShootable
 {
