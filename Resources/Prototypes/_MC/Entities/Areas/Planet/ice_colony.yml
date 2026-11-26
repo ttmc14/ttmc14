@@ -28,6 +28,7 @@
   id: MCAreaIceColonyGround
   components:
   - type: Area
+    paradropping: true
     CAS: true
     fulton: true
     lasing: true

@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Client._MC.Nuke.Bomb.UI;
+using Content.Shared._MC.Rules.Common;
 using Content.Server.Power.Components;
 using Content.Shared._MC.Nuke.Bomb.Components;
 using Content.Shared._MC.Nuke.Bomb.UI;
@@ -9,9 +10,10 @@ using Content.Shared._MC.Rules.EndRound;
 using Content.Shared._MC.Shuttle.Events;
 using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.Rules;
-using Content.Shared.Alert;
 using Content.Shared.Containers.ItemSlots;
+using Content.Shared.Explosion.Components;
 using Content.Shared.GameTicking.Components;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.Power;
 using Content.Shared.UserInterface;
@@ -19,15 +21,19 @@ using Content.Shared.Weapons.Melee;
 using Robust.Client.UserInterface;
 using Robust.Client.UserInterface.Controls;
 using Robust.Shared.GameObjects;
+using Robust.Shared.Localization;
 using Robust.Shared.Map;
+using Robust.Shared.Maths;
 
 namespace Content.IntegrationTests.Tests;
 
 [TestFixture]
 public sealed class MCNukeTest
 {
-    [Test]
-    public async Task WarheadRequiresThreeDisksAndCanBeDisarmedBeforeDetonation()
+    [TestCase(false, false)]
+    [TestCase(true, false)]
+    [TestCase(true, true)]
+    public async Task WarheadRequiresThreeDisksAndResolvesRound(bool xenoDefuses, bool attacksAfterEvacuation)
     {
         await using var pair = await PoolManager.GetServerClient(new PoolSettings
         {
@@ -51,8 +57,6 @@ public sealed class MCNukeTest
             server.PlayerMan.SetAttachedEntity(session, marine);
             bomb = entities.SpawnEntity("MCNuclearBombFilled", coords);
             var device = entities.GetComponent<MCNukeComponent>(bomb);
-            device.DeployTime = TimeSpan.Zero;
-            device.DisarmTime = TimeSpan.Zero;
             server.System<ActivatableUISystem>().InteractUI(marine, bomb);
             Assert.That(device.Deployed, Is.True);
         });
@@ -62,8 +66,31 @@ public sealed class MCNukeTest
         {
             var window = ui.WindowRoot.Children.OfType<MCNukeWindow>().Single();
             Assert.That(window.TimerButton.Disabled, Is.True);
-            Assert.That(window.FindControl<GridContainer>("Disks").ChildCount, Is.EqualTo(6));
+            var disks = window.FindControl<BoxContainer>("Disks");
+            Assert.That(disks.ChildCount, Is.EqualTo(3));
+            foreach (var cell in disks.Children)
+            {
+                var button = cell.Children.OfType<ContainerButton>().Single(control => control is not Button);
+                Assert.That(button.Children.OfType<SpriteView>().Single().Entity, Is.Not.Null);
+            }
             Assert.That(window.FindControl<Label>("TimeLeftLabel").Text, Is.EqualTo("06:00"));
+
+            var layoutSize = new System.Numerics.Vector2(window.MinWidth, 720);
+            window.Measure(layoutSize);
+            window.Arrange(UIBox2.FromDimensions(default, layoutSize));
+            var safetyRect = window.SafetyButton.GlobalRect;
+            var anchorRect = window.AnchorButton.GlobalRect;
+            var desiredSize = window.DesiredSize;
+
+            window.FindControl<Label>("SafetyState").Text = Loc.GetString("mc-nuke-state-unsafe");
+            window.FindControl<Label>("AnchorState").Text = Loc.GetString("mc-nuke-state-loose");
+            window.SafetyButton.Text = Loc.GetString("mc-nuke-safety-off");
+            window.AnchorButton.Text = Loc.GetString("mc-nuke-unanchored");
+            window.Measure(layoutSize);
+            window.Arrange(UIBox2.FromDimensions(default, layoutSize));
+            Assert.That(window.DesiredSize, Is.EqualTo(desiredSize));
+            Assert.That(window.SafetyButton.GlobalRect, Is.EqualTo(safetyRect));
+            Assert.That(window.AnchorButton.GlobalRect, Is.EqualTo(anchorRect));
         });
         await server.WaitAssertion(() =>
         {
@@ -75,6 +102,13 @@ public sealed class MCNukeTest
                 entities.EventBus.RaiseLocalEvent(bomb, message);
             }
 
+            rule = entities.SpawnEntity(null, coords);
+            entities.EnsureComponent<MCRuleCrashLandingComponent>(rule).Landed = true;
+            entities.EnsureComponent<GameRuleComponent>(rule);
+            entities.EnsureComponent<ActiveGameRuleComponent>(rule);
+            entities.EnsureComponent<MCRuleEndRoundComponent>(rule);
+            entities.EnsureComponent<MCRuleEndRoundNukeExplodedComponent>(rule).WithoutEvacuationId = "NukeMinorVictory";
+            entities.EnsureComponent<MCRuleEndRoundShuttleEvacuationComponent>(rule);
             Send(new MCNukeActiveBuiMessage());
             Assert.That(device.DetonatesAt, Is.Null);
             Send(new MCNukeDiskBuiMessage("disk_blue"));
@@ -89,7 +123,6 @@ public sealed class MCNukeTest
             Send(new MCNukeActiveBuiMessage());
             Assert.That(device.DetonatesAt, Is.Not.Null);
             Assert.That(device.Exploded, Is.False);
-            Assert.That(server.System<AlertsSystem>().IsShowingAlert(xeno, "MCNukeCountdown"), Is.True);
             Send(new MCNukeSafetyBuiMessage());
             Assert.That(device.DetonatesAt, Is.Null);
             Send(new MCNukeSafetyBuiMessage());
@@ -103,17 +136,41 @@ public sealed class MCNukeTest
             Send(new MCNukeDiskBuiMessage("disk_blue"));
             Assert.That(device.DetonatesAt, Is.Not.Null);
 
-            var melee = server.System<SharedMeleeWeaponSystem>();
-            Assert.That(melee.TryGetWeapon(xeno, out var weaponUid, out var weapon), Is.True);
-            melee.AttemptLightAttack(xeno, weaponUid, weapon!, bomb, requireCombatMode: false);
-            Assert.That(device.DetonatesAt, Is.Null);
+            Assert.That(entities.GetComponent<MCRuleEndRoundComponent>(rule).Result, Is.Null.Or.Empty);
+            if (xenoDefuses)
+            {
+                if (attacksAfterEvacuation)
+                {
+                    entities.EventBus.RaiseEvent(EventSource.Local, new MCShuttleEvacuationEvent());
+                    Assert.That(entities.GetComponent<MCRuleEndRoundComponent>(rule).Result, Is.Null.Or.Empty);
+                    var melee = server.System<SharedMeleeWeaponSystem>();
+                    Assert.That(melee.TryGetWeapon(xeno, out var weaponUid, out var weapon), Is.True);
+                    melee.AttemptLightAttack(xeno, weaponUid, weapon!, bomb, requireCombatMode: false);
+                }
+                else
+                {
+                    server.System<SharedInteractionSystem>().InteractHand(xeno, bomb);
+                }
+
+                Assert.That(device.DetonatesAt, Is.Null);
+                Assert.That(device.MusicStream, Is.Null);
+                var result = entities.GetComponent<MCRuleEndRoundComponent>(rule).Result;
+                if (attacksAfterEvacuation)
+                {
+                    Assert.That(result, Is.EqualTo("MinorXenoVictory"));
+                    return;
+                }
+
+                Assert.That(result, Is.Null.Or.Empty);
+                Send(new MCNukeDiskBuiMessage("disk_blue"));
+                Send(new MCNukeActiveBuiMessage());
+                Assert.That(device.DetonatesAt, Is.Not.Null);
+                return;
+            }
+
             Send(new MCNukeDiskBuiMessage("disk_blue"));
-            rule = entities.SpawnEntity(null, coords);
-            entities.EnsureComponent<GameRuleComponent>(rule);
-            entities.EnsureComponent<ActiveGameRuleComponent>(rule);
-            entities.EnsureComponent<MCRuleEndRoundComponent>(rule);
-            entities.EnsureComponent<MCRuleEndRoundNukeExplodedComponent>(rule).WithoutEvacuationId = "NukeMinorVictory";
-            entities.EnsureComponent<MCRuleEndRoundShuttleEvacuationComponent>(rule);
+            Send(new MCNukeActiveBuiMessage());
+            Assert.That(device.DetonatesAt, Is.Null);
             device.Time = TimeSpan.FromMilliseconds(200);
             Send(new MCNukeActiveBuiMessage());
             entities.EventBus.RaiseEvent(EventSource.Local, new MCShuttleEvacuationEvent());
@@ -124,8 +181,17 @@ public sealed class MCNukeTest
         await server.WaitAssertion(() =>
         {
             var device = entities.GetComponent<MCNukeComponent>(bomb);
+            if (xenoDefuses)
+            {
+                Assert.That(device.Exploded, Is.False);
+                return;
+            }
+
             Assert.That(entities.GetComponent<MCRuleEndRoundComponent>(rule).Result, Is.EqualTo("NukeVictory"));
             Assert.That(device.Exploded, Is.True);
+            var explosion = entities.GetComponent<ExplosiveComponent>(bomb);
+            Assert.That(explosion.Exploded, Is.True);
+            Assert.That(explosion.ExplosionType.Id, Is.EqualTo("MC"));
             Assert.That(device.DetonatesAt, Is.Null);
             Assert.That(server.System<MobStateSystem>().IsDead(marine), Is.True);
             entities.EventBus.RaiseLocalEvent(bomb, new MCNukeActiveBuiMessage { Actor = marine });

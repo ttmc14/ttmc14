@@ -1,5 +1,6 @@
 using System.Linq;
 using Content.Server.Chat.Managers;
+using Content.Server.Explosion.EntitySystems;
 using Content.Shared._MC.Areas;
 using Content.Shared._MC.Nuke.Bomb.Components;
 using Content.Shared._MC.Nuke.Bomb.Events;
@@ -8,16 +9,18 @@ using Content.Shared._MC.Shuttle;
 using Content.Shared._MC.TacticalMap.TacticalMapIconSwitcher;
 using Content.Shared._RMC14.Dropship;
 using Content.Shared._RMC14.Intel.Tech;
+using Content.Shared._RMC14.Rules;
 using Content.Shared._RMC14.Xenonids;
 using Content.Shared._RMC14.Xenonids.Announce;
 using Content.Shared.ActionBlocker;
 using Content.Shared.Containers.ItemSlots;
-using Content.Shared.DoAfter;
+using Content.Shared.Interaction;
 using Content.Shared.Mobs;
 using Content.Shared.Mobs.Components;
 using Content.Shared.Mobs.Systems;
 using Content.Shared.UserInterface;
 using Content.Shared.Weapons.Melee.Events;
+using Robust.Shared.Audio.Systems;
 using Robust.Shared.Player;
 using Robust.Shared.Timing;
 
@@ -28,8 +31,8 @@ public sealed partial class MCNukeSystem : EntitySystem
     [Dependency] private readonly IGameTiming _timing = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly ItemSlotsSystem _slots = null!;
-    [Dependency] private readonly SharedDoAfterSystem _doAfter = null!;
-    [Dependency] private readonly ActivatableUISystem _activatable = null!;
+    [Dependency] private readonly ExplosionSystem _explosions = null!;
+    [Dependency] private readonly SharedAudioSystem _audio = null!;
     [Dependency] private readonly SharedAppearanceSystem _appearance = null!;
     [Dependency] private readonly MCTacticalMapIconSwitcherSystem _icons = null!;
     [Dependency] private readonly SharedXenoAnnounceSystem _hive = null!;
@@ -43,7 +46,7 @@ public sealed partial class MCNukeSystem : EntitySystem
         SubscribeLocalEvent<MCNukeComponent, MapInitEvent>(OnMapInit);
         SubscribeLocalEvent<MCNukeComponent, ComponentShutdown>(OnShutdown);
         SubscribeLocalEvent<MCNukeComponent, ActivatableUIOpenAttemptEvent>(OnOpenAttempt);
-        SubscribeLocalEvent<MCNukeComponent, MCNukeDeployDoAfterEvent>(OnDeploy);
+        SubscribeLocalEvent<MCNukeComponent, ActivateInWorldEvent>(OnActivate, before: [typeof(ActivatableUISystem)]);
         SubscribeLocalEvent<MCNukeComponent, MCNukeDiskBuiMessage>(OnDisk);
         SubscribeLocalEvent<MCNukeComponent, MCNukeTimeBuiMessage>(OnTime);
         SubscribeLocalEvent<MCNukeComponent, MCNukeAnchorBuiMessage>(OnAnchor);
@@ -51,21 +54,29 @@ public sealed partial class MCNukeSystem : EntitySystem
         SubscribeLocalEvent<MCNukeComponent, MCNukeActiveBuiMessage>(OnTimer);
         SubscribeLocalEvent<MCNukeComponent, AnchorStateChangedEvent>(OnAnchorChanged);
         SubscribeLocalEvent<MCNukeComponent, AttackedEvent>(OnAttacked);
-        SubscribeLocalEvent<MCNukeComponent, MCNukeDisarmDoAfterEvent>(OnDisarm);
         SubscribeLocalEvent<DropshipHijackStartEvent>(OnHijack);
-        SubscribeLocalEvent<PlayerAttachedEvent>(OnPlayerAttached);
     }
 
     /// <summary>Returns whether any planetary warhead is still counting down.</summary>
-    public bool HasActiveCountdown() => GetNextCountdown() is not null;
+    public bool HasActiveCountdown()
+    {
+        var bombs = EntityQueryEnumerator<MCNukeComponent>();
+        while (bombs.MoveNext(out var bomb))
+        {
+            if (bomb.DetonatesAt is not null)
+                return true;
+        }
+
+        return false;
+    }
 
     private void OnShutdown(Entity<MCNukeComponent> ent, ref ComponentShutdown args)
     {
         if (ent.Comp.DetonatesAt is null)
             return;
 
+        ent.Comp.MusicStream = _audio.Stop(ent.Comp.MusicStream);
         ent.Comp.DetonatesAt = null;
-        RefreshHiveAlerts();
         RaiseLocalEvent(new MCNukeDisarmedEvent());
     }
 
@@ -103,36 +114,16 @@ public sealed partial class MCNukeSystem : EntitySystem
         if (ent.Comp.Deployed)
             return;
 
-        args.Cancel();
-        StartInteraction(ent, args.User, ent.Comp.DeployTime, new MCNukeDeployDoAfterEvent());
-    }
-
-    private void StartInteraction(EntityUid target, EntityUid user, TimeSpan duration, DoAfterEvent ev)
-    {
-        _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, duration, ev, target, target)
+        if (IsOnShuttle(ent) || !Transform(ent).Anchored && !_transform.AnchorEntity(ent))
         {
-            BreakOnMove = true,
-            BreakOnDamage = true,
-            DistanceThreshold = 1.5f,
-            CancelDuplicate = false,
-            RequireCanInteract = ev is not MCNukeDisarmDoAfterEvent,
-        });
-    }
-
-    private void OnDeploy(Entity<MCNukeComponent> ent, ref MCNukeDeployDoAfterEvent args)
-    {
-        if (args.Cancelled || args.Handled || ent.Comp.Deployed || ent.Comp.Disabled || IsOnShuttle(ent))
+            args.Cancel();
             return;
-
-        args.Handled = true;
-        if (!Transform(ent).Anchored && !_transform.AnchorEntity(ent))
-            return;
+        }
 
         ent.Comp.Deployed = true;
         Dirty(ent);
         UpdateSlots(ent);
         UpdateAppearance(ent);
-        _activatable.InteractUI(args.User, ent);
     }
 
     private bool IsOnShuttle(EntityUid uid)
@@ -213,11 +204,16 @@ public sealed partial class MCNukeSystem : EntitySystem
             return;
         }
 
+        if (_audio.PlayGlobal(ent.Comp.ActivationMusic, Filter.Broadcast(), true) is { } song)
+        {
+            ent.Comp.MusicStream = song.Entity;
+            EnsureComp<RMCHijackSongComponent>(song.Entity);
+        }
+
         ent.Comp.DetonatesAt = _timing.CurTime + ent.Comp.Time;
         Dirty(ent);
         UpdateAppearance(ent);
         _icons.SetIcon(ent.Owner, "on");
-        RefreshHiveAlerts();
         _hive.AnnounceAll(ent, Loc.GetString("mc-nuke-hive-start", ("area", _areas.GetAreaName(ent)),
             ("seconds", (int) ent.Comp.Time.TotalSeconds)));
     }
@@ -227,31 +223,33 @@ public sealed partial class MCNukeSystem : EntitySystem
         if (ent.Comp.DetonatesAt is null || args.Used != args.User || !HasComp<XenoComponent>(args.User))
             return;
 
-        StartInteraction(ent, args.User, ent.Comp.DisarmTime, new MCNukeDisarmDoAfterEvent());
+        if (_blocker.CanInteract(args.User, null))
+        {
+            StopCountdown(ent, disarmedByXeno: true);
+        }
     }
 
-    private void OnDisarm(Entity<MCNukeComponent> ent, ref MCNukeDisarmDoAfterEvent args)
+    private void OnActivate(EntityUid uid, MCNukeComponent component, ActivateInWorldEvent args)
     {
-        if (args.Cancelled || args.Handled || !_blocker.CanInteract(args.User, null) || ent.Comp.DetonatesAt is not { } end ||
-            args.DoAfter.StartTime < end - ent.Comp.Time)
+        if (args.Handled || !HasComp<XenoComponent>(args.User))
             return;
 
         args.Handled = true;
-        StopCountdown(ent);
+        StopCountdown((uid, component), disarmedByXeno: true);
     }
 
-    private void StopCountdown(Entity<MCNukeComponent> ent)
+    private void StopCountdown(Entity<MCNukeComponent> ent, bool disarmedByXeno = false)
     {
         if (ent.Comp.DetonatesAt is null)
             return;
 
+        ent.Comp.MusicStream = _audio.Stop(ent.Comp.MusicStream);
         ent.Comp.DetonatesAt = null;
         Dirty(ent);
         UpdateAppearance(ent);
         _icons.ResetIcon(ent.Owner);
         _chat.DispatchServerAnnouncement(Loc.GetString("mc-nuke-stopped"));
-        RefreshHiveAlerts();
-        RaiseLocalEvent(new MCNukeDisarmedEvent());
+        RaiseLocalEvent(new MCNukeDisarmedEvent(disarmedByXeno));
     }
 
     private void OnHijack(ref DropshipHijackStartEvent args)
@@ -289,6 +287,7 @@ public sealed partial class MCNukeSystem : EntitySystem
             if (bomb.DetonatesAt is not { } end || _timing.CurTime < end)
                 continue;
 
+            bomb.MusicStream = _audio.Stop(bomb.MusicStream);
             bomb.DetonatesAt = null;
             bomb.Exploded = true;
             bomb.Safety = true;
@@ -297,7 +296,7 @@ public sealed partial class MCNukeSystem : EntitySystem
             UpdateAppearance((uid, bomb));
             _icons.ResetIcon(uid);
             _chat.DispatchServerAnnouncement(Loc.GetString("mc-nuke-detonated"));
-            RefreshHiveAlerts();
+            _explosions.TriggerExplosive(uid, delete: false);
             RaiseLocalEvent(new RMCNukeAudioEvent());
             RaiseLocalEvent(new MCNukeExplodedEvent(uid));
 

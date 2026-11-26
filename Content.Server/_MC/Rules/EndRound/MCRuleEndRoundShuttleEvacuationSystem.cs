@@ -1,4 +1,5 @@
 using Content.Server._MC.Nuke.Bomb;
+using Content.Shared._MC.Rules.Common;
 using Content.Server.GameTicking.Rules;
 using Content.Shared._MC.Nuke.Bomb.Events;
 using Content.Shared._MC.Rules.EndRound;
@@ -24,6 +25,12 @@ public sealed class MCRuleEndRoundShuttleEvacuationSystem : GameRuleSystem<MCRul
         while (rules.MoveNext(out var uid, out _, out var evacuation, out _))
         {
             evacuation.Evacuated = true;
+            if (ev.Completed)
+            {
+                _endRound.EndRound(evacuation.EndRuleId);
+                return;
+            }
+
             CheckEvacuation((uid, evacuation));
         }
     }
@@ -33,6 +40,12 @@ public sealed class MCRuleEndRoundShuttleEvacuationSystem : GameRuleSystem<MCRul
         var rules = QueryActiveRules();
         while (rules.MoveNext(out var uid, out _, out var evacuation, out _))
         {
+            if (ev.DisarmedByXeno && !HasComp<MCRuleCrashLandingComponent>(uid) && HasComp<MCRuleEndRoundNukeExplodedComponent>(uid))
+            {
+                _endRound.EndRound("MinorXenoVictory");
+                return;
+            }
+
             CheckEvacuation((uid, evacuation));
         }
     }

@@ -100,6 +100,7 @@
   name: Alamo Landing Zone
   components:
   - type: Area
+    paradropping: true
     linkedLz: dropship_lz1
   - type: Sprite
     state: red
@@ -113,6 +114,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
     minimapcolor: "#6c6767d0"
 
 - type: entity
@@ -123,6 +125,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
     minimapcolor: "#6c6767d0"
 
 - type: entity
@@ -203,6 +206,7 @@
   name: Landing Zone
   components:
   - type: Area
+    paradropping: true
     linkedLz: dropship_lz2
   - type: Sprite
     state: red
@@ -244,6 +248,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
     minimapcolor: "#6c6767d0"
 
 - type: entity
@@ -254,6 +259,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
     minimapcolor: "#6c6767d0"
 
 - type: entity
@@ -264,6 +270,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
     minimapcolor: "#6c6767d0"
 
 - type: entity
@@ -314,6 +321,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
 
 - type: entity
   parent: MCAreaResearch
@@ -323,6 +331,7 @@
   - type: Sprite
     state: purple
   - type: Area
+    paradropping: true
 
 - type: entity
   parent: MCAreaResearch

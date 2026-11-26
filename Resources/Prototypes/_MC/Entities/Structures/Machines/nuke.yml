@@ -25,10 +25,11 @@
     isCorrodible: false
   - type: InteractionOutline
   - type: MCNuke
-  - type: InteractedBlacklist
-    blacklist:
-      components:
-      - Xeno
+  - type: Explosive
+    explosionType: MC
+    totalIntensity: 100000
+    intensitySlope: 5
+    maxIntensity: 100
   # UI
   - type: ActivatableUI
     blockSpectators: true

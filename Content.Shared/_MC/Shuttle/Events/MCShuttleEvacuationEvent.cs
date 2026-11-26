@@ -1,3 +1,6 @@
-﻿namespace Content.Shared._MC.Shuttle.Events;
+namespace Content.Shared._MC.Shuttle.Events;
 
-public sealed class MCShuttleEvacuationEvent : EntityEventArgs;
+public sealed class MCShuttleEvacuationEvent(bool completed = false) : EntityEventArgs
+{
+    public readonly bool Completed = completed;
+}

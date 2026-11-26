@@ -1,7 +1,12 @@
 ﻿using Content.Server._MC.Rules.Common;
 using Content.Server._MC.Xeno.Hive;
 using Content.Shared._MC;
-using Content.Shared._MC.Living;
+using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared.Mind;
+using Content.Shared.Mobs.Systems;
+using Content.Shared.Roles.Jobs;
+using Content.Shared._RMC14.Thunderdome;
+using Robust.Shared.Player;
 using Content.Shared._RMC14.Marines;
 using Robust.Shared.Timing;
 
@@ -13,7 +18,9 @@ public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXen
 
     [Dependency] private readonly MCRuleXenoMarinesSpawnSystem _mcRuleXenoMarinesSpawn = null!;
     [Dependency] private readonly MCXenoHiveSystem _hive = null!;
-    [Dependency] private readonly MCLivingSystem _living = null!;
+    [Dependency] private readonly SharedMindSystem _mind = null!;
+    [Dependency] private readonly SharedJobSystem _jobs = null!;
+    [Dependency] private readonly MobStateSystem _mobState = null!;
 
     public override void Update(float frameTime)
     {
@@ -33,6 +40,7 @@ public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXen
             return;
 
         Inst.Comp.Enabled = true;
+        Inst.Comp.NextUpdate = _timing.CurTime + Inst.Comp.UpdateInterval;
     }
 
     public void Disable()
@@ -51,15 +59,42 @@ public sealed class MCXenoAutoSpawnBalanceSystem : MCEntitySystemSingleton<MCXen
         if (_hive.DefaultHive is not { } hive)
             return;
 
-        var diff = GetPointDifference(hive);
-        if (diff >= Inst.Comp.XenoWeight || GetTotalXenos(hive) < Inst.Comp.XenoMin)
-            _hive.AddBurrowedLarva(hive, 1);
+        var xenos = GetTotalXenos(hive);
+        var deficit = (int) (GetMarinePoints() / Inst.Comp.XenoWeight) - xenos;
+        if (deficit > 0)
+        {
+            _hive.AddBurrowedLarva(hive, deficit);
+            return;
+        }
+
+        if (xenos == 0)
+        {
+            _hive.AddBurrowedLarva(hive, 2);
+        }
     }
 
-    private float GetPointDifference(EntityUid hive)
+    private float GetMarinePoints()
     {
-        var marines = _living.Get<MarineComponent>();
-        return marines * Inst.Comp.MarineWeight - GetTotalXenos(hive) * Inst.Comp.XenoWeight;
+        var points = 0f;
+        var marines = EntityQueryEnumerator<MarineComponent, ActorComponent>();
+        while (marines.MoveNext(out var uid, out _, out _))
+        {
+            if (_mobState.IsDead(uid) || HasComp<ThunderdomeMapComponent>(Transform(uid).MapUid))
+                continue;
+
+            if (!_mind.TryGetMind(uid, out var mind, out _) || !_jobs.MindTryGetJob(mind, out var job))
+                continue;
+
+            points += job.ID switch
+            {
+                "MCFC" => 6f,
+                "MCCMO" or "MCDoctor" or "MCResearcher" => 1f,
+                "MCTransportOfficer" => 1.5f,
+                _ => MCSharedXenoHiveSystem.LarvaPointsRegular,
+            };
+        }
+
+        return points;
     }
 
     private int GetTotalXenos(EntityUid hive)
@@ -81,14 +116,8 @@ public sealed partial class MCXenoAutoSpawnBalanceSingletonComponent : Component
     public TimeSpan NextUpdate;
 
     [DataField]
-    public float MarineWeight = 3.55f;
-
-    [DataField]
-    public float XenoWeight = 10f;
+    public float XenoWeight = 9f;
 
     [DataField]
     public int XenoMinTier;
-
-    [DataField]
-    public int XenoMin = 2;
 }

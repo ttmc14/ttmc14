@@ -1,3 +1,4 @@
+using Robust.Shared.Audio;
 using Robust.Shared.GameStates;
 using Robust.Shared.Serialization;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom;
@@ -35,10 +36,10 @@ public sealed partial class MCNukeComponent : Component
     public TimeSpan TimeMax = TimeSpan.FromMinutes(20);
 
     [DataField]
-    public TimeSpan DeployTime = TimeSpan.FromSeconds(3);
+    public SoundSpecifier ActivationMusic = new SoundCollectionSpecifier("RMCHijack", AudioParams.Default.WithVolume(-8));
 
     [DataField]
-    public TimeSpan DisarmTime = TimeSpan.FromSeconds(5);
+    public EntityUid? MusicStream;
 }
 
 [Serializable, NetSerializable]

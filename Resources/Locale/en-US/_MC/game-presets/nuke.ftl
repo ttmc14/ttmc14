@@ -3,3 +3,5 @@ mc-crash-NukeMinorVictory = [color=green]The warhead detonated on the colony bef
 mc-crash-NukeOffworld = [color=purple]The warhead detonated away from the colony. The hive wins![/color]
 mc-warfare-NukeVictory = [color=green]The planetary warhead detonated. The marines win![/color]
 mc-warfare-NukeOffworld = [color=purple]The warhead detonated away from the colony. The hive wins![/color]
+mc-crash-MinorXenoVictory = [color=purple]Minor xenomorph victory.[/color]
+mc-warfare-MinorXenoVictory = [color=purple]Minor xenomorph victory.[/color]
