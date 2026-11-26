@@ -47,11 +47,8 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
 
         InitializeAppearance();
 
-        if (_net.IsServer)
-        {
-            SubscribeLocalEvent<MCWeaponLaserAmmoComponent, MCBatteryChargeChangedEvent>(OnCellChargeChanged,
-                after: [typeof(MCBatteryVisualsSystem)]);
-        }
+        SubscribeLocalEvent<MCWeaponLaserAmmoComponent, MCBatteryChargeChangedEvent>(OnCellChargeChanged,
+            after: [typeof(MCBatteryVisualsSystem)]);
 
         SubscribeLocalEvent<MCWeaponLaserComponent, ComponentStartup>(OnStartup);
 
@@ -105,7 +102,10 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
 
     private void OnCellChargeChanged(Entity<MCWeaponLaserAmmoComponent> cell, ref MCBatteryChargeChangedEvent args)
     {
-        if (args.Charge == args.PreviousCharge || args.Charge >= args.MaxCharge)
+        if (_net.IsClient)
+            return;
+
+        if (float.Abs(args.Charge - args.PreviousCharge) < 1e-5f || args.Charge >= args.MaxCharge)
             return;
 
         var gun = Transform(cell).ParentUid;
@@ -114,10 +114,9 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
 
         var ev = new MCLaserCellChargeChangedEvent(gun, cell.Owner);
         RaiseLocalEvent(Transform(gun).ParentUid, ref ev);
+
         if (ev.Recharged && TryComp<MCBatteryComponent>(cell.Owner, out var battery))
-        {
             UpdateShots((gun, laser), battery);
-        }
     }
 
     private bool TryGetAmmo(Entity<MCWeaponLaserComponent> entity, out Entity<MCWeaponLaserAmmoComponent> ammoEntity)

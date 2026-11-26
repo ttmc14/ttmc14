@@ -30,6 +30,7 @@ public sealed partial class MCWeaponLaserSystem
 
         var ev = new MCLaserCellRemovedEvent(entity.Owner);
         RaiseLocalEvent(Transform(entity).ParentUid, ref ev);
+
         UpdateAppearance(entity);
     }
 

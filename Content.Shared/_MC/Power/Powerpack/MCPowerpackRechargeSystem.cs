@@ -94,17 +94,17 @@ public sealed class MCPowerpackRechargeSystem : EntitySystem
         }
     }
 
-    private void Connect(Entity<MCPowerpackRechargeComponent> pack, EntityUid wearer)
+    private void Connect(Entity<MCPowerpackRechargeComponent> entity, EntityUid wearerUid)
     {
         if (_net.IsClient)
             return;
 
-        pack.Comp.Wearer = wearer;
-        Dirty(pack);
+        entity.Comp.Wearer = wearerUid;
+        Dirty(entity);
 
-        var relay = EnsureComp<MCPowerpackWearerComponent>(wearer);
-        if (relay.Packs.Add(pack))
-            Dirty(wearer, relay);
+        var relay = EnsureComp<MCPowerpackWearerComponent>(wearerUid);
+        if (relay.Packs.Add(entity))
+            Dirty(wearerUid, relay);
     }
 
     private void Disconnect(Entity<MCPowerpackRechargeComponent> pack)
