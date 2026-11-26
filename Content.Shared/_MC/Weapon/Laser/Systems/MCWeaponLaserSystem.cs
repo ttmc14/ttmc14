@@ -1,5 +1,6 @@
 ﻿using Content.Shared._MC.Line;
 using Content.Shared._MC.Power.Battery;
+using Content.Shared._MC.Power.Battery.Components;
 using Content.Shared._MC.Weapon.Laser.Components;
 using Content.Shared._MC.Weapons.AttackModeSelection.Core.Events;
 using Content.Shared.Popups;
@@ -89,6 +90,20 @@ public sealed partial class MCWeaponLaserSystem : EntitySystem
 
         args.Count = entity.Comp.Shots;
         args.Capacity = entity.Comp.Shots;
+    }
+
+    /// <summary>
+    /// Recharges the installed laser cell from the source battery and updates the shot counter.
+    /// </summary>
+    public void Recharge(Entity<MCWeaponLaserComponent> entity, Entity<MCBatteryComponent> source)
+    {
+        if (!TryGetAmmo(entity, out var ammo) || !TryComp<MCBatteryComponent>(ammo, out var battery))
+            return;
+
+        if (_mcBattery.TransferCharge(source, (ammo.Owner, battery)) > 0f)
+        {
+            UpdateShots(entity);
+        }
     }
 
     private bool TryGetAmmo(Entity<MCWeaponLaserComponent> entity, out Entity<MCWeaponLaserAmmoComponent> ammoEntity)

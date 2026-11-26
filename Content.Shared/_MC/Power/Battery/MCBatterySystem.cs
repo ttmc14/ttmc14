@@ -47,4 +47,22 @@ public sealed class MCBatterySystem : EntitySystem
     [PublicAPI]
     public float GetMaxCharge(Entity<MCBatteryComponent?> entity) =>
         Resolve(entity, ref entity.Comp, false) ? entity.Comp.MaxCharge : 0f;
+
+    /// <summary>
+    /// Fills the target battery using the charge available in the source battery.
+    /// </summary>
+    /// <returns>The amount transferred.</returns>
+    public float TransferCharge(Entity<MCBatteryComponent> source, Entity<MCBatteryComponent> target)
+    {
+        if (source.Owner == target.Owner)
+            return 0f;
+
+        var amount = float.Min(source.Comp.Charge, target.Comp.MaxCharge - target.Comp.Charge);
+        if (amount <= 0f)
+            return 0f;
+
+        SetCharge(source.AsNullable(), source.Comp.Charge - amount);
+        SetCharge(target.AsNullable(), target.Comp.Charge + amount);
+        return amount;
+    }
 }
