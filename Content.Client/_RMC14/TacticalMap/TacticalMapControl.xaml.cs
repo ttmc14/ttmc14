@@ -52,6 +52,7 @@ public sealed partial class TacticalMapControl : TextureRect
     private const float PingRingThickness = 1.5f;
 
 
+    [Dependency] private readonly IClyde _clyde = default!;
     [Dependency] private readonly IResourceCache _resourceCache = default!;
     [Dependency] private readonly IEntityManager _entityManager = default!;
 
@@ -73,6 +74,8 @@ public sealed partial class TacticalMapControl : TextureRect
     private float _zoomFactor = 1.0f;
     private Vector2 _panOffset = Vector2.Zero;
 
+    private OwnedTexture? _terrainTexture;
+    private int _layerVersion;
     private bool _dragging;
     private Vector2i? _lastDrag;
     private Vector2i? _dragStart;
@@ -185,6 +188,29 @@ public sealed partial class TacticalMapControl : TextureRect
         _panOffset = Vector2.Clamp(_panOffset, new Vector2(-maxPan), new Vector2(maxPan));
     }
 
+    /// <summary>Clears terrain, overlays and unfinished pointer interactions when changing floors.</summary>
+    public void ClearLayer()
+    {
+        _layerVersion++;
+        Texture = null;
+        _terrainTexture?.Dispose();
+        _terrainTexture = null;
+        _areaLabels.Clear();
+        Lines.Clear();
+        LineThicknesses.Clear();
+        TacticalLabels.Clear();
+        UpdateBlips(null);
+        _dragging = false;
+        _lastDrag = null;
+        _dragStart = null;
+        _previewEnd = null;
+        _draggingLabel = null;
+        _labelDragStart = null;
+        _currentDragPosition = null;
+        _rightClickPanning = false;
+        _lastPanPosition = null;
+    }
+
     public void UpdateTexture(Entity<AreaGridComponent> grid)
     {
         if (grid.Comp.Colors.Count == 0)
@@ -198,21 +224,30 @@ public sealed partial class TacticalMapControl : TextureRect
             max = Vector2i.ComponentMax(max, position);
         }
 
-        if (max.X - _min.X <= 0 || max.Y - _min.Y <= 0)
-            return;
-
         _delta = max - _min;
-        Image<Rgba32> image = new(_delta.X + 1, _delta.Y + 1);
+        using var image = new Image<Rgba32>(_delta.X + 1, _delta.Y + 1);
         foreach ((Vector2i position, Color color) in grid.Comp.Colors)
         {
             (int x, int y) = GetDrawPosition(position);
             image[x, y] = new Rgba32(color.R, color.G, color.B, color.A);
         }
 
-        Texture = Texture.LoadFromImage(image);
+        _terrainTexture?.Dispose();
+        _terrainTexture = _clyde.LoadTextureFromImage(image);
+        Texture = _terrainTexture;
         _areaLabels = new Dictionary<Vector2i, string>(grid.Comp.Labels);
 
         ApplyViewSettings();
+    }
+
+    protected override void Dispose(bool disposing)
+    {
+        if (disposing)
+        {
+            _terrainTexture?.Dispose();
+        }
+
+        base.Dispose(disposing);
     }
 
     public void UpdateBlips(TacticalMapBlip[]? blips)
@@ -489,11 +524,15 @@ public sealed partial class TacticalMapControl : TextureRect
 
     private void ShowLabelInputDialog(Vector2i position, string existingText = "")
     {
+        var version = _layerVersion;
         LabelTextDialog.Show(
             position,
             existingText,
             onConfirmed: text =>
             {
+                if (version != _layerVersion)
+                    return;
+
                 if (string.IsNullOrWhiteSpace(text))
                 {
                     if (!string.IsNullOrEmpty(existingText))
@@ -507,7 +546,13 @@ public sealed partial class TacticalMapControl : TextureRect
                         OnEditLabel?.Invoke(position, text);
                 }
             },
-            onDeleted: () => OnDeleteLabel?.Invoke(position)
+            onDeleted: () =>
+            {
+                if (version == _layerVersion)
+                {
+                    OnDeleteLabel?.Invoke(position);
+                }
+            }
         );
     }
 
@@ -743,6 +788,8 @@ public sealed partial class TacticalMapControl : TextureRect
     protected override void KeyBindDown(GUIBoundKeyEventArgs args)
     {
         base.KeyBindDown(args);
+        if (Texture is null)
+            return;
 
         if (args.Function == EngineKeyFunctions.UIClick)
         {

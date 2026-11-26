@@ -9,6 +9,11 @@
             <PanelContainer Name="SquadObjectivesContainer" Access="Public" StyleClasses="PanelBackgroundBaseDark" Margin="2" Visible="False">
                 <BoxContainer Name="SquadObjectivesBox" Access="Public" Orientation="Vertical" Margin="3" />
             </PanelContainer>
+            <BoxContainer Name="LayerControls" Access="Public" Visible="False" HorizontalAlignment="Center" Margin="2">
+                <Button Name="LayerDown" Access="Public" Text="▼" ToolTip="{Loc ui-tactical-map-layer-down}" />
+                <Label Name="LayerLabel" Access="Public" Margin="6 0" />
+                <Button Name="LayerUp" Access="Public" Text="▲" ToolTip="{Loc ui-tactical-map-layer-up}" />
+            </BoxContainer>
             <TabContainer Name="Tabs" Access="Public" HorizontalExpand="True" VerticalExpand="True">
                 <BoxContainer Name="MapTab" Access="Public" Orientation="Vertical" HorizontalExpand="True" VerticalExpand="True">
                     <!-- main controls -->
