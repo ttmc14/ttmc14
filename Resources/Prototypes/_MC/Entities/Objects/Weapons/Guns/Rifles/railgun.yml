@@ -26,7 +26,7 @@
     soundGunshot:
       path: /Audio/_MC/Weapons/Guns/Gunshots/gun_railgun.ogg
   - type: RMCSelectiveFire
-    baseFireRate: 0.5
+    baseFireRate: 0.2
     baseFireModes:
     - SemiAuto
     recoilWielded: 3
