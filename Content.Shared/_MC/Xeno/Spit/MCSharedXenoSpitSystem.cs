@@ -1,11 +1,11 @@
 ﻿using System.Numerics;
-using Content.Shared._CE.ZLevels.Core.EntitySystems;
 using Content.Shared._MC.Weapon;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.Xeno.Projectiles;
+using Content.Shared._MC.ZLevels.Weapons;
+using Content.Shared._RMC14.Projectiles;
 using Content.Shared._RMC14.Weapons.Ranged;
 using Content.Shared._RMC14.Xenonids;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.Plasma;
 using Content.Shared._RMC14.Xenonids.Projectile;
 using Content.Shared.FixedPoint;
@@ -20,7 +20,6 @@ using Robust.Shared.Network;
 using Robust.Shared.Physics.Systems;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
-using Robust.Shared.Spawners;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Spit;
@@ -41,10 +40,11 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _transform = null!;
 
     [Dependency] private readonly XenoSystem _rmcXeno = null!;
+    [Dependency] private readonly RMCProjectileSystem _rmcProjectile = null!;
     [Dependency] private readonly XenoPlasmaSystem _rmcXenoPlasma = null!;
 
     [Dependency] private readonly MCSharedXenoHiveSystem _mcXenoHive = null!;
-    [Dependency] private readonly CESharedZLevelsSystem _mcZLevels = null!;
+    [Dependency] private readonly MCZLevelShootingSystem _zShooting = null!;
     [Dependency] private readonly MCZLevelShootHelperSystem _mcZHelper = null!;
 
     protected EntityQuery<MCXenoSpitComponent> XenoSpitQuery;
@@ -71,6 +71,9 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
         if (!XenoSpitQuery.TryComp(xeno, out var comp) || !comp.Enabled || comp.NextShot > _timing.CurTime)
             return;
 
+        if (!TryGetShotCoordinates(xeno, coords, out var origin, out var destination))
+            return;
+
         // TODO: add popup delay, caused spamming
         // Abort if not enough plasma
         if (!_rmcXenoPlasma.TryRemovePlasmaPopup(xeno, comp.PlasmaCost))
@@ -79,7 +82,7 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
         comp.NextShot = _timing.CurTime + comp.Delay;
         Dirty(xeno, comp);
 
-        Shoot(xeno, coords, comp.ProjectileId, 1, Angle.Zero, comp.Speed, comp.Sound, null, target);
+        Shoot(xeno, origin, destination, comp.ProjectileId, 1, Angle.Zero, comp.Speed, comp.Sound, target: target);
     }
 
     /// <summary>
@@ -110,10 +113,31 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Spawns and launches a projectile from a Xeno.
+    /// Resolves a spit before the caller spends plasma or ammunition.
+    /// </summary>
+    public bool TryGetShotCoordinates(EntityUid xeno, EntityCoordinates aim, out MapCoordinates origin, out MapCoordinates target)
+    {
+        return _zShooting.TryGetAbilityShotCoordinates(xeno, aim, out origin, out target) && origin.Position != target.Position;
+    }
+
+    /// <summary>
+    /// Fires at a clicked point using the shooter's current Z-level view.
+    /// </summary>
+    public EntityUid[] Shoot(EntityUid xeno, EntityCoordinates targetCoords, EntProtoId projectileId,
+        int shots, Angle deviation, float speed = 30, SoundSpecifier? sound = null, float? fixedDistance = null, EntityUid? target = null)
+    {
+        if (!TryGetShotCoordinates(xeno, targetCoords, out var origin, out var destination))
+            return [];
+
+        return Shoot(xeno, origin, destination, projectileId, shots, deviation, speed, sound, fixedDistance, target);
+    }
+
+    /// <summary>
+    /// Launches projectiles along a resolved spit trajectory.
     /// </summary>
     public EntityUid[] Shoot(EntityUid xeno,
-        EntityCoordinates targetCoords,
+        MapCoordinates origin,
+        MapCoordinates targetMap,
         EntProtoId projectileId,
         int shots,
         Angle deviation,
@@ -122,13 +146,6 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
         float? fixedDistance = null,
         EntityUid? target = null)
     {
-        var origin = _transform.GetMapCoordinates(xeno);
-        var targetMap = _transform.ToMapCoordinates(targetCoords);
-
-        // Invalid or same-position shot
-        if (origin.MapId != targetMap.MapId || origin.Position == targetMap.Position)
-            return [];
-
         _audio.PlayPredicted(sound, xeno, xeno);
 
         if (_net.IsClient)
@@ -137,8 +154,11 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
         var ammoShotEvent = new AmmoShotEvent { FiredProjectiles = new List<EntityUid>(shots) };
 
         // Prevent friendly fire on invalid targets
-        if (target is not null && HasComp<MobStateComponent>(target) && !_rmcXeno.CanAbilityAttackTarget(xeno, target.Value))
+        if (target is { } uid && (_transform.GetMapId(uid) != targetMap.MapId ||
+            HasComp<MobStateComponent>(uid) && !_rmcXeno.CanAbilityAttackTarget(xeno, uid)))
+        {
             target = null;
+        }
 
         var result = new EntityUid[shots];
         var direction = targetMap.Position - origin.Position;
@@ -158,8 +178,10 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
             result[i] = projectile;
         }
 
-        if (_mcZLevels.IsVoidAtCoordinates(targetCoords, out _))
-            _mcZHelper.ApplyZPhysics(xeno, ammoShotEvent.FiredProjectiles, targetCoords, speed);
+        if (origin.MapId == Transform(xeno).MapID)
+        {
+            _mcZHelper.ApplyZPhysics(xeno, ammoShotEvent.FiredProjectiles, _transform.ToCoordinates(targetMap), speed);
+        }
 
         RaiseLocalEvent(xeno, ammoShotEvent);
         return result;
@@ -178,7 +200,7 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
     }
 
     /// <summary>
-    /// Adds additional data to projectile such as lifetime or target.
+    /// Configures the projectile's range, target and hive.
     /// </summary>
     private void SetupProjectile(EntityUid projectile, EntityUid xeno, EntityUid? targetUid, float? fixedDistance, MapCoordinates originCoords, MapCoordinates targetCoords, float speed)
     {
@@ -203,9 +225,13 @@ public abstract class MCSharedXenoSpitSystem : EntitySystem
 
         if (HasComp<MCXenoProjectileTargetingTurfComponent>(projectile))
         {
-            var despawn = EnsureComp<TimedDespawnComponent>(projectile);
-            despawn.Lifetime = (targetCoords.Position - originCoords.Position).Length() / speed;
-            Dirty(projectile, despawn);
+            var distance = Vector2.Distance(originCoords.Position, targetCoords.Position);
+            if (TryComp<ProjectileMaxRangeComponent>(projectile, out var range))
+            {
+                distance = MathF.Min(distance, range.Max);
+            }
+
+            _rmcProjectile.SetMaxRange(projectile, distance);
         }
     }
 }

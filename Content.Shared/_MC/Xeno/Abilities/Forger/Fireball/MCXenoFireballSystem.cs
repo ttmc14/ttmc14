@@ -27,9 +27,15 @@ public sealed class MCXenoFireballSystem : MCXenoAbilitySystem
         if (!RMCActions.CanUseActionPopup(entity, args.Action, entity))
             return;
 
+        if (!_mcXenoSpit.TryGetShotCoordinates(entity, args.Target, out _, out var target))
+            return;
+
         _audio.PlayPredicted(entity.Comp.SoundPrepare, entity, entity);
 
-        var ev = new MCXenoFireballDoAfterEvent(GetNetCoordinates(args.Target), GetNetEntity(args.Action), GetNetEntity(args.Entity));
+        var ev = new MCXenoFireballDoAfterEvent(GetNetCoordinates(args.Target), GetNetEntity(args.Action), GetNetEntity(args.Entity))
+        {
+            TargetMap = target.MapId,
+        };
         var doAfter = new DoAfterArgs(EntityManager, entity, entity.Comp.Delay, ev, entity)
         {
             BreakOnMove = true,
@@ -43,6 +49,10 @@ public sealed class MCXenoFireballSystem : MCXenoAbilitySystem
         if (args.Handled || args.Cancelled)
             return;
 
+        if (!_mcXenoSpit.TryGetShotCoordinates(xeno, GetCoordinates(args.Coordinates), out var origin, out var target) ||
+            target.MapId != args.TargetMap)
+            return;
+
         var action = GetEntity(args.Action);
         if (!RMCActions.TryUseAction(xeno.Owner, action, xeno))
             return;
@@ -51,7 +61,8 @@ public sealed class MCXenoFireballSystem : MCXenoAbilitySystem
 
         _mcXenoSpit.Shoot(
             xeno,
-            GetCoordinates(args.Coordinates),
+            origin,
+            target,
             xeno.Comp.ProjectileId,
             1,
             xeno.Comp.MaxDeviation,

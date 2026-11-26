@@ -10,7 +10,7 @@ namespace Content.Shared._MC.Xeno.Abilities.Warlock.Blast;
 public sealed partial class MCXenoBlastComponent : Component
 {
     [DataField, AutoNetworkedField]
-    public float Range = 7;
+    public float Range = 14;
 
     [DataField, AutoNetworkedField]
     public float EffectRange = 2.5f;

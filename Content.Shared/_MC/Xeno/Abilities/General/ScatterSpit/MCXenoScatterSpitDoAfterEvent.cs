@@ -7,6 +7,8 @@ namespace Content.Shared._MC.Xeno.Abilities.General.ScatterSpit;
 [Serializable, NetSerializable]
 public sealed partial class MCXenoScatterSpitDoAfterEvent : SimpleDoAfterEvent
 {
+    public MapId TargetMap;
+
     public readonly NetCoordinates Coordinates;
     public readonly NetEntity Action;
     public readonly NetEntity? Entity;
