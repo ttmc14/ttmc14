@@ -4,6 +4,7 @@ using Content.Server.Popups;
 using Content.Shared._RMC14.Admin;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Chat;
+using Content.Shared._MC.Rules.Warfare;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Synth;
 using Content.Shared._RMC14.Xenonids;
@@ -75,7 +76,7 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
-        if (!ev.LateJoin || !HasComp<MarineComponent>(ev.Mob))
+        if (!ev.LateJoin || !HasComp<MarineComponent>(ev.Mob) || _gameTicker.IsGameRuleActive<MCRuleWarfareComponent>())
             return;
 
         if (HasComp<RMCAdminSpawnedComponent>(ev.Mob))

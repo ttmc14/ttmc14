@@ -12,6 +12,7 @@
   id: MCWarfare
   alias:
   - mcwarfare
+  - warfare
   name: mc-warfare-title
   description: mc-warfare-description
   showInVote: true

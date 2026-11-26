@@ -25,12 +25,13 @@ public sealed class RMCLobbyUIController : UIController
     {
         var system = EntityManager.System<JoinXenoSystem>();
         RefreshWindow(system.ClientBurrowedLarva);
+        system.RequestBurrowedLarvaStatus();
     }
 
     private void RefreshWindow(int larva)
     {
         var system = EntityManager.System<JoinXenoSystem>();
-        if (_joinXenoWindow == null || _joinXenoWindow.Disposed)
+        if (_joinXenoWindow is null || _joinXenoWindow.Disposed)
         {
             _joinXenoWindow = new JoinXenoWindow();
             _joinXenoWindow.OnClose += () => _joinXenoWindow = null;
@@ -43,17 +44,7 @@ public sealed class RMCLobbyUIController : UIController
             _joinXenoWindow.OpenCentered();
         }
 
-        if (larva == 0)
-        {
-            _joinXenoWindow.Label.Text = Loc.GetString("rmc-lobby-no-burrowed-larva");
-            _joinXenoWindow.Buttons.Visible = false;
-        }
-        else
-        {
-            _joinXenoWindow.Label.Text = Loc.GetString("rmc-lobby-burrowed-larva-available");
-            _joinXenoWindow.Buttons.Visible = true;
-        }
-
-        system.RequestBurrowedLarvaStatus();
+        _joinXenoWindow.Label.Text = Loc.GetString(larva > 0 ? "rmc-lobby-burrowed-larva-available" : "rmc-lobby-no-burrowed-larva");
+        _joinXenoWindow.Buttons.Visible = larva > 0;
     }
 }

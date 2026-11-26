@@ -3,7 +3,14 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
-    minPlayers: 1
+    minPlayers: 2
+  - type: MCRuleWarfare
+    larvaPointsByJob:
+      MCFC: 6
+      MCTransportOfficer: 1.5
+      MCCMO: 1
+      MCDoctor: 1
+      MCResearcher: 1
   - type: MCRuleCrashShuttle
     time: 600
     pointWhitelist:
@@ -18,8 +25,10 @@
     configuration:
       general:
         allowCollapse: true
-        allowHarvestLarvaPoints: true
-        allowGenerateLarvaPoint: true
+        collapseTime:
+          Silo: 300
+        allowHarvestLarvaPoints: false
+        allowGenerateLarvaPoint: false
       evolution:
         withoutRuler: true
         requiredCasteCount:
@@ -32,5 +41,4 @@
   - type: MCRuleEndRound
     resultTextPrefix: mc-warfare-
   - type: MCRuleEndRoundHiveCollapse
-  - type: MCRuleEndRoundMarinesDead
   - type: MCRuleEndRoundShuttleEvacuation

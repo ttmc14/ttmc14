@@ -67,7 +67,7 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
         var crashPoints = GetPoints(entity);
         if (crashPoints.Count == 0)
         {
-            Log.Fatal("Fuck!");
+            Log.Error($"No eligible shuttle landing points for {ToPrettyString(entity)}.");
             return;
         }
 
@@ -88,11 +88,15 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
 
     private List<Entity<MCShuttlePointComponent>> GetPoints(Entity<MCRuleCrashShuttleComponent> entity)
     {
+        var planet = CompOrNull<MCRuleXenoMapComponent>(entity)?.Map;
         var list = new List<Entity<MCShuttlePointComponent>>();
         var query = EntityQueryEnumerator<MCShuttlePointComponent>();
 
         while (query.MoveNext(out var uid, out var component))
         {
+            if (planet is not null && Transform(uid).GridUid != planet)
+                continue;
+
             if (!_whitelist.IsWhitelistPassOrNull(entity.Comp.PointWhitelist, uid))
                 continue;
 

@@ -18,6 +18,11 @@ public sealed class PlayerBeforeSpawnEvent : HandledEntityEventArgs
     public bool LateJoin { get; }
     public EntityUid Station { get; }
 
+    /// <summary>
+    /// Localized reason to decline a spawn and leave the player in the lobby.
+    /// </summary>
+    public LocId? SpawnError { get; set; }
+
     public PlayerBeforeSpawnEvent(ICommonSession player,
         HumanoidCharacterProfile profile,
         string? jobId,

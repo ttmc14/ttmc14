@@ -2,6 +2,7 @@ using Content.Server.GameTicking;
 using Content.Shared.Actions;
 using Content.Server.Popups;
 using Content.Shared._MC.Respawn;
+using Content.Shared._MC.Rules.Warfare;
 using Content.Shared.Popups;
 using Content.Shared.Mind;
 using Content.Shared._MC._Config;
@@ -53,7 +54,8 @@ public sealed class MCRespawnActionSystem : EntitySystem
             return;
 
         var deathDelta = _timing.CurTime - deathTime.Value;
-        var cooldownDelta = _respawnCooldown - deathDelta;
+        var cooldown = _gameTicker.IsGameRuleActive<MCRuleWarfareComponent>() ? TimeSpan.Zero : _respawnCooldown;
+        var cooldownDelta = cooldown - deathDelta;
 
         if (cooldownDelta > TimeSpan.Zero)
         {

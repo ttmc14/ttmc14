@@ -19545,7 +19545,7 @@ entities:
       rot: 3.141592653589793 rad
       pos: 30.5,58.5
       parent: 1
-- proto: CMDropshipDestination
+- proto: MCDropshipDestination
   entities:
   - uid: 6980
     components:

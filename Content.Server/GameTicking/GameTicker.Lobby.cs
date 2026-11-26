@@ -1,4 +1,6 @@
 using System.Linq;
+using Content.Server._MC.Rules.Warfare;
+using Content.Shared._MC.Rules.Warfare;
 using Content.Shared.GameTicking;
 using Content.Server.Station.Components;
 using Robust.Shared.Network;
@@ -37,7 +39,14 @@ namespace Content.Server.GameTicking
 
         public void UpdateInfoText()
         {
-            RaiseNetworkEvent(GetInfoMsg(), Filter.Empty().AddPlayers(_playerManager.NetworkedSessions));
+            var recipients = Filter.Empty().AddPlayers(_playerManager.NetworkedSessions);
+            if (RunLevel == GameRunLevel.InRound && IsGameRuleActive<MCRuleWarfareComponent>())
+            {
+                recipients = Filter.Empty().AddWhere(session =>
+                    _playerGameStatuses.GetValueOrDefault(session.UserId) != PlayerGameStatus.JoinedGame);
+            }
+
+            RaiseNetworkEvent(GetInfoMsg(), recipients);
         }
 
         private string GetInfoText()
@@ -76,6 +85,10 @@ namespace Content.Server.GameTicking
                 Loc.GetString("game-ticker-no-map-selected");
             var gmTitle = Loc.GetString(preset.ModeTitle);
             var desc = Loc.GetString(preset.Description);
+            if (RunLevel == GameRunLevel.InRound && EntityManager.System<MCRuleWarfareSystem>().GetReserveBriefing(null) is { } reserves)
+            {
+                desc += $"\n{reserves}";
+            }
             return Loc.GetString(
                 RunLevel == GameRunLevel.PreRoundLobby
                     ? "game-ticker-get-info-preround-text"

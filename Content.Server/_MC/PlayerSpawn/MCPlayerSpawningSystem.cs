@@ -97,27 +97,13 @@ public sealed class MCPlayerSpawningSystem : EntitySystem
 
             if (allSpawners.SquadAnyFull.TryGetValue(squadId, out anySpawners))
                 return (_random.Pick(anySpawners), squadEnt);
-
-            Log.Error($"No valid spawn found for player. Squad: {squadId}, job: {job.ID}");
-
-            if (allSpawners.NonSquad.TryGetValue(job.ID, out spawners))
-                return (_random.Pick(spawners), squadEnt);
-
-            if (allSpawners.NonSquadFull.TryGetValue(job.ID, out spawners))
-                return (_random.Pick(spawners), squadEnt);
-
-            Log.Error($"No valid spawn found for player. Job: {job.ID}");
         }
-        else
-        {
-            if (allSpawners.NonSquad.TryGetValue(job.ID, out var spawners))
-                return (_random.Pick(spawners), null);
 
-            if (allSpawners.NonSquadFull.TryGetValue(job.ID, out spawners))
-                return (_random.Pick(spawners), null);
+        if (allSpawners.NonSquad.TryGetValue(job.ID, out var jobMarkers))
+            return (_random.Pick(jobMarkers), squad);
 
-            Log.Error($"No valid spawn found for player. Job: {job.ID}");
-        }
+        if (allSpawners.NonSquadFull.TryGetValue(job.ID, out jobMarkers))
+            return (_random.Pick(jobMarkers), squad);
 
         var pointsQuery = EntityQueryEnumerator<SpawnPointComponent>();
         var jobPoints = new List<EntityUid>();
@@ -151,6 +137,7 @@ public sealed class MCPlayerSpawningSystem : EntitySystem
         if (latePoints.Count > 0)
             return (_random.Pick(latePoints), squad);
 
+        Log.Error($"No valid spawn point for job {job.ID}.");
         return null;
     }
 

@@ -1,5 +1,6 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Shared._MC._Config;
+using Content.Shared._MC.Rules.Warfare;
 using Content.Shared._MC.Utilities;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Join;
@@ -50,6 +51,7 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly DialogSystem _dialog = null!;
 
+    [Dependency] private readonly MCWarfareSystem _warfare = null!;
     [Dependency] private readonly MCSharedXenoHiveSystem _hive = null!;
     [Dependency] private readonly MCXenoHiveJoinSystem _hiveJoin = null!;
 
@@ -116,9 +118,6 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
 
     private void OnBurrowedLarvaChanged(ref MCXenoHiveBurrowedLarvaChangedEvent args)
     {
-        if (args.Count == 0)
-            return;
-
         TryOffer(args.HiveEntity);
     }
 
@@ -144,7 +143,7 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         var hiveEntity = (hiveUid, Comp<MCXenoHiveComponent>(hiveUid));
 
         var deathDeltaTime = _timing.CurTime - ghostComponent.TimeOfDeath;
-        if (deathDeltaTime < _joinDelay)
+        if (_warfare.ActiveRule is null && deathDeltaTime < _joinDelay)
         {
             var timeLeft = _joinDelay - deathDeltaTime;
             _popup.PopupEntity($"You died too recently. You can join the queue in {timeLeft.TotalSeconds:F0} seconds.", entity, entity);
@@ -197,12 +196,15 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         session);
     }
 
+    /// <summary>
+    /// Gets the number of larvae that have not been offered to a waiting ghost.
+    /// </summary>
+    public int GetAvailableLarva(Entity<MCXenoHiveComponent> hive) =>
+        Math.Max(0, hive.Comp.BurrowedLarva - PendingBurrowedCount.GetValueOrDefault(hive, 0));
+
     private void TryOffer(Entity<MCXenoHiveComponent> hive)
     {
-        if (!HasAnyQueued(hive.Owner))
-            return;
-
-        var available = hive.Comp.BurrowedLarva - PendingBurrowedCount.GetValueOrDefault(hive, 0);
+        var available = GetAvailableLarva(hive);
         for (var i = 0; i < available; i++)
         {
             if (!HasAnyQueued(hive.Owner))
@@ -213,6 +215,12 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
 
             PendingBurrowedCount[hive] = PendingBurrowedCount.GetValueOrDefault(hive, 0) + 1;
             SendOffer(session, hive, null, pos);
+        }
+
+        if (_warfare.ActiveRule is not null && _hive.DefaultHive == hive.Owner)
+        {
+            var changed = new BurrowedLarvaChangedEvent(GetAvailableLarva(hive));
+            RaiseLocalEvent(ref changed);
         }
     }
 

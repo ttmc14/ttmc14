@@ -20,14 +20,11 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem
     /// <summary>
     /// Selects a suitable player for the specified task based on their priorities.
     /// </summary>
-    private NetUserId? SelectPlayerForJob(ProtoId<JobPrototype> job, IReadOnlyDictionary<NetUserId, HumanoidCharacterProfile> profiles, HashSet<NetUserId>? excluded = null)
+    private NetUserId? SelectPlayerForJob(ProtoId<JobPrototype> job, IReadOnlyDictionary<NetUserId, HumanoidCharacterProfile> profiles)
     {
         var buckets = CreateBucket();
         foreach (var (id, profile) in profiles)
         {
-            if (excluded is not null && excluded.Contains(id))
-                continue;
-
             if (!IsAllowed(id, job))
                 continue;
 
@@ -55,7 +52,7 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem
             return false;
 
         var jobBans = _bans.GetJobBans(player.UserId);
-        if (jobBans != null && jobBans.Contains(job))
+        if (jobBans is not null && jobBans.Contains(job))
             return false;
 
         return _playTimeTracking.IsAllowed(player, job);
