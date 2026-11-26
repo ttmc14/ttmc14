@@ -1,6 +1,8 @@
 ﻿using Content.Shared._MC.Smoke.Components;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
+using Content.Shared._RMC14.Entrenching;
 using Content.Shared._RMC14.Map;
+using Content.Shared.Mobs.Components;
 using Robust.Shared.Network;
 using Robust.Shared.Physics.Events;
 using Robust.Shared.Timing;
@@ -18,8 +20,7 @@ public sealed partial class MCSmokeSystem : EntitySystem
 
     [ViewVariables] private readonly Dictionary<EntityUid, TimeSpan> _immunity = new();
     [ViewVariables] private readonly List<EntityUid> _immunityToRemove = new();
-    [ViewVariables] private readonly List<EntityUid> _toRemove = new();
-    [ViewVariables] private readonly List<EntityUid> _toProcess = new();
+    [ViewVariables] private readonly HashSet<EntityUid> _toProcess = [];
 
     public override void Initialize()
     {
@@ -31,10 +32,7 @@ public sealed partial class MCSmokeSystem : EntitySystem
 
     private void OnCollideStart(Entity<MCSmokeComponent> entity, ref StartCollideEvent args)
     {
-        if (TerminatingOrDeleted(args.OtherEntity))
-            return;
-
-        if (entity.Comp.AffectedEntities.Contains(args.OtherEntity))
+        if (TerminatingOrDeleted(args.OtherEntity) || !CanAffect(entity, args.OtherEntity))
             return;
 
         entity.Comp.AffectedEntities.Add(args.OtherEntity);
@@ -52,31 +50,10 @@ public sealed partial class MCSmokeSystem : EntitySystem
         var query = EntityQueryEnumerator<MCSmokeComponent>();
         while (query.MoveNext(out var uid, out var component))
         {
-            _toRemove.Clear();
-
-            // ReSharper disable once ForeachCanBePartlyConvertedToQueryUsingAnotherGetEnumerator
-            foreach (var affectedUid in component.AffectedEntities)
-            {
-                if (TerminatingOrDeleted(affectedUid))
-                    _toRemove.Add(affectedUid);
-            }
-
-            foreach (var affectedUid in _toRemove)
-            {
-                component.AffectedEntities.Remove(affectedUid);
-            }
-
             if (component.EffectNext > _timing.CurTime)
                 continue;
 
             component.EffectNext = _timing.CurTime + component.EffectDelay;
-
-            var anchoredQuery = _rmcMap.GetAnchoredEntitiesEnumerator(uid);
-            while (anchoredQuery.MoveNext(out var anchoredUid))
-            {
-                if (!TerminatingOrDeleted(anchoredUid))
-                    component.AffectedEntities.Add(anchoredUid);
-            }
 
             Process((uid, component));
         }
@@ -100,10 +77,16 @@ public sealed partial class MCSmokeSystem : EntitySystem
     private void Process(Entity<MCSmokeComponent> entity)
     {
         _toProcess.Clear();
+        entity.Comp.AffectedEntities.RemoveWhere(uid => TerminatingOrDeleted(uid));
+        _toProcess.UnionWith(entity.Comp.AffectedEntities);
 
-        foreach (var affectedUid in entity.Comp.AffectedEntities)
+        var anchored = _rmcMap.GetAnchoredEntitiesEnumerator(entity.Owner);
+        while (anchored.MoveNext(out var uid))
         {
-            _toProcess.Add(affectedUid);
+            if (!CanAffect(entity, uid))
+                continue;
+
+            _toProcess.Add(uid);
         }
 
         foreach (var affectedUid in _toProcess)
@@ -111,6 +94,9 @@ public sealed partial class MCSmokeSystem : EntitySystem
             Affect(entity, affectedUid);
         }
     }
+
+    private bool CanAffect(EntityUid smoke, EntityUid target)
+        => !HasComp<MCSmokeDamageComponent>(smoke) || HasComp<MobStateComponent>(target) || HasComp<BarricadeComponent>(target);
 
     private void Affect(Entity<MCSmokeComponent> entity, EntityUid affectedUid)
     {

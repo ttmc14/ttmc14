@@ -3,6 +3,7 @@ using Content.Shared._MC.Flammable;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Actions;
 using Content.Shared._RMC14.Armor;
+using Content.Shared._RMC14.Entrenching;
 using Content.Shared._RMC14.Stun;
 using Content.Shared._RMC14.Synth;
 using Content.Shared._RMC14.Weapons.Melee;
@@ -84,6 +85,12 @@ public abstract class MCXenoAbilitySystem : EntitySystem
 
         return !MCXenoHive.FromSameHive(uid, targetUid.Value);
     }
+
+    /// <summary>
+    /// Determines whether an area attack can hit a living mob or a barricade outside the attacker's hive.
+    /// </summary>
+    protected bool CanAreaAttackTarget(EntityUid attacker, EntityUid target)
+        => attacker != target && ValidateTarget(attacker, target, affectOnStructures: HasComp<BarricadeComponent>(target));
 
     [PublicAPI]
     protected bool IsOnMap(EntityUid uid)

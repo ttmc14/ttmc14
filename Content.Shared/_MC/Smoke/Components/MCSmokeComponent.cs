@@ -14,5 +14,5 @@ public sealed partial class MCSmokeComponent : Component
     public TimeSpan EffectNext;
 
     [ViewVariables]
-    public List<EntityUid> AffectedEntities = new();
+    public HashSet<EntityUid> AffectedEntities = [];
 }
