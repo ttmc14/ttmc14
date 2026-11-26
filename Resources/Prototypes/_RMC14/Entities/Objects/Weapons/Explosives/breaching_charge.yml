@@ -103,4 +103,10 @@
       - XenoTunnel
 
 - type: Tag
+  id: C4
+
+- type: Tag
+  id: PlasticExplosives
+
+- type: Tag
   id: RMCExplosiveBreachingCharge

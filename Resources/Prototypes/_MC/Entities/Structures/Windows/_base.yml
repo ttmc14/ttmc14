@@ -88,6 +88,9 @@
     mode: MCCardinalFlagsExtended
 
 # Frame
+- type: Tag
+  id: MCWindowFrame
+
 - type: entity
   parent: MCStructure
   id: MCWindowFrame
