@@ -60,7 +60,7 @@ namespace Content.Server.Voting.Managers
                     CreateRestartVote(initiator);
                     break;
                 case StandardVoteType.Preset:
-                    CreatePresetVote(initiator);
+                    CreatePresetVote(initiator, GetGamePresets());
                     break;
                 case StandardVoteType.Map:
                     CreateMapVote(initiator);
@@ -219,10 +219,18 @@ namespace Content.Server.Voting.Managers
                 _chatManager.DispatchServerMessage(session, msg);
         }
 
-        private void CreatePresetVote(ICommonSession? initiator)
+        public IVoteHandle? TryCreateLobbyPresetVote()
         {
-            var presets = GetGamePresets();
+            var presets = GetGamePresets(lobbyOnly: true);
+            if (presets.Count < 2)
+                return null;
 
+            _adminLogger.Add(LogType.Vote, LogImpact.Low, $"Starting lobby preset vote: {string.Join(", ", presets.Keys)}");
+            return CreatePresetVote(null, presets, keepPresetOnAbstention: true);
+        }
+
+        private IVoteHandle CreatePresetVote(ICommonSession? initiator, Dictionary<string, string> presets, bool keepPresetOnAbstention = false)
+        {
             var alone = _playerManager.PlayerCount == 1 && initiator != null;
             var options = new VoteOptions
             {
@@ -246,6 +254,9 @@ namespace Content.Server.Voting.Managers
 
             vote.OnFinished += (_, args) =>
             {
+                if (keepPresetOnAbstention && args.Votes.All(count => count == 0))
+                    return;
+
                 string picked;
                 if (args.Winner == null)
                 {
@@ -263,6 +274,7 @@ namespace Content.Server.Voting.Managers
                 var ticker = _entityManager.EntitySysManager.GetEntitySystem<GameTicker>();
                 ticker.SetGamePreset(picked);
             };
+            return vote;
         }
 
         private void CreateMapVote(ICommonSession? initiator)
@@ -589,13 +601,13 @@ namespace Content.Server.Voting.Managers
             DirtyCanCallVoteAll();
         }
 
-        private Dictionary<string, string> GetGamePresets()
+        private Dictionary<string, string> GetGamePresets(bool lobbyOnly = false)
         {
             var presets = new Dictionary<string, string>();
 
             foreach (var preset in _prototypeManager.EnumeratePrototypes<GamePresetPrototype>())
             {
-                if(!preset.ShowInVote)
+                if (!preset.ShowInVote || lobbyOnly && !preset.LobbyVote)
                     continue;
 
                 if(_playerManager.PlayerCount < (preset.MinPlayers ?? int.MinValue))

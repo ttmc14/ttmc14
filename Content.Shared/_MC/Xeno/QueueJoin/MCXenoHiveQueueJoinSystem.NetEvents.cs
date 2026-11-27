@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Xeno.QueueJoin.Events.Net;
+using Content.Shared.Ghost;
 
 namespace Content.Shared._MC.Xeno.QueueJoin;
 
@@ -17,6 +18,12 @@ public sealed partial class MCXenoHiveQueueJoinSystem
             DecrementPendingBurrowed(offer.HiveEntity);
 
         TryRemoveFromQueue(userId, offer.HiveEntity);
+
+        if (!HasComp<GhostComponent>(args.SenderSession.AttachedEntity))
+        {
+            TryOffer(offer.HiveEntity);
+            return;
+        }
 
         if (_hiveJoin.JoinBurrowedLarva(args.SenderSession, offer.HiveEntity))
             return;

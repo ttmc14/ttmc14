@@ -1,4 +1,4 @@
-﻿using Content.Shared._RMC14.Weapons.Ranged.IFF;
+using Content.Shared._RMC14.Weapons.Ranged.IFF;
 using Content.Shared.Roles;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
@@ -20,8 +20,10 @@ public sealed partial class MCRuleXenoMarinesSpawnComponent : Component
         new MCJobRolePair("MCXenoShrike"),
     };
 
+    public static readonly ProtoId<JobPrototype> DefaultOverflowJob = "MCXenoSelectableXeno";
+
     [DataField]
-    public MCJobRolePair XenoOverflow = new("MCXenoSelectableXeno", "MCXenoRafik");
+    public MCJobRolePair XenoOverflow = new(DefaultOverflowJob, "MCXenoRafik");
 
     #endregion
 }

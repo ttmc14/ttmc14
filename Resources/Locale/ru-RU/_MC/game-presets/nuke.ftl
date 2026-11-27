@@ -3,4 +3,3 @@ mc-crash-NukeMinorVictory = [color=green]Боеголовка взорвалас
 mc-crash-NukeOffworld = [color=purple]Боеголовка взорвалась за пределами колонии. Улей победил![/color]
 mc-warfare-NukeVictory = [color=green]Планетарная боеголовка взорвалась. Морпехи победили![/color]
 mc-warfare-NukeOffworld = [color=purple]Боеголовка взорвалась за пределами колонии. Улей победил![/color]
-mc-warfare-MinorXenoVictory = [color=purple]Малая победа ксеноморфов.[/color]

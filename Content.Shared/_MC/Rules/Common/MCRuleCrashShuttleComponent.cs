@@ -1,4 +1,4 @@
-﻿using Content.Shared.Whitelist;
+using Content.Shared.Whitelist;
 using Robust.Shared.GameStates;
 
 namespace Content.Shared._MC.Rules.Common;
@@ -11,4 +11,7 @@ public sealed partial class MCRuleCrashShuttleComponent : Component
 
     [DataField]
     public EntityWhitelist? PointWhitelist;
+
+    [DataField]
+    public LocId? DeploymentAnnouncement;
 }

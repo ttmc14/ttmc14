@@ -1,8 +1,9 @@
-﻿using Content.Shared._MC.Xeno.Hive.Announce;
+using Content.Shared._MC.Xeno.Hive.Announce;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Bioscan;
+using Robust.Shared.Network;
 using Robust.Shared.Timing;
 
 namespace Content.Shared._MC.Xeno.Hive.Collapse;
@@ -11,6 +12,7 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
 {
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(10);
 
+    [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
 
     [Dependency] private readonly MCSharedXenoHiveSystem _hive = null!;
@@ -22,76 +24,56 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
     {
         base.Update(frameTime);
 
-        if (_lastUpdate > _timing.CurTime)
+        if (_net.IsClient || _lastUpdate > _timing.CurTime)
             return;
 
         _lastUpdate = UpdateInterval + _timing.CurTime;
 
-        var query = EntityQueryEnumerator<MCXenoHiveComponent>();
-        while (query.MoveNext(out var uid, out var component))
+        if (_hive.DefaultHive is not { } uid || !TryComp<MCXenoHiveComponent>(uid, out var hive) || !CanCollapse((uid, hive)))
+            return;
+
+        var attempt = new MCBeforeHiveCollapseUpdateEvent();
+        RaiseLocalEvent(ref attempt);
+        if (!attempt.Cancelled)
         {
-            var entity = (uid, component);
-            if (!CanCollapse(entity))
-                continue;
+            UpdateCollapse((uid, hive));
+        }
+    }
 
-            ProcessCollapsing(entity);
-
-            if (!IsCollapsing(entity))
-                continue;
-
-            ProcesseUncollapsing(entity);
-
-            foreach (var (type, time) in component.Collapse)
+    private void UpdateCollapse(Entity<MCXenoHiveComponent> entity)
+    {
+        foreach (var (type, delay) in entity.Comp.Configuration.General.CollapseTime)
+        {
+            var recovered = type switch
             {
-                if (time > _timing.CurTime)
-                    continue;
+                MCXenoHiveCollapseType.Silo => _hive.HasSilo(entity),
+                MCXenoHiveCollapseType.Ruler => _hive.HasRuler((entity, entity.Comp)),
+                _ => throw new ArgumentOutOfRangeException(nameof(type), type, null),
+            };
 
-                Collapse(entity, type);
-                break;
+            if (recovered)
+            {
+                if (entity.Comp.Collapse.Remove(type))
+                {
+                    Dirty(entity);
+                }
+                continue;
             }
-        }
-    }
 
-    private void ProcessCollapsing(Entity<MCXenoHiveComponent> entity)
-    {
-        if (!entity.Comp.Collapse.ContainsKey(MCXenoHiveCollapseType.Silo) && !_hive.HasSilo(entity))
-        {
-            StartCollapse(entity, MCXenoHiveCollapseType.Silo);
-            AnnounceColapse(entity, MCXenoHiveCollapseType.Silo);
-        }
+            if (!entity.Comp.Collapse.TryGetValue(type, out var deadline))
+            {
+                entity.Comp.Collapse[type] = _timing.CurTime + delay;
+                Dirty(entity);
+                AnnounceCollapse(entity, type, delay);
+                continue;
+            }
 
-        if (!entity.Comp.Collapse.ContainsKey(MCXenoHiveCollapseType.Ruler) && !_hive.HasRuler((entity, entity.Comp)))
-        {
-            StartCollapse(entity, MCXenoHiveCollapseType.Ruler);
-            AnnounceColapse(entity, MCXenoHiveCollapseType.Ruler);
-        }
-    }
+            if (_timing.CurTime < deadline)
+                continue;
 
-    private void ProcesseUncollapsing(Entity<MCXenoHiveComponent> entity)
-    {
-        if (entity.Comp.Collapse.ContainsKey(MCXenoHiveCollapseType.Silo) && _hive.HasSilo(entity))
-        {
-            StopCollapse(entity, MCXenoHiveCollapseType.Silo);
+            Collapse(entity, type);
             return;
         }
-
-        if (entity.Comp.Collapse.ContainsKey(MCXenoHiveCollapseType.Ruler) && _hive.HasRuler((entity, entity.Comp)))
-        {
-            StopCollapse(entity, MCXenoHiveCollapseType.Ruler);
-            return;
-        }
-    }
-
-    private void StartCollapse(Entity<MCXenoHiveComponent> entity, MCXenoHiveCollapseType type)
-    {
-        entity.Comp.Collapse[type] = entity.Comp.Configuration.General.CollapseTime[type] + _timing.CurTime;
-        Dirty(entity);
-    }
-
-    private void StopCollapse(Entity<MCXenoHiveComponent> entity, MCXenoHiveCollapseType type)
-    {
-        entity.Comp.Collapse.Remove(type);
-        Dirty(entity);
     }
 
     public bool IsCollapsing(Entity<MCXenoHiveComponent> entity)
@@ -115,8 +97,15 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
 
     #region Messages
 
-    private void AnnounceColapse(Entity<MCXenoHiveComponent> entity, MCXenoHiveCollapseType type)
+    private void AnnounceCollapse(Entity<MCXenoHiveComponent> entity, MCXenoHiveCollapseType type, TimeSpan delay)
     {
+        if (entity.Comp.Configuration.General.CollapseWarnings.TryGetValue(type, out var warning))
+        {
+            var message = Loc.GetString(warning, ("minutes", delay.TotalMinutes));
+            _announceSystem.AnnounceToHive(entity, message, $"[bold]{message}[/bold]", sound: new BioscanComponent().XenoSound);
+            return;
+        }
+
         switch (type)
         {
             case MCXenoHiveCollapseType.Silo:

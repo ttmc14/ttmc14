@@ -86,7 +86,7 @@ public abstract partial class MCSharedXenoHiveSystem : MCEntitySystemSingleton<M
             if (_mobState.IsDead(uid))
                 continue;
 
-            if (_rmcHiveMemberQuery.TryComp(uid, out var hiveMemberComponent) && hiveMemberComponent.Hive != hive)
+            if (!_rmcHiveMemberQuery.TryComp(uid, out var hiveMemberComponent) || hiveMemberComponent.Hive != hive)
                 continue;
 
             if (comp.Tier < minTier)

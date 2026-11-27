@@ -80,12 +80,9 @@ public sealed class MCXenoStructureSpawnerSystem : EntitySystem
 
         _mcXenoHive.SetSameHive(entity.Owner, instance);
 
-        var taget = EnsureComp<MCXenoStructureSpawnerTargetComponent>(instance);
-
-        taget.Origin = entity.Owner;
+        var target = EnsureComp<MCXenoStructureSpawnerTargetComponent>(instance);
+        target.Origin = entity.Owner;
         entity.Comp.Entities.Add(instance);
-
-        Dirty(instance, taget);
         Dirty(entity);
     }
 }

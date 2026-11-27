@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Hive.Prototypes;
+using Content.Shared._MC.Xeno.Hive.Prototypes;
 using Robust.Shared.GameStates;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization;
@@ -71,6 +71,9 @@ public sealed partial class MCXenoHiveConfigGeneral
 {
     [DataField]
     public bool AllowCollapse = true;
+
+    [DataField]
+    public Dictionary<MCXenoHiveCollapseType, LocId> CollapseWarnings = [];
 
     [DataField]
     public bool AllowHarvestLarvaPoints = true;

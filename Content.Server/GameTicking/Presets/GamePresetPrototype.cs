@@ -1,5 +1,6 @@
 
 using Content.Server.Maps;
+using Content.Shared._MC.RoundInfo;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype;
 using Robust.Shared.Serialization.TypeSerializers.Implementations.Custom.Prototype.List;
@@ -24,8 +25,20 @@ namespace Content.Server.GameTicking.Presets
         [DataField("description")]
         public string Description = string.Empty;
 
+        /// <summary>
+        /// Optional player-facing briefing layout for this mode.
+        /// </summary>
+        [DataField]
+        public MCRoundInfoLayout? RoundInfoLayout;
+
         [DataField("showInVote")]
         public bool ShowInVote;
+
+        /// <summary>
+        /// Include this preset in the automatic pre-round lobby vote.
+        /// </summary>
+        [DataField]
+        public bool LobbyVote;
 
         [DataField("minPlayers")]
         public int? MinPlayers;

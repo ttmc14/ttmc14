@@ -1,10 +1,11 @@
-﻿using System.Linq;
+using System.Linq;
 using Content.Server.Administration.Managers;
 using Content.Server.Players.PlayTimeTracking;
 using Content.Shared.Preferences;
 using Content.Shared.Roles;
 using Robust.Server.Player;
 using Robust.Shared.Network;
+using Robust.Shared.Player;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 
@@ -20,15 +21,12 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem
     /// <summary>
     /// Selects a suitable player for the specified task based on their priorities.
     /// </summary>
-    private NetUserId? SelectPlayerForJob(ProtoId<JobPrototype> job, IReadOnlyDictionary<NetUserId, HumanoidCharacterProfile> profiles, HashSet<NetUserId>? excluded = null)
+    private NetUserId? SelectPlayerForJob(ProtoId<JobPrototype> job, IReadOnlyDictionary<NetUserId, HumanoidCharacterProfile> profiles)
     {
         var buckets = CreateBucket();
         foreach (var (id, profile) in profiles)
         {
-            if (excluded is not null && excluded.Contains(id))
-                continue;
-
-            if (!IsAllowed(id, job))
+            if (!_players.TryGetSessionById(id, out var player) || !IsAllowed(player, job))
                 continue;
 
             if (!profile.JobPriorities.TryGetValue(job, out var priority) || priority == JobPriority.Never)
@@ -49,13 +47,13 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem
         return null;
     }
 
-    private bool IsAllowed(NetUserId id, ProtoId<JobPrototype> job)
+    /// <summary>
+    /// Checks the player's loaded role bans and playtime requirements before assigning the job.
+    /// </summary>
+    public bool IsAllowed(ICommonSession player, ProtoId<JobPrototype> job)
     {
-        if (!_players.TryGetSessionById(id, out var player))
-            return false;
-
         var jobBans = _bans.GetJobBans(player.UserId);
-        if (jobBans != null && jobBans.Contains(job))
+        if (jobBans is null || jobBans.Contains(job))
             return false;
 
         return _playTimeTracking.IsAllowed(player, job);

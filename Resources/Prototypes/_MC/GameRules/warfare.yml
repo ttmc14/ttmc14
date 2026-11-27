@@ -3,34 +3,72 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
-    minPlayers: 1
+    minPlayers: 2
+  - type: MCRuleWarfare
+  - type: MCRuleRespawnDelay
+    delay: 0
+  - type: MCRulePopulation
+    interval: 15
+  - type: MCRuleReinforcements
+    marineReserve: 60
+    xenoReserve: 20
+    noMarines: mc-warfare-no-marines
+  - type: MCRuleReserveBriefing
+    marineBriefing: mc-warfare-reserve-marines
+    xenoBriefing: mc-warfare-reserve-xenos
+  - type: MCRuleReserveGrowth
+    marinesPerXeno: 3
+    livesPerPlayer: 3
+    populationThreshold: 20
+  - type: MCRuleLarvaReinforcements
+    pointsPerLarva: 9
+    minimumPopulation: 1
+    larvaPointsByJob:
+      MCFC: 6
+      MCTransportOfficer: 1.5
+      MCCMO: 1
+      MCDoctor: 1
+      MCResearcher: 1
   - type: MCRuleCrashShuttle
+    deploymentAnnouncement: mc-warfare-deployment
     time: 600
     pointWhitelist:
       components:
       - DropshipDestination
+  - type: MCRuleASRS
+    startingBalances:
+      Default: 500
   - type: MCRuleXenoMarinesSpawn
   - type: MCRuleRecalculatePower
   - type: MCRuleRefreshIFF
   # xeno
+  - type: MCRuleHiveCollapseAfterLanding
   - type: MCRuleXenoMap
   - type: MCRuleXenoSetupHive
     configuration:
       general:
         allowCollapse: true
-        allowHarvestLarvaPoints: true
-        allowGenerateLarvaPoint: true
+        collapseWarnings:
+          Silo: mc-warfare-silo-warning
+        collapseTime:
+          Silo: 300
+        allowHarvestLarvaPoints: false
+        allowGenerateLarvaPoint: false
       evolution:
         withoutRuler: true
         requiredCasteCount:
           MCXenoQueen: 6
           MCXenoKing: 12
     psypoints:
-      Strategic: 800
-      Tactical: 400
+      Strategic: 1800
+      Tactical: 600
   # round end
+  - type: MCRuleEndRoundElimination
+    delay: 5
+    draw: Draw
+    marineVictory: MajorMarineVictory
+    xenoVictory: MajorXenoVictory
   - type: MCRuleEndRound
     resultTextPrefix: mc-warfare-
   - type: MCRuleEndRoundHiveCollapse
-  - type: MCRuleEndRoundMarinesDead
   - type: MCRuleEndRoundShuttleEvacuation

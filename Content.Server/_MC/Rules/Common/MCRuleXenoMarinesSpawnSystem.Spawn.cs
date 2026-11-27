@@ -31,43 +31,32 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem
     /// Spawns xenomorphs for any remaining slots (overflow).
     /// If slots remain but there are no players, it adds them as burrowed.
     /// </summary>
-    private IReadOnlyList<NetUserId> AssignOverflowXenoRoles(
+    private void AssignOverflowXenoRoles(
         MCJobRolePair overflow,
-        IReadOnlyDictionary<NetUserId,HumanoidCharacterProfile> profiles,
-        ref int remainingXenoSlots)
+        Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
+        int remainingXenoSlots)
     {
-        var assigned = new List<NetUserId>();
-        var failed = new HashSet<NetUserId>();
-
         while (remainingXenoSlots > 0)
         {
-            var id = SelectPlayerForJob(overflow.JobId, profiles, failed);
+            var id = SelectPlayerForJob(overflow.JobId, profiles);
             if (id is null)
                 break; // No more players
 
             if (TrySpawnXeno(id.Value, overflow.EntityId, remainingXenoSlots))
             {
-                assigned.Add(id.Value);
+                profiles.Remove(id.Value);
                 remainingXenoSlots--;
                 continue;
             }
 
-            // If the spawn fails, add the player to the list of errors
-            // to avoid attempting to spawn them again and entering an infinite loop
-            failed.Add(id.Value);
             break;
         }
 
         if (remainingXenoSlots <= 0 || _mcHive.DefaultHive is not { } hive)
-            return assigned;
+            return;
 
         // If any slots remain unfilled, add them as burrowed
         _mcHive.AddBurrowedLarva(hive, remainingXenoSlots);
-
-        // Reset, since the slots are now occupied by larvae
-        remainingXenoSlots = 0;
-
-        return assigned;
     }
 
     private bool TrySpawnXeno(

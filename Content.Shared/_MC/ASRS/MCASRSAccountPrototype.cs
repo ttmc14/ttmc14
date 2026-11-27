@@ -9,10 +9,4 @@ public sealed class MCASRSAccountPrototype : IPrototype
 
     [IdDataField]
     public string ID { get; private set; } = string.Empty;
-
-    /// <summary>
-    /// Initial supply points for this account. Defaults to the mc.asrs.starting_balance setting.
-    /// </summary>
-    [DataField]
-    public int? StartingBalance;
 }

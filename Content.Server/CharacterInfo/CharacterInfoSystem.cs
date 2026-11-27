@@ -1,4 +1,5 @@
-﻿using Content.Server.Mind;
+﻿using Content.Server.GameTicking;
+using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
 using Content.Shared.CharacterInfo;
@@ -54,6 +55,18 @@ public sealed class CharacterInfoSystem : EntitySystem
 
             // Get briefing
             briefing = _roles.MindGetBriefing(mindId);
+        }
+
+        var round = new GetRoundBriefingEvent(entity, []);
+        RaiseLocalEvent(ref round);
+        if (round.Lines.Count > 0)
+        {
+            if (!string.IsNullOrEmpty(briefing))
+            {
+                round.Lines.Insert(0, briefing);
+            }
+
+            briefing = string.Join("\n", round.Lines);
         }
 
         RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);

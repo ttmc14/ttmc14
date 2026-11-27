@@ -1,4 +1,4 @@
-using Content.Server.GameTicking;
+﻿using Content.Server.GameTicking;
 using Content.Shared.Actions;
 using Content.Server.Popups;
 using Content.Shared._MC.Respawn;
@@ -53,7 +53,9 @@ public sealed class MCRespawnActionSystem : EntitySystem
             return;
 
         var deathDelta = _timing.CurTime - deathTime.Value;
-        var cooldownDelta = _respawnCooldown - deathDelta;
+        var delay = new MCGetRespawnDelayEvent(_respawnCooldown);
+        RaiseLocalEvent(ref delay);
+        var cooldownDelta = delay.Delay - deathDelta;
 
         if (cooldownDelta > TimeSpan.Zero)
         {

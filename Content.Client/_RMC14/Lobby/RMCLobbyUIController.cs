@@ -1,3 +1,4 @@
+using Content.Shared._MC.Xeno.Hive.Join;
 using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared._RMC14.Xenonids.JoinXeno;
 using Robust.Client.UserInterface.Controllers;
@@ -6,16 +7,18 @@ namespace Content.Client._RMC14.Lobby;
 
 public sealed class RMCLobbyUIController : UIController
 {
+    private bool _useMcJoin;
     private JoinXenoWindow? _joinXenoWindow;
 
     public override void Initialize()
     {
+        SubscribeNetworkEvent<MCLobbyLarvaStatusEvent>(OnMcLarvaStatus);
         SubscribeLocalEvent<BurrowedLarvaChangedEvent>(OnBurrowedLarvaChanged);
     }
 
     private void OnBurrowedLarvaChanged(ref BurrowedLarvaChangedEvent ev)
     {
-        if (_joinXenoWindow is not { IsOpen: true })
+        if (_useMcJoin || _joinXenoWindow is not { IsOpen: true })
             return;
 
         RefreshWindow(ev.Larva);
@@ -23,37 +26,55 @@ public sealed class RMCLobbyUIController : UIController
 
     public void OpenJoinXenoWindow()
     {
+        _useMcJoin = true;
+        RefreshWindow(0);
+        EntityManager.EntityNetManager.SendSystemNetworkMessage(new MCRequestLobbyLarvaStatusEvent());
+    }
+
+    private void OnMcLarvaStatus(MCLobbyLarvaStatusEvent message, EntitySessionEventArgs args)
+    {
+        if (_joinXenoWindow is not { IsOpen: true })
+            return;
+
+        _useMcJoin = message.Available.HasValue;
+        if (message.Available is { } available)
+        {
+            RefreshWindow(available);
+            return;
+        }
+
         var system = EntityManager.System<JoinXenoSystem>();
         RefreshWindow(system.ClientBurrowedLarva);
+        system.RequestBurrowedLarvaStatus();
+    }
+
+    private void JoinLarva()
+    {
+        if (_useMcJoin)
+        {
+            EntityManager.EntityNetManager.SendSystemNetworkMessage(new MCJoinLobbyLarvaEvent());
+            return;
+        }
+
+        EntityManager.System<JoinXenoSystem>().ClientJoinLarva();
     }
 
     private void RefreshWindow(int larva)
     {
-        var system = EntityManager.System<JoinXenoSystem>();
-        if (_joinXenoWindow == null || _joinXenoWindow.Disposed)
+        if (_joinXenoWindow is null || _joinXenoWindow.Disposed)
         {
             _joinXenoWindow = new JoinXenoWindow();
             _joinXenoWindow.OnClose += () => _joinXenoWindow = null;
             _joinXenoWindow.LarvaButton.OnPressed += _ =>
             {
-                system.ClientJoinLarva();
+                JoinLarva();
                 _joinXenoWindow.Close();
             };
 
             _joinXenoWindow.OpenCentered();
         }
 
-        if (larva == 0)
-        {
-            _joinXenoWindow.Label.Text = Loc.GetString("rmc-lobby-no-burrowed-larva");
-            _joinXenoWindow.Buttons.Visible = false;
-        }
-        else
-        {
-            _joinXenoWindow.Label.Text = Loc.GetString("rmc-lobby-burrowed-larva-available");
-            _joinXenoWindow.Buttons.Visible = true;
-        }
-
-        system.RequestBurrowedLarvaStatus();
+        _joinXenoWindow.Label.Text = Loc.GetString(larva > 0 ? "rmc-lobby-burrowed-larva-available" : "rmc-lobby-no-burrowed-larva");
+        _joinXenoWindow.Buttons.Visible = larva > 0;
     }
 }

@@ -1,10 +1,8 @@
-﻿using Robust.Shared.GameStates;
+﻿namespace Content.Shared._MC.Xeno.Constructions.Spawner;
 
-namespace Content.Shared._MC.Xeno.Constructions.Spawner;
-
-[RegisterComponent, NetworkedComponent, AutoGenerateComponentState]
+[RegisterComponent]
 public sealed partial class MCXenoStructureSpawnerTargetComponent : Component
 {
-    [ViewVariables, AutoNetworkedField]
+    [ViewVariables]
     public EntityUid Origin;
 }

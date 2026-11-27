@@ -1,0 +1,8 @@
+- type: alert
+  id: MCRoundInfo
+  icons:
+  - sprite: /Textures/_MC/Actions/actions.rsi
+    state: vote
+  name: mc-round-info-title
+  description: mc-round-info-alert-desc
+  clickEvent: !type:MCOpenRoundInfoAlertEvent

@@ -63,38 +63,30 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem : GameRuleSystem<MCRule
 
         _mcRelayed.Relay(() =>
         {
-            var assignedXenos = AssignXenoRoles(entity, profiles, players);
-            var marineProfiles = profiles
-                .Where(p => !assignedXenos.Contains(p.Key))
-                .ToDictionary(p => p.Key, p => p.Value);
-
-            SpawnMarines(marineProfiles);
+            AssignXenoRoles(entity, profiles, players);
+            SpawnMarines(profiles);
 
             entity.Comp.Spawned = true;
             Dirty(entity);
         });
     }
 
-    private IReadOnlyList<NetUserId> AssignXenoRoles(
+    private void AssignXenoRoles(
         Entity<MCRuleXenoMarinesSpawnComponent> entity,
         Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
         List<ICommonSession> players)
     {
         var remainingSlots = CalculateXenoCount(players.Count);
 
-        var uniqueXenos = AssignUniqueXenoRoles(entity.Comp.XenoUnique, profiles, ref remainingSlots);
-        var overflowXenos = AssignOverflowXenoRoles(entity.Comp.XenoOverflow, profiles, ref remainingSlots);
-
-        return [.. uniqueXenos.Union(overflowXenos)];
+        AssignUniqueXenoRoles(entity.Comp.XenoUnique, profiles, ref remainingSlots);
+        AssignOverflowXenoRoles(entity.Comp.XenoOverflow, profiles, remainingSlots);
     }
 
-    private IReadOnlyList<NetUserId> AssignUniqueXenoRoles(
+    private void AssignUniqueXenoRoles(
         IReadOnlyList<MCJobRolePair> uniqueRoles,
         Dictionary<NetUserId, HumanoidCharacterProfile> profiles,
         ref int remainingSlots)
     {
-        var assignedPlayers = new List<NetUserId>();
-
         foreach (var role in uniqueRoles)
         {
             if (remainingSlots <= 0)
@@ -104,11 +96,9 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem : GameRuleSystem<MCRule
             if (id is null)
                 continue;
 
-            assignedPlayers.Add(id.Value);
+            profiles.Remove(id.Value);
             remainingSlots--;
         }
-
-        return assignedPlayers;
     }
 
     private NetUserId? TryAssignSingleXenoRole(
@@ -158,7 +148,7 @@ public sealed partial class MCRuleXenoMarinesSpawnSystem : GameRuleSystem<MCRule
                 continue;
             }
 
-            _gameTicker.MakeJoinGame(session, station, jobId);
+            _gameTicker.MakeJoinGame(session, station, jobId, lateJoin: false);
         }
     }
 

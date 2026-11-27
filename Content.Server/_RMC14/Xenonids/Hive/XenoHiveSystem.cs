@@ -1,4 +1,4 @@
-using Content.Server._RMC14.Announce;
+﻿using Content.Server._RMC14.Announce;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Shared._RMC14.Admin;
@@ -87,6 +87,11 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
         {
             return;
         }
+
+        var gain = new BeforeLateJoinLarvaGainEvent();
+        RaiseLocalEvent(ref gain);
+        if (gain.Cancelled)
+            return;
 
         var time = _timing.CurTime;
         var lateJoinsPer = time < _lateJoinsPerBurrowedLarvaEarlyThreshold

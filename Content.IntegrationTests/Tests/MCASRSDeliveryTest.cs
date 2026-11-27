@@ -24,7 +24,6 @@ public sealed class MCASRSDeliveryTest
     private const string SidePrototypes = """
         - type: MCASRSAccount
           id: TestASRSSecondSide
-          startingBalance: 149
         - type: entity
           parent: MCASRSConsole
           id: TestASRSSecondConsole
@@ -151,6 +150,7 @@ public sealed class MCASRSDeliveryTest
             var peer = entities.SpawnEntity("TestASRSSecondConsole", consoleCoords);
             var crash = entities.SpawnEntity("MCASRSConsoleCrash", consoleCoords);
             ProtoId<MCASRSAccountPrototype> side = "TestASRSSecondSide";
+            var defaultBalance = cargo.GetBalance();
             var user = entities.SpawnEntity("MobHuman", coords);
             var beacon = entities.GetNetEntity(entities.SpawnEntity("MCMarkerTgsCanterbury", coords));
             MCASRSRequest Submit(EntityUid target)
@@ -168,8 +168,8 @@ public sealed class MCASRSDeliveryTest
             var first = Submit(console);
             var second = Submit(console);
             Assert.That(first.Id, Is.Not.EqualTo(second.Id));
-            Assert.That(cargo.GetBalance(side), Is.EqualTo(149));
-            Assert.That(cargo.GetBalance(), Is.EqualTo(server.CfgMan.GetCVar(MCConfigVars.AsrsStartingBalance)));
+            Assert.That(cargo.GetBalance(side), Is.Zero);
+            Assert.That(cargo.GetBalance(), Is.EqualTo(defaultBalance));
 
             cargo.SetBalance(first.TotalCost, side);
             entities.EventBus.RaiseLocalEvent(console, new MCASRSConsoleApproveAllMessage { Actor = user });

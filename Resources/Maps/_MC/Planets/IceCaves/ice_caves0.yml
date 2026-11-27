@@ -20446,7 +20446,7 @@ entities:
     - type: Transform
       pos: 44.57912,81.53894
       parent: 1
-- proto: CMDropshipDestination
+- proto: MCDropshipDestination
   entities:
   - uid: 4148
     components:
