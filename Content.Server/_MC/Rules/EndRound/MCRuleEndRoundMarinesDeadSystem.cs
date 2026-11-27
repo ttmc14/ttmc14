@@ -1,4 +1,5 @@
 ﻿using Content.Server._MC.Rules.Common;
+using Content.Shared._MC.Rules.Common;
 using Content.Server.GameTicking.Rules;
 using Content.Shared._MC.Living;
 using Content.Shared._MC.Rules.EndRound;
@@ -20,6 +21,7 @@ public sealed class MCRuleEndRoundMarinesDeadSystem : GameRuleSystem<MCRuleEndRo
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MCRuleEndRoundMarinesDeadComponent, MCCrashLandedEvent>(OnCrashLanded);
         SubscribeLocalEvent<MarineComponent, MobStateChangedEvent>(OnMobStateChanged);
         SubscribeLocalEvent<MarineComponent, ComponentRemove>(OnCompRemove);
     }
@@ -32,6 +34,11 @@ public sealed class MCRuleEndRoundMarinesDeadSystem : GameRuleSystem<MCRuleEndRo
     private void OnCompRemove<T>(Entity<T> ent, ref ComponentRemove args) where T : IComponent?
     {
         CheckRoundShouldEnd();
+    }
+
+    private void OnCrashLanded(Entity<MCRuleEndRoundMarinesDeadComponent> entity, ref MCCrashLandedEvent args)
+    {
+        CheckRoundShouldEnd(entity);
     }
 
     private void CheckRoundShouldEnd()
@@ -48,7 +55,7 @@ public sealed class MCRuleEndRoundMarinesDeadSystem : GameRuleSystem<MCRuleEndRo
 
     private void CheckRoundShouldEnd(Entity<MCRuleEndRoundMarinesDeadComponent> entity)
     {
-        if (!_mcRuleXenoMarinesSpawn.Spawned)
+        if (!_mcRuleXenoMarinesSpawn.Spawned || TryComp<MCRuleCrashLandingComponent>(entity, out var landing) && !landing.Landed)
             return;
 
         var alive = _mcLiving.Get<MarineComponent>(uid => !HasComp<ThunderdomeMapComponent>(Transform(uid).MapUid));

@@ -50,6 +50,7 @@
   name: Landing Zone
   components:
   - type: Area
+    paradropping: true
     linkedLz: dropship_lz2
     minimapColor: '#EBE5E5D0'
   - type: Sprite
@@ -61,6 +62,7 @@
   name: Landing Zone
   components:
   - type: Area
+    paradropping: true
     linkedLz: dropship_lz1
     minimapColor: '#EBE5E5D0'
   - type: Sprite
@@ -124,6 +126,7 @@
   - type: Sprite
     state: south
   - type: Area
+    paradropping: true
     weatherEnabled: true
     minimapColor: '#704242'
 
@@ -135,6 +138,7 @@
   - type: Sprite
     state: north
   - type: Area
+    paradropping: true
     weatherEnabled: true
     minimapColor: '#704242'
 
@@ -156,6 +160,7 @@
   - type: Sprite
     state: green
   - type: Area
+    paradropping: true
     weatherEnabled: true
     minimapColor: '#0D5410'
 
@@ -187,6 +192,7 @@
   - type: Sprite
     state: dk_yellow
   - type: Area
+    paradropping: true
     minimapColor: '#0D5410'
 
 - type: entity
@@ -229,6 +235,7 @@
   - type: Sprite
     state: blueold
   - type: Area
+    paradropping: true
     weatherEnabled: false
     minimapColor: '#704242'
 

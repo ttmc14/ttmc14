@@ -20,8 +20,10 @@ public sealed class CMAutomatedVendorSystem : SharedCMAutomatedVendorSystem
 
         foreach (var bui in ui.ClientOpenInterfaces.Values)
         {
-            if (bui is CMAutomatedVendorBui vendorUi)
+            if (bui is IAutomatedVendorUI vendorUi)
+            {
                 vendorUi.Refresh();
+            }
         }
     }
 }

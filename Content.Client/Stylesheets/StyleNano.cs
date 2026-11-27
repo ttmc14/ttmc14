@@ -675,6 +675,11 @@ namespace Content.Client.Stylesheets
                     {
                         new StyleProperty(PanelContainer.StylePropertyPanel, windowHeader),
                     }),
+                Child().Parent(Element<DefaultWindow>().Class("warheadWindow"))
+                    .Child(Element<PanelContainer>().Class(DefaultWindow.StyleClassWindowPanel))
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat { BackgroundColor = Color.FromHex("#121214") }),
+                Element<PanelContainer>().Class("warheadHeader")
+                    .Prop(PanelContainer.StylePropertyPanel, new StyleBoxFlat { BackgroundColor = Color.FromHex("#121214") }),
                 // Alert (red) window header.
                 new StyleRule(
                     new SelectorElement(typeof(PanelContainer), new[] {"windowHeaderAlert"}, null, null),
@@ -1690,6 +1695,12 @@ namespace Content.Client.Stylesheets
                 Element<Button>().Class("ButtonColorRed").Pseudo(ContainerButton.StylePseudoClassHover)
                     .Prop(Control.StylePropertyModulateSelf, ButtonColorHoveredRed),
                 // ---
+
+                Element<Button>().Class("warheadTimer").Pseudo(ContainerButton.StylePseudoClassDisabled)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorGoodDisabled),
+
+                Element<Button>().Class("warheadTimer").Pseudo(ContainerButton.StylePseudoClassPressed)
+                    .Prop(Control.StylePropertyModulateSelf, ButtonColorDefaultRed),
 
                 // Green Button ---
                 Element<Button>().Class("ButtonColorGreen")

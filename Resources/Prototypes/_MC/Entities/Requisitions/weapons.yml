@@ -86,13 +86,13 @@
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/Railgun/base.rsi
           state: icon
-        cost: 30
+        cost: 50
         entities:
         - MCMagazineRifleRailgun
       - icon:
           sprite: _MC/Objects/Weapons/Guns/Ammunition/Magazines/Railgun/hvap.rsi
           state: icon
-        cost: 30
+        cost: 80
         entities:
         - MCMagazineRifleRailgunHvap
       # FL-84

@@ -12,11 +12,12 @@
     - state: surplus_clothes
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Paint
+    - name: mc-vendor-category-paint
       entries:
       - id: MCCustomizationPaint
-    - name: Standard
+    - name: mc-vendor-category-standard
       entries:
       - id: MCJumpsuitMarineSquad
       - id: MCJumpsuitMarineJaeger
@@ -25,14 +26,14 @@
       - id: MCClothingHandsMarineCombatFingerless
       - id: MCBootsBlackFilled
       - id: MCBootsBrownFilled
-    - name: Webbing
+    - name: mc-vendor-category-webbing
       entries:
       - id: MCWebbingBlackVest
       - id: MCWebbingBrownVest
       - id: MCWebbingWhiteVest
       - id: MCWebbingBrown
       - id: MCWebbingHolster
-    - name: Belts
+    - name: mc-vendor-category-belts
       entries:
       - id: MCClothingBeltMarine
       - id: MCClothingBeltShotgun
@@ -41,7 +42,7 @@
       - id: MCBeltMedicalHypospray
       - id: MCClothingBeltUtility
       - id: MCClothingBeltToolsFill
-    - name: Pouches
+    - name: mc-vendor-category-pouches
       entries:
       - id: MCPouchSidearm
       - id: MCPouchMagazineLarge
@@ -64,11 +65,11 @@
       # TE powerpack
       # medium general pouch
       # protein pack pouch
-    - name: Backpacks
+    - name: mc-vendor-category-backpacks
       entries:
       - id: MCBackpackMarineStandard
       - id: MCSatchelMarineStandard
-    - name: Capes
+    - name: mc-vendor-category-capes
       entries:
       - id: MCArmorModuleCustomizationCapeBack
       - id: MCArmorModuleCustomizationCapeCover1
@@ -109,7 +110,7 @@
       - id: MCArmorModuleCustomizationCapeStar
       - id: MCArmorModuleCustomizationCapeStriped
       - id: MCArmorModuleCustomizationCapeStripedHide
-    - name: Instruments
+    - name: mc-vendor-category-instruments
       entries:
       - id: SynthesizerInstrument
       - id: BanjoInstrument

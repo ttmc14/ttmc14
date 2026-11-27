@@ -7,6 +7,8 @@ namespace Content.Shared._MC.Xeno.Abilities.Boiler.Bombard.Events.DoAfter;
 [Serializable, NetSerializable]
 public sealed partial class MCXenoBombardLaunchDoAfter : MCActionSimpleDoAfterEvent
 {
+    public MapId TargetMap;
+
     public readonly NetCoordinates TargetCoordinates;
     public readonly NetEntity? TargetUid;
 

@@ -1,4 +1,5 @@
 ﻿using Content.Shared._MC.Weapon.Laser.Components;
+using Content.Shared._MC.Weapon.Laser.Events;
 using Content.Shared.Weapons.Ranged.Systems;
 using Robust.Shared.Containers;
 
@@ -26,6 +27,9 @@ public sealed partial class MCWeaponLaserSystem
     {
         if (args.Container.ID != entity.Comp.ContainerId)
             return;
+
+        var ev = new MCLaserCellRemovedEvent(entity.Owner);
+        RaiseLocalEvent(Transform(entity).ParentUid, ref ev);
 
         UpdateAppearance(entity);
     }

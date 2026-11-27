@@ -1,68 +1,54 @@
-﻿<ui1:MCNukeWindow xmlns="https://spacestation14.io"
-                  xmlns:ui1="clr-namespace:Content.Client._MC.Nuke.Bomb.UI"
-                  xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
-                  MinSize="400 120"
-                 Title="Nuke">
-    <BoxContainer Orientation="Vertical" HorizontalExpand="True">
-
-        <BoxContainer Orientation="Vertical" HorizontalExpand="True" Margin="4">
-            <PanelContainer>
-                <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat
-                        BorderColor="#3A3A3A"
-                        BorderThickness="1"
-                        BackgroundColor="#1A1A1A" />
-                </PanelContainer.PanelOverride>
-
-                <BoxContainer Orientation="Vertical" Margin="8">
-                    <Label Text="Status display" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 16" />
-
-                    <GridContainer Columns="2" HSeparationOverride="4">
-
-                        <Label Text="Time left:" />
-                        <ProgressBar Name="TimeLeftProgressBar"
-                                     Access="Public"
-                                     HorizontalExpand="True">
-                            <Label Name="TimeLeftLabel" Access="Public" Align="Right" Margin="0 0 5 0" />
-                        </ProgressBar>
-
-                        <Label Text="Timer:" />
-                        <Button Text="DEACTIVATED" Name="TimerButton" Disabled="True" Access="Public" MaxWidth="180"  HorizontalAlignment="Left" />
-
-                    </GridContainer>
-                </BoxContainer>
-            </PanelContainer>
-        </BoxContainer>
-
-        <BoxContainer Name="SettingsBoxContainer" Orientation="Vertical" Access="Public" Margin="4">
-            <PanelContainer>
-                <PanelContainer.PanelOverride>
-                    <graphics:StyleBoxFlat
-                        BorderColor="#3A3A3A"
-                        BorderThickness="1"
-                        BackgroundColor="#1A1A1A" />
-                </PanelContainer.PanelOverride>
-
-                <BoxContainer Orientation="Vertical" Margin="8">
-                    <Label Text="Settings" StyleClasses="LabelHeading" HorizontalAlignment="Center" Margin="0 0 0 16" />
-
-                    <GridContainer Columns="2" HSeparationOverride="4">
-
-                        <Label Text="Time:" />
-                        <Label Text="N/D" Name="TimeLabel" Access="Public" />
-
-                        <Label Text="Safety:" />
-                        <Button Text="Enable" Name="SafetyButton" Access="Public" MinWidth="120" />
-
-                        <Label Text="Anchor:" />
-                        <Button Text="Engaged" Name="AnchorButton" Access="Public" MinWidth="120" />
-
-                    </GridContainer>
-
-                </BoxContainer>
-
-            </PanelContainer>
-        </BoxContainer>
-
+<ui:MCNukeWindow xmlns="https://spacestation14.io"
+                 xmlns:ui="clr-namespace:Content.Client._MC.Nuke.Bomb.UI"
+                 xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+                 StyleClasses="warheadWindow" HeaderClass="warheadHeader" TitleClass="windowTitleAlert" MinWidth="552" Title="{Loc mc-nuke-title}">
+    <BoxContainer Orientation="Vertical" SeparationOverride="6">
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#121214" BorderColor="#83233B" BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <Control Margin="14 10" MinHeight="28">
+                <ProgressBar Name="TimeLeftProgressBar" MinValue="0" MaxValue="1">
+                    <ProgressBar.BackgroundStyleBoxOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#36080F" />
+                    </ProgressBar.BackgroundStyleBoxOverride>
+                    <ProgressBar.ForegroundStyleBoxOverride>
+                        <graphics:StyleBoxFlat BackgroundColor="#B00024" />
+                    </ProgressBar.ForegroundStyleBoxOverride>
+                </ProgressBar>
+                <Label Name="TimeLeftLabel" FontColorOverride="White" Margin="12 0" VAlign="Center" StyleClasses="LabelHeading" />
+            </Control>
+        </PanelContainer>
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#121214" BorderColor="#286037" BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Margin="16 12">
+                <Label Text="{Loc mc-nuke-delay}" HorizontalExpand="True" />
+                <BoxContainer Name="TimeControls" SeparationOverride="3" />
+            </BoxContainer>
+        </PanelContainer>
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#121214" BorderColor="#286037" BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <GridContainer Columns="3" Margin="16 12" HSeparationOverride="9" VSeparationOverride="5">
+                <Label Name="SafetyState" SetWidth="100" />
+                <Label Text="{Loc mc-nuke-safety}" HorizontalExpand="True" />
+                <Button Name="SafetyButton" Access="Public" SetWidth="224" StyleClasses="ButtonAccept" />
+                <Label Name="AnchorState" SetWidth="100" />
+                <Label Text="{Loc mc-nuke-anchor}" />
+                <Button Name="AnchorButton" Access="Public" SetWidth="224" StyleClasses="ButtonAccept" />
+            </GridContainer>
+        </PanelContainer>
+        <Label Text="{Loc mc-nuke-disks}" StyleClasses="LabelHeading" ModulateSelfOverride="#D3AE6B" />
+        <PanelContainer>
+            <PanelContainer.PanelOverride>
+                <graphics:StyleBoxFlat BackgroundColor="#121214" BorderColor="#286037" BorderThickness="2" />
+            </PanelContainer.PanelOverride>
+            <BoxContainer Name="Disks" Orientation="Vertical" Margin="16 12" SeparationOverride="5" />
+        </PanelContainer>
+        <TextureRect TexturePath="/Textures/_MC/Interface/warhead_stripes.png" CanShrink="True" SetHeight="18" Stretch="Scale" />
+        <Button Name="TimerButton" Access="Public" StyleClasses="ButtonColorRed" Disabled="True" />
     </BoxContainer>
-</ui1:MCNukeWindow>
+</ui:MCNukeWindow>

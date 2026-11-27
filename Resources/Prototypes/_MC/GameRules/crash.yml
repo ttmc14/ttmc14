@@ -3,7 +3,8 @@
   categories: [ HideSpawnMenu ]
   components:
   - type: GameRule
-    minPlayers: 1
+    minPlayers: 2
+  - type: MCRuleCrashLanding
   - type: MCRuleCrashShuttle
     time: 600
     pointWhitelist:
@@ -41,4 +42,5 @@
   - type: MCRuleEndRoundHiveCollapse
   - type: MCRuleEndRoundMarinesDead
   - type: MCRuleEndRoundNukeExploded
+    withoutEvacuationId: NukeMinorVictory
   - type: MCRuleEndRoundShuttleEvacuation

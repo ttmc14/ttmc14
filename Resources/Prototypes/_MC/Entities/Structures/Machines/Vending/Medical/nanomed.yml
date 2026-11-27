@@ -17,8 +17,9 @@
     - state: emissive
       map: [ "enum.VendingMachineVisualLayers.BaseUnshaded" ]
   - type: CMAutomatedVendor
+    categoryTabs: true
     sections:
-    - name: Auto Injector
+    - name: mc-vendor-category-auto-injector
       entries:
       - id: MCAutoInjectorBicaridine
         amount: 1
@@ -38,13 +39,13 @@
         amount: 1
       - id: MCAutoInjectorDermaline
         amount: 1
-    - name: Kits
+    - name: mc-vendor-category-kits
       entries:
       - id: MCAidKitOxygenFilled
         amount: 1
       - id: MCAidKitFirstFilled
         amount: 1
-    - name: Heal Pack
+    - name: mc-vendor-category-heal-pack
       entries:
       - id: MCHealingGauze
         amount: 2
@@ -52,7 +53,7 @@
         amount: 2
       - id: MCHealingSplint
         amount: 1
-    - name: Misc
+    - name: mc-vendor-category-misc
       entries:
       - id: MCHealthAnalyzer
         amount: 1

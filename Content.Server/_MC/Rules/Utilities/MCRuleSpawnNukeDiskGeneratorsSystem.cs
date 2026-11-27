@@ -1,4 +1,4 @@
-﻿using Content.Server.GameTicking;
+using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.RoundEnd;
 using Content.Shared._MC.Nuke.Generator.Components;
@@ -36,7 +36,7 @@ public sealed class MCRuleSpawnNukeDiskGeneratorsSystem : GameRuleSystem<MCRuleS
         if (component.Spawned)
             return;
 
-        args.AddLine("Internal server error. Unable to create all nuclear disk generators; the mode is partially or completely unplayable. The round has ended prematurely. Please report this to the developers; the error has been logged to the console and saved.");
+        args.AddLine(Loc.GetString("mc-nuke-generator-spawn-failed"));
     }
 
     private void OnRulePlayerSpawning(RulePlayerSpawningEvent ev)
@@ -56,25 +56,27 @@ public sealed class MCRuleSpawnNukeDiskGeneratorsSystem : GameRuleSystem<MCRuleS
 
     private void RulePlayerSpawning(Entity<MCRuleSpawnNukeDiskGeneratorsComponent> entity)
     {
-        var coordinates = new List<MapCoordinates>();
+        if (entity.Comp.Spawned || TerminatingOrDeleted(entity))
+            return;
+
+        var locations = new HashSet<MapCoordinates>();
 
         var query = EntityQueryEnumerator<MCNukeDiskGeneratorSpawnerComponent>();
         while (query.MoveNext(out var uid, out _))
         {
-            coordinates.Add(_transform.GetMapCoordinates(uid));
+            locations.Add(_transform.GetMapCoordinates(uid));
         }
 
+        if (locations.Count < entity.Comp.EntityIds.Count)
+        {
+            Log.Error($"Found {locations.Count} distinct disk generator locations for {entity.Comp.EntityIds.Count} generators.");
+            _roundEnd.EndRound();
+            return;
+        }
+
+        var coordinates = new List<MapCoordinates>(locations);
         foreach (var protoId in entity.Comp.EntityIds)
         {
-            if (coordinates.Count == 0)
-            {
-                Log.Error($"Failed to spawn {protoId}, no available coordinates. Ensure that ${nameof(MCNukeDiskGeneratorSpawnerComponent)} exists on the map.");
-
-                _roundEnd.EndRound();
-
-                break;
-            }
-
             Spawn(protoId, _random.PickAndTake(coordinates));
         }
 

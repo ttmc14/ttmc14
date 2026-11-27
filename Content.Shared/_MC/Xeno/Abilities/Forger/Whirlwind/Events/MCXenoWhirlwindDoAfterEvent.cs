@@ -7,6 +7,8 @@ namespace Content.Shared._MC.Xeno.Abilities.Forger.Whirlwind.Events;
 [Serializable, NetSerializable]
 public sealed partial class MCXenoWhirlwindDoAfterEvent : MCActionSimpleDoAfterEvent
 {
+    public MapId TargetMap;
+
     [DataField]
     public NetCoordinates Coordinates;
 

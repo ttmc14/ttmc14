@@ -40,3 +40,6 @@ ui-tactical-map-follow-player-inactive = Centre
 ui-tactical-map-cooldown-seconds = {$seconds}
 
 ui-tactical-map-tunnel-info = Tunnel: {$name}
+ui-tactical-map-z-level = Z level { $depth }
+ui-tactical-map-layer-down = View the layer below
+ui-tactical-map-layer-up = View the layer above

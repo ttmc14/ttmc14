@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using System.Numerics;
 using Content.Shared._MC.Xeno.Abilities.Forger.Whirlwind.Components;
+using Content.Shared._MC.ZLevels.Weapons;
 using Content.Shared._RMC14.Atmos;
 using Content.Shared._RMC14.Xenonids.Construction;
 using Content.Shared.Damage;
@@ -24,6 +25,7 @@ public sealed partial class MCXenoWhirlwindProjectileSystem : MCXenoAbilitySyste
 
     private static readonly ProtoId<TagPrototype> WallTag = "Wall";
 
+    [Dependency] private readonly MCZLevelShootingSystem _zShooting = null!;
     [Dependency] private readonly SharedTransformSystem _transform = null!;
     [Dependency] private readonly SharedPhysicsSystem _physics = null!;
     [Dependency] private readonly SharedMapSystem _map = null!;
@@ -39,14 +41,18 @@ public sealed partial class MCXenoWhirlwindProjectileSystem : MCXenoAbilitySyste
 
     public EntityUid Launch(EntProtoId<MCXenoWhirlwindProjectileComponent> prototype, EntityUid creator, EntityCoordinates target)
     {
-        var transform = Transform(creator);
-        var targetMap = _transform.ToMapCoordinates(target, logError: false);
-
-        if (targetMap.MapId != transform.MapID)
+        if (!_zShooting.TryGetAbilityShotCoordinates(creator, target, out var start, out var end))
             return EntityUid.Invalid;
 
-        var origin = transform.Coordinates;
-        var offset = _transform.ToCoordinates(origin.EntityId, targetMap).Position - origin.Position;
+        return Launch(prototype, creator, start, end);
+    }
+
+    /// <summary>Launches the whirlwind on the resolved firing plane.</summary>
+    public EntityUid Launch(EntProtoId<MCXenoWhirlwindProjectileComponent> prototype, EntityUid creator, MapCoordinates start, MapCoordinates end)
+    {
+        var transform = Transform(creator);
+        var origin = start.MapId == transform.MapID ? transform.Coordinates : _transform.ToCoordinates(start);
+        var offset = _transform.ToCoordinates(origin.EntityId, end).Position - origin.Position;
         var direction = offset == Vector2.Zero ? transform.LocalRotation.ToWorldVec() : Vector2.Normalize(offset);
 
         var uid = Spawn(prototype, origin);

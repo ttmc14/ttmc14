@@ -1,65 +1,61 @@
 - type: entity
-  parent: MCClothingBelt
+  parent:
+  - MCClothingBelt
+  - RMCScabbardBase
   id: MCClothingBeltSH34
   name: M276 pattern SH-34 shotgun holster rig
   description: A purpose built belt-holster assembly that holds a SH-34 shotgun and one shell box or 2 handfuls.
   components:
-  - type: Tag
-    tags:
-    - MCClothingBeltSH34
-  - type: Appearance
   - type: Sprite
     sprite: _MC/Clothing/Belt/Holsters/sh34.rsi
-    layers:
-    - state: icon
-    - state: icon-full
-      visible: false
   - type: Clothing
     sprite: _MC/Clothing/Belt/Holsters/sh34.rsi
   - type: Storage
     maxItemSize: Ginormous
     grid:
-    - 0,0,11,3 # 12 slots
+    - 0,0,9,3 # 10 slots
     whitelist:
       tags:
-      - MCWeaponShotgunSH34
       - MCHandful
   - type: FixedItemSizeStorage
-  - type: LimitedStorage
-    limits:
-    - popup: mc-storage-limit-one-gun
-      count: 1
-      whitelist:
-        tags:
-        - MCWeaponShotgunSH34
-    - popup: mc-storage-limit-max-ammo
-      count: 10
-      whitelist:
-        tags:
-        - MCHandful
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponShotgunSH34
   - type: ItemMapper
     mapLayers:
       icon-full:
-        minCount: 1
         whitelist:
           tags:
           - MCWeaponShotgunSH34
   - type: CMHolster
-    whitelist:
-      tags:
-      - MCWeaponShotgunSH34
   - type: RMCMagneticItemReceiver
-
-- type: Tag
-  id: MCClothingBeltSH34
 
 - type: entity
   parent: MCClothingBeltSH34
   id: MCClothingBeltSH34Filled
   suffix: Filled
   components:
+  - type: ItemSlots
+    slots:
+      item:
+        name: Weapon
+        startingItem: MCWeaponShotgunSH34
+        insertVerbText: sheath-insert-verb
+        ejectVerbText: sheath-eject-verb
+        insertSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        ejectSound: /Audio/_RMC14/Weapons/Guns/gun_rifle_draw.ogg
+        whitelist:
+          tags:
+          - MCWeaponShotgunSH34
   - type: StorageFill
     contents:
-    - id: MCWeaponShotgunSH34
     - id: MCCartridgeShotgunBuckshot
       amount: 10
