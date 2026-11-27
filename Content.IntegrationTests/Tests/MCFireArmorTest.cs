@@ -15,8 +15,12 @@ public sealed class MCFireArmorTest
     [Test]
     public async Task TileFireUsesBarricadeArmorOnIgnition()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { NoLoadTestPrototypes = true });
-        var map = await pair.CreateTestMap();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Map = "MCTalos",
+            NoLoadTestPrototypes = true,
+        });
+        var map = await pair.CreateTestMap(tile: "CMFloorPlating");
         var server = pair.Server;
         var entities = server.EntMan;
 
@@ -43,8 +47,12 @@ public sealed class MCFireArmorTest
     [Test]
     public async Task BurningUsesInnateAndWornFireArmor()
     {
-        await using var pair = await PoolManager.GetServerClient(new PoolSettings { NoLoadTestPrototypes = true });
-        var map = await pair.CreateTestMap();
+        await using var pair = await PoolManager.GetServerClient(new PoolSettings
+        {
+            Map = "MCTalos",
+            NoLoadTestPrototypes = true,
+        });
+        var map = await pair.CreateTestMap(tile: "CMFloorPlating");
         var server = pair.Server;
         var entities = server.EntMan;
 
@@ -76,8 +84,9 @@ public sealed class MCFireArmorTest
 
             server.System<FlammableSystem>().Update(1f);
 
-            Assert.That(entities.GetComponent<DamageableComponent>(control).TotalDamage.Float(), Is.EqualTo(15f));
-            Assert.That(entities.GetComponent<DamageableComponent>(barricade).TotalDamage.Double(), Is.InRange(2.99, 3.0));
+            Assert.That(entities.GetComponent<DamageableComponent>(control).TotalDamage.Float(), Is.EqualTo(22.5f));
+            var armoredDamage = entities.GetComponent<DamageableComponent>(barricade).TotalDamage;
+            Assert.That(armoredDamage.Double(), Is.InRange(4.49, 4.5));
             Assert.That(entities.GetComponent<DamageableComponent>(wearer).TotalDamage.Float(), Is.Zero);
         });
 
