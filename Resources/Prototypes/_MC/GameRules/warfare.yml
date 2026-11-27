@@ -60,8 +60,8 @@
           MCXenoQueen: 6
           MCXenoKing: 12
     psypoints:
-      Strategic: 800
-      Tactical: 400
+      Strategic: 1800
+      Tactical: 600
   # round end
   - type: MCRuleEndRoundElimination
     delay: 5

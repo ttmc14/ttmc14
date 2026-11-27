@@ -8,4 +8,4 @@ mc-warfare-reserve-xenos = Xeno reserves remaining — { $count }
 mc-warfare-Draw = Both sides were wiped out. The battle ends in a draw.
 mc-warfare-MajorMarineVictory = [color=green]The hive has fallen. The marines win![/color]
 mc-warfare-MajorXenoVictory = [color=purple]All marines are dead. The xenos win![/color]
-mc-warfare-MinorXenoVictory = [color=purple]The marines evacuated. The hive holds the planet.[/color]
+mc-warfare-MinorXenoVictory = [color=purple]The hive holds the planet. Minor xenomorph victory.[/color]

@@ -8,4 +8,4 @@ mc-warfare-reserve-xenos = Ксеносов в резерве — { $count }
 mc-warfare-Draw = Обе стороны погибли. Ничья.
 mc-warfare-MajorMarineVictory = [color=green]Улей пал. Морпехи победили![/color]
 mc-warfare-MajorXenoVictory = [color=purple]Все морпехи погибли. Ксеносы победили![/color]
-mc-warfare-MinorXenoVictory = [color=purple]Морпехи эвакуировались. Планета осталась за ульем.[/color]
+mc-warfare-MinorXenoVictory = [color=purple]Планета осталась за ульем. Малая победа ксеноморфов.[/color]

@@ -1,5 +1,7 @@
 - type: gamePreset
   id: MCCrash
+  minPlayers: 1
+  lobbyVote: true
   roundInfoLayout: Standard
   alias:
   - mccrash
@@ -11,6 +13,8 @@
 
 - type: gamePreset
   id: MCWarfare
+  minPlayers: 1
+  lobbyVote: true
   roundInfoLayout: Warfare
   alias:
   - mcwarfare
@@ -23,6 +27,8 @@
 
 - type: gamePreset
   id: MCDistressSignal
+  minPlayers: 25
+  lobbyVote: true
   roundInfoLayout: Standard
   alias:
   - mcdistresssignal

@@ -34,6 +34,12 @@ namespace Content.Server.GameTicking.Presets
         [DataField("showInVote")]
         public bool ShowInVote;
 
+        /// <summary>
+        /// Include this preset in the automatic pre-round lobby vote.
+        /// </summary>
+        [DataField]
+        public bool LobbyVote;
+
         [DataField("minPlayers")]
         public int? MinPlayers;
 

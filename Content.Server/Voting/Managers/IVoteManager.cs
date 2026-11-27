@@ -54,6 +54,11 @@ namespace Content.Server.Voting.Managers
         void CreateStandardVote(ICommonSession? initiator, StandardVoteType voteType, string[]? args = null);
 
         /// <summary>
+        /// Starts the automatic lobby vote when at least two eligible presets are available.
+        /// </summary>
+        IVoteHandle? TryCreateLobbyPresetVote();
+
+        /// <summary>
         /// Create a non-standard vote with special parameters.
         /// </summary>
         /// <param name="options">The options specifying the vote's behavior.</param>
