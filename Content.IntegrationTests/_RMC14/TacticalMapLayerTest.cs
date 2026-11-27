@@ -3,6 +3,7 @@ using Content.Client._RMC14.TacticalMap;
 using Content.Server._CE.ZLevels.Core;
 using Content.Shared._RMC14.Areas;
 using Content.Shared._RMC14.TacticalMap;
+using Content.Shared.Stunnable;
 using Robust.Client.UserInterface;
 using Robust.Shared.GameObjects;
 using Robust.Shared.Input;
@@ -63,7 +64,12 @@ public sealed class TacticalMapLayerTest
         });
 
         await pair.RunTicksSync(5);
-        await server.WaitAssertion(() => server.System<SharedUserInterfaceSystem>().OpenUi(user, key, user));
+        await server.WaitAssertion(() =>
+        {
+            server.System<SharedUserInterfaceSystem>().OpenUi(user, key, user);
+            // Temporarily block the first layer request while the map window opens.
+            entities.EnsureComponent<StunnedComponent>(user);
+        });
         await pair.RunTicksSync(10);
         async Task Click(Control control)
         {
@@ -82,7 +88,11 @@ public sealed class TacticalMapLayerTest
             Assert.That(wrapper.LayerControls.Visible, Is.True);
             Assert.That(wrapper.LayerDown.Disabled, Is.True);
             Assert.That(wrapper.LayerUp.Disabled, Is.False);
+            Assert.That(wrapper.Canvas.Drawing, Is.False);
         });
+        await server.WaitAssertion(() => entities.RemoveComponent<StunnedComponent>(user));
+        await pair.RunSeconds(2);
+        await client.WaitAssertion(() => Assert.That(wrapper.Canvas.Drawing, Is.True));
         await Click(wrapper.LayerUp);
         await pair.RunTicksSync(5);
         await client.WaitAssertion(() =>

@@ -1,8 +1,10 @@
 using System.Linq;
 using System.Numerics;
+using System.Threading;
 using Content.Client._RMC14.UserInterface;
 using Content.Shared._RMC14.TacticalMap;
 using Robust.Client.UserInterface.Controls;
+using Timer = Robust.Shared.Timing.Timer;
 
 namespace Content.Client._RMC14.TacticalMap;
 
@@ -16,6 +18,7 @@ public abstract class TacticalMapBui(EntityUid owner, Enum uiKey) : RMCPopOutBui
     private int _selectedIndex;
     private readonly Dictionary<NetEntity, (List<TacticalMapLine> Lines, Dictionary<Vector2i, string> Labels)> _drafts = [];
     private TacticalMapLayerDataMsg? _canvasSource;
+    private CancellationTokenSource? _layerRequest;
     private string? _currentMapName;
 
     protected override void Open()
@@ -100,14 +103,26 @@ public abstract class TacticalMapBui(EntityUid owner, Enum uiKey) : RMCPopOutBui
             _drafts[source.Map] = ([.. canvas.Lines], new(canvas.TacticalLabels));
         }
 
+        StopLayerRequest();
         SelectedMap = map;
         _canvasSource = null;
         wrapper.SetLayer(map);
         wrapper.Canvas.Drawing = false;
         if (map is { } selected)
         {
-            SendMessage(new TacticalMapSelectLayerMsg(selected));
+            void RequestLayer() => SendMessage(new TacticalMapSelectLayerMsg(selected));
+
+            _layerRequest = new CancellationTokenSource();
+            Timer.SpawnRepeating(TimeSpan.FromSeconds(1), RequestLayer, _layerRequest.Token);
+            RequestLayer();
         }
+    }
+
+    private void StopLayerRequest()
+    {
+        _layerRequest?.Cancel();
+        _layerRequest?.Dispose();
+        _layerRequest = null;
     }
 
     private static bool LabelsEqual(Dictionary<Vector2i, string> labels, Dictionary<Vector2i, string> other)
@@ -118,6 +133,7 @@ public abstract class TacticalMapBui(EntityUid owner, Enum uiKey) : RMCPopOutBui
         if (Window is null || message is not TacticalMapLayerDataMsg data || data.Map != SelectedMap)
             return;
 
+        StopLayerRequest();
         var wrapper = Window.Wrapper;
         wrapper.UpdateBlips(data.Blips.Values.ToArray(), data.Blips.Keys.ToArray());
         wrapper.Map.Lines.Clear();
@@ -143,6 +159,7 @@ public abstract class TacticalMapBui(EntityUid owner, Enum uiKey) : RMCPopOutBui
     {
         if (disposing && Window is not null)
         {
+            StopLayerRequest();
             try
             {
                 var settingsManager = IoCManager.Resolve<TacticalMapSettingsManager>();
