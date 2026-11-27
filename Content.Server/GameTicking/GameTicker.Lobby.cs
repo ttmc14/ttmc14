@@ -1,6 +1,4 @@
-using System.Linq;
-using Content.Server._MC.Rules.Warfare;
-using Content.Shared._MC.Rules.Warfare;
+﻿using System.Linq;
 using Content.Shared.GameTicking;
 using Content.Server.Station.Components;
 using Robust.Shared.Network;
@@ -39,17 +37,30 @@ namespace Content.Server.GameTicking
 
         public void UpdateInfoText()
         {
+            var briefing = GetLobbyBriefing();
             var recipients = Filter.Empty().AddPlayers(_playerManager.NetworkedSessions);
-            if (RunLevel == GameRunLevel.InRound && IsGameRuleActive<MCRuleWarfareComponent>())
+            if (briefing.Count > 0)
             {
                 recipients = Filter.Empty().AddWhere(session =>
                     _playerGameStatuses.GetValueOrDefault(session.UserId) != PlayerGameStatus.JoinedGame);
             }
 
-            RaiseNetworkEvent(GetInfoMsg(), recipients);
+            RaiseNetworkEvent(new TickerLobbyInfoEvent(GetInfoText(briefing)), recipients);
+            RaiseLocalEvent(new RoundInfoUpdatedEvent());
         }
 
-        private string GetInfoText()
+        private List<string> GetLobbyBriefing()
+        {
+            var briefing = new GetRoundBriefingEvent(null, []);
+            if (RunLevel == GameRunLevel.InRound)
+            {
+                RaiseLocalEvent(ref briefing);
+            }
+
+            return briefing.Lines;
+        }
+
+        private string GetInfoText(List<string> briefing)
         {
             var preset = CurrentPreset ?? Preset;
             if (preset == null)
@@ -85,9 +96,9 @@ namespace Content.Server.GameTicking
                 Loc.GetString("game-ticker-no-map-selected");
             var gmTitle = Loc.GetString(preset.ModeTitle);
             var desc = Loc.GetString(preset.Description);
-            if (RunLevel == GameRunLevel.InRound && EntityManager.System<MCRuleWarfareSystem>().GetReserveBriefing(null) is { } reserves)
+            if (briefing.Count > 0)
             {
-                desc += $"\n{reserves}";
+                desc += "\n" + string.Join("\n", briefing);
             }
             return Loc.GetString(
                 RunLevel == GameRunLevel.PreRoundLobby
@@ -123,7 +134,7 @@ namespace Content.Server.GameTicking
 
         private TickerLobbyInfoEvent GetInfoMsg()
         {
-            return new (GetInfoText());
+            return new (GetInfoText(GetLobbyBriefing()));
         }
 
         private void UpdateLateJoinStatus()

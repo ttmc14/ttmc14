@@ -45,6 +45,5 @@
   - type: ConditionalSpawner
     gameRules:
     - MCCrash
-    - MCWarfare
     prototypes:
     - MCXenoStructureSiloProto

@@ -84,7 +84,7 @@ public sealed partial class MCASRSConsoleSystem
     {
         return new MCASRSConsoleBuiState(
             _mcAsrs.GetBalance(entity.Comp.Account),
-            GetDeliveryFee(entity.Comp),
+            entity.Comp.DeliveryFee,
             _mcBeacon.GetNetActiveBeaconsWithName(entity.Comp.DeliveryCategory, IsDeliveryLocation),
             entity.Comp.Requests,
             entity.Comp.RequestsAwaitingDelivery,

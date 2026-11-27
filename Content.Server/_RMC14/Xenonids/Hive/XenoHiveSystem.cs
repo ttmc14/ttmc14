@@ -1,10 +1,9 @@
-using Content.Server._RMC14.Announce;
+﻿using Content.Server._RMC14.Announce;
 using Content.Server.GameTicking;
 using Content.Server.Popups;
 using Content.Shared._RMC14.Admin;
 using Content.Shared._RMC14.CCVar;
 using Content.Shared._RMC14.Chat;
-using Content.Shared._MC.Rules.Warfare;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Synth;
 using Content.Shared._RMC14.Xenonids;
@@ -76,7 +75,7 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
 
     private void OnPlayerSpawnComplete(PlayerSpawnCompleteEvent ev)
     {
-        if (!ev.LateJoin || !HasComp<MarineComponent>(ev.Mob) || _gameTicker.IsGameRuleActive<MCRuleWarfareComponent>())
+        if (!ev.LateJoin || !HasComp<MarineComponent>(ev.Mob))
             return;
 
         if (HasComp<RMCAdminSpawnedComponent>(ev.Mob))
@@ -88,6 +87,11 @@ public sealed class XenoHiveSystem : SharedXenoHiveSystem
         {
             return;
         }
+
+        var gain = new BeforeLateJoinLarvaGainEvent();
+        RaiseLocalEvent(ref gain);
+        if (gain.Cancelled)
+            return;
 
         var time = _timing.CurTime;
         var lateJoinsPer = time < _lateJoinsPerBurrowedLarvaEarlyThreshold

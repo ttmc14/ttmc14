@@ -9,6 +9,9 @@
     pointWhitelist:
       components:
       - DropshipDestination
+  - type: MCRuleASRS
+    startingBalances:
+      Default: 500
   - type: MCRuleXenoMarinesSpawn
   - type: MCRuleSpawnNukeDiskGenerators
   - type: MCRuleRecalculatePower

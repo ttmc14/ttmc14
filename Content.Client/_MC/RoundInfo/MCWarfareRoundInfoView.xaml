@@ -1,0 +1,50 @@
+<round:MCWarfareRoundInfoView xmlns="https://spacestation14.io"
+    xmlns:round="clr-namespace:Content.Client._MC.RoundInfo"
+    xmlns:graphics="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client"
+    Orientation="Vertical" HorizontalExpand="True" SeparationOverride="0">
+    <PanelContainer>
+        <PanelContainer.PanelOverride>
+            <graphics:StyleBoxFlat BackgroundColor="#121212" BorderColor="#505452" BorderThickness="1" />
+        </PanelContainer.PanelOverride>
+        <BoxContainer Margin="10" Orientation="Vertical" SeparationOverride="8">
+            <BoxContainer SeparationOverride="10">
+                <TextureRect Name="Emblem" MinSize="40 40" Stretch="KeepAspectCentered" VerticalAlignment="Center" />
+                <Label Name="ModeTitle" VerticalAlignment="Center" StyleClasses="LabelHeadingBigger" />
+            </BoxContainer>
+            <RichTextLabel Name="Description" Margin="2 0 2 4" />
+            <PanelContainer>
+                <PanelContainer.PanelOverride>
+                    <graphics:StyleBoxFlat BackgroundColor="#001908" BorderColor="#00AE3A" BorderThickness="2" />
+                </PanelContainer.PanelOverride>
+                <BoxContainer Margin="10" Orientation="Vertical" SeparationOverride="9">
+                    <BoxContainer SeparationOverride="14">
+                        <BoxContainer Name="MarinesReserve" Orientation="Vertical" MinWidth="76" VerticalAlignment="Center" SeparationOverride="0">
+                            <Label Name="MarinesCount" Align="Center" StyleClasses="LabelHeadingBigger" />
+                            <Label Text="{Loc mc-round-info-reserve}" Align="Center" StyleClasses="LabelSubText" FontColorOverride="#A0B9A8" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalAlignment="Center" SeparationOverride="3">
+                            <Label Text="{Loc mc-round-info-marines}" StyleClasses="LabelHeading" FontColorOverride="#CAF1D4" />
+                            <RichTextLabel Text="{Loc mc-round-info-marines-objective}" />
+                        </BoxContainer>
+                    </BoxContainer>
+                    <PanelContainer MinHeight="1">
+                        <PanelContainer.PanelOverride>
+                            <graphics:StyleBoxFlat BackgroundColor="#285637" />
+                        </PanelContainer.PanelOverride>
+                    </PanelContainer>
+                    <BoxContainer SeparationOverride="14">
+                        <BoxContainer Name="XenosReserve" Orientation="Vertical" MinWidth="76" VerticalAlignment="Center" SeparationOverride="0">
+                            <Label Name="XenosCount" Align="Center" StyleClasses="LabelHeadingBigger" />
+                            <Label Text="{Loc mc-round-info-reserve}" Align="Center" StyleClasses="LabelSubText" FontColorOverride="#A0B9A8" />
+                        </BoxContainer>
+                        <BoxContainer Orientation="Vertical" HorizontalExpand="True" VerticalAlignment="Center" SeparationOverride="3">
+                            <Label Text="{Loc mc-round-info-xenos}" StyleClasses="LabelHeading" FontColorOverride="#CAF1D4" />
+                            <RichTextLabel Text="{Loc mc-round-info-xenos-objective}" />
+                        </BoxContainer>
+                    </BoxContainer>
+                </BoxContainer>
+            </PanelContainer>
+            <RichTextLabel Name="Briefing" Margin="2 2" Visible="False" />
+        </BoxContainer>
+    </PanelContainer>
+</round:MCWarfareRoundInfoView>

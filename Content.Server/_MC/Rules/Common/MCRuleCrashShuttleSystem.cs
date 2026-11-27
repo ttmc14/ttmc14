@@ -1,8 +1,9 @@
-﻿using Content.Server._MC.Rules.Crash;
+using Content.Server._MC.Rules.Crash;
 using Content.Server.GameTicking;
 using Content.Server.GameTicking.Rules;
 using Content.Server.Shuttles.Components;
 using Content.Server.Shuttles.Systems;
+using Content.Shared._MC.Map;
 using Content.Shared._MC.Rules.Common;
 using Content.Shared._MC.Shuttle;
 using Content.Shared._RMC14.Marines;
@@ -27,8 +28,22 @@ public sealed class MCRuleCrashShuttleSystem : GameRuleSystem<MCRuleCrashShuttle
     {
         base.Initialize();
 
+        SubscribeLocalEvent<MCPlanetMapSpawnEvent>(OnPlanetSpawned);
         SubscribeLocalEvent<LoadingMapsEvent>(OnMapLoading);
         SubscribeLocalEvent<RulePlayerSpawningEvent>(OnRulePlayerSpawning);
+    }
+
+    private void OnPlanetSpawned(ref MCPlanetMapSpawnEvent args)
+    {
+        var query = QueryActiveRules();
+        while (query.MoveNext(out _, out _, out var rule, out _))
+        {
+            if (rule.DeploymentAnnouncement is not { } announcement)
+                continue;
+
+            ChatManager.DispatchServerAnnouncement(Loc.GetString(announcement,
+                ("planet", args.Prototype.Name), ("minutes", rule.Time.TotalMinutes)));
+        }
     }
 
     private void OnMapLoading(LoadingMapsEvent ev)

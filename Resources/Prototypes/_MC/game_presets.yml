@@ -1,5 +1,6 @@
-﻿- type: gamePreset
+- type: gamePreset
   id: MCCrash
+  roundInfoLayout: Standard
   alias:
   - mccrash
   name: mc-crash-title
@@ -10,6 +11,7 @@
 
 - type: gamePreset
   id: MCWarfare
+  roundInfoLayout: Warfare
   alias:
   - mcwarfare
   - warfare
@@ -21,11 +23,12 @@
 
 - type: gamePreset
   id: MCDistressSignal
+  roundInfoLayout: Standard
   alias:
   - mcdistresssignal
   - mcdistress
-  name: mc-crash-distress
-  description: mc-crash-distress
+  name: mc-distress-title
+  description: mc-distress-description
   showInVote: true
   rules:
   - MCDistressSignal

@@ -1,16 +1,14 @@
 ﻿using System.Diagnostics.CodeAnalysis;
 using Content.Shared._MC._Config;
-using Content.Shared._MC.Rules.Warfare;
+using Content.Shared._MC.Respawn;
 using Content.Shared._MC.Utilities;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Join;
 using Content.Shared._MC.Xeno.Hive.Main.Events;
-using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._MC.Xeno.QueueJoin.Components;
 using Content.Shared._MC.Xeno.QueueJoin.Events;
 using Content.Shared._MC.Xeno.QueueJoin.Events.Net;
 using Content.Shared._RMC14.Dialog;
-using Content.Shared._RMC14.Xenonids.Hive;
 using Content.Shared.Actions;
 using Content.Shared.Ghost;
 using Content.Shared.Popups;
@@ -51,8 +49,6 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
     [Dependency] private readonly SharedPopupSystem _popup = null!;
     [Dependency] private readonly DialogSystem _dialog = null!;
 
-    [Dependency] private readonly MCWarfareSystem _warfare = null!;
-    [Dependency] private readonly MCSharedXenoHiveSystem _hive = null!;
     [Dependency] private readonly MCXenoHiveJoinSystem _hiveJoin = null!;
 
     private TimeSpan _joinDelay = TimeSpan.Zero;
@@ -86,7 +82,7 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         SubscribeNetworkEvent<MCXenoHiveQueueJoinOfferRejectEvent>(OnOfferReject);
     }
 
-     public override void Update(float frameTime)
+    public override void Update(float frameTime)
     {
         if (_net.IsClient)
             return;
@@ -143,9 +139,11 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
         var hiveEntity = (hiveUid, Comp<MCXenoHiveComponent>(hiveUid));
 
         var deathDeltaTime = _timing.CurTime - ghostComponent.TimeOfDeath;
-        if (_warfare.ActiveRule is null && deathDeltaTime < _joinDelay)
+        var delay = new MCGetRespawnDelayEvent(_joinDelay);
+        RaiseLocalEvent(ref delay);
+        if (deathDeltaTime < delay.Delay)
         {
-            var timeLeft = _joinDelay - deathDeltaTime;
+            var timeLeft = delay.Delay - deathDeltaTime;
             _popup.PopupEntity($"You died too recently. You can join the queue in {timeLeft.TotalSeconds:F0} seconds.", entity, entity);
             return;
         }
@@ -217,11 +215,8 @@ public sealed partial class MCXenoHiveQueueJoinSystem : MCEntitySystemSingleton<
             SendOffer(session, hive, null, pos);
         }
 
-        if (_warfare.ActiveRule is not null && _hive.DefaultHive == hive.Owner)
-        {
-            var changed = new BurrowedLarvaChangedEvent(GetAvailableLarva(hive));
-            RaiseLocalEvent(ref changed);
-        }
+        var changed = new MCAvailableLarvaChangedEvent(hive, GetAvailableLarva(hive));
+        RaiseLocalEvent(ref changed);
     }
 
     private void RevokePendingOffer(ICommonSession session)

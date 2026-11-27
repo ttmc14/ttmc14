@@ -1,6 +1,4 @@
-﻿using Content.Shared._MC._Config;
 using Content.Shared._MC.ASRS.Events;
-using Robust.Shared.Configuration;
 using Robust.Shared.GameStates;
 using Robust.Shared.Network;
 using Robust.Shared.Prototypes;
@@ -9,22 +7,12 @@ namespace Content.Shared._MC.ASRS.Systems;
 
 public sealed class MCASRSSystem : MCEntitySystemSingleton<MCASRSSingletonComponent>
 {
-    [Dependency] private readonly IConfigurationManager _configuration = null!;
-    [Dependency] private readonly IPrototypeManager _prototypes = null!;
     [Dependency] private readonly INetManager _net = null!;
 
     public int GetBalance(ProtoId<MCASRSAccountPrototype>? account = null)
     {
         var id = account ?? MCASRSAccountPrototype.Default;
-        var instance = Inst;
-        var balances = instance.Comp.Balances;
-        if (balances.TryGetValue(id, out var balance))
-            return balance;
-
-        var startingBalance = _prototypes.Index(id).StartingBalance ?? _configuration.GetCVar(MCConfigVars.AsrsStartingBalance);
-        balances[id] = Math.Max(0, startingBalance);
-        Dirty(instance);
-        return balances[id];
+        return Inst.Comp.Balances.GetValueOrDefault(id);
     }
 
     public bool HasBalance(int required, ProtoId<MCASRSAccountPrototype>? account = null)

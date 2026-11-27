@@ -1,4 +1,3 @@
-﻿using Content.Shared._MC.Rules.Warfare;
 using Content.Shared._MC.Xeno.Hive.Announce;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Events;
@@ -13,7 +12,6 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
 {
     private static readonly TimeSpan UpdateInterval = TimeSpan.FromSeconds(10);
 
-    [Dependency] private readonly MCWarfareSystem _warfare = null!;
     [Dependency] private readonly INetManager _net = null!;
     [Dependency] private readonly IGameTiming _timing = null!;
 
@@ -31,17 +29,14 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
 
         _lastUpdate = UpdateInterval + _timing.CurTime;
 
-        if (_warfare.ActiveRule is { Landed: false })
+        if (_hive.DefaultHive is not { } uid || !TryComp<MCXenoHiveComponent>(uid, out var hive) || !CanCollapse((uid, hive)))
             return;
 
-        var query = EntityQueryEnumerator<MCXenoHiveComponent>();
-        while (query.MoveNext(out var uid, out var component))
+        var attempt = new MCBeforeHiveCollapseUpdateEvent();
+        RaiseLocalEvent(ref attempt);
+        if (!attempt.Cancelled)
         {
-            var entity = (uid, component);
-            if (!CanCollapse(entity))
-                continue;
-
-            UpdateCollapse(entity);
+            UpdateCollapse((uid, hive));
         }
     }
 
@@ -104,9 +99,9 @@ public sealed class MCXenoHiveCollapseSystem : EntitySystem
 
     private void AnnounceCollapse(Entity<MCXenoHiveComponent> entity, MCXenoHiveCollapseType type, TimeSpan delay)
     {
-        if (type == MCXenoHiveCollapseType.Silo && _warfare.ActiveRule is not null)
+        if (entity.Comp.Configuration.General.CollapseWarnings.TryGetValue(type, out var warning))
         {
-            var message = Loc.GetString("mc-warfare-silo-warning", ("minutes", delay.TotalMinutes));
+            var message = Loc.GetString(warning, ("minutes", delay.TotalMinutes));
             _announceSystem.AnnounceToHive(entity, message, $"[bold]{message}[/bold]", sound: new BioscanComponent().XenoSound);
             return;
         }

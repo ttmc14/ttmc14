@@ -1,4 +1,4 @@
-﻿using Content.Shared._MC.Xeno.Constructions.Silo;
+using Content.Shared._MC.Xeno.Constructions.Silo;
 using Content.Shared._MC.Xeno.Hive.Components;
 using Content.Shared._MC.Xeno.Hive.Systems.Main;
 using Content.Shared._RMC14.Xenonids.Hive;
@@ -32,7 +32,9 @@ public sealed class MCXenoHiveJoinSystem : EntitySystem
         if (hive.Comp.BurrowedLarva <= 0)
             return false;
 
-        if (!TrySpawn(hive, out var resultUid))
+        var attempt = new MCBeforeJoinBurrowedLarvaEvent(session);
+        RaiseLocalEvent(ref attempt);
+        if (attempt.Cancelled || !TrySpawn(hive, out var resultUid))
             return false;
 
         _hive.AddBurrowedLarva((hive, hive), -1);

@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using Content.Shared._MC.ASRS.Components;
-using Content.Shared._MC.Rules.Warfare;
 using Content.Shared._RMC14.Map;
 using Content.Shared._RMC14.Rules;
 using Content.Shared.Maps;
@@ -12,7 +11,6 @@ namespace Content.Shared._MC.ASRS.Systems;
 
 public sealed partial class MCASRSConsoleSystem : EntitySystem
 {
-    [Dependency] private readonly MCWarfareSystem _warfare = null!;
     [Dependency] private readonly MCASRSDropSystem _mcAsrsDrop = null!;
     [Dependency] private readonly RMCPlanetSystem _planet = null!;
     [Dependency] private readonly RMCMapSystem _map = null!;
@@ -64,7 +62,7 @@ public sealed partial class MCASRSConsoleSystem : EntitySystem
             return;
         }
 
-        var fee = GetDeliveryFee(entity.Comp);
+        var fee = entity.Comp.DeliveryFee;
         if (!_mcAsrs.HasBalance(fee, entity.Comp.Account))
         {
             _popup.PopupEntity(Loc.GetString("mc-asrs-delivery-insufficient", ("fee", fee)), entity, user);
@@ -77,8 +75,6 @@ public sealed partial class MCASRSConsoleSystem : EntitySystem
             _mcAsrs.RemoveBalance(fee, entity.Comp.Account);
         Refresh(entity);
     }
-
-    private int GetDeliveryFee(MCASRSConsoleComponent console) => _warfare.ActiveRule is null ? console.DeliveryFee : 0;
 
     private void TryApprove(Entity<MCASRSConsoleComponent> entity, MCASRSRequest request)
     {

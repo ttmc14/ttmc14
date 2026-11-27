@@ -1,4 +1,4 @@
-﻿using Content.Server._MC.Rules.Warfare;
+﻿using Content.Server.GameTicking;
 using Content.Server.Mind;
 using Content.Server.Roles;
 using Content.Server.Roles.Jobs;
@@ -11,7 +11,6 @@ namespace Content.Server.CharacterInfo;
 
 public sealed class CharacterInfoSystem : EntitySystem
 {
-    [Dependency] private readonly MCRuleWarfareSystem _warfare = null!;
     [Dependency] private readonly JobSystem _jobs = default!;
     [Dependency] private readonly MindSystem _minds = default!;
     [Dependency] private readonly RoleSystem _roles = default!;
@@ -58,9 +57,16 @@ public sealed class CharacterInfoSystem : EntitySystem
             briefing = _roles.MindGetBriefing(mindId);
         }
 
-        if (_warfare.GetReserveBriefing(entity) is { } reserves)
+        var round = new GetRoundBriefingEvent(entity, []);
+        RaiseLocalEvent(ref round);
+        if (round.Lines.Count > 0)
         {
-            briefing = string.IsNullOrEmpty(briefing) ? reserves : $"{briefing}\n{reserves}";
+            if (!string.IsNullOrEmpty(briefing))
+            {
+                round.Lines.Insert(0, briefing);
+            }
+
+            briefing = string.Join("\n", round.Lines);
         }
 
         RaiseNetworkEvent(new CharacterInfoEvent(GetNetEntity(entity), jobTitle, objectives, briefing), args.SenderSession);

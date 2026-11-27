@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server._MC.Xeno.Hive;
 using Content.Server._MC.Xeno.Spawn;
+using Content.Server._RMC14.Xenonids.Hive;
 using Content.Server.GameTicking;
 using Content.Server.Station.Components;
 using Content.Server.Voting.Managers;
@@ -9,6 +10,7 @@ using Content.Shared._MC.Rules.EndRound;
 using Content.Shared._MC.Rules.Warfare;
 using Content.Shared._MC.Xeno.Constructions.Silo;
 using Content.Shared._MC.Xeno.Hive.Components;
+using Content.Shared._MC.Xeno.Hive.Join;
 using Content.Shared._RMC14.Marines;
 using Content.Shared._RMC14.Rules;
 using Content.Shared.CCVar;
@@ -45,6 +47,7 @@ public sealed class MCWarfareTest
             }
             votes.Update();
         });
+        EntityUid secondaryHive = default;
         var marine = await server.AddDummySession();
         await pair.RunTicksSync(5);
 
@@ -62,7 +65,7 @@ public sealed class MCWarfareTest
         await server.WaitAssertion(() =>
         {
             var ruleId = ticker.GetActiveGameRules().Single(id => entities.HasComponent<MCRuleWarfareComponent>(id));
-            var rule = entities.GetComponent<MCRuleWarfareComponent>(ruleId);
+            var rule = entities.GetComponent<MCRuleReinforcementsComponent>(ruleId);
             var hiveId = hives.DefaultHive!.Value;
             var hive = entities.GetComponent<MCXenoHiveComponent>(hiveId);
             var planet = entities.GetComponent<MCRuleXenoMapComponent>(ruleId).Map!.Value;
@@ -71,7 +74,7 @@ public sealed class MCWarfareTest
 
             Assert.That(entities.GetComponent<TransformComponent>(ftl.TargetCoordinates.EntityId).GridUid, Is.EqualTo(planet));
             Assert.That(ftl.TravelTime, Is.EqualTo(600));
-            Assert.That(rule.Landed, Is.False);
+            Assert.That(entities.GetComponent<MCRuleHiveCollapseAfterLandingComponent>(ruleId).Landed, Is.False);
             Assert.That(hive.Configuration.General.CollapseTime.Keys, Is.EquivalentTo(new[] { MCXenoHiveCollapseType.Silo }));
             Assert.That(rule.MarineReserve, Is.EqualTo(60));
             Assert.That(rule.XenoReserve, Is.EqualTo(20));
@@ -87,16 +90,30 @@ public sealed class MCWarfareTest
             Assert.That(marine.AttachedEntity, Is.Not.Null);
             Assert.That(rule.MarineReserve, Is.Zero);
 
+            secondaryHive = server.System<XenoHiveSystem>().CreateHive("Secondary hive", "MCXenoHive");
+            entities.GetComponent<MCXenoHiveComponent>(secondaryHive).Configuration.General.AllowCollapse = true;
+        });
+
+        await pair.Client.WaitPost(() => pair.Client.EntMan.EntityNetManager.SendSystemNetworkMessage(new MCJoinLobbyLarvaEvent()));
+        await pair.RunTicksSync(5);
+
+        await server.WaitAssertion(() =>
+        {
+            var hiveId = hives.DefaultHive!.Value;
+            var player = server.PlayerMan.GetSessionById(pair.Client.Session!.UserId);
+            Assert.That(ticker.UserHasJoinedGame(player), Is.True);
+            Assert.That(player.AttachedEntity.HasValue && hives.IsMember(player.AttachedEntity.Value, hiveId), Is.True);
+            Assert.That(hives.GetBurrowedLarva(hiveId), Is.Zero);
+
             var silos = entities.AllEntities<MCXenoSiloComponent>().Where(silo => hives.IsMember(silo.Owner, hiveId)).ToArray();
             Assert.That(silos, Is.Not.Empty);
-            var larva = entities.SpawnEntity("MCXenoRafik", entities.GetComponent<TransformComponent>(silos[0]).Coordinates);
-            hives.SetHive(larva, hiveId);
             foreach (var silo in silos)
             {
                 entities.DeleteEntity(silo.Owner);
             }
 
             // Skip the transit wait while exercising the shuttle's normal landing sequence.
+            var ftl = entities.AllEntities<FTLComponent>().Single(ship => entities.HasComponent<AlmayerComponent>(ship)).Comp;
             ftl.TravelTime = 0.2f;
             ftl.StateTime = default;
         });
@@ -105,7 +122,8 @@ public sealed class MCWarfareTest
         await server.WaitAssertion(() =>
         {
             var hive = entities.GetComponent<MCXenoHiveComponent>(hives.DefaultHive!.Value);
-            Assert.That(server.System<MCWarfareSystem>().ActiveRule!.Landed, Is.True);
+            Assert.That(entities.AllEntities<MCRuleHiveCollapseAfterLandingComponent>().Single().Comp.Landed, Is.True);
+            Assert.That(entities.GetComponent<MCXenoHiveComponent>(secondaryHive).Collapse, Is.Empty);
             Assert.That(hive.Collapse.Keys, Is.EquivalentTo(new[] { MCXenoHiveCollapseType.Silo }));
             hive.Collapse[MCXenoHiveCollapseType.Silo] = server.Timing.CurTime;
         });
